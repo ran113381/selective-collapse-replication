@@ -1,0 +1,54 @@
+==============================================================================
+SIMULATE RECOVERY HARNESS  (from-scratch correctness proof)
+  S=1000 sims, B=999 bootstrap reps inner, n_sites=7, seed=0
+==============================================================================
+
+[1] DiD point recovery (bias) + FH-ATT h=6
+
+[2] WCR size (theta=0), CR1 over-rejection, WCR coverage  [inner B=399]
+
+[3] RI under null (rank-1 freq ~1/N) + p-floor respected
+
+[4] RI power (theta=-0.5): treated most extreme + effect-ratio
+
+[5] Pre-trend RI joint test: fires on pretrend=0.1, quiet on 0
+
+[6] Synthetic control recovery (long pre, n_pre=23) + under-id guard
+
+[7] Sun-Abraham cohort-2 recovery + contamination fire/quiet + honesty gate
+
+==============================================================================
+RECOVERY TABLE
+==============================================================================
+  check                                          status detail
+  --------------------------------------------------------------------------
+  DiD bias theta=+0.00                           PASS   mean beta=+0.0059 (truth +0.00), %=+0.6
+  FH-ATT h=6 theta=+0.00                         PASS   mean beta_6=-0.0040 (truth +0.00)
+  DiD bias theta=-0.30                           PASS   mean beta=-0.2997 (truth -0.30), %=-25.9
+  FH-ATT h=6 theta=-0.30                         PASS   mean beta_6=-0.2929 (truth -0.30)
+  DiD bias theta=-0.50                           PASS   mean beta=-0.5001 (truth -0.50), %=-39.4
+  FH-ATT h=6 theta=-0.50                         PASS   mean beta_6=-0.5046 (truth -0.50)
+  WCR size <=0.10 (theta=0)                      PASS   WCR rej=0.003 at nominal 0.05 (few-cluster target)
+  WCR more conservative than CR1                 PASS   WCR=0.003 < CR1=0.457 (CR1 over-rejects -> v1 fix demonstrated)
+  WCR CI coverage theta=-0.3                     PASS   coverage=1.000 of theta=-0.3 (few-cluster target >=0.85)
+  WCR CI coverage theta=-0.5                     PASS   coverage=1.000 of theta=-0.5 (few-cluster target >=0.85)
+  RI rank-1 freq ~1/7 under null                 PASS   rank-1 freq=0.140 (1/N=0.143)
+  RI p-floor never violated                      PASS   no p < 1/N observed
+  RI power: treated rank-1 >=0.80                PASS   rank-1 freq=0.997
+  RI power: median effect-ratio >=2.0            PASS   median ratio=2.62
+  pre-trend quiet under pretrend=0               PASS   rank-1 freq=0.147 (~1/N)
+  pre-trend detected under pretrend=0.1          PASS   rank-1 freq=0.993
+  SC weight L1 <=0.10                            PASS   median L1=0.0271
+  SC pre-RMSPE <=0.05                            PASS   median pre-RMSPE=0.0089
+  SC post tau ~ -0.25                            PASS   median post tau=-0.2506
+  SC placebo rank-1 >=0.80                       PASS   rank-1 freq=1.000
+  SC under-identified flagged on short pre (T0<=J) PASS   T0=6 <= J=6 -> under_identified=True
+  SA cohort-2 ATT ~ -0.15                        PASS   median cohort-2 ATT=-0.1394
+  contamination test FIRES on planted cohort-2   PASS   mean ext_beta(fire)=-0.1511 (truth -0.15), over 40 draws
+  contamination test QUIET when cohort-2=0       PASS   mean ext_beta(quiet)=+0.0043 (truth 0), over 40 draws
+  SA honesty gate skips out-of-sample cohort (2024-12) PASS   cohorts_skipped=['2024-12']
+  --------------------------------------------------------------------------
+  25/25 checks PASS
+
+  ALL RECOVERY CHECKS PASS ¡ª from-scratch engines validated.
+EXIT=0

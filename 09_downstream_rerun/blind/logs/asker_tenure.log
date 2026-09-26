@@ -1,0 +1,49 @@
+labels: N=6000, months 2021-06..2026-05, s in [np.int64(0), np.int64(1), np.int64(2), np.int64(3), np.int64(4)]
+[owners] have 6000, need 0
+[users] have 5563, need 0
+
+=== (a) owner resolution ===
+resolved 5877/6000 = 98.0%
+  by bin:    {0: 0.968, 1: 0.9794, 2: 0.9785, 3: 0.9845, 4: 0.9777}  chi2 p=0.2251
+  by period: {0: 0.9778, 1: 0.9802}  chi2 p=0.6052
+  usable after tenure>=0: 5877
+
+=== (b) asker tenure, pre vs post ===
+  pre  N= 1760  mean=  776.6d  median=  261.7d
+  post N= 4117  mean= 1548.1d  median= 1009.9d
+  Mann-Whitney p=1.4e-60
+  share of askers with <1y account: 53.9% -> 35.5%
+
+=== (c) tenure vs substitutability ===
+  Spearman rho=+0.0568, p=1.33e-05
+  pre-period tercile cuts: 36d, 763d
+  mean s by stratum x period:
+post       0      1
+g                  
+mid    2.375  1.981
+old    2.560  2.115
+young  2.366  1.858
+
+=== (d) shift-share decomposition of the mean-s decline ===
+  stratum shares pre : {'young': 0.3335, 'mid': 0.333, 'old': 0.3335}
+  stratum shares post: {'young': 0.2256, 'mid': 0.2208, 'old': 0.5536}
+  mean s pre : {'young': 2.3663, 'mid': 2.3754, 'old': 2.5605}
+  mean s post: {'young': 1.8579, 'mid': 1.9813, 'old': 2.115}
+  TOTAL   change in mean s : -0.4066
+  WITHIN  (same-tenure askers ask fewer machine-answerable Qs): -0.4489  (110.4%)
+  BETWEEN (the tenure mix changed = the rival explanation)   : +0.0422  (-10.4%)
+
+=== (e) the paper's dose-response, within tenure strata ===
+  all resolved askers    gamma=-0.3016 (SE 0.0390)  p=1.07e-14   cells=240  s4/s1 diff=-59.5%
+  tenure = young         gamma=-0.3222 (SE 0.0622)  p=2.27e-07   cells=232  s4/s1 diff=-62.0%
+  tenure = mid           gamma=-0.2987 (SE 0.0767)  p=9.87e-05   cells=236  s4/s1 diff=-59.2%
+  tenure = old           gamma=-0.3268 (SE 0.0529)  p=6.6e-10   cells=240  s4/s1 diff=-62.5%
+
+=== (e2) pooled, stratum-x-month FE (absorbs the rival's shock) ===
+  cells=720, zero cells=1.7% -> Poisson (PPML), log-OLS would drop them
+  PPML gamma (stratum-x-month FE) = -0.3180 (SE 0.0406), p=5.17e-15
+  PPML gamma (plain month FE, same cells) = -0.2845 (SE 0.0345), p=1.79e-16
+
+written: E:\智能体论文\P9b_IPM_20260919\工作文档\R2_downstream\blind\02_estimation\asker_tenure.json
+
+--- stderr ---

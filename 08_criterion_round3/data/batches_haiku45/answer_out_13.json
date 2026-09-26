@@ -1,0 +1,82 @@
+[
+  {
+    "qid": 78818773,
+    "answer": "The error occurs because ChromeDriver's installation path or architecture mismatches. The 'invalid Win32 application' error typically means the .exe is corrupted or incompatible with your system. Use webdriver-manager to auto-install the correct version: `from webdriver_manager.chrome import ChromeDriverManager`. Ensure Chrome browser and ChromeDriver architectures match (both 64-bit). Try clearing the cache: `rm -rf ~/.wdm` (or Windows equivalent). If still fails, download ChromeDriver directly matching your exact Chrome version from chromedriver.chromium.org and specify the path explicitly: `Service(r'C:\\path\\to\\chromedriver.exe')`."
+  },
+  {
+    "qid": 79322581,
+    "answer": "This is a valid mypy limitation, not a false positive. mypy doesn't currently support contravariance in parameter types with overloads. Your Sub.method overloads are contravariant (accepting Super), which violates strict Liskov substitution in mypy's checker. Workaround: Use a single method signature without @overload, accepting the supertype: `def method(self, arg: Other | Super) -> Super`. Or use `# type: ignore[override]` on the first overload. Consider opening a mypy issue if this pattern is critical to your design."
+  },
+  {
+    "qid": 78254516,
+    "answer": "Your func() includes quadratic terms (d*x², e*y², f*x*y) causing the parabolic surface. For a linear plane, remove those terms: `def func(xy, a, b, c): x, y = xy; return a + b*x + c*y`. Then fit with: `popt, _ = curve_fit(func, (x, y), z)`. Verify your data range: `x_range = np.linspace(x.min(), x.max(), 50)` and `y_range = np.linspace(y.min(), y.max(), 50)` to avoid extrapolation. Use `Z = func((X, Y), *popt)` with matching data scales to ensure the surface plane fits your scatter points."
+  },
+  {
+    "qid": 79044230,
+    "answer": "The error occurs because `to_excel()` doesn't support styled output directly. Use `openpyxl` engine and save styling separately: `with pd.ExcelWriter('file.xlsx', engine='openpyxl') as writer: df.to_excel(writer, index=False); ws = writer.sheets['Sheet1']; for row in ws.iter_rows(): for cell in row: if df.loc[cell.row-2, 'A'] == df.loc[cell.row-2, 'B']: cell.fill = PatternFill(fgColor='FF0000')`. Alternatively, use conditional formatting after export or try `styler.to_excel()` with proper openpyxl setup."
+  },
+  {
+    "qid": 77209768,
+    "answer": "Use `df.apply()` with string concatenation. First, identify columns dynamically: `param_cols = ['Param1', 'Param2', 'Param3']`. Then create merged column: `df['Params'] = df[param_cols].apply(lambda row: ','.join([f'{col}={val}' for col, val in zip(param_cols, row) if pd.notna(val)]), axis=1)`. This skips NaN values automatically. For truly dynamic column detection: `param_cols = df.columns[1:].tolist()` and apply the same logic."
+  },
+  {
+    "qid": 70935265,
+    "answer": "The error occurs because some buckets are empty—they lack 'Contents' key. Add error handling: `objectlist = s3.list_objects_v2(Bucket=bucket['Name']); if 'Contents' not in objectlist: continue`. Alternatively, use try-except: `try: latest_updated = max(objectlist['Contents'], key=lambda x: x['LastModified']); except KeyError: continue`. This skips empty buckets gracefully. Lambda may also timeout on buckets with many objects—add pagination if needed using `ContinuationToken`."
+  },
+  {
+    "qid": 73916269,
+    "answer": "Define ner_model before using it: `import spacy; ner_model = spacy.load('en_core_web_sm')`. Ensure the model is installed: `python -m spacy download en_core_web_sm`. Then your code works: `def all_ents(v): return [(ent.text, ent.label_) for ent in ner_model(v).ents]; df1['Entities'] = df1['text'].apply(lambda v: all_ents(v))`. Load the model once outside the loop for efficiency, not inside the function."
+  },
+  {
+    "qid": 77583167,
+    "answer": "The issue is method signature mismatch in Py4J-Spark communication, likely due to Spark/Python version incompatibility. Use positional SQL args differently: `spark.sql(\"SHOW TABLES\").show()` without the litArgs transformation. Upgrade: `pip install --upgrade pyspark==3.4.0` and ensure Java 11+ is installed (`java -version`). If using Hive config, verify JDBC URL syntax. Try a simpler test: `spark.sql('SELECT 1').show()` to isolate the issue."
+  },
+  {
+    "qid": 79147385,
+    "answer": "Add a post-build test in CMakeLists.txt using pytest after copying artifacts: `add_custom_command(TARGET _core POST_BUILD COMMAND ${Python_EXECUTABLE} -m pytest ${CMAKE_BINARY_DIR}/test.py::test_module)`. For scikit-build-core, alternatively use `pyproject.toml` build backend hooks with a custom script that runs post-install. Or configure a separate test target: `add_test(NAME python_test COMMAND ${Python_EXECUTABLE} -m pytest)` and run via `ctest`. This tests the built Python module, not just import."
+  },
+  {
+    "qid": 77021769,
+    "answer": "The test function is missing the `test_` prefix or isn't a fixture parameter. Rename to: `def test_create_new_user(new_user):`. Pytest requires test functions start with `test_`. Your function `create_new_user` is skipped silently. Ensure conftest.py is in the root test directory and pytest discovers it. Verify `pytest.ini` path pattern matches your test location: use `testpaths = [\"path/to/tests\"]` for clarity."
+  },
+  {
+    "qid": 75599137,
+    "answer": "You're conflating assignment with dynamic indexing. To increment: `index = 0; a = df.iloc[index, 1]; index += 1; a = df.iloc[index, 1]`. Or use a loop: `for index in range(len(df)): a = df.iloc[index, 1]; print(a)`. If conditional on sky color: `if sky_is_blue: index += 1; a = df.iloc[index, 1]`. Variables don't auto-update—reassign after incrementing the index. Alternatively, store the index state in a class or dictionary for reuse across function calls."
+  },
+  {
+    "qid": 68204223,
+    "answer": "Iterate both and combine matching entries: `result = []; for p1 in data_a['policies']: for p2 in data_c['rules']: if p1['displayName'] == p2['properties']['displayName']: combined = {**p1, **p2['properties']}; result.append(combined)`. Then save: `with open('output.json', 'w') as f: json.dump({'combined': result}, f)`. Consider using a dict for O(1) lookup: `rules_dict = {r['properties']['displayName']: r for r in data_c['rules']}` then lookup directly instead of nested loop."
+  },
+  {
+    "qid": 75304442,
+    "answer": "MATLAB array slicing `input(a:b,:)` means rows a to b, all columns. Python equivalent: `input[a:b, :]` with NumPy. The line `[input(a:b,:), t(a:b,1)] = EulerMethod(...)` means unpacking two return values. Python: `input_result, t_result = EulerMethod(...); input[a:b, :] = input_result; t[a:b, 0] = t_result`. Note MATLAB uses 1-indexing; Python uses 0-indexing. `n/=10` in MATLAB is float division; use `n //= 10` in Python for integer division. Variables like `wxf` are user-defined arrays, not built-ins."
+  },
+  {
+    "qid": 73188595,
+    "answer": "Don't run migrations in Dockerfile—they should run post-deployment on the actual RDS. Remove `RUN python manage.py migrate` from Dockerfile. Instead, use .ebextensions `container_commands`: `01_migrate: command: python manage.py migrate; leader_only: true`. Set AWS_RDS connection vars via EB environment config, not Docker. The venv path is EB-specific; for Docker, use the container's Python directly: `command: /usr/local/bin/python manage.py migrate`. Separate build (Docker) from deploy (EB database setup)."
+  },
+  {
+    "qid": 72824236,
+    "answer": "Use `pd.concat()` with `keys` to repeat lists cyclically: `x_tile = np.tile(x_list, (len(df) // len(x_list)) + 1)[:len(df)]; y_tile = np.tile(y_list, (len(df) // len(y_list)) + 1)[:len(df)]; df['x'] = x_tile; df['y'] = y_tile`. Or use groupby with `cumcount`: `df['x'] = df.groupby('group_id').cumcount() % len(x_list); df['x'] = df['x'].map({i: x_list[i] for i in range(len(x_list))})`. The `np.tile()` approach is simpler for this use case."
+  },
+  {
+    "qid": 70546720,
+    "answer": "The pickle error occurs because `ShapesDataset` class isn't found when unpickling across multiprocessing on Mac M1. Move the class definition to a module-level script (not inside `__main__`), e.g., in `datasets.py`: `class ShapesDataset: ...`. Then import: `from datasets import ShapesDataset`. Multiprocessing spawns new Python processes that need to import the class, not execute `__main__`. Alternatively, use `if __name__ == '__main__':` guard around training code to prevent pickling issues."
+  },
+  {
+    "qid": 70547416,
+    "answer": "Use integer division `//` instead of float division `/`: `n //= 10` instead of `n /= 10`. Float division introduces precision errors accumulating over iterations. The function returns 10.000000000000004 because 9 → 0.9 → 0.09 (float) sums inexactly. Fix: `def sum_of_digits(n): s = 0; n = int(n); while n > 0: d = n % 10; s += d; n //= 10; return s`. Always use `//` for integer math in Python to avoid floating-point arithmetic surprises."
+  },
+  {
+    "qid": 79881625,
+    "answer": "The `draw()` function displays a menu-based visualizer; `draw_geometries()` is the older API without a menu. To get a menu with `draw_geometries()`, it's not directly supported in 0.19.0. Stick with `draw(c0+c1, raw_mode=True)`. If you need non-merged objects with a menu, pass a list to `draw()`: `o3d.visualization.draw([c0, c1], raw_mode=True)` (if supported in your version). Check Open3D docs for your version's visualization API differences."
+  },
+  {
+    "qid": 78939571,
+    "answer": "Kernel crash indicates memory exhaustion from large pairplot. Reduce data size first: `df = df.sample(n=min(1000, len(df)))`. Or subsample columns: `sns.pairplot(df[['col1', 'col2']], kind='reg')`. Increase Jupyter memory: set environment var `JUPYTER_MEMORY_LIMIT=4GB` or restart kernel. Ensure GPU drivers/CUDA aren't conflicting (unnecessary for seaborn). Reinstall matplotlib and seaborn: `pip install --upgrade --force-reinstall matplotlib seaborn`. Try `kind='scatter'` instead of `'reg'` (less compute)."
+  },
+  {
+    "qid": 70177716,
+    "answer": "UDP has a hard datagram size limit (~64KB on most systems). Fragment the video frame before sending: `max_chunk = 60000; chunks = [message[i:i+max_chunk] for i in range(0, len(message), max_chunk)]; [server_socket_main.sendto(chunk, client_addr) for chunk in chunks]`. Receiver reassembles chunks by sequence number. Alternatively, use TCP (`socket.SOCK_STREAM`) which handles fragmentation automatically, or lower JPEG quality: `cv2.IMWRITE_JPEG_QUALITY, 50`. Compress with `zlib.compress()` before sending."
+  }
+]

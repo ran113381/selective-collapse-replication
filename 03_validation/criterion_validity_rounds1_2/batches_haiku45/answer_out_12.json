@@ -1,0 +1,82 @@
+[
+  {
+    "qid": 79809789,
+    "answer": "Panel widgets track object identity for reactivity. Direct mutation of `.value` doesn't trigger updates because the container still holds the old reference. Your workaround (clone + replace) works because it breaks the identity. Better fix: use `pn.bind()` or `.param.watch()` for reactive updates, or call `.param.trigger('value')` after assignment to force invalidation. Alternatively, assign through the param system: `self._text.param.value = new_val`. This ensures Panel's reactive graph updates properly."
+  },
+  {
+    "qid": 79860671,
+    "answer": "Connection objects in Plaxis require specialized handling—they're not directly queryable like standard elements. The 'Connection Information' tab suggests a separate data structure. Try accessing connection results via the connection's own methods rather than g_o functions. Check if Plaxis provides `con.getsingleresult()` or similar. If `getresult()` requires different parameters for connections (e.g., different ResultTypes path), consult Plaxis documentation for connection-specific result extraction. If unavailable, you may need to parse connection data from the Project object's connection store directly."
+  },
+  {
+    "qid": 79149449,
+    "answer": "The OPENAI_API_KEY environment variable isn't set in your Python environment. Before running the script, set it in your terminal: Linux/Mac: `export OPENAI_API_KEY='your-key'` or Windows: `set OPENAI_API_KEY=your-key`. Alternatively, replace `os.environ.get()` with hard-coded key (not recommended for production). Verify the variable exists: `print(os.environ.get(\"OPENAI_API_KEY\"))` should output your key, not None. The client constructor works correctly; the issue is the variable is unset when the script runs."
+  },
+  {
+    "qid": 79725035,
+    "answer": "Your wrapper approach is correct but incomplete. `FlopCountAnalysis` expects the second argument to be a sample input, not a function. Try this: `flops = FlopCountAnalysis(model, (input_tensor, *args)).total()`. If args are complex, wrap them as a tuple: `FlopCountAnalysis(model, (input_tensor, arg1, arg2)).total()`. Alternatively, use `functools.partial` to bind args before passing to FlopCountAnalysis. Check fvcore's examples—most show passing input data directly, not wrapped functions."
+  },
+  {
+    "qid": 79936900,
+    "answer": "Bash has no native multi-character delimiter splitting, but you can use `awk` or `parameter expansion`. With `awk`: `echo \"$text\" | awk -F'dab' '{for(i=1;i<=NF;i++) print $i}'`. For arrays: `readarray -t arr <<< \"$(echo \"$text\" | awk -F'dab' '{for(i=1;i<=NF;i++) print $i}')\"`. Simpler with `tr` if the delimiter is single char. Alternatively, use sed: `echo \"$text\" | sed 's/dab/\\n/g'` then capture into array. Python's `.split()` handles this elegantly—bash requires multiple tools."
+  },
+  {
+    "qid": 79650769,
+    "answer": "SymPy has native degree-to-radian conversion. Don't use mpmath; use SymPy's `rad()` or direct calculation: `from sympy import pi, rad; result = rad(126)` or `result = 126 * pi / 180`. The latter automatically simplifies to `7*pi/10` symbolically. If you need `0.7*pi` specifically, SymPy can display it that way via `simplify()` or by working with rational multiples of pi. `mpmath` is for numerical computation; SymPy is designed for symbolic math."
+  },
+  {
+    "qid": 79862746,
+    "answer": "The bytes `e2 80 99` are valid UTF-8 for U+2019 (right single quote). The error suggests an encoding issue despite valid UTF-8. Try explicitly specifying encoding: `df = pl.read_json('file.json', infer_schema_length=None, encoding='utf-8')` if the parameter exists in your Polars version. Alternatively, verify the file is actually UTF-8 (not UTF-16 or UTF-8-BOM) by checking hex dump. If the JSON is from Windows, it may have BOM bytes—try: `pl.read_json('file.json').with_columns(...)` after manually stripping BOM with a text editor or Python script."
+  },
+  {
+    "qid": 79810820,
+    "answer": "LogisticRegression is for classification with discrete outputs, not regression. Your flattened input works, but 4.5% accuracy suggests the model mismatches your problem. You need multi-output regression: use `MultiOutputRegressor(LinearRegression())` or `MLPRegressor()`. Reshape input to 2D: `flatten input = [(x1,x2,x3,y1,y2,y3), ...] → [[4.11, 8.58, -2.2, -1.27, -8.76, 2.23], ...]`. Output: reshape to 2D: `[[34,24], [13,30], ...]`. Then fit multi-output regression. This treats (X,Y) as two continuous outputs, not classification."
+  },
+  {
+    "qid": 79406154,
+    "answer": "PyHTML escapes HTML by default. Use `h.raw()` if available, or import from the correct module. Modern PyHTML: `from pyhtml.utils import raw; h.body(h.h1(\"Student Details\"), raw(sdf.to_html(index=False)))`. If `raw()` doesn't exist in your version, work around it: `s = h.html(..., h.unsafe_raw(sdf.to_html(index=False)))` or manually parse the HTML string and construct PyHTML elements. Alternatively, use a templating approach: generate HTML as string and serve directly instead of embedding in PyHTML objects."
+  },
+  {
+    "qid": 79723215,
+    "answer": "Pylance is over-indexing heavy packages (PyTorch, CUDA). The memory crash→reset cycle confirms resource exhaustion. Solutions: (1) Increase devcontainer memory: add `memoryMiB: 8000` in devcontainer.json. (2) Disable Pylance's workspace indexing: set `python.languageServer: \"Pyright\"` with `pyrightconfig.json` limiting analysis scope. (3) Use Pylance lite mode if available. (4) Exclude heavy package folders from analysis via `.pylanceignore`. The RAM threshold (6.5GB crash) is the constraint—PyTorch initialization is expensive, so increased memory is the cleanest fix."
+  },
+  {
+    "qid": 79885139,
+    "answer": "Use `numexpr` for faster broadcasting: `result = numexpr.evaluate('exp(-0.5*((x-mu)/sigma)**2) / (sqrt(2*pi) * sigma)')` where variables are broadcasted. Alternatively, compute in chunks along one dimension to reduce memory pressure. The bottleneck is likely allocation + computation of ~2.5B floats. Quick wins: (1) Pre-allocate output array. (2) Use `np.einsum` for dimension-aware operations. (3) Check if broadcasting can be restructured to reduce intermediate arrays. Profile with `%timeit` to identify the slowest line. For 5000x50x100x100, `numexpr` typically gives 3-5x speedup on transcendental functions."
+  },
+  {
+    "qid": 79901234,
+    "answer": "Use `atexit` module to trigger graph generation on app close. Import `atexit`, then register: `atexit.register(generate_and_show_graph)`. Missing context: what framework (tkinter, Qt, Flask)? If tkinter: override the close button callback instead. If Qt: use `closeEvent()`. The pattern: (1) Read Excel file. (2) Create graph with matplotlib/plotly. (3) Display with `.show()` or save to file. Code needed to know exact framework, but `atexit` is framework-agnostic and works when any Python script exits normally."
+  },
+  {
+    "qid": 79548332,
+    "answer": "Collation mismatch between local SQL Server and Azure SQL. Local may use default collation `SQL_Latin1_General_CP1_CI_AS`, while Azure uses different encoding. Fix: (1) Explicitly specify string collation in `dtype`: `dtype={col: types.VARCHAR(100, collation='SQL_Latin1_General_CP1_CI_AS')}`. (2) Pre-create the table with matching schema. (3) Check Azure SQL default collation and align local environment. The error occurs because pandas infers dtype differently, and string columns collation doesn't match target. Inspect inspector output to see actual collation of target columns, then replicate it in dtype_mapping."
+  },
+  {
+    "qid": 79405991,
+    "answer": "Both statements are correct; context matters. (1) `.all()` on an already-evaluated QuerySet uses cached results and doesn't re-query. (2) `.all()` on a related manager within a prefetch returns prefetched results without querying. The confusion: different objects. `QuerySet.all()` on the main query may re-query if called fresh. `RestaurantManager.pizzas.all()` inside `prefetch_related()` returns prefetched data. Use `list(queryset)` to cache explicitly, then multiple `.all()` calls reuse cache. The docs are showing different scenarios—check what object type `.all()` is called on."
+  },
+  {
+    "qid": 79779794,
+    "answer": "Numpy is imported internally by Plotly Express but not automatically bundled by PyInstaller. Add to your `.spec` file: `hiddenimports=['numpy', 'plotly.express']`. Alternatively, in a hook file (`hook-plotly-express.py`), explicitly list numpy as a dependency. The error occurs because PyInstaller's static analysis doesn't catch internal imports deep in plotly's __init__. Avoid importing numpy at script root—that doesn't help if plotly imports it differently. Test by running the EXE; add more hidden imports as needed (e.g., `scipy`, `pandas` if used)."
+  },
+  {
+    "qid": 78565203,
+    "answer": "The issue is floating-point rounding in `np.arange`. `np.arange(0, 25.05, 0.05)` doesn't guarantee the endpoint due to accumulation of 0.05 steps. Use `np.linspace(0, 25, 501)` instead (501 points from 0 to 25 inclusive). For your case: `[np.linspace(0, 25, 501) for _ in range(9)]`. Alternatively, round the result: `np.arange(0, 25.05, 0.05).round(2)`. Linspace is preferred for ranges because it computes endpoints directly without accumulation error. This gives exactly [0, 0.05, ..., 25.0] without floating-point artifacts."
+  },
+  {
+    "qid": 79406779,
+    "answer": "The generator in `data_processor` is synchronous—it blocks and never yields control back to asyncio. Cancellation can't interrupt a blocking `for` loop. Solution: make the loop async: convert the generator to async or add `await asyncio.sleep(0)` inside the loop to yield control. Example: `async def data_processor(source: DataSource): async for item in source:` if source is an async generator. Or wrap sync generator: `for item in source: await asyncio.sleep(0); print(\"Working\")`. The `yield` inside `finally` ensures cleanup runs even after cancel."
+  },
+  {
+    "qid": 79756507,
+    "answer": "The state schema expects `StructType([StructField(\"locations\", ArrayType(...)), ...])`, but `self._state.update()` is receiving a tuple `(list, list)` that doesn't match the structure. Fix: pass a Row or dict matching the schema: `from pyspark.sql.types import Row; self._state.update(Row(locations=current_state['locations'], timestamps=current_state['timestamps']))`. Alternatively, ensure the update data structure matches the StructType exactly. PySpark's type system is strict; mismatches between Python data and Spark schema cause IllegalArgumentException."
+  },
+  {
+    "qid": 79806540,
+    "answer": "Error message is truncated, but common Selenium scraping failures are: (1) StaleElementReference—element disappears after click. (2) NoSuchElement—XPath doesn't match after page changes. Fix: Add explicit waits after `all_matches_button.click()`: `from selenium.webdriver.support.ui import WebDriverWait; from selenium.webdriver.support import expected_conditions as EC; WebDriverWait(driver, 10).until(EC.presence_of_all_elements_located((By.XPATH, '//tr')))`. Then query matches. Also handle empty cells gracefully with try/except. The click likely changes the DOM, so wait for stabilization before querying."
+  },
+  {
+    "qid": 79752914,
+    "answer": "Use `field(default=None)` from dataclasses for conciseness: `@dataclass class User: id: Optional[str] = None; ...`. For automation without rewriting, use a class decorator or `__post_init__`: `def make_optional(cls): for field in fields(cls): field.default = None; return cls; @make_optional @dataclass class User:`. Or use Pydantic: `class User(BaseModel): ... class Config: validate_assignment=False` with `Optional[...]`. The most Pythonic: inherit defaults in subclass or use a factory. If 25+ fields, Pydantic is cleaner than dataclass decorators."
+  }
+]

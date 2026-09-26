@@ -1,0 +1,1252 @@
+[
+ {
+  "id": "P5795",
+  "title": "installing plugins through pip correctly",
+  "tags": [
+   "python",
+   "windows",
+   "pip"
+  ],
+  "body": "I am trying to edit some code through idle, and I am trying: [CODE] through command prompt, however it does not work and command prompt even says python is not detected on my computer even if I do: [CODE] If I have python installed through Microsoft Store however, downloading plugins works as intended, but I cannot run the code through normal idle as it says I have none of the plugins installed. When I try to open the file with Microsoft Python it won't open, and Microsoft Python does not have its own version of idle. Does anyone have any ideas on whats happening and how to fix it?"
+ },
+ {
+  "id": "P4025",
+  "title": "Kivy: RecycleView calls __init__ before data is set, and seems to reset size to default values",
+  "tags": [
+   "python",
+   "kivy"
+  ],
+  "body": "I have a RecycleView. Its viewclass is a class that extends Button. An initial basic example I made is working, except 1. some initializiation data is not displayed and 2. the buttons are resized (to (100, 100) — I’m guessing that’s a Button size default). [CODE] [CODE] .tutorial_listview.kv file: [CODE] Runner included for completeness: [CODE] The print logs indicate that the buttons are initialized with default values. Then, when self.data is set, count is overwritten to the displayed value. However, unless I explicitly set size, size=(100,100) seems to reset next and resizes the button. [code] is also ignored because __init__ has already been called. Logs show init is called, then count is changed, then size: [CODE] I suspect that changing inventory_ingredient to an ObjectProperty would allow it to get updated on-the-fly, but I didn’t want all of the automatically generated event listeners that would come with that because it shouldn't change post-initialization. And obviously I can also force size=(200,200) every time I change data. But both those solutions feel like a shallow workaround because I’m brand new to Kivy and lack a fuller understanding of the behavior that’s happening. PS In RV.__init__, I tried 1. setting self.data before calling super().__init__() and 2. passing super().__init__(data=data, **kwargs) but neither worked."
+ },
+ {
+  "id": "P2715",
+  "title": "How can I use RotatedRect in Python in order to use it for ellipse?",
+  "tags": [
+   "python",
+   "opencv"
+  ],
+  "body": "I am trying to implement in python the following C++ code [CODE] I know that ellipse would be [CODE] but how do I get the box (RotatedRect)?"
+ },
+ {
+  "id": "P0283",
+  "title": "Would a class iterating over a file system be a good or bad candiate for Pythons Iterator protocal?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "iterator"
+  ],
+  "body": "I understand how to turn a class into a Iterator by implementing a [code] and a [code] . There are loads of resources online on how to do this like : https://www.w3schools.com/python/python_iterators.asp My question is more on when should you not make a class an iterator? In particular if you have a class that iterates over a collection that is : Not predetermined even after the iterator is made Not generated within the iterator Not iterating over a fixed index Even if the class has a \"next\" function would this be a good or bad \"Iterator.\" A more specific example, and the underlying reason I ask this question, would be class that if given a path to a file system can retrieve the \"next logical\" directory within that path (including its subpaths) if you call its next function. It does not store a physical collection of all directories within it for efficiency purposes. Something like, what I current have called DirectoryIterator, below: [CODE] This comes from a project I am making at https://github.com/CoryBond/PAIID/blob/main/src/repoManager/DirectoryIterator.py . Its \"next\" method is effectively get_next_time_prompt_directories . Apologies for the documentation having awkward wording and typos. With just a few modifications like: Removing direction from the \"next\" method and moving it to the constructor Raising a StopIteration when the directories are exhausted Adding or replac"
+ },
+ {
+  "id": "P3924",
+  "title": "can someone check whats wrong with my code i been tryna build a gui simple calc",
+  "tags": [
+   "python",
+   "user-interface",
+   "tkinter"
+  ],
+  "body": "[CODE] i need someone to check where did i do wrong this is my code ,it shows me this error message:Exception in Tkinter callback [CODE]"
+ },
+ {
+  "id": "P1329",
+  "title": "Incompatible module packages need to be solved",
+  "tags": [
+   "python",
+   "module"
+  ],
+  "body": "Well, I ran into two troubles when I want to install the modules. The first one is [CODE] The second one is [CODE] They are both conflicting, and I don't know how to do so."
+ },
+ {
+  "id": "P2086",
+  "title": "Multiclass focal loss in xgboost doesn&#39;t train",
+  "tags": [
+   "python",
+   "xgboost",
+   "loss-function",
+   "xgbclassifier"
+  ],
+  "body": "I have a dataframe with 60 columns as variables and a last column as target class (4 possible classes). I want to implement a custom loss function. I want that function to be the focal loss for a multiclass problem since I have a very imbalanced dataset. This is my approach following the docs from xgboost for custom functions: [CODE] The gradient and hessian of the multiclass focal loss are kind of a hell, but I have double checked them with sympy. The training: [CODE] But I obtain always a 25 % probability after the training. I don't know what I am doing wrong. [CODE]"
+ },
+ {
+  "id": "P0847",
+  "title": "Long import time of pybind11 extension",
+  "tags": [
+   "python",
+   "macos",
+   "shared-libraries",
+   "pybind11"
+  ],
+  "body": "I have a C++ library with a Python interface, generated using pybind11 on a mac with intel processor. The library is compiled into a single shared object [code] , with 29MB of size. Importing the module from a Python script takes about 7 seconds, which makes using it annoying. I am assuming that the reason for this is simply the size of the module, but I don't have a reference for how big modules generally are or how long should it take to load a module of this size, so I could perfectly be wrong. Is there a way for me to profile an import from a shared library? Any suggestion of tools that could allow me to examine the [code] to understand why it has the size it has would also be really appreciated. So far, I have tried [code] and [code] , but I haven't managed to get anything useful out of them. NOTE: I have already tried to split the library into multiple shared objects, but I cannot do it without refactoring code due to compiler-dependent RTTI."
+ },
+ {
+  "id": "P2295",
+  "title": "Python Tensorflow itertools groupby: using itertools.groupby() in tf.data.Dataset.filter()",
+  "tags": [
+   "python",
+   "tensorflow",
+   "filter",
+   "tensorflow-datasets",
+   "tf.data.dataset"
+  ],
+  "body": "I am trying to apply a filter to a [code] which removes any strings where one group > 50% of the string. Here is my [code] : [CODE] This creates the following error: [CODE] Any way to solve this problem in a [code] graph?"
+ },
+ {
+  "id": "P3690",
+  "title": "pywintypes.com_error. in Outlook. I am creating an outlook appointment, it errors on assigning time. Says that the object doesn&#39;t support method",
+  "tags": [
+   "python",
+   "automation",
+   "outlook",
+   "datetime-format",
+   "pywin"
+  ],
+  "body": "I have this code: [CODE] But, it just gives me this error. [CODE] I am trying to create an Appointment using pywin32 and python. But the problem is that sometimes it works, and sometimes it does not like this code here, it seems like there is a problem that I could not see or hidden somewhere. The main issue here is that I am trying to fix the date problem (it turns to UTC+6 instead of UTC-6)."
+ },
+ {
+  "id": "P2941",
+  "title": "Kaggle tutorial explanation",
+  "tags": [
+   "python",
+   "function",
+   "recursion",
+   "call"
+  ],
+  "body": "[CODE] This is from the python tutorial in Kaggle. I don't understand how its working out. The explanation is even more complicated. Also, the blacked lines appeared when I copied them here. Any idea how I remove it? I have been trying to break it down to step by step working but got stuck."
+ },
+ {
+  "id": "P2551",
+  "title": "Pandas get the combined sum of each row and colum",
+  "tags": [
+   "python",
+   "python-3.x",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "I'm trying to add the \"vertical\" and \"horizontal\" sum for each cell. So far I've tired to get the sum of each row and column. But like this I'd have to iterate over every value and add them which seems quite inefficient. You could combine [code] and [code] to create a new dataframe but then the cell in question is counted twice. Used [code] : [CODE] Is there any simple operation to archive the wanted result?"
+ },
+ {
+  "id": "P5972",
+  "title": "Best practices for structuring Django REST APIs for maintainability and scalability",
+  "tags": [
+   "python",
+   "django"
+  ],
+  "body": "I am building a Django-based backend for an e-commerce project with multiple models and REST API endpoints. I want to follow clean architecture and maintainability best practices. How should I structure views, serializers, and URLs for scalability and easier debugging? Tags: Python, Django, REST-API, Backend"
+ },
+ {
+  "id": "P3464",
+  "title": "How to print the tuples in a more user-friendly way",
+  "tags": [
+   "python",
+   "for-loop"
+  ],
+  "body": "The code: [CODE] In line 22 [CODE] It just plainly prints the tuples (as expected from the code). But I want the code to print it in a more user-friendly way. Input: [CODE] Output: [CODE] I tried at first using a for-loop: [CODE] But I realized that the for-loop wasn't looping for the string and asked for an integer. Here is the error I got: [CODE] I searched the internet and found the command [code] , but I don't think so it would work for me. (And just in case this command works then please explain how to use it.) How can I implement the user-friendly output?"
+ },
+ {
+  "id": "P1592",
+  "title": "How to append CSV data with Google Sheets API and Python",
+  "tags": [
+   "python",
+   "google-sheets",
+   "google-sheets-api"
+  ],
+  "body": "I'm learning Python currently and I'm trying to create automation code for Google Sheets API and Python for a client. So far with my automation code I have successfully downloaded a csv file from a website, located the file, and pushed the file to Google sheets. I used my logic from the answer from Ufos from this question. The problem is that I repeat this process about 10 times the csv data on the Google Sheet gets overridden by the new data. My client wants to see data for all the clients in one place. I have tried to do append but can't get it to work with the retrieved csv information. I've done my best by using Google but I can't seem to get it to work. Any help would be much appreciated! [CODE]"
+ },
+ {
+  "id": "P5238",
+  "title": "Using array indices to address another array",
+  "tags": [
+   "python",
+   "arrays",
+   "numpy"
+  ],
+  "body": "I'm trying to \"overlay\" a numpy 1-d array over another 1-d array of larger size, so that the overlaying array sets multiple values in the overlayed array. I'm struggling with an efficient way to convert the indices from the overlaying array ( [code] ) to the overlayed array ( [code] ). [CODE] [code] should turn [code] to [code] because [1] refers to [code] which in turn refers to [code] . This index conversion is easy for scalar indices, but for indices such as boolean arrays it becomes difficult. For instance, imagine: [CODE] in that case [code] would need to be converted to [code] to be used to the corresponding indices in [code] and also the values to be set ( [code] ) would need to be expanded to [code] . I figured out how to do the translation to the indices in [code] , but it is rather inefficient as it's using lists and I also haven't figured out how to expand the values. [CODE] How would I go about making the index translation more efficient (using numpy's vectorised functions) and expand [code] to [code] ? Edit I think I found a problem to expanding the values to fit [code] . I can duplicate the values as many times as there are indices from one index in [code] pointing to [code] . [CODE] However, both solution (index translation and value expansion) are using lists which is not desirable as [code] contains in the order of 100k elements."
+ },
+ {
+  "id": "P0475",
+  "title": "Python MySql Connector Not enough parameters for the SQL statement",
+  "tags": [
+   "python",
+   "mysql",
+   "mysql-python",
+   "mysql-connector"
+  ],
+  "body": "Can't Insert Values into MySql Database Using This Piece Of Code: [CODE] Tried to Insert Values/Data to MySql Database Using Function and Succesfully Inserting it without problems when Code was a little bit edited it worked on MySql Workbench, every value should be correct and there's needed amount of it 6 are data I need and theres 7 in WorkBench Display but thats Id So I skipped that"
+ },
+ {
+  "id": "P3372",
+  "title": "NotSupportedError: Python value of type numpy.int32 not supported. ORACLE DB",
+  "tags": [
+   "python",
+   "oracle-database"
+  ],
+  "body": "I've created a table inside my oracle DB and I'm using this format that was advised by him for this type of data, I'm in python trying to insert the data in the DB, but this column doesn't accept the data coming from the data frame that is in the [code] type. If I create the variable with the number a part = 300, it contains the [code] type and the DB accepts it. What should I change in the table structure inside the DB to accept [code] ? [CODE] table inside DB [CODE] [CODE]"
+ },
+ {
+  "id": "P0318",
+  "title": "Using conditional statement in ipywidgets",
+  "tags": [
+   "python",
+   "conditional-statements",
+   "widget"
+  ],
+  "body": "I am still very new to coding and I am playing around with ipywidgets. How do I implement a conditional statement based on the answer of my first widget. For example, if the user selects Yes, it moves on. But if the user selects No, it goes into the second part of the widget. [CODE] I have this, but I have no idea where to start with the conditional statement. Any help would be appreciated thanks!"
+ },
+ {
+  "id": "P5397",
+  "title": "Restart python thread with os.execl method",
+  "tags": [
+   "python",
+   "python-3.x",
+   "os.execl"
+  ],
+  "body": "I am running a Python 3 script with flag [code] to send output to a file like a log The exact command i use is [code] This works like a charm. Now for some reason I need to restart the [code] to re-initialize some functions inside, so I have found that [code] function could be the right solution. My problem is understand how to pass the [code] and [code] options to command, maybe it will be very easy but I'm spending a lot of time without result... I have tried a lot of ways, one for example is this: [CODE] but the output go to terminal instead of another file, without error. Maybe I'm using a totally wrong approach, let me know if so."
+ },
+ {
+  "id": "P0894",
+  "title": "Using advisory locks to coordinate database activity",
+  "tags": [
+   "python",
+   "postgresql",
+   "sqlalchemy",
+   "locking",
+   "connection-pooling"
+  ],
+  "body": "I have several different jobs that can run throughout the day to read data from various sources and update my database. I want to ensure that two jobs are not trying to update the database at once. To achieve that end, I am using Postgres session-level advisory locks. When a job starts up it creates a session and tries to acquire a session-level lock. If it cannot acquire the lock (because another job already holds that lock), it exits. That code looks roughly like this: [CODE] In the process of testing and development, I discovered that once the lock is acquired, calling [code] will also release the advisory lock, which I don't want. To get around this, I create two sessions: [CODE] And then I use [code] just to manage the advisory lock and never call [code] on that session. [code] is used to do the actual work of updating data. This works, but it feels like an ugly hack. Is there something better I can do?"
+ },
+ {
+  "id": "P3378",
+  "title": "In Gimp 3, how to use `curves_spline` and `HISTOGRAM_VALUE` in Python-Fu plug-ins?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "gimp",
+   "python-fu",
+   "gimp-3"
+  ],
+  "body": "I am currently trying to upgrade some Python plug-ins from Gimp 2.10.x to Gimp 3.0.6 (Windows). This is a lot harder than I thought. I have posted example code for one of the plug-ins at the end of this question (because it is somewhat lengthy). That code should run in Gimp 3 Python-Fu. It should go through all open image files and apply a spline curve to the histogram, lightening those parts of every image that are already bright even more. The code in general works. Notably, the new menu entry appears at the expected place, and when clicking on it while at least one image is open, the procedure [code] is executed. However, I have three problems: 1: I must pass [code] as the second parameter to [code] , which is bad style. It would be better to use a symbolic constant instead. I have studied the documentation and have looked into the procedure browser. The former lists the constant as [code] , but the latter as [code] (i.e., with a hyphen instead of underscores and without the leading [code] ). Neither syntax works. I have also tried things like [code] and a lot of similar variations, but without success. Every time, GIMP complains that the name is not defined. What would be the correct syntax to replace the 0 (the second parameter) in the call to [code] by the symbol [code] ? [ Note: In GIMP 2, [code] was correct. ] 2: In GIMP 2, we had the function [code] to get the active d"
+ },
+ {
+  "id": "P1812",
+  "title": "Is there way to inject mouse actions inside a browser with no relying on cdp or js or sys wide solutions",
+  "tags": [
+   "python",
+   "selenium-webdriver",
+   "automation",
+   "xlib",
+   "pyvirtualdisplay"
+  ],
+  "body": "hi is there way to make mouse actions drag and drop for browser with no relying on cdp or js or sys wide solusions also besides my solution fails cause of browser instance not launching inside of vd [CODE] i tried js injection failed cause of same origin policy tried pyautogui failed not suitable for task tried selenium methods failed cause of detection of cdp and many more"
+ },
+ {
+  "id": "P1731",
+  "title": "Javascript request local server not a ec2 server",
+  "tags": [
+   "javascript",
+   "python",
+   "apache",
+   "network-programming",
+   "amazon-ec2"
+  ],
+  "body": "In ec2 instance, i build a apache server(80) and flask server (5000) i hoped that if request to apache server index.html in local host, associated js file request to ec2 flask server(127.0.0.1:5000) to get json data but in real, js file request to local 5000 port not a ec2 flask server is any way to request ec2 flask server except open 5000 port at ec2 server??"
+ },
+ {
+  "id": "P3954",
+  "title": "How to access a parent instance variable using super()",
+  "tags": [
+   "python",
+   "class",
+   "inheritance"
+  ],
+  "body": "I was playing around a bit with polymorphism and [code] in python classes with inheritance and found that I didn't understand the following behavior. In this dummy example, I found that I can access the instance variables and class variables for the child class, and class variable for the parent class, directly from the object of the child class, BUT I was unsuccessful in accessing the instance variable for the parent class. I understand that I would have to create an object of the parent class using [code] but am unable to access the instance variables from parent class. I don't want to explicitly return anything in the [code] . The only way I found to do this is to explicitly create an object of the parent class and then fetch the required variable, but that hinders proper abstraction of the code. Is there a way I can access [code] after its constructor is run, using [code] , without explicit instantiation of the parent class object? [CODE] [CODE] EDIT 2: Based on the valuable answers from @Silvio Mayolo, @user2357112, and @Mad Physicist, I think I understand where the issue was. As I understand, the child class's instance [code] will hold the instance variable [code] which will get overwritten by the [code] as the job of that function is to update the [code] of whichever object its called from. This means, as clarified by the answers, there is no separate \"parent instance va"
+ },
+ {
+  "id": "P0820",
+  "title": "Azure Functions silently stops during execution",
+  "tags": [
+   "python",
+   "azure",
+   "azure-functions"
+  ],
+  "body": "I have an Azure function running on Consumption Flex that was silently stoped three times during the last two days. It runs using python v2. The function does't show in the invocations at all, so it looks like it never got triggered. But I know that it has started and worked for around 2 mins (as I see the results of it) and then just silently stops. When I open \"Disagnose and solve problems\" -> \"Availability and Performance\" I see this: But I don't know if this can help me because the functions stops just after a couple of minutes. In the Logs -> Traces, I see that it just stops emitting the traces in the middle of the process: My fucntion is request heavy and uses requests.Session, but every call has a timeout defined. When I run the function locally it completes without any problem. Also, I use try-catch block inside the main funtion, which would make me think that if an exception would occure, it would trigger the exception block. I don't use async. When I use Live metrics during the function execution I see quite a few servers being dedicated (can be 6-8), while the cpu and memory stays at extremely low levels. I have been running the same code in Functions for more than 3 months without any issue, but as I mentinoed before I have had three silent stops during the short period. Can anyone please help me investigate the issue?"
+ },
+ {
+  "id": "P0451",
+  "title": "Python - Should VTK be mocked in unit tests?",
+  "tags": [
+   "python",
+   "unit-testing",
+   "mocking",
+   "vtk"
+  ],
+  "body": "I am part of a team that is developing a general-purpose, Python-based 3D mesh viewer using the VTK (Python) library. Read about VTK here: https://docs.vtk.org/en/latest/getting_started Our Python viewer application \"wraps\" the VTK library internally. From the perspective of a user of our viewer application, they will never directly interact with VTK. For example, if the user wants to load a mesh into the viewer, they would call [code] , which internally would call all the necessary VTK methods to visualize the mesh. The wrapper layer's primary responsibility is to orchestrate the calls to a running VTK scene, without directly exposing VTK to the user. We are currently writing unit tests for our viewer application, and there is a question of whether the VTK library should be mocked for the unit tests. Here is the thinking behind each option: Option 1 : The VTK library should not be mocked, i.e. the actual VTK library should be used in the unit tests to ensure the wrapper's public interface does not misuse VTK. If VTK is mocked, then we have no way of knowing if the implementation of our wrapper is correct in our individual unit tests. The mock we are using for VTK never throws errors, so it's essentially a blank check to do anything VTK-related in our unit tests, which isn't helpful. Option 2 : The VTK library should be mocked, since it is a 3rd-party library and could interfer"
+ },
+ {
+  "id": "P4356",
+  "title": "Python/RegEx : Converting bad paragrapgh to good paragraph",
+  "tags": [
+   "python",
+   "python-3.x",
+   "regex",
+   "pdf-reader"
+  ],
+  "body": "Here's the code I used to extract PDF content using [code] [CODE] [code] content is shown below : [CODE] Issue : [code] does its work BUT While speaking it gives long pauses after carriage return (e.g. \"first\", \"comprehensive\", \"quest\" ...) for an interval which matches pause after full stop(.). So, inorder to read smoothly I want first convert these paragraphs in proper format. Solution approaches : Since the reader makes equal pauses at both - the end of sentence and the end of paragraph, we can chose following approaches: Either convert entire one paragraph as single sentence and pass to reader. Or, pass every single sentence(between two fullstops) to the reader. Expected text (approach 1 - Preferable) : [CODE] Expected text (approach 2 - Preferable) : [CODE] I am fairly new to [code] and unable to come up with a RegEx that removes newline but retains paragraph structure."
+ },
+ {
+  "id": "P1430",
+  "title": "binary string code note working with condition",
+  "tags": [
+   "python",
+   "string",
+   "binary-data"
+  ],
+  "body": "I have a binary string, in that binary string there are many zeros with followed by a single 1, for example, \"0100100010000100000010000000000000000100000000000000000000001000000001000000000000000000000000001\" want to convert many zeros into 1, rule is if number of zeros is even than half the zeros and double the one. for example if number is \"00001\" means number of zero is even is 4 than half the zero means two zero and double the one is two one result will be \"0011, if number of zero is odd then minus one and half the zero and double the one and add 1 extra one to o1 for example number is \"00000001\" number of zero is seven the minus one it will become six then half the zero (it will become 3) and double the one (it will becaome two than add one more one) result will be \"000111\", so do the task so \"00001\" will become \"0011\", but last rule is convert the zeros till one will be equal to zero or less than zero 0>=1. but this last condition not working. expected result from the code will be \"0011000110000011111000000111110000000111\" my code is [CODE]"
+ },
+ {
+  "id": "P4172",
+  "title": "Trying to import numpy inside custom library",
+  "tags": [
+   "python",
+   "jupyter-notebook",
+   "pip",
+   "ipython"
+  ],
+  "body": "i have working on ipynb file, and in a cell i calling custom method from my custom library called mymodule. That method calling np.polyfit() which are import in first line of mymodule [code] . And then an error occurs in my ipynb cell that say \"NameError: name 'np' is not defined\" (np is called from mymodule). Just Clarifying: * I have installed numpy using pip on my venv and using right kernel *... and my project structure look like this: [CODE] The cell on mynotebook.ipynb are like this [CODE] and inside [code] are like this: [CODE]"
+ },
+ {
+  "id": "P4149",
+  "title": "Use snowflake-connector-python in AWS Lambda",
+  "tags": [
+   "python",
+   "pandas",
+   "amazon-web-services",
+   "aws-lambda",
+   "snowflake-cloud-data-platform"
+  ],
+  "body": "I had a Lambda function running in Python that would call an API, pull some data, process it in pandas, and then upload it to Snowflake. Last week, some updates on the Snowflake broke the old version of the snowflake-connector-python module I had been using. They have solved the problem by releasing v3.15.0, buuuut the reason I had not upgraded was because v > 2.7, with pandas etc, broke the 250mb upload limit on Lambda. Following this other SO thread , I've zipped the packages up and uploaded them to S3, then I'm attempting to download them within the Lambda to /tmp and install from there. I get this error from Lambda: [CODE] Here is the function I've written to do the import: [CODE] The zip file downloads, all the files unzip as expected, and then I get that error! I started out trying to unzip everything into /tmp/site-packages/, but there I couldn't even get lambda to recognize anything. Any advice?"
+ },
+ {
+  "id": "P0394",
+  "title": "ImportError: No module named _thread",
+  "tags": [
+   "python",
+   "visual-studio-code",
+   "importerror"
+  ],
+  "body": "Compiling python2 in vscode gives an error. But when I compile python3 it succeeds. [CODE] returns: ImportError: No module named _thread [CODE]"
+ },
+ {
+  "id": "P5151",
+  "title": "How to measure plant length in pixels using PlantCV",
+  "tags": [
+   "python",
+   "opencv",
+   "image-processing",
+   "plantcv"
+  ],
+  "body": "I am trying to use PlantCV to track the growth of seedlings, I am currently trying to get it to work on a single seedling before scaling it to track the growth of multiple seedlings. After some image processing I was able to remove all the noise from my image and am now left with this image of the single seedling. Can someone please guide me on where I should go from here? Original Image Image after thresholding and focusing on a region of interest Another example of a region of interest that contains secondary roots I intentionally cut out the leaves from my region of interest as I am only interested in the growth of the roots of the seedling [CODE] I am currently using [code] to separate the primary roots from the secondary roots because I only want to measure the growth of the primary root. However, I do understand that this might not be the most optimal method as it is very error prone Image after segmenting As you can see here, it did a descent job at differentiating the primary root from the secondary root, however, the results are not perfect."
+ },
+ {
+  "id": "P3056",
+  "title": "How to change tensorflow output names (StatefulPartitionedCall:0 to StatefulPartitionedCall:1)",
+  "tags": [
+   "python",
+   "tensorflow",
+   "tflite"
+  ],
+  "body": "I can’t reach exactly the output I want in the Android application. I decorated the layers with a model inspired by a repository. I started training with my own data. I reviewed the original model on netron.app. When I examined mine, the difference I saw was the names of the outputs. For my output variable “class_layer7”, I have the random output name StatefulPartitionedCall:0. However, I think the model should have StatefulPartitionedCall:1. Can I rename it or is it enough to just change the name? The layer code inspired by a repository: [CODE] What I want What I reach On android I looked the outputs it gives me negative result for locator. My expectation is change the output names(if it works)"
+ },
+ {
+  "id": "P0322",
+  "title": "How to check that there is no `1` touching a border in a 2D-list of `0` and `1`",
+  "tags": [
+   "python",
+   "list",
+   "for-loop",
+   "if-statement",
+   "nested-loops"
+  ],
+  "body": "I need to consider a swimming pool [code] . For the given list, the function should return [code] . However, my code returns [code] , even though I haven't done anything to the data. This is the code that I tried and I was expecting/should return [code] before trying to modify the list. [CODE]"
+ },
+ {
+  "id": "P1847",
+  "title": "Troubleshooting KeyError: &#39;font_color_row_striping_background_color&#39; with python&#39;s Great Tables package",
+  "tags": [
+   "python",
+   "great-tables"
+  ],
+  "body": "I'm getting this error when using great tables in python and I have no idea what it means or how to fix it. I get the error when I call .show() on my table or when I try to save it as a png, and the table is created with the following code: [CODE] Is there something wrong with how I'm creating the table?"
+ },
+ {
+  "id": "P1933",
+  "title": "fmin (scipy) and understanding parameter passing of the function in python",
+  "tags": [
+   "python",
+   "scipy",
+   "parameter-passing"
+  ],
+  "body": "I've been trying to understand the parameter passing of [code] . This is given for our exercise: [CODE] Definition of the normal function (seems to work judging by the plot): [CODE] Definition of the likelihood function (not sure it's correct, see note below with an alternative of another student's version, I do get a plot, so technically it's a working function): [CODE] This is the block with the [code] that doesn't work. See all I have tried with the different error messages further down. [CODE] What I've tried: I search for [code] -errors and got this as the answer that resembles my situation: Scipy fmin argument passing But it still doesn't work (the explicit notation of array, and [code] seem not to be the problem). From 1 and 2 I deduce I cannot use a vector, from the other I don't understand the difference between a tuple and a list (I read that tuples are not modifiable, but I don't know why I have that). But I think it is rather in the 1 positional argument given instead of 2 (or 3) that is my real issue? This is what I tried (and what I'd want is the minimum of that [code] function) [code] [CODE] [code] [CODE] [code] [CODE] [code] [CODE] [code] [CODE] [code] [CODE] [code] [CODE] [code] [CODE] From other students, I got this solution: [CODE] I'd like to know why it doesn't work for me, why that student seems to get a value rather than a function, and why it then can st"
+ },
+ {
+  "id": "P0595",
+  "title": "FileNotFoundError: [Errno 2] No such file or directory: &#39;corpus.txt&#39;",
+  "tags": [
+   "python",
+   "file"
+  ],
+  "body": "Somewhy my code doesn't see file in the same directory when i try to read it [CODE] I've tried to add r prefix, tried to include directory straight to the file, but it won't help"
+ },
+ {
+  "id": "P1483",
+  "title": "removing pip packages from anaconda base env",
+  "tags": [
+   "python",
+   "pip",
+   "anaconda",
+   "virtualenv",
+   "conda"
+  ],
+  "body": "I've recently read about the dangers of using pip to install packages in an environment. Unfortunately, before I learned this I had already installed packages with pip in my base environment. From what I've read, the --revision command option doesn't remove the pip packages, just those installed via conda. Is this anyway to correct this mess short of a complete reinstall? No doubt complicating matters, I don't have a list of what I installed with pip."
+ },
+ {
+  "id": "P5731",
+  "title": "Load my model from tensorflow but not work",
+  "tags": [
+   "python",
+   "tensorflow",
+   "machine-learning"
+  ],
+  "body": "I am trying to modify and calling my own model from this website . but here is my question. [CODE] My model input is (180x180x3) , and I can't change it to grayscale due to index out of range. Since I know my channel is 3, I would like to change my array to [code] , but when it predict in [CODE] it is not number 0 or 1, so I can't predict my picture. Please help me to figure out what happened, no matter question 1 or 2. I appreciate all of your help. I expect only 1 or 0, so I can classify label \"Pass\" or \"Fail\""
+ },
+ {
+  "id": "P5577",
+  "title": "getting many warnings for particular dags in airflow",
+  "tags": [
+   "python",
+   "airflow"
+  ],
+  "body": "I just recently installed airflow and whenever I execute a task, I get warning about different dags: [CODE] How do i get rid of these warnings ?"
+ },
+ {
+  "id": "P4489",
+  "title": "how to rotate and pad huge numpy arrays without consuming too much memory?",
+  "tags": [
+   "python",
+   "numpy",
+   "opencv",
+   "vips"
+  ],
+  "body": "I'm working with big wsi images, while making wsi I'm using opencv for calculations and appending frames into a huge numpy array(50kx50kx3 array taking 7.5gb memory), for saving I was using opencv imwrite function but when I was trying to open those saved tiff files with openslide it throws \"unsupported or missing image file\" error. I found out opencv doesn't save images as pyramids, then I tried to save images as pyramids using pyvips, before save I need to rotate image because camera is rotated for faster scanning, but when I do rotate with opencv it doubles amount of memory consumed by program, I wonder if there is another method to rotate without huge memory usage, this also happens when I reach edges of image and therefore need to pad it to not overflow, but it goes down after doing pad and just takes double memory at first, is there optimal method to do the pad and rotate? here's where I pad array: [CODE] and here's where I do rotate before saving image: [CODE] here's memory usage before rotate: and this is memory usage after rotate:"
+ },
+ {
+  "id": "P0169",
+  "title": "Joining 3 huge parquet files (each more than memory) using polars",
+  "tags": [
+   "python",
+   "parquet",
+   "python-polars"
+  ],
+  "body": "I have 3 parquet files; each file is more than the memory. Input parquet Files: Each file has 3M records. Totally 3 files * 3M = 9M records Max Memory: Memory can hold only 3M records at any given point in time Max Processing time: It can process max 3M records and then times out Polars Transformations in AWS lambda: Parquet file rows to Polars Lazy Dataframes using scan_parquet Operations such as join , select, groupby, alias, etc., then slice between 0 to 1M and then collect() Store to Database After processing each chunk of 3M (0 to 1M from each file) pass the next batch to the next AWS lambda invocation (2M to 3M records from each file and so on) Question: Will Polars join the data correctly if the order of the rows of joining columns is not the same across the files? If yes, I would like to know what happens under the hood (to understand it better). Below is an example, LazyDataframe1 from file1 col1 [a1...a1M, b1...b1M, c1...c1M] ->(Total 3M) LazyDataframe2 from file2 col1 [b1...b1M, c1...c1M, a1...a1M] -> (Total 3M) LazyDataframe3 from file3 col1 [c1...c1M, a1...a1M, b1...b1M] -> (Total 3M) First run: [CODE]"
+ },
+ {
+  "id": "P5839",
+  "title": "How to Scale YOLOv8 Inference using Databricks",
+  "tags": [
+   "python",
+   "databricks",
+   "yolo",
+   "mlflow",
+   "yolov8"
+  ],
+  "body": "I have successfully trained a YOLOv8 model using the Ultralytics Python package and now aim to run inference on 100 million images stored in an S3 bucket. Currently, I have a Databricks notebook with GPU acceleration that performs inference, but I don't know how to scale this. From the Databricks documentation, I gathered that using Databricks Autoloader to fetch images from S3 and MLflow to manage the model could help in scaling the batch inference process. How can I efficiently scale the batch inference process for 100 million images in Databricks? Should I use MLflow to manage and scale the inference jobs? The current setup is running multiple notebooks with dedicated compute, which seems inefficient."
+ },
+ {
+  "id": "P1060",
+  "title": "multi output forcast shape prob. with keras.preprocessing.timeseries_dataset_from_array",
+  "tags": [
+   "python",
+   "tensorflow",
+   "keras",
+   "tf.keras",
+   "tensorflow-datasets"
+  ],
+  "body": "The model was fuctioinnal with only one output, now I try to use multi output forcasting one timestep, but got this error: [CODE] My input data are build this way from a pandas df: [CODE] In the same way, validation set was build and got this shape Input shape: (16, 120, 6) Target shape: (16, 4) The model simplify version: [CODE] I make many shape validation but don't find what the problem."
+ },
+ {
+  "id": "P3654",
+  "title": "mypy check fails when chaining functions annotated with ParamSpec",
+  "tags": [
+   "python",
+   "mypy",
+   "typing"
+  ],
+  "body": "If I define two functions which take another function and its parameters as an argument and a simple function as follows [CODE] and I try to chain these three functions like this [CODE] then mypy reports the following error on this chain of calls: [CODE] If I avoid chaining the functions like that, then no error is reported by mypy: [CODE] Is there a way to annotate these functions so that the simple chaining is accepted without having to define a function for the second call? I am using mypy 1.0.1 and python 3.11.2. This seems to be a known problem : https://github.com/python/mypy/issues/13191 Possibly related to https://github.com/python/mypy/issues/12278 I'm watching those issues now. I'll update this question when these mypy issues are resolved one way or the other."
+ },
+ {
+  "id": "P0747",
+  "title": "change direction of networkx graph",
+  "tags": [
+   "python",
+   "graph",
+   "networkx"
+  ],
+  "body": "[CODE] Hi , does anyone know how to change the direction of networkx? For example, the first network, at the moment when I traverse using DFS, the order : FENWICK ST->STEVEN ST-> NEWCOMBE ST-> DRYSDALE ST. Yet I would like to achieve STEVEN ST-> FENWICK ST->NEWCOMBE ST-> DRYSDALE ST. I assume it has to do with the direction which is why the result isnt in order. does anyone know how to do this? I would like it to start from the start/ end of the node not from the middle. also, if the fourth graph, I would like to print the node in this order: FFF->EEE->b->a FFF->EEE->b->c-d -WWW-ZZZ-VVV-UUU-TTT-SSS-KKK FFF->EEE->b->c-d -WWW-ZZZ-VVV-UUU-TTT-SSS-RRR-OOO btw, I use the code above to print each of the connected networkx"
+ },
+ {
+  "id": "P3762",
+  "title": "Access / record step size in python scipy&#39;s `solve_ivp` ODE solver",
+  "tags": [
+   "python",
+   "scipy",
+   "ode"
+  ],
+  "body": "The question is pretty much in the title: I would like to trace / record / access the step size that is used (and possibly changed dynamically) by [code] . It does not seem to be returned in the result object. Is there anyway to do that (if possible without altering too much the integration time)?"
+ },
+ {
+  "id": "P0956",
+  "title": "Type narrowing a generic sequence argument in python",
+  "tags": [
+   "python",
+   "python-3.x",
+   "generics",
+   "python-typing",
+   "type-narrowing"
+  ],
+  "body": "Afternoon, Is it possible in python, given a function that takes a generic sequence of objects, to type it so that the list must be of only one type and not a union of multiple children? for code like this... [CODE] Is there a way to type [code] so that [code] is a sequence of one and only one child of [code] i.e. l1 and l2 are valid but l3 will raise a pyright/mypy error (not necessarily a runtime error). Note this must be generic to any child of [code] (or itself) so solutions like [CODE] Are inadequate."
+ },
+ {
+  "id": "P1519",
+  "title": "The bot keeps responding same message, to every text. (Discord.Py)",
+  "tags": [
+   "python",
+   "discord",
+   "discord.py",
+   "python-asyncio"
+  ],
+  "body": "The Bot was working fine as usual for past few days but since past few days it's just responding same text as response for every message. enter image description here Tried running on replit and my Local device same issue persists. [CODE] The Bot was working fine as usual for past few days but since past few days it's just responding same text as response for every message."
+ },
+ {
+  "id": "P4016",
+  "title": "Received Import Error while importing an existing function",
+  "tags": [
+   "python",
+   "function",
+   "import"
+  ],
+  "body": "I have a library installed from google and I was trying to import a function from it yet it says that the function cannot be imported. The error is as follows: [CODE] The code is as follows: [CODE] but when I checked in [code] python file I found that the function [code] existed."
+ },
+ {
+  "id": "P5883",
+  "title": "Reshaping dataframe using multi-index and populate data accordingly",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "This is my dataframe: cust_id product cost return price quantity 123 pencil 10 5 2 123 book 20 10 1 543 file 70 50 3 543 pencil 20 4 3 543 book 80 56 7 i want the transformed output with multi_index Please let me know how to do this? [CODE] But i am unable to get the values populated. Please help"
+ },
+ {
+  "id": "P5562",
+  "title": "How does the Tensorflow Gradient Tape calculation work at a low level?",
+  "tags": [
+   "python",
+   "tensorflow",
+   "machine-learning",
+   "neural-network"
+  ],
+  "body": "I have just seen some code which has sparked my interest. [CODE] (Code loosely taken from this reference .) There are two things which I think are interesting about this: The use of a context manager The fact that when the context manager has closed the gradient value(s) are available What interests me is understanding the software behind what might look like \"magic code\". You might ask questions such as why is there a [code] keyword involved here? if I evaluated [code] , then how is it that a value for a gradient (which is a different function to [code] ) become available? I think the context manager is fairly easy to figure out. It causes the magic dunder functions [code] and [code] to be triggered, and so I am fairly confident this is a convenient way of marking where the beginning and end of gradient calculation. I would guess this is to make the overall code more efficient - there is no point calculating gradients if they are not needed, and therefore we need a way to mark where we should start and finish gradient calculations. The API could just as well have exposed a [code] and [code] function. The second point is less easy to understand. My initial assumption was that perhaps the gradients were being approximated numerically. However, after doing some research I understand this is not the case, and that something called Automatic Differentiation is used instead. Numeric"
+ },
+ {
+  "id": "P2682",
+  "title": "How to save checkpoint in tensorflow format in ver 2.18?",
+  "tags": [
+   "python",
+   "keras",
+   "tensorflow2.0"
+  ],
+  "body": "There was a feature - tensorflow format to save a checkpoint. I have checked and it is everywhere in the official docs and samples: https://www.tensorflow.org/tutorials/keras/save_and_load#savedmodel_format However in the TF I am running (2.18) if I write [code] I get this: [CODE] How do I save in \"tensorflow\" format in the latest versions?"
+ },
+ {
+  "id": "P3805",
+  "title": "Molecular dynamic simulation using velocity verlet in Python",
+  "tags": [
+   "python",
+   "physics",
+   "numerical-methods",
+   "verlet-integration"
+  ],
+  "body": "I'm trying to implement a simple MD simulation in Python (I'm new to this),I'm using LJ potential and force equations along with Verlet method. I posted another question about the same code yesterday and finally made progress thanks to you! Here is my code: [CODE] Now to make sure it works I'm trying to use this on the simplest system, i.e 2 atoms separated by the distance 4 Å: [CODE] Now when I'm plotting the velocities, I can see that they're increasing and hence the energies are not conserved while they should be! I have been trying to find where I went wrong for a very long time now but not progressing in any level! Thought that a second eye might help! Any tips/advice?"
+ },
+ {
+  "id": "P2155",
+  "title": "Weird errors while trying to connect to Mega.NZ from Python via https://pypi.org/project/mega.py/",
+  "tags": [
+   "python",
+   "python-asyncio"
+  ],
+  "body": "I'm trying to connect to Mega.NZ via module https://pypi.org/project/mega.py/ with this code: [CODE] But as the result of running I get the list of errors: [CODE] What should I do to have these errors fixed?"
+ },
+ {
+  "id": "P0285",
+  "title": "Plot scatter data and create a heatmap using Python",
+  "tags": [
+   "python",
+   "heatmap",
+   "scatter-plot"
+  ],
+  "body": "I showed an image to consumers and asked them to click on a point they liked most. So, I got clicks data (x,y format where x goes from left to right and y goes from bottom to top) on that image. I am trying to create a heatmap using the same and overlay it on the original image. my code [CODE] Outputs I am getting Scatter plot I am getting: Heatmap I am getting: Problems I need help in resolving If you look at the scatter plot and heatmap above, you would that My heatmap and scatter plot points seem different and are not exactly in the same places. Intensity of the heatmap is low. I need it to appear something like below (Just a sample). Expected result with image overlay: Any help would be greatly appreciated."
+ },
+ {
+  "id": "P5625",
+  "title": "i want to show file dialog to select file on windows from web application running on amazon linux2",
+  "tags": [
+   "python",
+   "linux",
+   "windows",
+   "user-interface",
+   "openfiledialog"
+  ],
+  "body": "I am using python and I want to open a save file dialog on local machine from the web application running on my amazon Linux instance. I tried using Tkinter but its seems very hard to get it done with it. how can it be done? it would be helpful if the solution is applicable for production server."
+ },
+ {
+  "id": "P4503",
+  "title": "How does Python differentiate between async function calls and actual I/O operations?",
+  "tags": [
+   "python",
+   "async-await",
+   "python-asyncio"
+  ],
+  "body": "I understand that: [code] doesn't yield control - it just calls the function synchronously [code] DOES yield control to the event loop But what's the actual mechanism? When I write: [CODE] How does the Python executor know that [code] should execute synchronously but [code] should yield? What makes [code] special? Is there some internal flag or object type that signals \"this is actual I/O, yield now\"?"
+ },
+ {
+  "id": "P4531",
+  "title": "Random data from json file",
+  "tags": [
+   "python",
+   "json",
+   "random"
+  ],
+  "body": "I create a quiz using json files as categories. I would like to have random categories and random questions. I managed to have random categories already but still can't figure out how to create drawing questions from json file. I have 4 questions in my json file and for example I would like to draw 2 from them. [CODE] [CODE]"
+ },
+ {
+  "id": "P1475",
+  "title": "Error: No file or directory found, Visual Studio Code, Tkinter. Python Image, ImageTk",
+  "tags": [
+   "python",
+   "tkinter"
+  ],
+  "body": "[code] the error says \"No such file or directory found.\" will update when i find a fix, or someone replies with a successful fix. thank you everyone. The error is that the file is not in the same area as the project file, so the solution was to insert the full directory. Thank you!"
+ },
+ {
+  "id": "P1236",
+  "title": "Submitted number does not register with random number?",
+  "tags": [
+   "python"
+  ],
+  "body": "I am trying to make a simple program where the user submits 10 numbers between 1 and 20 to try and find the random number. The problem is that even if the user submits a number that matches the random number it doesn't register. How can I solve this? Here is my code: [CODE] I have tried different loops and what not, but it doesn't seem to work."
+ },
+ {
+  "id": "P0883",
+  "title": "How to print first 100 character in django?",
+  "tags": [
+   "python",
+   "django"
+  ],
+  "body": "I want to print first 100 character of string in django. [CODE] But I recieved [code] [CODE] Is there any other way to do this?"
+ },
+ {
+  "id": "P2995",
+  "title": "Is it feasible to generate a separate table for each entity in the database using a single ORM class?",
+  "tags": [
+   "python",
+   "database",
+   "sqlite",
+   "sqlalchemy",
+   "finance"
+  ],
+  "body": "I developed a database with the ORM system to manage financial market data. I am employing Python with SQLAlchemy and SQLite. I need to retrieve the latest record for each asset from the market_data table, extract its date and time, request updated data from the server, and then insert the new data back into the market_data table. I plan to perform this operation multiple times per minute, so speed is essential. However, the current query takes several minutes to execute. I've identified that the filtering process for each asset is the primary bottleneck; without it, the query completes instantly but returns incorrect results. I think storing each asset's data in a separate table would be more efficient, but I can't create a specific class for every asset since they can be added dynamically at runtime. Is there a way to generate multiple tables from one ORM class? Alternatively, do you have any suggestions to enhance the database structure to improve the speed of this query? The current models for the database: [CODE] The query that I tested to take the last x record of one asset: [CODE]"
+ },
+ {
+  "id": "P0064",
+  "title": "Python ValueError: cannot rehape array: works at Mac but error at Windows",
+  "tags": [
+   "python",
+   "numpy",
+   "selenium",
+   "python-imaging-library",
+   "openai-gym"
+  ],
+  "body": "I am trying to make an AI bot that automatically learns to play GeometryDash. However, I keep getting this error: [CODE] *If I run this using Mac, it runs without any problem. *Resizing image does not not show error but does not run as intended *Fixing window size did not work My code: [CODE] Any kind of help would be appreciated! Thank you!"
+ },
+ {
+  "id": "P4460",
+  "title": "Trouble getting list of words given a list of available letters for each character (Python)",
+  "tags": [
+   "python"
+  ],
+  "body": "I have a list of words that I would like to go through and remove any that don't fit my criteria. The criteria is a list of lists of letters that are possible for each character. [CODE] The function I have written to try and solve this is: [CODE] The output when I run the function [code] should be [code] . But, I get [code] instead. I can't figure out what is going on. I'm relatively new to Python, so if someone either knows what is going wrong with my function, or knows a different way to go about this, I would appreciate any input."
+ },
+ {
+  "id": "P4955",
+  "title": "Why should I set the parent of a widget to the canvas when placing it as window item?",
+  "tags": [
+   "python",
+   "tkinter",
+   "tcl",
+   "tk-toolkit"
+  ],
+  "body": "Why does the \"tk-toolkit\" treat the window item differently when the parent is not canvas? When distributing events for example: [CODE] changing the master from canvas to root lead to different outputs, when moving the mouse from outside the window into the middle and back. canvas is master [CODE] root as master [CODE] When drawing widgets: [CODE] left screenshot has root as master and right has canvas as master"
+ },
+ {
+  "id": "P2751",
+  "title": "H2O AI with own python machine learning model integration with snowflake",
+  "tags": [
+   "python",
+   "snowflake-cloud-data-platform",
+   "h2o",
+   "automl",
+   "h2o.ai"
+  ],
+  "body": "i have a few questions regarding H2O AI. As per my understanding, h2o AI powers Auto ML functionality. but need to integrate my own python jupyetr ML model. so my questions are, Can we use H2O AI without Auto ML and with our own python jupyter ML algorithm? If yes, can we integrate that own manual scripted ML with Snowflake? If we can integrate our own scripted ml algorithm with snowflake, what are the advantages of doing it that way? instead of an own manually-created python ML algorithm?"
+ },
+ {
+  "id": "P4123",
+  "title": "Win error 126 while trying to import aitextgen",
+  "tags": [
+   "python",
+   "pytorch",
+   "pip",
+   "module"
+  ],
+  "body": "So I am experimenting with AI and tried to import a gpt-2 model into Python so I can use it. I already ran [CODE] And the file [code] exists. [CODE] Does anybody know how to fix this? Note: I tried reinstalling pytorch, it's still the same as before."
+ },
+ {
+  "id": "P4868",
+  "title": "The regular expression for parsing Telegram usernames stops parsing valid usernames if there is an invalid username in the same line",
+  "tags": [
+   "python",
+   "regex",
+   "parsing",
+   "telegram",
+   "regex-group"
+  ],
+  "body": "I have one problem here, I have a regexp that extracts the username in Telegram links, starting from a simple \"@\" to [code] links The problem is that if I enter [code] , both usernames match correctly, but when I enter [code] , neither username matches, even though the script should match only username [code] (because the username on the right side is not valid ) Here is my regex: [CODE] You can test it at this link: https://regex101.com/r/JFF1S0/9 Please help me 🙏🙏🙏 I've already tried almost everything, I don't know how to solve it at all."
+ },
+ {
+  "id": "P1391",
+  "title": "How to generate random numbers fast from &quot;An Extremely Big Array&quot; in Python？",
+  "tags": [
+   "python",
+   "numpy",
+   "random",
+   "sample"
+  ],
+  "body": "Recently, I got stuck searching for a fast way to generate random numbers in Python. Here like the code below, I collect points from an area with more than 10 million points. And I want to sample 8192 points randomly from the area points. However, [code] makes the program so slow since the large index arrays. So, how to make this procedure faster? With any useful Python package or function? Thanks for your attention! [CODE] Generate random numbers fast from \"An Extremely Big Array\" in Python."
+ },
+ {
+  "id": "P2811",
+  "title": "Python PIL deteriorates image when converting to RGBA",
+  "tags": [
+   "python",
+   "python-imaging-library",
+   "rgba"
+  ],
+  "body": "I am processing images with PIL. When I open and convert some images to RGBA they get completely deteriorated. One example of such an image is the following one: [CODE] After the conversion I get the following: I run the following code. [CODE] I would expect that the output image looks like the input image."
+ },
+ {
+  "id": "P5882",
+  "title": "Discord.py 2.0 - Handle interactions failed when using same command in parallel",
+  "tags": [
+   "python",
+   "discord.py"
+  ],
+  "body": "i'm currently coding a bot consisting of mini games (one command = one game) which use interaction buttons. I'm having some issues handling the asynchronous aspect of my commands. When multiple users are using the same command at the same time (for example two people playing a maze game with directional buttons), interaction failures tend to occur which affects the running of each instance of the command. Here is the code structure of the command : [CODE] Thanks if anyone can bring me some help Game screenshot"
+ },
+ {
+  "id": "P1902",
+  "title": "How to add brightness to a colorwheel",
+  "tags": [
+   "python",
+   "matplotlib",
+   "colors"
+  ],
+  "body": "Using the code from this excellent answer from mandy8055 , I'm able to mark a color on a colorwheel. But the information in the marker's position is the colour's brightness. For example: dark red [code] : red [code] My understanding is that in addition to the colours angle another factor (distance?) must come into the calculation of the marker's position. How can I add brightness to the wheel in order to consider a colour's lightness or saturation e.g. (I presume the figure below is based on colorsys):"
+ },
+ {
+  "id": "P4483",
+  "title": "codewars&#39; problem &quot;Find the unique number&quot; problem timed out",
+  "tags": [
+   "python",
+   "performance"
+  ],
+  "body": "Problem: There is an array with some numbers. All numbers are equal except for one. Try to find it! [CODE] It’s guaranteed that array contains at least 3 numbers. The tests contain some very huge arrays, so think about performance. I want to know in what ways I can increase performance. I've found out that using [code] could increase performance, but I don't understand why. My code: [CODE] It will time out with my code."
+ },
+ {
+  "id": "P4130",
+  "title": "Can someone help explain Python&#39;s mypy issue with Incompatible return value type due to covariance when returning a sub type of a union",
+  "tags": [
+   "python",
+   "generics",
+   "python-typing",
+   "mypy"
+  ],
+  "body": "Apologies if there is a straightforward answer already that I'm too smooth brained to see. I am working with Python 3.13+ and Mypy 1.19.1. I've read mypy's docs, read several similar questions/answers here, and spent hours with AI. I'm trying to write a JSON decoder in python using functional programming that returns a generic Result rather than raise errors. I believe the issue is due to mypy thinking the underlying data structure can at some point change in the future, and using 'covariant' fixes the issue, but mypy complains about covariant's being parameters. Can someone look at the following code and mypy error and explain why it's happening, as simply as possible, and how I could change the code to resolve the errors while retaining immutable dataclasses? [CODE] The code runs fine [CODE] but mypy is unhappy [CODE] Thanks so much!"
+ },
+ {
+  "id": "P0862",
+  "title": "Explanation of code sequence in &quot;Murach&#39;s Python for Data Science&quot;",
+  "tags": [
+   "python",
+   "pandas",
+   "regex"
+  ],
+  "body": "The book is an excellent introduction to pandas, but occasionally leaves me hanging. Briefly, shots is a dataFrame containing info on Stephen Curry's shots during a full NBA season. action_type is a column in the dataFrame. The code below is from the book and is part of a solution to an exercise: [CODE] My question boils down to the second line of code: [CODE] I need someone to fully explain all that is going on here."
+ },
+ {
+  "id": "P5812",
+  "title": "Are file handles in Python copied when added to a list? Is there a better way to ensure multiple files are closed?",
+  "tags": [
+   "python"
+  ],
+  "body": "I'm working on posting a number of images to Bluesky based on conditions. I want to make sure, all files are closed after using them but I'm unclear on how variables behave and what is the best way to handle things. My basic structure is like this: [CODE] Questions: When I append [code] , [code] , ... to [code] , are they copied or referenced? Can I just do [CODE] or what is the best way to close all open files?"
+ },
+ {
+  "id": "P3590",
+  "title": "importlib.metadata.PackageNotFoundError: No package metadata was found for djoser pyinstaller",
+  "tags": [
+   "python",
+   "pyinstaller",
+   "djoser",
+   "python-exec",
+   "django-react"
+  ],
+  "body": "Context I made a Django react app. Now I want to make it a desktop application so that the user does not have type [code] and also activate the environment every time. I used pyinstaller. I did all the steps mentioned for django . Problem when I run my executable file made from pyinstaller, I got this error [CODE] What I have done I have already installed Djoser in the environment and the environment is also activated. I have also tried to add in manage.py file and also in hidden_import lists but nothing changed. I have also tried adding [code] in the build command but it got even worse error. How do I fix this error and If there are any better alternative solutions out there? Thanks"
+ },
+ {
+  "id": "P2221",
+  "title": "Ignoring a specific undefined variable with pyright",
+  "tags": [
+   "python",
+   "visual-studio-code",
+   "salt-project",
+   "pyright"
+  ],
+  "body": "When writing custom SaltStack modules/states using VScode and linting with pyright, I get the following error all over the place: [CODE] It's not a killer, because I can put the following on the end of every line that references it: [CODE] But what I would rather do is tell my project that [code] is a known variable, and don't report on that variable. Is this possible?"
+ },
+ {
+  "id": "P1492",
+  "title": "How to use another variable within JSON data?",
+  "tags": [
+   "python",
+   "json",
+   "python-requests"
+  ],
+  "body": "[CODE] Hello, I have a request which calls for a token to then use as a [code] within another piece of json data then posted to another request. how can i make it so the [code] fetched can be used within the [code] json data. thanks!"
+ },
+ {
+  "id": "P5698",
+  "title": "Optimizing Matrix Multiplication in Python",
+  "tags": [
+   "python",
+   "matrix-multiplication"
+  ],
+  "body": "I'm currently working on a project that involves multiplying large matrices in Python. The matrices have dimensions A (m x n), B (n x p), and C (m x p), where m, n, and p can be very large (e.g., millions). To perform the matrix multiplication, I have implemented a basic algorithm using nested loops. However, I've noticed that this implementation is quite slow when dealing with these large matrices. Thus, I'm looking for ways to optimize the code and improve its performance. Here's the current implementation I have: [CODE] I would greatly appreciate your expertise and suggestions on how I can optimize this matrix multiplication algorithm in Python. Are there any built-in functions or libraries that can significantly improve the performance? Additionally, I'm open to considering alternative programming languages or techniques if they can provide better performance for this specific task. I tried implementing a matrix multiplication algorithm in Python using nested loops. My expectation was that the code would correctly multiply the matrices and return the resulting matrix. However, when I executed the code, I encountered an error. Here's the code I used: [CODE] I expected the code to multiply the matrices A and B correctly and store the result in matrix C. Then, I expected the result variable to contain the multiplied matrix, which I would print to the console. However, when I r"
+ },
+ {
+  "id": "P2998",
+  "title": "Formatting strings in Dask/DuckDB",
+  "tags": [
+   "python",
+   "sql",
+   "dask",
+   "duckdb"
+  ],
+  "body": "I have some parquet data which looks like : [CODE] with Count numbers being present in the Result string. I would like to replace the Result of any row with Count=499 with 32767, 500 times. I'm hoping this could serve as an error of sorts. I thought about replacing with np.nan, but not sure how this would work with the string. In dask I was hoping this would be easy with : [CODE] But on examining the data afterwards I found this missed rows. I couldn't find a way to use the data as an array first and then do the filling based on the Count column. So overall : Can this operation be done in Dask? Maybe there's a more efficient way to approach the problem. Could this operation be done in SQL, something like DuckDB/SQLite? For my data this might be faster since I'm just on one machine. EDIT: e.g another approach is exploding the strings to have one number per row, but I think this transformation is very memory intensive (at least in Dask) and so isn't practical."
+ },
+ {
+  "id": "P0307",
+  "title": "replacing values in a data frame from a dictionary with multiple keys",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "dictionary"
+  ],
+  "body": "I have not seen any posts about this on here. I have a data frame with some data that i would like to replace the values with the values found in a dictionary. This could simply be done with [code] but I want to keep this dynamic and reference the df column names using a paired dictionary map. [CODE] I hope this makes sense but to explain more i want to replace the data under columns 'letters' and 'State' with the values found in replace_dict but referencing the column names from the keys found in df_map. I know this is overcomplicated for this example but i want to provide an easier example to understand. I need help making the function 'replace_dict' to do the operations above. Expected output is: [CODE] by creating a function and then running the function with something along these lines [CODE] how would i create a function to run these operations? I have not seen anyone try to do this with multiple dictionary keys in the replace_dict"
+ },
+ {
+  "id": "P4342",
+  "title": "Python Max retries exceeded with url while using request",
+  "tags": [
+   "python",
+   "python-3.x",
+   "request"
+  ],
+  "body": "I was working on urls using request library. so I can check that if the URL is working or not using get method. The Script works fine for the rest of URLs but for one url it took a lot of time and then this error occur: [CODE] Now all I want to skip url when timeout occur. I tried continue pass so that somehow I move forwad but it still fails below is the code: [CODE] the base class has database creation and selenium driver nothing else. #database connection data comming from data base so i removed it the line of code will exceed too much. but it's working."
+ },
+ {
+  "id": "P5429",
+  "title": "How to set up Crawl4AI with managed browser",
+  "tags": [
+   "python",
+   "web-scraping",
+   "playwright",
+   "large-language-model"
+  ],
+  "body": "Hello I am trying to setup a crawl4ai script with a managed browser from this guide: [code] I am running with WSL2 on Windows11. When I run my script, it can't seem to execute the script with a managed browser. I see the below error: Thats pretty much it I can provide more details. Idk Stack Overflow won't let me post the question until I \"add more details\""
+ },
+ {
+  "id": "P5993",
+  "title": "Poisson random variable in python",
+  "tags": [
+   "python",
+   "distribution",
+   "poisson"
+  ],
+  "body": "Assume that number of calls that some call center receives during one minute is Poisson random variable with parameter λ=2. Use Python to find probability that number of calls is larger than 5. Enter number with first 5 digits after the decimal point. I wonder if I understand and solve this task correctly using scipy.stats.poisson? [CODE] My output is 0.012029802954365565 Here is the second part of the task: Assume now that one operator can handle one call in one minute. If call is not handled, it's missed. How many operators should I hire to be sure that probability to miss a call during one minute is not larger than 0.05? Of course I want to minimize number of operators hired. Hint: scipy.stats random variables have .ppf method that calculates percent point function (also known as quantile function) that is inverse function for CDF. For any value p it finds a minimal value q such that CDF(q)≥p. [CODE] Am I using ppf correctly? It gives 5.0 as answer."
+ },
+ {
+  "id": "P3838",
+  "title": "How to read a large json dataset using Dask?",
+  "tags": [
+   "python",
+   "json",
+   "dask",
+   "dask-ml"
+  ],
+  "body": "I am working on a Machine Learning project with a large dataset (+10Gb) stored in a JSON file. I found out that one of the best practices is to use Dask. However I encounter an error while reading the file using chunksize PS: I want to use chunksize because it takes a lot of time to read the file [CODE] This outputs the following error : [CODE] I also tried to use this: [CODE] but I'm having a hard time to make it work so I can do some preprocessing and ML on it Finally, do you have any tips and best practices on working on such scenarios. Thank you!"
+ },
+ {
+  "id": "P5790",
+  "title": "Modifying timestamps on Windows reparse points",
+  "tags": [
+   "python",
+   "timestamp",
+   "symlink",
+   "ntfs",
+   "reparsepoint"
+  ],
+  "body": "I need to copy timestamps (modified time) between NTFS reparse points of type junction, directory symlink and file symlink. I can get the timestamp of a reparse point with [code] . But to apply that timestamp I would need to use [code] but its parameter [code] is not implemented on Windows, so [code] always sets the timestamp on the target of a reparse point but I need to set it on the reparse point itself. [CODE] So how can I set time on Windows reparse points in Python? I prefer solutions using [code] over third party libraries for this."
+ },
+ {
+  "id": "P5674",
+  "title": "Kivy converted Android App enabling remote control",
+  "tags": [
+   "python",
+   "android",
+   "kivy"
+  ],
+  "body": "I am having a real mare trying to get a remote control or dpad to work to scroll menus in my Kivy app converted to Android APK, No matter what I try I just can't seem to be able to get a remote control or dpad to be able to scrol menus / buttons on the app as soon as its on my Android TV. I've tried on_button_press, I've even setup a a key handel [CODE] I've tried seting up a custom android key listeaner. If I send commands via adb the menus work, but using the remote control just does nothing. It seems the key pad controls just don't make it from the android system to the APP. Is there a solution? I've tried google and I just can't seem to find much documented on using DPAD or remote controls, so is it even possible? Am I missing something very simple?"
+ },
+ {
+  "id": "P4024",
+  "title": "Why does print(&quot;...&quot;), i.e. three dots in a row, print blank?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "pycharm"
+  ],
+  "body": "I'd like to print three dots in a row (to form an ellipsis), but print() prints blank. [CODE] What's happening here? Why is \"...\" parsed in an exceptional way? I am using ipython in PyCharm."
+ },
+ {
+  "id": "P3656",
+  "title": "How to add description in FastApi Using Pydantic Model",
+  "tags": [
+   "python",
+   "fastapi",
+   "openapi"
+  ],
+  "body": "I'm trying to create a separate class with search parameters that occur in different routers in my application. When I add them to the class, the description does not appear in openapi I created a separate class with parameters [CODE] Then I added my class to router [CODE] And I expected that at the api/openapi address the description of the parameters would be displayed in the same way as the query, but this does not happen enter image description here I tried changing the code in various ways but couldn't achieve anything. I think that the problem may lie in some place that I may not know about."
+ },
+ {
+  "id": "P4509",
+  "title": "Dynamic argument parser for python",
+  "tags": [
+   "python",
+   "argparse"
+  ],
+  "body": "I am building a small wrapper which can accept a python command infer args and their associated values on the fly. I want something like and arg parser but the catch is that I do not know the arguments in advance. For example, I can get as input: [CODE] I want some dictionary [code]"
+ },
+ {
+  "id": "P5719",
+  "title": "Almost correct output, but not quite right. Math help in Python",
+  "tags": [
+   "python",
+   "math",
+   "rounding-error"
+  ],
+  "body": "I am trying to match an expected output of \"13031.157014219536\" exactly , and I have attempted 3 times to get the value with different methods, detailed below, and come extremely close to the value, but not close enough. What is happening in these code snippets that it causing the deviation? Is it rounding error in the calculation? Did I do something wrong? Attempts: [CODE] Expected Output: [CODE] Actual Outputs: [CODE]"
+ },
+ {
+  "id": "P0770",
+  "title": "Python AzureAppConfiguration SDK and Azure CLI SDK refuse to authenticate",
+  "tags": [
+   "python",
+   "azure",
+   "azure-cli",
+   "azure-app-configuration"
+  ],
+  "body": "So I'm having all sorts of problems trying to authenticate a Python environment. My ultimate goal here is to use the Azure AppConfiguration SDK to read values from an AppConfig service in Azure. But right now I'm failing at the very first hurdle. FYI I'm running all of this on a Windows 11 machine using VS Code (run as Administrator). I have the latest Azure CLI installed. My Azure App Config script is as follows: [CODE] But this results in the error: [CODE] So I thought maybe there was something wrong with the AppConfig SDK, or the way I'm implementing it, so I thought I'd try going direct and just connecting straight to the Azure CLI directly using the following code as suggested by Authenticating Azure CLI with Python SDK [CODE] However, this just results in the error message [CODE] I've tried both pip install azure.cli.core as well as pip install azure-cli I've also upgraded the Azure CLI on my machine. I can successfully authenticate to the Azure CLI in both Bash and PowerShell without any issues - and I have another .NET C# project which uses Azure CLI without problems. At this point I'm really tearing my hair out. I've tried using hard-coded values for the service principal, as well as using locally defined Environment Variables - but none of them work. As mentioned, I've done all of this in .NET in both Unit Tests, an Azure Function App and an Azure Web App without any "
+ },
+ {
+  "id": "P0977",
+  "title": "Why does PyQt5 block write access to another program (&quot;server-based&quot;)?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "pyqt5"
+  ],
+  "body": "I have been working to integrate a PyQt5 GUI with a third-party software from HighFinesse (makes wavemeters). I am using the minimal Python library here on Python 3.9 on a Windows 11 computer. In terms of the \"server-based\" claim, \"HighFinesse employs a fairly unique control system. First, one needs to install the control software, which is uniquely tied to a particular wavemeter and is supplied with it. In theory, software from another wavemeter might still work, but the results are not guaranteed. Second, this control software runs an application server which processes all requests from third-party software. This means, that the main application needs to be running to perform any device communication from the code. The code has an option of automatically starting it, but on some occasions it might fail, in which case it is necessary to either manually start it, or supply the location of the executable file.\", as stated on the pyliblabs website . When I run the following code in a .ipynb with the control software running locally (which is only shipped with the device), the code functions perfectly and switches the exposures as desired. [CODE] It returns: [CODE] When I instead run this in the most bare-bones PyQt5 setting (I have stripped the GUI away; just running the code inside a QMainWindow): [CODE] I instead get: [CODE] More confusing is that if I run the commented out lin"
+ },
+ {
+  "id": "P5175",
+  "title": "Removing words to the right of a string in a dataframe",
+  "tags": [
+   "python",
+   "string",
+   "text",
+   "replace",
+   "nlp"
+  ],
+  "body": "I have a data frame that contains a description of services performed on a vehicle. I would like to remove the word VIN followed by all words to the right of it. [CODE] I have not gotten any useful output using prefix/suffix. Thank you."
+ },
+ {
+  "id": "P1823",
+  "title": "Identical tkinter text widgets when font style and size is changed",
+  "tags": [
+   "python",
+   "tkinter"
+  ],
+  "body": "I have a program that uses tkinter. There are two tkinter text widgets where the first one contains a sample text and the second one takes in a user input so that the user can type out the same sample text that is in the first text widget. In this program, I am also trying to automatically insert a [code] in the string of the sample text every certain number of characters, in this case every 10 characters, in such a way that the first text widget that contains the sample text does not have any words overlapping between two lines. So I used the [code] method like so: [CODE] Which gives the following after the user types the same text in the second widget (Note the text in both widgets below are not 100% identical because there is “ further” in the first widget whereas there is “further” in the second widget): Now, when I change the font style and size of both text widgets like so: [CODE] The number of characters per line in both widgets are no longer the same since the second widget takes in more than 10 characters per line even though I specified the width of both text widgets to be 10: So my question is: how can I ensure that both widgets have exactly the same amount of characters per line and look exactly identical even if the font style and size is changed?"
+ },
+ {
+  "id": "P3036",
+  "title": "remove mixed new line characters and digits",
+  "tags": [
+   "python",
+   "string",
+   "list"
+  ],
+  "body": "Let's say I have this string list: [CODE] I want to remove the digits and keep the first piece of words. So, I want result: [CODE] I tried something like this: [CODE] and I am receiving: [CODE] I can't catch the [code] and [code] because they have one [code] and two words between. Also, it would be nice if the [code] would come without the [code] symbol (it can be done in a next step though)."
+ },
+ {
+  "id": "P0280",
+  "title": "MoviePy: CompositeVideoClip generates blank, unplayable video",
+  "tags": [
+   "python",
+   "mp4",
+   "moviepy",
+   "video-editing"
+  ],
+  "body": "I'm trying to generate a video: the image at the top, the text in the center and the video at the bottom. I don't want any gap between them. The image is resized to become the first half, so the height is set to [code] (the final video is [code] ). Similarly, the video is resized and cropped. The text should be on top of the whole thing. But what it generates is a blank, unplayable video ( [code] : why is the width [code] ?); no errors, either. I've tried many combinations over the past few days, but none worked. Here's the code: [CODE] It's worked before (so the installation is fine; when the script was smaller), the paths are correct, and I've called the function with valid arguments. Why doesn't this code work? I'm also curious to know how the code would be if [code] or [code] were used (the output should be exactly the same)."
+ },
+ {
+  "id": "P2515",
+  "title": "Python requests put to update image always give a 400. Im following the documentation",
+  "tags": [
+   "python",
+   "python-requests",
+   "shopify-app"
+  ],
+  "body": "im having this issue: My code is this [CODE] But im always getting this error: 400 b'{\"errors\":{\"image\":\"Required parameter missing or invalid\"}}' Failed to update alt text for image 9190309691717. Response: {\"errors\":{\"image\":\"Required parameter missing or invalid\"}} What am i missing? Do you see any errors?"
+ },
+ {
+  "id": "P2417",
+  "title": "Transforming TypeVarTuple in Python",
+  "tags": [
+   "python",
+   "types"
+  ],
+  "body": "In Python I can use the [code] to something generic like this: [CODE] But what if I want to return a tuple where the types are not [code] themselves, but some type involving it. For example [code] . Conceptually I want: [CODE] Is this possible? As far as I can see it isn't but I thought I'd check."
+ },
+ {
+  "id": "P1771",
+  "title": "How to scrape links inside td tags in python",
+  "tags": [
+   "python",
+   "web-scraping",
+   "beautifulsoup"
+  ],
+  "body": "Here is the [code] code that I found from a website. I want the vk link which is found inside the [code] tag. I tried so many ways in python to scrape that link but it always shows some type of error and sometimes it shows different links. [CODE] Here is the [code] code that I tried: [CODE]"
+ },
+ {
+  "id": "P0927",
+  "title": "pytorch after load model state_dict training loss keep increasing",
+  "tags": [
+   "python",
+   "pytorch",
+   "lstm",
+   "embedding",
+   "state-dict"
+  ],
+  "body": "Im training a model and in the first training, no matter how many epochs (10,20,30…) i trained the model, everything looks great! the acc was increasing and the loss was decreasing as well. but when i load the saving model and retrain this model, the loss keep increasing every epoch.where could be the problem? I tried to save the optimizer’s state_dict and load them in the next training but i didnt work out. the loss is still increasing. I use Adam optimizer and crossentropy loss function.I’ve been bothered by this problem for several days. :frowning: [CODE] and here is the model [CODE]"
+ },
+ {
+  "id": "P4249",
+  "title": "How to concat rows(axis=1) with stride?",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "concatenation"
+  ],
+  "body": "example: [CODE] Tried use window and concat: [CODE] But get wrong dataframe like this: Is it possible to use a sliding window to concat data?"
+ },
+ {
+  "id": "P4712",
+  "title": "Chess FEN in python chess and chess js",
+  "tags": [
+   "javascript",
+   "python",
+   "chess",
+   "python-chess",
+   "chessboard.js"
+  ],
+  "body": "I wrote my chess openings database using python chess lib and now I'm trying to use it as an api on a website to determine the position name. But python chess and chessjs use different methods to write FEN python chess : rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1 chess js : rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1 is there any way to convert python FENs to another?"
+ },
+ {
+  "id": "P2424",
+  "title": "Pandas: correct way to use apply() here?",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "I have a DataFrame that I am iterating over to perform a function, like this: [CODE] I know that this is not the most efficient way, and that using apply() is faster. However, as I need to access both time and row for my update() function, how would I be able to use apply() here? I can create a function like this: [CODE] But the part where I call apply() , not sure how to do: [CODE] Because I need both index (time) and row value for this. All examples I've seen don't need the index."
+ },
+ {
+  "id": "P4589",
+  "title": "ODBC Driver crash when connecting to Access 2010 database in PyQt5 thread",
+  "tags": [
+   "python",
+   "odbc",
+   "ms-access-2010",
+   "pyodbc"
+  ],
+  "body": "I am having trouble connecting to an Access 2010 database inside a PyQt5 thread. This used to work for me and then suddenly broke. If I run the code in a separate Python file, it runs without issue. The access database is 32Bit and I have the 32Bit ODBC drivers installed. Here is the dedicated file: [CODE] The crash occurs on this line: [CODE] It is a complete crash with no Traceback. I have used the ODBC tracing and the PyQt5 application gets to the connect function and there nothing else is logged. [CODE] I've tried disabling PyODBC pooling but it did not help. I am not sure where to start with no errors available to me."
+ },
+ {
+  "id": "P5298",
+  "title": "New columns added to dataframe are not saved in xlsx file",
+  "tags": [
+   "python",
+   "excel",
+   "pandas"
+  ],
+  "body": "I am downloading some finance data and then adding new columns to a dataframe. But, when I saved the dataframe to an Excel file, the new columns I created are not getting saved in Excel. [CODE]"
+ },
+ {
+  "id": "P4879",
+  "title": "Is there a way to create bins in python instead of listing all the bin numbers (as seen in code below), and maybe without having to use np.digitize?",
+  "tags": [
+   "python",
+   "arrays",
+   "numpy",
+   "bins",
+   "digitization"
+  ],
+  "body": "In my code, I have created 10 bins (specific ranges of bins are listed below): 4100000-4155304 4155304-4210608 4210608-4321216 4321216-4542432 4542432-4984865 4984865-5327533 5327533-5670201 5670201-5746217 5746217-5873109 5873109-6000000 [CODE] Is there a way I can do this without having to list all the bin numbers (bins = [bin numbers]), and maybe also without having to use np.digitize? Thank you very much!"
+ },
+ {
+  "id": "P2437",
+  "title": "How to get aggregate of data from multiple dates in pandas?",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "I have the following data [CODE] I want to convert the table into something like this date vaccine_1_total vaccine_2_total 2021-01-20 2 0 2021-02-20 1 0 2021-02-22 1 3 2021-02-25 0 0 2021-03-22 0 1 Basically I want to get the aggregate from each date to get how many people get the vaccine in certain dates, but since there are two dates there, I am lost. A simple groupby doesn't give me the result. [CODE] The code only gives me the number of people vaccinated for the first time, I can't obtain the second one. How do I solve this? Thanks."
+ },
+ {
+  "id": "P4840",
+  "title": "Append a pandas row with data from another dataframe if a certain column matches",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "I have two dataframes with the same columns (they represent different years of a sporting season). If a player played in both seasons, I'd like to append certain information from the following season to that season's dataframe. DF1 Name PPG Michael Jordan 31.7 DF2 Name PPG Michael Jordan 28.4 What I'd like to do is combine them (either into DF1 or a new DF3) and have three rows Name PPG PPG Next Season Michael Jordan 31.7 28.4 Not all players played in both seasons. How can I check all the players in DF1, see if they played in DF2, and if so add a new column to DF1 tracking those players DF2 PPG?"
+ },
+ {
+  "id": "P4961",
+  "title": "strange python error where the compiler-error changes the case of a letter",
+  "tags": [
+   "python",
+   "compiler-errors",
+   "pycharm"
+  ],
+  "body": "I got a python error where it shows the logger object as Logger, changing the lower-case \"l\" to an \"L\". here's the error: [CODE] Language: Python IDE: PyCharm PyCharm 2021.1 (Community Edition) Build #PC-211.6693.115, built on April 6, 2021 Runtime version: 11.0.10+9-b1341.35 x86_64 VM: Dynamic Code Evolution 64-Bit Server VM by JetBrains s.r.o. macOS 12.4 GC: G1 Young Generation, G1 Old Generation Memory: 2048M Cores: 8 Non-Bundled Plugins: IdeaVIM (1.9.2), Key Promoter X (2021.1.1), cn.haojiyou.CodeGlance3 (2.0.1), com.mallowigi (36.0), com.markskelton.one-dark-theme (5.6.0), com.nasller.CodeGlancePro (1.3.8-Last2021.3.x), com.tabnine.TabNine (0.7.2), io.acari.DDLCTheme (78.2-1.1.1), io.unthrottled.amii (0.14.1), zd.zero.waifu-motivator-plugin (2.2.0), izhangzhihao.rainbow.brackets (6.24), org.exbin.deltahex.intellij (0.2.6)"
+ },
+ {
+  "id": "P3941",
+  "title": "File not found in a created directory",
+  "tags": [
+   "python",
+   "mkdir",
+   "python-os"
+  ],
+  "body": "I am working to add a file in temporary folder like so: [CODE] So the above in the init function. and when I call my main function, I only see the test folder and there is no file.txt along with it. how can i solve this?"
+ },
+ {
+  "id": "P1885",
+  "title": "Masked aggregations in pytorch",
+  "tags": [
+   "python",
+   "pytorch",
+   "aggregation",
+   "mask",
+   "masking"
+  ],
+  "body": "Given data and mask tensors are there a pytorch-way to obtain masked aggregations of data (mean, max, min, etc.)? [CODE] To compute a masked mean I can do the following, yet are there any pytorch built-in or commonly used package to do that? [CODE] [CODE]"
+ },
+ {
+  "id": "P4134",
+  "title": "django problem, when I pass product id by get method",
+  "tags": [
+   "python",
+   "django"
+  ],
+  "body": "In href tag I want to send product id but this code showing an error. Could not parse the remainder: 'data.id' from ''viewproduct'data.id' {% for data in data %} [CODE]"
+ },
+ {
+  "id": "P1550",
+  "title": "How can I download a PyPI repository which only contains packages for Python 3.6.8, 3.8.6, 3.10.6 with Bandersnatch to host in Offline Lab?",
+  "tags": [
+   "python",
+   "cdn",
+   "rsync",
+   "pypi",
+   "bandersnatch"
+  ],
+  "body": "I want to set up an offline PyPI repository for my homelab (disconnected from the Internet, only offline lab). I want to download all *.tar.gz/ *.whl files that work only in three versions of Python (and not download everything in PyPI). The official Python documentation suggested using Bandersnatch, but I have not had luck with it. It downloaded about 1.1 TB of packages with the below configuration, but never downloaded the \"requests\" package (which is supposed to be requests-2.31.0.tar.gz or requests-2.31.0-py3-non-any.whl). These files did not get downloaded. Is the following banderswitch configuration file correct? Result of [code] [CODE] When I used the above configuration file as \"/etc/bandersnatch.conf\". and ran bandersnatch mirror ... after ~5 days, it downloaded 1.1 TB of packages (as root): [CODE] Output: [CODE] It created a folder which contained directories like this: [CODE] There are zips/wheel files, so Bandersnatch did download the files, but when searching for \"requests\" it was not downloaded. How can I resolve this?"
+ },
+ {
+  "id": "P1931",
+  "title": "Looking for a very specific regex, between two dashes, after a dash",
+  "tags": [
+   "python",
+   "regex"
+  ],
+  "body": "I am trying to find a regex that will pull out information between two dashes, but after a dash has already existed. [CODE] I would greatly appreciate any help."
+ },
+ {
+  "id": "P0967",
+  "title": "Activating venv and conda environment at the same time",
+  "tags": [
+   "python",
+   "conda",
+   "environment",
+   "python-venv",
+   "virtual-environment"
+  ],
+  "body": "I am a beginner and was \"playing around\" with environments a bit. I came across a situation where it seemed that I had two environments activated: I create a directory, create an environment with venv, activate it and then also conda activate a conda environment which I created before. These are the commands: [CODE] After this the beginning of my command line looks like this: [CODE] Does this mean that both environments are active? Is there any intended use for this or will it most likely lead to some kind of clash/conflict between the installed packages? Thanks"
+ },
+ {
+  "id": "P4979",
+  "title": "hadoop-azure with DefaultAzureCredential",
+  "tags": [
+   "python",
+   "azure",
+   "hadoop"
+  ],
+  "body": "We develop a spark application and use abfss protocol to consume data from azure storage. Abfss supports various auth methods (like access key, client creds, msi, etc.). However, we would like to use AzureDefaultCredential in python, get a token for storage and use this to authenticate. The benefit would be that we could use the same code for local development and production. How to achieve this?"
+ }
+]

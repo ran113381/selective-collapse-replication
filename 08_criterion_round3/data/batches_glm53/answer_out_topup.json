@@ -1,0 +1,6 @@
+[
+ {
+  "qid": 77918290,
+  "answer": "`Annotated` is a *special form*, not a class — so `isinstance(x, Annotated)` can never be `True` (same reason `isinstance(x, Union)` fails). And `Annotated[int, 'x']` produces a new `_AnnotatedAlias` object, so the `is` check fails too.\n\nUse `typing.get_origin()`, which special-cases annotated aliases:\n\n```python\nfrom dataclasses import dataclass, fields\nfrom typing import Annotated, get_origin, get_args\n\n@dataclass\nclass Foo:\n    x: Annotated[int, \"x\"]\n\nt = fields(Foo)[0].type\n\nif get_origin(t) is Annotated:\n    wrapped, *metadata = get_args(t)\n    # wrapped -> int, metadata -> ['x']\n```\n\nThis works on Python 3.9+ (use `typing_extensions` for older versions).\n\nA version-agnostic alternative is checking for `__metadata__`, which only `Annotated` aliases expose:\n\n```python\nis_annotated = hasattr(t, \"__metadata__\")\nbase = t.__origin__          # int\nmeta = t.__metadata__        # ('x',)\n```\n\nOne caveat: if you use `from __future__ import annotations`, `field.type` is a string — resolve it first with `typing.get_type_hints(Foo)` before applying these checks."
+ }
+]

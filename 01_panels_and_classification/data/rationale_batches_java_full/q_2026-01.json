@@ -1,0 +1,1553 @@
+[
+ {
+  "question_id": 79858587,
+  "ym": "2026-01",
+  "creation_date": 1767270276,
+  "title": "Does IS_PENDING default to 1?",
+  "tags": [
+   "java",
+   "android"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm experiencing some strange behaviour with [code] and MediaStore files. The documentation is very clear: If your app performs potentially time-consuming operations, such as writing to media files, it's useful to have exclusive access to the file as it's being processed. On devices that run Android 10 or higher, your app can get this exclusive access by setting the value of the IS_PENDING flag to 1. Only your app can view the file until your app changes the value of IS_PENDING back to 0. This sounds like [code] is something that is entirely managed by my app. Nevertheless, I'm experiencing a situation where it looks like [code] is set automatically by MediaStore because I'm forced to set it to 0 to make things work. The situation is this: I'm creating an image in downloads using something like this: [CODE] Now I try to query the file size of this newly created file immediately after closing it using something like this: [CODE] Surprisingly, [code] is 0 even though that's clearly not the file size because I've written several bytes to it. To my great confusion I can easily fix the issue by simply setting [code] to 0 on the Uri, like so: [CODE] If I do this after [code] then I can query [code] just fine and it returns the correct file size instead of 0. But this behaviour doesn't make sense to me because I 've never set [code] to 1 so why should I suddenly be forced to set it to"
+ },
+ {
+  "question_id": 79858894,
+  "ym": "2026-01",
+  "creation_date": 1767321727,
+  "title": "Constant 404 errors using Spring Cloud Reactive Gateway",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "spring-cloud-gateway"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm attempting to test Reactive Gateway using simple Spring Cloud static routing with a couple of basic services generated from Spring Boot 4.0.1 (Spring Cloud 2025.1.0) using Java 25. I keep getting a 404 error when attempting to access a service via the Spring Cloud Gateway. I have generated the following.Firstly, a service that returns a hardcoded string: [CODE] Its only dependency is [code] [CODE] Secondly, a basic Reactive Gateway service pom.xml snippet: [CODE] application.yml [CODE] I can access the service directly on its own port [code] , but trying to do so using the gateway on port 9191 ( [code] ) results in a 404 error. Any help would be much appreciated."
+ },
+ {
+  "question_id": 79858985,
+  "ym": "2026-01",
+  "creation_date": 1767338836,
+  "title": "How can I group routes with Spring?",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "kotlin"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "The given project is not using the standard controller way, it's more like 1 handler per controller ( CQRS like ) Each API route should start with the prefix [code] Command routes should follow with [code] A single controller handler should pass in the command name ( [code] ) and Spring combines everything to [code] I don't want to fight the framework so first I just tried to modify the [code] annotation. But since annotations are static AFAIK I can't create a base annotation and pass in the command suffix. So the easiest way coming to my mind was to start with multiple request mappings, hoping Spring would combine them somehow. For all routes [CODE] For command routes [CODE] and the actual handler [CODE] but of course this doesn't work. Spring locates multiple request mappings and only picks the last one. How can I define route groups with Spring?"
+ },
+ {
+  "question_id": 79859017,
+  "ym": "2026-01",
+  "creation_date": 1767344173,
+  "title": "Springboot Hibernate Entity Listener not working",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "hibernate"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am working with Java 17, Spring: 2.7.18 , Hibernate: 5.2.18.Final . When I was using HikariDatasource, AbcDomainListener onPreload was working fine both on Intellij and docker, but when I switched to using DataSource Router class obj for DatabaseConfiguration, AbcDomainListener onPreload method works when running with Intellij, but on deploying on Docker, onPreload method doesn't execute. It How can I debug / fix this issue? [CODE]"
+ },
+ {
+  "question_id": 79859348,
+  "ym": "2026-01",
+  "creation_date": 1767377527,
+  "title": "jOOQ is including a select in a SQL update",
+  "tags": [
+   "java",
+   "jooq"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Why I'm getting this error in jOOQ? It's a simple update but jOOQ is also including a select in the SQL statement sent to the database (MS SQLServer): [CODE] SQL [with k as (select * from kpi_metadata) update k set kpi_metadata.KPI_Name = ?, kpi_metadata.HigherIsBetter = ?, kpi_metadata.Green_Max = ?, kpi_metadata.Yellow_Max = ?, kpi_metadata.Description = ?, kpi_metadata.Is_Active = ?, kpi_metadata.Red_Max = ? where k.KPI_Key = ?]; The multi-part identifier \"kpi_metadata.KPI_Name\" could not be bound."
+ },
+ {
+  "question_id": 79859423,
+  "ym": "2026-01",
+  "creation_date": 1767387218,
+  "title": "How to skip Root POM publication with central-publishing-maven-plugin (Sonatype Central)?",
+  "tags": [
+   "java",
+   "maven",
+   "sonatype",
+   "maven-central"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am migrating to the new central-publishing-maven-plugin (v0.9.0) for deployments to Maven Central. My project uses a standard multi-module structure, and my goal is to publish only the sub-modules while keeping the Root POM out of the publication bundle. In my Root [code] , I have configured the plugin to skip publishing: XML [CODE] In my Child [code] , I attempt to override this setting to ensure the artifact is actually uploaded: XML [CODE] The Problem When running the deployment, the process fails with a coordinate resolution error. It appears the plugin struggles to identify the child's metadata when the parent is excluded from the publishing context: Error Log: [code] [code] My Goal I need to strictly prevent the Root POM from being uploaded to Sonatype Central without breaking the publication of the child modules. Is [code] the correct mechanism for excluding a Parent POM in a multi-module build? Does the plugin require the Parent POM to be part of the same \"deployment bundle\" to resolve child coordinates, even if the Parent itself isn't being published?"
+ },
+ {
+  "question_id": 79859571,
+  "ym": "2026-01",
+  "creation_date": 1767424815,
+  "title": "Is there a more succinct way to convert a String to a Set of Characters in Java?",
+  "tags": [
+   "java",
+   "set",
+   "character"
+  ],
+  "score": 4,
+  "answer_count": 6,
+  "is_answered": true,
+  "body_excerpt": "I want to create an unmodifiable set of specific characters, and for clarity, I want to initialize that Set with a String. Right now I can do it like this: [CODE] But that's clumsy and verbose. I'd rather do it something like this: [CODE] Of course, I can't initialize a Set with an array, so I tried this: [CODE] This doesn't compile, because the [code] method returns a stream of [code] values, not characters. I can't map the values to characters because there's no CharStream class, and no map method that will map to a primitive object. Addendum: The point of this set is to initialize a static Set so I can write something like this: [CODE] This would be more efficient than writing this: [code] Addendum 2: I should also point out that I'm looking for a more generic answer, rather than just one to filter out hex digits. The hex digits are just to illustrate the problem in an example."
+ },
+ {
+  "question_id": 79859657,
+  "ym": "2026-01",
+  "creation_date": 1767439525,
+  "title": "Hive Metastore Standalone Java version incompatibility",
+  "tags": [
+   "java",
+   "ubuntu",
+   "hive"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have recently donwloaded a standalone hive metastore binary distrubution. I am also running an Apache Hadoop instance on the same machine, and Hive seems to recognize Hadoop. However, when trying to start the metastore service I am getting following error: [CODE] From what I understand, it is trying to run the metastore service using Java 17, which is also installed in my system and this version of Java is apparently too old. However, I have also Java 21 and this seems to be the default version. [CODE] The system is Xubuntu 22.04 if it makes any difference. What I tried: Installing OpenJDK 21, so the /usr/bin/java points to Version 21 of JAVA Setting JAVA_HOME to where Java 21 sits. However this does not seem to help and it loooks like ./start-metastore script of the Hive distribution still picks Java 17. How can I resolve the error and ensure that the metastore service is using OpenJDK 21?"
+ },
+ {
+  "question_id": 79859684,
+  "ym": "2026-01",
+  "creation_date": 1767444479,
+  "title": "Hibernate ManyToMany on the same entity results in recursion",
+  "tags": [
+   "java",
+   "spring-boot",
+   "hibernate",
+   "hibernate-annotations"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to model a ManyToMany relation on the same entity and can't get rid of recursion :( I've got a person that can have multiple friends and can be a friend of multiple persons, like this: [CODE] Then my [code] entity looks like this: [CODE] Can someone help meout with what I'm doing wrong here?"
+ },
+ {
+  "question_id": 79859709,
+  "ym": "2026-01",
+  "creation_date": 1767446843,
+  "title": "Jakarta ConstraintValidator: how to implement conditional validation?",
+  "tags": [
+   "java",
+   "spring",
+   "jakarta-validation"
+  ],
+  "score": 4,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a single request DTO [code] that is used by two controller endpoints: [CODE] Most fields are identical for both endpoints and should be validated in the same way, so I intentionally use one DTO and one custom constraint : [CODE] The constraint is implemented as a class-level annotation: [CODE] and all validation logic is handled inside [code] . The problem is that one specific field of [code] requires different validation rules depending on whether the request is handled by [code] or [code] . Everything else can and should remain identical. Since the same DTO and validator instance are used for both endpoints, my question is: What is the correct or idiomatic way to determine, inside [code] , which scenario is currently being validated (create vs update)? [CODE] I am interested in solutions that align with Jakarta Bean Validation design principles , not ad-hoc hacks, and that avoid duplicating DTOs or validators unless that is the intended approach."
+ },
+ {
+  "question_id": 79859812,
+  "ym": "2026-01",
+  "creation_date": 1767462593,
+  "title": "Visual Studio Code : jar import error - package does not exist",
+  "tags": [
+   "java",
+   "visual-studio-code",
+   "import",
+   "jar",
+   "importerror"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "When referencing an external library (.jar) with an import, i get the error \"package ... does not exist\". I precised that compilation is OK (when i print in the console, changes are considered). I think so that it's just a problem of VS Code configuration/state. I am really stuck by this error since some days (screenshot provided) My steps : Created a java project (no build tools) Added a referenced library (official org.apache.commons.io JAR file) in 2 ways : Add package with the \"plus\" button of the \"referenced libraries\" section Configure settings to discover referenced libraries in the lib folder: when adding a new package in the lib folder, it is automatically discovered and added to the referenced libraries Added the import \"org.apache.commons.io in the app.java file Some help would be appreciated. Regards, Nicolas"
+ },
+ {
+  "question_id": 79859900,
+  "ym": "2026-01",
+  "creation_date": 1767481879,
+  "title": "Spring WS / WebServiceTemplate + Wss4jSecurityInterceptor - different credentials per Request",
+  "tags": [
+   "java",
+   "soap-client",
+   "spring-ws",
+   "ws-security",
+   "wss4j"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Problem: I need kind of a client to communicate with WebService via SOAP in Java - Spring application. And I have one endpoint / resource and various users who have different certificates to obtain STS token. For now, I am considering Spring WS and met the challenge that [code] is a Singleton bean where I can set a certificate during configuration (via [code] ) and, of course, cannot change it in run-time because the other threads will not be happy. My current solutions: Override [code] and write code for building WS-Sec header manually. Creating [code] for each request. I cannot find any good solutions and ways to handle and get it right with prepared tools. That is weird because the case seems not unusual. So, the main goal is to have a configured client where I can pass certificates or username and password in run time. And that client can deal with WS-Security and build a necessary header. My questions: Did anyone face the same challenge? How did you handle it? Maybe someone can propose other tools / technologies / libraries which will be able to resolve that case?"
+ },
+ {
+  "question_id": 79860061,
+  "ym": "2026-01",
+  "creation_date": 1767518732,
+  "title": "Java interface return specific raw type with different generic type parameter",
+  "tags": [
+   "java",
+   "generics"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Is it possible to Java to model a (generic) interface that defines a method that is required to return a generic type that is required to be of a certain raw class? I want to model a container-like type that can change its content and parameterised type, but any operation on it should return the same derived raw type (just with different generic type arguments) It's probably easiest to explain with a (non-compilable) example: [CODE] Is this possible with Java's type system? Can I \"force\" implementing classes to override the methods while returning the implementing/derived class itself, just with a different type argument? Is it maybe possible with an indirection via intermediate types (something similar to [code] )? Solvable with the Visitor pattern? Or is this simply not supported by Java's type system?"
+ },
+ {
+  "question_id": 79860237,
+  "ym": "2026-01",
+  "creation_date": 1767543584,
+  "title": "How to programmatically scroll to the top of a lengthy text in a customized JDialog?",
+  "tags": [
+   "java",
+   "scroll",
+   "jscrollpane",
+   "jdialog"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Within a large Java project I'm trying to display lengthy text in a custom JDialog. I would like to start showing the text from the beginning when the dialog shows up, however, I can only manage to visualize it scrolled to the bottom. So in order to read it, a user has to first scroll all the way up. The following approaches on the JScrollPane [code] object in my code do not work: [CODE] Here is the MWE to reproduce the behaviour (caution, lengthy text block at top): [CODE]"
+ },
+ {
+  "question_id": 79860472,
+  "ym": "2026-01",
+  "creation_date": 1767585958,
+  "title": "Java CLI Task Tracker project",
+  "tags": [
+   "java",
+   "string",
+   "switch-statement",
+   "user-input"
+  ],
+  "score": 0,
+  "answer_count": 6,
+  "is_answered": true,
+  "body_excerpt": "I am building a Task Tracker CLI project, currently working on the CLI structure to accept user input. I have used a switch statement to receive input from args. The problem I have is that I have assigned args[0] to a variable called command. This is the condition in the switch statement, to determine which case will be used. I am not sure how to recognize the cases for strings that have spaces. For example, I have a \"list\" command and a \"list done\" command, but when I test it, the list done command is never read, because of the spaces. I have tried using if statements after the case statements, but I could not get anything to work, and it just seems like ugly code or bad practice to add if statements to those cases. I plan to create methods for each case in a separate file, and was thinking maybe that will help, but I would still need to find a way to get the switch statement to recognize the command. [CODE] Am I on the right path? Or should I come up with a new approach? I thought of using while or for loops, but they wouldn't make more sense than a switch statement in this situation."
+ },
+ {
+  "question_id": 79860484,
+  "ym": "2026-01",
+  "creation_date": 1767588234,
+  "title": "Regarding using the API links in Springboot application",
+  "tags": [
+   "java",
+   "spring-boot"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Here I want to ask question where to hide the API URLs secret keys in Springboot application."
+ },
+ {
+  "question_id": 79860732,
+  "ym": "2026-01",
+  "creation_date": 1767613179,
+  "title": "Webflux onAthenticationFailure isn&#39;t triggering in API",
+  "tags": [
+   "java",
+   "spring-boot",
+   "spring-security",
+   "spring-webflux"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a Webflux API that will send customized to end points when user provide wrong credentials. Accordingly I have coded a customized a serverAuthenticationFailureHandler below. [CODE] In addition the SecurityWebfilterchain is as follows: [CODE] And finally, [CODE] My understanding is that when the user at the endpoints enters the wrong credentials, then the customised message embedded in the serverAuthenticationFailureHandler kicks in, which isn't the case. When I enter the right credentials then a token is issued, which is what I coded, but when the credentials are wrong a status 200 is shown on Postman. What is missing in the above logic?"
+ },
+ {
+  "question_id": 79860757,
+  "ym": "2026-01",
+  "creation_date": 1767615353,
+  "title": "sbt-jacoco counting synthetic methods",
+  "tags": [
+   "java",
+   "scala",
+   "sbt",
+   "jacoco"
+  ],
+  "score": 4,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I saw one problem during project upgrade. Before upgrade setup: Java - 1.8 Scala - 2.12 sbt - 1.5.0 sbt-jacoco - 3.1.0 Overall test coverage in SonarQube: ~72% After upgrade: Java - 17 Scala - 2.13 sbt - 1.10.11 sbt-jacoco - 3.4.0 Overall test coverage in SonarQube: ~62% With upgrade of sbt-jacoco our overall test coverage decreased by ~10%. After some investigation we found that sbt-jacoco 3.4.0 now counting branches of synthetic methods (e.g. copy$ methods for case classes). I checked source code of sbt-jacoco and I could see there is appropriate filter (scala synthetic methods) implemented, but looks like it doesn't work, or maybe I should enable it somehow during launching jacoco command. In addition it also counting plain getters starting from sbt-jacoco 3.4.0, but per jacoco it shouldn't. UPD @aled, @Gaël J, you are right, I should add some example. And the question is \"how to exclude synthetic methods from SBT Jacoco report\" Here is before upgrade (should be launched with Java 1.8): https://github.com/ppllaxxa/sbt-jacoco-test After upgrade (should be launched with Java 17): https://github.com/ppllaxxa/sbt-jacoco-test-upgrade To generate jacoco report just execute in sbt shell: clean coverageOn jacoco coverageReport coverageOff Report will be located here: sbt-jacoco-test\\target\\scala-2.12\\jacoco\\report\\html Before upgrade sbt-jacoco-test-upgrade\\target\\scala-2.13\\jacoco\\"
+ },
+ {
+  "question_id": 79861066,
+  "ym": "2026-01",
+  "creation_date": 1767638084,
+  "title": "Java Visualization Tool uses keyword &quot;this&quot; in seemingly odd place during Array of Objects creation",
+  "tags": [
+   "java",
+   "arrays",
+   "this"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am trying to learn how to create arrays of objects. I often use this tool to help me \"step\" through a program to see how values are initialized and updated and to get a feel for the \"timing\" of things during execution. I am hopeful for some understanding of what actually goes on during the creation of an array of objects, even if you are not familiar with the tool I linked to. Below is some code I created to teach myself about arrays of objects: [CODE] When I step through the program from the start, I get to step 6, which is a call to the Test Class constructor for the first time. The visualizer shows the following: I am not sure what the visualizer is showing here; I understand a copy of my instance variable is declared and (I think) assigned a default value of 0 before initializing it to 3 as per the constructor code. However, why, on the \"frames\" side of things, is the keyword [code] being used to point to the Test instance? Here's what's shown afterwards as I go through the next several steps: then and then and finally to I thought the [code] keyword was used in (among other?) situations like the one here: [CODE] where [code] specifies which variable named [code] , is getting updated. I also found it confusing that the constructor call visualized above shows a return type of void, when I thought that constructors don't have return types."
+ },
+ {
+  "question_id": 79861164,
+  "ym": "2026-01",
+  "creation_date": 1767649919,
+  "title": "How to get information from merged cell in Google Sheets API",
+  "tags": [
+   "java",
+   "google-sheets",
+   "google-sheets-api"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a problem. I need to get info from merged cell, but this information only on first cell of this merged cell. F.e. I get request for cells C2:C3. But C3 is a part of merged cell A3:C3. How I need to get correct information from this cell? I didn't find any information on the Internet. Please help This is my code for getting cells: [CODE]"
+ },
+ {
+  "question_id": 79861278,
+  "ym": "2026-01",
+  "creation_date": 1767672673,
+  "title": "What is the difference between a AVL and Redblack tree",
+  "tags": [
+   "java",
+   "tree"
+  ],
+  "score": 0,
+  "answer_count": 4,
+  "is_answered": true,
+  "body_excerpt": "Explain where to use AVL tree and where to use Redblack ,explain the key concepts in these trees like the time complexity and how to implement it.where these trees are used in real world applications.and whether it is self balancing or not ."
+ },
+ {
+  "question_id": 79861408,
+  "ym": "2026-01",
+  "creation_date": 1767685708,
+  "title": "How can I query a unbuffered query in SQL Server with Hibernate?",
+  "tags": [
+   "java",
+   "sql-server",
+   "hibernate",
+   "spring-data-jpa",
+   "unbuffered-queries"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am not sure if Hibernate has a support for unbuffered queries but if it has how can I run an unbuffered query on SQL Server with Hibernate?"
+ },
+ {
+  "question_id": 79861590,
+  "ym": "2026-01",
+  "creation_date": 1767700077,
+  "title": "Can&#39;t set up OpenAPI for RestController in Spring Boot",
+  "tags": [
+   "java",
+   "spring-boot",
+   "openapi",
+   "springdoc-openapi-ui"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to set up OpenAPI. My application uses port 9002 and every time I try to access http://localhost:9002/swagger-ui/index.html on the browser the server rejects my request with 403 code. This is my [code] file: [CODE] [code] : [CODE] This is my [code] : [CODE] Every other endpoint in my filterChain runs fine but when I try to access the OpenAPI ones the server rejects it with 403 code. Why?"
+ },
+ {
+  "question_id": 79861631,
+  "ym": "2026-01",
+  "creation_date": 1767703285,
+  "title": "How to find the jsonpath of any element in JSON",
+  "tags": [
+   "java",
+   "mapping",
+   "jsonpath",
+   "altova",
+   "map-force"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am working with Altova MapForce for data mapping tasks involving JSON. Is there a built-in function or a way to create a custom function in Altova MapForce that takes a specific field (or node) as input and returns its full JSONPath? For example, if I have a JSON structure like: [CODE] And I pass the email field to this function, it should return something like $.user.profile.contact.email. I know MapForce works with nodes and paths internally, but I couldn't find a direct function exposed for retrieving the full JSONPath string for a given field during mapping. Creating a custom Java function is an option I'm considering. Does anyone know if this is possible, or have suggestions on how to implement it, perhaps using a custom Java function?"
+ },
+ {
+  "question_id": 79861713,
+  "ym": "2026-01",
+  "creation_date": 1767709531,
+  "title": "Calling a Fragment function from activity that calls the fragment function from signalr callback",
+  "tags": [
+   "java",
+   "android"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have signalr callbacks in my activity, when the signalr callback is hit from the activity i want to send the data from the activity signalr callback to a specific fragment. My activity signalr callback: [CODE] My InteractionsFragmentViewModel: [CODE] Event Class: [CODE] Then in my Fragment in onViewCreated: [CODE] But vm.getEvents().observe(getViewLifecycleOwner(), event -> { never gets called when the vm.postEvent is hit in the activity inside the signalr callback. I found this method on ChatGPT and tries many other ways but no luck. How can i get my signalr callback call a function and pass data to a specific fragment? What I'm trying to do is when the signalr returns data I want to pass this data to the fragment and add this data in the recycleview instantly. Instead of using fragments should I use view switching. I have about 11 fragments in my app. Would making view switching be better as fragments can get destroyed?"
+ },
+ {
+  "question_id": 79861741,
+  "ym": "2026-01",
+  "creation_date": 1767712611,
+  "title": "Passing LocalDate to Between comparison for Cosmos DB",
+  "tags": [
+   "java",
+   "spring-data",
+   "azure-cosmosdb"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have Cosmos DB database with the following sample data in the container: [CODE] Repository: [CODE] Entity: [CODE] When I call the findByPostedDateBetween() method, no data is returned. It turned out that the problem is that the internal Azure SDK ObjectMapper created in [code] serializes [code] and [code] into an array [ year, month, date ], which certainly kills the comparison. There is no way known to me to update the object mapper configuration to add [code] . I don't want to keep dates as strings, but so far I don't see any other way. Perplexity suggested several options including a custom converter, but none of them worked. Spring Boot 3, Java 17."
+ },
+ {
+  "question_id": 79861866,
+  "ym": "2026-01",
+  "creation_date": 1767723968,
+  "title": "Why /error endpoint called before each successful API call with HTTP Basic authentication",
+  "tags": [
+   "java",
+   "spring-boot",
+   "spring-security"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have got a legacy Spring Boot 3.2 application with Spring Security 6.2 and I need to do some updates. It is a stateless API service with HTTP Basic authentication and the following config: [CODE] It works, but I've noticed that on every call (GET, POST, etc) the following happens: AuthorizationFilter calls /error and gets 401 error (DEBUG org.springframework.web.servlet.DispatcherServlet - Exiting from \"ERROR\" dispatch, status 401) From other thread calls UserDetailsServiceImpl and gets the user Starts logging the request (DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter - Before request [POST...) Runs correctly the called endpoint and returns the correct result Finishes logging (DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter - After request [POST...) The problem is not the client sending twice the request (without and with auth data). CommonsRequestLoggingFilter logs only one request on each test. Is it normal this /error calling on each call? And if not, how to fix it? Source code with all business logic removed: [CODE] Testing client: [CODE] Logs: [CODE]"
+ },
+ {
+  "question_id": 79862014,
+  "ym": "2026-01",
+  "creation_date": 1767740782,
+  "title": "Error when sending using StreamBridge: SimpleFunctionRegistry$FunctionInvocationWrapper returned null",
+  "tags": [
+   "java",
+   "spring-cloud-stream-binder-kafka"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am getting the following error when using StreamBridge.send. I have not seen this error before, and the logs don't provide any insight. [CODE] When searching google et al for this log message, the thing that looks remotely close to this problem is this: [CODE] However, waiting a long time to call [code] doesn't seem to have any effect. spring boot 3.4.3 spring cloud stream kafka binder 4.3.1 Any help is appreciated!"
+ },
+ {
+  "question_id": 79862084,
+  "ym": "2026-01",
+  "creation_date": 1767759568,
+  "title": "Various places to configure httpclient timeout in Spring boot",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot"
+  ],
+  "score": 0,
+  "answer_count": 4,
+  "is_answered": true,
+  "body_excerpt": "I am using Spring boot version 3.5.9 and httpclient version 5.5.1, and aware that Spring boot have some issue regarding set the connect timeout for httpclient 5.5.1. refer the github issue here: https://github.com/spring-projects/spring-boot/issues/47940 and which seems to be fixed by this commit: https://github.com/spring-projects/spring-boot/commit/0ca8f6d03f84132563e7c9b07c034b381297b0bf#diff-8b43c3d64899c92eceef16c0119431ad2d54515c540e2b45ae097864cf91a208 in spring boot 3.5.8. Now I am confused about the current behavior, Now if I want to configure all types of timeout for http requets, I can configure the connect timeout and readtime out easily as below: [CODE] But why does spring boot do not support to configure the connectionrequesttimeout here as well? So to configure the connection request timeout, I still need to build a HttpComponentsClientHttpRequestFactory and set it to the resttemplate with the configuration like below: [CODE] Why does Spring boot not privide a consistent configuration for these 3 properties?"
+ },
+ {
+  "question_id": 79862091,
+  "ym": "2026-01",
+  "creation_date": 1767761313,
+  "title": "Why my increment operation is atomic in multithread context?",
+  "tags": [
+   "java",
+   "multithreading",
+   "kotlin"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to increment 2 times by 1000 times the shared counter [CODE] the result is (console tail): ........... T1: 1998 T1: 1999 T1: 2000 counter=2000 --- AFAIK it's supposed to be less 2000, isn't it?"
+ },
+ {
+  "question_id": 79862119,
+  "ym": "2026-01",
+  "creation_date": 1767765024,
+  "title": "Single instance of the application is creating high thread count in Java/SpringBoot Application",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "multithreading"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a business layer which is on Java & Spring Boot. There are around 10 instances of an application that are running on prod and each has same exact configuration on machines & applications. There is one single instance of the application that goes berserk & the thread count of the application reaches 50% more to ~1100 thread count than the average thread count of 600-750. Not sure why is this happening, i have added the logs to the threads states & noticed a trend. When thread count is average that is 600-750, the waiting thread is around ~300 & the running are around ~200. When the problematic instance has reached the count of ~1100, the trend is the same, ~600 waiting & ~350 running. By the way, just simply restarting the application make the instance return to the normal & teh frequency of the issue is around once per month."
+ },
+ {
+  "question_id": 79862281,
+  "ym": "2026-01",
+  "creation_date": 1767779611,
+  "title": "Is there a way for python to notify that you are overriding non existant method?",
+  "tags": [
+   "python",
+   "java",
+   "inheritance"
+  ],
+  "score": 2,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "In java we have abstract classes and interfaces where we declare set of methods that will exist on objects that conform when interacting with implementations of that type [CODE] and so on. When they are implemented we usually add an annotation that the method in the class does not originate from the current class called [code] which indicates just that. This also serves as a safeguard for the compiler to assert that the method actually exists in base class, because if it doesn't, the compiler fails. [CODE] [CODE] So far in python 3.14 I define my abstract classes using the [code] module like so [CODE] But I would like a way to declare that this method is inherited, and a way to tell the python runtime that the method must exist in base class (because it may get removed later). Is there an equivalent in python 3.14 and above?"
+ },
+ {
+  "question_id": 79862327,
+  "ym": "2026-01",
+  "creation_date": 1767782472,
+  "title": "Where to download the correct Flink ClickHouse Connector JAR for Flink 1.18",
+  "tags": [
+   "java",
+   "apache-flink",
+   "clickhouse"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I am running Flink 1.18 (Standalone/Docker) using PyFlink and I’m trying to sink data from Pulsar to ClickHouse using the Table API. I initially tried the standard generic JDBC connector, but I ran into the NoDialectFactory error because the standard JDBC connector doesn’t support the ClickHouse dialect directly. I am now looking for the dedicated flink-connector-clickhouse JAR that is compatible with Flink 1.18. Could someone please provide a working direct download link (Maven Central or otherwise) for the compiled JAR that I can simply drop into my Flink lib/ folder to use connector = 'clickhouse'? My environment: Flink Version: 1.18.0 Python Version: 3.10 Goal: CREATE TABLE ... WITH ('connector' = 'clickhouse', ...)"
+ },
+ {
+  "question_id": 79862346,
+  "ym": "2026-01",
+  "creation_date": 1767783479,
+  "title": "Is there a way to define a component or fragment of elements and reuse it multiple times, all in the same JSF page?",
+  "tags": [
+   "java",
+   "jsf",
+   "jsf-2",
+   "xhtml",
+   "el"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "The title pretty much sums it up. I'm aware of the possibility of creating your own custom tags with [code] , or having multiple [code] with the same name, but they all require defining the group of elements you want to use / reuse elsewhere. (Having a [code] that defines a [code] that is the same page does not work.) Is there a way to do so, all in the same page? Thank you."
+ },
+ {
+  "question_id": 79862490,
+  "ym": "2026-01",
+  "creation_date": 1767796486,
+  "title": "java.lang.OutOfMemoryError: JVM of the batch is not stopped",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a Spring boot application with batches. I have the following error when doing a select in a batch: [CODE] I tried to catch the Throwable to have a log in a result table but it is not possible. The \"main\" thread does not continue the code and the log is not called (does not appear in the log file: I have a log before the select and then the error log without the log in the catch). What I saw is that the error seems to be logued with an other thread of the JVM (not the \"main\" one but by \"reactor-http-epoll-3\" thread). The JVM is not stopped when this exception is thrown (I have to kill the process myself). I have this in the main: [CODE] Is it possible to catch the error and stop the JVM properly please?"
+ },
+ {
+  "question_id": 79862509,
+  "ym": "2026-01",
+  "creation_date": 1767797478,
+  "title": "JUL Handler configuration in logging.properties",
+  "tags": [
+   "java",
+   "logging",
+   "java.util.logging"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "[code] [code] What is the difference between these two configrations. What happend if only \"handlers\" is configured without \".handler\" I tested, I could see [code] initialize the specific handler when Logger.getLogger() is invoked. But when [code] alone is used, handler initialization happens when first Logger.log() method is invoked. Kindly help me to understand this case. Thanks in advance."
+ },
+ {
+  "question_id": 79862568,
+  "ym": "2026-01",
+  "creation_date": 1767800729,
+  "title": "How to validate multiple Bearer tokens using Spring Security",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "spring-security"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I'm working on a Spring Boot (3.5.x) web application using Spring Security and OAuth2 Resource Server. I need to support two types of Bearer tokens for authentication: Standard Bearer JWT: Sent in the [code] header (e.g., [code] ), with scopes/authorities. Custom Session JWT: Sent in a custom header (e.g., [code] ), which does not contain any authorities — just needs to be validated for authenticity (expiration, issuer, signature, etc.). My requirements are: Some endpoints should only require the Session token (just check validity, no authorities). Some endpoints should require both: first validate the Session token, then validate the standard Bearer token and use its authorities for authorization. Some endpoints should only require the standard Bearer token. I've already implemented an [code] / [code] that can handle multiple issuers, and if I use the standard configuration like: [code] ...everything works fine if I only configure the [code] / [code] to authorize endpoints using only the standard bearer token by applying [code] or directly calling [code] / [code] on a [code] : [CODE] I can't figure out how to configure Spring Security so that I'm able to mix/match both of the token validators based on my previously mentioned requirements. So far I've tried using multiple [code] beans with different [code] and [code] configurations. First chain is annotated with [code] and oaut"
+ },
+ {
+  "question_id": 79862584,
+  "ym": "2026-01",
+  "creation_date": 1767802019,
+  "title": "Persisting a JMolecules Aggregate Association does not work when using EntityManager",
+  "tags": [
+   "java",
+   "jpa",
+   "spring-data-jpa"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have multiple JMolecules managed aggregate roots that use associations. When persisting them with a Spring Data JPA repository the associations are converted properly. However when persisting the same object and its associations using an entity manager instance, this fails. A test showing both scenarios is: [CODE] The test using the entity manager is showing the following exception which looks like the database key value [code] for the rate association is used to construct a [code] which is a UUID. It really should create a [code] So I assume, without the repository some meta data is missing to read the association properly? Since the byte buddy plugin is enhancing the entity with attribute converters I would expect that it wouldn't matter whether to use the repository or the entity manager. [CODE] These are the aggregate root types: [CODE] [CODE] [CODE]"
+ },
+ {
+  "question_id": 79862918,
+  "ym": "2026-01",
+  "creation_date": 1767841386,
+  "title": "How do I set win.norestart=true in /app/&lt;app_name&gt;.cfg under [Application] when using jpackage?",
+  "tags": [
+   "java",
+   "windows",
+   "jpackage"
+  ],
+  "score": 4,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "How do I set [code] in [code] under the section [code] ? I'm using jpackage on Windows to package an MSI file. The commit that introduced [code] . The ticket ."
+ },
+ {
+  "question_id": 79863016,
+  "ym": "2026-01",
+  "creation_date": 1767855998,
+  "title": "Oracle MERGE causes DuplicateKeyException under high concurrency with composite primary key",
+  "tags": [
+   "java",
+   "oracle-database",
+   "concurrency",
+   "race-condition",
+   "sql-merge"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I’m running into a race condition when using an Oracle [code] statement from a Spring Boot application, and I’m trying to understand why this happens and what the correct way to handle it is . When multiple concurrent requests with the same composite primary key hit the API, the [code] statement occasionally fails with: [CODE] Error Details: [CODE] This happens even though the table has a composite primary key and the [code] checks for existing rows. Environment Spring Boot REST API Oracle database 4 application instances Load test: ~1100 concurrent users, 1-minute ramp-up Table Composite primary key: [CODE] MERGE (simplified) [CODE] Why can Oracle [code] still produce [code] under concurrent requests with the same key, and how should this be handled correctly in a Spring Boot application? Any insights from people who’ve dealt with this kind of high-concurrency upsert scenario would be really helpful."
+ },
+ {
+  "question_id": 79863134,
+  "ym": "2026-01",
+  "creation_date": 1767864815,
+  "title": "Code for Checkstyle linter in Emacs throws error",
+  "tags": [
+   "java",
+   "emacs",
+   "elisp",
+   "checkstyle",
+   "flycheck"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am trying to set up ELisp code to enable a checkstyle linter for java development with the flycheck package, but it throws an error I don't understand when running [code] for diagnosis. [CODE] I tried using some code I found on reddit and modifying it to have a more sensible placement for the .jar and .xml files. I use doom emacs, if that's relevant. Here's the code: [CODE] Although I'm new to ELisp and Emacs, in my understanding, the error is saying that there's no :command given, even though one is given in the code."
+ },
+ {
+  "question_id": 79863182,
+  "ym": "2026-01",
+  "creation_date": 1767867412,
+  "title": "Reduce database round-trips while keeping application stateless",
+  "tags": [
+   "java",
+   "quarkus",
+   "stateless"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I need to reduce database round-trips in a Quarkus application that is constantly accessing it to retrieve the same information over and over. This application consists on two endpoints: PUT /external-service. Selects a service among the options. Let's say options are: A, B and C. POST /send. Sends data into the aforementioned external service. Now, to send the data into the correct external service, this application is following a producer approach: [CODE] That is later used in the resource invoking the corresponding external service: [CODE] Now the question is, how can I prevent this application from accessing database to check the enabled external service while keeping it stateless? Is there a simple way to achieve this?"
+ },
+ {
+  "question_id": 79863428,
+  "ym": "2026-01",
+  "creation_date": 1767883269,
+  "title": "Is it practical to move from system testing to software development after 2+ years?",
+  "tags": [
+   "javascript",
+   "python",
+   "java",
+   "c"
+  ],
+  "score": 0,
+  "answer_count": 9,
+  "is_answered": true,
+  "body_excerpt": "I have 2+ years of experience as a System Test Engineer in the medical device domain, working on system-level verification, test protocols, and compliance-focused testing. I am evaluating whether continuing in system testing is a good long-term career choice versus transitioning into software development. Specifically: Is it reasonable to move from a System Test Engineer role into software development after 2–3 years? Can experience in system testing within a regulated domain (medical devices) be meaningfully leveraged when switching to development, or is it typically treated as starting over? Given that becoming industry-ready for development may take 8–9 months of focused learning, is this a practical transition at this stage? That is why I would really appreciate your insights and opinions."
+ },
+ {
+  "question_id": 79863432,
+  "ym": "2026-01",
+  "creation_date": 1767883514,
+  "title": "Hibernate validation error: found [bpchar (Types#CHAR)], but expecting [char(2) (Types#VARCHAR)]",
+  "tags": [
+   "java",
+   "postgresql",
+   "hibernate",
+   "jpa"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have found a very strange behaviour of Hibernate schema validation for PostgreSQL database: I have created a column: [CODE] I have added mapping: [CODE] And now I get this strange error: [CODE] On MySQL this works without a problem. For some strange reason Hibernate reads CHAR(2) column definition as a VARCHAR expectation. This seems obviously wrong but maybe I am missing something. Is there a way to trigger correct Hibernate behaviour (so it correctly validates schema like in case of MySQL)? Is there a workaround that would allow to turn off validation for specific column/class? This problem is similar to Quarkus with hibernate found [bpchar (Types#CHAR)], but expecting [char (Types#VARCHAR)] but this time the problem is with PostgreSQL and from correct MySQL behavior I suspect something was fixed on Hibernate side since that question was asked."
+ },
+ {
+  "question_id": 79863525,
+  "ym": "2026-01",
+  "creation_date": 1767888544,
+  "title": "Passing Apache-authenticated user Principal to Quarkus app",
+  "tags": [
+   "java",
+   "apache",
+   "forms-authentication",
+   "quarkus-native"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I have a quarkus web app currently protected by Apache's form-based authentication via reverse proxy. [CODE] I had to play games to copy the authenticated user id to the request header by adding the following to the Location block above: [CODE] ...but what I would really like is to set the [code] from the Apache data. The quarkus docs have lots of information about driving the form authentication from its own built-in mechanism, but I'm trying to use Apache for consistency with the rest of the (non-quarkus) applications. Is this possible??"
+ },
+ {
+  "question_id": 79863544,
+  "ym": "2026-01",
+  "creation_date": 1767889903,
+  "title": "Text is rendered in incorrect position",
+  "tags": [
+   "java",
+   "minecraft-fabric"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am trying to render text in certain position with these functions: [CODE] [CODE] But it is rendered incorrectly at all. The text changes its position and is rendered in the wrong place. I try to render it at pos (0, 0, 0) and this is what I get: UPD: for clarity, I added a point where I expect to see text."
+ },
+ {
+  "question_id": 79863661,
+  "ym": "2026-01",
+  "creation_date": 1767898936,
+  "title": "Propagate security context from WAR to other subdeployments within EAR in WildFly 38",
+  "tags": [
+   "java",
+   "wildfly",
+   "ejb",
+   "undertow",
+   "elytron"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "We are migrating from WildFly 24 to 38, and also implementing OIDC with Keycloak. We are deploying an EAR with multiple EJB and WAR subdeployments. If I call an EJB via remoting from our desktop application, everything works, security context is created properly, and injecting EJB beans from an another subdeployment also work, security context propagate to all other EJB subdeployments. The issue is, when I hit a REST endpoint from a browser into one of my WARs, the security context is correct for that WAR, ctx.getCallerPrincipal().getName() returns my logged in user, but if I inject an EJB from an another subdeployment, in those beans ctx the caller principal is anonymous. Everything seems to be wired correctly in the standalone.xml: EJB3 subsystem: [CODE] elytron:community subsystem: [CODE] Here the JWT realm works propery for remoting calls. The realm is set up to use a public client: keycloak-public-client In elytron-oidc-client subsystem I have all my WARs like so: [CODE] The client set up here is different then the one set up in the JWT realm. That uses a public client. In the undertow:community subsystem: [CODE] Undertow has this in the header tag: <subsystem ... default-security domain=\"mySecurityDomain\"> jboss-ejb3.xml in all of the EJBs META_INF: [CODE] Lasty, in the WARs WEB-INF the jboss-web.xml: [CODE] When I read the undertow resoruce with the wildfly CLI tool i ge"
+ },
+ {
+  "question_id": 79863722,
+  "ym": "2026-01",
+  "creation_date": 1767903694,
+  "title": "SpringBoot: Refactoring new to bean, Parameter 0 of constructor required a single bean, but 2 were found",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "spring-mvc"
+  ],
+  "score": 1,
+  "answer_count": 6,
+  "is_answered": true,
+  "body_excerpt": "I wrote this simple Spring Boot project: [CODE] [CODE] [CODE] [CODE] [CODE] [CODE] [CODE] And this is working perfectly fine. It is doing the business logic. I am able to configure my bean with configuration, and on the controller layer, to get it and perform my business logic. However, I am getting the following issues. We are using several static analysis tools, as well as AI code review tools, each from different companies than the others, in total 6 of them. All came with the same following feedback: The use of the keyword new here is an anti-pattern of Spring Boot. IoC, DI should be leveraged. This implementation has memory issues over using Spring Boot bean design. Failing to understand the feedback, I went to try to refactor to: [CODE] [CODE] [CODE] [CODE] [CODE] [CODE] [CODE] While I think this is more \"Spring like\" (not sure, if you could help confirm), I am getting: [CODE] Question: How to properly refactor this into Spring like, and having the project work like solution one? P.S. If possible, it would be great to highlight the drawbacks of solution 1. While I just blindly trust nd follow the analysers, I am having a hard time understanding what is the issue"
+ },
+ {
+  "question_id": 79863884,
+  "ym": "2026-01",
+  "creation_date": 1767927120,
+  "title": "How to extract all keys from a ConcurrentHashMap in Eclipse MAT(Memory Analyzer Tool)?",
+  "tags": [
+   "java",
+   "heap-dump",
+   "eclipse-mat"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm analyzing a heap dump using Eclipse MAT and need to extract all the keys from a [code] object. Current Situation: As shown in the screenshot, I have a [code] object: Object: [code] Type: [code] The map contains multiple entries (80,904 entries total) In the MAT tree view, I can see the internal structure: [code] → [code] Individual [code] objects with [code] and [code] fields For example, one visible key is \"SELF_TEST_C_GROUP\" (String @ 0x6c1f0d4a0) My Question: What is the correct way to extract all keys from this ConcurrentHashMap in MAT? I need to get a list of all the String keys stored in this map. I've tried using the Inspector view to navigate the structure manually, but with 80,904 entries, this is not practical. What I'm Looking For: An OQL query that can extract all keys, or A method using MAT's built-in features to export/view all keys enter image description here Any guidance would be greatly appreciated!"
+ },
+ {
+  "question_id": 79864072,
+  "ym": "2026-01",
+  "creation_date": 1767949281,
+  "title": "Is a plain write inside a synchronized block sufficient for eventual visibility to getOpaque()?",
+  "tags": [
+   "java",
+   "multithreading",
+   "concurrency",
+   "java-memory-model",
+   "memory-visibility"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "From Using JDK 9 Memory Order Modes by Doug Lea : Opaque mode, obtained using VarHandle getOpaque and setOpaque, adds constraints over Plain mode that provide minimal awareness of a variable that is subject to interthread access, when all accesses use Opaque (or stronger) mode [...] Release/Acquire (or RA) mode is obtained using VarHandle setRelease, getAcquire and related methods, and adds a \"cumulative\" causality constraint to Opaque mode We have a mostly single-threaded, performance-critical code path. We want to expose an internal collection size for metrics (for Grafana), which are collected by another thread. The metric value does not need to be perfectly up to date - it just needs to become visible eventually. To avoid the overhead of [code] fields or synchronized reads, we use a wrapper like this: [CODE] The metric is always updated while holding some unrelated lock: [CODE] The metric collector thread periodically calls [code] using [code] . Questions: Does performing a plain write inside a [code] block provide the same eventual visibility guarantees to another thread calling [code] as an explicit [code] ? Is a \"random\" [code] block around the write sufficient to ensure eventual visibility to an opaque read? Is this behavior guaranteed by the Java Memory Model / [code] specification, or is it merely an implementation detail that happens to work on current JDKs? Can this"
+ },
+ {
+  "question_id": 79864397,
+  "ym": "2026-01",
+  "creation_date": 1767970267,
+  "title": "Java Resource for learning",
+  "tags": [
+   "java",
+   "backend"
+  ],
+  "score": 1,
+  "answer_count": 4,
+  "is_answered": true,
+  "body_excerpt": "I’m planning to start preparing for Java backend development. Can someone recommend a good Java resource or learning path to get started?"
+ },
+ {
+  "question_id": 79864417,
+  "ym": "2026-01",
+  "creation_date": 1767971311,
+  "title": "What are the imports used in spring cloud gateway rate limiter documentation",
+  "tags": [
+   "java",
+   "spring",
+   "spring-cloud",
+   "spring-cloud-gateway"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am reading spring cloud gateway mvc (v5.0.0) documentation for rate limiters as linked here https://docs.spring.io/spring-cloud-gateway/reference/spring-cloud-gateway-server-webmvc/filters/ratelimiter.html The linked documentation uses a function called [code] with signature [code] . Where does that function come from? [code] either accepts 0 parameters, or 2 parameters with following signature [code] . Similar question is posed about [code] . Where does it come from? Is this hallucinated by an LLM?"
+ },
+ {
+  "question_id": 79864560,
+  "ym": "2026-01",
+  "creation_date": 1767982089,
+  "title": "How to set the enviroment variables in windows 11 for building android 15 in cordova in 2026",
+  "tags": [
+   "java",
+   "android",
+   "windows",
+   "cordova"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am not managing to set the correct enviroment variables to build android 15 in cordova. To build android 15 you need Java 11 or 17 but it does not have the correct build-tools that are only found in Java 8. But I can not set both 11 or 17 and 8 in the same enviroment settings java_home. Anyone with working eneviroment settings.I have tried this so far and it still does not work [CODE]"
+ },
+ {
+  "question_id": 79864742,
+  "ym": "2026-01",
+  "creation_date": 1768005345,
+  "title": "Error in country and city autocomplete google maps for USA cities",
+  "tags": [
+   "java",
+   "android",
+   "google-maps",
+   "autocomplete"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "In my Android app, I'm using a field where users first choose a country and then a city, using a pair of Place Autocomplete (Legacy) elements. When the user selects a country, parameters are used to display only city names within that country. https://developers.google.com/maps/documentation/places/android-sdk/legacy/autocomplete?hl=es-419 When I select most countries, the app correctly returns the list of cities. In the example I'm using, I first select the United Kingdom, France, Spain, and Russia, but the problem is that when I try to select the USA, Mexican cities appear incorrectly. I've attached a video as evidence. https://drive.google.com/file/d/14QkfwMkfMowwmbAQ13RFJNqylHTCMSHU/view?usp=sharing Could you tell me why this error occurs and how to fix it?"
+ },
+ {
+  "question_id": 79864779,
+  "ym": "2026-01",
+  "creation_date": 1768016564,
+  "title": "Why does self-invocation bypass @Transactional in Spring Boot, even when using CGLIB proxies?",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "In a Spring Boot application, a [code] method is called from another method within the same bean (self-invocation). Even with CGLIB proxying enabled, the transaction is not applied. How does Spring’s proxy-based AOP implementation cause this behavior internally, and what design choices in the framework prevent transaction interception in this case?"
+ },
+ {
+  "question_id": 79864787,
+  "ym": "2026-01",
+  "creation_date": 1768019440,
+  "title": "Not able to control number of Virtual Threads",
+  "tags": [
+   "java",
+   "java-21"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have following java code. Here I am trying to control number of Virtual threads learned and inspired by this SO thread . But still I see a separate and uncontrolled number of thread IDs for each file operation. What I am missing here? [CODE] Update: Based on DuncG's suggestions and comments, I came up with this: [CODE]"
+ },
+ {
+  "question_id": 79864862,
+  "ym": "2026-01",
+  "creation_date": 1768034016,
+  "title": "VS Code not showing hover documentation for Java annotations like @Entity and @Data",
+  "tags": [
+   "java",
+   "spring-boot",
+   "visual-studio-code",
+   "annotations",
+   "hover"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am using VS Code for Java development (Spring Boot, JPA, Lombok) and I’m unable to see hover documentation (Javadoc) for Java annotations. For example, when I hover over: [CODE] VS Code does not show any description or documentation popup . Environment OS: Windows Editor: VS Code (latest) Java extensions: Java Extension Pack installed Java version: JDK 17 Project type: Maven Spring Boot project Libraries: Spring Boot, Hibernate (JPA), Lombok Expected behavior Hovering over Java annotations should show Javadoc explaining what the annotation does. Actual behavior No hover documentation is shown for annotations Java code compiles and runs normally Autocomplete and imports work Question Is there any additional configuration required in VS Code to enable hover Javadoc for Java annotations , or is this a limitation/known issue with Lombok or JPA annotations in the Java Language Server?"
+ },
+ {
+  "question_id": 79865006,
+  "ym": "2026-01",
+  "creation_date": 1768053341,
+  "title": "Accessing Sort Index for JTable",
+  "tags": [
+   "java",
+   "sorting",
+   "jtable",
+   "indexoutofboundsexception"
+  ],
+  "score": 0,
+  "answer_count": 9,
+  "is_answered": true,
+  "body_excerpt": "In the Java file browser I’m working on, I’m running two components at the same time: a JTable and a JList. Both refer to the same file list, and I'd like both to be sorted the same way -- ideally by applying the JTable's sort (maintained by its TableRowSorter) to the JList. Question: Is it possible to access/copy the internal index from the JTable? I’ve tried recreating it by iterating the JTable's list and using TableRowSorter.convertRowIndexToModel, but I keep getting array out of bounds exceptions. [CODE]"
+ },
+ {
+  "question_id": 79865285,
+  "ym": "2026-01",
+  "creation_date": 1768095314,
+  "title": "Operation is not allowed - firebase phone verification code",
+  "tags": [
+   "java",
+   "android",
+   "firebase",
+   "firebase-authentication",
+   "sms-verification"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to build a phone number OTP verification system using Firebase and Android Studio using Java. I've set up the things in Firebase, the SHA-1 and SHA-256, and the phone sign-in method is Enabled. The error message is: This operation is not allowed. This may be due to the given sign-in provider being disabled of this Firebase project. I've tried talking to AI but with no luck. Here's the full code of the Java activity, note that the [code] method is not finished yet: [CODE]"
+ },
+ {
+  "question_id": 79865329,
+  "ym": "2026-01",
+  "creation_date": 1768106829,
+  "title": "Can a Java backend developer transition into AI-focused roles in the future, and what skills should be built early?",
+  "tags": [
+   "java"
+  ],
+  "score": 1,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I’m a software developer currently focused on Java backend development (Spring Boot, REST APIs, databases, system design). With the rapid growth of AI and machine learning , I’m trying to understand how backend development fits into this future."
+ },
+ {
+  "question_id": 79865346,
+  "ym": "2026-01",
+  "creation_date": 1768110423,
+  "title": "Which is the best data type for createdDate and modifiedDate for mongo collection to store dates in database of spring boot application with java 17",
+  "tags": [
+   "java",
+   "spring",
+   "mongodb",
+   "spring-boot",
+   "jparepository"
+  ],
+  "score": 5,
+  "answer_count": 6,
+  "is_answered": true,
+  "body_excerpt": "I'm building a Spring Boot microservice with Java 17 and need guidance on the best practice for choosing date types for createdDate and modifiedDate fields in MongoDB collections. These fields are used solely for auditing and not for business logic. Should I use Instant or LocalDateTime?"
+ },
+ {
+  "question_id": 79865358,
+  "ym": "2026-01",
+  "creation_date": 1768112262,
+  "title": "I have this build failure error as Factory method &#39;dataSource&#39; threw exception with message: Failed to determine a suitable driver class",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "This is my application.properties file [CODE] And my pom.xml file [CODE] [CODE] When I run , the above error is shown in my terminal, I tried removing the plugin, changing scope from runtime to compile, specifying version number all from previous stackoverflow question none of those solution helped. ./mvnw -DskipTests -Pnative native:compile"
+ },
+ {
+  "question_id": 79865582,
+  "ym": "2026-01",
+  "creation_date": 1768145635,
+  "title": "Why does ArrayIndexOutOfBoundsException occur in this Java loop?",
+  "tags": [
+   "java",
+   "arrays"
+  ],
+  "score": -3,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am a beginner in Java and currently learning arrays and loops. I wrote the following code to print all elements of an array using a for loop. However, when I run the program, it throws an [code] . I expected the loop to print all array elements, but the program crashes on the last iteration. I am confused about why this happens even though I am using arr.length in the loop condition. Can someone explain what is causing this exception and how I should correctly iterate over an array in Java to avoid this error? [CODE]"
+ },
+ {
+  "question_id": 79865633,
+  "ym": "2026-01",
+  "creation_date": 1768152161,
+  "title": "I&#39;m new to Swing, can somebody tell me why does it not work?",
+  "tags": [
+   "java",
+   "swing"
+  ],
+  "score": -6,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I was writing a basic UI app using [code] package in Java. Since I'm new, I started off by trying to make a clicker game with this code: [CODE] [Java 25] this code gives me an output something like this: The JFrame has correct size, but the JButton fills it fully Can somebody identify the error and tell me ways to fix it?"
+ },
+ {
+  "question_id": 79865727,
+  "ym": "2026-01",
+  "creation_date": 1768163865,
+  "title": "Spring WebClient, database connection. issue: java.lang.IllegalArgumentException: invalid URI scheme localhost",
+  "tags": [
+   "java",
+   "html",
+   "spring",
+   "rest",
+   "spring-webflux"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to complete a project where I'm learning Java and Spring programming. I've been trying to solve a problem I'm stuck on, and I can't figure out where I went wrong. I am currently trying to learn how WebClient (WebFlux) works in Java Spring. I've created a REST API and a API Consumer that will interact with it via a website. However, I can't get the main page to work, which is supposed to display items added to the database. What can I try next? I get the following ERROR message: [CODE] Code from REST API [CODE] [CODE] Code from API consumer [CODE] [CODE] [CODE] [CODE] HTLM [CODE]"
+ },
+ {
+  "question_id": 79865838,
+  "ym": "2026-01",
+  "creation_date": 1768187870,
+  "title": "OpenSAML Signing with Azure Key Vault using Azure&#39;s KeyVaultJcaProvider : engineInitSign() not supported",
+  "tags": [
+   "java",
+   "cryptography",
+   "saml",
+   "azure-keyvault",
+   "opensaml"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am attempting to sign the OpenSAML response using Azure KeyVault but the default keyvault behaviour does not allow me to sign the payload because [code] has [code] for the \"SHA256withRSA\" signature. There are no straightforward ways to overwrite this behaviour in [code] Ideally, i want to set the service with following, so that OpenSAML Signer uses RSASignature without using [code] , but there is no way I found to enforce this. [CODE] Alternatively, is there a simpler way to sign a SAML with OpenSAML by passing the JCAProvider? I have the following in my code : Application.java [CODE] Config which sets the signing credential as a BasicX509Certificate [CODE] SAML Code >> [CODE] This is the error stack trace : [CODE]"
+ },
+ {
+  "question_id": 79865906,
+  "ym": "2026-01",
+  "creation_date": 1768201027,
+  "title": "I want advice on &quot;how to parse any file using python/java/c?&quot;",
+  "tags": [
+   "python",
+   "java",
+   "c"
+  ],
+  "score": 1,
+  "answer_count": 4,
+  "is_answered": true,
+  "body_excerpt": "I came here to ask you all, should I build a parser to parse a file or use the inbuild libraries. In java, python we have libraries. But when it comes to other files how can we parse if there is no parser is available (assuming internet outage). what is the best practice while parsing a file? I know the parsing will depend on file to file but where should I start with first?"
+ },
+ {
+  "question_id": 79865943,
+  "ym": "2026-01",
+  "creation_date": 1768204886,
+  "title": "How to customize MFA in Spring Security 7?",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "spring-security",
+   "spring-oauth2"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Is there a way I can customize MFA so that if a user logs in with an OIDC provider like Google or Facebook they can simply access my app but if a user wants to log in using a username password authentication then they will have to also verify their email with the one time token login. The behaviour I'm trying to replicate is that a user will have to authenticate with one time token as well if they choose to go with the username password authentication but if they choose an OAuth2 provider then just that one method of authentication is good enough. [CODE] This way I can make my auth service to authenticate using both factors but for a Google login I will do that at the API gateway."
+ },
+ {
+  "question_id": 79866121,
+  "ym": "2026-01",
+  "creation_date": 1768220867,
+  "title": "Maven (incorrectly?) gives a syntax error if module-info.java has a &quot;provides&quot; in it",
+  "tags": [
+   "java",
+   "maven",
+   "maven-3",
+   "module-info",
+   "java-25"
+  ],
+  "score": 6,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have the following directory structure. [CODE] I use the following command to compile, and it works successfully. [code] Here is my pom.xml. [CODE] Here is my [code] . [CODE] And here is my [code] file. Notice that I am using a new language feature released in Java 25 -- Module Imports . [CODE] When I try to run [code] , I get the following output. [CODE] And before anyone asks, no there, are not any special characters or hidden whitespace. I deleted and retyped the whole file, so I'm not seeing what is wrong here. I am very seriously considering this to be a bug with Maven. Am I wrong? Here is some more useful debugging info: [CODE]"
+ },
+ {
+  "question_id": 79866180,
+  "ym": "2026-01",
+  "creation_date": 1768225859,
+  "title": "Old redhat.java extension is installed in devcontainer since code version 1.107.0",
+  "tags": [
+   "java",
+   "visual-studio-code",
+   "vscode-devcontainer"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "First of all, I'm not 100% sure if this is intended behavior! Given is a Java project in version 25 which is built by means of a development container based on an alpine image (currently [code] ). After code update to 1.107.0 and rebuild of the devcontainer, compilation problems poped up indicating that JavaSE-19 is used for building. With that I noticed that code extension redhat.java was installed in version 1.13.0 from December 2022. Before code update or by downgrading to version 1.106.3, the latest version is going to be installed in the devcontainer. In order to resolve this problem, I tried to pin the version in devcontainer.json on the one hand. The devcontainer build log showed the output [code] and fall back to 1.13.0. On the other hand I used newer alpine images (3.22 and 3.23 for jdk-25). Both measures were not successful! The log also showed a list of available redhat.java versions: [CODE] My assumption is that something changed in code version 1.107.0 that results in a selection according to the distro of the base image (here alpine with only one option). Is this correct behavior? Do we have to use another distro for our development image in order to use it as a code devcontainer?"
+ },
+ {
+  "question_id": 79866189,
+  "ym": "2026-01",
+  "creation_date": 1768226713,
+  "title": "How exactly non-blocking database access work?",
+  "tags": [
+   "java",
+   "spring",
+   "reactive",
+   "nonblocking",
+   "r2dbc"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to understand how worker thread gets returned for other operations while there is still data-access query operation going on? How does it work in reactive libraries? For example- How does R2DBC work internally compared to blocking database access library like Spring Data JDBC? What does it entail by non-blocking database access or any general IO operation because obviously some thread still has to work on it?"
+ },
+ {
+  "question_id": 79866266,
+  "ym": "2026-01",
+  "creation_date": 1768232367,
+  "title": "Design using Java solid principles with cap theorem utilizing low level design banking application",
+  "tags": [
+   "java",
+   "solid-principles",
+   "system-design",
+   "cap-theorem",
+   "low-level-code"
+  ],
+  "score": 0,
+  "answer_count": 11,
+  "is_answered": true,
+  "body_excerpt": "I have a basic [code] interface and then two classes implementing it - [code] and [code] . Now when account is in the opened state, then only can I do transactions like withdraw and deposit; if the account is in the closed state, then I cannot do transactions like deposit and withdrawal operations. If the opened state is chosen and savings is chosen and deposit money operation is chosen, then I can deposit money using by submitting cash physically RTGS online Google Pay If withdraw is chosen then I can withdraw the money using online or Google Pay. If the closed state is chosen, then I cannot deposit or withdraw any money. Also design it satisfying the CAP theorem and should use concepts of factory design pattern as and when needed then only initialize the class object when required. Please tell how to do this. Use other design patterns also satisfying the CAP theorem and as well as satisfying all the 5 solid principles. [CODE] I want a solution for both scenarios in single system and as well as for distributed system applying cap theorem, solid principles and design patterns what all code body interfaces can be written to solve?"
+ },
+ {
+  "question_id": 79866473,
+  "ym": "2026-01",
+  "creation_date": 1768251510,
+  "title": "how many objects will be created with keyword new in java?",
+  "tags": [
+   "java",
+   "string",
+   "memory-management",
+   "string-literals"
+  ],
+  "score": -1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I just saw a video that explains basic concepts about string memory allocation (video: https://www.youtube.com/watch?v=gp6NY01XFoE ). In 3:00, he says that two objects are created (one in String Pool and one in heap) with the line: [CODE] But this has me confused."
+ },
+ {
+  "question_id": 79866629,
+  "ym": "2026-01",
+  "creation_date": 1768278319,
+  "title": "How to load OpenAPI YAML specification from external JAR in Spring Boot 3",
+  "tags": [
+   "java",
+   "openapi"
+  ],
+  "score": 3,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have an openapi.yml file (OpenAPI 3.0 specification) in an external JAR library. How can I configure Springdoc OpenAPI + Swagger UI to display this specification from the external JAR instead of generating it automatically from the code? I am using Kotlin + Webflux + Spring Boot 3. I have already added all the necessary dependencies. I have checked that swagger ui and api api-docs are open. How can I use yml from an external library now? openapi.yml looks like: [CODE]"
+ },
+ {
+  "question_id": 79866691,
+  "ym": "2026-01",
+  "creation_date": 1768286460,
+  "title": "Isn&#39;t the object returned by ThreadPoolTaskExecutor.getThreadPoolExecutor() the same?",
+  "tags": [
+   "java",
+   "spring-boot",
+   "threadpool"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I initialized a Bean for ThreadPoolTaskExecutor myself. Then call threadPoolTaskExecutor.getThreadPoolExecutor().hashCode() to get the latest hasCode. [CODE] Then use BeanPostProcessor to retrieve him. [CODE] The printed hashCode is different. [CODE] ThreadPoolTaskExecutorinitialize has been called in the AsyncConfigUtil.createThreadPoolTaskExecutor() method. I checked the source code of the initializeExecutor, and no other place has reinitialized the executor. What circumstances make them different?"
+ },
+ {
+  "question_id": 79866716,
+  "ym": "2026-01",
+  "creation_date": 1768289728,
+  "title": "Timefold VRP : Large Capacity Vehicle Routing",
+  "tags": [
+   "java",
+   "optaplanner",
+   "timefold"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "We are solving a Vehicle Routing Problem using Timefold where a client’s demand is larger than any vehicle capacity. We split each client demand into multiple Visit entities: Each Visit represents a portion of the total demand. Visit has a boolean planning variable active with range of (True,False). Visit has an Integer planning variable demand with range [8..16]. We enforce a constraint that groups visits by client and ensures: sum(demand) of active visits == client total demand This model produces correct solutions, but solver performance degrades significantly as the number of visits grows. Question: Which aspects of this model cause poor performance in Timefold? How does having multiple planning variables (active, demand) on the same entity affect the search space? Are there Timefold-recommended modeling patterns to reduce the combinatorial explosion in this scenario? I am looking for a Timefold-specific explanation of performance behavior rather than general design advice."
+ },
+ {
+  "question_id": 79866787,
+  "ym": "2026-01",
+  "creation_date": 1768295786,
+  "title": "Spark job fails with UnsafeExternalSorter OOM when using groupBy + collect_list + sort – how to optimize?",
+  "tags": [
+   "java",
+   "apache-spark",
+   "kubernetes",
+   "pyspark",
+   "apache-spark-sql"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "How to replace [code] with a more memory-efficient approach in Spark SQL? I have a Spark (Java) batch job that processes large telecom event data The job is failing with `SparkOutOfMemoryError` / `UnsafeExternalSorter: No space left on device` during a shuffle-heavy stage. From Spark UI: - Shuffle Read: ~300 GB - Spill (Memory): > 1 TB - Spill (Disk): hundreds of GB - Failure happens in `UnsafeExternalSorter` during aggregation The problematic logic is aggregating events per `sip_row_key` using `groupBy + collect_list + array_sort` to build a time-ordered list of cells (ECI). This is the block of code that causes the error: [CODE] Each [code] may have many EBS events, so [code] creates very large arrays, causing heavy memory pressure and disk spill."
+ },
+ {
+  "question_id": 79866815,
+  "ym": "2026-01",
+  "creation_date": 1768297572,
+  "title": "Where does the actual source code belong in an Eclipse IDE Gradle project?",
+  "tags": [
+   "java",
+   "eclipse",
+   "gradle",
+   "directory",
+   "project-structure"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have just picked up Java with Gradle again with the intention to recall my skills with a social-network backend practice project. As I've neither used Gradle nor Eclipse IDE for long, I'm stuck on a trivial question: Where do I write my source code in the Gradle project structure? The image ( Gradle Project Structure ) shows my Buildship auto-generated Gradle project in the project explorer. My project encompasses a [code] directory with the [code] file and the package folders [code] and [code] . However, a directory structure of general folders [code] and [code] exists alongside with it in the same directory. I am accustomed to an [code] folder directly at the project root (i.e. [code] ) instead of [code] , hence my confusion to where I should create my packages and write my source-code. EDIT: This visual separation is an Eclipse IDE internal quirk where the IDE additionally strips the functional \".java\" files of the application visually into a \"source folder\", while keeping non \".java\" files in a separately displayed \"normal folder\" structure. (\"source folder\" vs \"normal folder\" separation is very strict in Eclipse IDE) This eases visual separation between source files and non-java files in the src folder, but doesn't actually generate two separate src folders. (when I open it in my mac's finder, there only exists one 'src' folder)"
+ },
+ {
+  "question_id": 79866851,
+  "ym": "2026-01",
+  "creation_date": 1768300390,
+  "title": "When is a record not a value type?",
+  "tags": [
+   "java",
+   "record",
+   "value-type"
+  ],
+  "score": 1,
+  "answer_count": 7,
+  "is_answered": true,
+  "body_excerpt": "Introduction Jep 401 will introduce \"value classes\" to the Java programming language. As such, they have no identity, as their inherent state completely describes what they are. The non-goals of this JEP contain the following point: It is not a goal to automatically treat existing classes as value classes, even if they share some characteristics of value classes. [...] Now, to mark any existing class or record as a \"value class\" you will just have to prepend the [code] new keyword in front of it, and voilà, it loses its identity. Which made me wonder: Q: When is a record not a value type? The JEP doesn't really touch on this. It just says: Developers can declare their own value classes by applying the [code] modifier to any class whose instances should be immutable and interchangeable: Immutable : All instance fields of the class should be [code] , and the domain value represented by an instance will not change over time; and Interchangeable : It's not necessary to distinguish between two separately-created instances that represent the same domain value [...] Record classes are [code] and all their fields are [code] , so they are often good candidates to be value classes. Brian Goetz, one of the Java Language architects, frequently describes records as \"The data, the whole data, and nothing but the data.\", but if records are really \"nothing but the data\", doesn't this imply, th"
+ },
+ {
+  "question_id": 79867017,
+  "ym": "2026-01",
+  "creation_date": 1768313550,
+  "title": "OptaPlanner Constraint Streams: Can complement() use a derived groupBy key",
+  "tags": [
+   "java",
+   "constraints",
+   "timefold"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I’m using OptaPlanner Constraint Streams (Java) and want to penalize employees who work less than their minimum required minutes per week, including weeks with zero shifts . I currently have this constraint: [CODE] The problem is that [code] is derived from [code] and is not a property of [code] . Is it possible to use [code] with a derived [code] key like [code] ?"
+ },
+ {
+  "question_id": 79867176,
+  "ym": "2026-01",
+  "creation_date": 1768324959,
+  "title": "How to make wiremock server logs the file containing the stub mapper used in a response?",
+  "tags": [
+   "java",
+   "stub",
+   "wiremock"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have got a wiremock server in java. It contains several .json files to returns answer for each request. Something like file1.json [CODE] file2.json [CODE] With dozens of request and folders and files like that. I would like to know, if posible, when a response is procesed and returned, to log something like: [CODE] or something similar. To see the match between the request done and the file wiremock found/matched for that request. I know if a request does not match any match an error is shown and \"the closest stub found is...\" is shown. Also in internet I found I could make a transformer extending [CODE] and use then [CODE] but that is usefull only if the stub response points to a file, not if the stub file contains the json body directly. Also in serverEvent.stubmapping I dont see anything usefull Any ideas. Or a flag o debug level of wiremock to show debug info? UPDATE 2025-01-14: I found out I can get an uuid of the stubmapping wiremock decided to use to make the response (it is in the serverEvent.stubmapping object), and retrieve the maping with the API web (/__admin/) but no way to asociate it with the json file that make the stub. Also running wiremock with loglevel set to debug is no usefull. And my question has nothing related with the \"duplicate answer\", that is for wiremock via docker."
+ },
+ {
+  "question_id": 79867226,
+  "ym": "2026-01",
+  "creation_date": 1768327870,
+  "title": "Java log4j2 configuration using different files for different log levels",
+  "tags": [
+   "java",
+   "logging",
+   "configuration",
+   "log4j2",
+   "levels"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a configuration for [code] as a property file which looks like this: log4j2.properties [CODE] Running with this configuration, I get all log files created in the log/directory. [code] contains all level messages. [code] contains INFO-level messages even if no debug calls were made to log. [code] , fatal.log, off.log and warn.log are empty. [code] contains only INFO-level messages, but the format is off a bit. [code] contains INFO and TRACE level messages. Question Why do trace.log and debug.log contain INFO messages?"
+ },
+ {
+  "question_id": 79867259,
+  "ym": "2026-01",
+  "creation_date": 1768330796,
+  "title": "How to get Maven&#39;s JavaDoc plugin to put JavaDoc in &#39;docs&#39; directory?",
+  "tags": [
+   "java",
+   "maven",
+   "javadoc",
+   "maven-javadoc-plugin"
+  ],
+  "score": 4,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have the following in my [code] file in an attempt to get Maven to compile my JavaDoc and put it into my projects 'docs' directory. (This is for compatibility with GitHub Pages). [CODE] It almost works, but it is putting the files in [code] instead of in [code] . How can I get it to stop adding the [code] folder and put the files directly in [code] ? My question is different from this question because (1) the person asking that question does not seem to be experiencing the same weird behavior where Maven adds [code] to the path and (2) the solution proposed there uses settings deprecated in maven-javadoc-plugin version 3.12."
+ },
+ {
+  "question_id": 79867393,
+  "ym": "2026-01",
+  "creation_date": 1768348259,
+  "title": "Can I use StreamingResponseBody with a generic ResponseEntity&lt;?&gt;",
+  "tags": [
+   "java",
+   "spring",
+   "spring-mvc"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have a situation where I need to sometimes return a stream ( [code] ), and other times some other (synchronous) value ( [code] , etc.). When [code] set directly as the return type of the [code] method, the stream is written correctly and received by the client. However, to support the other case I would like to use [code] and allow effectively arbitrary response types. When I do so, other return types work correctly except [code] , which now throws an exception: [CODE] Is there anything I can do to resolve this? Full example below: [CODE]"
+ },
+ {
+  "question_id": 79867641,
+  "ym": "2026-01",
+  "creation_date": 1768384445,
+  "title": "if else style discussion",
+  "tags": [
+   "java",
+   "coding-style",
+   "code-cleanup"
+  ],
+  "score": 1,
+  "answer_count": 13,
+  "is_answered": true,
+  "body_excerpt": "I work in an environment that we had code review between ourselves to approve Merge request and i got a MR stopped because of this... [CODE] That i should be using [CODE] if i must put bracers in 1 line ifs why can i ignore the bracers on the else? My colleage said that it's a different command..."
+ },
+ {
+  "question_id": 79867839,
+  "ym": "2026-01",
+  "creation_date": 1768401728,
+  "title": "Swing spinner widget",
+  "tags": [
+   "java",
+   "swing"
+  ],
+  "score": 1,
+  "answer_count": 27,
+  "is_answered": true,
+  "body_excerpt": "Does any external library provide some spinner widget for Swing? I mean an animated icon that represents an ongoing operation. Like, a circular arrow that spins or something like that. Similar to this (generated by a chat bot): Even better would be some way to make a given static icon (a circular arrow) spin. It's relatively straightforward in JavaFX, but have no clue how to do it in Swing without a lot of low-level spaghetti code. Java 8."
+ },
+ {
+  "question_id": 79867953,
+  "ym": "2026-01",
+  "creation_date": 1768409583,
+  "title": "Correct dependency for @AutoConfigureMetrics and @AutoConfigureTracing (Spring Boot 4.0.1)",
+  "tags": [
+   "java",
+   "spring-boot",
+   "maven",
+   "dependencies",
+   "pom.xml"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am upgrading my Spring Boot app to Spring Boot 4.0.1. However, I can not figure out the correct dependency to add to my pom.xml for the following annotations in my @SpringBootTest annotated integration test base class: [CODE] [CODE] I already added the dependencies below, but without result yet: the compiler can't resolve these annotations. [CODE] The latter dependency [CODE] should not be necessary, but was advised me in order to solve the issue, but it did not help. Any ideas? FYI, I took the imports from the Spring Boot 4.0.0 javadoc, so these should be the right ones, but still the annotation classes are not resolved: * https://docs.spring.io/spring-boot/4.0-SNAPSHOT/api/java/org/springframework/boot/micrometer/metrics/test/autoconfigure/AutoConfigureMetrics.html * https://docs.spring.io/spring-boot/api/java/org/springframework/boot/micrometer/tracing/test/autoconfigure/AutoConfigureTracing.html"
+ },
+ {
+  "question_id": 79867972,
+  "ym": "2026-01",
+  "creation_date": 1768411406,
+  "title": "How to configure IDEA to look in different source sets depending on the build option?",
+  "tags": [
+   "java",
+   "kotlin",
+   "android-studio",
+   "gradle",
+   "intellij-idea"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "This is a Java/Kotlin project. I want to be able to write code with one abstraction in the [code] and different implementations in multiple source sets. And then run it as a Java application. There are two files in the [code] source set( [code] ). A file [code] with the abstraction [CODE] And a file [code] with the main method [CODE] The [code] source set( [code] ) contains implementation for [code] . [CODE] The [code] source set( [code] ) contains other implementation for [code] . [CODE] The structure of such a project will basically be as follows: [CODE] I added a new task to [code] that should compile and run the code from [code] along with the code from the [code] : [CODE] By running the [code] command, you can see that the code compiled successfully and ran. Then I did the same for [code] . And now [code] prints [code] , and [code] prints [code] (depending on the environment). My problem is that the IDEA for code highlighting still uses source compilation separately. [code] does not see [code] [code] does not see [code] It's worth clarifying that one does not inherit the other. This would be the case with [code] and [code] , where [code] knows about [code] , but [code] doesn't know about [code] . Therefore, simply adding [code] will not be enough. In my case, it should be a common code base. [code] knows about [code] in [code] . And [code] knows about [code] in [code] . I'"
+ },
+ {
+  "question_id": 79868048,
+  "ym": "2026-01",
+  "creation_date": 1768418944,
+  "title": "Implementing remember-me/stay logged in logic in a Servlet",
+  "tags": [
+   "java",
+   "servlets",
+   "remember-me"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I would like to implement a remember-me functionality in my very plain servlet-based system. No Spring, No Shiro, nothing. I'm mightily struggling to make it work. On paper, it seems fairly straightforward. I used the following thread to get me started \\[Very nice Remember Me thread\\]( How to implement \"Stay Logged In\" when user login in to the web application ) To the best of my comprehension, the above-linked thread offered 3 solutions: 2 by BalusC and the 3rd one by (Ilyua) Basin at the bottom of the thread. My current attempt is to implement solution 2 from BalusC for [code] . As I was unable to make the other 2 work. Here, I'm encountering 2 issues. However, I will only mention one issue so that my question doesn't get closed. The filter seems to be called 3 times during the login process. When my [code] page requests a protected resource [code] , the filter is called with the session being [code] , and everything is good. During this call, I check the cookie and the DB entry, and if either is missing. I forward the user to the [code] page to provide their credentials for the first time. The user specifies the credentials and submits the form; the filter is called a second time. Seeing in the filter that we are coming from the login.jsp I forward the call to the servlet that processes the login page. That servlet now has a non-null session. It creates a cookie, inserts a r"
+ },
+ {
+  "question_id": 79868184,
+  "ym": "2026-01",
+  "creation_date": 1768439778,
+  "title": "How best to implement Edge-to-Edge design on an XML based Android application",
+  "tags": [
+   "java",
+   "android"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have an XML, AndroidX based application (i.e. not using any Jetpack Compose components) that now targets SDK 36 and I need to update to take advantage of edge-to-edge. Having read a number of guides, stackoverflow posts and watched numerous videos, I'm confused at where to even start. Should I be using WindowCompat.enableEdgeToEdge() , WindowCompat.setDecorFitsSystemWindows() or EdgeToEdge.enable(this) and how does android:fitsSystemWindows=\"true\" fit in?"
+ },
+ {
+  "question_id": 79868282,
+  "ym": "2026-01",
+  "creation_date": 1768460295,
+  "title": "how to register a dubbo instance to the nacos registration center using a public ip address?",
+  "tags": [
+   "java",
+   "nacos",
+   "apache-dubbo"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "how to register a dubbo instance to the nacos registration center using a public ip address? because i want at local environment to call nacos test environment instance，convenient for local debugging, this way, I don't have to start all the microservice instances locally"
+ },
+ {
+  "question_id": 79868508,
+  "ym": "2026-01",
+  "creation_date": 1768477687,
+  "title": "Hidden component still occupies space",
+  "tags": [
+   "java",
+   "swing"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I want to dynamically hide a field and make the lower components move up. For a reason I can't comprehend, I have to wrap the field in a [code] — otherwise, the space stays blank (unless I manually invoke [code] ). Is there a way to achieve the desired behavior without redundant component nesting or manual revalidation? Also, why is behavior different in the two cases? Wrapped: Not wrapped: MRE: [CODE] Java 8. Windows 10."
+ },
+ {
+  "question_id": 79868563,
+  "ym": "2026-01",
+  "creation_date": 1768481219,
+  "title": "Not able to send client certificate to nginx server - BouncyCastle",
+  "tags": [
+   "java",
+   "nginx",
+   "bouncycastle",
+   "tls1.3",
+   "mtls"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to send client side certificate to nginx server using mTls 1.3. I use my self signed certificate from my Java keystore, I already tested Firefox<->nginx using the exported keypair from my keystore manually. Nginx accepts that. But from my Java Bouncy Castle implementation, it fails. I've spent several days, but could not find solution to send client certificate properly. If I disable client verification on nginx, it works and this shows that my cert is not sent properly. [CODE] Here is my [code] [CODE] and [code] class [CODE] Java output: [CODE]"
+ },
+ {
+  "question_id": 79868645,
+  "ym": "2026-01",
+  "creation_date": 1768486629,
+  "title": "How to convert Java enum constant to its human-readable description string?",
+  "tags": [
+   "java",
+   "enums"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have Java enums with a [code] field that I want to persist to the database instead of the enum constant name. For example: [CODE] I've implemented an [code] : [CODE] And my entity: [CODE] The Problem: When I map from DTO to Entity, the enum is correctly assigned, but JPA saves the enum constant name ( [code] ) to the database instead of the description ( [code] ). The converter doesn't seem to be triggered. What am I missing?"
+ },
+ {
+  "question_id": 79868735,
+  "ym": "2026-01",
+  "creation_date": 1768493969,
+  "title": "How to create a P12 keystore with PBES2?",
+  "tags": [
+   "java",
+   "bouncycastle",
+   "pkcs#12"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "The upcoming openssl release 3.0 will remove support for weak crypto in PKCS#12 files. So .p12 files generated with the Bouncy Castle provider that typically have this crypto: [CODE] can then no longer be used with openssl. The obvious workaround in Java is to switch to the Sun provider which produces: [CODE] But can Bouncy Castle do this, too? This might be useful, for example when creating keystores where the friendlyName and localKeyID attributes need to be more finely controlled than is possible in the Java Keystore API. So here is what I tried: [CODE] this fails with: [CODE] Bouncy Castle does offer a [code] algorithm, but that produces P12 files that cannot be read with openssl or the Java keytool. There is a question about this on the Bouncy Castle GitHub discussion page , but that question was asked almost a year ago and has no answers yet. Can Bouncy Castle create openssl-3.0 compatible PKCS#12 files?"
+ },
+ {
+  "question_id": 79868832,
+  "ym": "2026-01",
+  "creation_date": 1768502279,
+  "title": "How can I set these values from my spreadsheetML in POI",
+  "tags": [
+   "java",
+   "apache-poi",
+   "spreadsheetml"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am working on a Java/Spring project where users submit data via XML files, we process the files, checking the data against specific checks, and logging any checks that are violated into an XML file that is stored in a CLOB in Oracle, and then we generate reports from the QA check XML as a multi-sheet Excel file that is user downloadable. Originally, we created XSLT templates that are used to transform the QA check XML into a SpreadsheetML file that can be opened by Excel, but recent extension-hardening changes by Microsoft now create a situation where when the SpreadsheetML file is opened by the user, they are notified that the data does not match the extension (we create the file as an .xls file). The file opens in Excel, but users are concerned that they are receiving the \"error\" message, and want to not see it. We cannot create the file as an XML file, as Excel does not natively open XML files, and if we set up an \"Open with...\" rule, then all XML files would be opened in Excel, and we don't want that either. After spending a significant amount of time researching trying to create an .xlsx file using XSLT, I abandoned that plan, and am now using XPath to parse the SpreadsheetML file, and create the Excel file using Apache POI. That is working as expected, but I've run into some SpreadsheetML values that I don't have any idea how to handle. There is a WorksheetOptions secti"
+ },
+ {
+  "question_id": 79868859,
+  "ym": "2026-01",
+  "creation_date": 1768504763,
+  "title": "Why would consumer.position() &gt; (consumer.endOffset(...) + 1) in Kafka?",
+  "tags": [
+   "java",
+   "apache-kafka"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have some code that prints out the [code] and current [code] in the [code] callback. I'm finding that the consumer position [code] end offset for the partition + 1 but I don't know why. I commit offsets manually as part of a transaction for exactly-once semantics: [CODE] The TTL for the offsets is greater than that of the events, so I could in theory get [code] as an end offset where the position > 0. This is fine and explainable. What am I missing? Kafka v3.1.0"
+ },
+ {
+  "question_id": 79868862,
+  "ym": "2026-01",
+  "creation_date": 1768504944,
+  "title": "Spring Authorization Server OAuth2AuthorizationServerConfigurer.authorizationServer() method not found",
+  "tags": [
+   "java",
+   "spring-security",
+   "spring-authorization-server"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am new to spring security. I have been looking to build an authorization server and I have went through a couple of documentations. I saw that all of them have used something like: [CODE] But when I do the same code in my app I get an error that the method is not defined. My build.gradle file is like: [CODE] Here is my full code: [CODE] And here is the output when I run [code] [CODE]"
+ },
+ {
+  "question_id": 79868959,
+  "ym": "2026-01",
+  "creation_date": 1768514797,
+  "title": "ERROR: failed to build: failed to solve: openjdk:17: failed to resolve source metadata for docker.io/library/openjdk:17-oracle:",
+  "tags": [
+   "java",
+   "docker"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have created a java appliction, I wish to upload the appliaction as a docker image. The Problem is it looks like Java 17 is not supported, or no longer supported. I have used FROM openjdk:17 I got the error ERROR: failed to build: failed to solve: openjdk:17: failed to resolve source metadata for docker.io/library/openjdk:17-oracle: docker.io/library/openjdk:17: not found I also used FROM openjdk:17-jdk-slim FROM amazoncorretto:17.0.7-alpine FROM openjdk:17-oracle I looked up https://hub.docker.com/_/openjdk To see if I can find a jdk17 I could use. Is there a way to search docker to see what JDKs are available. Or the excecise is Kubernetes, should I use another container with minikube, If docker does not, or no longer supports java 17"
+ },
+ {
+  "question_id": 79869105,
+  "ym": "2026-01",
+  "creation_date": 1768542642,
+  "title": "how to rectify javax.jms.JMSException: Failed to create connection?",
+  "tags": [
+   "java",
+   "jms",
+   "websphere",
+   "ibm-mq",
+   "websphere-liberty"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "We are(multiple JAVA applications) connecting to IBM MQ using the JMS / JNDI approach in a WebSphere Application Server environment. Each request follows the below high-level flow: Create a JNDI InitialContext using [code] Look up the JMS ConnectionFactory via JNDI (for example: [code] ) Look up the request queue and reply queue using JNDI Create a JMS Connection from the ConnectionFactory Create a non-transacted JMS Session with [code] Start the connection Create a MessageProducer Construct and send the MQ request message (CIH format) Close all JMS and JNDI resources in the [code] block similarly, we created the session connection for consumer. The JNDI and JMS connection creation logic is as follows: [CODE] Occasionally, when multiple applications invoke this JMS service concurrently , the application server throws the following exception during connection creation: [CODE] When this issue occurs: The failure happens at [code] We are unable to identify which calling application is causing the issue The problem is intermittent and occurs under concurrent load All JMS and JNDI resources are explicitly closed in the [code] block to avoid resource leaks: [CODE]"
+ }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "qid": 72456555,
+    "answer": "To create a grouped stacked bar chart in pandas, use matplotlib with proper positioning. Use `df.groupby()` to organize data, then iterate through groups with offset positions:\n\n```python\nimport matplotlib.pyplot as plt\nimport numpy as np\n\ngroups = df.groupby('Group')\nbar_width = 0.25\nx = np.arange(len(df['Category'].unique()))\n\nfor i, (name, group) in enumerate(groups):\n    offset = (i - len(groups)/2) * bar_width\n    group.plot(kind='bar', stacked=True, x='Category', ax=ax, \n               position=offset, width=bar_width)\n```\n\nAlternatively, reshape your data using `pivot_table()` and manually stack positions. The key is using matplotlib's `bottom` parameter for stacking and managing x-positions for grouping."
+  },
+  {
+    "qid": 77582739,
+    "answer": "For multi-output regression, the two methods calculate RMSE differently across outputs:\n\n- **Method 1** (`squared=False`): Computes MSE for all outputs combined, then takes square root (global RMSE)\n- **Method 2** (`math.sqrt()` on MSE): Same calculation\n\nThe discrepancy suggests your y_test/y_pred shapes differ. Verify shapes match and check if you're comparing:\n\n```python\nprint(y_test.shape, y_pred.shape)\nrmse1 = mean_squared_error(y_test, y_pred, squared=False)\nrmse2 = np.sqrt(mean_squared_error(y_test, y_pred))\nassert np.allclose(rmse1, rmse2)  # Should match\n```\n\nIf still different, check for NaN values or reshaping issues. For per-output RMSE, use: `from sklearn.metrics import mean_squared_error; rmse = np.sqrt(mean_squared_error(y_test, y_pred, multioutput='raw_values'))`"
+  },
+  {
+    "qid": 70177709,
+    "answer": "ONNX models don't retain AutoGrad graphs—they're inference-only. You cannot reconstruct gradients from a saved ONNX model. Solutions:\n\n1. **Keep original PyTorch model**: Store both the ONNX (for inference speed) and original nn.Module (for gradients)\n2. **Wrap ONNX with torch**: Use `torch.onnx` but retain the Python model for backward passes\n3. **Hybrid approach**: Use ONNX Runtime for fast forward, keep PyTorch for gradient computation\n\nFor physics models needing gradients, the cleanest solution is maintaining two versions:\n```python\nmodel_torch = MyModel()  # For gradients\nmodel_onnx = load_onnx_model()  # For inference\n```\n\nTorch-ORT is designed for inference acceleration, not gradient computation."
+  },
+  {
+    "qid": 78087383,
+    "answer": "Your `iterateList()` function has incorrect recursion. The problem is at this line:\n```python\nreturn [...] + iterateList(lst[start+1][1], 0, lst[start+1][0])\n```\n\nYou're passing `lst[start+1][1]` (a nested tuple) as the list, but then trying to index it with `start+1` which causes the out-of-range error. Fix it:\n```python\ndef iterateList(lst, start, end):\n    if start >= end:\n        return []\n    return [iterate(lst[start][1], 0, lst[start][0])] + iterateList(lst, start+1, end)\n```\n\nPass the original `lst` and increment `start`, not the nested structure."
+  },
+  {
+    "qid": 79937087,
+    "answer": "The spacing issue occurs because `str.translate()` transforms each digit independently. Unicode subscript characters aren't automatically kerned. Workaround:\n\n```python\nSUB = str.maketrans(\"0123456789\", \"₀₁₂₃₄₅₆₇₈₉\")\nbase = 16\nsub_base = str(base).translate(SUB)\nprint(f\"101{sub_base}\")  # No extra spacing\n```\n\nOr build subscripts manually to control spacing:\n```python\ndigit_map = {str(i): f\"\\u{subs[i]:04x}\" for i in range(10)}\nsub_base = ''.join(digit_map[d] for d in str(base))\n```\n\nThe gap is likely a font rendering issue—try a monospace font or use combining characters instead of precomposed subscripts."
+  },
+  {
+    "qid": 70934367,
+    "answer": "Tesseract struggles with small/low-contrast digit images. Improve preprocessing:\n\n```python\nframe = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)\n# Threshold to binary\n_, frame = cv2.threshold(frame, 127, 255, cv2.THRESH_BINARY)\n# Enhance contrast\nframe = cv2.equalizeHist(frame)\n# Upscale 2-4x\nframe = cv2.resize(frame, None, fx=3, fy=3)\n\nresults = pytesseract.image_to_data(\n    frame, output_type=Output.DICT,\n    config=\"--psm 7 --oem 3 -c tessedit_char_whitelist=0123456789/\"\n)\n```\n\nKey changes: Use PSM 6/7 (single text line) instead of 10. Add threshold and histogram equalization. Increase scale. Your current PSM 10 (single character) fails on multi-character sequences like \"15/0\"."
+  },
+  {
+    "qid": 77741487,
+    "answer": "In `df.query()`, quoted strings inside the expression are treated as string literals, not column names. Use backticks for columns with spaces:\n\n```python\ndf.query(\"`Type 1` == 'Fire' and `Type 2` == 'Flying'\")\n```\n\nAlternatively, use `.loc` (which you've shown works), or rename columns first:\n```python\ndf.columns = df.columns.str.replace(' ', '_')\ndf.query(\"Type_1 == 'Fire' and Type_2 == 'Flying'\")\n```\n\nThe backtick syntax is the most direct fix for your current code."
+  },
+  {
+    "qid": 70546325,
+    "answer": "Your `if` statement evaluates the entire Series, not row-by-row. Use `np.where()` for element-wise assignment:\n\n```python\ndf['Non-Vacant-SuperPosnNbr'] = np.where(\n    df['supervisor'] == 'vacant',\n    df['SuperPosnNbr'],\n    df['Non-Vacant-SuperPosnNbr']\n)\n```\n\nOr with `.apply()` for complex logic:\n```python\ndef fill_supervisor(row):\n    if row['supervisor'] == 'vacant':\n        return row['SuperPosnNbr']\n    return row['Non-Vacant-SuperPosnNbr']\n\ndf['Non-Vacant-SuperPosnNbr'] = df.apply(fill_supervisor, axis=1)\n```\n\n`np.where()` is faster for simple conditions; `.apply()` is clearer for multi-step logic."
+  },
+  {
+    "qid": 68204051,
+    "answer": "The issue is that your two `fetch()` calls aren't coordinated—the second request may execute before FormData is fully populated or before the file is ready. Combine both into one request:\n\n```javascript\nconst formData = new FormData();\nformData.append('pic', event.target.files[0], uuid + '.png');\nformData.append('weight', weight);\nformData.append('note', note);\nformData.append('uuid', uuid);\nformData.append('userId', userId);\n\nfetch('https://something/api/other_img', {\n  method: 'POST',\n  body: formData\n})\n```\n\nAlso: Flask's `request.files.get()` won't receive data from `request.get_data()` JSON—keep file upload separate from JSON. Ensure your Flask route uses `@app.route(\"/api/other_img\", methods=[\"POST\"])` with `request.files` retrieval."
+  },
+  {
+    "qid": 76380434,
+    "answer": "`between_time()` is for time-of-day filtering, not timestamps. Use boolean indexing:\n\n```python\nstart = pd.Timestamp('2023-05-29 00:15:01.000138338')\nend = pd.Timestamp('2023-05-29 00:15:01.138503551')\n\ndf_filtered = df[(df['receive_timestamp'] >= start) & \n                 (df['receive_timestamp'] <= end)]\n```\n\nOr use `.loc` with `.between()`:\n```python\ndf_filtered = df.loc[df['receive_timestamp'].between(start, end)]\n```\n\nEnsure `receive_timestamp` is datetime dtype: `df['receive_timestamp'] = pd.to_datetime(df['receive_timestamp'])`"
+  },
+  {
+    "qid": 79724820,
+    "answer": "Django tests require explicit pytest-django markers. Add `@pytest.mark.django_db` to test methods:\n\n```python\nfrom django.test import TestCase\nimport pytest\nfrom rest_framework import status\nfrom rest_framework.test import APITestCase\n\n@pytest.mark.django_db\nclass BillAPITests(APITestCase):\n    def test_create_bill(self):\n        response = self.client.post(self.base_url, ...)\n        self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)\n```\n\nAlso ensure `pytest.ini` has Django settings configured:\n```ini\n[pytest]\nDJANGO_SETTINGS_MODULE = myproject.settings\n```\n\nThe `TEST` database config alone doesn't enable test DB usage—the marker/APITestCase instructs pytest-django to create and use the test database."
+  },
+  {
+    "qid": 79549687,
+    "answer": "Your O(n) algorithm is correct; slowness is likely from overhead, not logic. Optimize:\n\n```python\ndef lengthOfLongestSubstring(self, s):\n    longest = set()\n    l = 0\n    max_num = 0\n    \n    for r in range(len(s)):\n        while s[r] in longest:\n            longest.remove(s[l])\n            l += 1\n        longest.add(s[r])  # Remove redundant \"if not in\" check\n        max_num = max(max_num, r - l + 1)\n    \n    return max_num\n```\n\nRemove `print()` statements, unnecessary `if` check, and `continue`. If still slow, profile with `cProfile` to identify actual bottleneck—the algorithm itself is already optimal."
+  },
+  {
+    "qid": 79149763,
+    "answer": "Python 3.13 changed the REPL implementation, breaking readline vim bindings. Try:\n\n1. **Check Python version**: `python --version`\n2. **Use IPython/ptpython** instead (native vim support):\n   ```bash\n   pip install ptpython\n   ptpython  # Has vim mode built-in\n   ```\n3. **Set readline environment**:\n   ```bash\n   export PYTHONHASHSEED=0\n   python\n   ```\n4. **Check ~/.inputrc**:\n   ```\n   set editing-mode vi\n   set keymap vi-command\n   ```\n\nPython 3.13's new REPL doesn't use readline by default. Your best option is using ptpython or IPython, which have native vi/vim mode support."
+  },
+  {
+    "qid": 78086982,
+    "answer": "You cannot easily merge multiple .pyd files into one without major architecture changes. Instead of consolidating .pyd files, optimize loading:\n\n1. **Lazy imports**: Load modules only when needed\n2. **DLL pre-caching**: Windows caches DLLs after first load—subsequent launches are faster\n3. **Bootstrapper**: Use a lightweight launcher to pre-load DLLs in parallel\n4. **Consider alternatives**: Nuitka with proper plugin support might give better cold-start performance\n\nThe slow first launch is DLL resolution time, not Cython's fault. Accept it or use a launcher script that pre-warms the cache. Merging .pyd files isn't a practical solution."
+  },
+  {
+    "qid": 73563253,
+    "answer": "A temporary object is an instance created during an expression that exists only briefly before garbage collection. Examples:\n\n```python\nprint(MyClass())  # MyClass() is temporary—exists only during print()\n\nresult = some_function().method()  # Return value from some_function() is temporary\n\nwith ContextManager() as cm:  # __enter__() returns a temporary proxy in some cases\n    pass\n```\n\nRegarding `super()`: it returns a proxy object that's temporary—it exists only for the method call duration. The proxy disappears after the method completes; the underlying object (self) persists. Temporary objects are cleaned up by Python's garbage collector when no references remain."
+  },
+  {
+    "qid": 69007524,
+    "answer": "Your merge logic is correct, but the source arrays need proper sorting. The issue is you're not sorting—just reversing. Fix:\n\n```python\neven_lst = [lst[i] for i in range(len(lst)) if i % 2 == 0]\nodd_lst = [lst[i] for i in range(len(lst)) if i % 2 == 1]\n\neven_lst.sort(reverse=True)  # Largest to smallest\nodd_lst.sort()               # Smallest to largest\n\nres = []\nfor i in range(max(len(even_lst), len(odd_lst))):\n    if i < len(even_lst):\n        res.append(even_lst[i])\n    if i < len(odd_lst):\n        res.append(odd_lst[i])\n```\n\nYour reverse only reverses order, not sorts. Sort first, then merge."
+  },
+  {
+    "qid": 79862964,
+    "answer": "Yes, color-inverted ChArUco markers can be detected, but with reduced reliability. The ArUco detector relies on contrast—inversion changes it. Two approaches:\n\n1. **Try detection, then invert if needed**:\n```python\ndetector = cv2.aruco.ArucoDetector(dictionary, params)\ncorners, ids, rejected = detector.detectMarkers(img)\nif ids is None:\n    img_inverted = 255 - img\n    corners, ids, rejected = detector.detectMarkers(img_inverted)\n```\n\n2. **Auto-invert based on brightness**:\n```python\nif np.mean(img) < 128:  # Dark image\n    img = 255 - img\n```\n\nInverted markers may have lower detection confidence. Test both and compare detection quality."
+  },
+  {
+    "qid": 74972866,
+    "answer": "Create a 2D Gaussian using scipy or manual calculation:\n\n```python\nimport numpy as np\nfrom scipy.stats import multivariate_normal\n\n# Method 1: scipy (recommended)\nx, y = np.mgrid[0:10:1, 0:10:1]\npos = np.dstack((x, y))\ngaussian = multivariate_normal.pdf(pos, mean=[3, 5], cov=[[1, 0], [0, 1]])\n\n# Method 2: Manual\nx, y = np.meshgrid(np.arange(10), np.arange(10))\nsigma = 1.0\ngaussian = np.exp(-((x-3)**2 + (y-5)**2) / (2*sigma**2))\n\nmy_np_array = gaussian * np.array(my_np_list).reshape(10, 10)\n```\n\nAdjust `sigma` to control spread. Method 1 is cleaner; method 2 gives more control."
+  },
+  {
+    "qid": 79041578,
+    "answer": "On Windows, multiprocessing requires code to be wrapped in `if __name__ == '__main__':` because Windows uses spawn (not fork) to create processes. Fix:\n\n```python\nif __name__ == '__main__':\n    model = YOLO(\"yolov8n.yaml\")\n    results = model.train(data=\"config.yaml\", epochs=2)\n```\n\n`freeze_support()` is only needed if you're creating executables with PyInstaller; it's not necessary for script execution. The `if __name__` guard is mandatory on Windows."
+  },
+  {
+    "qid": 75600751,
+    "answer": "LSTM doesn't require 1-sample shifts. Using full-window shifts (1024 samples) is efficient and correct—LSTM learns sequence patterns regardless of shift size. Your approach is valid.\n\nHowever, be cautious of **label leakage**: ensure each window's label corresponds to that window only, not future data. If you're multiplying by windowing, verify:\n\n```python\n# Each row in training_set should have label that matches ITS window\nfor i, window in enumerate(training_set):\n    assert labels[i] corresponds to window[i]  # No data leakage\n```\n\nAlso: the multiplier (5x) means you have overlapping windows from same signal. Ensure train/test don't overlap temporally, or metrics will be artificially high. Otherwise, your approach is sound."
+  }
+]

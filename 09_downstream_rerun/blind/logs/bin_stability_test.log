@@ -1,0 +1,63 @@
+N=6000  usable after exposure trim (<= 38 months post) = 5201
+  dropped: 45 without creation date, 300 inside the final 90-day window
+
+=== A. duplicate closure within 90 days, by bin x period ===
+ bin   pre rate      n  post rate      n      diff               95% CI
+s  1     4.58%    415     1.96%   1227   -2.62%   [-4.78%, -0.47%]
+s  2     4.42%    294     1.57%    699   -2.85%   [-5.37%, -0.32%]
+s  3     5.12%    586     5.46%   1081   +0.34%   [-1.90%, +2.58%]
+s  4    12.32%    406    10.95%    493   -1.36%   [-5.58%, +2.86%]
+  RIVAL predicts the low bins rise; EXIT predicts all four flat.
+
+=== B. does the closure-by-bin gradient flatten after the event? ===
+  pre : Spearman rho=+0.1051 (p=1.4e-05)   LPM slope=+0.02250 (SE 0.00583)
+  post: Spearman rho=+0.1384 (p=2e-16)   LPM slope=+0.02635 (SE 0.00363)
+  interaction s x post = +0.00386 (SE 0.00687), p = 0.575
+
+=== C. what the rival requires, quantified ===
+  bin shares: {'s1': '0.244->0.351', 's2': '0.173->0.200', 's3': '0.345->0.309', 's4': '0.239->0.141'}
+  donor bins (those that lost share) had a pre-event duplicate rate of 10.39%
+  s1: under pure migration the post rate would be 6.35%; observed 1.96%  (NOT consistent)
+  s2: under pure migration the post rate would be 5.23%; observed 1.57%  (NOT consistent)
+
+=== D. question length within bin (right-censored at ~1400 chars) ===
+  text available for 5201/5201
+ bin  pre median  post median       MW p
+s  1         486          605   2.73e-12
+s  2         497          633   3.81e-09
+s  3         463          558    1.5e-09
+s  4         392          468   2.12e-05
+  RIVAL predicts within-bin length rises (more context pasted in).
+
+=== E. answers and votes within bin (platform-native, no classifier) ===
+ bin  ans pre  ans post  score pre  score post
+s  1     1.08      0.94       0.48        0.43
+s  2     1.12      1.00       0.43        0.57
+s  3     1.24      1.15       0.57        0.61
+s  4     1.62      1.56       0.68        0.60
+
+written: E:\智能体论文\P9b_IPM_20260919\工作文档\R2_downstream\blind\02_estimation\bin_stability_test.json
+
+=== F. how much migration is compatible with the closure data? ===
+  common moderation shift, estimated from the uncontaminated donor s4: -1.36%
+  s1: migrated fraction f = -21.7%  (95% upper bound -8.3%);  pure migration would need f = 30.4%
+       => migration can account for at most 0% of s1's share gain
+  s2: migrated fraction f = -24.9%  (95% upper bound -9.4%);  pure migration would need f = 13.5%
+       => migration can account for at most 0% of s2's share gain
+
+=== G. does the answers-per-question gradient survive? ===
+  s slope pre  = +0.1681 (SE 0.0210)
+  s x post     = +0.0035 (SE 0.0259), p = 0.894
+
+rewritten: E:\智能体论文\P9b_IPM_20260919\工作文档\R2_downstream\blind\02_estimation\bin_stability_test.json
+
+=== H. migration bound from answers per question (higher power) ===
+  donor bins' pre-event mean answers = 1.517; common shift from s4 = -0.058
+  s1: f = -17.8%  (95% upper bound -7.7%);  pure migration needs 30.4%
+       => migration explains at most 0% of s1's share gain
+  s2: f = -14.5%  (95% upper bound +1.7%);  pure migration needs 13.5%
+       => migration explains at most 12% of s2's share gain
+
+rewritten: E:\智能体论文\P9b_IPM_20260919\工作文档\R2_downstream\blind\02_estimation\bin_stability_test.json
+
+--- stderr ---

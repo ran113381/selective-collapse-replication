@@ -1,0 +1,82 @@
+[
+  {
+    "qid": 79550761,
+    "answer": "Use `Equal()` to filter on nested properties of the end_node. In Cognite SDK, you construct the filter using the property path:\n\n```python\nfrom cognite.client.data_modeling.filters import Equal, And\n\nedges = client.data_modeling.instances.list(\n    instance_type=\"edge\",\n    filter=And(\n        Equal([\"end_node\", \"external_id\"], deleted_node_id),\n        Equal([\"type\", \"external_id\"], \"Child\")  # if type is also a reference\n    ),\n    limit=-1\n)\n```\n\nThe filter argument uses property paths as lists. Check your model's schema to confirm the exact property names for end_node and type. Once you have the edge objects, delete them with `client.data_modeling.instances.delete(edges)`."
+  },
+  {
+    "qid": 79883470,
+    "answer": "The issue is that multiplying the uint8 array by `[0, 0, 1]` converts it to float64. JPEG requires uint8. Convert back after the operation:\n\n```python\nimg = imread('tst-image.jpg')\nimg_tinted = (img * [0, 0, 1]).astype('uint8')\nimsave('tst-image-tinted.jpg', img_tinted)\n```\n\nAlternatively, use PIL for better control:\n```python\nfrom PIL import Image\nim = Image.open('tst-image.jpg')\nim_tinted = im.convert('RGB')\npixels = im_tinted.load()\n# Apply tint...\nim_tinted.save('tst-image-tinted.jpg')\n```"
+  },
+  {
+    "qid": 79478658,
+    "answer": "The problem is that `@blp.arguments()` passes the schema data as a positional argument, but the method signature already expects `todo_id` as the first positional parameter after `self`. Reorder your method signature:\n\n```python\n@blp.arguments(TodoUpdateSchema)\n@blp.response(200, TodoSchema)\ndef put(self, todo_data, todo_id):\n    todo = TodoModel.query.get(todo_id)\n    if todo:\n        todo.todo = todo_data[\"todo\"]\n        todo.checked = todo_data[\"checked\"]\n    else:\n        return {\"message\": \"todo not found\"}\n    db.session.add(todo)\n    db.session.commit()\n    return todo\n```\n\nThe route parameter `todo_id` comes after the argument-decorated schema parameter."
+  },
+  {
+    "qid": 79902824,
+    "answer": "Use `query()` for cleaner syntax, or use boolean indexing with `xs()`. Both are more idiomatic than reconstructing the index:\n\n```python\n# Using query (cleaner)\ndf = df.query('name >= 150')\n\n# Or using boolean indexing with xs\nmask = df.index.get_level_values(1) >= 150\ndf = df[mask]\n\n# Or drop using xs\ndf = df.drop(df.xs(slice(0, 150), level=1, drop_level=False).index)\n```\n\nThe `query()` method is most readable and avoids the nested `.loc[]` construction."
+  },
+  {
+    "qid": 79862288,
+    "answer": "You're seeing rounding errors from different algorithms. The `.centroid` method on a single instance uses Shapely's algorithm, while `Centroid()` function uses PostGIS's internal computation. Both are mathematically correct but use slightly different precision or intermediate steps.\n\nThese differences are expected and typically negligible for practical purposes. If exact parity is required, standardize by always using one method: either load geometries in Python and use Shapely, or always annotate with the database function."
+  },
+  {
+    "qid": 79779991,
+    "answer": "The type checker doesn't know the widget type supports `font`. Cast it to the correct widget type:\n\n```python\nfrom tkinter import font, ttk\nimport tkinter as tk\n\nclass Foo(ttk.Frame):\n    def set_font_cb(self, event: tk.Event) -> None:\n        widget = tk.cast(tk.Widget, event.widget)\n        widget.configure(font=font.Font(...))\n```\n\nOr use a more specific type hint:\n```python\ndef set_font_cb(self, event: tk.Event[tk.Label]) -> None:\n    event.widget.configure(font=font.Font(...))\n```\n\nAlternatively, suppress the error with `# type: ignore` if you're confident of the widget type at runtime."
+  },
+  {
+    "qid": 79862160,
+    "answer": "There is no reliable pure-Python library for directly converting raster images to CorelDRAW .cdr format. Alternatives:\n\n1. Use subprocess to call CorelDRAW CLI (if available on your system)\n2. Convert to vector via intermediate format (image → SVG via Potrace, then SVG → CDR)\n3. Use commercial APIs (e.g., CloudConvert, Zamzar)\n4. Export as PDF/EPS and import manually in CorelDRAW\n\nFor programmatic conversion, consider `Pillow` + `reportlab` for creating PDFs, then convert PDFs to CDR via external tools."
+  },
+  {
+    "qid": 79722098,
+    "answer": "In Plotly Sankey, align nodes using the `node.x` and `node.y` attributes (values 0-1 for position). After creating your diagram:\n\n```python\nfig = go.Figure(data=[go.Sankey(\n    node=dict(x=[0, 0.5, 1, ...], y=[0.1, 0.5, 0.9, ...], ...),\n    link=dict(...)\n)])\nfig.update_layout(font=dict(size=10))\nfig.show()\n```\n\nFor automatic alignment, position nodes by level (x) and evenly space vertically (y). The question text appears truncated; if you provide the actual data structure, I can give exact positioning values."
+  },
+  {
+    "qid": 79323765,
+    "answer": "Yes, this is possible using multimodal embeddings. Two approaches:\n\n1. **Unified multimodal model** (recommended): Use models like CLIP that embed both images and text into the same space. Search by computing text embedding and finding nearest image embeddings.\n\n2. **Separate embeddings with cross-modal bridge**: Train on image-text pairs to align spaces.\n\nLibraries: `clip`, `sentence-transformers` (multi-modal), or `OpenAI's CLIP API`. Store embeddings in a vector database (Pinecone, Weaviate, Milvus).\n\n```python\nfrom sentence_transformers import SentenceTransformer\nmodel = SentenceTransformer('clip-ViT-B-32')\nimg_emb = model.encode(Image.open('img.jpg'))\ntext_emb = model.encode('search query')\nsimilarity = util.pytorch_cos_sim(text_emb, img_emb)\n```"
+  },
+  {
+    "qid": 79937863,
+    "answer": "Use `rolling()` BEFORE `shift()` to avoid NaN issues. When you shift first, you lose data at the top:\n\n```python\ndf['rolling_avg'] = df['FTHG'].rolling(window=n, min_periods=1).mean().shift(1)\n```\n\nOr compute rolling on the full series, then shift the result:\n```python\ndf['rolling_avg'] = df.groupby('team')['FTHG'].rolling(n).mean().shift(1).reset_index(level=0, drop=True)\n```\n\nThe `min_periods=1` allows rolling with fewer than n values at the start. The `.shift(1)` ensures you exclude the current game's goals."
+  },
+  {
+    "qid": 79687094,
+    "answer": "Your OAuth2 flow is incomplete. After `/sso` receives the token, you must set it as a secure cookie and redirect back. Complete `/sso`:\n\n```python\n@auth_router.get(\"/sso\")\nasync def code_handling(request: Request, code: str | None = None, ...) -> RedirectResponse:\n    if code is None:\n        raise HTTPException(400, \"No code\")\n    token = await idam_service.request_token(code)\n    response = RedirectResponse(\"/\")  # redirect home\n    response.set_cookie(\"access_token\", token, secure=True, httponly=True, samesite=\"lax\")\n    return response\n```\n\nThen in `/whoami`, extract the token from cookies:\n```python\n@auth_router.get(\"/whoami\")\nasync def get_user_data(request: Request) -> User:\n    token = request.cookies.get(\"access_token\")\n    user = idam_service.verify_token(token)\n    return user\n```"
+  },
+  {
+    "qid": 79901911,
+    "answer": "This is the Debugpy inline values feature (added in Python 3.11). Disable it in VS Code settings:\n\n```json\n\"python.debugging.showDebugOutput\": false,\n\"python.showDeprecations\": false\n```\n\nOr in launch.json:\n```json\n\"configurations\": [{\n    \"name\": \"Python\",\n    \"type\": \"python\",\n    \"request\": \"launch\",\n    \"showReturnValue\": false,\n    \"showDebugOutput\": false\n}]\n```\n\nIf it's the Pylance inline type hints, go to Settings → `Editor: Hints` and disable."
+  },
+  {
+    "qid": 79688933,
+    "answer": "Use `apply()` with a lambda that checks which column has a mapped value:\n\n```python\ndf['Event'] = df.apply(\n    lambda row: (\n        dict1.get(row['Event1']) or dict2.get(row['Event2'])\n    ),\n    axis=1\n)\n```\n\nOr more explicitly:\n```python\ndef get_event(row):\n    if row['Event1'] in dict1:\n        return dict1[row['Event1']]\n    elif row['Event2'] in dict2:\n        return dict2[row['Event2']]\n    return None\n\ndf['Event'] = df.apply(get_event, axis=1)\n```\n\nThis maps the first column that has a key in its corresponding dict."
+  },
+  {
+    "qid": 73188434,
+    "answer": "Override the nested serializer to exclude the password field. In your serializer:\n\n```python\nclass UserSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = User\n        fields = ['first_name', 'last_name', 'email']  # Exclude password\n        # Do NOT include 'password', 'password2'\n\nclass TeamMemberSerializer(serializers.ModelSerializer):\n    user = UserSerializer(read_only=True)  # Uses the filtered UserSerializer\n    team = TeamSerializer(read_only=True)\n    team_role = TeamRoleSerializer(read_only=True)\n    company = CompanySerializer(read_only=True)\n    class Meta:\n        model = TeamMember\n        fields = \"__all__\"\n```\n\nAlternatively, use `SerializerMethodField` to customize the nested output for specific views."
+  },
+  {
+    "qid": 79922267,
+    "answer": "Functions implicitly return `None`, which pandas converts to NaN. Explicitly return the original value:\n\n```python\ndef scale_positive(x):\n    if x > 0:\n        return x * 10\n    else:\n        return x  # or: return None to keep as NaN\n\ns = pd.Series([5, -2, 0, 8, -1])\nresult = s.apply(scale_positive)\n```\n\nOr use `numpy.where()` for vectorized conditionals:\n```python\nresult = np.where(s > 0, s * 10, s)\n```\n\nThe issue is that `apply()` treats missing return values as `None`, which becomes NaN in numeric contexts."
+  },
+  {
+    "qid": 79725442,
+    "answer": "The problem is `descendants: list = list()` is a class variable shared by all instances. Use an instance variable:\n\n```python\nclass Account:\n    parent = None\n    num: int | None\n    name: str\n    raw: str\n    acct_type: str | None\n    detail_type: str | None\n    _header: bool = False\n    \n    def __init__(self, instr: str, parent=None, acct_type: str = None, detail_type: str = None):\n        self.raw = instr\n        self.parent = parent\n        self.acct_type = acct_type\n        self.detail_type = detail_type\n        self.descendants = []  # Instance variable, not class variable\n        # ... rest of init\n```\n\nThis creates a new list for each instance instead of reusing one shared list."
+  },
+  {
+    "qid": 79859608,
+    "answer": "For credit risk assessment, use **DTI without delinquency** as the primary filter. Credit managers assess risk based on DTI ratios at the point of decision; delinquency is a backward-looking outcome for model validation, not forward-looking risk assessment. Use two approaches:\n\n1. Segment by DTI alone (identify high-risk DTI thresholds)\n2. Separately validate with delinquency (how many high-DTI customers actually default)\n\nThis mirrors real credit practice: risk is flagged by DTI >40%, then validated retroactively. Adding delinquency to the segmentation conflates input features with outcomes."
+  },
+  {
+    "qid": 78936446,
+    "answer": "Use `groupby()` with `apply()` and numpy operations:\n\n```python\nimport pandas as pd\nimport numpy as np\n\ndef count_greater(group):\n    values = group['column1'].values\n    return pd.Series(\n        [np.sum(values[:i] > values[i]) for i in range(len(values))],\n        index=group.index\n    )\n\ndf['count'] = df.groupby('column2', group_keys=False).apply(count_greater)\n```\n\nOr vectorized with cumsum:\n```python\ndf['count'] = df.groupby('column2')['column1'].apply(\n    lambda x: pd.Series([np.sum(x.iloc[:i] > x.iloc[i]) for i in range(len(x))], index=x.index)\n).droplevel(0)\n```"
+  },
+  {
+    "qid": 79923826,
+    "answer": "SymPy requires assumptions for parameters. Use `Symbol` with assumptions or substitute a concrete value temporarily:\n\n```python\nfrom sympy import Symbol, Sum, oo, pi, coth\n\n# With positive assumption\na = Symbol('a', positive=True, real=True)\nresult = Sum(1/(n**2 + a**2), (n, 1, oo)).doit()\nprint(result)  # Returns: pi*coth(pi*a)/(2*a) - 1/(2*a**2)\n\n# Or verify with specific values\nfor val in [1, 2, 3]:\n    print(Sum(1/(n**2 + val**2), (n, 1, oo)).doit())\n```\n\nAdding `positive=True` helps SymPy evaluate the sum symbolically."
+  },
+  {
+    "qid": 79898762,
+    "answer": "Large initial weights DO cause vanishing gradients with Tanh/Sigmoid. Here's why: large weights multiply inputs, pushing the net input far into the saturation region where Tanh/Sigmoid outputs flatten (gradient ≈ 0). Example:\n\n```python\nimport numpy as np\n\n# Large weight\nz = np.dot(large_weights, x)  # z is very large (e.g., z=100)\ny = np.tanh(z)  # tanh(100) ≈ 1, gradient ≈ 0\n\n# Small weight  \nz = np.dot(small_weights, x)  # z near 0\ny = np.tanh(z)  # gradient near 1\n```\n\nSmall weights keep activation in the linear region of Tanh/Sigmoid where gradients are larger. This is why Xavier/He initialization uses weight ranges based on layer size."
+  }
+]

@@ -1,0 +1,1536 @@
+[
+ {
+  "question_id": 77917091,
+  "ym": "2024-02",
+  "creation_date": 1706746542,
+  "title": "unique melt and pivot crosstab format with a groupby using pandas",
+  "tags": [
+   "python",
+   "pandas",
+   "numpy"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have a dataset where I would like for some values to become column headers, as well as a crosstab format. data [CODE] desired [CODE] doing [CODE] The issue is that all of the values aren't getting. The above code produces output with missing values Any suggestion is appreciated"
+ },
+ {
+  "question_id": 77917101,
+  "ym": "2024-02",
+  "creation_date": 1706746666,
+  "title": "Python decorator&#39;s wrapper as class looses self when applied to object method",
+  "tags": [
+   "python",
+   "python-3.x",
+   "methods",
+   "python-decorators"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "The following python code shows two decorators: [code] and [code] . The second one is broken as it looses the reference to [code] . In fact, to use a decorated method with [code] one should give the self object as first parameter, eg. writing [code] , printing 4 + 4 = 8 even the object to which plus is applied is [code] . [CODE] Specifically, the difference between the two decorators is in the returned wrapper, the first one returns a function the second a class equipped with the [code] method. Is this behaviour correct?"
+ },
+ {
+  "question_id": 77917146,
+  "ym": "2024-02",
+  "creation_date": 1706747772,
+  "title": "Failure in converting the SparkDF to Pandas DF",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "apache-spark",
+   "google-cloud-dataproc"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a Spark code running on a Dataproc cluster that reads a table from BigQuery into a Spark dataframe. In this code, there is a step where I need to perform some data processing using pandas dataframe logic. However, when I try to convert the Spark dataframe to a pandas dataframe, I encounter an error that I am unable to resolve. It's worth noting that this code works fine on Hadoop without any issues. I would appreciate any assistance or guidance in resolving this issue with the conversion from Spark dataframe to pandas dataframe. [CODE] The code I am working on processes a relatively small amount of data, with the maximum number of rows being around 10,000. However, the main challenge lies in the fact that the data source has over 4,000 columns. In this particular example, the code failed while processing 2,137 rows of data."
+ },
+ {
+  "question_id": 77917202,
+  "ym": "2024-02",
+  "creation_date": 1706749231,
+  "title": "Tensor power of 1D numpy array",
+  "tags": [
+   "python",
+   "arrays",
+   "numpy",
+   "tensor",
+   "broadcast"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I would like to implement a function that takes what I call the \"tensor power\" of an one-dimensional numpy array: [CODE] For any numpy array [code] of shape [code] , the output [code] should be a numpy array of shape [code] where there are [code] copies of [code] , and its entries are defined as [code] . A simple example would be: [CODE] Is there any easy way to achieve this?"
+ },
+ {
+  "question_id": 77917251,
+  "ym": "2024-02",
+  "creation_date": 1706750523,
+  "title": "Using Python to match records across 2 files with many-to-many relationship - Part 2",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have two csv files, File A and File B, per the below samples. For each 'PO/ItemCode' combination (per invoice) in File A, I want to find a matching 'PO/ItemCode' combination in File B and output a record to new csv file, File C. The same 'PO/ItemCode' combination may exist in multiple invoices. Combination '1001/ITEMA' in invoices 2001 and 2007 is an example. If there are no records in File B matching the 'PO/ItemCode' combination, output a single record to File C using 'none/00' as the 'Ref/Line' fields. Invoices 2002 and 2005 are examples. If the available quantity on a matched File B record is less than required in File A, write a File C record for the available quantity only and read File B again to find the next matching record. Once there are no more matching records, write a record to File C for the remaining (unmatched) File A quantity using 'none/00' as the 'Ref/Line' fields. Invoices 2006 and 2007 are examples. There may be multiples of the same 'PO/ItemCode' combination for a single invoice in File A. These are treated as a single File A record having the accumulated total. PO 1003 is an example, with the input treated as Invoice 2003, ITEMA, quantity 9. The available quantity on File B records can only be used once. Subsequent File A records for the same 'PO/ItemCode' combination (different invoice number) can only use the remaining File B quantity, considering an"
+ },
+ {
+  "question_id": 77917257,
+  "ym": "2024-02",
+  "creation_date": 1706750667,
+  "title": "Python SQLite database is locked in a single-thread interactive process despite closing all SQLAlchemy sessions/engines/connections",
+  "tags": [
+   "python",
+   "sqlite",
+   "sqlalchemy"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "There are many SO questions with same issues. However, all other answers focus on user errors that are not valid for me. In most other SO question, the situation involves 2+ process conflicting over the DB file. In my case, there is only a single process conflicting with itself. If you think about it, there is no reason why a single process cannot lose a file lock. Perhaps, SQLAlchemy or sqlite driver just creates a lock and forgets to ever release it. My database file is on local internal HDD (not network). I work from IPython/Jupyter environment on Windows via VSCode Interactive. There is just a single python.exe process. I do not use any viewers/consoles/apps that may access the DB. I do not use multi-threading. I have a single interactive session. I have an sqlite database file. The file is FS-locked and cannot be moved. As per Process Explorer, the file is opened by a single python process which is the [code] process running my ipykernel interactive session: [code] I've tried calling [code] and [code] . This does not unlock the file. I can create engine/session and query the DB. But when I close all sessions and dispose the engine, the DB is still locked. Today's lock has occurred when I tried to add index to the DB and it said \"database is locked\". It's been locked since then. DB was created via SQLAlchemy ORM with no fancy changes or features. How do I release the DB loc"
+ },
+ {
+  "question_id": 77917266,
+  "ym": "2024-02",
+  "creation_date": 1706750888,
+  "title": "pyspark splitting words into rows",
+  "tags": [
+   "python",
+   "pyspark"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm trying out pyspark and looking at this example: https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html I got the code working easy enough, so the guide is pretty good, but one part has got me scratching my head which is the split part [CODE] I get what it is doing, it's splitting each row by space and turning each word into a row. But I would have expected something along the lines of this [CODE] In the code they have lines.value, lines is the dataframe and value is the column name. Why are we pulling the value from the data frame? How does it know what row we are pulling the value from? Shouldn't we have a row object (l in the second example) and be pulling value from that? My other question is how is it that dataframe has a function/property called \"value\". If I change the column name to \"bob\" then dataframe suddenly appears to have a function/property \"bob\". Is this a python feature where objects can have dynamic functions? It appears the actual split function is not the python split function but a function provided by pyspark libraries (there is an import at the top). Why did they do it this way?"
+ },
+ {
+  "question_id": 77917297,
+  "ym": "2024-02",
+  "creation_date": 1706751521,
+  "title": "Create a python script to compile and run a Fortran program",
+  "tags": [
+   "python",
+   "windows",
+   "subprocess"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I want to create a Python script to run many Fortran files \"at once\". The main reason for this is that I've done many Fortran numerical simulations, so I want to speed up to get the process of running all of the Fortran Files with one click (in general, the numerical solutions will be altered according to some input archive, thus, it is useful to modify the input and run the python scripts, which will compile and execute the Fortran programs, and by the way, there are other scripts to plot and obtain linear regression). The code is as follows: [CODE] The Error reads: '.' is not recognized as an internal or external command, operable program or batch file. The Fortran compilation works fine without the script I've tried to put a [code] at the variable [code] , so: [CODE] taking out the [code] Instead of: [CODE] with the [code] function. At this scenerial, the Error indicates that couldn't find the Fortran file. In this case, I undestood since the [code] were not read properly for some reason. Even though the variable path were properly created using the module os, replacing the backslashes, because of my Windows system, the path inserted in the variable [code] seems to have been broken into parents and sons directories. I've also used the module [code] to find the files I wanted. However, the same type of error, if I'm not wrong, happened. So I prefer to maintain my usual way to"
+ },
+ {
+  "question_id": 77917313,
+  "ym": "2024-02",
+  "creation_date": 1706751979,
+  "title": "Would a class iterating over a file system be a good or bad candiate for Pythons Iterator protocal?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "iterator"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I understand how to turn a class into a Iterator by implementing a [code] and a [code] . There are loads of resources online on how to do this like : https://www.w3schools.com/python/python_iterators.asp My question is more on when should you not make a class an iterator? In particular if you have a class that iterates over a collection that is : Not predetermined even after the iterator is made Not generated within the iterator Not iterating over a fixed index Even if the class has a \"next\" function would this be a good or bad \"Iterator.\" A more specific example, and the underlying reason I ask this question, would be class that if given a path to a file system can retrieve the \"next logical\" directory within that path (including its subpaths) if you call its next function. It does not store a physical collection of all directories within it for efficiency purposes. Something like, what I current have called DirectoryIterator, below: [CODE] This comes from a project I am making at https://github.com/CoryBond/PAIID/blob/main/src/repoManager/DirectoryIterator.py . Its \"next\" method is effectively get_next_time_prompt_directories . Apologies for the documentation having awkward wording and typos. With just a few modifications like: Removing direction from the \"next\" method and moving it to the constructor Raising a StopIteration when the directories are exhausted Adding or replac"
+ },
+ {
+  "question_id": 77917321,
+  "ym": "2024-02",
+  "creation_date": 1706752201,
+  "title": "How to sequentially run a single pipeline in apache beam that write and read data",
+  "tags": [
+   "python",
+   "google-cloud-dataflow",
+   "apache-beam"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Im using apache beam and python for using it on dataflow (gcp) to load and transform data baches. I have a pipeline that its separated into different parts. The first part, write into bigquery. The second part read the data written in the first step. I'm using the same [code] pipeline to run this, so both parts will run at the same time. I have to achieve the sequentially running in just one pipeline . I tried to add some flag to trigger the second part, but as WriteToBigQuery doesnt return nothing, and I cannot make it iterable, so I was unable to achieve it. [CODE] After this execution I read the data written ( I use a query that includes another tables besides this ), this way: [CODE] and finally run the defined pipeline: [CODE] If I add part_1 as an input in part_2 like this: [CODE] The output its the following because part_1 output: [CODE] Any ideas or examples to achieve this sequentially are welcome to discuss."
+ },
+ {
+  "question_id": 77917330,
+  "ym": "2024-02",
+  "creation_date": 1706752368,
+  "title": "Selenium Webdriver doesn&#39;t work properly on pyt",
+  "tags": [
+   "python",
+   "selenium-webdriver",
+   "web-scraping",
+   "selenium-chromedriver",
+   "pythonanywhere"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am trying to build a script that will send me an email about upcoming races and marathons for the following month on the first of the current month (for testing I have it set to the current day). My script works on my Pycharm IDE, but doesn't work with Pythonanywhere - python anywhere is not able to find the elements that I want to interact with, ('First Error' printed every time) and sometimes it crashes-It's not loading the page properly. Does anyone know what I'm doing wrong? Here is the code: [CODE]"
+ },
+ {
+  "question_id": 77917339,
+  "ym": "2024-02",
+  "creation_date": 1706752523,
+  "title": "Python Import Module fails using C API if more than one subinterpreter import a module that imports some specific modules",
+  "tags": [
+   "python",
+   "c++",
+   "gil",
+   "python-3.12",
+   "python-subinterpreters"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I wrote a single-threaded C++ code using Python C APIs where I start two subinterpreters Sub1 and Sub2, then I load a module M with both. If M imports certain modules (such as urllib.request or yaml), importing M with Sub2 triggers a memory corruption error if Sub1 already imported it. It works instead if M imports some other modules (such as urllib, base64, os or sys). Here is a snippet that reproduces the error: [CODE] Here is the example Python code I used: [CODE]"
+ },
+ {
+  "question_id": 77917342,
+  "ym": "2024-02",
+  "creation_date": 1706752587,
+  "title": "How do I protect my FastAPI REST-ful services by making sure request are coming from only a certain domain (front-end application)?",
+  "tags": [
+   "python",
+   "angular",
+   "rest",
+   "cors",
+   "fastapi"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have an application stack as follows. Backend: FastAPI, REST-ful service; eg r.domain.com Frontend: Angular 17 application; eg w.domain.com On the backend, I want to ensure that a response is generated only for requests coming from the frontend application (eg w.domain.com). My current strategy is to look at the incoming request headers (eg referrer, host, user-agent) and reject. I have something like the following defined (middleware). [CODE] This approach, I found, is not strong enough to protect or only allow processing for requests that comes from the frontend app. In Google Chrome, you can inspect the network and copy the request as a curl command, and executing such copied command will bypass checking based on headers (since the correct headers are declared as a part of the request). I thought maybe all backends are susceptible to this problem, but apparently not. For example, if I am on Facebook and I copy the request to a curl command and execute it in the terminal, Facebook's backend logic is able to detect that I'm not logged in. I wonder how are they achieving this feat and how I can mimic the same for my situation. In my situation, there is no login yet. It is opened to the public. However, the main goal is to not respond to any request that is not coming from the frontend application. Any help is appreciated."
+ },
+ {
+  "question_id": 77917402,
+  "ym": "2024-02",
+  "creation_date": 1706754197,
+  "title": "When does Python require parentheses around &quot;not x&quot;?",
+  "tags": [
+   "python"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I get the following result in both Python 2.7 and Python 3.5. Why do the parentheses make a difference? [CODE]"
+ },
+ {
+  "question_id": 77917429,
+  "ym": "2024-02",
+  "creation_date": 1706754852,
+  "title": "Indexing multiple elements in a muldimensional numpy array",
+  "tags": [
+   "python",
+   "arrays",
+   "numpy",
+   "indexing",
+   "numpy-ndarray"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I would like to extract elements of a given multidimensional numpy array, using another array of indices. However it doesn't behave in the way I expected. Below is a simple example: [CODE] Why is that the case? And how should I modify the code so that [code] contains only two elements: [code] and [code] ?"
+ },
+ {
+  "question_id": 77917438,
+  "ym": "2024-02",
+  "creation_date": 1706754939,
+  "title": "Multithreading/processing for loop not working or slower than original def",
+  "tags": [
+   "python",
+   "multithreading",
+   "multiprocessing"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "First off, this is my first attempt to multithreading or multiprocessing (outside of tutorials). I am trying to speed up some initializations in my class by using multithreading or multiprocessing, not sure which one makes more sense yet. My code goes something like this [CODE] This seems to take twice as long compared to when I just run the [code] function. The [code] takes about 1.5 seconds to run but when I have about 40 files to load, it adds up. I attempted to try the same thing with multiprocessing and it didn't seem to work at all. As far as multiprocessing goes, I have not had any luck making anything work. This is close to what I've used. [CODE] This took about the same amount of time. So I'm not sure where to go from here. Long story short, I have a list of files I want to load into my [code] and I'm looking for ways to speed it up. I appreciate any help and please be nice to a nooby! I've tried the above code chunks with multithreading and multiprocessing. I was able to get them to work, but I saw no improvement in speed of completion. Some methods were in fact longer."
+ },
+ {
+  "question_id": 77917446,
+  "ym": "2024-02",
+  "creation_date": 1706755121,
+  "title": "Get image or screen capture in PyWinAuto",
+  "tags": [
+   "python",
+   "pywinauto",
+   "uia",
+   "inspect.exe"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm currently using PyWinAuto to get the data from a FileEditor like this. [CODE] The problem I'm facing is the data I get must be verified, which has a little checkmark icon like this. But I'm unable to find the checkmark icon in the Inspect.exe, when I hover in the icon, it show in the Inspect.exe as a DataGridCell with no children or parent. Here is the image of the dataframe with the checkmark . And here is the output on Inspec.exe when I hover in the Icon. [CODE] I have tried Screencapture and tooltip text but still nothing work. Any help would be appreciated."
+ },
+ {
+  "question_id": 77917508,
+  "ym": "2024-02",
+  "creation_date": 1706756618,
+  "title": "Miniconda tensorflow package versions are outdated",
+  "tags": [
+   "python",
+   "tensorflow",
+   "anaconda",
+   "miniconda"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I've been having trouble with my build of miniconda refusing to see more modern versions of packages. For example when I run: [CODE] the most recent version results are [CODE] If i go to anaconda.org and search tensorflow it says it should be 2.12. Has anyone had this problem? If so how can i solve it? Edit: For those that don't know tensorflow 2.10 is last supported version for windows. To access 2.15 on windows you'll need WSL or a linux VM."
+ },
+ {
+  "question_id": 77917567,
+  "ym": "2024-02",
+  "creation_date": 1706758156,
+  "title": "Attribute Error for compare_metadata with multiple schemas",
+  "tags": [
+   "python",
+   "sqlalchemy",
+   "alembic"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to use the [code] function with the following setup: base.py [CODE] workspace.py [CODE] host.py [CODE] main.py [CODE] However, running [code] results in the following error: [CODE] Tracking this back it seems that SQLAlchemy can't find a schema. Reading around I have tried: [CODE] But same error in the same place. Any ideas on where I'm going wrong? Details: macOS Sonoma python 3.11 SQLAlchemy 2.0.7 alembic 1.13.1 mysql-connector-python 8.2.0"
+ },
+ {
+  "question_id": 77917582,
+  "ym": "2024-02",
+  "creation_date": 1706758494,
+  "title": "Picking an area on a grid",
+  "tags": [
+   "python",
+   "python-3.x",
+   "list"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "ok so i have a code that makes (n)lists in one list like for example [CODE] Where it would print each as [CODE] Here is the code [CODE] the code above me would print it like [CODE] Im confused on how to make it so the generated numbers where 1 = vertical[0][0] 2 = vertical[0][1] So if thechosenhalf were numbers from 1 to 8 it would change from [CODE] to [CODE] and if thechosenhalf were numbers 12 5 16 2 8 9 15 3 it would change from [CODE] to [CODE]"
+ },
+ {
+  "question_id": 77917586,
+  "ym": "2024-02",
+  "creation_date": 1706758604,
+  "title": "I want to send data from Modbus TCP to Modbus RTU in Python 3",
+  "tags": [
+   "python"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Values from ModSim: [258] Error writing to ModScan register 0: No communication with the instrument (no answer) Im getting this error I wrote the code in python but its giving me error I can see my value in modscan but its not going to the right register my modsim(TCP) is sending data in decimal format but the in RTU it should out in integer format"
+ },
+ {
+  "question_id": 77917588,
+  "ym": "2024-02",
+  "creation_date": 1706758624,
+  "title": "I need a function for a contiguous sub array that has a runtime complexity of n polylog n (Algorithm)",
+  "tags": [
+   "python",
+   "algorithm",
+   "runtime",
+   "big-o"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am doing an assignment with a group where we are supposed to make contiguous sub array, where we have a [code] , [code] where it gives us \"pairs\" for matches that fit in-between the min and the max. We have an input .txt file that it reads from and outputs the possible matches as an integer to a seperate output.txt file. The problem is that It wants us to go from O(n^2) to O(n polylog n) [CODE] This is the input.txt [CODE] THe expected result should be 20. This is what we have. We have tried to do binary search, we have tried to do AVLtrees, but we can't actually figure out a way to actually get it to work. We'd appreciate any help we can get. Please and thank you. Edit.... n the second problem, we are given only one array A[1, . . . , n], and a target value range [tmin, tmax]. We would like to count the number of non-empty contiguous subarrays of A that add up to a value in the range [tmin, tmax]. For example, if A = [−3, −4, 2, 0], tmin = −4 and tmax = 3, then the output must be 7, since [−3], [−4], [2], [0], [−4, 2], [−4, 2, 0], and [2, 0] are contiguous subarrays of A with sum in the range [−4, 3], while [−3, −4], [−3, −4, 2], [−3, −4, 2, 0] are the other contiguous subarrays of A with sum outside this range. Design an O(n·polylog(n)) time algorithm for this problem. (Hint: Start with an O(n3) time algorithm, then reduce the running time to O(n2), and finally to O(n · pol"
+ },
+ {
+  "question_id": 77917599,
+  "ym": "2024-02",
+  "creation_date": 1706758868,
+  "title": "Zope 5 Log To Error Log From Python Script",
+  "tags": [
+   "python",
+   "logging",
+   "zope"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "Normally when an exception occurs, Zope automatically logs it to the error_log via the Products.SiteErrorLog package, however I have a python script with a try/except block because I need to return json whether or not the script succeeds. Unfortunately, the exception block overrides Zope's default logging to the error_log, and since I cannot use raise, because it halts execution of the rest of the script (including, a finally block or the rest of the exception block), I need a way to make Zope still log the error to the error_log. From what I can tell this is done via the SiteErrorLog.raising() method, and since in restricted python I can't find a way to allow the use of the raising method, even though I have allowed the entire SiteErrorLog module and the SiteErrorLog class, I used an external method, but can't get it to work. For reference, in my [code] to allow the module and class I used: [CODE] which does allow the SiteErrorLog class and module but does not allow the use of the raising method from within the ZMI via a python script. If using SiteErrorLog is not the correct answer and there's an easier way, I'm all ears. Here's an example of my python script: import json [CODE] I do not want a custom error message or anything other than the standard exception error that is normally logged to the zope error_log, and I only want it to be logged in the except block. As I mentio"
+ },
+ {
+  "question_id": 77917623,
+  "ym": "2024-02",
+  "creation_date": 1706759432,
+  "title": "AWS preassigned url as eks token is giving unauthorized",
+  "tags": [
+   "python",
+   "amazon-web-services",
+   "kubernetes",
+   "authorization",
+   "amazon-eks"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am using below code to interact with EKS apiserver with preassigned url created with my service account credentials. But it's giving unauthorized: [CODE] I just want to create eks token so that I can use that to communicate with eks cluster. And here I don't want to use aws cli. This is the error response: kubernetes.client.exceptions.ApiException: (401) Reason: Unauthorized HTTP response headers: HTTPHeaderDict({'Audit-Id': '<audit_id>', 'Cache-Control': 'no-cache, private', 'Content-Type': 'application/json', 'Date': 'Wed, 31 Jan 2024 11:09:47 GMT', 'Content-Length': '129'}) HTTP response body: {\"kind\":\"Status\",\"apiVersion\":\"v1\",\"metadata\":{},\"status\":\"Failure\",\"message\":\"Unauthorized\",\"reason\":\"Unauthorized\",\"code\":401}"
+ },
+ {
+  "question_id": 77917641,
+  "ym": "2024-02",
+  "creation_date": 1706759868,
+  "title": "How can I calculate percentile for every single data inside an xarray dataset",
+  "tags": [
+   "python",
+   "scipy",
+   "statistics",
+   "python-xarray",
+   "percentile"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a dataset of one variable with the dimension of time, lat, Lon. The dataset looks like the following and it has several grids where there is NaN values: [CODE] I want to calculate the percentile of each value within the dataset. The desired xarray dataset will be like the following. Please note that I will be calculating percentile along time axis (for each pixels, want to use the timeseries to of the corresponding pixel during calculation of the percentile): [CODE] I did some exploring and I am using the following code to calculate the percentile using xarray.ufunc: [CODE] The above code generates a percentile like following: xarray.DataArray 'percentile' lat: 300, lon: 360. That means it took the time dimension away. How can I calculate percentile for individual values using each grid's corresponding timeseries and generate an xarray dataset like following: [CODE]"
+ },
+ {
+  "question_id": 77917692,
+  "ym": "2024-02",
+  "creation_date": 1706760866,
+  "title": "How to monitor Celery worker and return the task back to the queue if the worker dies or is killed?",
+  "tags": [
+   "python",
+   "django",
+   "celery"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Problem Description I have a microservice that uses Celery for executing asynchronous tasks. I need to monitor the state of the Celery worker and return the task back to the queue if the worker dies or is killed (e.g., due to a SIGKILL signal). I also have another instance of Celery running on the main service side. Question Is there a way to monitor the state of the Celery worker and automatically return the task back to the queue if the worker dies or is killed? Additional Information Using [code] is not suitable as it would require waiting for a day before the task returns to the queue, while I need it to happen almost instantly."
+ },
+ {
+  "question_id": 77917705,
+  "ym": "2024-02",
+  "creation_date": 1706761107,
+  "title": "SSL Verification blocking API query for no good reason",
+  "tags": [
+   "python",
+   "security",
+   "ssl"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm working on a script that has to extract some data from ConnectWise and I'm running into what I feel is an exceptionally silly problem. At the moment, all my script does is query ConnectWise for company info as described here (I think you may not be able to log into that page without a Connectwise Developer account, but it's essentially just a URL to get basic company information so you can format your URL correctly for future queries). When I run this simple request, I get the following error: [CODE] I could simply disable SSL and do my thing, but that's bad practice for a good reason. I'm running Python 3.11.7 in a virtual environment. I've already tried upgrading certifi and that had no effect - it was already fully upgraded. We can do this from my boss's computer without any trouble and I'm able to do the same query from Postman without an issue so my virtualenv feels like a likely culprit. Any thoughts?"
+ },
+ {
+  "question_id": 77917717,
+  "ym": "2024-02",
+  "creation_date": 1706761440,
+  "title": "How does one create a HF tokenizer with only a fraction of the vocabulary but without changing the model?",
+  "tags": [
+   "python",
+   "huggingface-transformers"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I tried to create a smaller tokenizer: [CODE] but the unit test doesn't work as expected but code looks right: [CODE] why? Error [CODE] https://discuss.huggingface.co/t/how-does-one-create-a-hf-tokenizer-with-only-a-fraction-of-the-vocabulary-but-without-changing-the-model/71418"
+ },
+ {
+  "question_id": 77917734,
+  "ym": "2024-02",
+  "creation_date": 1706761792,
+  "title": "No module named &quot;Image&quot; for fastai",
+  "tags": [
+   "python",
+   "flask",
+   "modulenotfounderror",
+   "fast-ai"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am getting the same error here again and again which is Image module not found I want to use to image module of fastai but seem to get the same error again and again please help me .. I am also encountering error for the load_learner() function. I'm encountering an issue with my Flask application where I'm consistently getting the error message \"Image module not found.\" [CODE]"
+ },
+ {
+  "question_id": 77917778,
+  "ym": "2024-02",
+  "creation_date": 1706762997,
+  "title": "Change value of a dataframe column based on the column names present in another dataframe",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a dataframe [code] which has data like below [CODE] I need to change the value of the columns [code] to NULL when [code] . I need to do it for a set columns which are present in another dataframe [CODE] How can I do it dynamically? Expected o/p [CODE] I am new to Python and would like to know how to do it."
+ },
+ {
+  "question_id": 77917829,
+  "ym": "2024-02",
+  "creation_date": 1706764082,
+  "title": "Stripe Proration Webhook Interception on Downgrades",
+  "tags": [
+   "python",
+   "stripe-payments"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm looking for a way to ensure on a plan downgrade, the user gets charged the plans price on the next payment period. If susan is going from $20/month to a $10/month plan, she continues to get the benefits of the $20/month until end of her subscription plan. However, on stripe UI it says she pays $0 for next month and I'm guessing it's because of proration. I've tried to modify the subscription on 'customer.subscription.updated' but the subscription doesn't show the change in the stripe subscription UI or customer portal. What else can I do besides make my own user flow for checking out and upgrading/downgrading the plans?"
+ },
+ {
+  "question_id": 77917840,
+  "ym": "2024-02",
+  "creation_date": 1706764413,
+  "title": "How to translate PySpark res = notesCollege.select(*[f.mean(c).alias(c) for c in notesCollege.columns]) into Java Spark?",
+  "tags": [
+   "python",
+   "java",
+   "apache-spark",
+   "pyspark",
+   "apache-spark-sql"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I would like to apply a PySpark statement suggested in pyspark calculate mean of all columns in one line question, into my Java program but I don't know how. In the next codes, [code] is a [code] / [code] : [CODE] Here's the Python code I would like to translate: [CODE] that calculates means for each of its columns. Starting with this expression, it looks like I should replace the [code] inside by some kind of lambda (?), but I don't see how. [CODE] How to make this select statement work with Java too?"
+ },
+ {
+  "question_id": 77917904,
+  "ym": "2024-02",
+  "creation_date": 1706765838,
+  "title": "Pycharm debugger console not autocompleting variables created in the debugger console",
+  "tags": [
+   "python",
+   "debugging",
+   "pycharm",
+   "console",
+   "code-completion"
+  ],
+  "score": 5,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have just upgraded to PyCharm 2023.3.3 community edition and am experiencing a weird issue that hasn't occurred before. System is Windows 10 64 bit, and this has worked fine on this machine before. When I debug a script and hit a breakpoint and the program is suspended and the debugger window is opened, autocomplete doesn't seem to work on new variables i create in the debugging console, however it works on variables created in the script before the breakpoint was hit. e.g., Script Debugging console showing autocomplete working for variable testing but not test Any ideas why the debugging console is not autocompleting test ? and how I could fix this?"
+ },
+ {
+  "question_id": 77917935,
+  "ym": "2024-02",
+  "creation_date": 1706766581,
+  "title": "Advice to connect remote VM using python/selenium",
+  "tags": [
+   "python",
+   "selenium-webdriver"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am trying to connect VM using below process :- Open remote desktop connection windows app click on shared pool Enter credentials Once I login, I need to open web-browser in VM and do some processing. As of now, I am able to connect to VM ( with some issue ) but I don't know how to open VM. I can't install any new software in my VM. My VM is based on Windows 11. May I know whether it is achievable from host computer using selenium/python. Please note that I have browsed some of the topic where people advised to use SSH,Putty but I can't use those ways."
+ },
+ {
+  "question_id": 77917969,
+  "ym": "2024-02",
+  "creation_date": 1706767022,
+  "title": "Persist Package Installations in Python-based Docker Container",
+  "tags": [
+   "python",
+   "docker"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a Python app running in a Docker container. I want to have the flexibility of installing new packages while the container is running. Eventually, I want to do this via the GUI, but right now I am doing it using the following commands, [CODE] This is fine for now, but I want these package installations to persist across stops and restarts of the container. How can I do this?"
+ },
+ {
+  "question_id": 77917971,
+  "ym": "2024-02",
+  "creation_date": 1706767052,
+  "title": "ModuleNotFoundError: No module named &#39;ultralytics&#39; even after installing it",
+  "tags": [
+   "python",
+   "pip",
+   "modulenotfounderror",
+   "ultralytics"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have a Python program where the first line is the following: [code] I've already ran [code] in my terminal, but I always get the following error on the above line: [code] I've tried numerous things such as running in a different Python environment, uninstalling and reinstalling again, as well as verifying I'm using a version of Python that runs with ultralytics. Yet, the issue still persists. Does anyone know how to fix this issue?"
+ },
+ {
+  "question_id": 77917982,
+  "ym": "2024-02",
+  "creation_date": 1706767328,
+  "title": "Django &quot;Failed to establish a new connection: [Errno 111] Connection refused&quot; error when connecting to django API via python script",
+  "tags": [
+   "python",
+   "django",
+   "django-rest-framework"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have this basic Django API that I can access through the browser at [code] ; however, when I use python script to connect to it, I keep getting multiple errors. This is the python script: [CODE] The errors I see: urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f80f8286490>: Failed to establish a new connection: [Errno 111] Connection refused urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: /norm/status/ (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f80f8286490>: Failed to establish a new connection: [Errno 111] Connection refused')) I am running the Django server inside a docker container and I am not sure if it has anything to do because of that. I really appreciate if someone can help me debug this. I tried using django-cors-headers and also HTTPAdapter libraries but it didn't work."
+ },
+ {
+  "question_id": 77918018,
+  "ym": "2024-02",
+  "creation_date": 1706767809,
+  "title": "pytelegrambotapi(telebot) pagination buttons",
+  "tags": [
+   "python"
+  ],
+  "score": -5,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "python, pythontelegrambotapi?."
+ },
+ {
+  "question_id": 77918027,
+  "ym": "2024-02",
+  "creation_date": 1706767963,
+  "title": "TypeError: __init__() missing 2 required positional arguments: &#39;stdout&#39; and &#39;stderr&#39;",
+  "tags": [
+   "python",
+   "python-3.x",
+   "video",
+   "ffmpeg",
+   "typeerror"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I encountered the following error while running a program [code] , which is designed to extract audio and frames from the videos in dataset [code] . Here is the error message from the program: [CODE] This is the location indicated by the error message(in the file [code] ): [CODE] The following program is the python program [code] being executed: [CODE] It's strange that similar errors did not occur when processing the [code] video dataset, but they are encountered when handling the [code] dataset. (Is this related to the fact that the [code] dataset doesn't have audio?)"
+ },
+ {
+  "question_id": 77918029,
+  "ym": "2024-02",
+  "creation_date": 1706767978,
+  "title": "recursive DataFrame query",
+  "tags": [
+   "python",
+   "dataframe",
+   "index-error"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm writing small program to utilize data from API endpoint. As I need to solve typical problem of parent-child recursive relation I wrote function as below: [CODE] What drives me crazy is that the code throws an error: line 1686, in _validate_integer raise IndexError(\"single positional indexer is out-of-bounds\") in line [code] Strange thing is that the value of [code] can be printed out without any errors and shows proper value. It's 64bit float. Why I need that line? Because API endpoint returns \"null\" in case no parent is available. What am I missing here?"
+ },
+ {
+  "question_id": 77918063,
+  "ym": "2024-02",
+  "creation_date": 1706768564,
+  "title": "How to get numeric data from the &quot;object&quot; data type and make it &quot;int&quot; in a dataframe?",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "When loading securities quote data, the price values ​​look like this: Where units is the integer part, nano is the fractional part. [CODE] How can I fix the \"close\" column so that the data looks like this? [CODE] I tried to sum the values as follows, but nothing came out. [CODE]"
+ },
+ {
+  "question_id": 77918080,
+  "ym": "2024-02",
+  "creation_date": 1706768911,
+  "title": "parse json and add fields to Data frame in Python",
+  "tags": [
+   "python",
+   "dataframe",
+   "databricks"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have a notebook that queries API and gets the JSON back as per the attached format. [CODE] I would then need to parse the the json and add values like display_name and Mail from the JSON into a data frame so it can insert it in the SQL database as rows (display name will be repeated depending on the entries of how many mails are in the list). Please help me achieve this in python. Note: Code that I tried to parse is as below but its not aligning them as per group vs email properly [CODE]"
+ },
+ {
+  "question_id": 77918150,
+  "ym": "2024-02",
+  "creation_date": 1706770013,
+  "title": "which DataIdentifier (DID) I need to get the voltage from ECU?",
+  "tags": [
+   "python",
+   "can-bus",
+   "automotive",
+   "uds"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I use IsoTPSocketConnection of UDS protocol, I want to get the voltage from the vehicleת I wrote (I show part of the code): [CODE] bat I don't know which DID to put (hex)"
+ },
+ {
+  "question_id": 77918159,
+  "ym": "2024-02",
+  "creation_date": 1706770157,
+  "title": "How to fetch Speech Result text from twilio call logs using python",
+  "tags": [
+   "python",
+   "twilio",
+   "twilio-api",
+   "twilio-programmable-voice"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am trying to fetch call logs from twilio which was successful from twilio docs, but I also want to fetch the conversation text which is present in twilio request parameters please guide me on this as my requirement is not available in twilio docs."
+ },
+ {
+  "question_id": 77918172,
+  "ym": "2024-02",
+  "creation_date": 1706770298,
+  "title": "seaborn error &#39;Input data must be a pandas object to reorder&#39;",
+  "tags": [
+   "python",
+   "python-3.x",
+   "pandas",
+   "dataframe",
+   "seaborn"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "ValueError: Input data must be a pandas object to reorder. detail ; python 3.1, lib seaborn 0.12. ValueError: Input data must be a pandas object to reorder [CODE] [CODE]"
+ },
+ {
+  "question_id": 77918221,
+  "ym": "2024-02",
+  "creation_date": 1706770936,
+  "title": "Why won&#39;t Pydantic print the id as &quot;_id&quot;?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "mongodb",
+   "pydantic"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "[CODE] Hi everyone, I have been wanting to have my own [code] for a class, and I wanted to dump this into [code] . So when I call [code] , I want it to convert the [code] field to [code] . That way when I push it to Mongo, it will take my [code] that I have created instead of the one auto-created by Mongo. How do I do this? I have also tried using [code] and [code] . but they don't seem to work either."
+ },
+ {
+  "question_id": 77918290,
+  "ym": "2024-02",
+  "creation_date": 1706771842,
+  "title": "How to test if an object is Annotated in Python?",
+  "tags": [
+   "python",
+   "python-typing"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Consider the following code: [CODE] I want to test if type of [code] field in a [code] is [code] type but it always return [code] . What's wrong and how to fix?"
+ },
+ {
+  "question_id": 77918360,
+  "ym": "2024-02",
+  "creation_date": 1706772721,
+  "title": "Maximizing TCP/IP speed with python driver",
+  "tags": [
+   "python",
+   "sockets",
+   "tcp",
+   "esp32",
+   "ethernet"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am working on fairly complex project that involves data transfer from ESP32 to PC via TCP/IP protocol. Both codes (I guess) are not worth to investigate on the spot, however, I will provide it down bellow. The main algorithm is as follows: ESP32 constantly sampling a signal of interest via ADC12020 converter. When ESP32 receives an interrupt (meaning the signal has reached threshold level) it accumulates and forms 256 byte data packet and sends it to the PC via TCP/IP (ESP32 acting as client). This operation continues untill the ESP32 is powered down. On the PC side I have wrote a python script that emulates a TCP server. Server is listening for incoming data. As soon as it receives a data packet from the client it assigns a timestamp to it and does minimal data processing steps (some bitwise operations) Then it forms some kind of a data unit (with correct formating, timestamp, number format etc.) and stores it in a 100 MB internal buffer. When the ESP32 ends its operation and disconnects, it indicates that there will be no more incoming data packets and the server should write all the accumulated results to a textfile. All this is achieved successfully, except for the fact that I only get maximum of around 170 voltage pulses per second registered (judging on the timestamps and the result file data.) while the test conditions easily reach 10000 pulses per second. So 170 pulse"
+ },
+ {
+  "question_id": 77918487,
+  "ym": "2024-02",
+  "creation_date": 1706774105,
+  "title": "Python: Magic method for when the object&#39;s reference count changes?",
+  "tags": [
+   "python",
+   "oop",
+   "python-datamodel"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I want to a method that runs when object reference count is changed. is there a method like the following code ? [CODE] Note: This is a repost of this question, I'm looking for an answer compatible with Python 3.10. Thanks! The reference count of my object never goes below 1. Taking this as a given, I tried to implement some clean-up code for when an object is dereferenced by all user-facing code by adding [code] . That didn't work, because there's one reference left. So, I need to add some clean-up code for the reference count hits 1. This is an XY Problem, and I'm comfortable with that. My actual situation involves singletons, wherein [code] . To do this, there's an internally referenced dictionary that's handling all this. That's why the minimum reference count for an object is 1. When an object is removed from the User's code, ie, the reference count reaches 1, I'd like to clean it up from my reference dictionary as well."
+ },
+ {
+  "question_id": 77918504,
+  "ym": "2024-02",
+  "creation_date": 1706774387,
+  "title": "Error installing tbb on MacOS using homebrew",
+  "tags": [
+   "python",
+   "macos",
+   "cmake",
+   "homebrew",
+   "tbb"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to install tbb on MacOS using Homebrew, and I get the following error message: [CODE] It looks like CMake can't find Python.h for some reason. I can build other packages just fine, it only happens with tbb . I have Python installed. For context, I'm trying to install tbb in order to install openvino . I'm running MacOS 11.7.10."
+ },
+ {
+  "question_id": 77918532,
+  "ym": "2024-02",
+  "creation_date": 1706774725,
+  "title": "How to overload class member type depending on argument?",
+  "tags": [
+   "python",
+   "python-typing",
+   "pyright"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I recently learned I can overload return type using [code] and [code] argument. I am implementing my own [code] -ish interface and I am not able to overload [code] return type to be [code] or [code] depending on the value of [code] in the constructor. I am using pyright for static type checking. I have tried the following: [CODE] However, it assumes [code] to be [code] twice, and the declaration stdin is obscured: [CODE] How can I overload class instance member type depending on the value of argument? Note how it works with subprocess.Popen: [CODE] I tried reading subprocess source code https://github.com/python/cpython/blob/main/Lib/subprocess.py#L1015 , but I do not know where type annotations are stored."
+ },
+ {
+  "question_id": 77918537,
+  "ym": "2024-02",
+  "creation_date": 1706774782,
+  "title": "Play Developer Api, edits.tracks.update not work",
+  "tags": [
+   "python",
+   "android",
+   "google-play-developer-api"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have an Android app released on PlayStore. In general, when I release a new version to the PlayStore, I set the 'user fraction' to 30%. Then, I will monitor it for a few days and if there are no major problems, I will gradually increase it and deploy it to 100%. I do this on the PlayConsole Web site. But I want to do this programmatically. So I found the API and created a Python code. [CODE] When I run this code, it prints below response: [CODE] The userFraction was changed! But when I open the PlayConsole, the User fraction doesn't change. It still 30%. Why the web page is still showing 0.3? Is this a caching issue?"
+ },
+ {
+  "question_id": 77918540,
+  "ym": "2024-02",
+  "creation_date": 1706774812,
+  "title": "Map the upper group to the column in pandas",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have the following (ordered) dataframe [code] : [CODE] The logic is that the Level 5 , which stands above the level 8 has to get mapped to it, that means: [CODE] How can I achieve this? I want to map the \"upper group ID\" to it. So everytime a new [code] in the Level column occurs, that menas this is the new upper group for the Level 8 until the next 5 occurs."
+ },
+ {
+  "question_id": 77918600,
+  "ym": "2024-02",
+  "creation_date": 1706775568,
+  "title": "Irreproducible crash/behaviour of pyinstaller executable on different PCs",
+  "tags": [
+   "python",
+   "windows",
+   "pyqt5",
+   "crash",
+   "pyinstaller"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm writing a little Python (3.11.3) program using PyQt5 and a few more modules. Then I was packing this with pyInstaller (5.10.1) into an single file executable for Windows10. On my laptop, I did not experience any problems, neither with the Python script nor with the executable. However, when I copied the .exe to 3 other PCs and started it, I got 3 times some strange behaviour: on PC 1 the .exe was crashing (I couldn't see what the error message was) on PC 2 some table cells where suddenly empty after some table action on PC 3 it crashed (error was something like [code] , however, this case should be excluded by the script) Now, here comes the next strange thing: This happened only when starting the .exe on the other PCs for the first time. After restarting, this crashes/errors did not occur even with the same input. Here on StackOverflow, there have been similar questions, but as far as I can judge no duplicates: Why python .exe doesn't run on some PCs and others it does (Using pyinstaller) No conclusive answer there. In my case, the PCs are all Windows10/64 systems. PyQt5 app compiled with PyInstaller using --onefile and --noconsole, but exe fails to launch In my case, the .exe started the second time, no pyInstaller [code] issues. Some information about the used modules: [CODE] Since the initial .exe was about 50 MB which to my opinion seems pretty large (but this is anoth"
+ },
+ {
+  "question_id": 77918623,
+  "ym": "2024-02",
+  "creation_date": 1706775806,
+  "title": "read and output data from string on python",
+  "tags": [
+   "python",
+   "python-re"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a string of data that includes a name of variables and then it comes a value of that variabl. It may be like that: [CODE] as you may see it can be separate by [code] or [code] or nothing. How do I create variables and give those variables names and values? Аll variables may be different and may contain both numbers and letters I tried to do this using the re library and realized that I didn't understand anything."
+ },
+ {
+  "question_id": 77918644,
+  "ym": "2024-02",
+  "creation_date": 1706776019,
+  "title": "python module multi-version",
+  "tags": [
+   "python",
+   "pip",
+   "virtualenv",
+   "python-venv"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I've installed [code] which requires [code] . When I'm trying to install [code] from the official repo which requires [code] , the installer automatically uninstalls the lower version module. Actually, I've created a virtual environment in [code] , and don't want to create another one for [code] . Is there a method to let different modules choose their dependencies by path or some other way? I used to create a different environment for those modules, but does there exist a method to let different modules choose their dependencies by path or some other way?"
+ },
+ {
+  "question_id": 77918648,
+  "ym": "2024-02",
+  "creation_date": 1706776035,
+  "title": "Can I use AES Encryption in Django + MySQL? If yes, will it affect the use of Django&#39;s ORM and other features?",
+  "tags": [
+   "python",
+   "mysql",
+   "django"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "We are migrating our PHP codebase to Django. In the current application, all database columns are encrypted (except ID) using AES_ENCRYPT and AES_DECRYPT. something like this: [CODE] [CODE] Can this code be replicated in Django and is it possible to still maintain the cool features of Django like migration and ORM?"
+ },
+ {
+  "question_id": 77918656,
+  "ym": "2024-02",
+  "creation_date": 1706776205,
+  "title": "Struggling with handling downloads from a custom browser made with PyQt6",
+  "tags": [
+   "python",
+   "pyqt6",
+   "qwebengineview"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am struggling to implement downloads handling feature in my custom browser made with PyQt6. There are two download attempts and two errors I encountered while not changing any code in between testing those two downloads. Here I make a class: [CODE] This is the related download codes located in [code] of [code] : [CODE] Tried downloading a file from download.cnet.com, I got this error: [CODE] Then, I tried another (downloading Chrome if I'm not mistaken): [CODE] I'm confused. Can you guide me in figuring out what I should do? Based on CORS policy error, I thought there is no error with the code but then when AttributeError popped up, doesn't that imply errors within the code?"
+ },
+ {
+  "question_id": 77918729,
+  "ym": "2024-02",
+  "creation_date": 1706777098,
+  "title": "Trouble using python environment",
+  "tags": [
+   "python",
+   "command-line-interface"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm having trouble using RVC-CLI I'm having trouble using RVC-CLI It says: Execute the install.bat file to activate a Conda environment. Subsequently, launch the application using env/python main.py instead of the conventional python main.py I can't figure out what exactly should I do to set up the whole project in windows (start environment and main.py in particular). I have tried launching it from cmd but it keeps coming up with error: python main.py [windows] - Error with parselmouth python3 main.py [linux] - Error numpy1.21 can't be reinstalled env/python main.py [windows] - 'env' is not recognized... conda - 'conda' is not recognized... Tree of the folder - https://anonymfile.com/71xD/tree.txt"
+ },
+ {
+  "question_id": 77918750,
+  "ym": "2024-02",
+  "creation_date": 1706777268,
+  "title": "How can I optimize a search over two sets of files to merge them?",
+  "tags": [
+   "python",
+   "algorithm",
+   "optimization"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I've got a bunch of .txt files with alphabetically-sorted file names: [CODE] And another set of .txt files stored in a different location: [CODE] I want to take the text of .txt files in the latter group and append them to the appropriate file in the first group. (There is a chance that a file in the second group does not exist in the first group.) For example, I want to take the contents of [code] from the second group and append that to [code] in the first group. How can I do this efficiently? The obvious way is: [CODE] But this seems really inefficient. A human trying to find [code] in the first group wouldn't start searching from aaa.txt, they'd immediately jump to the files that start with ca. I imagine one way to optimize this is to remove [code] from the search once it's been updated, possibly by storing the updated file in a third directory, and deleting [code] from the first group(?) If it matters, I'm using Python."
+ },
+ {
+  "question_id": 77918804,
+  "ym": "2024-02",
+  "creation_date": 1706777869,
+  "title": "How to avoid circular imports in Python without merge into a single file",
+  "tags": [
+   "python",
+   "python-3.x",
+   "python-import",
+   "circular-dependency"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "Here are my files: [CODE] [code] [CODE] [code] [CODE] [code] [CODE] Question How can I resolve this circular import issue without merge the 2 files. Running [code] raises an exception [CODE] Then, I have changed [code] to [code] in all 3 files. However, it does not resolve the issue. [CODE] If I merge [code] and [code] into one file, it does solve the issue. But this is an less ideal solution. [CODE]"
+ },
+ {
+  "question_id": 77918809,
+  "ym": "2024-02",
+  "creation_date": 1706777923,
+  "title": "Convert timezone of datetimes in a Pandas dataframe",
+  "tags": [
+   "python",
+   "pandas",
+   "datetime",
+   "timestamp",
+   "timezone"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "So I've been trying to write a small script to convert a column of datetime values (coming from various timezones) to the same one. [CODE] I've tried this, and it results in the error: [CODE] So then I've tried to use tz_localize instead, which results in: [CODE] It feels like a chicken and the egg, or a \"catch 22\" problem... Thank you in advance!"
+ },
+ {
+  "question_id": 77918815,
+  "ym": "2024-02",
+  "creation_date": 1706778008,
+  "title": "Getting ssl.SSLError: [X509V3: INVALID_CERTIFICATE] when trying to send email",
+  "tags": [
+   "python",
+   "ssl-certificate",
+   "smtplib"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I run windows 10 and python 3.11. When I run a pretty standard email sending script I'm getting an SSL error ssl.SSLError: [X509V3: INVALID_CERTIFICATE] invalid certificate (_ssl.c:4035) I can run the exact same code from another computer with no issues, I have reinstalled certifi [CODE] rebooted several times. I can run email connection code without SSL on the same computer. The only articles I can find online appear to be related to SSL certificates on MAC OS. Should I be looking for something in MMC? [CODE]"
+ },
+ {
+  "question_id": 77918871,
+  "ym": "2024-02",
+  "creation_date": 1706778629,
+  "title": "How do I sum all values in one column based on values from range of another column",
+  "tags": [
+   "python",
+   "pandas",
+   "numpy"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "Combi Tons width bruttotime time time in minutes total time for Combi 300244871 23.080 1.544,00 69,98 05:12:30 70,05 0,000 1.544,00 0,00 06:22:33 0,00 22.790 1.544,00 71,98 06:22:33 71,98 300244871 0,000 1.544,00 0,00 07:34:32 0,00 300244881 23.080 1.544,00 69,98 05:12:30 77,05 0,000 1.544,00 0,00 06:22:33 0,00 22.790 1.544,00 71,98 06:22:33 5,98 300244881 0,000 1.544,00 0,00 07:34:325,98 0,00 How do I sum all values in last column (time in minutes) based on values from the Combi column (from 300244871 - to 300244871) Total time for Combi should be 142,03 for 300244871. I have tried with below code. [CODE]"
+ },
+ {
+  "question_id": 77918877,
+  "ym": "2024-02",
+  "creation_date": 1706778758,
+  "title": "Adding watch to Python project in Debug mode",
+  "tags": [
+   "python",
+   "visual-studio-code"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am working in VSCode on Windows and have a created a debug configuration. I want to add a watch to inspect the contents of a data class as it is populated. My data class is setup like so: [CODE] If I just add [code] or [code] to the Watch window in VSCode I see nothing, yet my print(f\"{self.ct}\") shows data is in the CTimer dataclass instance ct. What am I doing wrong, so that I can watch the instance self.ct."
+ },
+ {
+  "question_id": 77918908,
+  "ym": "2024-02",
+  "creation_date": 1706779156,
+  "title": "Inherit class docstrings when generating documentation using Sphinx",
+  "tags": [
+   "python",
+   "python-sphinx",
+   "autodoc"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am trying to inherit docstrings from a parent class when generating documentation using Sphinx. Here's a minimal repro: [CODE] My [code] looks like this: [CODE] and this is what my [code] file looks like: [CODE] This gives me: However, I still am unable to import [code] 's docstring into [code] . Similar questions have been asked before here and here but both of them make use of a decorator. For reasons beyond the scope of this question, I will NOT be able to use a decorator. I also tried [code] in the [code] to no avail. What would be the best way to go about this? Does Sphinx not support this out of the box? Thank you!"
+ },
+ {
+  "question_id": 77918920,
+  "ym": "2024-02",
+  "creation_date": 1706779261,
+  "title": "Find if the matching date exists",
+  "tags": [
+   "python",
+   "pandas",
+   "algorithm",
+   "time-series",
+   "quantitative-finance"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "df1: tradeDate securityCode 20190319 000001 20220505 000001 df2: payoutDate securityCode 20180708 000001 20190221 000002 df3: endDate securityCode 20200203 000003 20210330 000004 I have 3 data frames, and the structures look like above. Size of the first data frame is (3829931, 2), size of second df is (35689, 2) and size of third df is (10329, 2). I am trying use python to do the following: First initialized a new column named \"condition\". For a security code from df1, if the corresponding trade date can be found in the past 2 year range in df2 or df3, then set the condition to 1. For example, for a security code 000001 on trade date 20190319, check if there is a pair in df2 or df3 such that security code = 000001 and payout date or end date is between 20170319 and 20190319. If the requirement is met, then set condition to 1. for the above example data frames, the expected output should be the first row's condition is 1 The attempts I made: [CODE] Above are the codes I wrote. But when I run it on my local environment, it is extremely slow. I wonder if there are more efficient ways to do this? Thanks!"
+ },
+ {
+  "question_id": 77918933,
+  "ym": "2024-02",
+  "creation_date": 1706779342,
+  "title": "How to parallel unpickleable object processing?",
+  "tags": [
+   "python",
+   "parallel-processing",
+   "pickle"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I use treesitter to parse source files. Sometimes the source files are large enough to make treesitter \"cry\" for relatively long time. I use treesitter bindings for python and the objects that I work with are Parser and Tree. The problem with these objects is that they are unpickleables, thus making it impossible for me to offload the work to an async worker. All I need is a way to call parser.parse() with the source file bytes from an async worker and return the Tree object to the main thread. This seems like a trivial objective which I couldn't find a way to achieve. If there were a synchronization challenge I could understand, but it seems to me that because python does not allow \"true\" parallel threads than I have to work with processes, which in turns transfer the challenge to communication, and with pickle not being able to communicate all kind of stuff, there is simply no way to achieve that... am I missing something? I tries using the Queue and Pipe objects to communicate the objects between the processes, but they only support pickleable objects right? I also thought of adding C code to my python that: create at thread parsing the file replaces the internal Tree object with the newly created one. But I wanted to avoid this \"hacky\" way."
+ },
+ {
+  "question_id": 77919015,
+  "ym": "2024-02",
+  "creation_date": 1706780010,
+  "title": "How do I get Seaborn Barplot bars&#39; colors darker as they become greater/smaller?",
+  "tags": [
+   "python",
+   "seaborn",
+   "bar-chart",
+   "visualization"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am plotting a list of daily, weekly, monthly IPO stocks performance. I want the bars' colors to grow darker as they get greater/smaller. [CODE]"
+ },
+ {
+  "question_id": 77919054,
+  "ym": "2024-02",
+  "creation_date": 1706780409,
+  "title": "How to do not run some of Playwright tests in certain browsers?",
+  "tags": [
+   "python",
+   "automated-tests",
+   "pytest",
+   "playwright"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have tests which are running in Chromium, Firefox and Webkit (mobile) browsers. But several of these tests should not be executed in the mobile browser. How can I set skipping such tests if Playwright executes tests in Webkit? I tried to use the pytest annotations from here https://playwright.dev/python/docs/test-runners#examples but it doesn't work, all tests are executed as earlier. [CODE] The command for executing is [code] (if it's important). For executing in a few browsers I use the fixture in [code] : [CODE]"
+ },
+ {
+  "question_id": 77919089,
+  "ym": "2024-02",
+  "creation_date": 1706780759,
+  "title": "Is there a way to check the toggle status of an object that has no control_type=&quot;CheckBox&quot;)",
+  "tags": [
+   "python",
+   "checkbox",
+   "automation",
+   "pycharm",
+   "pywinauto"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to check the toggle status of a checkbox however it doesn't have a control type \"CheckBox\". [code] here is what it tools like via automation spy tool I have other checkboxes and the code I used to check the toggle status is [code] Any recommendation is appreciated. [code]"
+ },
+ {
+  "question_id": 77919126,
+  "ym": "2024-02",
+  "creation_date": 1706781040,
+  "title": "Having issues with importing model to another app in order to use model there",
+  "tags": [
+   "python",
+   "django"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "My project structure: ecomarket: ecomarket: cart: product: user: manage.py Here's product.models [CODE] And this is cart.models [CODE] The issue is when I'm importing Product in the top of file like from product.models import the django is refusing to understand it. In cart.models I imported Product model in ForeignKey as a string and it worked. But I need Product model in my cart.views to create when endpoint get request. So how can I import it to my cart.views? Here's my views.py [CODE] Thank you for all answers in advance While searching I learned that it's because of python's new version, But couldn't find any solutions."
+ },
+ {
+  "question_id": 77919134,
+  "ym": "2024-02",
+  "creation_date": 1706781091,
+  "title": "Run Boruta on Weighted Dataset",
+  "tags": [
+   "python",
+   "weighting"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a dataset which I have split into [CODE] I've also defined a random forest classifier: [CODE] To run boruta I have the code set up as: [CODE] However, I'm getting a TypeError saying sample_weight is an unexpected argument, but I cant work out where else I can add it to my code. Does anyone know a way around this? Or does anyone know if using BorutaShap may help solve this?"
+ },
+ {
+  "question_id": 77919305,
+  "ym": "2024-02",
+  "creation_date": 1706782475,
+  "title": "Find all duplicates in a list and populate them in same order in a new list",
+  "tags": [
+   "python"
+  ],
+  "score": -3,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have found the following code on Stack Overflow for creating new list of unique values recursively, but it doesn't work for me no matter how I tweak it for my requirement in the title. What is wrong here? My requirement is for input [code] the output should be [code] or for the input [code] the output should be [code] . The code I am trying is as below: [CODE]"
+ },
+ {
+  "question_id": 77919317,
+  "ym": "2024-02",
+  "creation_date": 1706782571,
+  "title": "How to define a ListView model depending on the value from parent ListView model",
+  "tags": [
+   "python",
+   "windows",
+   "listview",
+   "qml"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I create an application for vehicles' electronic control unit (ECU) diagnostic and now I'm trying to make a module to read errors in ECU using Python and QML. I've constructed a module using two ListView elements: first ListView is displaying visual containers containing ECU name and a child ListView, which in turn displays a list of errors for this ECU: The problem is that I cannot make each child ListView to use its own separate list-model with its own specific errors depending of ECU name from parent ListView. Now I've managed to define only one common list of errors as model, that's why all child ListViews contain same information. How can I define a specific list-model for each child ListView depending on ECU name from a delegate (or model data for this delegate) of parent ListView? Python code with list-models: [CODE] QML code: [CODE] I've tried to set up a new str function argument with ECU name inside, but it doesn't work, I cannot pass this str from QML so there's a lack of argument error: [CODE]"
+ },
+ {
+  "question_id": 77919364,
+  "ym": "2024-02",
+  "creation_date": 1706783020,
+  "title": "Building a dictionary in Python value per value, What&#39;s the best data structure to achieve this and end up with a list of dicts?",
+  "tags": [
+   "python",
+   "dataframe",
+   "defaultdict"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am building a table from an API data, so I need to iterate by the required metrics one by one to get this information. So my output should look something like this: [CODE] But, as said, I need to iterate over mX for all the dX, one by one. I was thinking in using pandas dataframe, but read about inserting a lot of values from scratch is not the best idea. So what's on my mind right now, is using a defaultdict of type dict using tuples as keys, so it would look something like this: [CODE] So I think that over iterations would be easier to find where to insert the mx value. But I have no clue about how to pass from this structure to the required output. Thank you in advance, guys!"
+ },
+ {
+  "question_id": 77919370,
+  "ym": "2024-02",
+  "creation_date": 1706783033,
+  "title": "Unexpected behaviour when applying rolling operation on a dataframe with no data",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "rolling-computation"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Consider the following code [CODE] This produces, as expected, the following dataframe time data 2024-01-01 00:00:00 0.826762 2024-01-01 01:00:00 0.826762 2024-01-01 02:00:00 0.826762 2024-01-01 03:00:00 0.792733 2024-01-01 04:00:00 0.618498 ... ... If I remove the [code] column and apply the same operation [CODE] I get no errors or warnings and, as result, a Dataframe with just the original [code] and no columns in it. I would have expected the function to return the original untouched dataframe. I understand what I'm doing doesn't make sense, because the input Dataframe does not contain any data to apply the rolling operation to, but shouldn't the function returns the input Dataframe (so with the time column) instead than removing it from the results? In my case I was using the same function over a dataframe that sometimes didn't contain that column, and this unexpected return value was causing the whole pipeline afterwards to fail because it couldn't find the time column anymore."
+ },
+ {
+  "question_id": 77919392,
+  "ym": "2024-02",
+  "creation_date": 1706783232,
+  "title": "Python updated xml file different form the original file",
+  "tags": [
+   "python",
+   "xml",
+   "elementtree"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "So, I have an xml file and created a script in python to change some values, which works just fine but when I create the output.xml (xml with updated values), the schema changes. I want to keep the same schema and update the values. my script.py [CODE] What I get: Comparison between the two files In this output file we missed the first line [code] and the [code] become [code] in the schema. Is there a way to generate an updated xml but keep everything else the same?"
+ },
+ {
+  "question_id": 77919397,
+  "ym": "2024-02",
+  "creation_date": 1706783289,
+  "title": "Polars: create an integer column from another one by computing the difference with the largest smaller value from a list",
+  "tags": [
+   "python",
+   "list",
+   "python-polars"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a [code] dataframe like this one: [CODE] And a sorted list of integers [code] : [CODE] I want to create a new column [code] , such that for each element [code] of [code] , I find the largest [code] in [code] such that [code] . Then the element of [code] is [code] . How can I do that?"
+ },
+ {
+  "question_id": 77919456,
+  "ym": "2024-02",
+  "creation_date": 1706783822,
+  "title": "How to implement in Python Flet a BottomAppBar",
+  "tags": [
+   "python",
+   "flet"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have an extra Page and want to add an BottomAppBar. Here the Code: Main and Start are Different files, but start can use page In the Documentation it shows, that i just have to add the page.BottomAppBar. I tried to add it in the main(), this was working [CODE] I just want to see the BottomAppBar"
+ },
+ {
+  "question_id": 77919480,
+  "ym": "2024-02",
+  "creation_date": 1706784035,
+  "title": "Nginx + Gunicorn: Django Application Not Loading on Domain, But Works on IP and Port",
+  "tags": [
+   "python",
+   "django",
+   "nginx",
+   "nginx-reverse-proxy",
+   "nginx-config"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I've tried accessing my Django application using the configured domain (e.g., http://succyloglobalfx.com ) after ensuring that the domain is correctly pointing to the VPS IP address. I expected to see my Django application load successfully, similar to when accessing it via the IP address and port (e.g., http://162.254.35.54:8000 ). I run Gunicorn with the following command: [code] However, when accessing the application through the domain, I only encounter the default Nginx welcome page instead of my Django application. This behavior is unexpected, and I'm seeking guidance on what steps I can take to troubleshoot and resolve the issue. Below is my nginx config file [CODE] Any insights or troubleshooting steps would be greatly appreciated. Thank you! I've tried accessing my Django application using the configured domain (e.g., http://succyloglobalfx.com ) after ensuring that the domain is correctly pointing to the VPS IP address. I expected to see my Django application load successfully, similar to when accessing it via the IP address and port (e.g., http://162.254.35.54:8000 ). However, when accessing the application through the domain, I only encounter the default Nginx welcome page instead of my Django application. This behavior is unexpected, and I'm seeking guidance on what steps I can take to troubleshoot and resolve the issue."
+ },
+ {
+  "question_id": 77919560,
+  "ym": "2024-02",
+  "creation_date": 1706784843,
+  "title": "Log errors from a Python Azure Function App?",
+  "tags": [
+   "python",
+   "azure",
+   "azure-functions"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have a Python script running in an Azure timer function which keeps randomly failing and I am trying to figure out why. In the monitor tab, all it says is that the function failed. I have tried logging the exception using a try-except statement but it doesn't make a difference: [CODE]"
+ },
+ {
+  "question_id": 77919632,
+  "ym": "2024-02",
+  "creation_date": 1706785523,
+  "title": "How to find the indexes of the first $n$ maximum values of a tensor?",
+  "tags": [
+   "python",
+   "machine-learning",
+   "pytorch",
+   "argmax"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I know that [code] returns the index of the first maximum value in [code] along dimension [code] . But is there an efficient way to return the indexes of the first [code] maximum values? If there are duplicate values I also want the index of those among the [code] indexes. As a concrete example, say [code] . I would like a function [CODE] such that [code] returns [code] in this example."
+ },
+ {
+  "question_id": 77919633,
+  "ym": "2024-02",
+  "creation_date": 1706785529,
+  "title": "python smtplib , Problems when try to send email with python script",
+  "tags": [
+   "python",
+   "smtplib"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "i want to send an email automatic with pyhton. This is my Code: [CODE] i get this error: [CODE]"
+ },
+ {
+  "question_id": 77919730,
+  "ym": "2024-02",
+  "creation_date": 1706786377,
+  "title": "vectorize numpy array multiplication",
+  "tags": [
+   "python",
+   "numpy",
+   "vectorization",
+   "multiplication"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "[CODE] using the second column in [code] , I want to get [CODE] I want to do this for each column in [code] . For 1-d array of [code] , I can do [code] . How can I vectorize the multiplication here without using loop?"
+ },
+ {
+  "question_id": 77919739,
+  "ym": "2024-02",
+  "creation_date": 1706786471,
+  "title": "Filtering nested dictionary based on filter condition passed as dict",
+  "tags": [
+   "python",
+   "dictionary"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Below is the nested dictionary containing netflow data. I need to filter out the packets that are passing the filter_criteria passed as a dictionary for eg:{'dstport': '443'} (all packets and flows where dstport = 443) or multiple filters like {'srcaddr':'192.168.10.10','dstport': '443'} (all packets and flows where srcaddr = 192.168.10.10 and dstport = 443) [CODE] Result filtered dictionary should be nested dictionary which matches the filter_criteria [CODE]"
+ },
+ {
+  "question_id": 77919836,
+  "ym": "2024-02",
+  "creation_date": 1706787191,
+  "title": "Error when trying to install DeepFace on Python 3.9",
+  "tags": [
+   "python",
+   "installation",
+   "pip",
+   "deepface"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I tried to install DeepFace on my Windows device, using Python 3.9, but it gives me this error: [CODE] I tried doing \"pip install deepface\" to install the library, to no success. Any ideas on how to make it work?"
+ },
+ {
+  "question_id": 77919908,
+  "ym": "2024-02",
+  "creation_date": 1706787795,
+  "title": "How to use the filename from the function outside it in Tkinter?",
+  "tags": [
+   "python",
+   "tkinter"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am making a program that takes the filedialog filename and then puts it into another function that is working with openpyxl, however the problem i am facing is that i can't access the filename outside of the function. I have also tried using return but to no avail. Please have a look at my code: [CODE]"
+ },
+ {
+  "question_id": 77919909,
+  "ym": "2024-02",
+  "creation_date": 1706787811,
+  "title": "boto3 delete_object after get_object leads to : botocore.exceptions.ReadTimeoutError: Read timeout on endpoint URL:",
+  "tags": [
+   "python",
+   "amazon-web-services",
+   "amazon-s3",
+   "boto3"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm in the process of implementing a new functionality that will rely on s3 buckets and I have a really strange problem. So, we will have 2 buckets for files downloaded from internet. 1st bucket will basically store all kinds of files that we will find. Later on I wan't copy all files that ['ContentType'] == 'text/plain' to final/destination bucket and remove all the files that ['ContentType'] != 'text/plain' from 1st bucket. To achieve the intended effect I use get_object with delete_object . [CODE] Unfortunately, for some reason unknown to me, the process ends with an error when calling delete_object . I receive response from get_object without any issues. botocore.exceptions.ReadTimeoutError: Read timeout on endpoint URL The most interesting thing is that the problem only appears after calling get_object first. If I just call delete_object , everything works and the file will be deleted. I would be very grateful for any suggestions and comments. I'm already frustrated ;)"
+ },
+ {
+  "question_id": 77919918,
+  "ym": "2024-02",
+  "creation_date": 1706787885,
+  "title": "Missing center point in scatter plot on matplotlib PolarAxes",
+  "tags": [
+   "python",
+   "matplotlib"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I try to draw markers on a matplotlib [code] using [code] or [code] (tried both). Here is my code (not showing the part that creates the plot and colorbar): [CODE] The data, whith angular and radial positions [code] and [code] , clearly contains the center points with coordinates (0, 0); in total it's 49 points. The problem is that the center point is always missing on the resulting plot. In fact, if I manipulate the data and increase the radial position of the first point from [code] to [code] or higher, the corresponding marker suddenly appears. For radii < 5, no marker is drawn. I'd like to understand why this is not working as intended and how I can fix it so that the center point does appear on the plot. This is using python 3.8.10 and matplotlib 3.2.2. In case anyone is interested, this is a visualization of a wafer-map measurement of sheet resistance on a 8\" silicon wafer coated with a Cu thin film. The markers indicate the sites of the 49-point measurement pattern."
+ },
+ {
+  "question_id": 77919936,
+  "ym": "2024-02",
+  "creation_date": 1706788070,
+  "title": "DNEG xStudio Build unable to install packages",
+  "tags": [
+   "python",
+   "chocolatey"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm currently trying to install DNEG's xStudio video review tool on Windows. However, at step 4 here , I'm getting the following error: [CODE] It looks like it may be a python error. This is running in the administrative shell. How would I resolve these three packages?"
+ },
+ {
+  "question_id": 77919947,
+  "ym": "2024-02",
+  "creation_date": 1706788163,
+  "title": "Is the time complexity for pandas inner, left and right joins O(n)?",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "join"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I read in this thread: What is the running time (big \"O\" order) of pandas DataFrame.join? that an inner join is expected to be O(n), whereas a left and right join are expected to be O(n log n). I have been doing some testing using random dataframes such as: [CODE] I ran several simulations for each sample size and averaged the results in order to reduce the impact of variations due to local conditions on the computer. This is the plot I obtained: Since all 3 lines are close to parallel, and linear (with slope around 1.07) I took this to mean that all 3 join types are O(n^1.07) which is very nearly O(n). Does this seem correct ? What should I see in the plot if left/right joins were O(n log n) instead ? Happy to share my complete code, if requested."
+ },
+ {
+  "question_id": 77919954,
+  "ym": "2024-02",
+  "creation_date": 1706788221,
+  "title": "FastAPI overwrite pydantic model during startup",
+  "tags": [
+   "python",
+   "fastapi",
+   "pydantic"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "In my FastAPI application, I want to create a dynamic pydantic model which is used as an input argument. If a condition (that can only be checked during startup) is True, I want to overwrite the model. In the minimum working example, the model [code] is initialized with the default value [code] . In the lifespan event, I overwrite [code] by initializing a new dynamic model with [code] . However, in [code] , the default model is still used. Is there a way to overwrite the model such that all endpoints that use it are updated? Since I am using the model as an input argument in multiple endpoints, I would prefer not creating all endpoints dynamically in the lifespan event. MWE [CODE] Endpoint with default model The MWE does not manage to overwrite the model"
+ },
+ {
+  "question_id": 77919979,
+  "ym": "2024-02",
+  "creation_date": 1706788542,
+  "title": "Solve the packing error on peer handshake protocol",
+  "tags": [
+   "python",
+   "python-3.x",
+   "bittorrent"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am building my own BitTorrent Client ,after getting the response from the UDP tracker I got the peer list ,After getting the list I started a peer handshake with each IP and Port one by one .I used the standard format for Handshake Protocol but still the struct.pack is throwing an error :- the code of my peer_handshake function is given as follows: [CODE] I expect that error must be resolved and handshake must be completed."
+ },
+ {
+  "question_id": 77920089,
+  "ym": "2024-02",
+  "creation_date": 1706789528,
+  "title": "Passing multiple functions as arguments to another function anonymously Python",
+  "tags": [
+   "python",
+   "function"
+  ],
+  "score": 1,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I have code in PHP that I would like to rewrite in Python, but the difficulty is passing functions as arguments. Here is the PHP code: [CODE] It is important to me that the transfer method does not require a preliminary declaration of functions: [CODE] The question is what is the best way to implement this in python? I tried to do the same in Python as in PHP, but without success: [CODE] Also, I'm not sure if this is the best solution to the problem."
+ },
+ {
+  "question_id": 77920093,
+  "ym": "2024-02",
+  "creation_date": 1706789582,
+  "title": "Python 3.12: Correct typing for list[list[int,str,list[list[str]]]]?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "python-typing"
+  ],
+  "score": 4,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have a list of users, that I would like to type correctly, but I'm not able to find an answer explaining how to do this. The list looks like this: [CODE] I tried doing like this: [CODE] But VS Code only shows typing for: [code] : I also tried using Union, like this: [CODE] But again, this doesn't seems to work. Can someone shed a light over this?"
+ },
+ {
+  "question_id": 77920104,
+  "ym": "2024-02",
+  "creation_date": 1706789708,
+  "title": "How to speed up the code for k-max subarray sum",
+  "tags": [
+   "python",
+   "algorithm",
+   "performance",
+   "optimization"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Consider an array A of integers of length n. The k-max subarray sum asks us to find up to k (contiguous) non-overlapping subarrays of A with maximum sum. If A is all negative then this sum will be 0. If A = [-1, 2, -1, 2, -1, 2, 2] for example, then the two subarrays could be [2, -1, 2] and [2, 2] with total sum 7. The following code is my extension of Kadane's algorithm and runs in O(nk) time, which might be optimal. [CODE] We can test it with: [CODE] But my code seems inefficient. If k=3 for example, it makes an auxiliary array of length 7 and for every index in the input array it goes through the entire auxiliary array from index 1 to the end. Can the code be made faster/more efficient when k is reasonably large?"
+ },
+ {
+  "question_id": 77920123,
+  "ym": "2024-02",
+  "creation_date": 1706789883,
+  "title": "Using starlette TestClient causes an AttributeError : &#39;_UnixSelectorEventLoop&#39; object has no attribute &#39;_compute_internal_coro&#39;",
+  "tags": [
+   "python",
+   "pycharm",
+   "python-asyncio",
+   "fastapi",
+   "starlette"
+  ],
+  "score": 10,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Using FastAPI : [code] I run this [code] and it pass. [CODE] However, executing this test in DEBUG mode (in pycharm) will cause an error. Here is the Traceback : [CODE] I am not sure to understand what causes the error Since I can see the [code] , I need to precise that my operating system is MacOS M1."
+ },
+ {
+  "question_id": 77920150,
+  "ym": "2024-02",
+  "creation_date": 1706790210,
+  "title": "Unable to get a handle on the auto-suggestion dropdown in an angular based website using python selenium",
+  "tags": [
+   "python",
+   "angular",
+   "selenium-webdriver",
+   "testing",
+   "automation"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am trying to automate work-flow using python-selenium in a website made using angular. However, I am not able to automate auto-suggestion dropdown. When i input the suggestion key using send-keys option for eg [code] The above input generates a container with multiple options from which i need to select one. The dom entries are presented below for reference. [CODE] **The code which i used is as following: ** ` try: elements = WebDriverWait(driver, 30) elements.until( expected_conditions.visibility_of_element_located((By.XPATH, \"//div[starts-with(@id,'mat-autocomplete-']\"))) [CODE] Any inputs on how to solve the issue would be highly welcome. Thanks & regards, Hari [CODE]"
+ },
+ {
+  "question_id": 77920171,
+  "ym": "2024-02",
+  "creation_date": 1706790386,
+  "title": "How can I return the subarrays in my max k-subarray sum code?",
+  "tags": [
+   "python",
+   "algorithm"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Consider an array A of integers of length n. The k-max subarray sum asks us to find up to k (contiguous) non overlapping subarrays of A with maximum sum. If A is all negative then this sum will be 0. If A = [-1, 2, -1, 2, -1, 2, 2] for example, then the two subarrays could be [2, -1, 2] and [2, 2] with total sum 7. The following code is my extension of Kadane's algorithm and runs in O(nk) time, which might be optimal. [CODE] We can test it with: [CODE] I can't work out how to return the subarrays that are being used to form the final sum. In the first case I would like to output [code] and in the second case [code] to show the subarrays as interval pairs in the original array. I realise that this should be doable by storing something after: [CODE] but I can't work out how to do it correctly. How can my code be modified to do that?"
+ }
+]

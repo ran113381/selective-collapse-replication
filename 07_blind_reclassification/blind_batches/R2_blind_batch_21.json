@@ -1,0 +1,1248 @@
+[
+ {
+  "id": "P5782",
+  "title": "Python backwards for loop converted into java, not working",
+  "tags": [
+   "python",
+   "for-loop"
+  ],
+  "body": "I am so triggered by this. I am rewiriting a piece of python code into java. And my program has not been working. I have just found out why. It is the backwards for loop! Python [CODE] MY written in java [CODE] I've been pulling my hair out. Does anyone know what is wrong??!!!"
+ },
+ {
+  "id": "P1822",
+  "title": "Dataframe list to array comma delimited by value and semicolon delimited by line",
+  "tags": [
+   "python",
+   "dataframe",
+   "csv",
+   "join",
+   "split"
+  ],
+  "body": "Updated question and solution added. I am trying to convert a dataframe back to array. I started with CSV file containing the the following [CODE] I open and split with [CODE] I then convert to dataframe and output to CSV with the following [CODE] which gives this if I open the CSV with Notepad. [CODE] Full code is [CODE] This now produces the correct output when I print to screen [CODE] but does produces this when I save as CSV [CODE] I worked it out if anyone has the same issue. Thanks for those that helped. [CODE]"
+ },
+ {
+  "id": "P3629",
+  "title": "Calling `input()` just before termination gives ValueError: I/O Operation on closed file",
+  "tags": [
+   "python",
+   "windows",
+   "atexit"
+  ],
+  "body": "This is not a duplicate of How to keep a Python script output window open? The answers to that question (other than crackpot responses) all say the same thing: send a prompt to the console and call [code] . That is a standard approach, and I'm a bit surprised to see it called a workaround in one of the comments. I've been doing it myself for years. Here I report a problem with that approach that I have not seen addressed elsewhere, and certainly not in that question. I have a Windows program that sends output to the terminal. When invoked from (say) Explorer, it opens a terminal window, runs sending its output to the terminal, and then closes it. I added a command-line option [code] that emulates what Windows terminal would do if you put [code] in a batch file: it runs the program then outputs \"Press enter to continue\", and waits. That way, if the program issues a warning, the user will have a chance to see it before the window closes. That is achieved like this: Before [code] [CODE] After and in the scope of [code] [CODE] I was happy with this solution until I ran the program in a batch file. Then I saw: [CODE] Enter pressed in response; then [CODE] I think I understand in broad terms what is happening. The program ends and that causes stdin to be closed before the [code] call returns. I never noticed this before, because, of course, having pressed Enter the terminal window wo"
+ },
+ {
+  "id": "P4329",
+  "title": "Pandas Dataframe Splitting YYYYMM Format into to columns",
+  "tags": [
+   "python",
+   "pandas",
+   "datetime"
+  ],
+  "body": "I have a dataset that includes a column with a data stored in the YYYYMM format. After researching failed (I could not figure out how to apply datetime to this) I created a helper function to split it manually, and used the .apply() function to apply the function to every row. However this took a significant amount of time, and I can't help but believe there is a better way of doing this. Any assisstance is appreciated. [CODE] [CODE]"
+ },
+ {
+  "id": "P3477",
+  "title": "Failed to create virtualenv with pyenv virtualenv",
+  "tags": [
+   "python",
+   "pyenv",
+   "pyenv-virtualenv"
+  ],
+  "body": "I want to use pyenv's virtualenv for multiple python versions management, and I keep getting this error when I try to create it: [CODE] I also tried with the actual paths: [CODE] I checked the paths, .bashrc, and many other places and could not find out where the issues come from, and all the required tools that are shown in the error actually exist. How can I solve this?"
+ },
+ {
+  "id": "P4548",
+  "title": "how to check if pid has rolled over?",
+  "tags": [
+   "python",
+   "linux",
+   "pid"
+  ],
+  "body": "I am writing a program that will periodically scan all processes on a machine. I want to cache as much as possible to avoid any system load. I can list all available pids on a machine with [code] and then iterate over the list. What do I use as the key of the cache to protect against pid number re-use? In other words, consider the following python code, that opens two pid directories in some different points in time. What is needed to compare the directories to check if they refer to the same process? [CODE] I can't use [code] as I want to access [code] files to collect information about processes. Or I can? I do not know how is it possible to connect [code] with the [code] . My current idea is to compare the starttime field of stat file of processe: [CODE] Is there something better?"
+ },
+ {
+  "id": "P5334",
+  "title": "Making a 2D data table in Flask/Python/SQLAlchemy",
+  "tags": [
+   "python",
+   "flask",
+   "jinja2",
+   "flask-sqlalchemy",
+   "flask-wtforms"
+  ],
+  "body": "I am fairly new to Flask in python and I am putting together a webpage-based app to support a simple optioneering tool. I am saving the data from the web forms into a SQLite database using SQLAlchemy. The app has three input forms. The first takes a number of process options (num_options) and the second form takes in a number of criteria (to be used to judge the options - num_criteria). The third form - which is the issue - contains a table with num_options rows and num_criteria columns and each of the form items contains a \"score\" (where num_score = num_options * num_criteria). An example of this form is shown below - in this case num_options = 3 and num_criteria = 4. NOTE: the first two forms work in every regard, so the Flask representation and db file structure works - my issue is specific to the third Scores form. The format of the scores form is shown below. [CODE] I am feeding the form data into an SQLite database using SQLAlchemy. What I would like, is to have the form \"Submit\" button create a data table in the SQLite database in the following format: [CODE] ... etc, with the total number of rows being (num_options * num_criteria). My issue is that when I Submit the data into the table shown, all of the Scores are saved as whatever value is in the FIRST (top left) form item. The first three columns are entered correctly. Python/Flask/SQLAlchemy (as you will know) has th"
+ },
+ {
+  "id": "P4536",
+  "title": "GitLab CI: Unable to download job artifact from another project – CI_JOB_TOKEN returns 404, private token returns 401",
+  "tags": [
+   "python",
+   "gitlab",
+   "cicd"
+  ],
+  "body": "I’m facing an issue while trying to download a job artifact from one GitLab project into another using GitLab CI/CD. What I’m trying to achieve In the project A, I want to improve CI testing by: Downloading and executing an SQL artifact generated by another project B id:123 ( PROJECT B id:123) This setup works correctly on my local machine , but fails in GitLab CI . Setup details Source project: (PROJECT B id:123) Consumer project: project A Artifact URL: https://gitlab.example.com/api/v4/projects/123/jobs/artifacts/main/raw/gs_db.sql?job=generate_file id/jobs/artifacts/main/raw/test_db.sql?job=testsmangosql What I have tested 1. Using [code] (recommended approach) Result:404 Project Not Found Observations: The project 1 is added to the CI/CD job token allowlist in Project B ID-123 Added at both group level and explicit project level Job token permissions are configured via CI/CD settings Despite this, GitLab still returns [code] , which usually indicates that the job token cannot access the target project or artifact endpoint 2. Using a Private Access Token 401 Unauthorized Observations: This suggests the token itself is valid However, it may not be accessible in the CI pipeline context (e.g. protected variable or branch restriction) Additional validation steps Created a separate pipeline stage dedicated only to artifact download Tested multiple download methods, including the"
+ },
+ {
+  "id": "P2451",
+  "title": "Runas python subprocess",
+  "tags": [
+   "python",
+   "subprocess",
+   "popen",
+   "runas"
+  ],
+  "body": "I use the code I find all over stackoverflow to run a [code] program in Python: [CODE] Some remarks before the problem: it is not unsafe, in production I can safe the password in a Key Vault and retrieve it when used we cannot change the authorization method, we have to connect with some external AD for... reasons In cmd, the [code] asks for password and then works fine: However, with subprocess I keep getting: [CODE] What am I doing wrong? I reckon it's a newline / return error or something?"
+ },
+ {
+  "id": "P0296",
+  "title": "How to monitor Celery worker and return the task back to the queue if the worker dies or is killed?",
+  "tags": [
+   "python",
+   "django",
+   "celery"
+  ],
+  "body": "Problem Description I have a microservice that uses Celery for executing asynchronous tasks. I need to monitor the state of the Celery worker and return the task back to the queue if the worker dies or is killed (e.g., due to a SIGKILL signal). I also have another instance of Celery running on the main service side. Question Is there a way to monitor the state of the Celery worker and automatically return the task back to the queue if the worker dies or is killed? Additional Information Using [code] is not suitable as it would require waiting for a day before the task returns to the queue, while I need it to happen almost instantly."
+ },
+ {
+  "id": "P5853",
+  "title": "Difference between a daemon in linux and nohup",
+  "tags": [
+   "python",
+   "linux",
+   "server"
+  ],
+  "body": "I'm writing a linux server program in python. I want the server to continue running after I close the terminal. And I find two way to implement it: use the [code] command: (or [code] ) [CODE] [code] the program by double-fork. Need to write additional python code. ( How do you create a daemon in Python? ) I'm wondering what's the difference between the two implementations? Which one is prefered?"
+ },
+ {
+  "id": "P3178",
+  "title": "Import Error: playsound(&#39;D:\\\\Music\\\\abc.mp3&#39;) works in REPL but not in VS Code",
+  "tags": [
+   "python"
+  ],
+  "body": "[CODE] It works in REPL but could make it work in VS Code. Using Python 3.10.0, Playsound 1.3.0"
+ },
+ {
+  "id": "P3272",
+  "title": "How to use a trained SegFormer model on a single image?",
+  "tags": [
+   "python",
+   "pytorch",
+   "semantic-segmentation",
+   "pytorch-lightning"
+  ],
+  "body": "I trained a SegFormer model using the [code] method of the [code] class. [CODE] I got a checkpoints file [code] as output, but I don't know how to use it to predict for a single image. I tried like this: [CODE] But I think I'm moving in the wrong direction."
+ },
+ {
+  "id": "P1929",
+  "title": "&quot;import tensorflow&quot; results in error: No module named &#39;tensorflow.python.eager.polymorphic_function&#39; (Python in Jupyter Lab)",
+  "tags": [
+   "python",
+   "python-3.x",
+   "tensorflow",
+   "jupyter",
+   "object-detection-api"
+  ],
+  "body": "Python 3.9.12. Windows 10. jupyterlab 3.3.2. [CODE] When I try to import Tensorflow, I get the following 'tensorflow.python.eager.polymorphic_function' error. [CODE] My workflow is based on this tutorial: https://www.youtube.com/watch?v=yqkISICHH-U I found the following answer, but I'm not understanding how to implement the TFLite Authoring Tool to solve this problem: https://stackoverflow.com/questions/74177865/tensorflow-python-eager-polymorphic-function-no-module-error-on-imports"
+ },
+ {
+  "id": "P5040",
+  "title": "Building a retry mechanism in a while loop in python",
+  "tags": [
+   "python",
+   "error-handling",
+   "python-requests"
+  ],
+  "body": "[CODE] I have a while loop that keeps running to check the current price of Bitcoin every second. Then I also have a function that takes current_price as an input. However, occasionally, I am getting \"requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))\" So I'm trying to use try, except to make a retry mechanism whenever this error comes up. I've tried this: [CODE] The problem is that if I do this, current_price ends up being undefined when I plug it in as an input in function_A on the last line. How can I fix this mechanism?"
+ },
+ {
+  "id": "P4843",
+  "title": "Spectra output from conversion of matlab to python",
+  "tags": [
+   "python",
+   "matlab",
+   "spectra"
+  ],
+  "body": "enter image description here I have converted a set of matlab files to python code for a set of spectra. Im trying to get one plot or a combined spectra. Im getting some strange output that I am hoping someone can help me fix. Spectra [CODE]"
+ },
+ {
+  "id": "P2524",
+  "title": "Returning the specific K transactions that result in the maximum profit",
+  "tags": [
+   "python",
+   "data-analysis",
+   "finance"
+  ],
+  "body": "This is a question derived from the problem of returning the maximum profit from a list of prices through k number of transactions. I would like to not just return the profit but a list with the transactions that result in the maximum profit. For example, if the list of prices is [1, 5, 2, 3, 7, 6, 4, 5] and the k number of transactions allowed is k, the maximum profit is 10, but I would like to return a list like [(1, 5), (2, 7), (4, 5)], where the first values is the buying price and the second value is the selling price. I have the following function, also have two variables outside of the function that I've set as global inside the function in order to return the complete lists of profits and transactions that are possible [CODE] if prices = [1, 5, 2, 3, 7, 6, 4, 5] and k = 3 for example, the function works in returning the maximum profit (in this case 10) and the transactions that are possible given the transaction_list variable are the following [CODE] What change to the function or manipulation of the transaction list could I employ in order to obtain the transaction list that leads to the maximum profit?"
+ },
+ {
+  "id": "P0390",
+  "title": "Cognite Data Fusion Python SDK - how to delete edges that lead to a node with a specific target_edge_id?",
+  "tags": [
+   "python"
+  ],
+  "body": "I am using the Cognite Data Fusion Python SDK . While deleting a node, e.g.... [CODE] I want to also delete the edge(s) from the parent in order to avoid leaving orphan edges in the database. Problem : how can I look-up such edges? I know how to get all edges (and then filter by the [code] attribute), but that would be very inefficient: [CODE] How could I construct the [code] for the [code] (to match the [code] ) and ideally the [code] (to equal [code] type)? E.g. [CODE] Because then I could just delete all those edges with one [code] call."
+ },
+ {
+  "id": "P5109",
+  "title": "How do I subtract a number with an if-statement?",
+  "tags": [
+   "python",
+   "if-statement"
+  ],
+  "body": "This is my code: [CODE] I want to ask the user \"Would you like to subtract 1 from seats?\" and then subtract one from seats variable and then repeat until the users inputs [code] ."
+ },
+ {
+  "id": "P2623",
+  "title": "How to include image as part of user prompt in haystack 2.X?",
+  "tags": [
+   "python",
+   "openai-api",
+   "large-language-model",
+   "haystack",
+   "multimodal"
+  ],
+  "body": "I have a great pipeline of chatbot using Haystack. I am referring to the haystack docs to create a pipeline, here is the example of the pipeline using prompt builder: [CODE] now I want to add new feature to my chatbot. I want the user to be able to add an image when they are asking some questions. Like the ChatGPT or Google Gemini, where you can add an image and ask the chatbot a question related to the image. I have tried to add the image as in prompt builder template, and it didn't work. I changed the template to something like this: [CODE] Then pass the image like this: [CODE] I think it doesn't work because I need to explicitly tell the OpenAI that I included the image in the user prompt. So, How can I add the image as a user question in the haystack pipeline?"
+ },
+ {
+  "id": "P5949",
+  "title": "How to create a relationship between two tables while joining to another table in sqlalchemy?",
+  "tags": [
+   "python",
+   "postgresql",
+   "sqlalchemy"
+  ],
+  "body": "I am trying to create sqlalchemy relationship between two tables which relies on a value of another table. My UserSports table has a relationship with the Baseball table (as well as other sports that they may have played). I also have a Sports enums table which joins to the Users table. The goal is to create a relationship between UserSports and Baseball using Sports enums. user_sports.id and baseball.user_sport_id is a one-to-one relationship. The sql would be something like: [CODE] [CODE] When I run this I get the following error. [code] I know I am messing up somewhere with my primaryjoin, but I am not sure how to fix it. I do not want to pass the id from sport_id because I won't know the id. I tried following the docs for help."
+ },
+ {
+  "id": "P0489",
+  "title": "DuckDB insert the hive partitions into parquet file",
+  "tags": [
+   "python",
+   "hive",
+   "parquet",
+   "duckdb"
+  ],
+  "body": "I have jsonl files partitioned by [code] , and [code] . I am converting these jsonl files into parquet files and save them in the same folder using the following commands in DuckDB [CODE] It works fine, but the problem is DuckDB is inserting the hive partition values into the parquet file which are user_id and report_date, these values are not in jsonl file. anyone know how to solve this issue?"
+ },
+ {
+  "id": "P0722",
+  "title": "ValueError in Anaconda frame.py or my program?",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "I'm currently using a Pandas DataFrame to store multiple different values from a text file called test1.txt. When I try to execute the program, it gives me the following error: [CODE] Does the issue originate in the frame.py file or my own program and how do I solve this?"
+ },
+ {
+  "id": "P5600",
+  "title": "How to reverse iterate a nested for loop in python?",
+  "tags": [
+   "python",
+   "string",
+   "substring",
+   "reverse",
+   "palindrome"
+  ],
+  "body": "There exists a string s = \"abcd\" How do I iterate through the string such that it produces the following output for its index: [CODE] I have written the following code: [CODE] It gives me the output: [CODE] How do I achieve the desired output?"
+ },
+ {
+  "id": "P4598",
+  "title": "Why isn&#39;t my function giving the desired number of decimal digits for PI?",
+  "tags": [
+   "python",
+   "pi"
+  ],
+  "body": "I have been trying to make a function that calculates pi to n digits using the Leibniz' formula. I am using the decimal module to be able to set how many decimal points I wish to output, but for some reason I always get the same number of points. [CODE] The output is always in the form: [code] The value of Pi does change as I change k, but the number of decimal points is the same for whatever integer greater than 0 I put in for n. I have looked through other code that uses the Decimal class to create this program using a difference method to calculate Pi, and can't see why my one is not working as expected."
+ },
+ {
+  "id": "P5459",
+  "title": "Getting an error while running an odoo-bin in odoo 15",
+  "tags": [
+   "python",
+   "odoo",
+   "python-babel"
+  ],
+  "body": "Getting an error as ModuleNotFoundError: No module named 'babel.dates'; 'babel' is not a package while running an odoo-bin I have clone odoo 15.0 repostiorary i have tried to run requirement file and tries to install babel"
+ },
+ {
+  "id": "P1109",
+  "title": "Fixing ValueError from a password storing program",
+  "tags": [
+   "python"
+  ],
+  "body": "I recently made a program that followed up on a tutorial I watched but I seem to have run into an issue. The program has to store, view and add passwords when inputted to the user. Although, every time I try to run I keep getting a ValueError within the view function. How do I fix this? The error is posted below the code. [CODE] This is the output and error I get: [CODE]"
+ },
+ {
+  "id": "P4256",
+  "title": "Diffrent hex dump values of function for C and Python code",
+  "tags": [
+   "python",
+   "c",
+   "windows",
+   "winapi",
+   "dump"
+  ],
+  "body": "This is my example C code for dumping [code] from user32.dll: [CODE] And this is output: [CODE] But when I try with this python code: [CODE] This is output [CODE] When I check user32.dll with HxD I see that output from python is correct, but not from C?"
+ },
+ {
+  "id": "P1281",
+  "title": "How to Implementing x * dA/dx Terms in FiPy for Coupled PDEs",
+  "tags": [
+   "python",
+   "pde",
+   "fipy"
+  ],
+  "body": "I am relatively new to FiPy and have spent some time reading the FAQ and examining examples. My goal is to solve a set of coupled partial differential equations (PDEs), one of which is represented by the following equations: [CODE] I am encountering difficulty in implementing terms like x * 𝝏A1/𝝏x and x*𝝏A2/𝝏x . Also,how can I ensure FiPy recognizes that the 'x' in the derivative and the 'x' multiplying the derivative term are the same in the expression: x * 𝝏A1/𝝏x.I have initialized variables A1, A2, A3, and A4 as CellVariables(with gaussian initial conditions, not given here): [CODE] To solve above equations, I am looping over a certain number of time steps: [CODE] However, the solution obtained does not match the expected result (verified with Mathematica). I am having trouble pinpointing the issue and haven't found relevant solutions in my search other than this Stack Overflow post which does not fully resolve my issues. So to summarize : Q1) How to implement terms like: x *𝝏A1/𝝏x, x *𝝏A2/𝝏x, x *𝝏A2/𝝏y, etc. in an equation of A1? Q2) How will FiPy know that the 'x' in the derivative and the 'x' multiplying the derivative term above are the same? Q3) How to define x and y on a 2D mesh? I would greatly appreciate any feedback, examples, or guidance on solving such equations with FiPy. Thanks in advance!"
+ },
+ {
+  "id": "P1984",
+  "title": "how to stop selenium exiting instantly and fix not typing keys",
+  "tags": [
+   "python",
+   "selenium-webdriver",
+   "web-scraping",
+   "automation",
+   "webautomation"
+  ],
+  "body": "just what the title states, it opens the site for a split second and exits; it also doesn't type what it is supposed to type. how do i fix this? i've already tried numerous methods to find the element, and i'm pretty sure it's correct. correct me if im wrong, but i dont think there's nothing wrong. also, chromedriver matches with my chrome version and is on my path variable. [CODE]"
+ },
+ {
+  "id": "P1632",
+  "title": "How to convert a char array to a number for sorting?",
+  "tags": [
+   "python",
+   "algorithm"
+  ],
+  "body": "Let's say I have three words I want to sort: hello goodbye alex And alphabetically it'd be sorted ascendingly as [code] . Is there a way to convert the string (limited to 100 characters)? For example, if I have: [CODE] And I use [code] to get the code for each list element: [CODE] How would I create a number from that, that would also be smaller than, say, [code] ?"
+ },
+ {
+  "id": "P3013",
+  "title": "Replacing values in a file with user input values if above a certain number",
+  "tags": [
+   "python",
+   "python-3.x",
+   "file"
+  ],
+  "body": "I am working on a homework assignment for introductory Python, so I don't want an outright answer, just clarification. My question states to implement a function to ask the user for a list of numbers, then to check if the number is greater than another value and if so, to write those values to a file. I believe what I have written is correct but I am unsure how to check it. Below is the code I have written: [CODE] Any help is much appreciated, as I said, it is homework so please don't just give away the answer, rather guide me to it."
+ },
+ {
+  "id": "P3061",
+  "title": "Flask Docker Container Issues",
+  "tags": [
+   "python",
+   "docker",
+   "flask",
+   "docker-compose"
+  ],
+  "body": "I have a few questions that I am hoping someone can answer here. I realize I have knowledge gap and I am hoping someone here can fill it or at least point me towards the right direction. I had built a Flask API that I could run inside a Docker Container on Ubuntu OS. To create a Swagger API Documentation, I added to my Flask application: [CODE] Rather than moving forward, I stopped the Docker and ran it again and as expected, It resulted in \"502 Gateway error\". Upon Checking Docker logs here is what I noticed: [CODE] I understood this problem as I needed to add this dependency inside my docker. I added the following code to my \"requirements.txt\" file: flask_swagger_ui==3.36.0. However this did not change anything and I still received the same error. I tried adding the module directly into the Dockerfile I created through this code but that did not work either: [CODE] Doing one or both of these things results in 502 Gateway error. I have tried to add several other modules to my application Like Pandas and Sklearn but they result in the same error. I can NOT make any changes to my application without getting Bad Gateway. To figure out what is wrong, I removed all the changes I had made and got it back to where the only dependency is Flask 2.0.1 in my \"requiements.txt\". After testing that the Docker is running fine, In a state of confusion, I removed \"start.sh\", \"Dockerfile\" and \""
+ },
+ {
+  "id": "P0058",
+  "title": "Failure in converting the SparkDF to Pandas DF",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "apache-spark",
+   "google-cloud-dataproc"
+  ],
+  "body": "I have a Spark code running on a Dataproc cluster that reads a table from BigQuery into a Spark dataframe. In this code, there is a step where I need to perform some data processing using pandas dataframe logic. However, when I try to convert the Spark dataframe to a pandas dataframe, I encounter an error that I am unable to resolve. It's worth noting that this code works fine on Hadoop without any issues. I would appreciate any assistance or guidance in resolving this issue with the conversion from Spark dataframe to pandas dataframe. [CODE] The code I am working on processes a relatively small amount of data, with the maximum number of rows being around 10,000. However, the main challenge lies in the fact that the data source has over 4,000 columns. In this particular example, the code failed while processing 2,137 rows of data."
+ },
+ {
+  "id": "P2475",
+  "title": "Skip reading line if next line has a particular string",
+  "tags": [
+   "python",
+   "python-3.x"
+  ],
+  "body": "I have a large file that has a lot of timing information. An excerpt looks like [CODE] I have to calculate sum of all [code] and [code] , among several other parameters. My core functionality is [CODE] where [code] depends on whether I am trying to get CPU time or wall time, [code] is file in which text is stored, and [code] is the function I am trying to collect data for. I get 47.23871 for [code] and 33.65705 for [code] . The question is as follows - [code] contains the time of [code] above it (the 5.41600 sec line). I would like [code] to exclude the lines where it is immediately followed by line containing [code] . Therefore, I would like the result to be [code] as 41.82271. How can I do this?"
+ },
+ {
+  "id": "P5783",
+  "title": "How to add typing hints of **kwargs?",
+  "tags": [
+   "python",
+   "typing",
+   "keyword-argument",
+   "pylance"
+  ],
+  "body": "Here is an example: [CODE] [code] adds one argument [code] and passes all key arguments to the super class [code] . The typing hint of [code] shown by pylance is [code] , How to add typing hint to [code] , that can make pylance knows the arguments is [code] ?"
+ },
+ {
+  "id": "P4284",
+  "title": "What-if analysis using Python or Excel",
+  "tags": [
+   "python",
+   "python-3.x",
+   "excel",
+   "forecasting",
+   "banking"
+  ],
+  "body": "I have an important assignment that I have to complete for a new role that I am giving an interview for. And I am having trouble understanding last three questions in order to execute them. It is a banking related project and I can use Python and Excel to complete it. Up till now, I have only used Python. Below is one of the questions So, few things that I understood from this question is that revenue is difference between summation of loan EMIs multiplied by loan tenure (in Months) and the Loan Amount/Principal for all the customers having Credit score <650. Mathematical equation: Revenue for a bank is the interest component of the EMI. A. Revenue = Loan_Amount - (EMI X Loan_Tenure) (Loan_Amount, Loan_Tenure and EMI) are the features available in the dataset. This I do for all the customers with Credit score of <650. Now, I have to do the What if Analysis by incrementing the Interest by 2% for customers having <650 Credit Score and then check the impact on Revenue. Now this is my understanding, I increase the interest by 2% for these customers, calculate the EMI by below formula: Interest_Rate, Loan_Amount and Loan Tenure are available in the dataset new_EMI = P (Loan_Amount) X R (Interest_Rate+2%)/12 X (1+R (Interest_Rate+2%)^ N (Loan_Tenure)]/[1+R [(Interest_Rate+2%)]^ N (Loan_Tenure) - 1 Interest_Rate, Loan_Amount and Loan Tenure are available in the dataset B. New_Revenue "
+ },
+ {
+  "id": "P3424",
+  "title": "Python Pandas: Append column value, based on another same column value",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "I have a pandas dataframe like this. [CODE] I want to append Town value, which is based on row have the same Source, Level and County value. I have tried isin, groupby, diff(but my value is str), but still not figure out. Image below is what I want to get. [CODE] Really appreciate your help!"
+ },
+ {
+  "id": "P1037",
+  "title": "gdal2tiles.py hangs when run in Conda Docker environment",
+  "tags": [
+   "python",
+   "docker",
+   "subprocess",
+   "gdal",
+   "gdal2tiles.py"
+  ],
+  "body": "I'm running a Python script inside a Conda-based Docker container that processes geospatial data. The script runs a two step GDAL workflow, it uses gdaldem colorrelief to create a colorized GeoTIFF, and [code] to generate map tiles from that result. Gdaldem completes successfully every time. However, the script hangs indefinitely as soon as it calls [code] ... It produces no error output, and surprisingly, even the timeout argument in [code] does not trigger an exception, the whole process just freezes with these log: [CODE] The code snippet in question: [CODE] What could cause [code] to hang so completely that it ignores the timeout from Python's subprocess module? Is there a known issue with running [code] non interactively from a Python script inside a Docker container that could lead to this kind of deadlock? Ruled out Environment Path Issues: I added a diagnostic log ( [code] ) which confirmed the script is correctly finding the modern version of [code] inside the conda environment ( [code] ). Ruled out Multiprocessing: The hang occurs even with the [code] flag removed from the command. Ruled out output format: The hang persists whether I use [code] or remove it to default to png tiles. I also tried to replaced subprocess.run with the lower-level [code] and [code] this also hung and failed to trigger the [code] exception."
+ },
+ {
+  "id": "P5404",
+  "title": "How to handle flexible inputs and returns only keys in uppercase?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "keyword-argument"
+  ],
+  "body": "The ideal output or results should be like below: [CODE] My Code just able obtain the keys only: [CODE] My output: [CODE] Tried to add something like this: [CODE] but did not work. Appear to be an [code] ."
+ },
+ {
+  "id": "P4826",
+  "title": "VSCode mouse-over information for python",
+  "tags": [
+   "python",
+   "dart",
+   "visual-studio-code",
+   "intellisense"
+  ],
+  "body": "I recently started using Dart and Flutter for Mobile App dev on VSCode, and I love how the mouse-over tooltip for methods shows return type, expected parameters, and the source of the method: I understand that Python is not a strongly typed language so showing type information is not possible for variables. But what about methods in python? The information in mouse-over tooltip seems extremely hard to read, and not really helpful. I don't know where the method came from and what it outputs. The description is also not very readable. Am I doing something wrong, or is this really not a feature? Or do I just need to learn to read that tooltip?"
+ },
+ {
+  "id": "P1869",
+  "title": "My nd array is bbeing converted to a float when passsed",
+  "tags": [
+   "python",
+   "numpy",
+   "types"
+  ],
+  "body": "[CODE] this is where i make the variablex1 as a 17378,12 array [CODE] it is called in tis function and still is an array however wehn costfunc is called it becomes a float [CODE] and i get this error [CODE] i tried at some forums but i couldnt find a reason why this is happening"
+ },
+ {
+  "id": "P0333",
+  "title": "How to create multiple records in a firebase realtime path?",
+  "tags": [
+   "python",
+   "database",
+   "firebase",
+   "firebase-realtime-database",
+   "fastapi"
+  ],
+  "body": "I am using a firebase real time database for a web application that I have written in python. One of my endpoints has the function that the client can load a csv file and subsequently each row of the csv will be converted to a record (node) in a specific path in the database (I simply read the csv and convert it to a list of dictionaries). The problem is when I go to send the records to the database, I use the following code: [CODE] My problem is that the process takes a long time because the csv has many rows and for each row a call is made to the firebase api. I would like with a single call I could create a node for each dictionary-row in the path. So I tried this: [CODE] (remove the last line of the cycle). But in this case it creates a single new node in the path with all the records. Is there any way to create all a node in the path specified by each dictionary without needing to call in each record the api? Update: [CODE]"
+ },
+ {
+  "id": "P4484",
+  "title": "Access Crypto.Com API with R (translate from Python)",
+  "tags": [
+   "python",
+   "r",
+   "hash"
+  ],
+  "body": "I promise I tried my best but I just couldn't get this to work. Here's the exact python code from the API Website: https://exchange-docs.crypto.com/spot/index.html?python#digital-signature [CODE] I'm not sure if I got anywhere close, but here's what I got but isn't working -- unfortunately I can't for the life of me tell WHAT I'm getting wrong as I just get a generic error message. For example, maybe I'm not formatting my UNIX time the way they want it.. Any ideas, please help! [CODE] This returns: [CODE] So I gave it a few hours but I'm just scratching my head. I know it's something simple I'm missing. Could someone please help me translate the Python approach to R? Thank you."
+ },
+ {
+  "id": "P2907",
+  "title": "How to speed up this code for Poincare Section using Numba?",
+  "tags": [
+   "python",
+   "performance",
+   "numba",
+   "processing-efficiency",
+   "runge-kutta"
+  ],
+  "body": "I have the following Python code for constructing a Poincare Section for chaotic Pendulum which uses RK4 algorithm and np arrays: [CODE] Right now it takes more that 30 minutes to run this code. I tried decreasing the step size but then I don't get a clear Poincare Section. How to speed up the compilation of this code using Numba?"
+ },
+ {
+  "id": "P0992",
+  "title": "Why doesn&#39;t pagination work in this case using Selenium?",
+  "tags": [
+   "python",
+   "selenium-webdriver",
+   "web-scraping"
+  ],
+  "body": "Most websites display data across multiple pages. This is done to improve user experience and reduce loading times. But when I wanted to automate the data extraction process using Selenium, I noticed that my script only retrieves information from page one and then stops. What am I doing wrong? [CODE]"
+ },
+ {
+  "id": "P4346",
+  "title": "Can&#39;t import modules (scripts) in Python",
+  "tags": [
+   "python",
+   "python-3.x",
+   "import",
+   "python-import",
+   "python-module"
+  ],
+  "body": "I'm trying to import my [code] file to the [code] file which is in the same folder. I tried all these ways, but it doesn't work well. I'm using Python 3.10 and PyCharm as IDE. [CODE] I tried creating a package, too (made a new folder and put [code] and [code] in it), but this didn't work either. Please help, I'm stuck here. Thanks!"
+ },
+ {
+  "id": "P3022",
+  "title": "How do I import custom Python module into Brython?",
+  "tags": [
+   "python",
+   "brython"
+  ],
+  "body": "I'm learning about Brython and attempting to make my game made with Panda3D (Python) to work in the browser using Brython. The docs describe how to package modules that don't come with Brython using [code] . I packaged Panda3D this way and put all files into the static folder for Flask server to render it. enter image description here It appears it's looking for the static files generated by brython cli in odd location ( [code] and cannot find it. Does anyone have more experience with this and can advise ? I tried to generate the [code] file right in the static folder. I figured it may make difference in relative path creation. It didn't help. I'm expecting Panda3D module to work like any other module in Brython."
+ },
+ {
+  "id": "P3589",
+  "title": "FastAPI API-key Unittesting",
+  "tags": [
+   "python",
+   "pytest",
+   "fastapi"
+  ],
+  "body": "I've seen many people using API-key in FASTAPI with down below function. [CODE] And my question is why have to make get_api_key async, cuz there's no await in the function. What's the purpose and how it works and the difference using def. And my second question is how should i unittest this function without using testing endpoint. i want to directly test this code how should i do since there's no await in this function. The api_key_header returned by get_api_key function will always be coroutine object."
+ },
+ {
+  "id": "P5566",
+  "title": "Is there a way to convert from instances of sympy.core.numbers classes to python&#39;s native classes",
+  "tags": [
+   "python",
+   "sympy"
+  ],
+  "body": "When using [code] , the output is always a sympy class, rather than being a native python class. Context: I am implementing the concept of Infinite Sets (like the set of integers, rationals etc), Binary Operations and Group-Like structures into python. The problem occurs when trying to determine if a Group-Like structure has an identity element. To do this, Infinite Sets operate using a condition (passed in as a lambda function) that then determines if an input would be a member of that set. As it does not behave as a python set (it has no strict values whatsoever), and has infinite length, it cannot be iterated over. The Infinite Set has no knowledge of what any of its elements are, but is capable of identifying a value as an element if it meets the condition passed in. An Identity Element of a Group-Like structure is an element ( [code] ) of a set S, such that the application of a Binary Operation ( [code] ) on e and any other element ( [code] ) of S will yield [code] . Consider the operation +, and the set of integers. The Identity Element ( [code] ) would be such that [code] , which is intuitively when [code] . Code: In Python, we can construct the binary operation as: [code] , and the set of integers as: [code] , where the parameter given is assigned to the variable [code] . The class Binary Operation uses the [code] method which directly calls the lambda method it was pas"
+ },
+ {
+  "id": "P2578",
+  "title": "Unable to reproduce python cdk layer zip",
+  "tags": [
+   "python",
+   "amazon-web-services",
+   "aws-lambda",
+   "aws-cdk",
+   "aws-lambda-layers"
+  ],
+  "body": "My lambda uses requests. I have one package.zip file that works correctly when I deploy using cdk. I've tried multiple things to reproduce the package.zip I have. All of the ways I've tried fail. Once the lambda is deployed with my other attempts of recreating my package.zip, I get the error [CODE] I use [code] to create the package folder and then zip the files inside of that folder. my requirements.txt file: [CODE] Creation of lambda layer and lambda: [CODE] I'm working on creating the readme for my project and would like to be able to reproduce the pacakge.zip file that works. I have one package.zip file that allows my lambda to use requests, so I know this way can be done and works. I don't know how I created the package.zip, besides some combination that I've been attempting. I've used different python versions using pyenv. 3.7, 3.8, 3.9, 3.11, and 3.12. I've tried switching my node version too."
+ },
+ {
+  "id": "P1348",
+  "title": "online experiment in Psychopy/Javascript - character limit on user input results in weird bug",
+  "tags": [
+   "javascript",
+   "python",
+   "textinput",
+   "psychopy"
+  ],
+  "body": "I created a simple experiment using the software Psychopy (a user interface which allows non-coders like me to create experiments in Python). It can also automatically convert the entire experiment to Javascript which allows the experiment to be run online by anyone. In the experiment, participants see an object on screen and have to type in its name. I want to limit participant input to 50 characters. Here is the small block of code I added to my experiment to limit user input to 50 chars, and the Java code automatically created by Psychopy for the online experiment: When running this locally using the Python version, it works as intended: once the 50 char limit is reached, no further text can be inputted (unless you backspace). However, when running this online, the program has a weird bug whereby when the 50 chars is reached, the cursor moves back to the start. Any further text input overwrites what was initially there, but also starts mixing up the order of input. For example, here is what happens when I type in ‘ball’ repeatedly: Once the character limit is reached: Without any knowledge of Javascript, I have no idea what is causing this and how to fix it. I would really appreciate any help anyone can give me. Here is a longer excerpt of the Javascript code, in case it is useful: [CODE] Thanks! I tried using 'substring' rather than 'slice', but this resulted in the same ef"
+ },
+ {
+  "id": "P0207",
+  "title": "Key Error when slicing in Pandas, but column exists?",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "My columns: [CODE] Let's check the data for column [code] [CODE] The same error occurs for [code] This works fine with no error: [CODE] What's going on here? I thought the hash # symbol might be causing an error, but [code] works fine. edit: some more data for Panda Kim below in comments: [CODE] Some more tests from comments below: [CODE] And [CODE] And. This one seems to be the culprit. [CODE]"
+ },
+ {
+  "id": "P5257",
+  "title": "Getting nulls after replacing Dataframe columns with other DataFrames",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "I have two dataframes; [code] and [code] . [code] contains some numerical values , that I would like to replace the in [code] dataframe using this data: [CODE] Similarly we have num_telecom having following columns (scaled using standard scaler) [CODE] replacing column values for [code] with [code] : [CODE] Now, from where we are getting null values in [code] data frame as there is no not-null values in [code] ? [CODE]"
+ },
+ {
+  "id": "P5504",
+  "title": "Forcing widget to the bottom of a vertical box",
+  "tags": [
+   "python",
+   "gtk",
+   "pygobject",
+   "gtk4"
+  ],
+  "body": "I'm doing a small Python / Gtk4 program. The layout is relatively simple : there is a upper zone with inputs and a \"add\" button, then a ColumnView that displays the added items, and finally a row of buttons to perform operations on the items. I would like the buttons to be always on the bottom of the window, regardless of size of the window and of the middle ColumnView. I tried to use [code] on the ComumnView and the ScrolledWindow that contains it, and to use [code] on the horizontal Box containing the buttons, but the set_valign don't seem to have any effect. Here is how it currently looks like for the small demo : how it currently looks like And here is how it should look like : how it should look like Here is the code for a down-stripped demo that exhibits the same issue : [CODE]"
+ },
+ {
+  "id": "P4904",
+  "title": "If the name of the column is in string return 1 in Python",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "I would like to create columns for every language in the column \"LanguageHaveWorkedWith\", it would be nice to have a function, however, can be done manually, and then if the language appears in the column \"LanguageHaveWorkedWith\" return 1 in the appropriate column (name of the language) if not return 0. [CODE] [CODE]"
+ },
+ {
+  "id": "P1044",
+  "title": "Multiplying the same column number for two different data frames single expression",
+  "tags": [
+   "python",
+   "pandas",
+   "multiplication"
+  ],
+  "body": "Is there a way to multiple the 1st column from one df to the 1st column in a second df, then the 2nd column from one df to the 2nd column in a second df, so on so forth? I can do it in a for loop, but was wondering if there was a way to do it in a single expression.. Thank you! This is what I have so far that isn't working, just get nan's [CODE]"
+ },
+ {
+  "id": "P2081",
+  "title": "Prepend and append characters to all string columns in Polars dataframe",
+  "tags": [
+   "python",
+   "string",
+   "dataframe",
+   "python-polars"
+  ],
+  "body": "For a DataFrame, I want to prepend and append all the strings with extra characters. [CODE] To append the strings I can do this [CODE] [CODE] But when I try the same to prepend, I get an error [CODE] ComputeError: the name 'literal' passed to [code] is duplicate It's possible that multiple expressions are returning the same default column name. If this is the case, try renaming the columns with [code] to avoid duplicate column names."
+ },
+ {
+  "id": "P2550",
+  "title": "vision transformers: RuntimeError: mat1 and mat2 shapes cannot be multiplied (32x1000 and 768x32)",
+  "tags": [
+   "python",
+   "machine-learning",
+   "deep-learning",
+   "pytorch",
+   "transformer-model"
+  ],
+  "body": "I am trying to do Regression on the vision transformers model and I cannot replace the last layer of classification with the regression layer [CODE] I get this error when I try to initialize and run the model [CODE] The problem is that there is a mismatch between the regression layer and the vit_b_16 model layer, what would be the correct way to solve this issue"
+ },
+ {
+  "id": "P2197",
+  "title": "get the child element of from the xml",
+  "tags": [
+   "python"
+  ],
+  "body": "I have an XML where I want to get the child elements of the elements where my condition is satisfied. [CODE] above I want to get the value of [code] which is the chile element of [code] also attribute [code] . I can filter out the required elements with the below code. [CODE] now I want to iterate within the each thread from the [code] and get the child elements. something like [CODE]"
+ },
+ {
+  "id": "P0775",
+  "title": "Error in taskiq python while executing dynamic interval schedules",
+  "tags": [
+   "python",
+   "docker",
+   "redis",
+   "scheduled-tasks",
+   "aiogram"
+  ],
+  "body": "I have aiogram bot with taskiq worker and scheduler (taskiq redis with taskiq_aiogram), in message handler I run dynamic interval schduled task, after some time (30-40 minutes), I getting: [code] , but when i run static interval scheduled tasks (just decorator for async function, that starts working after worker and schduler run), everyting works without errors and tasks execute at correct interval. here by brocker.py: [CODE] tasks.py: [CODE] bot message handler where I run dynamic interval schedule: [CODE] to run bot, taskiq and redis I use docker compose (maybe my mistake there) docker-compose.yml: [CODE] Dockerfile: [CODE]"
+ },
+ {
+  "id": "P2252",
+  "title": "Unable to properly install Python 3.7.0 on a Ubuntu 22.04 LTS VBox machine",
+  "tags": [
+   "python",
+   "python-3.x",
+   "pyenv"
+  ],
+  "body": "I am preparing a VirtualBox machine (Ubuntu 22.04) to work on a project with a friend and it needs to use Python 3.7.0. In order to install this python version, I am using the following command: [CODE] However, I get the following error message which I don't get when installing python 3.7.0 locally on my host Ubuntu 22.04 LTS machine: [CODE] When I navigate the URL provided, it downloads a .py file. Which after checking it out, I executed and the pip updated. However, it looks like that it does not solve the main issue of not being able to download and set up python 3.7.0 on the Ubuntu 22.04 virtual machine. Am I missing something? If I do [code] I can clearly see that 3.7.0 exists. Why it does not allow me to install it? I would glady appreciate some hints on how to achieve this purpose."
+ },
+ {
+  "id": "P4347",
+  "title": "How can I implement user authentication in a GridDB application?",
+  "tags": [
+   "python",
+   "security",
+   "grid",
+   "griddb",
+   "role-based-access-control"
+  ],
+  "body": "I am working on a GridDB-based application and need to implement user authentication to manage access to the database securely. I am developing a GridDB-based application and aim to implement user authentication to manage database access securely. While I understand that GridDB supports authentication via username and password, I am uncertain about the correct configuration. Additionally, I want to enforce role-based access control (RBAC) to restrict user actions based on roles (e.g., read-only, write access, admin privileges). Here’s what I’ve tried in my Python application: [CODE] This code throws the following error: TypeError: get_store() takes 1 positional argument but 2 were given I changed the Cluster name, username and password here from the actual one. I have two specific questions: How can I properly implement user authentication in GridDB using the Python client library? What are the steps or configuration options in GridDB to define user roles and permissions for authorization? Additional Context: I have reviewed the GridDB Python API Reference but found the documentation on user authentication and role-based access control to be limited. Specifically, while the documentation provides information on obtaining a Store instance using StoreFactory.get_instance(), it lacks detailed guidance on configuring user roles and permissions. I am seeking guidance beyond the avai"
+ },
+ {
+  "id": "P1493",
+  "title": "APK generated by github python to android action crashing",
+  "tags": [
+   "python",
+   "android",
+   "github",
+   "github-actions"
+  ],
+  "body": "I created apk using python to android action on github for my repo https://github.com/sameermahajan/Paadas (you can check my workflow yml as well as buildozer spec there). The apk is generated correctly without any error however when I download, install and run it on my mobile phone(s) it exits / crashes soon after opening the screen and stating \"Loading...\" What am I missing? I even tried a simple 'Hello Android!' program ( https://github.com/sameermahajan/hello-android ) which runs into the same problem. Any ideas?"
+ },
+ {
+  "id": "P5508",
+  "title": "Using Python with Beautiful Soup and/or Selenium to scape CSRF token for login",
+  "tags": [
+   "python",
+   "selenium-webdriver",
+   "web-scraping",
+   "beautifulsoup"
+  ],
+  "body": "I'm trying to scrape a website for the first time using Beautiful Soup and/or Selenium to locate the CSRF token required for login. When I print the HTML from the page, it doesn't seem to be displaying all the information. For instance, if I go to the page and use the \"inspect\" tool - I'm not able to find the element with the token value such as: [CODE] It appears that sometimes BS and selenium won't pick up all the text on the page. Is this what is happening and how should I write my code to output the CRSF token value appropriately? [CODE]"
+ },
+ {
+  "id": "P0289",
+  "title": "How to make this while loop to stop?",
+  "tags": [
+   "python",
+   "while-loop"
+  ],
+  "body": "When I run the code the while loop it is supposed to stop when number = 2 but it never stops. I use github codespace to run code [CODE]"
+ },
+ {
+  "id": "P4998",
+  "title": "Arrange the chart&#39;s x-axis",
+  "tags": [
+   "python",
+   "numpy",
+   "matplotlib"
+  ],
+  "body": "I try to place each text in its respective place, but the text comes out with a jump in position, thus exemplifying that there are 15 sets of bars in the graph, but only 8 have their nomenclature on the x-axis. Each set of bars has its own name. [CODE]"
+ },
+ {
+  "id": "P1223",
+  "title": "What to use as a worker for deferred tasks?",
+  "tags": [
+   "python",
+   "celery",
+   "aiogram"
+  ],
+  "body": "I am creating a bot on [code] . Admin of the bot can register events that will be executed at stated [code] . An event may be delayed by a week or even more. I decided to use [code] as a worker and [code] as a broker. However, in [code] docs I read this: Tasks with eta or countdown are immediately fetched by the worker and until the scheduled time passes, they reside in the worker’s memory. When using those options to schedule lots of tasks for a distant future, those tasks may accumulate in the worker and make a significant impact on the RAM usage. Moreover, tasks are not acknowledged until the worker starts executing them. If using Redis as a broker, task will get redelivered when countdown exceeds visibility_timeout (see Caveats). Therefore, using eta and countdown is not recommended for scheduling tasks for a distant future. Ideally, use values no longer than several minutes. For longer durations, consider using database-backed periodic tasks, e.g. with https://pypi.org/project/django-celery-beat/ if using Django (see Using custom scheduler classes). Now I started to think about the speed of my future bot. According to this information it might well be so that it's going to be slow and use a lot of memory. I am looking for any advice. What do I do in such a situation? Should I put away using [code] and try another library? One more thing: despite the fact that tasks may be "
+ },
+ {
+  "id": "P4956",
+  "title": "Optimization of LEDs for uniform light on surface",
+  "tags": [
+   "python",
+   "optimization",
+   "simulation",
+   "mathematical-optimization",
+   "led"
+  ],
+  "body": "So I have this problem where i want to make a pattern of LEDs such that the most uniform light is achieved within an area on a plane 5cm away. I can't change the power of the LEDs individually and I can't change the radiation pattern of the LEDs. So all I can do is distribute the LEDs within a 40×40 cm area to achieve the most uniform distribution within a 20×20 cm area 5 cm away from the LED plane. I have tried different methods but haven't found a good way still, the closest I have gotten is the picture below but that was not with my real radiation pattern. I want to use between 100-200 LEDs which also makes it a fairly computationally large problem at least with the things I have tried. It is also a requirement that the LEDs are spaced with a minimum distance of 1cm. I think there is a lot to be gained from symmetry, but have not been able to find a good way to implement this. Does anyone know of this having been solved somewhere else or have a good idea for it? [CODE]"
+ },
+ {
+  "id": "P1711",
+  "title": "How to get the column and row number of a cell in Excel Python using xlwings?",
+  "tags": [
+   "python",
+   "excel",
+   "openpyxl",
+   "xlwings"
+  ],
+  "body": "I'm trying to get the column number and row number of the cell from which the function was called or of the cell which was passed inside the function code in Excel. If I'm calling a user defined function(UDF) in excel like, [code] and at the backend, i.e. where the definitions of this function are written in python using xlwings, I want to get the cell row number and column number from which this function was called or maybe get that using the range passed as argument. I'm unable to figure out how to do this. Please help! Or if it's possible using some other tools like openpyxl, etc, do tell."
+ },
+ {
+  "id": "P2951",
+  "title": "Issue with Transformer-based Chatbot Generating Incoherent answers",
+  "tags": [
+   "python",
+   "command-line-interface",
+   "artificial-intelligence"
+  ],
+  "body": "I'm developing a chatbot using Hugging Face's transformers library. The bot is supposed to detect the input language (Spanish, Catalan, or English) and respond accordingly using pre-trained models. However, the responses are often incoherent or contain repeated characters. Here is the project structure: [CODE] Here is the relevant code: nlp_processor.py for language detection and text preprocessing: [CODE] model.py for loading models and generating responses: [CODE] main.py for coordinating the chatbot: [CODE] Example issue: When I input \"¿hombre o mujer?\" the chatbot answers with: [CODE] I've ensured that the models are correctly downloaded and placed in the appropriate directories. What could be causing this issue, and how can I fix it? Thank you for your help! Here are the specific issues I'm facing: Responses are often incoherent. Responses contain repeated characters or punctuation. Steps I've taken: Verified the integrity of the model files. Checked the versions of transformers, torch, and other dependencies. Ensured that the tokenizers are correctly paired with their respective models. Environment: Python 3.9 transformers 4.12.5 torch 1.10.0 langdetect 1.0.9 I'm looking for organic answers"
+ },
+ {
+  "id": "P2145",
+  "title": "Process columns based on column names in another column",
+  "tags": [
+   "python",
+   "pandas",
+   "dynamic",
+   "multiple-columns"
+  ],
+  "body": "I like to select cells for processing by choosing column names contained in a different column. For clarity, input and output are given below. Column 'a' contains the column names for setting the value to None for each row. I tried to code as below but keep getting errors. [CODE] Input [CODE] Output [CODE]"
+ },
+ {
+  "id": "P2771",
+  "title": "How do I circumvent the delay when loading a browser for the first time with the browser module?",
+  "tags": [
+   "python"
+  ],
+  "body": "If there are no browser windows open, opening a new window with multiple tabs will have a delay. The window will open immediately but there will be a 5-10 second delay before the subsequent tabs open. How do I circumvent this? Edit: I realised that this was only a problem when I register a browser, e.g. [CODE] Therefore, my actual question is how do I avoid this behaviour when using a registered browser?"
+ },
+ {
+  "id": "P4903",
+  "title": "Adding an image as background in a Tkinter Window",
+  "tags": [
+   "python",
+   "user-interface",
+   "tkinter",
+   "tkinter-canvas",
+   "tkinter-layout"
+  ],
+  "body": "I have a Python script that creates three Tkinter windows. I want to add an image as the background and display all other widgets on top of it. Can anyone suggest how to achieve this in Tkinter? [CODE] The output of the code is: I have tried putting the canvas, then the image in it, ad then other widgets in it, but that won't also work."
+ },
+ {
+  "id": "P4985",
+  "title": "Problems while printing numbers in Python",
+  "tags": [
+   "python",
+   "loops",
+   "printing",
+   "primes"
+  ],
+  "body": "I'm making a program that prints all the prime numbers from a number that the user enters. Everything is working but I'm just having trouble printing the numbers. [CODE] When I enter [code] it prints: [CODE] I just want to have: [CODE] I think I have to add a list but I'm not sure where."
+ },
+ {
+  "id": "P4036",
+  "title": "Matplotlib on Arch Linux (KDE) shows QFont::fromString: Invalid description warnings, but fonts render correctly",
+  "tags": [
+   "python",
+   "matplotlib",
+   "pyqt",
+   "archlinux",
+   "kde-plasma"
+  ],
+  "body": "I'm using Matplotlib on Arch Linux with KDE Plasma 6.3.5 (Wayland). My system's default Qt font is set to \"WenQuanYi Micro Hei\" (文泉驿微米黑), and it displays correctly in all system applications. I have configured my ~/.config/matplotlib/matplotlibrc file to use \"WenQuanYi Micro Hei\" as the preferred sans-serif font: [CODE] I've also cleared the Matplotlib font cache (rm -rf ~/.cache/matplotlib). When I run a simple Matplotlib script like the one below, the Chinese characters and other text render correctly using \"WenQuanYi Micro Hei\" (and other specified fonts like Maple Mono if used). [CODE] The output of the print statements confirms that WenQuanYi Micro Hei is the first font in matplotlib.rcParams['font.sans-serif']. However, I still get the following warnings in the terminal: [CODE] My questions are: Why do these QFont::fromString: Invalid description warnings appear if the fonts are actually found and render correctly in the plot? Is this a known issue with Matplotlib/Qt on certain Linux setups, especially when system fonts and Matplotlib fonts are configured similarly? Since the rendering is correct, can these warnings be safely ignored, or is there a way to fix/suppress them if they are just \"noise\"? Here is some system information from fastfetch: [CODE] Any insights or suggestions would be greatly appreciated! Thanks."
+ },
+ {
+  "id": "P3642",
+  "title": "How to get the difference in days between two dates excluding only Sundays in a pandas dataframe?",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "datetime"
+  ],
+  "body": "Same as the question asked above. Date difference must exclude on Sundays but include Saturdays"
+ },
+ {
+  "id": "P4940",
+  "title": "How to add a dash component as a dash-leaflet custom control?",
+  "tags": [
+   "python",
+   "plotly-dash",
+   "dash-leaflet"
+  ],
+  "body": "I'm slowly discovering the [code] interface coming from ipyleaflet widget lib and there are still some tasks that I don't manage to achieve. Here I would like to add a dash componenent (in this case a dropdown select) and place it on the map as control so it fits consistently with the leaflet layout when the map is resized. Here is a map: [CODE] And here is the little select that I would like to place on it: [CODE] EDIT to clarify exactly what I'm looking for, I want to mimick what the [code] is doing in ipyleaflet i.e. placing the component in the controls hierarchy with something like \"topleft\" and without creating dedicated css styling."
+ },
+ {
+  "id": "P4473",
+  "title": "Other code won’t run because webserver section is waiting for web requests",
+  "tags": [
+   "python",
+   "micropython",
+   "raspberry-pi-pico"
+  ],
+  "body": "So I am trying to make an rc plane with the pi pico, so to make it remote controlled, i decided to have it host a little web server, just simply with the controls. And I got that to work. But then I noticed the planes lights stopped blinking. In short, the microcontroller can’t do anything else because it is busy waiting for a web request. The lights will only blink if I refresh the page, or click a button. Here is the loop, plane_duties() is all of the other code [CODE] Is there any way I can run code while waiting for a request?"
+ },
+ {
+  "id": "P5083",
+  "title": "Syntactically required and semantically relevant tokens in Python grammars",
+  "tags": [
+   "python",
+   "syntax",
+   "grammar",
+   "semantics"
+  ],
+  "body": "I am trying to parse code into AST. I want to keep minimum keywords and delimiters in the AST while keeping the semantics. In Python function definition [code] , the last [code] is syntactically required but also redundant in semantic structure, which means it can be omitted in the AST and reconstructed from the AST. But I also notice that the [code] in slice expression [code] is semantically relevant that it can't be omitted in the AST. Removing it will lead to ambiguous semantic; take [code] and [code] , for example. I wonder if there are more keywords or delimiters in Python grammar that share a similar property to [code] in slice expressions? Tree-sitter is what I am using for parsing."
+ },
+ {
+  "id": "P4694",
+  "title": "Matplotlib - how to align a second plot on a specific date that corresponds to a first plot",
+  "tags": [
+   "python",
+   "pandas",
+   "matplotlib"
+  ],
+  "body": "I have a [code] with 2 columns and I plot this with x-axis being dates and y-axis being the first data. I then have secondary data associated with the first data in the following manner: The secondary data is a dictionary with [code] a date and [code] a vector. The date corresponds to a specific date that also exists in the first dataset (plot). The vector includes past and future values in the sense that at index 20 of the vector, this value corresponds to the date (key). I want to plot this aligned on the date with the first plot. Any solution would work (subplots, superimposition, two different axes). I want ideally to have both dataset plotted in the same plot but correctly aligning the blue line as shown below. Below is some toy code to illustrate an example and the problem: [CODE]"
+ },
+ {
+  "id": "P2560",
+  "title": "Web Server Socket Programming Only Work 80 porty",
+  "tags": [
+   "python",
+   "http",
+   "sockets",
+   "webserver"
+  ],
+  "body": "[CODE] you see a web server code made with socket programming. This code works properly when we specify port 80. but if I change the port to for example 100. On the console it says sent successfully. But on the web side I get this error ERR_INVALID_HTTP_RESPONSE. What do you think could be the reason?"
+ },
+ {
+  "id": "P2077",
+  "title": "Restart Crashed Python Script in Ubuntu?",
+  "tags": [
+   "python",
+   "linux",
+   "amazon-web-services",
+   "ubuntu",
+   "cron"
+  ],
+  "body": "I've been using AWS' free web service recently to run python scripts in the cloud with EC2. I have it set to start running at a specific time every day using Crontab then run all day until it restarts. The problem I have is there's a good chance the program will crash. I have a bunch of error catching blocks on the program, but they don't always stop a crash. In cases where it crashes, what I really want is for it to restart and come back online again so I miss as little as possible. But I don't know how to do that. I've thought about including a bunch of Crontab instances to run it throughout the day, but won't this just create a bunch of instances of my script? Is there some way to configure this to only work if the script isn't currently running?"
+ },
+ {
+  "id": "P3962",
+  "title": "Graph tool - Stochastic Block Model vs Leiden",
+  "tags": [
+   "python",
+   "graph-tool",
+   "complex-networks"
+  ],
+  "body": "I'm calculating network communities for 4 networks using 2 methods: 'Leiden' method, which gives me 7 (a), 13 (b), 19 (c), 22 (d) communities. 'Stochastic block Model', also checking group membership of the nodes by inspecting levels of the hierarchy, like so: [CODE] which prints: [CODE] and draws: This looks like having WAY more communities than using Leiden, and I'm trying to wrap my head around why, as well as this SBM concept. Are these SBM graphs depicting adicional levels of hierarchy or is there something else going on here that justifies so many more communities?"
+ },
+ {
+  "id": "P4175",
+  "title": "TclError: image &quot;pyimage2&quot; doesn&#39;t exist",
+  "tags": [
+   "python",
+   "image",
+   "tkinter",
+   "python-imaging-library"
+  ],
+  "body": "Im trying to make tkinter popups with a image in them, a image from bytes. It works the first time, but when i try to make a second popup after clicking the first one away, it gives the error [code] this is probably caused because pyimage1 gets garbage collected, i tried storing it in a list but it didn't work this is my code: [CODE]"
+ },
+ {
+  "id": "P4158",
+  "title": "Is there a shorter/more pythonic way of writing the 2nd line of this python code?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "conditional-statements"
+  ],
+  "body": "[CODE] The code works fine, but I'm wondering if there's a more efficient way to write line 2 of the code which goes 'if any one side of the triangle is greater than or equal to the sum of the other 2 sides':"
+ },
+ {
+  "id": "P2494",
+  "title": "How do I get the AWS Glue Job CDK construct to update the script asset?",
+  "tags": [
+   "python",
+   "aws-glue",
+   "aws-cdk"
+  ],
+  "body": "I have a Glue Job and an S3 Asset defined in CDK. The resources create correctly but the update of the script file does not trigger the Glue Job to update its script in the resource. How do I get the job to update when I update the content of the asset? [CODE]"
+ },
+ {
+  "id": "P1946",
+  "title": "How to append Dictionary keys null values in a list?",
+  "tags": [
+   "python",
+   "django",
+   "list",
+   "python-2.7",
+   "dictionary"
+  ],
+  "body": "I have a dictionary that has multiple keys and each key has multiple values in list format, if the keys have a [code] value then the key should be [code] to a list. here is my dictionary: [CODE] and I am using this approach to append the value of the keys whose values are null in the list [CODE] the above code is appending the data for this key only [code] STRY,SYER,HUHTY [code] None` inside the list. Any kind of help will be appreciated. I know that it's not appending the other keys due to this condition [code] please provide a better approach to do the same thing dynamically."
+ },
+ {
+  "id": "P1651",
+  "title": "How to sort os.walk(path) in alphanumeric order, with duplicates coming after the original file, using Python 3?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "sorting",
+   "os.walk"
+  ],
+  "body": "In python 3 (specifically 3.10.6), how can you change the way that [code] sorts the files it finds? Given this list of files: [CODE] How would you sort it in that order, with each [code] duplicate file coming after the original file? Currently, [code] is sorting this list like this: [CODE] I suppose the main issue is that the default sort method is giving a higher \"sort value\" to the [code] (and also [code] ) than it is to the [code] in the extension. If this is correct in what's happening here, how would you modify which special characters come before others? I've tried to use [code] , however that sorts it the same as [code] already sorts them. If I try [code] then while the originals come before the duplicates, multiple duplicates are now sorted backward and all the originals are backward too, ie: [CODE]"
+ },
+ {
+  "id": "P0499",
+  "title": "Why I am unable to close the A Tkinter frame and create another one?",
+  "tags": [
+   "python",
+   "tkinter"
+  ],
+  "body": "I made this tkinter app: [CODE] I am implementing a wizard that allows me to select a value from aggregate. My issue is when I click [code] Button I get this: Annd frame is not destroyed properly. How I can fix this?"
+ },
+ {
+  "id": "P3912",
+  "title": "Cellular automata works in Python, not Javascript",
+  "tags": [
+   "javascript",
+   "python",
+   "cellular-automata"
+  ],
+  "body": "Edit: I put a JavaScript snippet at the bottom. I've made two versions of the same celluar automata in JavaScript and Python. The Python version works perfectly as expected, whereas the JavaScript doesn't... The problem is the third generation. How it looks in Python: How it looks in JavaScript: Two cells (C and D) should change from defectors back to cooperators (blue cell). This is because these cells have a cooperator in their neighbourhood that scores a 6 (6 > 5.7). On the other hand, cells A and B change rightfully back to cooperators. My confusion is that this automata is perfectly symmetrical. Why is A and B working, but not C and D when they are, in theory, existing under the exact same conditions? Some where in the update function I suspected the cells C and D have a neighbor whose score in [code] = 3 is 6 (a cooperator. Only a cooperator could score this. See picture of [code] = 2 below to see what I mean) but this neighbor's actual strategy is for some reason being written as a defector, when is should be a cooperator. [CODE] I ran some console logs in the third generation and it seems to be the case. When cells C and D update, [code] is returning a 6 (hence, a cooperator) but [code] is returning a 1 (meaning a defector). Meaning, cells C and D must have a neighbor whose strategy should be a cooperator but it's actually a defector (even though the scores are correct)"
+ },
+ {
+  "id": "P1673",
+  "title": "how do you performn division calculation on number of columns over a common column in pandas",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "I have this data frame: [CODE] I need to calculate usage by dividing column values right of \"Band\" column by the values in \"Band\" column in pandas. Resulting data frame should look like this: [CODE] then I have to count the them if they fall withing certain percentage per node. if any date, usage per node between 70% and 80%, the count for that node is one, however many times the usage is between those thresholds. In this example for Node \"Server1\", number of times it breached 100% is 2. For example: All summary: [CODE] I can do this by explicitly dividing columns by Band column but the number of columns is not known, it could be many columns. [CODE]"
+ },
+ {
+  "id": "P1007",
+  "title": "altair mark_area() with unexpected behaviour of y2",
+  "tags": [
+   "python",
+   "plot",
+   "altair"
+  ],
+  "body": "I'm trying to make an area chart of a CDF plot (which should be always increasing), instead I get the result in the image below. [CODE] If I uncomment the [code] line I still don't get what I'm looking for (namely, there's no area being plotted, although it's at least the actual CDF). When I use the last formulation [code] it does work . Questions I expected Y2 to be 0 by default (I recall having read it somewhere but I cannot find it not, maybe I made it up?). It does seem to be so most of the time, when is it not? Why? I expected the [code] API to behave exactly the same as [code] but it does not seem to be the case (I've had problems with this in other plots involving different channels too). When are they different? Why? Or am I doing something wrong? Regards. Versions altair==5.5.0 polars==1.30.0 Edit: added images now that I can Edit2: Answer to question 2. is in the following comment , there are some remains of question 1 to be answered that can be found in the comment below."
+ },
+ {
+  "id": "P5825",
+  "title": "Reloading modules in JupyterLab doesn&#39;t work until I restart the server",
+  "tags": [
+   "python",
+   "import",
+   "module",
+   "jupyter-lab",
+   "jupyter-kernel"
+  ],
+  "body": "I'm facing issues when making changes to a custom module and using it in a Jupyter session. The changes to my module do not take effect until I restart the server. Not the kernel. The server. Restarting the kernel does not work, for mysterious reasons. I am aware that there are some caveats and non-intuitive things when changing modules and trying to import them in a Jupyter session. Normally, I would use the magic command [CODE] Or when necessary the explicit [CODE] Neither of these work. Restarting the kernel does not work. I keep getting: [CODE] This assertion error used to be on line 226 before I changed it. Now it's on line 229. After restarting the kernel, this error persists. I'm guessing (but this is just guessing, and I'm very uncertain) that my jupyter server is using some cached versions of these modules, and reloading them in the notebook does not actually do anything. Or the PATH has been adapted in a weird way, but then I would expect to get blatant import errors, and not this... I don't know what's happening here, and would very much appreciate some help! If it is of any use, I launch my Jupyter server from a Python script as such: [CODE]"
+ },
+ {
+  "id": "P1479",
+  "title": "How can I improve on this flask, sqlalchemy, jwt file in python?",
+  "tags": [
+   "python",
+   "flask",
+   "sqlalchemy",
+   "jwt",
+   "flask-sqlalchemy"
+  ],
+  "body": "I have created this Flask, SQLAlchemy python file and i want to know how can I improve on it? make it look nicer and some tips and guides if possible. [CODE] its just a normal backend file, I'm fairly new to flask and python so I want to see if there is something fundamentally is wrong with this file or there is any improvement i can do"
+ },
+ {
+  "id": "P2332",
+  "title": "Ampersand in python dont know what is wrong",
+  "tags": [
+   "python"
+  ],
+  "body": "I'm getting this error please help [CODE] This is my code [CODE] I'm using custom libraries. jwnet.ask is just like input = input(\"Question Here\") sl.downloadsonglist downloads a file from a txt"
+ },
+ {
+  "id": "P1279",
+  "title": "Why is there an error when I use the capitalize function?",
+  "tags": [
+   "python"
+  ],
+  "body": "Why does it output [CODE] on [code] [CODE]"
+ },
+ {
+  "id": "P4178",
+  "title": "Suggestion of sub files type for calculation",
+  "tags": [
+   "python",
+   "jupyter-notebook",
+   "jupyter",
+   "jupyter-lab"
+  ],
+  "body": "I use jupyter lab for my project. I use mostly pandas, numpy, statsmodel. The number of code lines now is very long and becoming hard to manage. I want to leverage by creating sub-files for calculation, i.e.: Call a sub-file Pass input to the sub-file Get output from the sub-file For the sub-files, should I use python file (.py) or jupyter file I am looking for suggestions"
+ },
+ {
+  "id": "P2073",
+  "title": "Postgresql in Python - Joining tables on a matching variable that is not showing as matching",
+  "tags": [
+   "python",
+   "postgresql"
+  ],
+  "body": "I have two tables in a database, 1 is a table of NFL teams (teams) and the other is a table of NFL games (games). The games table has the full team name of the home team (team_home) and the away team (team_away), the teams table has the full team name (team_name) and the team id (team_id) such as SF for San Fransisco 49ers. I need to update the games table so that the code is what shows up in the team_home and team_away columns instead of the full team names. However, even though I can see matches in the columns, it keeps returning an error ( [code] ) the code below should work for this: [CODE] I have implemented a code to call out what teams aren't finding matches: [CODE] This returns information that there are a few that aren't finding matches, but when I look them up they have matches on both sides. I've tried removing leading and trailing whitespace on both sides to see if that was an issue but still got the same result. Some of the main issues as far as team names are Oakland Raiders, San Diego Chargers, St. Louis Cardinals, Washington Redskins, and New England Patriots. The data is very large, so I have moved it into a google sheet for reference. https://docs.google.com/spreadsheets/d/1Y3PA-WhaOgq2H3jpuovZQgTLwGF8-t9JSU_shYY56eg/edit#gid=1701285808 This sheet has what data is in the games table and in the teams table on separate tabs. I have also added a \"check matches\" t"
+ },
+ {
+  "id": "P2950",
+  "title": "Rotating NumPy indices to produce a rotated image works only in two of four segments",
+  "tags": [
+   "python",
+   "numpy",
+   "opencv",
+   "geometry"
+  ],
+  "body": "I'm working on a Python program that calculates images by some function frame by frame to create a video. Sometimes images need to be rotated (without cropping them). First, I rotated images as described in OpenCV Python: Rotate image without cropping sides , but significantly enlarged the image area before rotating it. Now I’m working on speeding up the program and have tried rotating only the indices and resizing them as little as necessary. However, a/m solution only produced approximate results (images were cropped slightly), so I switched to calculating the size of the indices using [code] . This works perfectly for angles between [code] or [code] . However, in the remaining sectors the rotated images no longer match the (blue) bounding box and they do not cover the frame completely. This is my simplified code. I introduced canvas to display what's going on outside the frame (red rectangle), too. Only data inside the red frame will be used. It should be completely covered by the rotated and enlarged image: [CODE] Here some pics to illuminate the issue: 0 degrees, no rotation. The calculated image covers the frame completely. Up to an angle of 45 degrees, the rotated and enlarged image is still aligned with the blue frame and therefore completely covers the (red) frame. At an angle above 45 degrees (until 135 degrees; here: 60 degrees), the calculated image no longer aligns"
+ },
+ {
+  "id": "P4975",
+  "title": "Telegram bot responds to all group messages instead of only when mentioned",
+  "tags": [
+   "python",
+   "telegram-bot"
+  ],
+  "body": "I am building a Telegram bot using the python-telegram-bot library. I want my bot to respond to messages in a group chat only when it is explicitly mentioned using its username (e.g., @my_bot_username). However, the bot currently responds to all messages in the group, even when it is not mentioned. Here's the relevant part of my code: [CODE] The Problem The bot responds to all messages on a group chat even when it is not mentioned. I added a condition to check if the bot's username is in the message, but it still doesn't work as expected. My Attempts I used the condition [code] to check for the bot's username in the message. However, this does not seem to work correctly. I tried printing the message_type and text for debugging, and they seem to be correctly identified. Expected Behavior In group chats, the bot should only respond when explicitly mentioned using its username (e.g., @my_bot_username). In private chats, the bot should respond to all messages. Actual Behavior The bot responds to all messages in group chats, regardless of whether it is mentioned."
+ },
+ {
+  "id": "P3159",
+  "title": "How do I animate a point moving over a grid without it becoming a line?",
+  "tags": [
+   "python",
+   "matplotlib"
+  ],
+  "body": "I have two sets of x,y coordinates that describe the motions of two planets orbiting the sun over time. My assignment asks me to animate this data in Python using Matplotlib, but my syllabus doesn't cover it well. I've managed to animate the trajectory with the help of MatPlotLib's documentation , but I am unable to display a moving dot at the current locations of the planets: [CODE] Every time I try, it becomes a line with dots at each x,y coordinate. I want the dots to merely show the most recent x,y location of both planets. Could someone help me out?"
+ },
+ {
+  "id": "P4444",
+  "title": "How to add automatic attributes to the Python Markdown library",
+  "tags": [
+   "python",
+   "markdown"
+  ],
+  "body": "I'm trying to import CSS styles into my HTML file exported by the Markdown library, but for some reason the attributes are basic, or so to speak, to generate a clean layout. Is it possible to add these attributes to the entire layout? [CODE] [CODE] By default, styles have attributes like [code] and others. I expect a result like the one shown below: [code]"
+ },
+ {
+  "id": "P1732",
+  "title": "ValueError: Failed to convert a NumPy array to a Tensor (Unsupported object type list) (I have created a eclipse first)",
+  "tags": [
+   "python",
+   "numpy",
+   "tensorflow",
+   "keras",
+   "distilbert"
+  ],
+  "body": "When I'm passing freq_representation in the .predict function,its giving me error ValueError: Failed to convert a NumPy array to a Tensor (Unsupported object type list).How to solve it? (Look at the bottom half of the code). I have attached the full code,so that,people can interpret better. [CODE]"
+ },
+ {
+  "id": "P4011",
+  "title": "Use config file for pip within build",
+  "tags": [
+   "python",
+   "build",
+   "pip"
+  ],
+  "body": "I am building a package from source files. If I run with the argument [CODE] It successfully builds. However, if I try to build in an isolated environment it fails trying to install packages [SSLCertVerificationError]. I have solved in my normal environment by adding the following to pip.ini [CODE] What can I add to the command so that PIP within the Build process will use this config file. [CODE] The particular line that it is failing at is: [CODE]"
+ },
+ {
+  "id": "P2462",
+  "title": "Pairwise similarity score in a sparse matrix",
+  "tags": [
+   "python",
+   "cosine-similarity",
+   "collaborative-filtering"
+  ],
+  "body": "I am doing a CF item-based problem. I have made a TF-idf Matrix (in pandas dataframe) that looks something like this. This is a large and extremely sparse matrix, say, 10^4 x 10^6, and each row has only 5 to 10 non-zero values. [CODE] I want to calculate similarity score pairwise (using the cosine similarity score for example). I have two issues with my code below that I need to overcome: Too slow. It takes O(N^2). (MOST IMPORTANT) Similarity scores are too small that they are displayed as 0. I look forward to your support. Thanks. [CODE]"
+ },
+ {
+  "id": "P2609",
+  "title": "RegEx to differentiate chemical compound names from pattern",
+  "tags": [
+   "python",
+   "regex"
+  ],
+  "body": "I have a RegEx problem with a string pattern that i used to extract data from them by breaking it. I am using Python. The string lines are, simplified, something like this (there are some lines in between but these are the problematic ones): Compound Name,RT,Score\\n 2,4,6-Cycloheptatrien-1-one, 3,5-bis-trimethylsilyl- ,8.705,626,Area,386902.453,tR (min),8.705 ['Compound Name', 'RT', 'Score', '2', '4', '6-Cycloheptatrien-1-one', ' 3', '5-bis-trimethylsilyl-', '8.705', '626', 'Area', '386902.453', 'tR (min)', '8.705', ''] Compound Name,RT,Score\\n Benzene, 4-ethenyl-1,2-dimethyl- ,11.682,600,Area,16289.239,tR (min),11.682 ['Compound Name', 'RT', 'Score', 'Benzene', ' 4-ethenyl-1', '2-dimethyl-', '11.682', '600', 'Area', '16289.239', 'tR (min)', '11.682', ''] Compound Name,RT,Score\\n 2-(p-Tolyl)propan-2-ol, TMS ,11.921,605,Area,17976.558,tR (min),11.921 ['Compound Name', 'RT', 'Score', '2-(p-Tolyl)propan-2-ol', ' TMS', '11.921', '605', 'Area', '17976.558', 'tR (min)', '11.921', ''] Compound Name,RT,Score\\n Tris(tert-butyldimethylsilyloxy)arsane ,12.036,685,Area,76702.743,tR (min),12.036 ['Compound Name', 'RT', 'Score', 'Tris(tert-butyldimethylsilyloxy)arsane', '12.036', '685', 'Area', '76702.743', 'tR (min)', '12.036', ''] Compound Name,RT,Score\\n Phenyl-pentamethyl-disiloxane ,13.646,656,Area,84633.281,tR (min),13.646 ['Compound Name', 'RT', 'Score', 'Phenyl-pentamethyl-disiloxane"
+ },
+ {
+  "id": "P4400",
+  "title": "Pytorch Normalize() receiving torch.float32 tensor but recognising it as torch.int32",
+  "tags": [
+   "python",
+   "pytorch",
+   "dataset",
+   "normalization",
+   "standardization"
+  ],
+  "body": "I'm trying to normalize the NYU v2 Depth Dataset, and this is the transform I'm applying to each image coming through: [CODE] But it throws a runtime error of [CODE] Now, I'd be happy to solve it if the tensors were indeed int dtypes, but the depth maps that are coming through are float32 tensors. [CODE] How should I go about solving this? I've gone in circles making sure that the tensors are indeed tensors and not images, via ToTensor(), and also double checking that the tensors that I wish to normalise are indeed float tensors."
+ },
+ {
+  "id": "P2339",
+  "title": "Better way to get dictionary values that are strings in a list or a string",
+  "tags": [
+   "python",
+   "python-3.x",
+   "dictionary"
+  ],
+  "body": "[CODE] what I have until now is to put the values in a list and iterate through each element of the list and split each string [CODE] Is there a better way to do it?"
+ },
+ {
+  "id": "P1691",
+  "title": "Python Pandas check dataframe groupby, how many people have the same book combinations",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "logic"
+  ],
+  "body": "So I have a list of people, each of them are given more than 2 books, 4 books are possible. I want to do a groupby and check frequency of combination of book received such as [ID, books] such ID: 1, he has Books: A, B I want to know how many people had received book combination of A and B. Technically if someone has books A,B,C; he will have combination of (A,B),(A,C),(B,C),(A,B,C). Input: [CODE] enter image description here"
+ },
+ {
+  "id": "P2694",
+  "title": "Why can&#39;t I install Jupyter in a conda environment running Python 3.14?",
+  "tags": [
+   "python",
+   "conda",
+   "jupyter",
+   "miniconda",
+   "python-3.14"
+  ],
+  "body": "I've installed miniconda, I've set-up an environment with Python 3.14.2, but I'm struggling to install Jupyter. Here's the code: [CODE] Should I install the Jupyter Windows installer first to install it on my environment? If not, how can I solve this problem?"
+ },
+ {
+  "id": "P1280",
+  "title": "Finding whether the lines in the image are straight (linear) or curved",
+  "tags": [
+   "python",
+   "image-processing"
+  ],
+  "body": "I have the following image, this image takes values between 0 and 9. Our matrix size is a 512*512 matrix. Here, my aim is to look at this matrix and I want to find out whether the lines in the image are straight (linear) or curved. I added an image as an example, but I don't know how to do it. i need help on this. This is my matrix : https://drive.google.com/file/d/14h0OD316tMNP-JKhTP4xpFI9Y293-5QN/view?usp=sharing To read this array you have to use : [CODE]"
+ },
+ {
+  "id": "P0088",
+  "title": "Interpolate annual data to hourly as a function in Python",
+  "tags": [
+   "python",
+   "pandas",
+   "scipy",
+   "time-series"
+  ],
+  "body": "I am looking to take annual population data and interpolate it into an hourly time series. I am trying to create a function which produces a time series for each unique name of the hourly population for the sample years given. I have included the code below as well as example data: [CODE] This script does not work however and cannot loop over name. I tried looking for resources online but converting from annual to hourly timeseries is far less common than say hourly to annual. I have tried scipy's interp1d but I am open to suggestions of an other packages that may also do the same job. Thank you in advance for you suggestions."
+ },
+ {
+  "id": "P3400",
+  "title": "Python LevelDB (plyvel) - How to restore links of onetab from its leveldb",
+  "tags": [
+   "python",
+   "leveldb"
+  ],
+  "body": "I'm trying to restore my links of leveldb via plyvel, But I can't convert link keys to real url and Also I see some links in value json but not sure they are correct. Anybody have any idea how to do this? Here is my code [CODE] and there is a sample result [CODE]"
+ },
+ {
+  "id": "P3592",
+  "title": "Create a Job in UC4 (Automic Workload Automation) scheduler to execute python script",
+  "tags": [
+   "python",
+   "workload-scheduler",
+   "automic",
+   "uc4"
+  ],
+  "body": "I watched documentation on UC4 (automic automation) but couldn't find the help where I can create a job and execute my python script. I have developed on python script for web scrapping. This script doesn't required any input parameters. I want to create on job on UC4 in which this job will execute this python script. also I have to execute this python script. where I have to save this file in order to execute this script. because we have 4 environments for UC4. PS - I am using UC4 web interface version is \"Automic web interface 21.0.8\". I am very much new to UC4 hence step by step approach would be highly appreciated. Thank you !"
+ },
+ {
+  "id": "P1029",
+  "title": "Problems handling SSRF vulnerability on api rest request",
+  "tags": [
+   "python",
+   "url",
+   "request",
+   "checkmarx",
+   "ssrf"
+  ],
+  "body": "I'm strugging to remove a SSRF vulnerability detected by checkmarx as part of our ci/cd pipeline at work and i have little knowledge about fixing this kind of problem (this vulnerability prevents me from continuing with the pipeline). I'm calling an internal rest service that stores files to download a single file based on the file_id (uuid4) param. I've added multiple redundant validations to make sure that the file_id is right before adding it to the url. The hostname is passed from a configmap. The vulnerability is about file_id beign a variable where a user can pass another value allowing them to access an unintended file after beign added to the url. Is there a better way to fix this and prevent checkmarx detecting it? [CODE]"
+ },
+ {
+  "id": "P1135",
+  "title": "Python longest, and shortest string from the file",
+  "tags": [
+   "python",
+   "list"
+  ],
+  "body": "I'm trying to figure out the longest line and the shortest line from the file, I think I got the longest line but the shortest line doesn't come out as I think please help. [CODE]"
+ },
+ {
+  "id": "P4064",
+  "title": "Scrapy Crawlspider does not work with 507 status code",
+  "tags": [
+   "python",
+   "parsing",
+   "web-scraping",
+   "scrapy"
+  ],
+  "body": "I have a scrapy Crawlspider that parses reviews, using a scrapy-rotating-proxies. But when I tried to connect to the site I got the 507 status code. In spite of that, I managed to connect to the site with the code 200 and get the information for a few times. As I understood the idea, the status 507 indicates the server does not have enough capacity to process the request. Or was I blocked after all? Is there anything I can do in this situation? I really need to get the data. My spider: [CODE] Middlewares.py [CODE] Result [CODE]"
+ },
+ {
+  "id": "P4982",
+  "title": "How to pass a javascript variable in html to views.py?",
+  "tags": [
+   "javascript",
+   "python",
+   "django"
+  ],
+  "body": "I am currently trying to make an website using django. And i faced a problem like i wrote in title. What i want to make is like this, first of all, shop page shows all products. But, when a user select a brand name on dropdown menu, shop page must shows only that brand products. To do this, i have to get a variable which a user select on dropdown menu, and my view function should run at the same time. Please let me know how can i resolve this. i made a dropdown in html as below. [CODE] and my views.py is as below. [CODE] i tried to google it a lot of times, but i counldn't resolve this."
+ },
+ {
+  "id": "P5624",
+  "title": "How to modify the color of an input_slider?",
+  "tags": [
+   "python",
+   "css",
+   "py-shiny"
+  ],
+  "body": "I am trying to build a Shiny for Python app that implements an interactive histogram plot using matplotlib and a slider. How do I get to change the default slider colour blue to some other colour, say green, and also, is there a way to colour the value of the slider differently than the default white colour? So, for example, in the screenshot below, what I am aiming to do is to change the default blue slider colour (as indicated by the red arrow) to green, and the text or value shown in white colour (as indicated by the purple arrow) to black colour. The script I currently have is given below: [CODE]"
+ }
+]

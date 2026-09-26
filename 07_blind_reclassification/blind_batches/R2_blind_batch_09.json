@@ -1,0 +1,1241 @@
+[
+ {
+  "id": "P3876",
+  "title": "After splitting settings.py file, mod_wsgi failed to exec Python script file. And application = get_wsgi_application() errors occured over and over",
+  "tags": [
+   "python",
+   "django",
+   "apache",
+   "mod-wsgi",
+   "wsgi"
+  ],
+  "body": "Hi everybody I tried to deploy my django project with apache, mod_wsgi in windows. I splited my settings.py like this: source root folder project folder apps config settings init .py base.py local.py prod.py init .py asgi.py urls.py wsgi.py myenv After I splited settings.py, Mod_wsgi failed to exec python scripts file : 'C:/user/users/desktop/source_root_folder/project_folder/wsgi.py'. Mod_wsgi also show the exception that Exception occurred processing WSGI script : 'C:/user/users/desktop/source_root_folder/project_folder/wsgi.py' In Apache24 error log, 'C:/user/users/desktop/source_root_folder/project_folder/wsgi.py' application = get_wsgi_application() error occured. [CODE] how can i deal with those errors? please give me some helps."
+ },
+ {
+  "id": "P2663",
+  "title": "unexpected keyword in createsuperuser django",
+  "tags": [
+   "python",
+   "django"
+  ],
+  "body": "I am working with BaseAbstractUser and AbstractUser, and I have a problem with a required field. models.py [CODE] admin.py [CODE] When I ran [code] , it asked for my email, password, and role, which is what I expected it to do. However, when I hit return, it said that the role is an unexpected keyword. How do I fix this? The Error: [CODE] Does CreatSuperUser require something special to make this work? Thanks!"
+ },
+ {
+  "id": "P0700",
+  "title": "How to generate __slots__ based on annotations in Python 3.8-3.14",
+  "tags": [
+   "python",
+   "python-typing",
+   "slots"
+  ],
+  "body": "I would like to make [code] -based classes, without having to repeat the attribute names that I've already listed in type annotations. Before Python 3.14, I could do this: [CODE] Python 3.14, however, switched to lazily-evaluated annotations, which means that when it comes time to assign [code] , the [code] dict does not yet exist. Python's own best practices say to not use [code] directly after 3.10 anyway. [code] works for python 3.10 and up (with many side-effects). Unfortunately, my code targets a lot of legacy systems, and so has to work both on python 3.8 and on the 3.14 I have on my laptop. Is there a 3.8-compatible, but future-proof way to achieve a [code] based on some subset of annotated attributes, but without repeating the names? The only workaround I've found myself is to make a class decorator that creates a class with [code] set, thus: [CODE] This seems to work, but is ugly for a couple of reasons. The [code] end up on a machine-generated class rather than on the class that defined the field, the defining class has to include [code] which is misleading even with the comment, and the extra class in the MRO makes inheritance less-obvious. Is there a better approach?"
+ },
+ {
+  "id": "P5111",
+  "title": "Ajax sending data to django python",
+  "tags": [
+   "javascript",
+   "python",
+   "django",
+   "google-places-api"
+  ],
+  "body": "Recreating a page to use django forms (current screen does not use any django forms implementation when rendering a template), to take in data from google places autocomplete. Basically just taking the response from google, converting it to json and making an ajax call with the form data and google data. The problem I'm getting is when I serialize the form to pass the data into an ajax call the field that's storing this json value is coming in as a json wrapped in an array instead. Looking at the current page I have this does not happen and the data retrieved from google's api comes in as correctly. The javascript that handles fetching the data from google is both the same and when applying it to the google-details field in the html, the value is updated by doing a .val(JSON.stringify()) on the data that is retrieved from google. [CODE] data that I'm getting from the ajax on the updated page [CODE] expected, data that I'm getting from the current iteration. [CODE]"
+ },
+ {
+  "id": "P3406",
+  "title": "Custom FlaskWTF form errors not showing in template even with validate_on_submit()",
+  "tags": [
+   "python",
+   "flask",
+   "flask-wtforms",
+   "wtforms"
+  ],
+  "body": "I'm building a simple login form using FlaskWTF. The form renders correctly and submits, but the validation error messages (e.g., “This field is required”, “Invalid email”) never appear in the format I want it to. Here is the relevant part of my Flask route: [CODE] My form class: [CODE] and the template: [CODE] However, when I submit the form with empty fields, my custom error message doesn't appear just the normal FlaskWTF error I have tried everything but I am unable to fix this. What could be causing this issue?"
+ },
+ {
+  "id": "P2374",
+  "title": "Django custom user admin not reflected in admin site",
+  "tags": [
+   "python",
+   "django",
+   "django-custom-user"
+  ],
+  "body": "I am new to django and going through legacy django project where Custom user admin is configured with following: [CODE] [CODE] Also in app1.models.py, where [code] is further inherit from [code] . [CODE] In [code] : [code] There's no [code] in [code] folder. The problem here is that the [code] model is not associated with this particular [code] . Even if I remove this [code] in [code] the users are still displayed. Here's the admin interface for Users. As you see, the fields are also different from what is defined here: [code] Why is the custom user admin not working in this case?"
+ },
+ {
+  "id": "P5921",
+  "title": "How can I access output of previous Ptransform in next step",
+  "tags": [
+   "python",
+   "apache-spark",
+   "google-cloud-dataflow",
+   "apache-beam"
+  ],
+  "body": "I have to create a Apache data beam in Python which has to do following functions- Read an entry from a database table matching a particular criteria Call 1st REST API for this record In the response of above API call, will get an array. Call two API for each element in this array Update the data fetched by all 3 API calls in DB One thing I could not find on web was how can I pass the output of any step(Ptransform) to next one. Can someone please point me in the right direction?"
+ },
+ {
+  "id": "P2857",
+  "title": "Why doesn’t linting appear in VS Code after installing the Python extension?",
+  "tags": [
+   "python",
+   "vscode-extensions"
+  ],
+  "body": "I installed the Python extension in Visual Studio Code, but linting does not appear to work in my setup. What I did: Installed the Python extension from the VS Code marketplace. Selected Python 3.7 as the interpreter. Opened the Command Palette but. It shows options like Python: Run Selection/Line in Python Terminal, but I don’t see linting results in the editor. In tutorials, linting options appear automatically after installing the Python extension. On my computer, I only see - Python: Run Selection/Line in Python Terminal and View: Reset Language Status Interaction Counter. Do I need to install or configure an additional linter (such as pylint or flake8) separately to make linting work in VS Code, or should it work automatically with just the Python extension?"
+ },
+ {
+  "id": "P0171",
+  "title": "Getting an TypeError when trying to use parse_latex()",
+  "tags": [
+   "python",
+   "typeerror",
+   "sympy"
+  ],
+  "body": "I'm currently working on a project which needs to convert Latex strings into SymPy code. I am very new to SymPy. I've encountered a problem which I can't find the answer for myself: [CODE] And the full error: [CODE] I have installed the correct version of antlr4-python3-runtime (4.11) but to no avail. I have also checked if the module is installed correctly, which it is. The versions are Python 3.14.0. and SymPy 1.14. I'm working in a Jupyter Notebook. Any help would be greatly appreciated."
+ },
+ {
+  "id": "P4108",
+  "title": "Maintaining single object or passing the context in python command pattern",
+  "tags": [
+   "python",
+   "command-pattern"
+  ],
+  "body": "I am trying to maintain a single copy of agentbook object in SCHEDULE, CANCEL, and other commands. but with below code, is maintaining separate objects for different commands is there a way to fix this I tried to pass the context in execute method it dint work the methods are in agentBook class [CODE]"
+ },
+ {
+  "id": "P1776",
+  "title": "Deploying a Python HTTP function to Google Cloud run from source",
+  "tags": [
+   "python",
+   "google-cloud-platform",
+   "google-cloud-run",
+   "google-cloud-deploy"
+  ],
+  "body": "I'm trying to deploy a Python HTTP function to Google Cloud Run from source. However, I'm facing a weird issue, where deploying it from source somehow creates a broken deployment, but when (re-) deploying the already deployed source code through the Cloud console buttons, it starts working. This is what I'm doing: The app: [CODE] and [CODE] Both of these files are in the root as they should. Now, when I run [code] , I get a successful deployment to the cloud run function (called [code] ). However, when I try to trigger the function (call the function's URL), the request fails and in the logs I see that it [CODE] Now, if I navigate to source -> edit source -> save and redeploy (see image below) and just hit save without changing anything, I get a new deployment, in which the endpoint actually works. I'm pretty sure this is related to the function's entrypoint, and I've read this document: https://cloud.google.com/docs/buildpacks/python#entrypoint But I just can't put the pieces together. I've tried the [code] argument on the [code] , but I haven't been able to figure out a working value for that."
+ },
+ {
+  "id": "P5157",
+  "title": "Interpolating with Hydra",
+  "tags": [
+   "python",
+   "fb-hydra"
+  ],
+  "body": "I am using Hydra to organise configs for an ML project and I have my main config file along the lines of: config.yaml [CODE] then in model/model_a.yaml [CODE] expecting [code] to get the value of 106 so I only have to change it in one place, but when I print the model config I get [code] This should be fairly simple and I don't understand why it's not working, any suggestions would be greatly appreciated!"
+ },
+ {
+  "id": "P1106",
+  "title": "How can you make a Client-Server with 2 different computers in the lan?",
+  "tags": [
+   "python",
+   "lan",
+   "nmap"
+  ],
+  "body": "It just times out for me , even if I use the gethostbyname method or gethostname for the private ip address.... Code: [CODE] When it gets to the correct Ip, it just... times out. Thought I had a problem with the function, but it appeared to not be the case. TLDR- made a LAN automatic connecting using Nmap, the only thing it's connecting to is timeouts and my sadness D: Edit: lemme show you the errors which occur when I run this function: server: [CODE] both sides decide the port which they want to use, i use socket.gethostbyname for server ip."
+ },
+ {
+  "id": "P1099",
+  "title": "I have problem uploading files to minio bucket using python app",
+  "tags": [
+   "python",
+   "flask",
+   "minio",
+   "minio-client"
+  ],
+  "body": "Problem Description: I'm encountering an issue with file uploads to MinIO using Python code. When I upload files with the the Python script, the uploaded files appear in the MinIO bucket but have no size and cannot be opened. However, when I manually upload files, they are viewable and have a size. What I've Tried: Verified MinIO bucket settings: I have confirmed that the MinIO bucket settings are correct and that both manually uploaded files and files uploaded via the code are stored in the correct bucket. Checked content type: I'm setting the content type correctly using the get_content_type() function to ensure that the uploaded files are recognized correctly. Expected Outcome: I expect that files uploaded via the Python script should be viewable and have a size, similar to manually uploaded files. [CODE]"
+ },
+ {
+  "id": "P2684",
+  "title": "what&#39;s difference between page.locator(&quot;xx&quot;,has=Locator) and page.locator(&quot;xx&quot;).filter(has=Locator) in Playwright",
+  "tags": [
+   "python",
+   "playwright"
+  ],
+  "body": "HTML like: [CODE] when i wanna locating the first [code] , i can write like: [CODE] what's any detailed difference between these two solutions?"
+ },
+ {
+  "id": "P3128",
+  "title": "How do i get the href links when they are invisible from a website?",
+  "tags": [
+   "python",
+   "selenium-webdriver",
+   "web-scraping",
+   "beautifulsoup"
+  ],
+  "body": "I want to get href links from this website : https://www.dataprivacyframework.gov/s/participant-search The problem is there are no visible href links even when i inspect the page. If i use the manual method 'copy link', the link gets copied. How is that possible? [CODE]"
+ },
+ {
+  "id": "P5764",
+  "title": "Run migrations on Dockerfile deploying on Elastic Beanstalk",
+  "tags": [
+   "python",
+   "django",
+   "docker",
+   "amazon-elastic-beanstalk"
+  ],
+  "body": "I have a problems making migrations (Django App 4.0.6) on Elastic beanstalk. This is my Dockerfile: [CODE] Until here, all works well, but if I try to add [code] before to [code] and make the deploy, I have an 504 error. I tried to add .ebextensions and config file like this: [CODE] But I don't sure how to activate my env in a Docker, I have an error when I try to make the deploy [CODE] ¿What is the best solution for my case? Thanks for your help! :)"
+ },
+ {
+  "id": "P3697",
+  "title": "ItemSelectionModel for custom QAstractTableModel",
+  "tags": [
+   "python",
+   "qml",
+   "qtquick2"
+  ],
+  "body": "I have this [code] with a custom [code] : [CODE] I'd like to set something up where I can select rows in the [code] that's using this model. I currently have this [code] : [CODE] The problem is, it doesn't work. Clicking on a row does nothing, and it sometimes outputs this: [CODE]"
+ },
+ {
+  "id": "P3889",
+  "title": "turn Python float argument into numpy array, keep array argument the same",
+  "tags": [
+   "python",
+   "arrays",
+   "numpy",
+   "floating-point"
+  ],
+  "body": "I have a simple function that is math-like: [CODE] I know the operation [code] will return a [code] array if supplied a numpy array and a float if supplied a float. for more complicated functions that include an integral I want it to return a [code] array in all cases, even if supplied a float. I designed my function like this to handle the array case. NOTE: the integrate.quad function I don't believe is vectorized natively and I'm weary of using [code] even if it works because I (think) I've seen major performance degradation before. [CODE] I have often used an if statement like: [CODE] I wonder if there is a more efficient way. Is there a one-liner? Can I add checking that the input is not something ridiculous like a string too in an elegant and understandable way?"
+ },
+ {
+  "id": "P4718",
+  "title": "How do I fix this aspose-pdf-cloud-python script to successfully download a processed PDF file from aspose storage?",
+  "tags": [
+   "python",
+   "aspose",
+   "aspose.pdf"
+  ],
+  "body": "How do I fix this aspose-pdf-cloud-python script to successfully download a processed PDF file from aspose storage? Environment: Windows 11 23H2; Python 3.11.4; [CODE] The error when running the code is as follows: [CODE] Multiple modify to the code still don't work, need a runnable code."
+ },
+ {
+  "id": "P3405",
+  "title": "How do I use the Python keyboard module to detect a key press?",
+  "tags": [
+   "python"
+  ],
+  "body": "I am working on a self challenge of making a cash register in Python, and I'm looking to use the keyboard module for inputting values instead of typing them into the console. However, I think the keyboard module command I'm using to detect key presses is not becoming false after pressing the key, meaning the number I just typed is being inserted again and again. What is the proper command to use? Here is the code to test out the input before incorporating it into my main code: [CODE]"
+ },
+ {
+  "id": "P5214",
+  "title": "pymodbus: ID mismatch exception",
+  "tags": [
+   "python",
+   "pymodbus"
+  ],
+  "body": "The device that I'm using has a command that allows the device ID to be identified. To send the command, I need to send a message to the device address 250 and the incoming message will include the device address (ID = 1 in this case). Outgoing Message: FA | 03 | 00 66 | 00 01 | 71 93 Incoming Message: 01 | 03 | 02 | 00 01 | 79 84 The result is as expected, but Pymodbus sees this as a ID mismatch and throws an error. Does anybody know how to create an exception for this scenario whenever I attempt to read the register? [CODE]"
+ },
+ {
+  "id": "P2598",
+  "title": "How do get rid of the colab error on falcon40b model",
+  "tags": [
+   "python",
+   "jupyter-notebook"
+  ],
+  "body": "I am trying to run falcon 40B on google jupyter notebook and i get the following error ValueError: Could not load model tiiuae/falcon-40b with any of the following classes: (<class 'transformers.models.auto.modeling_auto.AutoModelForCausalLM'>, <class 'transformers.models.auto.modeling_tf_auto.TFAutoModelForCausalLM'>). I want to run it and see the output"
+ },
+ {
+  "id": "P2722",
+  "title": "ValueError: not enough values to unpack (expected 2, got 1) in a for loop",
+  "tags": [
+   "python",
+   "for-loop",
+   "valueerror",
+   "items"
+  ],
+  "body": "I am tryin to make a field structure but I am having problems while using the for loop with 3 entries in a .items(). [CODE] I have this code and when run it i get ValueError: not enough values to unpack (expected 2, got 1). I also tried: for pais, values in dirs.items(): tipos, nombres = values What can I do ?"
+ },
+ {
+  "id": "P0455",
+  "title": "Spotify API python {&#39;status&#39;: 404, &#39;message&#39;: &#39;Invalid username&#39;}}",
+  "tags": [
+   "python",
+   "spotify"
+  ],
+  "body": "[CODE] This code will produce the error {'error': {'status': 404, 'message': 'Invalid username'}} and print Unable to get currently playing track. When I run the code I get this 404 error which says I have an invalid username. I don't understand, are you suppost to add your username somewhere? I've tried adding username to headers but nothing seems to work"
+ },
+ {
+  "id": "P3138",
+  "title": "What does Python do with incorrect type hinting in global scope?",
+  "tags": [
+   "python",
+   "python-typing"
+  ],
+  "body": "I found here strange Python code, something like: [CODE] I checked it in IPython and it works. But what does it actually do? [CODE]"
+ },
+ {
+  "id": "P3582",
+  "title": "Merge dfs but avoid duplication of columns and maintain the order in Pandas",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "All the dfs have a key col \"id\". pd.merge is not a viable option even with the suffix option. There are over 40k cols in each of the dfs so column binding and deleting later (suffix_x) is not an option. Exactly 50k (common) rows in each of the dfs identified by \"id\" col. Minimal example with two common cols: [CODE] Final answer: [CODE]"
+ },
+ {
+  "id": "P5715",
+  "title": "How to solve python numpy error while executiong code",
+  "tags": [
+   "python",
+   "pandas",
+   "numpy",
+   "error-handling",
+   "pip"
+  ],
+  "body": "[CODE] i have executed this code in vscode and both pandas and numpy are already installed and even though the code is not working and i am getting the following error [CODE] I tried by uninstalling and installing pandas and numpy but there was no use it still gives the same error"
+ },
+ {
+  "id": "P1716",
+  "title": "Pyside environment variable doesn&#39;t apply in Pycharm&#39;s run configuration",
+  "tags": [
+   "python",
+   "pycharm",
+   "pyside6"
+  ],
+  "body": "I'm trying to diagnose missing [code] decorators as specified in the end of the section https://doc.qt.io/qtforpython-6/tutorials/basictutorial/signals_and_slots.html#the-slot-class . I was able to activate this functionality when set the variable and run program from terminal. But I couldn't achieve this when set the variable in run configuration and launched from PyCharm. This is my program: [CODE] These are the environment variables of run configuration: What am I doing wrong?"
+ },
+ {
+  "id": "P5939",
+  "title": "Log errors from a Python Azure Function App?",
+  "tags": [
+   "python",
+   "azure",
+   "azure-functions"
+  ],
+  "body": "I have a Python script running in an Azure timer function which keeps randomly failing and I am trying to figure out why. In the monitor tab, all it says is that the function failed. I have tried logging the exception using a try-except statement but it doesn't make a difference: [CODE]"
+ },
+ {
+  "id": "P0923",
+  "title": "sqlite table does not exist within gradio blocks or GradioUI even after creating said table",
+  "tags": [
+   "python",
+   "agent",
+   "gradio"
+  ],
+  "body": "I am trying this out: https://huggingface.co/docs/smolagents/examples/text_to_sql in my hf space as a pro user. For some reason [code] can't detect the sqlite tables. even though the prints in the tool function returns the correct engine. [CODE] I may need to just use [code] instead and reimplement some things. I am not the most familiar with this library, this will be tricky for me. Log messages: [CODE] I have tried [code] , [code] , they are not working. if I directly use the tool function to [code] , it works."
+ },
+ {
+  "id": "P0654",
+  "title": "import pandas error when running cron job",
+  "tags": [
+   "python",
+   "virtual-machine"
+  ],
+  "body": "I am working on a virtual machine, and I am unable to run Python code using the cron scheduler without encountering an error related to [code] , even though I have installed Pandas and can run the code directly, as shown below. Executing the code directly works as intended which means that Pandas is installed. [CODE] This is my code for [code] . I am copying the python file from cloud storage bucket. Contents of camera_job_run.sh [CODE] My code for cron job [CODE] The file is expected to run every 5 minutes and it is running, however, I am getting an error message related to [code] . I do not understand why it works directly when I execute the code but get an error using cron schedule. [CODE] I have tried installing Pandas and running the code directly."
+ },
+ {
+  "id": "P3097",
+  "title": "why am I getting &quot;string&quot; in the field when I use Query to pass multiple URL inputs?",
+  "tags": [
+   "python",
+   "url",
+   "swagger",
+   "fastapi"
+  ],
+  "body": "I'm expecting the field to be empty instead of \"string\". I tried using [code] . But unable to get the expected output in the swagger UI. Here is my code snippet: [CODE]"
+ },
+ {
+  "id": "P2160",
+  "title": "Pandas : Fill null in multiple columns only if another column is null",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "I have a data frame which has 86 columns. There are columns with prefixes such as [code] and so. Other columns are subjects, and there are more than 40 subjects columns with different names. I also have this one column named [code] which I use as a parameter whether I will fill all the subjects columns those contain with [code] or no. If the column [code] in a row is null then all of subjects columns (which is null) will be filled with [code] . I'm trying to do it like this but it raised error saying [code] is there any way to do this without the code below? I have been working on this for 2 days, I have tried looping over it but it resulting in filling all of subjects with [code] even when the [code] is not null [CODE] Full code [CODE] My data if you'd like to see"
+ },
+ {
+  "id": "P4855",
+  "title": "Twitter bot coded in python",
+  "tags": [
+   "python",
+   "twitter"
+  ],
+  "body": "I want to code a Twitter bot in python. I want the Twitter bot to flip a coin whenever the user asks it for and keep track of how many times they’ve flipped the coin and how many times they received heads and tails. I honestly don’t know where to begin I’m new to python, and i wanted to code this bot and was wondering if anyone could code it for me so I can see how they coded it and learn from the code."
+ },
+ {
+  "id": "P0990",
+  "title": "Pytorch&#39;s share_memory_() vs built-in Python&#39;s shared_memory: Why in Pytorch we don&#39;t need to access the shared memory-block?",
+  "tags": [
+   "python",
+   "pytorch",
+   "multiprocessing",
+   "shared-memory"
+  ],
+  "body": "Trying to learn about the built-in [code] and Pytorch's [code] packages, I have observed a different behavior between both. I find this to be strange since Pytorch's package is fully-compatible with the built-in package. Concretely, I'm refering to the way variables are shared between processes. In Pytorch, tensor's are moved to shared_memory via the inplace operation [code] . On the other hand, we can get the same result with the built-in package by using the [code] module. The difference between both that I'm struggling to understand is that, with the built-in version, we have to explicitely access the shared memory-block inside the launched process. However, we don't need to do that with the Pytorch version. Here is a Pytorch 's toy example showing this: [CODE] which outputs (as expected): [CODE] And here is a toy example with the built-in package: [CODE] which equivalently outputs, as expected: [CODE] So what I'm strugging to understand is why we don't need to follow the same steps in both versions, built-in and Pytorch's, i.e. how Pytorch is able to avoid the need to explicitely access the shared memory-block? P.S. I'm using a Windows OS and Python 3.9"
+ },
+ {
+  "id": "P2921",
+  "title": "Python Django Admin Form: show inline without rendering a form",
+  "tags": [
+   "python",
+   "django",
+   "django-forms",
+   "django-admin"
+  ],
+  "body": "I have a Django admin page which allows me to edit a model in my domain. The ModelAdmin looks like this: [CODE] The [code] can contain thousands of child models of [code] , which ends up rendering thousands of inline forms which all get submitted together when the admin change form is submitted/saved. However, nothing in the [code] is editable. So, instead, I would like to simply display the contents of these child models without rendering any form or input elements. The root problem I have is that the number of form elements is more than the [code] configured in Django so it fails the form submission even though none of the inline data is editable. I have tried many, many ways of preventing the form widgets from rendering by providing empty widgets and editing the [code] to not include the input HTML but I eventually just run into a management form manipulation error. How can I display these child models inline on the change page but not include any of the details in the form submission?"
+ },
+ {
+  "id": "P0343",
+  "title": "One aync lock call or multiple async lock calls, what is better and safer in Python?",
+  "tags": [
+   "python",
+   "caching",
+   "python-asyncio",
+   "atomic",
+   "rate-limiting"
+  ],
+  "body": "I trying to make ratelimiter for users in aiogram bot with middlware, now I created class for requests and class for ratelimiter, where reuqest are. My problem is what is better for performance and safety, use multiple async lock calls for each operation or make these operations under one async lock. my rate_limiter.py: [CODE] I use this rate limiter in middleware: [CODE]"
+ },
+ {
+  "id": "P4185",
+  "title": "Create duplicate rows based on the values in an array in a cell of the actual row",
+  "tags": [
+   "python",
+   "r",
+   "excel",
+   "excel-formula",
+   "data-cleaning"
+  ],
+  "body": "I have a dataset and each row has a cell with an array of elements. I want to break that array into separate elements and duplicate the rows as many times as the array length and fill the array elements in place of the array one by one. What I have: example column A Column B name 1 [\"A\", \"B\", \"C\"] What I want: example column A Column B name 1 \"A\" name 1 \"B\" name 1 \"C\" R or Python code preferred but Excel would work too"
+ },
+ {
+  "id": "P2470",
+  "title": "Summation of multiple calculations",
+  "tags": [
+   "python",
+   "loops",
+   "sum",
+   "iteration"
+  ],
+  "body": "I'm trying to make the calculation you can see in the screenshot more compact. Is there a way I can write the calculation in only one line? My problem is that I don't know how to make the summation with all these different frequencies in just one line."
+ },
+ {
+  "id": "P2924",
+  "title": "Performance of Neo4j community edition",
+  "tags": [
+   "python",
+   "neo4j"
+  ],
+  "body": "I am executing a complex query in Neo4j to find the childs of label named 'A' at level D. Graph model: A->B->C->D I'm always getting the same result(7ms) whether I increase the nodes to 1 million or I increase the hierarchy or increase the parent child ratio. My question is when I will see the deviation in results. When the value is going to increase. I tried increasing nodes and parent child ratio. I was expecting increase in timings."
+ },
+ {
+  "id": "P3409",
+  "title": "Can discord bots create polls? (discord.py)",
+  "tags": [
+   "python",
+   "python-3.x",
+   "discord.py"
+  ],
+  "body": "I want to add a poll functionality to my bot. However, I want to make the polls not like basic reaction ones, but like the ones users can create normally. Is there a way to do that? From what I've seen, in the docs, I can't find it, but I want to know if there still is a way to do so. Edit: I have done digging (not in the docs) and I found a Poll class, but there is a lack of documentation in this regard or I might just not have seen it. Edit edit: I tried using: [CODE] And it just sent: <Poll duration=1:00:00 question=\"idk\" answers=[<PollAnswer id=1 media=>, <PollAnswer id=2 media=>]> I don't really know what to do: How do I send it in a way that it would become an actual poll?"
+ },
+ {
+  "id": "P2794",
+  "title": "How to let the constructor in the subclass inherit the constructor or base class?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "abstract-class",
+   "abc"
+  ],
+  "body": "I have the following code segment, which is shown as follows along with its output [CODE] I would like to let the subclass, e.g. [code] , can also inherit the functionality implemented in the constructor of [code] . In specific, the [code] I added: [CODE]"
+ },
+ {
+  "id": "P3212",
+  "title": "How to extract information from multiple json files using python",
+  "tags": [
+   "python",
+   "json",
+   "dataframe"
+  ],
+  "body": "I have multiple json files in a folder. I had implemented a way to catch only .json files in this folder. My problem is: I need to extract some information contained in each of those files but it didn't work the way I expected. I need to find a way to get this information and convert all into a pandas dataframe. The variable jsons_data contains all .json files [CODE]"
+ },
+ {
+  "id": "P3852",
+  "title": "CNN model giving same output for all classes in a multi class image classification model",
+  "tags": [
+   "python",
+   "tensorflow",
+   "machine-learning",
+   "computer-vision",
+   "conv-neural-network"
+  ],
+  "body": "[CODE] This is the code that I used. I am a beginner in machine learning , so I am not able to identify where this went wrong. Whatever image I want to predict, it outputs the same answer [0,1,0] for all the images."
+ },
+ {
+  "id": "P2390",
+  "title": "Looking for method of extracting stripes from image",
+  "tags": [
+   "python",
+   "image-processing",
+   "computer-vision",
+   "edge-detection",
+   "imagej"
+  ],
+  "body": "This is an example image of what i am trying to analyze: The yellow line is the line tool in imageJ. I would take a \"plot profile\" which would give me the value of the pixels over the line. I have an image that contains various stripes. They are very close together at the top and progressively get further apart. I want to create a program, in Python, that will identify these stripes and take a line through each one and retain the pixel value in a 1D array. I would like to see how the line matches the image, so it would ideally include an overplot. I am currently using the line tool in ImageJ and manually drawing each line-out. I would like to automate this process."
+ },
+ {
+  "id": "P1366",
+  "title": "How to fold python code using sed and/or awk?",
+  "tags": [
+   "python",
+   "awk",
+   "sed"
+  ],
+  "body": "I have a large python code base. I want to get a feel of how a [code] is subclassed by 'grepping-out' the name of the sub class and the functions in the class, but only for classes that inherit from SomeBaseClass. So if we have multiple files that have multiple classes, and some of the classes look like: [CODE] If we apply some sort of scrip to this code, it would output: [CODE] There can be many classes in the same file some of them may be a BaseClass. Essentially, this is like folding lines of code in an IDE. Now, I tried using sed to do this, but I'm not an expert in it, and sed won't be able to print the file path. However, I know awk can print the file path, but I don't know awk! Argh. I thought about writing a python program to do this, but this problem seems like something a nifty sed/awk program can do. Thanks for the help."
+ },
+ {
+  "id": "P1735",
+  "title": "Reading a CSV from GitHub using python",
+  "tags": [
+   "python",
+   "pandas",
+   "csv",
+   "github",
+   "python-requests"
+  ],
+  "body": "I am trying to access a specific CSV from GitHub https://github.com/tdwg/rs.tdwg.org/blob/master/terms/terms.csv To pull this CSV into Python, I can do something like this: [CODE] However, this often (but not always) runs for a long time - without error - then I abort the script. The CSV is not very large, the data are retrieved in under a second when it runs as desired. I have also tried: [CODE] In this case, the line [code] is what is taking all the time. I cannot figure out why this is taking so long, nor why this doesn't happen all of the time. Some relevant points: My internet connection is fine I do not want to pull the repo or download the CSV to my local machine. I am building a tool that needs to always retrieve the latest version of this file. Pandas version 1.5.2 Python version 3.8.10"
+ },
+ {
+  "id": "P0363",
+  "title": "pyjulia and multithreading corrupt the *.pyc file?",
+  "tags": [
+   "python",
+   "julia",
+   "dataframes.jl"
+  ],
+  "body": "this is my setup: I'm using Django and calling julia from an django rq-worker. Using a worker avoids threading problems, because there are no other threads. In julia I'm using multiprocessing for calculations some fancy technologie wodooo. So long all things are fine. If I start django and the worker, I can calculate one time. All things are fine. But the second time, with different data, I get this error. [CODE] After this, the calculation runs to the end and then I get a real long error message with a stack race, but there is no point, where I can catch the problem. Restarting django and the worker does not clear the problem. I have to delete the \"mymodule.pyc\" and restart, then the calculations runs again.... once... and the second time the error appears again. What's the different data? I have a pool of pieces on which I calculate something. let's call them a,b,c,d,.... So If I run the calc for abc, its ok. the second time for abc, it's okay too. But If I take cde it throws the error. But cde is not the problem. If I run cde as first calc it works and crashes while running abc. I hope it's not too confusing. How do I use julia multithreading: [CODE] What versions do I use: Debian 10.7 python 3.7.9 pyjulia 0.5.6 julia 1.6.1 DataFrames: 1.1.1 (0.21.8 wasn't working, too)"
+ },
+ {
+  "id": "P4606",
+  "title": "A probabilistic data structure based on flipping bits with probability `1/2^x` for counting",
+  "tags": [
+   "python",
+   "algorithm",
+   "data-structures",
+   "probability",
+   "probability-theory"
+  ],
+  "body": "How does this data structure work and what is its application? [CODE] The [code] function is a random function that returns 1 with probability [code] and 0 otherwise. I suspect that this data structure is somehow related to R. Morris's probabilistic counting algorithm. The question also mentions that this inequality might be helpful: [code] where [code] denotes the expected value. I would greatly appreciate any assistance or guidance."
+ },
+ {
+  "id": "P1076",
+  "title": "How to find a common value using if statement",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "if-statement",
+   "pandas-loc"
+  ],
+  "body": "I am still a beginner in python. I am trying to find a common value with if statement, [CODE] A B 1 3 2 3 1 8 1 2 3 5 2 7 I want it to be printed \"Yes\" if every time 2 is in n and 1 is in n-1 until the end of data. not just if it matches once. If ever 2 is in n and n-1 doesn't have any value 1, then it won't be printed. For example the above table won't be printed as not all 2 in n doesn't have 1 in n-1"
+ },
+ {
+  "id": "P2668",
+  "title": "Django search with postgres.search works incorrect and case-sensitive with Cyrillic letters",
+  "tags": [
+   "python",
+   "django",
+   "postgresql",
+   "django-rest-framework",
+   "django-filter"
+  ],
+  "body": "I'm trying to create search for my project with [code] . And it works but works incorrect. It works too precisely. For example: When I'm searching [code] , nothing is found. But when I'm searching [code] it founds. How can I fix it? [CODE] ["
+ },
+ {
+  "id": "P0911",
+  "title": "How to choose a one or two-parted word(name) from file without &quot;|&quot; separator in python",
+  "tags": [
+   "python",
+   "string",
+   "random",
+   "format",
+   "readline"
+  ],
+  "body": "Hello i'm looking for solution to solve my problem: I have text file countries-and-capitals.txt with example words: Poland | Warsaw Sri Lanka | Colombo and i need to write code that will pick a random name of Country or Capital. My problem is that i can't figure out how to pick in example Sri Lanka without \" | \" separator and without Colombo word. I've stuck on [CODE] but this code picks whole line with \"\\n\"."
+ },
+ {
+  "id": "P1738",
+  "title": "Finding the sum of a subset",
+  "tags": [
+   "python",
+   "sum"
+  ],
+  "body": "I have two data sets named folder1 and folder2. The program shows me the target count I want to find and the sum of the values that will reach that target count. However, while I find the folder1 data in seconds, it takes a very long time to find the folder2 data. What should I do to find it in a shorter time? [CODE] I tried with lists but it takes too long again."
+ },
+ {
+  "id": "P3188",
+  "title": "How to take a string, create a list from string, and select randomly from that list (x) times",
+  "tags": [
+   "python",
+   "list",
+   "function",
+   "random",
+   "split"
+  ],
+  "body": "I want to create a Python function which will take names as input separated by commas; turn that string into a list, and finally choose (num - parameter) number of names from that list. I am using random.choice(list), but instead of the function printing out (num) number of names from the list, the list itself is simply being printed (num) number of times instead. I can't figure out what I am doing wrong. This is my first ever question on Stack Overflow. I am importing random module I am using split to delineate names by commas (num) parameter should help print randomly chosen names (num) times Here is my code and also the output: [CODE] Output: Type in your list. Separate each name by a comma and press enter when finished Joe, Frank, Janet, Dion, Rachel, Lilly, Alyx how many random names do you need? 3 ['Joe', ' Frank', ' Janet', ' Dion', ' Rachel', ' Lilly', ' Alyx'] ['Joe', ' Frank', ' Janet', ' Dion', ' Rachel', ' Lilly', ' Alyx'] ['Joe', ' Frank', ' Janet', ' Dion', ' Rachel', ' Lilly', ' Alyx']"
+ },
+ {
+  "id": "P0856",
+  "title": "Saving matplotlib figures when running multiple subsequent python files via a .bat file on Windows",
+  "tags": [
+   "python",
+   "windows",
+   "matplotlib",
+   "batch-file"
+  ],
+  "body": "SET UP I have multiple scripts that I execute with a [code] file, like so: [CODE] MY ISSUE Whenever I want to save an image with matplotlib's [code] , the current python script ends in its tracks, without error, and immediately skips to the next python file. For example, if this is my [code] : [CODE] This is what the console would print: [CODE] This is a major issue as 1. my images don't get saved and 2. the rest of my code after the [code] call does not execute (no print of 'Bar'). WHAT I HAVE TRIED I have tried adding the following, to no avail: [CODE] I tried using relative and absolute paths for the images I'd like to save, to no avail. I have tried saving images to [code] rather than [code] subdirectory, to no avail. When I run [code] in isolation via the command line, it runs flawlessly end-to-end with the images properly saved. This leads me to believe it has something to do with the [code] file. This is really frustrating me as I have no idea why this wouldn't be working. I have saved matplotlib figures thousands of times with no issue, and saving this particular figure with no issue when running it from the command line in isolation, but the [code] file seemingly screws everything up. Is there something about [code] files I am unaware of? I am using Windows 11, python 3.11.14 via miniforge3, and maptlotlib 3.9.2 EDIT: If I remove the [code] calls, all of the scripts ru"
+ },
+ {
+  "id": "P3957",
+  "title": "TypeError: _init_() missing 1 required positional argument: &#39;self&#39;",
+  "tags": [
+   "python",
+   "class"
+  ],
+  "body": "So, I was trying myself with classes the first time and I stumbled upon following error: [CODE] Here is a snippet of the snippet of the source code: [CODE] I tried creating an argument called self that went about ike this: self.self = self,but it didn't work. Can anyone help me,I would be really thankful thank you,bye! Edit:It worked,thank you!"
+ },
+ {
+  "id": "P5417",
+  "title": "SAM CLI Lambda container cannot connect to LocalStack Secrets Manager on macOS:",
+  "tags": [
+   "python",
+   "docker",
+   "aws-lambda",
+   "aws-secrets-manager",
+   "sam"
+  ],
+  "body": "\"Could not connect to the endpoint URL: http://localhost:4566/ I'm developing a FastAPI-based Lambda function using AWS SAM CLI for local testing on macOS, with LocalStack emulating Secrets Manager. The deployment script starts LocalStack in Docker mode, creates a secret, and launches the API with [code] . The health endpoint works, but the /login endpoint (which fetches a secret from LocalStack) fails with a 500 error and timeout. Lambda logs show: [CODE] The SAM CLI Lambda container seems unable to connect to LocalStack at localhost:4566, while [code] commands from the host work fine. Environment: macOS Sonoma 14.5 (M3 chip) Docker Desktop 28.3.2 SAM CLI 1.124.0 LocalStack CLI 4.7.0 Python 3.12 Boto3 1.40.1 Relevant code in [code] : [CODE] [CODE] [code] : [CODE] LocalStack is running (status: [code] ), and [code] works from the host. What I've tried: --docker-network host in sam local start-api --container-host host.docker.internal Increased sleep times (15 seconds) and readiness checks for LocalStack Verified LocalStack logs show no errors and \"Ready.\" Tested with dummy credentials in [code] How can I make the SAM CLI Lambda container connect to LocalStack on macOS? Is there a better way to configure the Docker network or endpoint? Any insights would be appreciated!"
+ },
+ {
+  "id": "P2444",
+  "title": "Qt and Python - QIdentityProxyModel does not get the right column count when nested on top of a QSortFilterProxyModel",
+  "tags": [
+   "python",
+   "qt",
+   "model-view-controller",
+   "pyqt",
+   "qabstractitemmodel"
+  ],
+  "body": "I have three models, a QAbstractItemModel \"sourceModel\", QSortFilterProxyModel \"proxyModel\" for filtering, and a QIdentityProxyModel \"dataModel\" for modifying columns and displayed data. When I only layer QAbstractItemModel -> QIdentityProxyModel , it all works well. My source model only has one default column given, I can add multiple new columns on my QIdentifyProxyModel, and my view displays all the right data. This allows me to reuse the same model on multiple views with different data, great. However, if I layer QAbstractItemModel -> QSortFilterProxyModel -> QIdentityProxyModel, then my view only shows data in the first column, and the selection model breaks. If I define an equal or higher amount of columns in my source model, then all the QIdentityProxyModel columns behaves correctly in my view, and shows different data than what I defined in my source model. When proxies are nested, the QIdentityProxyModel class can still access the source item with the data, but the index passed to the QIdentityProxyModel's data-function only queries the amount columns defined in the source model. Any idea how to go about this? Any help is much appreciated! [CODE]"
+ },
+ {
+  "id": "P1821",
+  "title": "Django post comments not working correctly",
+  "tags": [
+   "python",
+   "django",
+   "django-views",
+   "django-forms",
+   "django-templates"
+  ],
+  "body": "I'm trying to create a system for my Django project that allows users to post comments on specific posts. However, this isn't working. I tried to enter code into forms.py, views.py, urls.py and index.html in order to handle post entries. However, this has instead resulted in the submit button on index.html being without input boxes, and when it's clicked the page reloads with no update to the database. forms.py: [CODE] views.py: [CODE] urls.py: [CODE] index.html: [CODE] models.py: [CODE]"
+ },
+ {
+  "id": "P0047",
+  "title": "Can I select multiple elements in a Python dictionary with reference to position rather than specific keys?",
+  "tags": [
+   "python",
+   "csv",
+   "dictionary"
+  ],
+  "body": "I'm fairly new to Python, so I apologize if this question seems a little naive. I'm working on a final project for my comp sci class that involves visualizing some data, but I ran into some difficulty with it. Basically, I'm using a CSV file (which you can find here ) that contains reported emissions data from every country over a 29-year period -- but I only want to visualize data from the top five emitting countries in each given year. My code right now looks like this: [CODE] The [code] list for any given year then comes out as a bunch of key-value pairs in ascending order of value. At the very end are the highest-polluting countries. In the year 1990, for example, it looks like this: [code] For the dictionaries that get produced for all 29 years, I want to isolate these last five elements -- but since the keys of the most-polluting nations will change from year to year, I can't just access them by their key. I tried indexing to them with numerical slicing (i.e. trying something like [code] ), but this doesn't work with dictionaries. Is there any workaround for this, or maybe just a better way to do it? Any suggestions at all would be appreciated. Thanks so much!"
+ },
+ {
+  "id": "P1216",
+  "title": "TELETHON Server sent a very old message with ID",
+  "tags": [
+   "python",
+   "telethon"
+  ],
+  "body": "I am working on a Python script. To call a specific function, I need to read the last message from a Telegram group chat once an hour. The first time I run the script, I don’t get any errors. However, in subsequent hours, I start seeing errors like the ones below. I get many of them, but here is one example: [CODE] Should I ignore these messages and treat them as normal warnings, or should I change the implementation? P.S. : I clear the session_name.session file before running the script. I also tried using different operating systems (Ubuntu and Windows 10) to check for a possible system time issue. I initialize my Telegram client and then call the retrieveMessage function: [CODE] [code] ) Telegram class here: [CODE]"
+ },
+ {
+  "id": "P3939",
+  "title": "Selenium - How to find an element by part of the placeholder value?",
+  "tags": [
+   "python",
+   "selenium",
+   "selenium-webdriver",
+   "xpath",
+   "placeholder"
+  ],
+  "body": "Is there any way to find an element by a part of the placeholder value? And ideally, case insensitive. [code] Search by the following function doesn't work [code]"
+ },
+ {
+  "id": "P1461",
+  "title": "Convert dataframe with two array columns into list of arrays",
+  "tags": [
+   "python",
+   "arrays",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "I have a dataframe with two columns containing arrays in each cell. Here's some code to create a small example dataframe with the same features as mine. [CODE] I want to plot the data as three individual shapes, one for each row, where the [code] values are treated as the x coordinates and the [code] values are treated as the y coordinates. To do this, I want to make a list of arrays that looks something like this. [CODE]"
+ },
+ {
+  "id": "P1739",
+  "title": "Upgrading Oracle XE from 11g to 21c broke Django&#39;s ability to talk to TNS Listener",
+  "tags": [
+   "python",
+   "django",
+   "oracle-database"
+  ],
+  "body": "I have an old application that is running django 1.10 with an oracle XE 11g back end. We are trying to upgrade the XE to 21c. The issue is that django cannot find the TNS listener even though it is there and running. sqlplus works correctly so there is no issue with the listener itself. The django application and the XE database are both running on the same server so there is no networking issue. The main change as far as I can tell between the 11g and 21c is that the newer oracle database has plugin databases and needs to be addressed via the easy connect naming mechanism. Is that supported by django 1.10? Directly using cx_Oracle to connect to the database from python3 also works without throwing errors. Any pointers appreciated. Updated with more information as requested: The settings.py in django defines the DB section as: [CODE] I have tried setting the name in various ways: @centos8/XEPDB1, //centos8/XEPDB1, etc. but cannot figure out the right way to address the DB. Using sqlplus works: (raxak) [raxak@centos8 raxak]$ sqlplus raxak3@centos8/XEPDB1 SQL*Plus: Release 21.0.0.0.0 - Production on Fri Dec 3 13:26:01 2021 Version 21.3.0.0.0 Copyright (c) 1982, 2021, Oracle. All rights reserved. Enter password: Last Successful login time: Tue Nov 30 2021 12:03:30 -05:00 Connected to: Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production Version 21.3.0.0.0 SQL> The l"
+ },
+ {
+  "id": "P4365",
+  "title": "ITK ERROR: MaskNegatedImageFilter(000001D7CB479830): Inputs do not occupy the same physical space",
+  "tags": [
+   "python",
+   "deep-learning",
+   "itk",
+   "medical-imaging",
+   "simpleitk"
+  ],
+  "body": "I used a code to compute the 95HD and DSC to assess the segmentaion accuracy of medical image, and the following problem appered \"ITK ERROR: MaskNegatedImageFilter(000001D7CB479830): Inputs do not occupy the same physical space! \". I was wondeirng whether I should do resampling? does that mean the two segmentaions have to have same physical space? Here is the code: [CODE]"
+ },
+ {
+  "id": "P1339",
+  "title": "How to install freeglut with python 3.6",
+  "tags": [
+   "python",
+   "freeglut"
+  ],
+  "body": "I tried to install freeglut on Python 3.6 version, but it doesn't work. I entered the freeglut.dll path in Path, I ran [code] , I also put dll in system 64. What should I do? Can you help me? [CODE]"
+ },
+ {
+  "id": "P1213",
+  "title": "Why do I get an empty list after a recursive function?",
+  "tags": [
+   "python",
+   "list",
+   "recursion"
+  ],
+  "body": "[CODE] This is supposed to store all of the nonempty subsets of [code] in the list [code] . I got that [code] is a list of empty lists, but I expected subsets to be a list of all nonempty subsets of [code] . I also tried to place the [code] keyword in before the function. Am I doing something wrong? (I know that in Java the problem was solved by adding the [code] keyword in front of the subset, so I would use [code] . But in python, I don't think this problem exists)"
+ },
+ {
+  "id": "P5212",
+  "title": "Filtering nested dictionary based on filter condition passed as dict",
+  "tags": [
+   "python",
+   "dictionary"
+  ],
+  "body": "Below is the nested dictionary containing netflow data. I need to filter out the packets that are passing the filter_criteria passed as a dictionary for eg:{'dstport': '443'} (all packets and flows where dstport = 443) or multiple filters like {'srcaddr':'192.168.10.10','dstport': '443'} (all packets and flows where srcaddr = 192.168.10.10 and dstport = 443) [CODE] Result filtered dictionary should be nested dictionary which matches the filter_criteria [CODE]"
+ },
+ {
+  "id": "P4026",
+  "title": "Graph Search on OWL ontology",
+  "tags": [
+   "python",
+   "owl",
+   "ontology",
+   "knowledge-graph",
+   "owlready"
+  ],
+  "body": "I used Owlready2 in python to to create OWL ontologies. Recently, I have come across articles which refers performing BFS on the ontologies created using Protege. How to perform DFS/BFS on the entities in such ontologies ?"
+ },
+ {
+  "id": "P3322",
+  "title": "How to mock or ignore validation errors raised while instansiating settings object for optimization in fastapi",
+  "tags": [
+   "python"
+  ],
+  "body": "I have the question that is complex to describe in words for me, so I'd better provide a code snippet for you: Imagine we are building FastAPI project for example and use pydantic's BaseSettings: [CODE] So, not to instansiate the object of Settings class in every use case I do the following: [CODE] The problem is that when I test my code there raised a lot of validations errors and I have no idea on how to prevent this without providing env variables through the os.environ. The problem is that the test code looks like this: [CODE]"
+ },
+ {
+  "id": "P5956",
+  "title": "ModuleNotFoundError: No module named &#39;bs4&#39; but in pip list is already installed",
+  "tags": [
+   "python",
+   "python-3.x",
+   "beautifulsoup",
+   "pip",
+   "modulenotfounderror"
+  ],
+  "body": "in here try to install beautifulSoup using pip, but the module is not found, I try to verify python path and pip on my computer here us the result [CODE] and here is my pip list [CODE] the [code] is already install on my computer but the module is still not found [CODE] anyone can help?, form beautifulsoup I refer to this docs Thanks!"
+ },
+ {
+  "id": "P1872",
+  "title": "Cannot find a solution for the CodeHS Phone Book Problem",
+  "tags": [
+   "python"
+  ],
+  "body": "Write a program that keeps a dictionary of names and their corresponding phone numbers. Repeatedly ask the user for a name. Then, do one of the following three things, depending on what they enter: If they enter nothing, exit the loop. If they enter a name that exists as a key in your dictionary, simply print the corresponding phone number. If they enter a name that is NOT in your dictionary as a key, ask the user for a phone number, and then put the name and phone number in your dictionary. Print out the final dictionary. My solution works the intended way but for some reason it wont work for both sides of the CodeHS's check sheet to see if it is deemed correct in their algorithms eyes. I have tried pretty much everything I could think of as I am not the best coder but I can never get a solution that satisfies the interpreters needs. The boxes I'm trying to check off both have the same name; that being, \"You should print the phone number for names who already exist in the dictionary\". Please keep in mind I'm relatively new to Python. Any and all help is appreciated! [CODE] I have tried relentlessly to get this problem fixed and have had no avail."
+ },
+ {
+  "id": "P2491",
+  "title": "Custom PyEnvironment time_step and time_step_spec do not match",
+  "tags": [
+   "python",
+   "tensorflow",
+   "reinforcement-learning",
+   "tensorflow-agents"
+  ],
+  "body": "I'm creating a custom PyEnvironment in TensorFlow Agents to simulate the track and field decathlon. I've managed to create a functioning environment in the sense that I can use [code] and [code] , but when implementing a reverb-based replay buffer, I get the following issue: [CODE] This are my specs: [CODE] This is my training script: [CODE] I know what the field types should be for each of the components of my state, I'm just not certain how to nest them appropriately so that the structures and data types of each field match. I'm assuming that it has to do with the return value of [code] or [code] , insofar as they provide the next time step. Any help would be greatly appreciated!"
+ },
+ {
+  "id": "P3661",
+  "title": "How do I match the file name from different directories and replace the partial filename with the actual filename?",
+  "tags": [
+   "python",
+   "file",
+   "io"
+  ],
+  "body": "So I have a slightly complicated issue that I need some help with :( In Directory 1, I have the filenames as follows: 00HFP.mp4 0AMBV.mp4 2D5GN.mp4 3HVKR.mp4 3IJGQ.mp4 In Directory 2, I did some processing to the mp4s and got some output files: _0HFP.usd _AMBV.usd _D5GN.usd _HVKR.usd _IJGQ.usd For some reason, the programme I'm using replaces the first number/character with an underscore for some files. Other files are generally left alone. But I need the filenames to match :( How do I do a mass renaming (over 500 files) based on this partial naming using python script? So like for example: _0HFP.usd should become 00HFP.usd since there's a 00HFP.mp4 file in Directory 1. Please help :( Thank you! Trying this (as suggested by Corralien): but still doesn't work for me :( [CODE]"
+ },
+ {
+  "id": "P4280",
+  "title": "How to create a exception for a while loop to repeat a input",
+  "tags": [
+   "python"
+  ],
+  "body": "I am trying to get this bit of code to work to validate the following input. I want to only accept inputs 1,2,or 3. Here is what I have so far: [CODE] The expected out put that I want if the input to loop until I get either 1,2, or 3. Right now it won't do anything to when I input something greater than three. I want to use this number as an input to another function. Any help would be great of if you need more information please let me know!"
+ },
+ {
+  "id": "P3819",
+  "title": "What is the PEP-8 guideline for a default parameter with a union type?",
+  "tags": [
+   "python",
+   "python-typing",
+   "pep8",
+   "default-parameters"
+  ],
+  "body": "AFAIK, the default parameters should not have space around the [code] sign. [CODE] What is the convention when there are union types? [CODE]"
+ },
+ {
+  "id": "P5294",
+  "title": "Making a flexible variable inside of an if statement",
+  "tags": [
+   "python"
+  ],
+  "body": "I'm currently creating a Python application to calculate financial statement ratios and am having notational issues with making a flexible variable based on user input. First, the program establishes acceptable stock ticker inputs and creates variables for 2 companies' annual revenues: [CODE] Then the program asks the user which stock ticker the user wants to learn more about: [CODE] Where I'm having issues is making the revenue_2019_FSLR be flexible based on the user input. So if the user types in JKS at the user prompt, the variable in the last line of my code would be revenue_2019_JKS, etc."
+ },
+ {
+  "id": "P5599",
+  "title": "Tkinter Stop Frame from Overlapping",
+  "tags": [
+   "python",
+   "loops",
+   "tkinter",
+   "button",
+   "frame"
+  ],
+  "body": "I am trying to display the data from a file and a button and then once the button is clicked, display the new data from a new file along with a button. You can see my print statements in my attempt to debug this. When I run the program, there is output, and it correctly displays a # and a button. However, the # that is displayed is from the last file I have (file #3) instead of from file #1. I believe that file #1 was covered by file #2 which then got covered by file #3. All of this happened without any button being clicked. How can I make the program wait until the button is clicked before displaying the new # and button? [CODE]"
+ },
+ {
+  "id": "P3934",
+  "title": "Progress Bar in moviepy, for a discord bot",
+  "tags": [
+   "python",
+   "discord",
+   "moviepy"
+  ],
+  "body": "I'm trying to implement a discord bot that sends the progress of a video exported via python, Moviepy, and don't know how to do that, I approach it using async def callback but its not Working for me, as the function isn't even called by the logger, due to it being async, so is there any suggestions? [CODE]"
+ },
+ {
+  "id": "P1054",
+  "title": "Apache Beam Python Dataflow with GCP Pub/Sub counter is over counting",
+  "tags": [
+   "python",
+   "google-cloud-dataflow",
+   "apache-beam",
+   "google-cloud-pubsub"
+  ],
+  "body": "I have a Dataflow job that accumulates UI interactions via GCP Pub/Sub. I've tested this by using a script that sends many Pub/Sub messages representing interactions to the input_topic. When I do a lower number of messages (<500 per second), the Dataflow job correctly counts the interactions. But when I crank the number of messages up, all of a sudden the Dataflow job send out counts that are way higher (5-10x) than the number of Pub/Sub messages sent to the input_topic. The ideas I've explored are: Pub/Sub is resending messages that aren't being acked. This doesn't make sense because the ack deadline for the input_topic subscription is 1 minute. Something is wrong with my trigger configuration. Something I don't understand is happening in ReadFromPubSub or CombineGlobally(CountFn()) [CODE]"
+ },
+ {
+  "id": "P0813",
+  "title": "Python Pandas: How to grab column of values from .agg and put into a new column?",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "I'm trying to just get the sum of 'ride_value' by this groupby. How do I do that? [CODE] I'm trying to do this: [CODE] But of course, that doesn't work because the right-hand side is a Pandas DataFrame. I tried: [CODE]"
+ },
+ {
+  "id": "P4207",
+  "title": "Getting Polymarket OO proposed value",
+  "tags": [
+   "python"
+  ],
+  "body": "I am trying to get the polymarket proposed value when its umaResolutionStatuses is proposed. How can I get to the oracle and get the value directly? I cannot find any useful endpoint to return this kind of response. Best regards,"
+ },
+ {
+  "id": "P4258",
+  "title": "How can I append dataframes in a for loop that were generated from try-except",
+  "tags": [
+   "python"
+  ],
+  "body": "I have code that takes in a list of queries and extracts tables. Then it appends those tables into one dataframe. However, if an error is reached I want to create an empty tableand append it the successful dataframes extracted from the [code] function so I log all the queries. Is this possible with try-except? [CODE]"
+ },
+ {
+  "id": "P5396",
+  "title": "llama_index Ollama misloading model issue",
+  "tags": [
+   "python",
+   "artificial-intelligence",
+   "large-language-model",
+   "llama-index",
+   "ollama"
+  ],
+  "body": "I'm working with LlamaIndex and trying to run LLM in local using Ollama. I pulled phi3:mini model successfully and tested it in terminal. but if I load it with llama_index.llms.ollama, it keeps following erros \"ollama._types.ResponseError: model requires more system memory (45.3 GiB) than is available (16.8 GiB) (status code: 500)\" meaning trying to load phi3 rather than phi3:mini. anyone knows why? I appreciate your reply. [CODE] Error: anaconda3\\envs\\hf2025\\Lib\\site-packages\\ollama_client.py\", line 133, in _request_raw raise ResponseError(e.response.text, e.response.status_code) from None ollama._types.ResponseError: model requires more system memory (45.3 GiB) than is available (13.9 GiB) (status code: 500) Running from the terminal: [CODE] output: I'm doing well! Thank you for asking. How about yourself? Please remember that as an AI I don't have feelings but it's always nice to know how others are feeling too. Now, what can I help you with today? Do let me assist in improving your day or answering any questions you might have!"
+ },
+ {
+  "id": "P2611",
+  "title": "Merge Two Sorted List Leetcode Question 21",
+  "tags": [
+   "python",
+   "linked-list",
+   "recursive-datastructures"
+  ],
+  "body": "So I keep getting a maximum recursion error on line 22, for this test case list1 is 1,2,4 list2 is 1,3,4 Output is 1,1,2,3,4,4 can someone explain what is causing this infinite loop to occur, python reads from top to bottom and left to right so it should have no issue with going to the first if statement and then skipping it if the if statement isn't true. [CODE]"
+ },
+ {
+  "id": "P5359",
+  "title": "how do i close multiple files after uploading them via a single POST request?",
+  "tags": [
+   "python",
+   "python-requests"
+  ],
+  "body": "[CODE] after i wrap my files and send/upload it to a flask server via a POST request, i need to be able to delete the files locally. however when i try to remove the files via os.remove(), i get a permission error (WinError32). I know that there is a with open() command which I can use for opening and closing individual files, but in this case because I want to send multiple files in a single request, how can I remove them at once after the request is sent?"
+ },
+ {
+  "id": "P0471",
+  "title": "How to change authenticated error message in FastAPI?",
+  "tags": [
+   "python",
+   "fastapi"
+  ],
+  "body": "Can I change 'authenticated' error message in FastAPI? For example, in my login section, the current error message is: [CODE] and I want to change the error message"
+ },
+ {
+  "id": "P4799",
+  "title": "Flip and shift multi-column data to the left in Pandas",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "Here's an Employee - Supervisor mapping data. I'd like to flip and then shift whole column to left. Only data should be shifted to the left 1 time and the columns should be fixed. Could you tell me how can I do this? Input: Bottom - Up approach Emp_ID Sup_1 ID Sup_2 ID Sup_3 ID Sup_4 ID 123 234 456 678 789 234 456 678 789 NaN 456 678 789 NaN NaN 678 789 NaN NaN NaN 789 NaN NaN NaN NaN Output: Top - Down approach Emp_ID Sup_1 ID Sup_2 ID Sup_3 ID Sup_4 ID 123 789 678 456 234 234 789 678 456 NaN 456 789 678 NaN NaN 678 789 NaN NaN NaN 789 NaN NaN NaN NaN Appreciate any kind of assistance"
+ },
+ {
+  "id": "P5476",
+  "title": "Sklearn custom scorer to calculate ROC AUC of top x% of predictions",
+  "tags": [
+   "python",
+   "pandas",
+   "numpy",
+   "scikit-learn"
+  ],
+  "body": "I'm trying to figure out how to make a custom scorer that will calculate ROC AUC or Average Precision using only the top x% of predictions rather than all predictions. This is my best attempt to calculate roc auc for example: [CODE] Where the expected behavior is that it would sort the predictions in descending order of probability while keeping each probably next to its associated true value and then just calculate roc auc on the top 25% of them but its just been returning the same number over and over again when I try to use it (I've tried setting 0.25 to 1 to try and replicate the results of just regular roc auc and got different results for some reason). Motivation for this is that in practice only the top x% of predictions will be useful so I'm more concerned how the model performs for those predictions than I am concerned with how it performs any where else."
+ },
+ {
+  "id": "P0337",
+  "title": "Why does pandas apply return NaN when function lacks return statement, instead of keeping original value?",
+  "tags": [
+   "python",
+   "pandas",
+   "nan"
+  ],
+  "body": "I am trying to transform a column in a pandas DataFrame using the 'apply' method, but I get 'NaN' (or 'None') for some elements, even though I expected the original values to remain unchanged. Here is a simplified code snippet that reproduces the issue: [CODE] Actual output: [CODE] I expected the output to be [50, -2, 0, 80, -1]. Instead, 'apply' inserts 'NaN' (or 'None' for object dtype) for elements where the function does not explicitly return a value. I have read the 'apply' documentation and experimented a bit. It seems that when a function lacks an explicit 'return' (implicitly returning 'None'), 'apply' places 'None' (or 'NaN') into the resulting cell. Why doesn't 'apply' simply keep the original value in such cases? What is the idiomatic way to conditionally transform only specific elements of a Series or DataFrame while leaving the rest untouched? Python version: 3.11.6 pandas version: 2.1.1 OS: macOS Ventura"
+ },
+ {
+  "id": "P5523",
+  "title": "How to display information in a PyQT Widget imported from Qt Designer",
+  "tags": [
+   "python",
+   "xml",
+   "qt",
+   "pyqt5",
+   "qt-designer"
+  ],
+  "body": "I have the following sample code loading a Qt Designer XML file and displaying it in python [CODE] That is loading a simple 2 tab window, the XML string where I care about displaying information in the window: [CODE] How do I input or display information within that widget? Im assuming its a subtype of the window object. When using Tkinter it was as simple as [CODE] I feel like I jumped 3 or 4 steps and am having trouble articulating how to ask or word what I want so I hope this makes sense."
+ },
+ {
+  "id": "P0046",
+  "title": "ValueError: zero-size array to reduction operation maximum which has no identity in SVAR Mode",
+  "tags": [
+   "python",
+   "valueerror",
+   "vector-auto-regression"
+  ],
+  "body": "I'm trying to fit a Structural Vector Autoregression (SVAR) model using statsmodels in Python, but I'm encountering the following error [code] . There is my code: [CODE]"
+ },
+ {
+  "id": "P0025",
+  "title": "how to remove equal values at the same row in two columns in a dataframe and store the rest in a new DF without modifying the original DF in pandas?",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "so if column A has at row 2 value = 6 and column B has at the same row =2 the same value =6 remove it. otherwise store the not equal values at A' and B' in a new dataframe. not sure if df.drop_duplicates would modify all row at other columns in the original DF"
+ },
+ {
+  "id": "P1660",
+  "title": "How to translate PySpark res = notesCollege.select(*[f.mean(c).alias(c) for c in notesCollege.columns]) into Java Spark?",
+  "tags": [
+   "python",
+   "java",
+   "apache-spark",
+   "pyspark",
+   "apache-spark-sql"
+  ],
+  "body": "I would like to apply a PySpark statement suggested in pyspark calculate mean of all columns in one line question, into my Java program but I don't know how. In the next codes, [code] is a [code] / [code] : [CODE] Here's the Python code I would like to translate: [CODE] that calculates means for each of its columns. Starting with this expression, it looks like I should replace the [code] inside by some kind of lambda (?), but I don't see how. [CODE] How to make this select statement work with Java too?"
+ },
+ {
+  "id": "P2391",
+  "title": "When trying to convert a list of python dictionaries into a SQLite table I keep getting an error?",
+  "tags": [
+   "python",
+   "sql",
+   "database",
+   "sqlite",
+   "dictionary"
+  ],
+  "body": "I'm attempting to convert a list of python dictionaries into an SQLite table, using the code below. [CODE] Whenever I run this code it returns the error below. [CODE] I must be missing something because I can't seem to find a solution. Here is a sample dictionary from the list of dictionaries. [CODE]"
+ },
+ {
+  "id": "P0439",
+  "title": "ZMQ Dynamic Discovery with XPub-XSub",
+  "tags": [
+   "python",
+   "network-programming",
+   "tcp",
+   "zeromq",
+   "pyzmq"
+  ],
+  "body": "I'm attempting to implement dynamic discovery of networked \"nodes\" using ZMQ's XPub-XSub pattern. Every example I can find online is limited to a single machine - using localhost for the IP address. When I implement them across more than one machine, nothing seems to happen. I have the following scripts: (zproxy.py) [CODE] (zpub.py) [CODE] (zsub.py) [CODE] If I run all three scripts on one machine, of course they all work and I get the subscriber printing output. However if I run the zproxy.py and zpub.py scripts on one machine, and zsub.py on another machine (that I'm remotely connected to, and can ping), the subscriber never prints anything. Attempting to run the zproxy.py script on the second machine (followed by the zsub.py script) also fails. Can anyone tell me what I'm doing incorrectly?"
+ },
+ {
+  "id": "P5573",
+  "title": "Shell capture python return value, not print value",
+  "tags": [
+   "python",
+   "shell"
+  ],
+  "body": "I have a python script that both prints and returns some value. Like: [CODE] I'd like the shell script to capture the value returned (1) not the value printed (hello)."
+ },
+ {
+  "id": "P1942",
+  "title": "Creating a variable from the outcome of an if statement in python",
+  "tags": [
+   "python",
+   "python-3.x",
+   "list",
+   "variables"
+  ],
+  "body": "I have an if statement which returns a value depending on a string value being present in a list. I want to take the return value of the string value present and make a global variable or a variable outside of the if statement. Then I want to apply value of the variable to another if statement in another function. Each time the code iterates I want it to update the variable output. The first iteration of the for loop sets the initial condition of (A B C OR D) and then the following iterations use that initial condition and does something to it depending on (E F G OR H). Below is some code, any help would be hugely appreciated. [CODE]"
+ },
+ {
+  "id": "P1675",
+  "title": "Generate Python wheels with conan",
+  "tags": [
+   "python",
+   "c++",
+   "cmake",
+   "github-actions",
+   "conan"
+  ],
+  "body": "I want to generate Python wheels for my project (the last step before to put them on PyPI). I use conan for that. CMake found system dependencies but not conan dependencies for Ceres, Eigen and pybind11, and also MSYS2 includes. Here is [code] : [CODE] The command output is: [CODE] Here is [code] : [CODE] Doing [code] make CMake using good dependencies but MSYS2 includes are always used and compilation failed. I removed bin folder of MSYS2 in PATH and after cleaning, compilation continued and succeeded (for information, the project is here on GitHub: https://github.com/Julien-Livet/SymReg ). I tried cibuildwheel on GitHub Actions but it failed because Boost is not found and I don't know how to solve it (conan installation is ok just before that). [CODE] How can I do to fix the right dependencies? I hope that I put all necessaries files and information."
+ },
+ {
+  "id": "P2832",
+  "title": "Set function in Tkinter failed to display correct value",
+  "tags": [
+   "python",
+   "tkinter"
+  ],
+  "body": "I'm creating a calculator and here's part of the code: [CODE] There is two functions, first is _digit_formatting which is to format the equation to put comma like thousands, million and billion. The calculate function is called every time there's changes on the input string variable. But when I try to set the string variable to equation after formatting there seems to be a mistake, but if I print the value, it is correct. Example if I enter 1200 the value I printed is 1,200 which is correct but the value on the text box is not correct. Sorry if the code is messy, I'm still learning to make a clean code."
+ },
+ {
+  "id": "P0872",
+  "title": "Confused with scoped_session, async_scoped_session from SQLAlchemy",
+  "tags": [
+   "python",
+   "postgresql",
+   "multithreading",
+   "sqlalchemy",
+   "python-asyncio"
+  ],
+  "body": "Been reading the documentation from SQLAlchemy, and I still can't get it. What are the purpose of scoped_session / async_scoped_session. I prefer to use this syntax in my code, and as my understand. [CODE] So if I use this syntax in multi-threading environment, would it be safe. As my understanding, this will create a new Session object (and start a transaction) in each thread. So with this syntax, I can spam Session in my code without even care about thread safe, right? My assumption about scoped_session, that I can do something like this. [CODE] Each thread will have the same Session object (maybe also for each request) Can someone clarify for me about the usage / purpose of scoped_session (also async_scoped_session), thanks in advance. I tried to read documentation and others people code but sill don't get it"
+ },
+ {
+  "id": "P2934",
+  "title": "Copy TEMPFILE in python",
+  "tags": [
+   "python"
+  ],
+  "body": "Can you please help me how to copy or execute any action against the tempfile in python Code: [CODE] Error: The process cannot access the file became it is being used by another process. If i use the close(), it delete the tempfile. How to use the file like copy or execute before it will delete Execute the action against the temp file"
+ },
+ {
+  "id": "P5926",
+  "title": "Weird failure in Selenium",
+  "tags": [
+   "python",
+   "python-3.x",
+   "google-chrome",
+   "selenium-webdriver"
+  ],
+  "body": "I'm trying to run this script [CODE] But when I run it on my machine it fails C:\\tmp>python e.py >Traceback (most recent call last): >File \"C:\\tmp\\e.py\", line 22, in >drv = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=options) >^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ >File \"C:\\Python311\\Lib\\site-packages\\selenium\\webdriver\\chrome\\webdriver.py\", line 45, in > init >super(). init ( >File \"C:\\Python311\\Lib\\site-packages\\selenium\\webdriver\\chromium\\webdriver.py\", line 53, in > init >self.service.start() >File \"C:\\Python311\\Lib\\site-packages\\selenium\\webdriver\\common\\service.py\", line 105, in >start >self._start_process(self._path) >File \"C:\\Python311\\Lib\\site-packages\\selenium\\webdriver\\common\\service.py\", line 206, in >_start_process >self.process = subprocess.Popen( >^^^^^^^^^^^^^^^^^ >File \"C:\\Python311\\Lib\\subprocess.py\", line 1022, in init >self._execute_child(args, executable, preexec_fn, close_fds, >File \"C:\\Python311\\Lib\\subprocess.py\", line 1491, in _execute_child >hp, ht, pid, tid = _winapi.CreateProcess(executable, args, >^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ >OSError: [WinError 193] %1 is not a valid Win32 application What I'm supposed to do to have it fixed? This machine has both Chrome 141.0.7390.54 (Official Build) (64-bit) and FF 140.3.0esr (32-bit)"
+ },
+ {
+  "id": "P3397",
+  "title": "swap name and surename with that is spaced with ,",
+  "tags": [
+   "python",
+   "string"
+  ],
+  "body": "I am fetching names from tags in wikipedia like this: [CODE] names in this case will result in this [CODE] Is there a way I can convert the names that are spaced like this to this: [CODE]"
+ },
+ {
+  "id": "P4450",
+  "title": "Tkinter dynamic tooltip that moves with the cursor and updates",
+  "tags": [
+   "python",
+   "matplotlib",
+   "tkinter"
+  ],
+  "body": "I would like to implement a [code] beside the cursor in my [code] GUI - specifically one that would display the x value of a [code] plot in a [code] that moves with and updates dynamically as the mouse moves. There are some good examples ( here ) in creating a [code] , however everything seems to either updating a [code] or create a static label popup - nothing that moves with the cursor. [code] has a [code] class ( docs ) but that draws lines on the plot, and doesn't display values. [code] also has a [code] class ( docs ), but that just changes the cursor symbol over the associated [code] . I am happy I can get the x value from the plot via calling [code] or similar and send to something associated with the mouse (or worst case, a static [code] somewhere) Below is code showing the [code] functionality and the [code] . Ideally a tooltip pops up and shows x values between 0-8000 as the mouse moves. [CODE]"
+ },
+ {
+  "id": "P3095",
+  "title": "Solve the packing error on peer handshake protocol",
+  "tags": [
+   "python",
+   "python-3.x",
+   "bittorrent"
+  ],
+  "body": "I am building my own BitTorrent Client ,after getting the response from the UDP tracker I got the peer list ,After getting the list I started a peer handshake with each IP and Port one by one .I used the standard format for Handshake Protocol but still the struct.pack is throwing an error :- the code of my peer_handshake function is given as follows: [CODE] I expect that error must be resolved and handshake must be completed."
+ },
+ {
+  "id": "P5406",
+  "title": "It&#39;s a number game and I cant spot the mistake",
+  "tags": [
+   "python"
+  ],
+  "body": "[CODE] from random import Random, random [CODE] else: close() repeat() I have no clue where the mistake is, but when I guess number correctly it still says its wrong."
+ },
+ {
+  "id": "P2882",
+  "title": "PyQt: how to view stdout and stderr in real time without the possibility of accidentally closing the terminal",
+  "tags": [
+   "python",
+   "terminal",
+   "pyqt",
+   "stdout",
+   "stderr"
+  ],
+  "body": "I have a fairly complex PyQt application running on Windows that runs with a terminal (python.exe instead of pythonw.exe). It's always been quite handy to be able to see stdout and stderr in real time by just watching the terminal. The main downfall of the terminal is the possiblity of accidentally / inadvertently killing the whole application by clicking the red X to close the terminal. I've seen this happen reflexively when a user is quickly trying to clean up screen real estate by getting rid of 'extra' windows. What are the options to still see stdout and stderr in real time, while eliminating the possibility of inadvertently killing the whole application in this manner? stdout and stderr are already duplicated to a file using the logging module, for detailed analysis later if needed."
+ },
+ {
+  "id": "P2636",
+  "title": "How to install gdal using conda?",
+  "tags": [
+   "python",
+   "module",
+   "conda",
+   "gdal",
+   "osgeo"
+  ],
+  "body": "I am trying to run this line: [code] I am getting this error: [CODE] However, I have already installed gdal using conda using the following: [code] , which is now showing me this: [code] If it is already installed, then why is the error still coming?"
+ },
+ {
+  "id": "P4349",
+  "title": "Using a model property (list of dictionaries) as an input to django&#39;s format_html_join() yields KeyError",
+  "tags": [
+   "python",
+   "html",
+   "django",
+   "django-reversion"
+  ],
+  "body": "I am attempting to use Django's [code] util to return an html formatted version history for one of my models. But I cannot get [code] to accept my list of dictionaries. Here is what the documentation suggests: [CODE] That third argument is intended to be: args_generator should be an iterator that yields arguments to pass to format_html(), either sequences of positional arguments or mappings of keyword arguments. I have tried different ways to get this to work and I'm not getting it, so I'm asking for help. I thought a list of dictionaries is iterable. I'm also thinking there has to be a way to use a list of dictionaries in a util that is expecting a list of dictionaries without having to re-create the list of dictionaries. Here is the model method I have to get the version history: [CODE] That method returns something like this: [CODE] Now I am trying to return an html formatted version of that list of dictionaries: [CODE] The above code returns this error: [CODE] I have tried various things for the third argument, all with various errors: [CODE] Now I'm just thrashing."
+ },
+ {
+  "id": "P5283",
+  "title": "Specify helper function that&#39;s used by another helper function inside a class",
+  "tags": [
+   "python",
+   "pandas",
+   "class"
+  ],
+  "body": "Update to question: I want to include a helper function in my class that uses another helper function that's only used within one of the methods of the class. Using [code] and self.func_name is what I'd do if I had one staticmethod.. However, if I want to call another staticmethod from a staticmethod and specify that using self.helper_func, I get an 'name 'self' is not defined' error. To give you some context, the reason I'm doing this is because in my actual use case, I'm working with a list of grouped dataframes. Then within that outer apply statement, I then iterate through sets of specific columns in each grouped dataframe and apply the actual function. So the outer helper function is just an apply over the groups in the grouped dataframes, and it then calls the inner helper that performs manipulations on groups of columns. [CODE]"
+ },
+ {
+  "id": "P4574",
+  "title": "How to Load a Custom-Trained ResNet50 Model with ImageAI in Python?",
+  "tags": [
+   "python",
+   "machine-learning",
+   "pytorch",
+   "image-classification",
+   "imageai"
+  ],
+  "body": "I'm working on an image classification project using a custom-trained ResNet50 model with ImageAI, but I'm encountering a persistent loading error that prevents me from using my trained model for predictions. The error suggests there's a compatibility issue or a specific method I'm missing when trying to load a custom-trained PyTorch model into the ImageAI framework. I attempted to load my custom-trained ResNet50 model using ImageAI's standard model loading procedure: [CODE] What I expected was a straightforward model loading process similar to using pre-trained models. Instead, I received a frustrating error: [CODE] My environment details: Python 3.12 ImageAI 3.0.3 PyTorch 2.5.1+cu118 Windows 11 I've confirmed: The model path is correct The model is saved as a valid .pt file The model was trained on a custom dataset using ResNet50 architecture Specific Questions: Is there a specific method for loading custom-trained models in ImageAI? Are there any special export or conversion requirements for custom models? Do I need to modify my model's state dictionary or use a specific export format?"
+ },
+ {
+  "id": "P2164",
+  "title": "How to dynamically import functions from a file in a subdirectory?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "python-import",
+   "importerror",
+   "python-importlib"
+  ],
+  "body": "I am trying to dynamically import functions from a file in a subdirectory. For example: [CODE] The file [code] would dynamically run a function in [code] or [code] . The function in the 2 files are different contents but the same name, I'll call it [code] for this example. I am trying to do this so I can have the user input a file they want to run and it will run. The main reason why I chose dynamic imports is because I will be adding files to the list of available files to run every day and I don't want to have or add to a large if statement. I'm trying to use the [code] module to dynamically import this. [CODE] The error I get is [ERROR] No module named 'subfolder1.subfolder2.file1.py'; 'subfolder1.subfolder2.file1' is not a package!"
+ },
+ {
+  "id": "P2590",
+  "title": "Running an infinite loop worker in python with a HTTP health check endpoint",
+  "tags": [
+   "python"
+  ],
+  "body": "I have a python project that consumes messages from an AWS SQS queue and performs tasks. It does this by constantly trying to get messages from the queue in an infinite loop and performing operations on each message when they're found. I'd like to deploy this code in a docker container and would like to integrate a health check to ensure certain things are working. I am trying to understand what the best way is to integrate a light weight webserver alongside the infinite loop to serve a [code] endpoint. The main option I have considered and tried to implement is to run a webserver along side the infinite loop. I have tried this using popular libraries like flask/fastapi, however it seems like they both block the main thread, requiring the worker to run in its own thread. This seems to introduce further complexity by requiring the queue consumer to also handle thread errors and sigint messages from the main thread. Is there a simpler way to introduce a health check without requiring the implementation of thread<>thread message handling?"
+ },
+ {
+  "id": "P1506",
+  "title": "Installing jovian in jupyter notebook",
+  "tags": [
+   "python",
+   "jupyter"
+  ],
+  "body": "I am new to Python. I was trying to install jovian in jupyter notebook using the command '!pip install jovian --upgrade' but getting the below error: AttributeError Traceback (most recent call last) Cell In[1], line 1 ----> 1 get_ipython().system('pip install jovian --upgr AttributeError Traceback (most recent call last) Cell In[1], line 1 ----> 1 get_ipython().system('pip install jovian --upgrade') File /lib/python3.11/site-packages/IPython/core/interactiveshell.py:2590, in InteractiveShell.system_piped(self, cmd) 2585 raise OSError(\"Background processes not supported.\") 2587 # we explicitly do NOT return the subprocess status code, because 2588 # a non-None value would trigger :func: [code] calls. 2589 # Instead, we store the exit_code in user_ns. -> 2590 self.user_ns['_exit_code'] = system(self.var_expand(cmd, depth=1)) File /lib/python3.11/site-packages/IPython/utils/_process_posix.py:129, in ProcessHandler.system(self, cmd) 125 enc = DEFAULT_ENCODING 127 # Patterns to match on the output, for pexpect. We read input and 128 # allow either a short timeout or EOF --> 129 patterns = [pexpect.TIMEOUT, pexpect.EOF] 130 # the index of the EOF pattern in the list. 131 # even though we know it's 1, this call means we don't have to worry if 132 # we change the above list, and forget to change this value: 133 EOF_index = patterns.index(pexpect.EOF) AttributeError: module 'pexpect' ha"
+ },
+ {
+  "id": "P0106",
+  "title": "How to check if multiple variables are of a certain type",
+  "tags": [
+   "python"
+  ],
+  "body": "I have a program that creates four csv files in pandas. I have them encased in a try except block such that if one of the csv files fail then none of the csv files should be created. To achieve this I declare the variables before the try except block as follows [CODE] In the above code, suppose the generation of the extracts data frame fails, then the none of the css should be saved. But the code still runs the if condition and not the else part Please help"
+ },
+ {
+  "id": "P4952",
+  "title": "LibreOffice UNO API: Column Page Breaks Not Resetting, Unlike Row Breaks",
+  "tags": [
+   "python",
+   "libreoffice-calc",
+   "page-break",
+   "uno"
+  ],
+  "body": "LibreOffice UNO API: Column Page Break Issue in Python I'm using the LibreOffice UNO API with Python to programmatically apply row and column page breaks in a Calc spreadsheet. However, I'm facing a discrepancy between how row and column breaks behave. Issue Description When applying row breaks using: [CODE] ✅ Existing row breaks are correctly reset or overwritten. When applying column breaks using: [CODE] ⚠ New column breaks are applied, but the initial column breaks in the document are NOT removed. Steps to Reproduce 1️⃣ Starting LibreOffice in Socket Listening Mode I start LibreOffice with the following command: [CODE] 2️⃣ Connecting to LibreOffice and Accessing the Sheet [CODE] 3️⃣ Attempting to Remove Existing Column Page Breaks Before applying new page breaks, I try to reset all existing column breaks: [CODE] 4️⃣ Verifying If Column Breaks Were Removed [CODE] 💡 Observation: The column page breaks remain [code] , even after explicitly setting them to [code] . However, the same approach works correctly for row page breaks. Questions 1️⃣ Why Are Column Breaks Behaving Differently From Row Breaks? 2️⃣ How Can I Reliably Reset or Remove Initial Column Breaks? Any additional insights from the community would be highly appreciated! 🚀"
+ },
+ {
+  "id": "P2836",
+  "title": "Python: How to skip JSON object if library object doesn&#39;t exist",
+  "tags": [
+   "python",
+   "libraries"
+  ],
+  "body": "image of video output Hey, so I ran into an annoying problem while scraping YouTube channel video data using the YT Data API v3. This was working about a week ago but now it wants to be stubborn. Everything is working up to this point in the code, EXCEPT that for some strange reason the JSON results that it is returning have the third result as a channel object entry instead of a video object. I can't find any reason for why this is happening now, but it is problematic because that means that the following code for extracting video IDs stops iterating after the first two results because the third (channel) entry does not have the 'id' dictionary entry 'videoId', as it has 'channelId' instead. I think my best solution is to modify this code block so it skips any JSON object that doesn't have 'videoId' in its 'id' dictionary, but I'm a little rusty on how to do this with dictionary objects in the for-loop. Can anyone help me out? [CODE] EDIT: I have included an image of the JSON output. As you can see, it has several nested dictionaries and lists."
+ },
+ {
+  "id": "P3201",
+  "title": "How to extract the polynomial and the non-polynomial parts from a sympy equation?",
+  "tags": [
+   "python",
+   "math",
+   "sympy",
+   "polynomials"
+  ],
+  "body": "[CODE] Here, in this equation, for example, the polynomial part is [code] while the non-polynomial part is [code] . Given an equation, how to extract the polynomial and the non-polynomial parts of it?"
+ }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "qid": 79723508,
+    "answer": "The issue: you're mixing sync and async code. The `on_frame_arrived` callback is synchronous (not `async def`), so it can't await coroutines. Also, `asyncio.to_thread()` doesn't properly coordinate between threads and your async event loop.\n\nFix: Use `asyncio.run_coroutine_threadsafe()` to send data from the sync callback to the event loop:\n\n```python\nimport asyncio\nloop = None\n\nasync def main():\n    global loop\n    loop = asyncio.get_event_loop()\n    ...\n\n@capture.event\ndef on_frame_arrived(frame: Frame, ...):\n    if is_my_channel_open and loop:\n        asyncio.run_coroutine_threadsafe(\n            my_channel.send(\"data\"), loop\n        )\n```\n\nAlternatively, redesign to avoid mixing—run capture in a background thread that queues frames for your async event loop to process."
+  },
+  {
+    "qid": 79648428,
+    "answer": "pystray dropped Python 3.13 support. Alternatives with Windows system tray:\n\n1. **PyQt6** (most robust):\n   ```python\n   from PyQt6.QtWidgets import QSystemTrayIcon, QMenu\n   ```\n\n2. **PySimpleGUI** with tray support\n\n3. **infi.systray** (lighter weight)\n\n4. **pyperclip + ctypes** (Windows-specific, direct API access)\n\nFor minimal effort, try PyQt6—it has native Windows tray integration and is well-maintained for Python 3.13. Check if pystray publishes an updated version, or file an issue on their GitHub if critical for your use case."
+  },
+  {
+    "qid": 79882004,
+    "answer": "Your grammar is correct, but the visitor methods aren't extracting tokens properly. The issue: `generic_visit` returns `visited_children` (list of results), not the actual text.\n\nFix—return `.text` from leaf nodes:\n\n```python\ndef generic_visit(self, node, visited_children):\n    return node.text  # Return matched text\n\ndef visit_word(self, node, visited_children):\n    return node.text\n\ndef visit_charset(self, node, visited_children):\n    return node.text\n```\n\nEnsure every rule with captured data has a corresponding visitor method returning the extracted value. Parsimonious passes parsed nodes to visitors—use `.text` to get the matched string, `.children` only for composite rules."
+  },
+  {
+    "qid": 79779897,
+    "answer": "AWS API Gateway's `get_api_keys()` doesn't support negative filters in `nameQuery`—this is an API limitation, not SDK-specific.\n\nWorkaround—fetch all keys and filter client-side:\n\n```python\nresponse = client.get_api_keys()\nfiltered_keys = [\n    k for k in response['items']\n    if not k['name'].startswith('prefix-')\n]\n```\n\nIf the response is paginated (Limit parameter), loop through all pages to get complete results. This is the standard workaround across all AWS SDKs since the API itself lacks exclusion syntax."
+  },
+  {
+    "qid": 79242191,
+    "answer": "Langflow stores uploaded files in a configurable directory (default: `~/.langflow/data/` locally, `/app/` in Docker).\n\nAccess in your custom component:\n\n```python\nfrom pathlib import Path\n# The filename includes session ID\nfile_path = Path(langflow_data_dir) / filename\nimage = Image.open(file_path)\n```\n\nCheck Langflow's environment:\n- **Local**: Look at `.langflow/config.yml` or environment variable `LANGFLOW_DATA`\n- **Datastax**: Files are in `/app/storage/` (mounted volume)\n\nYour custom component receives the filename from chat input—construct the full path using the configured data directory. If `Image.open()` fails, print the constructed path to debug."
+  },
+  {
+    "qid": 79323140,
+    "answer": "Use **Python `.py` modules** for calculations. Benefits:\n- Testable and reusable\n- Cleaner version control\n- Separates logic from exploration\n\nStructure:\n```\nproject/\n├── notebook.ipynb\n└── calc.py  (functions here)\n```\n\nIn notebook: `from calc import my_function`\n\nReserve `.ipynb` for experiments and outputs only. Notebooks are harder to test, debug, and maintain. `.py` files are standard for production calculations. Use `%load_ext autoreload` and `%autoreload 2` to reload modules as you edit them."
+  },
+  {
+    "qid": 79781281,
+    "answer": "The error is cut off, but typical causes loading TensorFlow HDF5 models:\n\n1. **Version mismatch**: Model saved with different TF version\n2. **Custom objects**: Model contains custom layers/losses\n3. **Corrupted file**: Incomplete/damaged HDF5\n\nTry:\n```python\nmodel = tf.keras.models.load_model(\n    'model.h5',\n    compile=False,\n    custom_objects={'CustomLayer': CustomLayer}\n)\n```\n\nIf still failing, test file integrity: `h5py.File('model.h5', 'r')`. Verify your TensorFlow and Python versions match the training environment, or try `tf.keras.saving.load_model()` (newer API)."
+  },
+  {
+    "qid": 79602606,
+    "answer": "Middleware wraps all responses in `StreamingResponse`, hiding the original type. Solution—set a flag before returning:\n\n```python\nclass DBSessionMiddleware(BaseHTTPMiddleware):\n    async def dispatch(self, request, call_next):\n        request.state.is_streaming = False\n        response = await call_next(request)\n        if not request.state.is_streaming:\n            if request.state.active_session:\n                request.state.active_session.close()\n        return response\n```\n\nIn your route, set `request.state.is_streaming = True` for `StreamingResponse`:\n```python\n@app.get(\"/stream\")\nasync def stream(request: Request):\n    request.state.is_streaming = True\n    return StreamingResponse(...)\n```\n\nAlternatively, use a custom middleware without `BaseHTTPMiddleware` to avoid the wrapper."
+  },
+  {
+    "qid": 79920255,
+    "answer": "Bug: `filter_data(sql)` is **called immediately**, not on button click. You're passing the return value (None) to `command=`, not the function.\n\nFix:\n```python\ndef filter_data():\n    sql = entry_value.get()\n    global df\n    df2 = sqldf(sql)\n    display_data(df2)\n\nbtn_filter = tk.Button(frame_filter, text=\"Filter\", command=filter_data)\n```\n\nRemove `(sql)` from the button command. Also add a null check in `display_data()`: `if dataf is None: return` before accessing columns. Tkinter invokes the function when clicked; don't call it in the declaration."
+  },
+  {
+    "qid": 79407124,
+    "answer": "Python 3.13.1 REPL has stricter paste handling—this is a regression in the interactive parser, not your code.\n\nWorkarounds:\n1. Use **IPython/Jupyter** instead: paste works correctly\n2. Paste into a `.py` file and run it\n3. Upgrade to **Python 3.13.2+** (fix likely released)\n4. Use `python -i` and enable manual entry mode\n\nThis is REPL-specific behavior, not a language change. The parser is over-strict about indentation in pasted blocks. File this as a bug on python.org if not already reported."
+  },
+  {
+    "qid": 79687615,
+    "answer": "For intelligent error-to-action matching, ranked by simplicity:\n\n1. **Fuzzy string matching** (recommended)—fastest, maintainable:\n   ```python\n   from fuzzywuzzy import fuzz\n   best_action = max(actions, key=lambda a: fuzz.token_set_ratio(error_log, a['pattern']))\n   ```\n\n2. **Regex patterns**—for structured error formats\n\n3. **NLP** (spaCy, semantic similarity)—overkill for logs\n\nStart with fuzzy matching—low latency, no training. If patterns are too diverse, add NLP later. Avoid over-engineering for AutoSys errors, which are typically structured."
+  },
+  {
+    "qid": 79406498,
+    "answer": "The traceback is cut off, but fbprophet has Python 3.12+ compatibility issues. The error likely involves `pystan` or C++ bindings.\n\nSolutions:\n```bash\npip install --upgrade pystan==2.14.11.1 fbprophet\n# or use conda\nconda install -c conda-forge fbprophet\n```\n\nIf still failing, try alternatives:\n- `statsmodels.tsa.seasonal` (built-in)\n- `NeuralProphet` (PyTorch-based successor)\n\nCheck fbprophet's GitHub for Python 3.12+ compatibility patches or use a different forecasting library."
+  },
+  {
+    "qid": 79884588,
+    "answer": "Maya's weight paint tool stores the selected influence in the tool context, not scene selection.\n\nUse:\n```python\nimport maya.cmds as cmds\n# Get current paint weights tool\nctx = cmds.currentContext()\ninfluence = cmds.artAttrSkinPaintCtx(ctx, query=True, influence=True)\nprint(influence)  # Joint name\n```\n\nAlternatively, query the `sculptMeshCache`:\n```python\ninfluence = cmds.sculptMeshCache(query=True, currentInfluence=True)\n```\n\nThe influence is stored in the tool's state, accessible via `artAttrSkinPaintCtx`, not `ls(sl=True)`."
+  },
+  {
+    "qid": 79936481,
+    "answer": "The `connection` parameter is incomplete/malformed, causing the entire function app to fail parsing. All decorators fail silently when syntax is wrong.\n\nFix—provide full connection string:\n```python\n@app.event_hub_message_trigger(\n    arg_name=\"azeventhub\",\n    event_hub_name=\"iothub-ehub-applied-io-55753535-0fd7cb3e46\",\n    connection=\"DefaultEndpointProtocol=sb://...\"\n)\n```\n\nOr set in `local.settings.json`:\n```json\n{\"AzureWebJobsEventHubConnectionString\": \"...full_connection_string...\"}\n```\n\nVerify the connection string is complete. Azure Functions hide all functions when decorator parsing fails—it's a silent error in the function app loader."
+  },
+  {
+    "qid": 79651651,
+    "answer": "Classic Python gotcha: `[[]]*2` creates **one list, referenced twice**—both `arr[0]` and `arr[1]` point to the same object.\n\nFix:\n```python\narr = [[], []]  # Two distinct lists\n# or\narr = [[] for _ in range(2)]\n```\n\nWith `[[]]*2`, mutating one affects both. List multiplication repeats references, not copies. Use list comprehension or explicit initialization to create independent lists. This applies to any mutable default in repetition."
+  },
+  {
+    "qid": 79885063,
+    "answer": "The traceback is cut off, but GluonTS + PyTorch 2.6 likely has checkpoint format incompatibility with Lightning.\n\nTry:\n```python\nimport torch\n# Disable weights_only check\ncheckpoint = torch.load('model.pt', weights_only=False)\n# or upgrade Lightning\npip install --upgrade pytorch-lightning\n```\n\nAlternatively, check GluonTS GitHub for PyTorch 2.6 patches or pin to working versions (e.g., PyTorch 2.5). The issue is likely in Lightning's checkpoint loading, not GluonTS itself."
+  },
+  {
+    "qid": 79148560,
+    "answer": "Your credentials are invalid or expired. The `.aws/credentials` file is **not required**—you can pass credentials directly as you did.\n\nVerify credentials work:\n```python\nsts = session.client('sts')\nprint(sts.get_caller_identity())\n```\n\nIf this fails, your keys are wrong. If it passes but Polly fails, Polly service may not be enabled in your AWS account or region. Check:\n1. Credentials are correct\n2. IAM user has Polly permissions\n3. Region supports Polly (eu-north-1 does)\n\nDon't need AWS CLI—environment variables or direct credentials work fine."
+  },
+  {
+    "qid": 79650470,
+    "answer": "The question is incomplete, but the issue is likely: Position is read-only metadata in MPRIS2, and seeking updates asynchronously without refreshing the cached metadata.\n\nSolution—query position explicitly after seeking:\n```python\nposition = player.Get('org.mpris.MediaPlayer2.Player', 'Position')\n```\n\nInstead of relying on the Playlist property, call this after a Seek command. MPRIS2 doesn't auto-refresh metadata—you must poll or listen for `PropertiesChanged` signals. The Position property updates independently from the track metadata cache."
+  },
+  {
+    "qid": 79837650,
+    "answer": "GPT-5-nano's reasoning may be mandatory in your API version. Try:\n```python\nresponse = client.chat.completions.create(\n    model=\"gpt-5-nano\",\n    messages=[...],\n    max_reasoning_tokens=0  # Disable reasoning\n)\n```\n\nIf `max_reasoning_tokens=0` doesn't work, there's no way to disable it—the model requires reasoning. Fall back to `gpt-4o-mini` for non-reasoning tasks. Check OpenAI's latest API docs for your account's available parameters."
+  },
+  {
+    "qid": 79918351,
+    "answer": "The signature means:\n- `*`: no positional args allowed after `self`\n- `object_list = ...`: keyword-only arg with `Ellipsis` (`...`) as default\n- `**kwargs`: additional keyword arguments\n\nThe `...` is typically a **stub/placeholder**—used in `.pyi` type hint files or abstract interfaces to indicate \"implementation provided later.\" This is not a runtime default; it signals that the method definition is incomplete.\n\nIf this is actual code (not a stub), it's unusual. Normally you'd use `None` or a real default, not `...`."
+  }
+]

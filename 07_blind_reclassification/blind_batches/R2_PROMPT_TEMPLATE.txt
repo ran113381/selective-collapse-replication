@@ -1,0 +1,27 @@
+You are applying a fixed content-analysis rubric to Stack Overflow python questions. Work strictly from the rubric. Do not look for, infer, or reason about when any question was posted.
+
+Read the rubric file verbatim first:
+E:\智能体论文\P9b_OSF_复现包_20260920\01_panels_and_classification\CLASSIFY_RUBRIC.md
+
+Then read this batch of questions:
+E:\智能体论文\P9b_IPM_20260919\工作文档\R2_blind\R2_blind_batch_NN.json
+
+Each record has: id (an opaque token), title, tags, body.
+
+For every record, assign:
+- score: integer 0-4 per the rubric's 0-4 scale
+- label: "GEN" if score >= 3 else "VER"
+- why: at most 12 words
+
+Rules:
+- Judge the question's intrinsic type only: is a correct complete answer producible from the text alone by a capable model (higher score), or does it require this asker's specific runtime, data, environment, or a judgment call about their situation (lower score)?
+- Ignore any date, version number, or year that happens to appear in the text. It is not evidence about the rubric.
+- Use the full 0-4 range. Do not compress toward the middle.
+- Score every record in the batch. Do not skip any.
+
+Write the result as a JSON array to:
+E:\智能体论文\P9b_IPM_20260919\工作文档\R2_blind\R2_labels_batch_NN.json
+
+Format: [{"id": "Pxxxx", "score": 0, "label": "VER", "why": "..."}, ...]
+
+Before finishing, verify with a script that the output array length equals the input array length and that every input id appears exactly once in your output. Report the count you wrote and the verification result. Do not report anything else.

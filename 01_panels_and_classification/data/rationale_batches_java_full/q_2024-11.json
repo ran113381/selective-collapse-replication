@@ -1,0 +1,1557 @@
+[
+ {
+  "question_id": 79146664,
+  "ym": "2024-11",
+  "creation_date": 1730421825,
+  "title": "I&#39;m having trouble understanding why IDEA shows the source file as .java",
+  "tags": [
+   "java",
+   "intellij-idea"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "For example, when I want to view the source code of a class, like [code] , and I use Ctrl + Click to navigate to it, it displays [code] . However, I don't understand why this is the case. Isn't the JDK packaged in JAR files like [code] , which should mainly contain .class files rather than .java files? So why do I see [code] when I Ctrl + Click, instead of [code] ? Additionally, I searched my entire disk for [code] , but I couldn't find this file anywhere."
+ },
+ {
+  "question_id": 79146927,
+  "ym": "2024-11",
+  "creation_date": 1730434754,
+  "title": "Hibernate Synchronization :- find() vs createQuery()",
+  "tags": [
+   "java",
+   "hibernate",
+   "jpa",
+   "createquery"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am currently learning about the [code] in Hibernate. So, in this I encountered a problem. I am having two Entity Classes:- [code] and [code] . Subject.java [CODE] RetrieveSubject.java [CODE] So in the [code] file, it is a immutable entity which is acting like a View, so whenever I am requesting the RetrieveSubject Entity from Hibernate (using [code] ), it should synchronize the Subject Entity( [code] ). Now please see the below code:- [CODE] In the above code, I am first getting the no of Subjects and then the name of the Subjects and then storing them in the DB. Till that it is fine. Now, see the below lines in the above code:- [CODE] taking the 4th subject (primary key value is 4) and set the [code] to [code] . After that I am calling [code] and the output is (lets say the 4th subject I gave as [code] ):- [CODE] This is fine as [code] does not flush the changes before executing. Now after this in the following lines:- [CODE] I am creating a query and trying to fetch the 4th entity, but here also I am getting the output as [code] . But is should [code] right?? Even though Hibernate is flushing the changes by calling the below update query before running the select:- [CODE] I am getting incorrect output. But If I comment the line [code] and then execute the code(assume I gave the 4th subjectName as [code] ) , I am getting the correct output as [code] after the [code] is execu"
+ },
+ {
+  "question_id": 79146961,
+  "ym": "2024-11",
+  "creation_date": 1730436255,
+  "title": "JPA transaction issued",
+  "tags": [
+   "java",
+   "jpa"
+  ],
+  "score": -1,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "check this out . i'm just testing transaction by making error ,i made error in the line em.persist(enro);. and it should be jump into exception block, right?. instead of that it excute commit and ended the transaction. and then it don't go to next line i=1; it jumped into exception .and excuted until the rollback . when have reached rollback statement line, got error saying \"No transaction is currently active\". why? so rollback is useless? [CODE] help and explain me . if i use like that, em.getTransaction().rollback() is useless because it went ot commit and transaction acive truned false although getting exception before commit; [CODE]"
+ },
+ {
+  "question_id": 79147071,
+  "ym": "2024-11",
+  "creation_date": 1730440676,
+  "title": "Can I log structured Splunk event from Quarkus using Splunk HEC and Slf4j?",
+  "tags": [
+   "java",
+   "quarkus",
+   "splunk"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am quite new with Java, a bit newer with Quarkus and totally new to Splunk. I am working on a Quarkus microservice using (quite magically) Sl4j to send application logs to Splunk. using [code] [code] [code] This is working very well but in Splunk I don't get exactly what I want. I would like to have my json event such as: [code] on which I would like to do searches, compute KPIs, etc... but I am getting something like [code] which seems to be standard. My question is: do I have a way to get rid off this wrapping? I am trying to look at a lot of different documentations and feel totally lost. Is it something I have to change in my code? Something I have to define in Splunk? Am I trying something that cannot work? If anyone could give a clue I would appreciate a lot! Thanks a lot! PS I have tried to change the format, use flat/nested format, tried in various menus of Splunk (Data input, index definition etc...), but I have no clue on how to progress."
+ },
+ {
+  "question_id": 79147073,
+  "ym": "2024-11",
+  "creation_date": 1730440684,
+  "title": "OpenAPI, yaml and enumAsRef: true",
+  "tags": [
+   "java",
+   "spring-boot",
+   "enums",
+   "yaml",
+   "openapi"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "How to prevent OpenAPI generate enum value from [code] file? This is what it generates: [CODE] And this is what I want: [CODE] My [code] : [CODE] The issue is that I want the enum fields to not have values so that Spring Boot can automatically store them as 1, 2, 3, 4 in the database and then convert them back to enum strings when retrieving them. I tried [code] but dont know how to use it."
+ },
+ {
+  "question_id": 79147162,
+  "ym": "2024-11",
+  "creation_date": 1730443779,
+  "title": "Cannot run Junit tests under Intellij but can under maven within Intellij IDE",
+  "tags": [
+   "java",
+   "maven",
+   "intellij-idea",
+   "junit5"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Until recently I have been able to run Java Junit tests in Intellij, in maven under Intellj and in maven standalone. However recently I can not run them in Intellij as I get the message: [CODE] Caused by: java.lang.ClassNotFoundException: '--enable-preview' I haven't found any issues in running them using the other methods. In maven surefire, I have the argument --enable-preview set. I tried setting the --enable-preview setting in Intellij's standard Junit Template, but I still get the same message. I am not sure what experimental features I am using that would need me to enable preview. Update: This is one of my Junit Intellij run congurations JUnit Run Configuration Template Update: Before I delete my projects workspace and reload the source form GIT. 1.I tried reinstalling Intellij and using the same workspace. 2.I have tried running tests on another project using the reinstalled Intellij and the same workspace and the tests ran to completion. I assume there must be something incorrectly set on the project parameters. 3.I did a visual search through the projects configuration files under the .idea directory searching for the string --enable-preview. I found three instances of the string in the workspace.xml file under JUnit with a VM-OPTIONS parameter that contained \"-ea --enable-preview\". I couldn't find the string anywhere else so I am at a loss to where the parameter is c"
+ },
+ {
+  "question_id": 79147190,
+  "ym": "2024-11",
+  "creation_date": 1730444850,
+  "title": "How can I fix the error using Java, Spring, Gemini AI, Google Cloud Vertex AI: Your default credentials were not found?",
+  "tags": [
+   "java",
+   "spring-boot",
+   "google-cloud-vertex-ai",
+   "google-gemini"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have created a small test project using Java and Spring Boot to integrate with Google Gemini AI. For this I added dependency to [code] library to my [code] : [CODE] After that I added such simple controller: [CODE] When I run my app I got the next error: [CODE] Then I added env var [code] with path to JSON-file with key from my Google service accout and it started working well, but what if I would like to transfer this integration to DEV env or PROD env, where I can face with DevOps issue because of JSON-file location and env var. Is there any way to avoid JSON-file and env var using and to set credentials programmatically, for instance like I set programatically projectId or region location in my code example? If you know a way to use Gemini AI from the Java app and avoid authentication it will be also very helpful knowledge. Thank you in advance!"
+ },
+ {
+  "question_id": 79147417,
+  "ym": "2024-11",
+  "creation_date": 1730451350,
+  "title": "How to upload excel file to Azure blob storage immediately after after preparing it without saving it locally?",
+  "tags": [
+   "java",
+   "azure"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am using Java, Azure SDK and Apache POI. My requirement is to prepare an excel using Apache POI and upload the same to Azure blob storage. but however I should not store the excel file locally before uploading it. Any solution?"
+ },
+ {
+  "question_id": 79147460,
+  "ym": "2024-11",
+  "creation_date": 1730452520,
+  "title": "Why JdbcTemplate.batchUpdate() from spring-core 5.3.31 is comparitevely very slower than spring-core 4.2.9.RELEASE",
+  "tags": [
+   "java",
+   "spring-boot",
+   "spring-jdbc",
+   "batch-updates"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am using [code] class in Spring Boot application. and my app has a bulk upload feature. I am updating specific columns but currently observing -> with spring-core 4.2.9.RELEASE: This takes around 4 seconds [CODE] and with spring-core-5.3.31 the same takes 3 minutes. [CODE] Database Dependency [CODE] [CODE] After verifying my code, I found that [code] is taking longer in the newer version. [CODE] Below is the [code] method. which is taking the data form the JSON payload. Some data processing is happening, and then after processing that record is inserted into [code] . [CODE] [CODE] FYI -> I am using JDBC:thin URL in application.properties for setting up connection with the db. application.properties [CODE] Below are my Beans [CODE] [CODE] [CODE] I have tried many solutions available online, but none of them is working for me could someone please explain what changed here?"
+ },
+ {
+  "question_id": 79147629,
+  "ym": "2024-11",
+  "creation_date": 1730456195,
+  "title": "How to map real-world coordinates on 2d grid environment for simulation?",
+  "tags": [
+   "java",
+   "coordinates",
+   "gis"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am working on modeling an environment from real-world coordinates. So far, the project has been developed in Java and JASON ( https://jason-lang.github.io/ ). Below is the code for modeling. I am facing an issue where I want to remove the overlapping of coordinates. Result image: As in the result, I have indicated red lines, those lines are I believe overlapped coordinates, which serve no purpose in the modeled environment as further a simulation will take place with agents on it. [CODE]"
+ },
+ {
+  "question_id": 79147657,
+  "ym": "2024-11",
+  "creation_date": 1730456710,
+  "title": "Spring boot app with old version, maven can&#39;t download old version",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "maven"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have one issue with maven, and he can't download me a older version of spring-boot-starter-parent, when I build spring project by starter.io, then is working,but when I change version to older starter-parent, he can't load it. I want use a Java 10 for this project, that version is compatible with this version of spring , I think with every 2.x version. When I put this version inside of pom file, then maven can't find path to download this depedencie Project 'org.springframework.boot:spring-boot-starter-parent:2.1.7.RELEASE' not found Aswell when I tried use mvn clean install or + -U see this \" sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCe rtPathBuilderException: unable to find valid certification path to requested target and 'parent.relativePath' points at no local POM @ line 5, column 10 \" Look [CODE] any advice ?"
+ },
+ {
+  "question_id": 79147710,
+  "ym": "2024-11",
+  "creation_date": 1730457687,
+  "title": "Spring Boot project and React project integration problem",
+  "tags": [
+   "java",
+   "mysql",
+   "reactjs",
+   "spring-boot",
+   "postman"
+  ],
+  "score": -3,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am developing this project using Spring Boot for backend and react for frontend, I connected this front end and back end. Then Sign Up and Sign in is working without any error but when I am going to get login information to display front end the error message is showing. I created function of the front end. when clicked Login/Sign Up button then it going to user profile that function based on role (USER/OWNER/ADMIN). but related login user details cannot display. The special thing is when I run that API in postman that function is working without any error. [CODE] [CODE] [CODE] [CODE] [CODE] [CODE] [CODE] [CODE] [CODE] we need to show the details of login user its own profile, we need to know, how to integrate correctly."
+ },
+ {
+  "question_id": 79147840,
+  "ym": "2024-11",
+  "creation_date": 1730460575,
+  "title": "Javax.naming.OperationNotSupportedException Ldap: error code 53 - 00002035",
+  "tags": [
+   "java",
+   "security",
+   "active-directory",
+   "ldap",
+   "application-security-group"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "please help me to resolve this issue. I am new to Ldap security groups. My requirement : I want to add the uses to my Ldap security group through java code. Error : Javax.naming.OperationNotSupportedException Ldap: error code 53 - 00002035: LdapErr: DSID-0C09105E, comment : Operation not allowed through GC port, data 0, v3839] I am expecting that my java code will add the user to Ldap security group."
+ },
+ {
+  "question_id": 79147855,
+  "ym": "2024-11",
+  "creation_date": 1730460876,
+  "title": "Selenium: Unable to find handler for (POST) session. How to connect to the Selenium Grid from the playwright (java) project?",
+  "tags": [
+   "java",
+   "docker",
+   "selenium-webdriver"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to execute Playwright tests on the Selenium Grid (4). I have created the remote server (on aws) and deployed SeleniumGrid docker-compose there. Everything is set up correctly since I am executing selenium tests on the Grid successfully. docker-compose.yaml : [CODE] There is the way how I have executed selenium tests (successfully): [CODE] And there is the same for Playwright: [CODE] The ip address Playwright takes from the [code] env, according to documentation. As we can see - correctly since the error says that Playwright tries connect exactly to my IP: [CODE] From another side (Selenium Grid) I have checked the docker logs and I have not found any reaction for my attempts. Except for some permanent error in the logs: [code] but I believe this is another story and not the reason for my issue (WebDriver was connected successfully) So, if anyone uses Selenium Grid for Playwright tests - please help me establish this connection. Or there is an alternative to the Selenium Grid for PLayfright?"
+ },
+ {
+  "question_id": 79147948,
+  "ym": "2024-11",
+  "creation_date": 1730463143,
+  "title": "How to marshall List of List in JAXB",
+  "tags": [
+   "java",
+   "list",
+   "jaxb"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have an attribute [code] which is actually an [code] , which is the model for a JavaFX tableView where the user can select certain cells. I would like to marshall / unmarshall this selectableMatrix using JAXB, but I can't find an example how to annotate a List of List or how to implement the related adapter. The naive way of [CODE] results in an IllegalAnnotationsException as java.util.List is an interface, and JAXB can't handle interfaces. What do I need to do? EDIT I tried, as Scott suggested below, ObservableList<ObservableList>. I got [CODE] as it turns out ObservableList is also \"only\" an interface. So I added a @XmlJavaTypeAdapter annotation [CODE] However I can't get the XMLAdapter class even to compile. Can somebody please provide an XMLAdapter example for List<List<?>>? EDIT 2 I managed to compile my XmlAdapter and according to my System.out output it is called and converts correctly. BUT in the xml file the data doesn't arrive. [CODE] If I run it with a 6x6 matrix the two System.out calls print the correct 6. In other words, the adapter is called and converts correctly. However, in the xml file I only have a single line , so none of the values gets saved. What am I missing?"
+ },
+ {
+  "question_id": 79148042,
+  "ym": "2024-11",
+  "creation_date": 1730465158,
+  "title": "Best way to have second read-only db connection with Spring JDBC",
+  "tags": [
+   "java",
+   "spring",
+   "spring-data-jpa",
+   "architecture",
+   "spring-jdbc"
+  ],
+  "score": -1,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I'm developing on an spring boot app using Hibernate and an Postgresql db for persistence. Nothing special so far and working as intended. Now i want to have (read-only) access to second database which is used by a different app. I only want to read some data on demand by the user. There is no need for a permanent connection to the db. It's totally fine if the db is not available. In this case the user is just not be able to fetch data from the second db. So the requirement is more like having an external API which can be used to fetch some data if available. I started with adding it as a second datasource. But when the db is not available the container won't start. Beyond that, i was wondering what's the best way for situations like that where the db connection should more work like an external rest api?"
+ },
+ {
+  "question_id": 79148108,
+  "ym": "2024-11",
+  "creation_date": 1730466714,
+  "title": "Application Insights shows failures as if they are in the library and not in my application",
+  "tags": [
+   "java",
+   "spring-boot",
+   "azure",
+   "azure-application-insights"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have integrated Application Insights into my Spring Boot application. When there are exceptions it lists location of the exceptions as if they are occurring in the library level. But I cannot fix those libraries. Would be useful if it lists location of the exceptions in my application. In other words now it shows the exception occurs [code] but it is very useless for me. Is it possible to make it so that it show location in my own app like [code] ?"
+ },
+ {
+  "question_id": 79148331,
+  "ym": "2024-11",
+  "creation_date": 1730470842,
+  "title": "Anonymous classes can refer to inaccessible type in the signature of the supertypes?",
+  "tags": [
+   "java",
+   "anonymous-class",
+   "jls"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Consider the following clause from JLS 8: § 15.9.5.1. Anonymous Constructors Note that it is possible for the signature of the anonymous constructor to refer to an inaccessible type (for example, if such a type occurred in the signature of the superclass constructor cs). This does not, in itself, cause any errors at either compile-time or run-time. I tried to generate an example for this - and came up with the following: [CODE] And the code being the following: -> [code] [CODE] -> [code] [CODE] -> [code] [CODE] Now despite the above statement given in the JLS - I am still getting compilation error in the subclass [CODE] Now sure - if my understanding of the above clause correct? - and what can be the example that explains the above clause correctly?"
+ },
+ {
+  "question_id": 79148552,
+  "ym": "2024-11",
+  "creation_date": 1730474772,
+  "title": "In Notebook, what argument do I need to provide in the main method in java which contains the argument &quot;String args[]&quot;",
+  "tags": [
+   "java",
+   "jupyter-notebook"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "[CODE] In Notebook, when the following code is executed in the next cell: [code] The output is as expected: [CODE] However, when I replace the line: [code] with [code] I get the following error: [CODE] What argument do I have to provide in the [code] in order for it to run in the second case? I tried [code] , it didn't work."
+ },
+ {
+  "question_id": 79148629,
+  "ym": "2024-11",
+  "creation_date": 1730475990,
+  "title": "Why is virtual thread on java is set as daemon?",
+  "tags": [
+   "java",
+   "virtual-threads"
+  ],
+  "score": 5,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "In JEP 444 , I could see the following: Virtual threads are always daemon threads. The [code] method cannot change a virtual thread to be a non-daemon thread. But what is the reason behind it? As per my understanding , you will mark those Threads daemon whose completion you do not always care. Therefore, does it mean you should use virtual thread only if you do not care it's completion ( I do not think so :) )?"
+ },
+ {
+  "question_id": 79148645,
+  "ym": "2024-11",
+  "creation_date": 1730476231,
+  "title": "AmbiguousResolutionException: WELD-001335: Ambiguous dependencies for type PersistenceProvider with qualifiers",
+  "tags": [
+   "java",
+   "ambiguous",
+   "jboss-weld",
+   "helidon"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "How do I fix this exception? It is preventing me from starting a Helidon server. I am running TestNG from Eclipse IDE. This does not happen if I execute [code] . [CODE]"
+ },
+ {
+  "question_id": 79148750,
+  "ym": "2024-11",
+  "creation_date": 1730478163,
+  "title": "cursor no longer showing matching bracket in Eclipse",
+  "tags": [
+   "java",
+   "eclipse"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "What used to work when I was doing java in eclipse is if I put the curser on a closing bracket a line (or help) would pop up showing the line that opened this bracket. That no longer seems to work. I can do a CTRL-Shift-P but that is more work and actually jumps to the opening bracket instead of just showing me the code. I came across https://coderanch.com/t/104853/ide/find-brackets-match-eclipse#:~:text=The%20second%20way%20is%20to,Bracket%20from%20the%20menu%20bar . I noticed I already had matching bracket selected. I figure somehow I must have unset some other setting but am not sure what that setting is. The google search showed the above. Another theory I have which it might be is I am now using Version: 2024-03 (4.31.0) Build id: 20240307-1437. I notice with this new Eclipse you can now only refresh at the project level and not at any directory level. I wonder if a change has also been made for putting the cursor next to a closing brace? Or do I somehow have a setting not set?"
+ },
+ {
+  "question_id": 79148799,
+  "ym": "2024-11",
+  "creation_date": 1730479214,
+  "title": "Whats the best way to test OpenAPI generated code with WireMock that runs on dynamic port?",
+  "tags": [
+   "java",
+   "spring-boot",
+   "openapi",
+   "openapi-generator",
+   "wiremock"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have Spring Boot 3 application. I use openapi.json to define rest client and [code] to generate java code for the client. This results in [code] class being generated which has field [code] whose value is taken from [code] For example: [code] [CODE] Causes [CODE] Now to make it configurable I use the following config: [CODE] Now I can configure the path value for WireMock test using [code] attribute of [code] like this: [CODE] Now the problem is that [code] is different every time (for example http://localhost:1234 one time and http://localhost:2345 next time and so on) because the free port is different. And I can't just take any port and hardcode assumption that it is free because if I hardcode port 8080 like that [code] then it could happen that 8080 is already taken and test fails. Question: What is the best way in test to tell that [code] must be same as wiremock.server.baseUrl?"
+ },
+ {
+  "question_id": 79148832,
+  "ym": "2024-11",
+  "creation_date": 1730480251,
+  "title": "Why are my Java text boxes only holding the last number of an imputed array? (I am using a JFrame Form for the GUI)",
+  "tags": [
+   "java",
+   "arrays",
+   "user-interface",
+   "textbox",
+   "jframe"
+  ],
+  "score": -3,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have tried to get a textbox to display an array, but as far as I have tried it only shows the last number of the array ex: array gives: 1, 24, 18, 98, 100, 78, 63, 24, 77, 46 Textbox displays: 46 Output displays: 1 24 18 98 100 78 63 24 77 46 I am wondering if there is a way to get my textbox to display the entire array? Here is my code: [CODE] I have tried using other text containers like text field and text area with no success. I have also tried googling my problem but I either don't understand their solutions or they don't work. I am a beginner so if I am making any big mistakes I would be open to advice."
+ },
+ {
+  "question_id": 79148922,
+  "ym": "2024-11",
+  "creation_date": 1730482347,
+  "title": "Looking to perform HTTP POST from XSLT using either Java or .NET calls from Saxon",
+  "tags": [
+   "java",
+   ".net",
+   "xslt",
+   "saxon"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I work with a proprietary tool that leverages XSLT through the Saxon 10 engine. I'm looking to find a way to send a payload from my XSL to an API endpoint. The payload is too large for a GET (which I was able to do in XSL) so I need it to be a POST. The EXPath http-client extension is not available to me, but Saxon does allow you to call either .NET or Java functions. I'm not a .NET developer, but I have used a variation of this code snippet below through Windows Workflow Foundation and that one submits fine. I thought maybe I could convert it to Saxon friendly XSLT to accomplish the same thing. [CODE] What I want to do is replicate that kind of code but inside of an XSLT stylesheet using Saxon's ability to work with .NET. Using the Saxonica documentation as a reference, along with other XSLT examples we have internally, I started writing this: [CODE] I didn't get much further as even this reports an error from the Saxon engine. I also tried ChatGPT to see if it would give me some ideas. It gave me similar examples and they too all generate \"Cannot find a X-argument function in ...\". This was the code it gave me: [CODE] Does anyone here have any experience doing something like this within XSLT or .NET? I don't even care if it's .NET as Java is also supported in Saxon. I really need to be able to POST a portion of my XML data to an external API, but I cannot add any additional l"
+ },
+ {
+  "question_id": 79148938,
+  "ym": "2024-11",
+  "creation_date": 1730482818,
+  "title": "apply an ArchUnit test to a class or method",
+  "tags": [
+   "java",
+   "archunit"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I've defined the following ArchUnit tests that verify any class or method annotated with Spring's [code] annotation must also be annotated with [code] the annotation [code] is not allowed on any class or method [CODE] I had to write 4 tests because I need separate tests for classes and methods. Is there a way to make this more concise and write a single test that will apply to a class or a method?"
+ },
+ {
+  "question_id": 79148976,
+  "ym": "2024-11",
+  "creation_date": 1730483836,
+  "title": "Default config for Spring State Machine with JPA",
+  "tags": [
+   "java",
+   "spring",
+   "spring-statemachine"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I aim to create a new state machine instance if it does not exist in the database, and store config and context in the database. However, I cannot set the default config in the database. If I don't put the machine ID explicitly in the database when I insert transitions, I get the \"Must have at least one transition\" exception when I try to create a new state machine. Here is my configuration: [CODE] Here is my controller: [CODE] I have these transitions in the database, without machineId because I am going to create machine run time and it will be assigned automatically. Is there any way to define transitions in the database without machineId and to create a state machine with random machineId runtime? If I define transitions in class, I don't have to specify machineID, but when I define them in the DB, it doesn't work without machineId."
+ },
+ {
+  "question_id": 79149089,
+  "ym": "2024-11",
+  "creation_date": 1730486521,
+  "title": "Google Play Console warning &quot;Multiple clickable items share this location on the screen.&quot; for SupportMapFragment map",
+  "tags": [
+   "java",
+   "android",
+   "google-maps",
+   "google-play-console"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I've encountered a warning from Google Play Console when uploading my app: \"There are multiple clickable elements in this screen area. Element path - id/map.\" I have an activity with a SupportMapFragment displaying a Google map. I've removed all other objects, leaving only the standard code provided by Google for the map setup. In the XML layout, there are no other visible or clickable elements that could overlap with the map. [CODE] [CODE] Despite these efforts, Google Play Console keeps showing this warning.And is there a way to resolve it? Added android:clickable=\"false\" to the SupportMapFragment in XML."
+ },
+ {
+  "question_id": 79149306,
+  "ym": "2024-11",
+  "creation_date": 1730491951,
+  "title": "Enum class name is used instead of value",
+  "tags": [
+   "java",
+   "json",
+   "spring",
+   "jackson",
+   "openapi"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Newbie here trying to use json serialization using mappers for a class that contains a enum. I find the classname is used in the request sent instead of the enum value.N ot sure what I missed here. The target classes are auto generated from yaml through open-api The field has [code] and also I tried [code] Any pointers would be greatly helpful. Thanks Code snippets: Mapper calling code : [CODE] Target Generated code: [CODE] Identifier : [CODE] Instead of the value \"Legacy\" the mapper returns the class name \"CDIdentifier\" itself, the enum value is returned from [code] ."
+ },
+ {
+  "question_id": 79149454,
+  "ym": "2024-11",
+  "creation_date": 1730496098,
+  "title": "java comparator sort with model array and another field",
+  "tags": [
+   "java",
+   "arrays",
+   "sorting",
+   "comparator"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a java class.. [CODE] Then an object array of it as well as a string array [CODE] My requirement is to sort this responseMessage object array with the model string array reqRejects and then with ruleSeqNo (ascending) Eg. Input Object array Message Reject Code Rule Seq No Cont Ind abcd 60 101 Y cdef 40 300 Y xyz 41 280 Y 133 41 270 Y 56f 40 275 Y 677 60 102 Y hfdd A5 400 Y Model String array Reject Code A5 40 60 41 The response message object array has reject code column. And reqRejects string array (reject code) is the model array. So, basically, the object array needed to be first sorted on the reject code column in the same order as the reject code model string array is listed. And then on the rule seq no. Output sorted Object array should be Message Reject Code Rule Seq No Cont Ind hfdd A5 400 Y 56f 40 275 Y cdef 40 300 Y abcd 60 101 Y 677 60 102 Y 133 41 270 Y xyz 41 280 Y Currently i have done with comparator as below which only sorts on the sequence number responseMessage.sort(Comparator.comparingInt(m -> m.getRuleSeqNo())); Thinking how to add the model string array based sort as well to this."
+ },
+ {
+  "question_id": 79149499,
+  "ym": "2024-11",
+  "creation_date": 1730497845,
+  "title": "How to add dependencies with &quot;provided&quot; scope to classpath for VSCode",
+  "tags": [
+   "java",
+   "visual-studio-code"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "IntelliJ has a feature in the [code] tab where the user is able to configure the option [code] under the Application configuration, by adding a run option to do so. Under VSCode, I currently have installed the Java plugins alongside the extension pack by vscjava, and see the following options: Maven Outline Timeline Projects Run Configuration Java Projects I thought that a similar option would be present under [code] , but it's not very clear how to configure that part. How can I get the the add dependency function functionality on VSCode?"
+ },
+ {
+  "question_id": 79149653,
+  "ym": "2024-11",
+  "creation_date": 1730503643,
+  "title": "How to have multiple ports on Quarkus?",
+  "tags": [
+   "java",
+   "netty",
+   "quarkus"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I realized I cannot set multiple ports in application.properties. Is there any way to set the multiple ports on Quarkus? I know I can set up multiple ports by reverse proxy, but I want \"real\" multiple ssl ports listening."
+ },
+ {
+  "question_id": 79149676,
+  "ym": "2024-11",
+  "creation_date": 1730504338,
+  "title": "How do I get an EmbeddingStore with langchain4j using",
+  "tags": [
+   "java",
+   "milvus",
+   "langchain4j"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "How do I get an EmbeddingStore instance connecting to milvus using a tls certificate? Normally I just use [CODE] But the MilvusEmbeddingStore() don't have any support for taking a ssl/tls certificate. I did manage to get a working instance of MilvusServiceClient which connected to the database, but i don't know how to use that to get a MilvusEmbeddingStore. I looked at the soure code to MilvusEmbeddingStore ( https://github.com/langchain4j/langchain4j/blob/main/langchain4j-milvus/src/main/java/dev/langchain4j/store/embedding/milvus/MilvusEmbeddingStore.java#L369 ) but it looks like MilvusEmbeddingStore create its own instance of MilvusServiceClient and there is no way to pass in an existing connection."
+ },
+ {
+  "question_id": 79150046,
+  "ym": "2024-11",
+  "creation_date": 1730526603,
+  "title": "Double checked locking pattern with final",
+  "tags": [
+   "java",
+   "concurrency",
+   "jvm",
+   "java-memory-model"
+  ],
+  "score": 4,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I was reading this: https://en.m.wikipedia.org/wiki/Double-checked_locking And in section Usage in Java , last example: Semantics of final field in Java 5 can be employed to safely publish the helper object without using volatile: [CODE] The local variable tempWrapper is required for correctness: simply using helperWrapper for both null checks and the return statement could fail due to read reordering allowed under the Java Memory Model.[14] Performance of this implementation is not necessarily better than the volatile implementation. Why [code] is required for correctness? Can't I just remove it and replace with [code] . As far as I understand, the reference to object being created of [code] won't escape to other threads before it's final field [code] has been initialized in constructor. If some other thread read [code] as not null, then it must have correct value for [code] ."
+ },
+ {
+  "question_id": 79150159,
+  "ym": "2024-11",
+  "creation_date": 1730532417,
+  "title": "How to use a PostgreSQL custom type as a nested POJO in jdbi?",
+  "tags": [
+   "java",
+   "postgresql",
+   "jdbi",
+   "jdbi3",
+   "jdbi3-core"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to do something which I think should be relatively straight-forward with JDBI v3 (using the sql-object and postgres extensions). I have an Item class: [CODE] The Dimension3D class is: [CODE] I am using the following table schemas for items: [CODE] The dimension_3d type is created thusly: [CODE] I am trying to make an [code] method which takes an [code] POJO: [CODE] In order to try and make this work I have the above referenced [code] (not sure that this is necessary): [CODE] Finally I call these methods thusly: [CODE] My attempt to make this work seamlessly has led me to register a custom [code] defined thusly: [CODE] I also tried to register the [code] custom type (as seen above) which is: [CODE] I have tried this with/without the ColumnMapper, ArgumentFactory, and custom type registration. The current exception I'm facing is: [CODE] Attempting to correct this with using casts like below: [CODE] then produces the exception: [CODE] For reference I am using the following dependency versions: [CODE] Thanks very much for any assistance! Update: I tried the following: [CODE] but this leads to: [code] This String is coming from: [CODE] Don't know what the correct format is for this to work... Update 2: I think I'm getting closer with: [CODE] because this then leads to the exception for trying to \"deserialize\": org.jdbi.v3.core.statement.UnableToExecuteStatementException:"
+ },
+ {
+  "question_id": 79150236,
+  "ym": "2024-11",
+  "creation_date": 1730535597,
+  "title": "How to determine whether the following examples are definitely assigned?",
+  "tags": [
+   "java",
+   "language-lawyer"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "Given the following examples: [CODE] and: [CODE] I know that the first example won't run properly because k hasn't been definitely assigned ; while the second example can run through. I also read the rough explanations given to a large number of examples in the earlier part of Chapter 16 of the JLS. However, when I tried to use the formal definite assignment rules to judge these two examples, I was unable to make an accurate judgment on them. The rules I'm using are from the JLS : 16.2.10 The while statement • [code] is [un]assigned after [code] (§14.12) iff [code] is [un]assigned after [code] when false and [code] is [un]assigned before every break statement for which the while statement is the break target. • [code] is definitely assigned before [code] iff [code] is definitely assigned before the while statement. • [code] is definitely unassigned before [code] iff all of the following are true: – [code] is definitely unassigned before the while statement. – Assuming [code] is definitely unassigned before [code] , [code] is definitely unassigned after [code] . – Assuming [code] is definitely unassigned before [code] , [code] is definitely unassigned before every continue statement for which the while statement is the continue target. • [code] is [un]assigned before [code] iff [code] is [un]assigned after [code] when true. For example, when I'm judging the second example, if [c"
+ },
+ {
+  "question_id": 79150318,
+  "ym": "2024-11",
+  "creation_date": 1730538734,
+  "title": "Apache Beam DataflowRunner Split files into many",
+  "tags": [
+   "java",
+   "apache-beam"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have one large file, also I have header contents file. I will get one input number total parts=(could be 100 or 20 or 200 runtime argument). Using these, I want to split my largefile to total parts so that each file should have header content available. Below code is almost generated by Chatgpt, but not able to get output properly. Can anyone explain any help document or correction ? [CODE]"
+ },
+ {
+  "question_id": 79150320,
+  "ym": "2024-11",
+  "creation_date": 1730538780,
+  "title": "Burpsuite Java versions conflict",
+  "tags": [
+   "java",
+   "version"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have a Burp Suite version that needs Java 21 to run. But I have other apps that needs Java 8 so I have both versions on my PC. The problem is that if I install a new update of Java 8 then burpsuite can't detect Java 21 and won't launch unless I do reinstall Java 21 again. How can I solve this problem? The only solution I am doing is to reinstall Java 21 again so that the program works and detects 21."
+ },
+ {
+  "question_id": 79150338,
+  "ym": "2024-11",
+  "creation_date": 1730539358,
+  "title": "XmlValueOutOfRangeException when trying to open Apache POI XSSFWorkbook",
+  "tags": [
+   "java",
+   "apache-poi",
+   "xssf",
+   "xssfworkbook"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am trying to open an XSSF workbook using the standard method from the guides. However, upon loading, I encounter an error: XmlValueOutOfRangeException: Invalid double value. Based on the call stack, it appears that the constructor is attempting to read the width of one of the columns and encounters a number it cannot process. However, I do not particularly need the column width information. If I manually change the column widths in Excel, the error disappears, but this is not a viable solution. What can be done to resolve this issue? Using default way to initialize workbook from docs [CODE] and getting this [CODE]"
+ },
+ {
+  "question_id": 79150355,
+  "ym": "2024-11",
+  "creation_date": 1730539853,
+  "title": "How to interact with concurrent collections from Kotlin?",
+  "tags": [
+   "java",
+   "kotlin",
+   "java.util.concurrent"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "From the library I use I get [code] . I want to obtain it's keys as [code] . How to do it in thread-safe way (since Kotlin collections API is thread-unsafe)?"
+ },
+ {
+  "question_id": 79150360,
+  "ym": "2024-11",
+  "creation_date": 1730540106,
+  "title": "How to create a Specification that would match data from Postgres varchar[]",
+  "tags": [
+   "java",
+   "spring",
+   "postgresql",
+   "hibernate",
+   "spring-data-jpa"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a set of filter values that come in as [code] . They are matched against a [code] in the postgres database. I am trying to create a org.springframework.data.jpa.domain.Specification that could be used to search in the required column. Is there a way to create such a specification, that would work? The not-working piece of code is attached [CODE] The idea here is to use postgres function 'array_position' to search for strings inside the array and see if they have a position in the array. And if the value has the position, I would match it with cb.isNotNull But in the end, it just doesn't work, the returned values are not filtered. Any ideas or suggestions would be very helpful."
+ },
+ {
+  "question_id": 79150408,
+  "ym": "2024-11",
+  "creation_date": 1730541751,
+  "title": "AtomicStampedReference#compareAndSet performing checks sequentially using logical connectives",
+  "tags": [
+   "java",
+   "multithreading"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "[CODE] This is the source code of [code] method of [code] . Why does it use [code] ? Are the multiple boolean logical judgments here atomic? If not, after judging [code] , if other threads modify [code] to [code] and [code] to [code] , it will return [code] and not execute [code] . But actually, this modification is completed by other threads, and why return true?"
+ },
+ {
+  "question_id": 79150457,
+  "ym": "2024-11",
+  "creation_date": 1730543562,
+  "title": "Facing the error &quot;entityManagerFactory&quot; while creating the demo spring boot application",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "hibernate",
+   "spring-mvc"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have started learning the spring boot and developed the demo project but facing the below error from the last 3 weeks: [CODE] This is my project tree: Just ignore the DatabaseConnectionTest.java because I used it just for testing the db connection. Below is the complete code of all the java files except the files under the exception package. DemoGoBootSpringDataJpaApplication.java [CODE] UserEntity.java [CODE] User.java [CODE] UserRepository.java [CODE] RegistrationService.java [CODE] The below is the code of the DemoGoBootException.java and the same code is in all the exception files. DemoGoBootException.java [CODE] pom.xml [CODE] application.properties [CODE] Please help me with this error, I'm fed up with this. Note: I used ChatGPT as well but it didn't worked and used the solution of the similar StackOverflow questions, but nothing worked."
+ },
+ {
+  "question_id": 79150475,
+  "ym": "2024-11",
+  "creation_date": 1730544202,
+  "title": "Is there a difference between blocking the platform thread vs pinning in virtual thread?",
+  "tags": [
+   "java",
+   "virtual-threads"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "In JEP 444 , I could see the following statements when talking about blocking operation The implementations of these blocking operations compensate for the capture of the OS thread by temporarily expanding the parallelism of the scheduler Then 2 sentences below when explaining about pinning The scheduler does not compensate for pinning by expanding its parallelism. Therefore does it mean pinning is a special variant of blocking? Why does expanding parallelism won't help in case of pinning? Are synchronized or native only possible pinning operations or they are just 2 among other possible cases?"
+ },
+ {
+  "question_id": 79150482,
+  "ym": "2024-11",
+  "creation_date": 1730544320,
+  "title": "How to convert String to date range",
+  "tags": [
+   "java",
+   "date"
+  ],
+  "score": -1,
+  "answer_count": 4,
+  "is_answered": true,
+  "body_excerpt": "I want to convert the strings in the following format to java.util.Date range, start and end date: [CODE] you have examples of different months and different years and also examples without years that should use the current year Do you have any idea how I should process all these formats?"
+ },
+ {
+  "question_id": 79150734,
+  "ym": "2024-11",
+  "creation_date": 1730553110,
+  "title": "Infinispan - Spring Boot 3.2.5 Integration javax.transaction error",
+  "tags": [
+   "java",
+   "spring-boot",
+   "infinispan"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am developing a simple Spring Boot app that integrates with Infinispan. My pom is: [CODE] The following config in application.properties [CODE] And this config class: [CODE] When i run the app i get: [CODE] My understanding is that SpringBoot moved from javax to jakarta transaction API, so i don't want to add a javax dependency to my POM. I am using the most recent version of Infinispan (14.0.32.Final). Is there a way around this? Or is it that Infinispan has not yet moved to jakarta?"
+ },
+ {
+  "question_id": 79150745,
+  "ym": "2024-11",
+  "creation_date": 1730553369,
+  "title": "Quarkus Swagger UI Hibernate Delete Request to PostgreDB fail silently",
+  "tags": [
+   "java",
+   "postgresql",
+   "hibernate",
+   "quarkus",
+   "swagger-ui"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a Quarkus project using PostgreSQL and SwaggerUI, in which I am able to manually delete rows from tables in the IntelliJ DB UI, but when I try to do it with a DELETE request it fails without throwing any exception or error code. The strange thing is that if the row I am trying to delete is not connected by any FK to another table, the request actually goes through and deletes the row. That however, should not be a problem even if there are some FKs, since I can do it manually. I have also tried to DELETE request with Postman, and got the same result- failing silently. I will provide my entity, service, repository and resource classes. Just to be clear, there are 4 FK fields in the GameEntity, but I will provide only one of them (Genres) because they all behave the same. I am trying to delete from the Games table. EDIT: I looked at my hibernate logs and it seems it is making a lot of selects but at the end it does not do a delete. Also, as stated, when the entity has no connection to another one, it gets deleted and the delete clause can be seen in the logs. Deleting an entity with no connections: [CODE] Deleting an entity with connections: [CODE] [CODE] [CODE] [CODE] [CODE]"
+ },
+ {
+  "question_id": 79150772,
+  "ym": "2024-11",
+  "creation_date": 1730554330,
+  "title": "Java: ProcessBuilder with psql command, ProcessBuilder with kubectl port-forward, won&#39;t connect to the database. Same commands work on cmdline",
+  "tags": [
+   "java",
+   "psql",
+   "kubectl",
+   "processbuilder",
+   "portforwarding"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Os: DISTRIB_ID=Ubuntu DISTRIB_RELEASE=20.04 DISTRIB_DESCRIPTION=\"Ubuntu 20.04.6 LTS\" psql: psql (PostgreSQL) 12.20 (Ubuntu 12.20-0ubuntu0.20.04.1) Java: openjdk version \"11.0.24\" 2024-07-16 OpenJDK Runtime Environment (build 11.0.24+8-post-Ubuntu-1ubuntu320.04) OpenJDK 64-Bit Server VM (build 11.0.24+8-post-Ubuntu-1ubuntu320.04, mixed mode, sharing) If I run the following two commands on cmd line it works fine and I can retrieve data (the user in this case doesn't have a password): [CODE] Method for port-forward I have: [CODE] If I run port-forward on cmd line this is what the process looks like: If I run port-forward through Java ProcessBuilder the process looks like this: There's no difference between the two. Method for psql command: [CODE] I'm running the portForward method and then the psqlQuery method after it. This doesn't work and gives an error message saying it can't connect, but if the psqlQuery runs while I'm running the portForward from cmd line it work fine. Any help would be greatly appreciated."
+ },
+ {
+  "question_id": 79150791,
+  "ym": "2024-11",
+  "creation_date": 1730554836,
+  "title": "How to debug GWT?",
+  "tags": [
+   "java",
+   "gwt",
+   "libgdx"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am making game in LibGDX and have problem with understanding where error is. Game works fine on desktop, but in GWT SuperDev it stuck on loading screen with infinity number of errors: [CODE] Is there a way to look into compiled GWT code and find where exactly it is broken? Or how can i get verbose logs in browser? Compiling GWT doesn't show any errors or warnings Here is codeblock where something goes wrong: [CODE] I tried adding more logs and removing parts of code, but I want more convinent way to locate errors."
+ },
+ {
+  "question_id": 79150970,
+  "ym": "2024-11",
+  "creation_date": 1730560887,
+  "title": "Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project: Compilation failure:",
+  "tags": [
+   "java",
+   "spring-boot",
+   "maven",
+   "pom.xml",
+   "lombok"
+  ],
+  "score": -1,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I'm encountering an error when trying to clean or build my maven project. The error is in regards to getter/setters from my models which have the @Data annotation at the top. Even though they are bundled in @Data, I attempted to include @Getter and @Setter within the models to see if anything would change to no avail. Full Error: [CODE] Now, I have made adjustments to pom.xml according to posts suggestions but that does not seem to do anything. They only change that has occurred is updating Java from 21.0.4 -> 21.0.5. Reverting back to 21.0.4 doesn't change anything. In addition, I've tried invalidating the cache and restarting. Here is my full pom.xml: [CODE] EDIT: The build is success for mvn clean but does not work for mvn package: [CODE] EDIT 2: I would like to note that this application is an api which was working perfectly until I made an adjustment to prevent an error occurring for my UI. Reverting back to the previous changes does not allow the compile to work"
+ },
+ {
+  "question_id": 79151186,
+  "ym": "2024-11",
+  "creation_date": 1730568168,
+  "title": "Java - Jackson - How to deserialize the random XML as a String value of Map&lt;String,String&gt; then serialize it as it is",
+  "tags": [
+   "java",
+   "xml",
+   "spring-boot",
+   "serialization",
+   "jackson"
+  ],
+  "score": -4,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "The old description was not what I wanted, here is the updated version for what I wanted. [CODE] I wanted to read any child element of element [code] as String value of the key [code] of [code] in [code] class. Output from the above code is: [CODE] Ideally, I hoped that Jackson has some annotation which allows this behavior in [code] (however, it just prints empty for value of key [code] which is not what I wanted). Then, I tried with [code] with wrap [code] around [code] so Jackson can deserialize [code] just as it is as String value. But when serializing [code] object to String, it returns unwanted output to me. It should be: [code] NOT [code] So if Jackson could deserialize the String in [code] , then it could serialize to a string exactly like [code] is what I wanted to have."
+ },
+ {
+  "question_id": 79151189,
+  "ym": "2024-11",
+  "creation_date": 1730568192,
+  "title": "Difference in debug and regular Java serialization in VS Code",
+  "tags": [
+   "java",
+   "visual-studio-code",
+   "serialization",
+   "vscode-debugger"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm serializing and deserializing a large sequence of arrays in Java. All I previously had to do was add [code] to my classes and it all worked. Now, when I try to run the same code that I could debug before, I get a series of errors: java.lang.NoSuchFieldException: serialVersionUID and if I add that field java.lang.NoSuchFieldException: serialPersistentFields etc. Running the same code in non-debug mode in VS code works fine. The code worked in debug until very recently. Rolling back to an earlier version doesn't change the problem, even though it worked on that previous version. The data fields in the class I'm serializing are: [CODE] where [code] has fields of [CODE] Any ideas what I'm missing? I'm assuming it's a setting in VS Code, but I'm not sure what."
+ },
+ {
+  "question_id": 79151204,
+  "ym": "2024-11",
+  "creation_date": 1730568517,
+  "title": "How does Java handle input characters in this program? What buffer looks like?",
+  "tags": [
+   "java"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "How does this Java program work and what is its output? I'm working on a Java program that loops until the letter [code] is entered. Here is the code: [CODE] My Question Why does the program display extra iterations even if I enter only one character (L in this case)? For a single character input like [code] , I expect the output to be: [code] But instead, I get: [CODE] Thanks in advance! I'm new to Java and trying to understand how things work in this case. I tried printing characters in the loop, but the 2 last characters seem to be whitespace"
+ },
+ {
+  "question_id": 79151376,
+  "ym": "2024-11",
+  "creation_date": 1730572821,
+  "title": "Static Resources are not being served in Spring Boot",
+  "tags": [
+   "java",
+   "html",
+   "spring-boot"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm porting a Spring app to Spring Boot v3.3.4, but my static resources aren't being served up by Spring Boot. I have my static assets (html, css, js, png, etc) under [code] . Here are the exert from my logs when I try to load url [code] . [DEBUG] 2024-11-02 14:16:57.789 [https-jsse-nio-8443-exec-1] c.f.a.u.CustomRequestLoggingFilter - Before request [GET /index.html, headers=[host:\"localhost:8443\", connection:\"keep-alive\", pragma:\"no-cache\", cache-control:\"no-cache\", sec-ch-ua:\"\"Google Chrome\";v=\"129\", \"Not=A?Brand\";v=\"8\", \"Chromium\";v=\"129\"\", sec-ch-ua-mobile:\"?0\", sec-ch-ua-platform:\"\"Windows\"\", upgrade-insecure-requests:\"1\", user-agent:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36\", accept:\"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng, / ;q=0.8,application/signed-exchange;v=b3;q=0.7\", sec-fetch-site:\"none\", sec-fetch-mode:\"navigate\", sec-fetch-user:\"?1\", sec-fetch-dest:\"document\", accept-encoding:\"gzip, deflate, br, zstd\", accept-language:\"en-US,en;q=0.9\", cookie:\"Idea-2ba4f510=04bef4d7-875e-4491-bdd6-da8a4b98ccba; JSESSIONID=465E301E3CAD061A3DA5584DE01C1C59\"]] [WARN ] 2024-11-02 14:16:57.791 [https-jsse-nio-8443-exec-1] o.s.w.s.PageNotFound - No mapping for GET /index.html [WARN ] 2024-11-02 14:16:57.791 [https-jsse-nio-8443-exec-1] o.s.w.s.PageNotFound - No endpoin"
+ },
+ {
+  "question_id": 79151635,
+  "ym": "2024-11",
+  "creation_date": 1730583951,
+  "title": "Newer easier ways to interact with the console in Java 25+? What is IO.println() &amp; IO.readln()?",
+  "tags": [
+   "java",
+   "console",
+   "console-application"
+  ],
+  "score": 8,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have seen mentions of new classes and methods for interacting with a console in a Java app. Like this: You shouldn't use [code] at all, really. It's not meant for keyboard input, and it has bizarre API. In that the API does exactly what its spec says, but if you think 'Scanner - that's the keyboard, right?' the spec of scanner is bizarre. See the usual confusion about mixing [code] and [code] for example. There is no good replacement right now yet, but there will be soon: [code] . I cannot find a Java JEP for these new features on the JEP index ."
+ },
+ {
+  "question_id": 79151876,
+  "ym": "2024-11",
+  "creation_date": 1730596141,
+  "title": "Converting zlib related python code to java",
+  "tags": [
+   "python",
+   "java",
+   "encoding",
+   "compression",
+   "zlib"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to convert the below python code into java [CODE] the java code [CODE] The java code seems to be not doing the conversion same as python and erroring out: [CODE] Here is the sample data that can be used for testing 119042439702058329181580366339137026727847632133400914982925157100269769134885477532825542376007928853630543405886877144858046550370019093958674847428579819304849334337536 this works well with python but fails in Java, generated it using the logic [CODE]"
+ },
+ {
+  "question_id": 79151972,
+  "ym": "2024-11",
+  "creation_date": 1730602343,
+  "title": "Alter table showing errors in JDBC programs",
+  "tags": [
+   "java",
+   "sql",
+   "mysql",
+   "jdbc"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to add two columns in an already existing table Contact_Info using MySQL.When I am doing this using MySQL command line client, its wrking perfectly. But if I try to do this in a JDBC program, writing the following code [CODE] its giving me error saying you have syntax error in your SQL. I tried this query string to execute with a ';' appended and without it;but of no use [CODE] Can anyone tell me where I am wrong? What is mistake in my syntax?"
+ },
+ {
+  "question_id": 79152007,
+  "ym": "2024-11",
+  "creation_date": 1730604729,
+  "title": "How to find there are 570 banks in the list using Playwright",
+  "tags": [
+   "java",
+   "automation",
+   "playwright-test"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to automate that there are 570 banks in the list using Playwright - Java in this website: https://www.fdic.gov/bank-failures/failed-bank-list So far, I wrote: [CODE] What I did here is: Selected ALL in the dropdown and clicked the Apply button to see 570 banks listed, then found the locator of each bank. Somehow, this didn't print the count of list. Should I scroll down?"
+ },
+ {
+  "question_id": 79152144,
+  "ym": "2024-11",
+  "creation_date": 1730614201,
+  "title": "Firebase Phone authentication test num working but real phone num showing [BILLING_NOT_ENABLED]",
+  "tags": [
+   "java",
+   "firebase",
+   "google-cloud-platform",
+   "firebase-authentication",
+   "google-cloud-functions"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to make an application that has only a mobile number login facility. I am using Firebase Auth, Firestore and Android Studio in Java to make it, I have 5 activities, Home(Splash only)>LoginPhoneNumber>LoginOTP>EnterUsername>MainScreen The user enters the mobile num with the country code picker in 2nd activity, and OTP is then sent, user enters received OTP in 3rd activity, enters username in 4th act. If otp is verified and is redirected to so called mainscreen. I have used \"+911234567890\" as test phone number with otp \"111111\", and when I test run it with my app, everything works completely fine, all the toasts and code everything. But when I tried running my app with an actual my own phone number \"+919811226XXX\", then in the LoginOTP activity I got toast saying, Firebase internal error occurred [BILLING_NOT_ENABLED], online I could not find any solutions, some said to activate some premium plan for more sms/day, but in free also i have a limit of 10 sms/day, I haven't used even 1 of it, then why is this error occurring, some said to enable google cloud billing account, but for that I need credit card details and all, which being a kid and student I don't have, neither the money, nor a card or any other verifiable payment option. Here's my LoginPhoneNumberActivity.java [CODE] My LoginOtpActivity.java is given below - [CODE] My LoginUsernameActivity.java Looks somewha"
+ },
+ {
+  "question_id": 79152444,
+  "ym": "2024-11",
+  "creation_date": 1730627949,
+  "title": "How to create a blinking effect in JavaFX using CSS?",
+  "tags": [
+   "java",
+   "javafx",
+   "javafx-css"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I need a solution to create a blinking effect using only CSS. As I found out CSS transitions were added in JavaFX 23 ( link ). However, I couldn't create blinking using it. This is my code: [CODE] Could anyone say how to do it, if it is possible?"
+ },
+ {
+  "question_id": 79152465,
+  "ym": "2024-11",
+  "creation_date": 1730628614,
+  "title": "Uploading image using API but getting broken image each time",
+  "tags": [
+   "java",
+   "rest",
+   "file-upload"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm using this class to make an API call: [CODE] and below is my MediaManager: [CODE] Each time I upload an image (no matter if it's a .png/.jpeg/.jpg) from postman using binary selection in body or form-data, an empty image is created with the correct name, directory and size e.g., 502kb instead of 0kb. However, the image is broken and I'm unable to open it using any image viewer. What am I doing wrong?"
+ },
+ {
+  "question_id": 79152520,
+  "ym": "2024-11",
+  "creation_date": 1730630499,
+  "title": "How to put Microprofile / OpenAPI annotations into interface for generating Swagger-file while keeping source-code clean",
+  "tags": [
+   "java",
+   "swagger",
+   "quarkus",
+   "openapi",
+   "microprofile"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "In Quarkus, I need to define an API that will result in a Swagger-UI JSON/YAML-File to give out to consumers. This works as expected/documented by defining many annotations in the REST-endpoint. For example: [CODE] The REST-endpoint almost gets unreadable this way (this is one of the smaller examples). My preferred way to solve this, would be to define an interface, that the REST-endpoint would implement. Can somehow help me to... ... (a) find out if this is even possible. ... show me an example of how to define such an Interface in Quarkus ... (b) show me a better way to achieve my goal of having small/maintainable REST-endpoints while still being able to document the Swagger-UI API-definition close to the source-code. What I would have expected to work (but does not, the annotations in the interface are completely ignored by the framework and will not find their way into the generated swagger-json/yaml file): [CODE] [CODE]"
+ },
+ {
+  "question_id": 79152743,
+  "ym": "2024-11",
+  "creation_date": 1730638468,
+  "title": "built-in Spring Security authorization form",
+  "tags": [
+   "java",
+   "spring",
+   "spring-security",
+   "backend",
+   "registration"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am doing registration and user login on the site in java, Spring Security, Spring boot and the problem arose is that when I log in to localhost:8080/login, the standard form from Spring Security opens, and not the one I wrote, here is the SecurityConfig code, if necessary, I will attach the code of other files [CODE]"
+ },
+ {
+  "question_id": 79152745,
+  "ym": "2024-11",
+  "creation_date": 1730638513,
+  "title": "Uni-directional OneToOne mapping in entity with primary key side",
+  "tags": [
+   "java",
+   "spring-boot",
+   "hibernate",
+   "spring-data-jpa",
+   "one-to-one"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have two tables. [CODE] Here \"student_id\" is a foreign key which refers to the id in the person table. Consider, that each student will have only one email and each email is associated with only one person. I want to access Email data in a person entity but not vice versa. [CODE]"
+ },
+ {
+  "question_id": 79152809,
+  "ym": "2024-11",
+  "creation_date": 1730640425,
+  "title": "Trying to implement OpenID Connect with Keycloak but I always get &quot;Invalid client&quot; or &quot;Invalid client credentials&quot;",
+  "tags": [
+   "java",
+   "encryption",
+   "keycloak",
+   "jwk"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm integrating OpenID Connect with Keycloak for client authentication but consistently encounter the error message: \"Invalid client\" or \"Invalid client credentials\". Setup Overview I have configured Keycloak to use JWT-based client authentication. Here are the relevant settings: Client Authentication: Enabled, which has set the client to confidential mode. Signature Algorithm: Set to RS256 in Keycloak. Credentials Tab: The Client Authenticator is configured to use Signed JWT. The client I'm working with requires the following JWT header for authentication: [CODE] Problem Keycloak successfully decrypts the incoming JWT and I can access the decrypted data in keycloakSession. However, when Keycloak attempts to redirect back to the client with the authorization code, I receive an error indicating that the client is invalid or client credentials are invalid. [CODE] Question How can I configure Keycloak to correctly handle this encrypted JWT throughout the OpenID Connect flow, including the final redirect to the client? Would a custom Keycloak authenticator be required to fully support the RSA-OAEP-256/A256GCM encryption throughout the process, or is there another approach to prevent the \"Invalid client\" error at the end?"
+ },
+ {
+  "question_id": 79152879,
+  "ym": "2024-11",
+  "creation_date": 1730642635,
+  "title": "Digital Signature of Hash (HMACSHA256) in Java using SHA256 algorithm &amp; Pkcs1 RSA signature padding didn&#39;t match with dot net implementation",
+  "tags": [
+   "java",
+   "rsa",
+   "digital-signature",
+   "pkcs#1",
+   "hmacsha256"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to create digital signature of the hash (created using HMACSHA256) in Java using SHA256 algorithm & Pkcs1 RSA signature padding but it is not producing the same signature as implemented in .net by vendor. My Java code : [CODE] SignHash is adding signature to a already hashed message whereas SignMessage is adding hash again to already hashed message and then adding signature. SignMessage is making the correct signature as per the vendor but SignHash is creating different. Dotnet code implementation for SignHash function by vendor : [CODE] SignDataWithFile() is generating same signature as signMessage() but signHash() and SignHashWithFile() are generating different signatures. Sample values for .NET: Data before hash: '512|PUB55442201|3555101122526|20000' Data after hash: 'vGEWCW/XP7NPFIrY4sOo+jE4Q713RfVlKV/VV8ZQG6I=' signature(signhash): 'm3CHGVvBy90CVVnPzzFYQAekN6oy/isfz+fAVyXsJ/COTZ/fCMemANy0Q+yWlh/WUkSGbS7SQrc/33m+Wy69XrctOYSZcWMZpGFGBwBrCkg+wmscBfYItBqKlqmbQr2W0CIxOJlj5fLTeWYQ0MLCrMoBB9g1sB93eECYy9G5MzNfrRQaHVVzQrvBdyphABf8GsIuOzfjTOca5jGCZq6+0i/Xnb49jpkr3bPG3JP2+HbwKbyeqzB59pQaQ1+ye1pE7w85b0Sd3WDSfyjmYDBcNUooaMzekROaR8GPvlerhr1LbXwzvhoDON3ZJhFjerSikcrrM1JeL+s0DOCSQdvsBg==' signature(signData): 'wLDprhCgUVG3V0pgU6DCZDQyoHf3VSQ7PMs9T6Ns3OM/lIz2cvACSVFJIs5W5sR7NN/jcp8k6yjQreq9SuSi9EPJsHFNlsqDjfqt78KOkqVD41PlFKRguPi9caMskRSKF/Ja1npXEweQw0MLgxGhs1sOffEzgk7Tqq4N3p2LN4"
+ },
+ {
+  "question_id": 79152894,
+  "ym": "2024-11",
+  "creation_date": 1730643113,
+  "title": "Jackson Deserializer not triggered",
+  "tags": [
+   "java",
+   "jackson",
+   "deserialization"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a class SessionFlowModel that I can easily serialize. However, due to the use of ObservableLists, which is the model for a JavaFX tableView where the user can select certain cells [CODE] In a class that manages persistance I defined [CODE] While the method saveFlow works fine, the loadFlow method is not triggering the below JsonObservableListAdapter class deserialize method as annotated in SessionFlowModel selectableMatrix attribute (see above). [CODE] What am I missing?"
+ },
+ {
+  "question_id": 79152920,
+  "ym": "2024-11",
+  "creation_date": 1730644088,
+  "title": "Maven cannot resolve a kotlin library of .knm files",
+  "tags": [
+   "java",
+   "kotlin",
+   "maven"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "The first question is: what is a .knm file? I tried to google it, but all I could find is some issues about the idea not having highlight for .knm files. Also I am curious why the library has package structure like [code] ? The second and the main question is: the maven cannot resolve the library. How can I fix it? I have used this library with the gradle and it was fine. I tried using other versions of the library with the same result. I have a fresh installed 2024.2 community version, invalidate caches did nothing. My pom.xml: [CODE]"
+ },
+ {
+  "question_id": 79152977,
+  "ym": "2024-11",
+  "creation_date": 1730645935,
+  "title": "Hibernate and UNNEST - Memory leak over time due to cache",
+  "tags": [
+   "java",
+   "postgresql",
+   "hibernate"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "We are using hibernate in our java service which handles massive amount of incoming messages from SQS, processing them and accordingly insert/update/delete from Postgres DB. We've found out that after a while our pod killing our service due to memory growth. After investigating, I've found that I have a [code] that grows and grows with time of handling messages. Checking the latest nodes shows that there are many types of value [code] . In the service we do not use simple [code] methods but custom query to accelerate our DB process. Our queries look like this: [CODE] or updates likes those, or deletion and more and more. This was just example for simplifying. I'm sure that those queries are the reason for hibernate to create the [code] but .. Is this growth of memory normal ? Is there a way to prevent it ? Is there a better way to perform those kind of queries from both memory and efficiency in DB and in the service ? I've started to create a [code] to declare my parameter that will hold [code] but struggeling with it a lot and i'm not sure if it will work at all. Coult it help by maybe reusing a type ? I'm open for any other suggestions to my problem. Thanks! -- UPDATE -- I've created a topic in hibernate, they found the bug and fixed it. What is left is to wait to version 6.6.2.Final.."
+ },
+ {
+  "question_id": 79153053,
+  "ym": "2024-11",
+  "creation_date": 1730647897,
+  "title": "Maven failed to build the jar file due to Java version mismatching",
+  "tags": [
+   "java",
+   "spring-boot",
+   "maven",
+   "java-21"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "This issue was occurred when I tried to build jar file from my spring boot project. First I entered following command in my terminal: [CODE] then I saw following log message: [CODE] my [code] file is this. [CODE] I can see this is because of some kind of Java version mismatching. but my system Java version matches with the [code]"
+ },
+ {
+  "question_id": 79153070,
+  "ym": "2024-11",
+  "creation_date": 1730648412,
+  "title": "How to mitigate bloat metaspace with Lombok&#39;s @Tostring and @EqualsAndHashCode",
+  "tags": [
+   "java",
+   "lombok",
+   "metaspace"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Background I am developing an application that has so many DTOs. These DTOs are used in the [code] of MyBatis. This application has so many SQLs. Each DTO has many (20-100) fields because the application has read/write to legacy-designed DB tables. We cannot modify table designs (it is beyond the scope of this development). These DTOs use [code] , [code] , [code] , and [code] annotations of Lombok to reduce boilerplate code. Problem This application is huge and uses so much metaspace. Because of resource capacity, I want to reduce the usage of metaspace. According to the result of an investigation of Java metaspace, these DTOs consume more than half of metaspace. According to Lombok's document, the code generated by [code] and [code] annotations will scale with the number of fields. Question Is there any way to mitigate bloat metaspace with Lombok's [code] and [code] annotations?"
+ },
+ {
+  "question_id": 79153240,
+  "ym": "2024-11",
+  "creation_date": 1730653673,
+  "title": "Failed to uninstall Java on Mac OS : XPC connection error",
+  "tags": [
+   "java",
+   "macos"
+  ],
+  "score": 4,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I get this when trying to uninstall Java from the options in the Java panel in Mac System Settings: Failed to uninstall Java XPC connection error Java remains installed and I can't uninstall it. I have Java 8 installed."
+ },
+ {
+  "question_id": 79153257,
+  "ym": "2024-11",
+  "creation_date": 1730654134,
+  "title": "How to pass private key to the JsonWebSignature?",
+  "tags": [
+   "java",
+   "jwt",
+   "jose4j"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am using [code] and I am trying to sign a JWT token and using below code. I am unable to find a way to pass private key to the JsonWebSignature object. [CODE] This is the line where I am trying to set the key. [CODE] Java imports: [CODE] Maven dependency: [CODE]"
+ },
+ {
+  "question_id": 79153448,
+  "ym": "2024-11",
+  "creation_date": 1730661319,
+  "title": "Running KSP to replace Kapt in android project",
+  "tags": [
+   "java",
+   "android",
+   "kotlin",
+   "ksp"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm migrating from kapt to ksp , got few libraries that i need to migrate but upon building project , it threw few errors , I would be happy to get some help , Thank you [CODE] [CODE] [CODE] [CODE]"
+ },
+ {
+  "question_id": 79153477,
+  "ym": "2024-11",
+  "creation_date": 1730662146,
+  "title": "Default RoutePolicy in Apache Camel",
+  "tags": [
+   "java",
+   "apache-camel"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have following scenario RoutePolicy: [CODE] BaseRouteBuilder: [CODE] Two implementations: [CODE] and finaly yet another RouteBuilder - not inherited from BaseRouteBuilder [CODE] Every works as expected. What I want to do now is to delegate the LoggingPolicy to the BaseRouteBuilder so that the LoggingPolicy is applied to all routes in all RouteBuilders inheriting form [code] (in this example [code] and [code] but not [code] ) the constructor parameter ( [code] ) defaults to [code] but could be overriden in the routebuilder. In my real use case I have 100+ RouteBuilders and I want to add LoggingPolicy to all of them. Most of them with default parameters but i need to override the parameters for a few of routes."
+ },
+ {
+  "question_id": 79153494,
+  "ym": "2024-11",
+  "creation_date": 1730662634,
+  "title": "Stripe subscription not updating to ACTIVE after payment",
+  "tags": [
+   "java",
+   "reactjs",
+   "stripe-payments"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have java+react app. Want to implement fixed price subscriptions. I did follow this sample github but looks like Im missing something. After customer entered card I can see payment processed in stripe dashboard but subscription still in 'INCOMPLETE' status. The question is similar to this one but I still have a problem even after ON_SUBSCRIPTION added. Java part: [CODE] React part: Prices page [CODE] Checkout page [CODE] Also question about subscription flow in How subscriptions work page . There is 'invoice' mentioned. Should I handle it manually. I do see /invoice-preview on java side in GitHub sample, but can't find where it is called from react part."
+ },
+ {
+  "question_id": 79153567,
+  "ym": "2024-11",
+  "creation_date": 1730664752,
+  "title": "vs-code java fails to find jar in local repository",
+  "tags": [
+   "java",
+   "maven",
+   "dependency-management"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a maven project that depends on a jar that I have install in my local repository. The jar is generated by the MATLAB compiler SDK; I have a maven archetype that calls the mcr command, and the resulting .jar is installed in my local repository by maven-install-plugin. The pom for the matlab project contains: [CODE] This generates disematlab/maven-metadata-local.xml: [CODE] If I now import the dependency in the main project: [CODE] the project builds and runs just fine. If I open the project in VS Code, I get [CODE] If I go into the pom for disematlab and change the version from 2.0 to 2.1 and save the pom, I immediately see the import and type resolution errors resolve. Mind you, I haven't done mvn install in that directory. I am running code 1.9.4 on Ubuntu 24.04.1; all extensions are installed on the remote. Here are my remote extensions: [CODE] I've examined the output of all of the extensions for clues without success."
+ },
+ {
+  "question_id": 79153650,
+  "ym": "2024-11",
+  "creation_date": 1730668061,
+  "title": "OpenGL textrenderer doesn&#39;t display English Latin letters",
+  "tags": [
+   "java",
+   "opengl",
+   "jogl"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have this simple code for displaying a given letter: minimal reproducible example : [CODE] When [code] is [code] , nothing is displayed (only black background). However, if I change [code] to [code] , it is displayed (white letter [code] on a black background). I don't understand, what could be causing this behavior, why English letters are not displayed?"
+ },
+ {
+  "question_id": 79154136,
+  "ym": "2024-11",
+  "creation_date": 1730691137,
+  "title": "Query dynamic fields from DB with requested fields on GraphQL query",
+  "tags": [
+   "java",
+   "spring-boot",
+   "spring-data-jpa",
+   "graphql",
+   "criteria-api"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to fetch GraphQL requested fields on DB using Criteria API, but when a look in debug or print the class every fields from my MediaModel class as being fetched. [CODE] This util method get requested fields and subfields from GraphQL into a Map. Example: [CODE] Will turn into this JSON: [CODE] My repository: [CODE] MediaModel class: [CODE] For example if I Query Media requesting id, name, about and I print ou look into debug all fields of the class as filled. I already have tried with EAGER, but the result are the same."
+ },
+ {
+  "question_id": 79154250,
+  "ym": "2024-11",
+  "creation_date": 1730696928,
+  "title": "How to Set Up WebSocket Support in Dropwizard 4 with Jetty 11?",
+  "tags": [
+   "java",
+   "websocket",
+   "jetty",
+   "dropwizard"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm currently working on a Dropwizard 4 project with Jetty 11, and I'm having trouble setting up WebSocket support. Previous recommendations recommend using https://github.com/LivePersonInc/dropwizard-websockets but that seems to be outdated. All recommendations that I have found use a class JettyWebSocketServletContainerInitializer which I can't find in any of the dependencies that I have. I am using dropwizard guicy, but I don't think that has any effect here. Current Dependencies: [CODE] All the ones without versions are using the 11.0.20. I realise I don't need all these dependencies, if you could let me know what I am missing and which ones I need that would be great. I've tried various versions to try and get it to work but I'm clearly missing something. A small code snippet of the setup in the application would be really helpful."
+ },
+ {
+  "question_id": 79154274,
+  "ym": "2024-11",
+  "creation_date": 1730697713,
+  "title": "Fatal Exception: android.util.SuperNotCalledException",
+  "tags": [
+   "java",
+   "android",
+   "react-native"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I used try-catch block for avoiding [code] error, which occurs when the Android system kills my app and I want to open the app from the background. I found some solution, which was solved by using the try-catch block. My app is live now, and I used React Native to build this app. I found this issue from crashlytics; that's why I can't reproduce the issue also. This is the issue I found from crashlytics: [CODE] This is my Code: [CODE]"
+ },
+ {
+  "question_id": 79154566,
+  "ym": "2024-11",
+  "creation_date": 1730705903,
+  "title": "Cannot find custom to_timestamp SQL Function after Spring Boot 3.2.0 upgrade",
+  "tags": [
+   "java",
+   "spring-boot",
+   "hibernate",
+   "jpa",
+   "spring-boot-3"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I recently upgraded my Spring Boot application from Spring Boot 2.3.8 with Java 11 to Spring Boot 3.2.0 and Java 17 . In my application, I’m using a PostgreSQL database, and I have a custom [code] SQL function in my JPA queries to fetch records based on a dynamic time range. The query used to work perfectly in my previous setup, but since the upgrade, it’s no longer functioning as expected. It gives me below error [CODE] My Query Here’s the JPA query I'm using: [CODE] Custom SQL Function Class To configure the [code] function, I use a custom [code] class. Here's the code I was using in Spring Boot 2.3.8 : [CODE] Additionally, I configured the contributor in my [code] as follows: [CODE] Attempted Solutions After the upgrade, I tried different approaches, including: 1. Using [code] for more control over the function in Spring Boot 3.2.0. [CODE] 2. Using SQL function descriptors based on other Hibernate migration guides. Despite these efforts, the function is still not recognized correctly in the upgraded application. Question Has anyone successfully implemented a similar [code] function in Spring Boot 3.2.0 with Java 17 ? Any pointers on adapting this function or the [code] for compatibility with the latest Spring Boot/Hibernate versions would be greatly appreciated! Tried this solution as well https://chatgpt.com/share/6721ed48-3ae8-8009-b2f1-985306a2b3a3"
+ },
+ {
+  "question_id": 79154844,
+  "ym": "2024-11",
+  "creation_date": 1730712111,
+  "title": "Parse number with regexp",
+  "tags": [
+   "java",
+   "html",
+   "regex",
+   "string"
+  ],
+  "score": -1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have a text block as a paragraph that starts from some number as a string. There could be simple numbers or dotted ones. I have the next paragraph numbers: [CODE] [CODE] [CODE] I use the next regexp expression to find the number. [CODE] Now, I got the new number format source text [CODE] I need to get the number 5.24.1_ 5.24.2 How can regex expression be written to use one all scenario?"
+ },
+ {
+  "question_id": 79154926,
+  "ym": "2024-11",
+  "creation_date": 1730713701,
+  "title": "openapi generated service always gives me a null filter",
+  "tags": [
+   "java",
+   "openapi",
+   "resteasy",
+   "openapi-generator"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have been generating the service with [code] and currently with [code] . The switch was done because resteasy returns wrong status according to yaml and resteasy is used in wildfly. I haven't got anything but null for the filter. This is how the specification looks like. [CODE] The service gets generated just fine. [CODE] Except that no matter what I send the filter is always null. I have added [code] that returns an [code] but there is no call the [code] since I changed to [code] . There has never been a call to the provider with the filter class. This is the [code] . Does not get called to get a \"filter\" converter. [CODE] We are deploying on wildfly. That's why resteasy got choosen for us. I personally think there is something wrong with the API specification. I just can't figure this out. Is it a problem in the yaml file? Is it some other thing I need to implement to git it to work? For now I have solved it by getting my hands on the [code] object and parsing the object from the query string."
+ },
+ {
+  "question_id": 79155111,
+  "ym": "2024-11",
+  "creation_date": 1730717313,
+  "title": "What are the Zoho SDKs for Java?",
+  "tags": [
+   "java",
+   "sdk",
+   "zoho"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have been wrecking my brain for a couple of days and can't seem to figure it out. I got the CRM SDK to work, however, it doesn't have the functions I need. I need to access Invoices and Invoice payments, is there a specific SDK for invoices? All searches I do either give me CRM or Analytics."
+ },
+ {
+  "question_id": 79155179,
+  "ym": "2024-11",
+  "creation_date": 1730718258,
+  "title": "Library using sfl4j not following log42.xml configurations",
+  "tags": [
+   "java",
+   "apache-kafka",
+   "log4j2"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm using the kafka-clients library in my Java application, and the logs are just not getting appended to the Kafka log I specified in my log4j2.xml. However, the [code] logs are getting appended to the log I specified just fine. I noticed that kafka-clients uses slf4j, is the root cause related to that? log4j2.xml [CODE]"
+ },
+ {
+  "question_id": 79155372,
+  "ym": "2024-11",
+  "creation_date": 1730721767,
+  "title": "What are the methods for optimizing bytecode in Android&#39;s DX tool?",
+  "tags": [
+   "java",
+   "android",
+   "jvm",
+   "dalvik",
+   "jvm-bytecode"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm learning Dalvik bytecode now, it has many differences from the JVM bytecode. I want to know what optimizations it makes when converting java bytecode into dalvik bytecode. The optimization I'm talking about is not like converting to registers or reducing the size of bytecode, I want to know about control flow merging and code reuse. For example: jvm's byetcode: [CODE] same method in dalvik bytecode [CODE] the dalvik bytecode reuses return-void at offset 0012 , and if statement's true target also can reuses the return-void . This looks like if a return occurs, then the following places that need to return will jump to the first return."
+ },
+ {
+  "question_id": 79155378,
+  "ym": "2024-11",
+  "creation_date": 1730721848,
+  "title": "nullpointerexception inside java.xml after kryo serialization",
+  "tags": [
+   "java",
+   "xml",
+   "kryo"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am writing data including some XML nodes (org.w3c.dom.Node) to a spark rdd which results in the data getting serialized and deserialized with kryo. For most nodes that works without issues and I am able to serialize and deserialize all nodes without errors. But as soon as I access .getNodeValue() of a deserialized attribute Node (java.xml/com.sun.org.apache.xerces.internal.dom.AttrImpl) I get a internal nullpointer exception with the following stack trace: [CODE] I tried accessing the node value before serialization and that works perfectly fine. But after serialization something inside the datastructure breaks. My relevant code looks like this: [CODE]"
+ },
+ {
+  "question_id": 79155420,
+  "ym": "2024-11",
+  "creation_date": 1730722526,
+  "title": "Completable Future with Executor for handling Exceptions only",
+  "tags": [
+   "java",
+   "spring-boot",
+   "thread-safety",
+   "completable-future",
+   "executor"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "There is a list of objects [code] , which I will use to create [code] corresponding to each element of [code] from database and then do a rest template call. [CODE] The list can be very large and I suppose I should use ExecutorService with it. I am new to Java and need to know How to get the list of all the names of from the [code] which threw exception in a thread-safe manner?"
+ },
+ {
+  "question_id": 79155616,
+  "ym": "2024-11",
+  "creation_date": 1730726737,
+  "title": "How to fetch YouTube tags using search YouTube VideoId API call?",
+  "tags": [
+   "java",
+   "youtube-api"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I need to fetch tags from snippet using YouTube API VideoId API. Refer the below response and log. I don't find tags in the response. So it prints tags as empty. How can I fetch tags information from the VideoSnippet? Sample code: [CODE] Test log: [CODE] Sample Response: [CODE]"
+ },
+ {
+  "question_id": 79155682,
+  "ym": "2024-11",
+  "creation_date": 1730728055,
+  "title": "Some languages ​are not displayed correctly in java swing",
+  "tags": [
+   "java",
+   "windows",
+   "swing"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm writing a multilingual application. Created a demo: [CODE] These languages ​​in the swing application on Windows 10 are displayed as squares and this is the main problem. All these languages ​​are displayed correctly on Linux Ubuntu. On Windows, the console output is also correct. Tried to pass a string in unicode - the result is the same. It outputs to the console as expected, swing outputs squares. Most of all, I am interested in what I, as a developer, can do with the code or its launch parameters, so as not to write instructions on what the user should do with his OS I tried to substitute fonts through the Font class, but this did not help either. Although the idea of ​​​​using fonts is not very good, considering that Linux reads without them. And also I tried to change the versions of Java Open JDK 17 to 21. Newer than 21 are not compatible with Lombok for me, so I remove this option too"
+ },
+ {
+  "question_id": 79155700,
+  "ym": "2024-11",
+  "creation_date": 1730728406,
+  "title": "Custom generic enum converter for mongodb in java",
+  "tags": [
+   "java",
+   "spring-data",
+   "spring-data-mongodb"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a lot of enums stored in legacy way (kebab-case) in mongodb. But all enums are stored in java code as SCREAMING_SNAKE_CASE. I create a new micro-service, and it uses spring-data-mongodb and it will use all collections where enums stored in that way. I can't break backward compatibility, so I have to read and write them as kebab-case. Is it possible to create a generic converter for enums (for example, annotated with [code] ) that will save such classes in proper way without writing custom read/write converter for every enum?"
+ },
+ {
+  "question_id": 79155728,
+  "ym": "2024-11",
+  "creation_date": 1730728785,
+  "title": "java.lang.UnsupportedOperationException: Cannot project java.time.Instant to java.time.OffsetDateTime",
+  "tags": [
+   "java",
+   "spring",
+   "datetime"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "In my spring application, I am fetching date from my PostgreSQL database. The datatype of the date is [code] . I have seen in the past and also mentioned in the documentation here , the appropriate data type for this date is [code] . However, when I am trying to fetch this date from my Projection class, I am getting below error: [CODE] Error: [CODE] If I use [code] , the code works fine. But for legacy reasons I have to use [code] . What am I missing? Chatgpt suggests to use below property, but it does not work either: [CODE]"
+ },
+ {
+  "question_id": 79155750,
+  "ym": "2024-11",
+  "creation_date": 1730729216,
+  "title": "org.hibernate.exception.SQLGrammarException: could not extract ResultSet Caused by: java.sql.SQLSyntaxErrorException: ORA-00904: invalid identifier",
+  "tags": [
+   "java",
+   "hibernate"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am migrating application from Hibernate 4 to Hibernate 5. I have piece of code which I haven't touched: [CODE] In logs when this is called I can see: [CODE] I was able to get debugger into this piece of code and I could compare the old version of [code] and [code] which is working (hibernate 4) and new version of criteria and query which is not working (hibernate 5). I can see that they are the same so the only difference which I can see is [code] version. One if from [code] and second is from [code] . When I did evaluate in debugger for [code] I got correct response in hibernate 4 and when I evaluate [code] in hiberante 5 then already in debugger I can see an error [code] . What changed between Hibernate 4 and Hibernate 5 in this case?"
+ },
+ {
+  "question_id": 79155905,
+  "ym": "2024-11",
+  "creation_date": 1730731764,
+  "title": "SFTP client with key authentication with passphrase using Apache MINA?",
+  "tags": [
+   "java",
+   "sftp",
+   "apache-mina",
+   "apache-sshd"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am trying to write an SFTP client using Apache MINA sshd-sftp package. Client should use key authentication and the key is encrypted using a passphrase. The documentation mentions to created key pairs. [CODE] and set keys in session using [CODE] For private key files that are encrypted, [code] needs to be passed. [code] is an interface. How to create [code] ? Thanks"
+ },
+ {
+  "question_id": 79156106,
+  "ym": "2024-11",
+  "creation_date": 1730734864,
+  "title": "How to play animations from a .glb file with sceneform?",
+  "tags": [
+   "java",
+   "animation",
+   "arcore",
+   "gltf",
+   "sceneform"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm developing an AR virtual pet application using Sceneform and ArCore in Java in Android Studio and I have a .glb model with multiple animations. In the end, I want ot make something like Pokemon Go. Currently, my code renders the model, but I can't figure out how to play the animations one after the other. Specifically, I want to play the \"Congratulate\" animation first, followed by the \"Approach\" animation. Here's my code: [CODE] How can I access and play specific animations from my .glb model? I would greatly appreciate any code snippets or resources that could help me implement this functionality. Thanks in advance!"
+ },
+ {
+  "question_id": 79156246,
+  "ym": "2024-11",
+  "creation_date": 1730737547,
+  "title": "How put bypass the local connection with the ChromeWebDriver if I haven&#39;t the IP but only an url?",
+  "tags": [
+   "java",
+   "selenium-webdriver",
+   "selenium-chromedriver",
+   "automated-tests"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am learning test automation following a tutorial on the site TAU by applitools . I am using IntelliJ community edtion as IDE. I have to practice with TestNG so I followed the instruction writing a similar code to open a website for practice: [CODE] The problem is that even I use a \"rigth\" version of chromedriver (both my browser and the driver are 130.0.****) on the console I have this response [CODE] Which endend with this runtime exception: [CODE] Now I am going to expose my problem: I know that Chrome have the \"Ip White List\" but in the code from the exercise they are given me only a web address not the IP of the site. How can I resolve it? Note: I don't know if is connected but the selenium library of chromedriver that I have downloaded have not the comand to manage and open windows."
+ },
+ {
+  "question_id": 79156282,
+  "ym": "2024-11",
+  "creation_date": 1730738138,
+  "title": "How to Solve Law of Demeter Violation in Java Records?",
+  "tags": [
+   "java",
+   "record",
+   "getter",
+   "law-of-demeter"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am using the below record in my Quarkus application and at some point I need to access the requestId field, located in Statements nested record. I want to avoid using the getters provided by the nested records since this will invoke a Law of Demeter violation. I tried to add a fifth field named Statements in KYAAutoResponse record and then use a custom method to gain access to requestId automatically but this returns null. I am a little confused on how could I bypass the violation. Can you help me? [CODE]"
+ },
+ {
+  "question_id": 79156288,
+  "ym": "2024-11",
+  "creation_date": 1730738219,
+  "title": "Spring @Scheduled Ran Multiple Times",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "cron"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Sunday morning I was alerted that an application was sending too many emails. The service is on a cron schedule using the @Scheduled annotation and it ran at least 115 times that morning. It looks like it stopped when we hit the fallback on daylight savings time. I'm confused as to why this happened so many times [CODE] <spring-boot.version>2.7.5</spring-boot.version> [CODE] Logs showing multiple runs Edit: The cron did start running at midnight, it didn't start throwing errors until I stopped the email service around 1:30am. And it did repeatedly run this code but I don't know why."
+ },
+ {
+  "question_id": 79156510,
+  "ym": "2024-11",
+  "creation_date": 1730743280,
+  "title": "HTTP 404 response from KeycloakBuilder java",
+  "tags": [
+   "java",
+   "keycloak",
+   "keycloak-services",
+   "keycloak-rest-api"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am trying to execute this code: [CODE] This is the error I am getting Exception in thread \"main\" javax.ws.rs.NotFoundException: HTTP 404 Not Found [CODE] But my keycloak server is working fine and I am able to get a response with the above curl command So what is the exact serverUrl to use for KeycloakBuilder?"
+ }
+]

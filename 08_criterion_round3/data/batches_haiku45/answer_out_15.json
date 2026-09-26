@@ -1,0 +1,82 @@
+[
+  {
+    "qid": 68203761,
+    "answer": "The plot viewer was redesigned in VS Code's June 2021 Jupyter update. To view high-res plots, use `plt.savefig('output.pdf')` or right-click the plot to save. For interactive exploration, enable `%matplotlib notebook` magic. The plot panel still exists but may appear as a sidebar tab labeled \"Plots\" when executing plotting code. Check View → Explorer to find it, or upgrade VS Code/Python extension to the latest version for improved plot handling."
+  },
+  {
+    "qid": 79550116,
+    "answer": "The green triangle warning persists because Excel detects text-formatted numbers. Prepend an apostrophe to force explicit text storage: `cell.value = f\"'{cell.value}\"`. Alternatively, suppress warnings without reformatting by adding to ignored errors: `ws.ignore_errors.add(cell)`. Setting `number_format = '@'` alone won't suppress the triangle. For bulk operations, apply the apostrophe approach to all affected cells in your loop."
+  },
+  {
+    "qid": 72073302,
+    "answer": "Convert to sparse matrix and use vectorized operations. Use `scipy.sparse` format and sklearn's `pairwise_distances()`: `from sklearn.metrics.pairwise_distances import pairwise_distances; sim = 1 - pairwise_distances(matrix, metric='cosine')`. This is O(n²) minimum but avoids the nested loop overhead. For tiny scores, they're likely correct—TF-IDF with sparse data naturally produces small values. Avoid iterating rows entirely; leverage sparse matrix multiplication for efficiency."
+  },
+  {
+    "qid": 79321289,
+    "answer": "Create separate progress states per tab using `gr.State()`. Pass tab-specific state to each model's processing function. Example:\n```python\nstates = [gr.State(0) for _ in range(7)]\nwith gr.Tab(\"Model 1\"):\n    btn.click(process_func, outputs=image, inputs=[state])\n    # Inside process_func, update state.value independently\n```\nEach tab updates its own state/progress bar, isolating updates. Avoid global progress variables; state objects keep per-tab progress separate."
+  },
+  {
+    "qid": 70178444,
+    "answer": "`errors='ignore'` returns the original series unchanged if ANY value fails parsing. Mixed formats require: `pd.to_datetime(df[\"Action\"], format='%A %B %d %Y', errors='coerce').fillna(df[\"Action\"])` to preserve non-parseable rows. Or loop through multiple formats. Check for whitespace/case mismatches in your dates—trailing spaces cause silent parse failures. The format string is strict; '%A %B %d %Y' won't match 'monday january 15 2021' (lowercase)."
+  },
+  {
+    "qid": 79043944,
+    "answer": "Missing context on where/how relationships are accessed (session state?). Likely cause: verify both relationships use identical `lazy=\"select\"` and `back_populates` exactly. Ensure sessionmaker has `expire_on_commit=False` if needed. Check if one relationship is being accessed inside an expired session. Test both queries separately outside the app to confirm both work. The inconsistency suggests an accessor pattern difference, not an SQLAlchemy bug. Provide code showing how you're accessing each relationship."
+  },
+  {
+    "qid": 69007296,
+    "answer": "`list.append()` modifies in-place and returns None. Don't assign the result:\n```python\ncode = 'abc'\ncodes = []\nif code != '':\n    codes.append(code)  # No assignment\n```\nOr simpler: `codes = [code] if code else []`. The original assigns None instead of the list. Append modifies the list directly; capturing its return (None) overwrites your list reference."
+  },
+  {
+    "qid": 77918540,
+    "answer": "Use `fillna(method='backfill')` on filtered Level-5 rows:\n```python\ndf['Upper_ID'] = df[df['Level'] == 5]['ID']\ndf['Upper_ID'] = df['Upper_ID'].fillna(method='backfill')\n```\nOr: `df['Upper_ID'] = df[df['Level']==5]['ID'].reindex(df.index, method='backfill')`. This fills Level=8 rows with the most recent Level=5 ID value, implementing the \"carry forward until next upper group\" logic."
+  },
+  {
+    "qid": 68203295,
+    "answer": "Version mismatch between google-cloud-bigquery and dependencies. Upgrade: `pip install --upgrade google-cloud-bigquery pyarrow google-api-core`. The error indicates old bigquery trying to access a removed enum. If persists, check versions: `pip list | grep google-cloud`. Clear cache: `pip cache purge` then reinstall. Ensure no conflicting installations. Test import: `from google.cloud import bigquery` in a fresh shell to confirm resolution."
+  },
+  {
+    "qid": 67783553,
+    "answer": "`strip()` removes trailing newlines; your code uses `strip('')` which does nothing:\n```python\nwith open(\"/Users/file.txt\", \"r\") as f:\n    listID = [line.strip().split('\\t') for line in f]\n```\nThe `\\n` at line ends is stripped by bare `strip()`. Alternatively: `line.rstrip('\\n').split('\\t')`. Your approach strips empty strings; strip with no argument handles all whitespace including newlines."
+  },
+  {
+    "qid": 77742165,
+    "answer": "Operations are sequential within the loop, not deeply nested. Outer loop executes n times; inner condition O(n) and operation O(n) execute sequentially within each iteration, totaling O(n) × O(n) = O(n²). O(n³) would require the operation to run N times per iteration. Here, `remove()` executes once per i, n times total across all iterations. Count execution frequency: inner ops run n times, not n² times, yielding O(n²)."
+  },
+  {
+    "qid": 77210245,
+    "answer": "Use broadcasting to avoid iteration:\n```python\nrow_sums = df.sum(axis=1).values.reshape(-1, 1)\ncol_sums = df.sum(axis=0).values\nresult = row_sums + col_sums - df.values  # Subtract cell to avoid double-count\n```\nEach cell now holds row_sum + col_sum without counting itself twice. No explicit loops needed; numpy broadcasting handles all cells in one operation."
+  },
+  {
+    "qid": 75904853,
+    "answer": "DetailView requires `pk` or `slug` in URL kwargs. Check URLconf—missing URL parameter capture:\n```python\npath('forecast/<slug:location>/', DailyForecastDetailView.as_view()),\npath('forecast/<slug:location>/<str:date>/', DailyForecastDetailView.as_view()),\n```\nEnsure your view's `pk_url_kwarg` or `slug_url_kwarg` matches the URL pattern name. If using custom names, explicitly set them in the view. Missing or mismatched URL parameters cause this error."
+  },
+  {
+    "qid": 79782638,
+    "answer": "Grayskull queries PyPI/conda-forge even for local sdists. Check for offline flag: `grayskull pypi ./my_package.tar.gz --output ./output --no-check-availability` (if your version supports it). Set environment variables: `GRAYSKULL_SKIP_PYPI_REQUEST=1`. Slowness likely stems from network timeouts in CI (DNS/firewall). Verify CI can reach PyPI; if restricted, configure Grayskull to skip remote lookups. Check Grayskull version docs for offline mode support."
+  },
+  {
+    "qid": 79406912,
+    "answer": "Thread scheduling is OS-level and non-deterministic. Python's lock doesn't guarantee fairness—high-priority reacquires faster, starving low-priority. Use explicit synchronization: `Condition()` or `Queue` to force alternation:\n```python\ncond = threading.Condition()\nwith cond:\n    # Signal other thread to proceed\n    cond.notify_all()\n```\nOtherwise, OS scheduler may favor whichever thread wakes first. Lock fairness requires explicit coordination, not rely on scheduler."
+  },
+  {
+    "qid": 76379807,
+    "answer": "For dynamic CSV→JSON without schema, use `csv.Sniffer()` to detect delimiter, or assume fixed delimiter:\n```python\nimport csv\nfields = row_str.split('|')\nkeys = [f'field_{i}' for i in range(len(fields))]\njson_obj = dict(zip(keys, fields))\n```\nFor pattern-specific fields, maintain a mapping dict or detect by position. Missing context: do you know field names/order in advance? If yes, pass schema; if no, use positional naming (field_0, field_1). Consider logging first few rows to infer patterns."
+  },
+  {
+    "qid": 76809816,
+    "answer": "Make EncoderGRU inherit sklearn interfaces and implement required methods:\n```python\nfrom sklearn.base import BaseEstimator, RegressorMixin\nclass EncoderGRU(BaseEstimator, RegressorMixin, nn.Module):\n    def fit(self, X, y):\n        # training code\n        return self\n    def predict(self, X):\n        # inference code\n        return predictions\n```\nThen GridSearchCV works normally with TimeSeriesSplit. Code snippet is incomplete—provide full class to diagnose further."
+  },
+  {
+    "qid": 72455810,
+    "answer": "`getItemClassiness` is missing `self` parameter—it's not a method, it's a dangling function. Fix:\n```python\ndef getItemClassiness(self, item):  # Add self\n    # ...\n    x = self.getItemClassiness(item)  # Call via self\n```\nMethods in classes require `self` as the first parameter. Without it, Python doesn't know it's part of the class, causing NameError when called."
+  },
+  {
+    "qid": 75305176,
+    "answer": "Use `round()` then format, handling negative precision separately:\n```python\ndef to_string_(x: float, prec: int):\n    val = round(x, prec)\n    if prec >= 0:\n        return f\"{val:.{prec}f}\"\n    return str(int(val))\n```\n`round(123.45, -1)` returns 120.0. For negative precision, format as integer string. Alternatively, use `decimal.Decimal` for precise positional rounding control."
+  },
+  {
+    "qid": 78412195,
+    "answer": "The algorithm builds strings iteratively via an explicit stack instead of recursion. Start: `('', n, 0)` (empty string, n open parens left, 0 close parens available). Pop a state; if left>0, push new state with added '(' and left-1, right+1. If right>0, push with added ')' and right-1. When left==0 and right==0, string is complete. The stack explores all valid combinations depth-first without recursion—it's essentially recursive backtracking via explicit stack data structure."
+  }
+]

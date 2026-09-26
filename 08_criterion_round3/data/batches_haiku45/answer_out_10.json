@@ -1,0 +1,82 @@
+[
+  {
+    "qid": 79755156,
+    "answer": "Use `merge()` to combine your dataframe with the date ranges, then filter. This avoids nested loops and applies all conditions simultaneously.\n\n```python\nimport pandas as pd\n\n# Merge df with the ranges on id\ndf_filtered = df.merge(\n    ranges[['id', 'startdate', 'enddate']], \n    on='id'\n)\n\n# Filter where date is within range\ndf_filtered = df_filtered[\n    (df_filtered['date'].dt.date >= df_filtered['startdate']) &\n    (df_filtered['date'].dt.date <= df_filtered['enddate'])\n]\n\n# Drop the helper columns\nresult = df_filtered[['id', 'date']]\n```\n\nThis merges your id groups with their date ranges in one operation, then filters. Much cleaner than looping through ids manually."
+  },
+  {
+    "qid": 70546824,
+    "answer": "Extract the filename from the URL path before downloading:\n\n```python\nfrom urllib.parse import urlparse\nimport urllib.request\n\nurl = driver.current_url\nfilename = urlparse(url).path.split('/')[-1]\nurllib.request.urlretrieve(url, filename)\n```\n\nOr parse it from the URL's last segment:\n\n```python\nfilename = url.split('/')[-1].split('?')[0]  # removes query params\nurllib.request.urlretrieve(url, filename)\n```\n\nFrom your example, `V14728_full_h264_1500.mp4` is the last path component. The second approach handles query strings; the first is cleaner for standard URLs."
+  },
+  {
+    "qid": 78253503,
+    "answer": "libpostal requires system libraries. In Databricks, use the init script to install dependencies before pip:\n\n```bash\n#!/bin/bash\nsudo apt-get update\nsudo apt-get install -y libpostal-dev\npip install postal\n```\n\nAdd this as a cluster-scoped init script in Databricks (Compute → Init Scripts → Add). The error occurs because `postal` pip package needs compiled C libraries (`libpostal`), which aren't present by default. The init script installs the system dependency first, then the Python wrapper.\n\nAlternatively, if you can't use init scripts, consider using a simpler address parser like `python-address` or `usaddress` which have fewer system dependencies."
+  },
+  {
+    "qid": 68203955,
+    "answer": "You don't need `groups`—just reshape and use Conv2d once on the full batch:\n\n```python\nimport torch\nimport torch.nn.functional as F\n\n# Reshape from [100, 16, 512, 512] to [1600, 512, 512]\nimage_reshaped = ct_scans.reshape(100*16, 1, 512, 512)\n\n# Reshape kernels from [8, 3, 3] to [8, 1, 3, 3]\nkernels_reshaped = kernels.reshape(8, 1, 3, 3)\n\n# Apply convolution once\nfiltered = F.conv2d(image_reshaped, kernels_reshaped, padding=1)\n\n# Reshape back to [100, 16, 8, 512, 512]\nresult = filtered.reshape(100, 16, 8, 512, 512)\n```\n\n`groups` controls channel grouping, not batch dimensions. By flattening the patient and layer dimensions, then reshaping back, you apply all filters in a single vectorized operation—much faster than looping."
+  },
+  {
+    "qid": 70178212,
+    "answer": "The issue is that `mark_geoshape()` expects GeoJSON features, but GeoPandas data needs proper projection. Use `to_json()` to convert:\n\n```python\nrivers_json = rivers.to_json()\nrivers_data = json.loads(rivers_json)\n\nrchart = alt.Chart(\n    alt.Data(values=rivers_data['features'])\n).mark_geoshape().encode(\n    color='properties.FEAT_NAME:N'\n).project('albersUsa')\n```\n\nOr simpler—add `.project()` to your original chart:\n\n```python\nrchart = alt.Chart(rivers).mark_geoshape(\n).encode(\n    color='FEAT_NAME'\n).project('albersUsa')\n```\n\nThe projection handles the coordinate system. If still seeing random lines, check that your shapefile's CRS matches expectations (likely WGS84). Use `rivers.crs` to verify."
+  },
+  {
+    "qid": 78564333,
+    "answer": "Use a module-level global pool with lazy initialization:\n\n```python\n_pool = None\n\ndef get_pool():\n    global _pool\n    if _pool is None:\n        _pool = multiprocessing.Pool(72)\n    return _pool\n\ndef child_task(args):\n    pool = get_pool()\n    results = pool.map(worker_function, args)\n    return results\n```\n\nThe pool is created once per child process and reused. For daemonic processes, use `multiprocessing.Manager()` to share a single pool across children if you need synchronization, or initialize per-child as above.\n\nAlternatively, use `ProcessPoolExecutor` with a global `Executor` instance—it handles cleanup automatically and may be simpler for your use case."
+  },
+  {
+    "qid": 78256240,
+    "answer": "The issue is spaces in package names. Use underscores or fix the relative import:\n\n```python\nswitch = {\n    'Arizona': importlib.import_module('.States.arizona', \n                                       package='Certificate_Analyst')\n}\n```\n\nOr rename your directory to `Certificate_Analyst` (underscores instead of spaces).\n\nIf you must keep spaces, ensure the parent directory is on `sys.path` and import absolutely:\n\n```python\nimport sys\nsys.path.insert(0, '/path/to/parent')\nswitch = {\n    'Arizona': importlib.import_module('Certificate Analyst.States.arizona')\n}\n```\n\nBest practice: avoid spaces in package names. Python imports treat dots as separators; spaces confuse the import system. Rename the folder to `Certificate_Analyst` and use underscores consistently."
+  },
+  {
+    "qid": 69401713,
+    "answer": "Use `Counter` with a dict comprehension for elegance:\n\n```python\nfrom collections import Counter\n\ncounts = Counter(obj.t for obj in objList)\nfor enum_type in ObjType:\n    if enum_type not in (ObjType.OT_START, ObjType.OT_END):\n        print(f\"{counts[enum_type]} {enum_type.name} objects\")\n```\n\nOr store as a dict in your dataclass:\n\n```python\n@dataclass\nclass ObjListAttributes:\n    counts: dict = field(default_factory=lambda: {t: 0 for t in ObjType})\n\nlistAttrs.counts = Counter(obj.t for obj in objList)\n```\n\nThe first approach is automatic—`Counter` handles any enum values without hardcoding. Adding new types to the enum requires zero changes elsewhere. Much cleaner than if/elif chains."
+  },
+  {
+    "qid": 74973651,
+    "answer": "Wrap your button in `dcc.Tooltip()` or use `html.Div` with a title attribute:\n\n```python\nimport dash_core_components as dcc\nimport dash_html_components as html\n\nbutton = html.Button(\n    key, \n    id={'type':'v_key', 'index':k_id},\n    title=\"Your tooltip text\",  # HTML title attribute\n    style={'width':'100%'}\n)\n```\n\nFor dynamic tooltips from a callback, use `dcc.Tooltip` (available in newer Dash):\n\n```python\nhtml.Div([\n    html.Button(key, id={'type':'v_key', 'index':k_id}),\n    dcc.Tooltip(id={'type':'tooltip', 'index':k_id})\n])\n\n@app.callback(\n    Output({'type':'tooltip', 'index':MATCH}, 'children'),\n    Input({'type':'v_key', 'index':MATCH}, 'id')\n)\ndef update_tooltip(button_id):\n    return f\"Dynamic tooltip for {button_id['index']}\"\n```\n\nThe `title` attribute provides basic tooltips. For styled, dynamic tooltips, use `dcc.Tooltip`."
+  },
+  {
+    "qid": 79755885,
+    "answer": "In Google Colab, `printf` output goes to stderr/stdout that Python doesn't capture by default. Flush the C library's stdout:\n\n```python\nimport ctypes\nimport sys\n\nmy_lib = ctypes.CDLL(\"./my_functions.so\")\n\n# Get libc's fflush function\nlibc = ctypes.CDLL(None)  # or \"libc.so.6\" on Linux\nlibc.fflush.argtypes = [ctypes.c_void_p]\nlibc.fflush(None)  # Flush all C streams\n\nmy_lib.my_void_func()\nlibc.fflush(None)  # Flush again after call\n```\n\nAlternatively, redirect C output to Python:\n\n```python\nmy_lib.my_void_func.argtypes = []\nmy_lib.my_void_func.restype = None\nmy_lib.my_void_func()  # Still won't print unless you modify C code\n```\n\nThe real fix: have your C function return the string or write to a buffer you can read from Python, rather than using `printf` directly."
+  },
+  {
+    "qid": 74973070,
+    "answer": "Use `zip()` to pair elements from both lists:\n\n```python\nstudents = ['John', 'Tom', 'Toby', 'Sandy', 'Shawn']\nmarks = [77, 79, 80, 71, 17]\n\nfor student, mark in zip(students, marks):\n    print(f'{student}: {mark}')\n```\n\nYour current code has nested loops, which pairs every student with every mark (5×5=25 pairs). `zip()` pairs them by index: student[0] with mark[0], student[1] with mark[1], etc.\n\nIf lists are different lengths, `zip()` stops at the shorter one. Use `itertools.zip_longest()` to pad the shorter list:\n\n```python\nfrom itertools import zip_longest\n\nfor student, mark in zip_longest(students, marks, fillvalue='N/A'):\n    print(f'{student}: {mark}')\n```"
+  },
+  {
+    "qid": 75599811,
+    "answer": "Use `groupby()` to group by date, then `shift()` within groups to look back:\n\n```python\ndf['date_group'] = df.index.date\ndf['b'] = (\n    df.groupby('date_group')['a']\n    .shift(1)  # Get previous group's last value\n    .groupby(df['date_group'])\n    .transform('first'  # Broadcast to group\n)\n```\n\nFor your specific case (10:00 times):\n\n```python\ndf['time'] = df.index.time\ndf_10am = df[df['time'] == datetime.time(10, 0)]\n\ndf['b'] = df['date'].map(\n    df_10am.groupby(df_10am.index.date)['a'].shift(1)\n)\n```\n\nThe key insight: group by date, extract the 10:00 rows, shift them back one group, then map back to your main dataframe. Pandas has no built-in \"previous group value,\" so you extract that group, shift, and rejoin."
+  },
+  {
+    "qid": 79044512,
+    "answer": "This is a Hadoop security manager issue in Java. Set Spark configs to disable security checks:\n\n```python\nfrom pyspark.sql import SparkSession\n\nspark = SparkSession.builder \\\n    .appName('appname') \\\n    .config('spark.hadoop.security.credential.provider.path', 'localjceks@file:///path/to/jceks') \\\n    .config('java.security.manager', '') \\\n    .getOrCreate()\n```\n\nOr simplify—set the system property before creating the session:\n\n```python\nimport sys\nsys.argv.append('-Dcom.sun.jndi.ldap.connect.pool=false')\n\nspark = SparkSession.builder.appName('appname').getOrCreate()\n```\n\nThe root cause: Hadoop's `UserGroupInformation.getCurrentUser()` requires a security manager. In Jupyter/Colab, this may conflict with the notebook environment. Try restarting your kernel and clearing Spark's temp directories (`/tmp/spark*`)."
+  },
+  {
+    "qid": 71303417,
+    "answer": "Pickle saves the class path at dump time. When unpickling, Python can't find `predictors` because the import path changed. Add the directory to `sys.path` before loading:\n\n```python\nimport sys\nimport pickle\n\nsys.path.insert(0, '/path/to/data_science')\nwith open('model', 'rb') as f:\n    bow_model = pickle.load(f)\n```\n\nBetter fix: avoid pickling custom classes. Instead, pickle only the fitted sklearn components:\n\n```python\n# In train_model.py\nimport pickle\npipeline = Pipeline([('vectorizer', bow_vector), ('classifier', classifier_18p)])\nwith open('model', 'wb') as f:\n    pickle.dump(pipeline, f)\n\n# In predict_edu.py - no need to import predictors\nwith open('model', 'rb') as f:\n    pipeline = pickle.load(f)\n```\n\nSince `predictor_transformer` only does text cleaning, apply it manually in your prediction pipeline or use sklearn's built-in transformers."
+  },
+  {
+    "qid": 77742587,
+    "answer": "Two issues: 1) The Article doesn't exist in DB, 2) Missing Category model definition.\n\nFirst, ensure Articles are created:\n\n```python\nArticles.objects.create(\n    Writer=user,\n    Title=\"Example\",\n    Body=\"Content\",\n    Image=image,\n    slug=\"example\"\n)\n```\n\nSecond, define the Category model if missing:\n\n```python\nclass Category(models.Model):\n    name = models.CharField(max_length=100)\n```\n\nFor the migration error `table already exists`: Django thinks the table exists but your DB disagrees. Fix it:\n\n```bash\npython manage.py migrate bloges zero  # Revert migrations\npython manage.py migrate bloges  # Re-run\n```\n\nOr drop the table manually and re-migrate. Then test your view with:\n\n```bash\npython manage.py shell\nfrom bloges.models import Articles\nArticles.objects.create(...)\n```\n\nVerify the slug matches what you request in the URL."
+  },
+  {
+    "qid": 76145911,
+    "answer": "Pass user input to `runner.invoke()` via `input=` parameter:\n\n```python\ndef test_cancel_deleteall_command(runner, app_with_db):\n    result = runner.invoke(\n        ['questions', 'deleteall'],\n        input='n\\n'  # Simulate pressing 'N' then Enter\n    )\n    assert result.exit_code == 1\n    assert 'Aborted!' in result.output\n```\n\nYour current code passes `['N']` as an extra argument, not stdin. `runner.invoke()` accepts `input=` as a string of newline-separated responses.\n\nFor 'y' to confirm:\n\n```python\nresult = runner.invoke(\n    ['questions', 'deleteall'],\n    input='y\\n'\n)\nassert result.exit_code == 0\n```\n\nThe `click.confirm()` reads from stdin during the test, not command arguments. Flask's test runner captures stdin/stdout, so `input=` parameter simulates typing."
+  },
+  {
+    "qid": 77022317,
+    "answer": "Matplotlib 3.7+ changed axis ticking behavior. Explicitly set tick positions and labels:\n\n```python\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nfig, ax = plt.subplots(figsize=(16, 10))\nb = sns.heatmap(heatmap, cmap='turbo', ax=ax, cbar_kws={'shrink': 0.8})\n\n# Set x-axis\nx_pos_new = np.linspace(0, heatmap.shape[1], 19)\nx_lab_new = np.arange(-180, 200, 20)\nax.set_xticks(x_pos_new)\nax.set_xticklabels(x_lab_new)\n\n# Set y-axis\ny_pos_new = np.linspace(0, heatmap.shape[0], 11)\nax.set_yticks(y_pos_new)\n\nplt.tight_layout()\nplt.show()\n```\n\nKey changes: 1) Use array indices (0 to shape) instead of `get_xticks()`, 2) Matplotlib 3.7+ resets ticks on heatmap redraw. Specify them after creating the heatmap. 3) Add `cbar_kws` if the colorbar is shifting."
+  },
+  {
+    "qid": 75904667,
+    "answer": "You haven't installed the `gradio` package. Install it:\n\n```bash\npip install gradio\n```\n\nOr if using Anaconda:\n\n```bash\nconda install -c conda-forge gradio\n```\n\nYour error shows Python is running from `C:/Python311/`, so use that Python's pip explicitly:\n\n```bash\nC:/Python311/python.exe -m pip install gradio\n```\n\nVerify installation:\n\n```bash\nC:/Python311/python.exe -m pip list | grep gradio\n```\n\nIf still failing, your IDE (VS Code) may be using a different Python environment. Check settings → Python Interpreter and ensure it matches where you installed gradio. Alternatively, create a virtual environment and install there."
+  },
+  {
+    "qid": 79900523,
+    "answer": "Use pytest's `conftest.py` to auto-mark tests based on markers or code patterns:\n\n```python\n# conftest.py\nimport pytest\n\n@pytest.fixture(scope='session', autouse=True)\ndef auto_mark_vcr(config):\n    for item in config.getini('pytest_plugins'):\n        pass\n\ndef pytest_collection_modifyitems(config, items):\n    for item in items:\n        # Mark tests that import requests or urllib\n        if 'http' in item.fspath.read_text():\n            item.add_marker(pytest.mark.vcr)\n```\n\nOr use pytest plugins like `pytest-mark-network` to auto-detect network calls.\n\nFor large suites, consider:\n1. **Selective marking**: Mark test classes/modules instead of individual tests\n2. **Pre-commit hooks**: Run a grep to find test methods calling requests, then add marks\n3. **pytest.ini config**: Set a default mark that applies to all tests, then remove it for non-network tests\n\nThe `pytest-recording` docs suggest marking only integration tests that truly need recording, not every test—perhaps reconsider if all 100s need recording."
+  },
+  {
+    "qid": 75600328,
+    "answer": "Use `torch.bmm()` (batch matrix multiply) or reshape for broadcasting:\n\n```python\nimport torch\n\nA = torch.randn(416, 20, 3)  # [batch, seq, features]\nB = torch.randn(416, 20)      # [batch, seq]\n\n# Method 1: Expand B and matmul\nB_expanded = B.unsqueeze(-1)  # [416, 20, 1]\nC = torch.matmul(A, B_expanded)  # [416, 20, 3] @ [416, 20, 1] → [416, 3, 1]\nC = C.squeeze(-1)  # [416, 3]\n\n# Method 2: Using einsum (cleaner)\nC = torch.einsum('bij,bi->bi', A, B)  # [416, 3]\n```\n\nMethod 1: Add a dimension to B to make it [416, 20, 1], then matmul broadcasts across batch. Method 2 is explicit—multiply each 20×3 matrix by its 20-element vector.\n\nYour broadcasting issue: A is [416, 20, 3] and B is [416, 20], so matmul sees them as different shapes. einsum avoids that confusion."
+  }
+]

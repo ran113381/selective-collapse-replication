@@ -1,0 +1,16 @@
+[
+ {
+  "qid": 79934840,
+  "question": "bash kernel dies in jupyter notebook\n\nI am trying to use a bash kernel in jupyter notebooks and am receiving the following error: Connection failed A connection to the notebook server could not be established. The notebook will continue trying to reconnect. Check your network connection or notebook server configuration. I have tried the following workflow. From python command prompt: conda create --name bash_env --clone arcgispro-py3 conda install -c conda-forge bash_kernel python -m bash_kernel.install However, no matter what I try, I get a not connected error. I'm on Windows 11. jupyter kernelspec list returns: .net-csharp C:\\Users\\myusername\\AppData\\Roaming\\jupyter\\kernels\\.net-csharp .net-fsharp C:\\Users\\myusername\\AppData\\Roaming\\jupyter\\kernels\\.net-fsharp .net-powershell C:\\Users\\myusername\\AppData\\Roaming\\jupyter\\kernels\\.net-powershell bash C:\\Users\\myusername\\AppData\\Roaming\\jupyter\\kernels\\bash javascript C:\\Users\\myusername\\AppData\\Roaming\\jupyter\\kernels\\javascript python3 C:\\Users\\myusername\\AppData\\Local\\ESRI\\conda\\envs\\bash_env\\share\\jupyter\\kernels\\python3 kernel.json within the above bash location reads: {\"argv\": [\"C:\\\\Users\\\\myusername\\\\AppData\\\\Local\\\\ESRI\\\\conda\\\\envs\\\\bash_env\\\\python.exe\", \"-m\", \"bash_kernel\", \"-f\", \"{connection_file}\"], \"codemirror_mode\": \"shell\", \"display_name\": \"Bash\", \"env\": {\"PS1\": \"$\"}, \"language\": \"bash\"} (Note: I have tried multiple alterations to kernel.json, including pointing to bash.exe, none of which have worked). I've also deleted that entire bash directory so that it reads it from the bash_env and it still didn't work. I have Git Bash downloaded and where b",
+  "reference_quality": "none",
+  "reference_answer": "",
+  "llm_attempt": "Bash kernel on Windows is unreliable. Alternatives: (1) Use Python kernel with subprocess for bash commands; (2) Use PowerShell kernel instead (native Windows support); (3) Install WSL (Windows Subsystem for Linux) and use bash there. If you need bash: verify bash.exe path in kernel.json points to Git Bash or WSL bash, not Windows native. Restart Jupyter after kernel.json changes."
+ },
+ {
+  "qid": 79934736,
+  "question": "what is the best way to produce a dynamic dictionary\n\nI construct two files on Microsoft Excel. One containing Totonaco words with Spanish Meaning and the second one containing Spanish words with Totonaco meaning. I would like to know which is the optimal estructure to run just in my computer (not live in the web) as HTML page?",
+  "reference_quality": "top_voted",
+  "reference_answer": "I have no idea what you want to do. You can create local web server using Flask , Django , Bottle , and many similar modules. If you run ML tasks then you may also use Streamlit , Dask , Gradio , etc. Everythink can run as local web server with HTML pages.",
+  "llm_attempt": "Context missing on 'dynamic' and 'optimal' requirements. For a bilingual HTML dictionary (Totonaco↔Spanish), simplest structure: JSON object with two maps loaded into JavaScript:\n```json\n{\"totonaco_es\": {...}, \"es_totonaco\": {...}}\n```\nEmbedded as script or fetched. Search via Object.keys(). For offline use, add localStorage. Consider static HTML generation if dataset is small."
+ }
+]

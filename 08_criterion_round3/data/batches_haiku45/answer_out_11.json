@@ -1,0 +1,82 @@
+[
+  {
+    "qid": 77582486,
+    "answer": "The issue is your while loop logic. `while move in possible_moves:` continues *while* the move is valid, but the `else` block only runs when the loop exits (i.e., when an invalid move is entered). This reverses your intended flow.\n\nUse an infinite loop with explicit validation instead:\n\n```python\nwhile True:\n    if move in possible_moves:\n        room = possible_moves[move]\n        print(f'You are in the {room} \\nWhere would you like to go?')\n        move = input()\n    else:\n        print(f\"{move} isn't something you can do from the {room}\")\n        break\n```\n\nAlternatively, wrap the game logic in a function and use `return` or restructure with `if/else` instead of `while/else`."
+  },
+  {
+    "qid": 74973803,
+    "answer": "The syntax `int(input(...))` is backwards. You're passing an `int` object to `input()` instead of converting the input result. The correct order is: input first, then convert to int.\n\nChange:\n```python\ni = input(int(\"enter again = \"))  # Wrong\n```\n\nTo:\n```python\ni = int(input(\"enter again = \"))  # Correct\n```\n\nAlso note: `input()` always returns a string. Without `int()`, the comparison `i <= 99` will fail because it can't compare string to int."
+  },
+  {
+    "qid": 76378524,
+    "answer": "For network-based interpolation, build a graph structure and traverse it to calculate slopes between connected nodes. NetworkX is ideal for this.\n\nApproach:\n1. Create a directed graph where edges connect upstream to downstream nodes\n2. For each node with missing elevation, find the upstream-downstream chain\n3. Calculate elevation change / total distance = slope\n4. Apply slope to interpolate missing values\n\n```python\nimport networkx as nx\nG = nx.DiGraph()\nfor _, row in df.iterrows():\n    G.add_edge(row['Node'], row['Dwn_Node'], length=row['Dwn_Length'])\n\n# Then traverse and interpolate based on paths\n```\n\nThis scales better than manual iteration and handles complex network topologies automatically."
+  },
+  {
+    "qid": 70547100,
+    "answer": "The `global` keyword doesn't make integers mutable—it just tells Python to look for the variable in the global scope. The operation `count += 1` is actually `count = count + 1` (assignment of a new integer), not mutation.\n\n`global` works the same way for immutable and mutable types. With a list:\n```python\nglobal mylist\nmylist.append(5)  # Mutates the list object\n```\n\nWith an int:\n```python\nglobal count\ncount += 1  # Assigns a *new* int to the global variable\n```\n\nBoth are valid uses of `global`. The difference is that list operations modify the object in-place, while integer operations create new objects and reassign the variable."
+  },
+  {
+    "qid": 79405879,
+    "answer": "The issue is likely that Python is finding packages from your system Python or base environment instead of your isolated venv. Check which Python is being used:\n\n```bash\nwhich python\npython -c \"import sys; print(sys.executable)\"\npython -c \"import sys; print(sys.path)\"\n```\n\nEnsure the venv is properly activated. On WSL:\n```bash\nsource /home/csa/anaconda3/envs/goldrush/bin/activate\n```\n\nThen verify:\n```bash\nwhich python  # Should show your venv path\n```\n\nIf packages are still importable, check `sys.path` output. If it includes system directories before the venv, you may need to reinstall your environment or explicitly set `PYTHONPATH`."
+  },
+  {
+    "qid": 77210527,
+    "answer": "Yes, both functions work with any LLM that implements LangChain's LLM interface. The documentation examples use OpenAI, but they accept any compatible LLM.\n\n```python\nfrom langchain_community.llms import Ollama\n\nllm = Ollama(model=\"llama2\")\nagent = create_pandas_dataframe_agent(llm, df)\n```\n\nSupported alternatives: HuggingFace, Together, Replicate, Cohere, Anthropic, Groq, etc. Just instantiate the appropriate LLM class and pass it to the agent factory.\n\nNote: Llama 2 and Vicuna are less reliable with tool-use compared to GPT-4, so you may encounter degraded performance with complex queries."
+  },
+  {
+    "qid": 79861004,
+    "answer": "The constraint is bypassed because when you sort all slots globally by `start_time`, parallel assignments interleave (Patrol_08, Checkpoint_08, Patrol_09...). Your window check then allows a user to work Patrol_09 and Patrol_10 since Checkpoint_09 is between them.\n\nFix: Apply the rotation constraint *within each assignment*, not globally. Group slots by assignment type first:\n\n```python\nfor assignment in assignments:\n    slots = sorted([s for s in slots if s.assignment == assignment], \n                   key=lambda s: s.start_time)\n    for i in range(len(slots)-1):\n        model.Add(user_vars[user, slots[i]] + \n                  user_vars[user, slots[i+1]] <= 1)\n```\n\nAlternatively, track assignment ID in your window logic to skip cross-assignment checks."
+  },
+  {
+    "qid": 74974239,
+    "answer": "You need to convert numpy to tensor and then permute. Create a wrapper module that handles the dimension transformation:\n\n```python\nimport torch\nimport torch.nn as nn\n\nclass NumpyToResNet(nn.Module):\n    def __init__(self, resnet_model):\n        super().__init__()\n        self.resnet = resnet_model\n    \n    def forward(self, x):\n        # x is [batch, depth, height, width, channels]\n        x = torch.from_numpy(x).permute(0, 4, 1, 2, 3).float()\n        # Now [batch, channels, depth, height, width]\n        return self.resnet(x)\n```\n\nOr permute before passing:\n```python\nx = torch.from_numpy(data).permute(0, 4, 1, 2, 3).float()\noutput = resnet(x)\n```"
+  },
+  {
+    "qid": 74271413,
+    "answer": "Flask is not installed in your virtual environment. Activate your venv and install Flask:\n\n```bash\nvenv\\Scripts\\activate  # On Windows\nsource venv/bin/activate  # On macOS/Linux\n\npip install flask flask-sqlalchemy flask-login\n```\n\nVerify with:\n```bash\npip list\n```\n\nYour project structure is correct. The issue is just that Python isn't finding Flask in the venv. If you're using PyCharm, ensure it's using the correct interpreter (Settings > Project > Python Interpreter)."
+  },
+  {
+    "qid": 79406441,
+    "answer": "`Iterable[str]` is correct; `[str]` is not valid for type hints. In Python 3.12+:\n\n```python\nfrom typing import Iterable, Sequence\n\ndef func(stuff: Iterable[str]) -> str:  # Valid: anything iterable\ndef func(stuff: list[str]) -> str:      # Valid: specifically a list\ndef func(stuff: [str]) -> str:          # Invalid: syntax error\n```\n\n`Iterable[str]` accepts lists, tuples, generators, sets—anything that can be iterated. `list[str]` is stricter. `[str]` is a list literal (containing the class `str`), not a type hint.\n\nUse `Iterable[str]` when you only need iteration; use `list[str]` if you specifically need a list."
+  },
+  {
+    "qid": 79406202,
+    "answer": "UIAutomator2 doesn't provide direct clipboard access. Use ADB (Android Debug Bridge) instead:\n\n```python\nimport subprocess\n\n# Get clipboard content\nclipboard = subprocess.check_output(['adb', 'shell', 'dumpsys', 'clipboard']).decode()\n\n# Parse clipboard output (varies by Android version)\nif 'mText=' in clipboard:\n    text = clipboard.split('mText=')[1].split('\\n')[0].strip('\"')\n```\n\nAlternatively, if UIAutomator2 supports it:\n```python\nself.DEVICE.get_clipboard()  # May not exist; check docs\n```\n\nThe `dumpsys clipboard` approach is more reliable but requires ADB access."
+  },
+  {
+    "qid": 76145540,
+    "answer": "`\\b` is a backspace control character, not actual string deletion. You need to simulate backspace by removing characters:\n\n```python\nresult = []\nfor char in text:\n    if char == '\\b':  # Your code has (backspace)\n        if result:\n            result.pop()  # Remove last character\n    else:\n        result.append(char)\n\nfinal_text = ''.join(result)\n```\n\nOr using a loop:\n```python\nlines = text.split('\\n')\nfor line in lines:\n    line = line.replace('(backspace)', '\\b')\n    # Now process with backspace simulation\n```\n\nYour current approach replaces `(backspace)` with `\\b`, but that doesn't actually delete characters—it just inserts a control character."
+  },
+  {
+    "qid": 77918804,
+    "answer": "Use `TYPE_CHECKING` for imports that are only needed for type hints:\n\n```python\n# child.py\nfrom __future__ import annotations\nfrom typing import TYPE_CHECKING\n\nif TYPE_CHECKING:\n    from parent import Parent\n\n@dataclass\nclass Child:\n    name: str\n    def get_mother(self) -> Parent:  # String annotation\n        return Parent(name=\"Jane\", children=[Child(self.name)])\n\n# parent.py  \nfrom __future__ import annotations\nfrom typing import TYPE_CHECKING\n\nif TYPE_CHECKING:\n    from child import Child\n\n@dataclass\nclass Parent:\n    name: str\n    children: list[Child]\n```\n\nThe `TYPE_CHECKING` block only executes during type-checking, breaking the circular import. `from __future__ import annotations` makes type hints strings by default, allowing forward references."
+  },
+  {
+    "qid": 75905030,
+    "answer": "Filter for unbooked TimeSlots by excluding those with related Booking objects:\n\n```python\n# Unbooked slots\navailable_slots = TimeSlot.objects.filter(booking__isnull=True)\n\n# Or exclude booked ones\navailable_slots = TimeSlot.objects.exclude(booking__isnull=False)\n```\n\nIf you need to filter based on specific dates or users:\n```python\navailable_slots = TimeSlot.objects.filter(\n    room=room_instance\n).exclude(\n    booking__check_in_date=target_date\n)\n```\n\nUse `select_related()` or `prefetch_related()` if you need booking details:\n```python\navailable = TimeSlot.objects.prefetch_related('booking_set').filter(...)\n```"
+  },
+  {
+    "qid": 78254479,
+    "answer": "10,000 individual SELECT queries are inherently slow. Your composite index wasn't helping because the query planner couldn't optimize across both conditions efficiently.\n\nBetter approaches:\n1. Fetch all IPs at once with `WHERE IN`: `SELECT ... WHERE ip FROM (values) WHERE ip_from <= ip AND ip_to >= ip`\n2. Separate indexes on `ip_from` and `ip_to` individually (not composite)\n3. Use a single query with JOIN instead of a loop\n\n```python\n# Instead of loop:\nplaceholders = ','.join(['?']*len(ips))\nquery = f\"SELECT ip, country_name FROM ip2location WHERE ip IN ({placeholders})\"\ncur.execute(query, ips)\nresults = cur.fetchall()\n```\n\nSeparate indexes worked for you because the planner could optimize each condition independently. Using batch queries reduces round-trips significantly."
+  },
+  {
+    "qid": 75599050,
+    "answer": "Use `groupby()` with `fillna()` to forward-fill within each account group:\n\n```python\ndf['Bank name'] = df.groupby('Acc num')['Bank name'].transform(\n    lambda x: x.fillna(method='ffill')\n)\n```\n\nOr with `.bfill()` if you want backward-fill:\n```python\ndf['Bank name'] = df.groupby('Acc num')['Bank name'].transform(\n    lambda x: x.bfill().ffill()  # Try backward first, then forward\n)\n```\n\nNote: `fillna(method='...')` is deprecated in newer pandas. Use:\n```python\ndf['Bank name'] = df.groupby('Acc num')['Bank name'].transform(\n    lambda x: x.ffill()\n)\n```"
+  },
+  {
+    "qid": 79835345,
+    "answer": "Use a unique instance or a bare class—they're unhashable and unserializable by default, making them true sentinels:\n\n```python\nNO_EVENT = object()  # Unique, unmistakable\n\ndef event_gen():\n    if random < 0.2:\n        return None\n    elif 0.2 <= random < 0.7:\n        return \"result\"\n    else:\n        return NO_EVENT\n\nresult = event_gen()\nif result is NO_EVENT:  # Use 'is', not '=='\n    ...\n```\n\nFor serialization, convert to/from a special marker:\n```python\ndef serialize(obj):\n    if obj is NO_EVENT:\n        return {\"__no_event__\": True}\n    return obj\n\ndef deserialize(data):\n    if isinstance(data, dict) and data.get(\"__no_event__\"):\n        return NO_EVENT\n    return data\n```\n\nThis avoids confusion with any actual value."
+  },
+  {
+    "qid": 79647470,
+    "answer": "Python 3.10+ doesn't have a built-in flag to disable the \"Did you mean\" suggestions. However, you can suppress them by redirecting stderr or using environment variables, though these are workarounds:\n\n```bash\nPYTHONWARNINGS=ignore python script.py\n```\n\nOr catch and suppress the error in code:\n```python\ntry:\n    ...\nexcept NameError as e:\n    print(str(e).split('Did you mean')[0])  # Strip suggestion\n```\n\nFor a proper fix, open a Python issue on GitHub. The feature is relatively new and may be configurable in future versions. For now, you're limited to these workarounds."
+  },
+  {
+    "qid": 73564117,
+    "answer": "The issue is that `plot_surface()` doesn't clip data—it renders the entire surface. Clip Z values before plotting:\n\n```python\nZ = np.clip(Z, -3, 5)  # Clip to zlim range\nax.plot_surface(X, Y, Z, cmap='viridis')\nax.set_zlim3d(zmin=-3, zmax=5)\n```\n\nAlternatively, create a masked array to hide out-of-bounds values:\n```python\nZ_clipped = np.ma.masked_where((Z < -3) | (Z > 5), Z)\nax.plot_surface(X, Y, Z_clipped, cmap='viridis')\n```\n\nThe `vmin/vmax` parameters only affect colormap scaling, not the actual geometry. Clipping the data itself is the only way to control the plotted surface bounds."
+  },
+  {
+    "qid": 78085881,
+    "answer": "The 504 Deadline Exceeded error likely stems from Firestore overload or network latency. Try these fixes:\n\n1. **Reduce batch size further** and add delays:\n```python\nfor i in range(0, len(records), 100):  # Smaller batches\n    batch = firestore_client.batch()\n    for data in records[i:i+100]:\n        batch.set(collection_ref.document(), data)\n    batch.commit()\n    time.sleep(0.5)  # Add backoff\n```\n\n2. **Use retry logic** with exponential backoff\n3. **Check Firestore quotas**—you may be hitting write limits\n4. **Use bulk_writer** (newer API):\n```python\nwith firestore_client.bulk_writer() as writer:\n    for data in records:\n        writer.set(collection_ref.document(), data)\n```\n\nBatch timeout (60s) cannot be increased directly, but `bulk_writer()` handles retries automatically."
+  }
+]

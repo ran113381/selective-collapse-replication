@@ -1,0 +1,14 @@
+[
+ {
+  "qid": 79548581,
+  "answer": "The error handlers are defined correctly, but ExpiredSignatureError is being raised before the @jwt.expired_token_loader handler can catch it. This typically happens when JWT verification occurs outside proper error handling context. Ensure: (1) error handler decorators are defined immediately after jwt = JWTManager(app) and before routes; (2) routes use @jwt_required() decorator; (3) no try-catch blocks are swallowing the error. If using jwt.verify_jwt_in_request() directly, wrap it in try-except and manually return the 401 response. Verify the JWT manager is initialized before route registration."
+ },
+ {
+  "qid": 79881832,
+  "answer": "PurePath objects are designed for filesystem path operations, not glob patterns. While you can store a pattern string there, glob.glob() expects a string and fails on Path objects (it tries subscripting, which PurePath doesn't support). Solution: keep patterns as strings. For tilde expansion, use os.path.expanduser(pattern_string) before passing to glob.glob(). It doesn't make sense to use PurePath for glob patterns. Use pathlib for actual paths; keep glob patterns as strings and apply string operations to them."
+ },
+ {
+  "qid": 79858891,
+  "answer": "ttk.Treeview with selectmode='extended' supports shift+click and ctrl+click, but arrow keys with modifiers don't extend selection by default. You must bind arrow keys manually and implement the selection logic yourself using tree.selection(), tree.selection_add(), and tree.selection_set(). Bind <Shift-Up>, <Shift-Down>, <Ctrl-Up>, <Ctrl-Down> to functions that track the current item and extend the selection accordingly. This is not built-in behavior in ttk.Treeview."
+ }
+]

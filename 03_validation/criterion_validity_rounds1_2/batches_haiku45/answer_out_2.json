@@ -1,0 +1,82 @@
+[
+ {
+  "qid": 79838103,
+  "answer": "Dataclasses become problematic when: (1) __init__ needs complex custom logic or validation beyond field assignment; (2) you require fine-grained control over attribute access (descriptors, __getattr__); (3) subclasses must override multiple special methods significantly; (4) you have many optional parameters (dataclasses excel at positional args, struggle with optional ones); (5) immutability is critical (frozen=True has performance cost); (6) you need lazy attribute initialization or dynamic fields. If a class is primarily behavior-driven rather than data-driven, or needs __init__ to do more than assign parameters to fields, use a manual class. Dataclasses optimize for simple data containers, not complex domain logic."
+ },
+ {
+  "qid": 79922227,
+  "answer": "train_test_split is NOT always necessary for PCA itself—PCA is unsupervised dimensionality reduction. For exploratory visualization or pure feature transformation of a single dataset, apply PCA to the entire set. However, if PCA is part of a supervised pipeline (feeding into a classifier), split first: fit PCA on training data only, then transform test data using the fitted PCA. This prevents data leakage and ensures your model generalizes correctly. With 3000+ rows, splitting won't hurt; the main risk is training a classifier on PCA-transformed features without withholding test data from PCA fitting."
+ },
+ {
+  "qid": 79882944,
+  "answer": "OutputBuffer doesn't expose dim() methods like InputBuffer does. Use output_buffer() to access the underlying buffer and set strides there, which you're doing. The 'constraint violated' error suggests strides don't match the actual memory layout on the JS side. Verify your halide_buffer_t strides in C++: for interleaved RGB, use strides (3, width*3, 1) for (x, y, c) dimensions. Ensure dimensions are (width, height, 3) in both Halide and C++. The key: halide_buffer_t's dim array must precisely describe your memory layout, and you must set Halide's expected strides to match."
+ },
+ {
+  "qid": 79407184,
+  "answer": "The selector used to find car brands is likely incorrect for the autovit.ro page structure. Use browser DevTools (F12) to inspect the HTML and find the actual class/id names used for brand elements. Common issues: class names may be dynamic or differ from examples found online. Replace the selector in your beautifulsoup/selenium code with the correct one (e.g., '.brand-item' or 'data-brand' attribute). Also, ensure Selenium waits for elements to load: use WebDriverWait with expected_conditions.presence_of_all_elements_located() instead of time.sleep()."
+ },
+ {
+  "qid": 79806845,
+  "answer": "You're creating a coroutine object but not executing it. `stats_timer = TIMER()` returns a coroutine, not the output. For Discord.py bots, schedule it with: `asyncio.create_task(TIMER())` inside an async function, or use the bot's loop: `bot.loop.create_task(TIMER())`. Alternatively, await it: `await TIMER()` if inside an async context. Since TIMER has an infinite loop, don't await it directly in a command handler—use create_task() to run it concurrently in the background."
+ },
+ {
+  "qid": 79753007,
+  "answer": "Datashader may be materializing the entire dask array despite chunking. Solutions: (1) Ensure dask chunks are appropriate—8192x8192 is reasonable but check if raster() respects chunking; (2) Try datashader.Canvas().raster(dask_xarray, always_sample=False) to prevent full computation; (3) Use dask's persist() or compute() explicitly to control memory; (4) Check Datashader version compatibility with dask; (5) Switch to lower-level APIs like reduction()if available. Monitor task graph with dask.visualize() to confirm lazy evaluation isn't being broken."
+ },
+ {
+  "qid": 79686388,
+  "answer": "This is the classic mutable default argument bug. In your __init__, `children = {}` creates a single dict at function definition time, shared by all instances. Each Trie instance modifies the same dict. Fix: `def __init__(self, children=None, ...)` and inside do `if children is None: children = {}`. This ensures each instance gets its own dict. This bug often appears in Leetcode's test framework because it reuses the same class across test cases without resetting default mutable arguments."
+ },
+ {
+  "qid": 79149626,
+  "answer": "This is better solved with Python than sed/awk. Use Python's ast module to parse Python files, extract classes inheriting from BaseClass, and print method signatures. Write a simple script: import ast, walk the tree with ast.NodeVisitor, check class bases, collect methods. This handles complex syntax (decorators, async, nested classes) that sed/awk will struggle with. For one-off analysis, a ~50-line Python script beats struggling with regex; for repeated use, it's much more maintainable."
+ },
+ {
+  "qid": 79937075,
+  "answer": "Your architecture is solid: 42 input nodes, 7 output nodes for Connect 4. Self-play training works well. Improvements: (1) Add proper reward shaping (win=+1, loss=-1, draw=0, optionally penalize slow wins); (2) Use experience replay to break correlation; (3) Consider AlphaGo-style Monte Carlo tree search for move selection; (4) Implement target networks to stabilize training; (5) Use epsilon-greedy exploration during training. Start simple, benchmark against random player, then refine. Your basic approach is sound for a hobby project."
+ },
+ {
+  "qid": 79477752,
+  "answer": "Use __setattr__ and __delattr__ to intercept all modifications: override these methods to raise ImmutableModifyError. Alternatively, use __getattribute__ to make the class act immutable. Better: inherit from collections.abc.Sequence instead of list, implementing only __getitem__ and __len__, making it naturally immutable. If you must subclass list, override __setitem__, __delitem__, and other mutators individually. The metaclass approach is overkill for this use case."
+ },
+ {
+  "qid": 75598463,
+  "answer": "Install pytest-order: `pip install pytest-order`. Use `@pytest.mark.order(1)` decorators (not @pytest.mark.run). Run with `pytest`. The warning occurs because pytest doesn't recognize @pytest.mark.run by default—it's from an older/different plugin. Alternatively, use pytest-dependency to specify test dependencies. Note: pytest normally doesn't preserve file order; pytest-order or pytest-dependency are required for cross-file ordering."
+ },
+ {
+  "qid": 79899371,
+  "answer": "The stall likely indicates a deadlock or blocking operation in Halide/Unity's visual observation pipeline, not the Python trainer. Solutions: (1) Add heartbeat/watchdog logging on Python side to confirm it's actually waiting; (2) Check for Halide memory synchronization issues between CPU/GPU; (3) Try reducing RenderTexture resolution; (4) Update Unity/ML-Agents versions; (5) Use system profilers to detect which thread blocks. The fact that removing RenderTextures fixes it confirms the issue is in visual pipeline, not training loop logic."
+ },
+ {
+  "qid": 79042960,
+  "answer": "Your regex split is too naive. CSV data with commas inside compound names needs proper CSV parsing. Use Python's csv module: `import csv; reader = csv.reader(input); for row in reader: ...`. This handles quoted fields correctly. If regex is required, match quoted fields: `(?:[^,]+|\"[^\"]*\")` to capture commas within quotes, but csv module is simpler and more robust. The issue: naive split can't distinguish between delimiters and commas within data."
+ },
+ {
+  "qid": 79934947,
+  "answer": "Your venv isolation is working correctly, but VS Code isn't using the right Python interpreter. Solution: (1) In VS Code, press Ctrl+Shift+P, search 'Python: Select Interpreter', choose the venv's Python (usually .venv/bin/python); (2) Alternatively, activate venv in terminal first: `source venv/bin/activate` (Mac/Linux) or `.venv\\Scripts\\activate` (Windows), then run your script. VS Code needs explicit Python path; it won't auto-detect venv unless configured. Once set correctly, pygame imports work."
+ },
+ {
+  "qid": 79782333,
+  "answer": "File appends won't crash your script. Multiple processes writing to the same file cause interleaved/corrupted logs, but append mode on Linux/Unix is atomic for writes below PIPE_BUF (~4KB). Your script continues running. However, this is production-unfriendly. Better: (1) Use Python's logging module (thread-safe, handles concurrency better); (2) Add file locking with fcntl.flock (Unix) or msvcrt.locking (Windows); (3) Use a logging daemon that serializes writes. Worst case: messy logs, not a crash."
+ },
+ {
+  "qid": 79477745,
+  "answer": "Your approach is correct. Create BM25Retriever from raw documents, use EnsembleRetriever to combine with Chroma's vector search, optionally weight them: `EnsembleRetriever(retrievers=[chroma_retriever, bm25_retriever], weights=[0.5, 0.5])`. Adjust weights based on your corpus. One caveat: ensure both retrievers return consistent Document objects with matching metadata. Test on sample queries to verify the hybrid approach improves results over either method alone."
+ },
+ {
+  "qid": 79322543,
+  "answer": "Your algorithm finds the point minimizing sum of squared distances to lines—mathematically sound. However, array shape/transpose issues likely exist. Verify: direction should be (N, 3) and position (N, 3). The formula assumes direction vectors are normalized; if not, normalize first. Use scipy.optimize.least_squares for robustness: define residual function as distance from point to each line, optimize. Alternatively, verify matrix dimensions match: A should be (3,3), b should be (3,). The large output suggests singular matrix or incorrect indexing."
+ },
+ {
+  "qid": 79921445,
+  "answer": "The error indicates UV cache corruption. pywin32-311.data is locked by an installation process. Solutions: (1) Restart Claude Desktop completely (kill all processes); (2) Clear UV cache: delete C:\\Users\\USERNAME\\AppData\\Local\\uv\\cache; (3) Restart Claude; (4) Retry MCP connection. If persistent, reinstall uv or clear entire cache directory. This is a packaging/environment issue, not Home Assistant or MCP code. The lock suggests a concurrent installation or partial cleanup."
+ },
+ {
+  "qid": 78692134,
+  "answer": "Narrowing parameter types violates Liskov Substitution Principle: code expecting List[str] now breaks when passed Tuple[str, str]. This breaks type safety. Better approaches: (1) Use separate methods if logic truly differs; (2) Use typing.Protocol for structural subtyping; (3) Use TypeVar with bounds if you need polymorphism. If each subclass really needs different tuple sizes, they shouldn't inherit from the same base method signature—redesign the hierarchy."
+ },
+ {
+  "qid": 79650046,
+  "answer": "The OpenAI API changed: file_ids parameter was removed in recent SDK versions. Current approach: use attachments in message content instead. Check your OpenAI SDK version (`pip show openai`). If on older version, upgrade: `pip install --upgrade openai`. Then modify: `content=[{\"type\": \"text\", \"text\": \"...\"}]` with file handling via Assistants API's file attachment mechanism. Alternatively, read OpenAI docs for your SDK version—parameter names/signatures changed between v0.x and v1.x."
+ }
+]

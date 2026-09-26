@@ -1,0 +1,1552 @@
+[
+ {
+  "question_id": 78253200,
+  "ym": "2024-04",
+  "creation_date": 1711930570,
+  "title": "Evaluating the goodness of a fit with uncertainties",
+  "tags": [
+   "python",
+   "curve-fitting",
+   "gaussian"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have many arrays of (very) noisy data, and I am trying to fit each with a double gaussian. Some of the arrays don't have nearly a high enough signal/noise to properly fit the data, and I wish to cut those out. Since I am fitting around 2500 arrays, I wish to automate this and not pick by hand. I am having trouble evaluating whether the model has successfully fit the data or not. I have included the x data and some good data (want to keep) here , and some bad data (want to discard) here . The gaussians I am trying to fit are at x = 0.671644 and x = 0.673081. I am fitting each array with scipy curve_fit, with this code: [CODE] The parameters for bounds and guesses are given by [CODE] where [code] and [code] are given by the max value between 0.6709-0.67275, and 0.67275-0.675 respectively. My issue is that I cannot figure out a way to automatically evaluate how good these models are fitting the data (strictly the gaussians, the noise of course does not matter for the fit) reliably. I have tried to use [code] , however I either get an error such as [CODE] or I get a p-value of 1 (some are ~0, but it is very unreliable), even with a bad fit. Is there a better way to evaluate the fit?"
+ },
+ {
+  "question_id": 78253210,
+  "ym": "2024-04",
+  "creation_date": 1711931053,
+  "title": "How to make this while loop to stop?",
+  "tags": [
+   "python",
+   "while-loop"
+  ],
+  "score": -1,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "When I run the code the while loop it is supposed to stop when number = 2 but it never stops. I use github codespace to run code [CODE]"
+ },
+ {
+  "question_id": 78253231,
+  "ym": "2024-04",
+  "creation_date": 1711931966,
+  "title": "How to run llama-cpp-python in a Docker Container?",
+  "tags": [
+   "python",
+   "docker"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a more conceptional question about running llama-cpp-python in a Docker Container. Following a lot of different tutorials I am more confused as in the beginning. I have a Debian 12 Server with a CPU - Intel Core i7-7700 and a GPU - GeForce GTX 1080. I installed on the host via the Debian via DEFAULT APT Repository and the Nvidia APT Repository the following components linux-headers-amd64 nvidia-detect nvidia-driver nvidia-smi linux-image-amd64 cuda The Nvida driver is installed correctly which I can verify with [CODE] Next I build a Docker Image where I installed inside the following libraries: jupyterlab cuda-toolkit-12-3 llama-cpp-python Than I run my Container with my llama_cpp application [CODE] It works, but the GPU has no effect even if I can see from my log output that something with GPU and CUDA was detected by llama-cpp: [CODE] There is no performance different in running the container with or without GPU. My first question is: Is my environment setup correct or are there any components missing on the Host or Container side? And my second question is: What is necessary to run llama-cpp-python inside a container using the GPU? My installation code of llama-cpp-python within my container looks like this: [CODE]"
+ },
+ {
+  "question_id": 78253263,
+  "ym": "2024-04",
+  "creation_date": 1711932895,
+  "title": "flask something wrong with create_app()",
+  "tags": [
+   "python",
+   "flask"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Using flask create_app() does not seem to work. Below is my code [code] [CODE] [code] [CODE] on my console I only get 'hello1' why not create_app working? And, when I fix init .py as [CODE] It gives error of cannot import app from gg Any help of activation create_app()?"
+ },
+ {
+  "question_id": 78253266,
+  "ym": "2024-04",
+  "creation_date": 1711933117,
+  "title": "Old python program no longer works after updating from Pi3 to Pi4 - reworked question",
+  "tags": [
+   "python",
+   "matplotlib",
+   "tkinter",
+   "raspberry-pi4",
+   "pysimplegui"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Attached is my code with edits reflecting what I've tried so far to get it to run. The app is supposed to show a window with real-time readings of two temperature sensors and a Hall-effect flow sensor. Buttons allow setting a desired temp, like a thermostat, and a subroutine turns on and off a circuit for applying external heat. A real-time plot in this app window displays the current temps and flow and the thermostat set temp. Meanwhile, a data logging file is updated. This code was cobbled together from various examples from the web. It worked on my Pi3 before I tried to upgrade both hardware and software. I use Spyder for my IDE. When run in Spyder, the main window displays, but without any sensor values and the buttons don't work. A beginning plot is generated but not updated. I get the following error: [CODE] EDIT: more info. In line 144, if I comment out \"photo = draw(fig, canvas)\" the program will run, but the plot does not show in the main window. The buttons in the main window work as expected. When I close the main window, the program stops and a plot is generated. When line 144 is not commented out, spyder reports that \"local variable photo is assigned to but never used\" (and the program sortof hangs when executed and the error messages are generated.) Maybe I need some other way of embedding the plot in the window and having it update in real time? Maybe using \"anim"
+ },
+ {
+  "question_id": 78253278,
+  "ym": "2024-04",
+  "creation_date": 1711933729,
+  "title": "my PyTorch machine learning program for regression is not learning",
+  "tags": [
+   "python",
+   "machine-learning",
+   "pytorch",
+   "neural-network",
+   "regression"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am working on to create a machine learning project with PyTorch, and I realize my model does not seem to learn - it always outputs a flat line with little changes, and the loss hardly reduces. In order to spot the issue, I reduced my program to another minimum program (the program in question), yet the problem remains. In this reduced program, I aim to make a model to approach to the shape of y=x^2. I copied and pasted my model class [code] from my original bigger project, which has 6 features. For simplicity, I set first 5 features to 0 and the last one to be the actual [code] (evenly separated numbers on interval from -2 to 2), and based on [code] generate corresponding [code] values by my [code] . [CODE] After executing, the output is something like the attached image. (On the image, the scale of the x label is wrong, but it should not be part of the learning issue) The current problematic output image of my program. The exact shape of the line may vary, but nothing close to the target. Image of loss over iterations The correct output that I am expecting is a shape close to the target, similar to the attached image. A correct output image, from a single-time success for unknown reason which I failed to recreate I notice that usually tensor mismatch is a common reason for not learning, and I have deliberately checked the shapes and dtypes of the incoming and outputting tens"
+ },
+ {
+  "question_id": 78253290,
+  "ym": "2024-04",
+  "creation_date": 1711934212,
+  "title": "StaleElementReferenceException: Message: stale element reference: stale element not found. Error while iterating through hrefs",
+  "tags": [
+   "python",
+   "selenium-webdriver",
+   "web-scraping"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "[CODE] i have this code above and I want to get all the href values and append to a list. When I try to run the code above, I get the following error. I am very new to webscraping. please help me fix this issue. I have also added the URL I am trying to get this info from. Any work around is also appreciated. I want the the list called \"product_model_list\" with all the \"product_model\" appended to it. File \"C:\\Users\\sunda\\anaconda3\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response raise exception_class(message, screen, stacktrace) selenium.common.exceptions.StaleElementReferenceException: Message: stale element reference: stale element not found (Session info: MicrosoftEdge=122.0.2365.92)"
+ },
+ {
+  "question_id": 78253436,
+  "ym": "2024-04",
+  "creation_date": 1711939443,
+  "title": "How to impute missing values in electricity time series data considering the previous and next 2 values on the same day and time previous 2 days?",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "missing-data",
+   "imputation"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a pandas dataframe like below: meter IDs date 00:00 00:30 01:00 01:30 ....... 23:00 23:30 1 2020-09-01 0.30 0.40 0.41 0.42 ....... 0.47 0.39 1 2020-09-02 0.36 0.39 nan nan ....... 0.53 0.41 1 2020-09-03 0.26 0.33 0.38 nan ....... nan 0.45 1 2020-09-04 0.36 0.40 0.41 0.42 ....... 0.69 nan 1 2020-09-05 0.30 0.40 0.41 0.42 ....... 0.69 0.62 : : : : : : ....... : : 1 2020-12-31 0.30 0.40 0.41 0.42 ....... 0.69 0.62 2 2020-09-01 0.55 0.57 nan 0.60 ....... 0.68 0.62 2 2020-09-02 0.61 0.59 0.66 nan ....... nan nan 2 2020-09-03 0.64 nan 0.66 0 ....... 0.66 0.67 2 2020-09-04 0.58 0.65 0.65 0.71 ....... 0.69 0.66 2 2020-09-05 0.49 0.52 0.55 nan ....... nan 0.62 : : : : : : ....... : : 2 2020-12-31 0.48 0.51 nan 0.52 ....... 0.63 0.61 I want to fill the missing values for the individual meter IDs considering mean of the previous and next 2 values on the same day and same time of previous 2 days? How can i fix this problem? Thanks in advance."
+ },
+ {
+  "question_id": 78253456,
+  "ym": "2024-04",
+  "creation_date": 1711939940,
+  "title": "I want to generate heatmaps from clip model (contrastive learning)",
+  "tags": [
+   "python",
+   "tensorflow",
+   "keras",
+   "heatmap"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I tried so many times to generate heatmaps from clip model, this model is little different than standard clip model as i am using multi encoders and concat them before feeding it to clip model. However I have generated now some heatmaps and I am uploading their pictures. When I run this code [CODE] It generates something like this without highlighting the regions like heatmap does. I also printed some lines, it may help you understand the problem. [CODE]"
+ },
+ {
+  "question_id": 78253459,
+  "ym": "2024-04",
+  "creation_date": 1711940015,
+  "title": "TypeError: argument 1 must be pygame.surface.Surface, not str",
+  "tags": [
+   "python",
+   "compiler-errors",
+   "pygame"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I keep getting this error message when trying to run my code in pygame, it allows me to open to window but when I try to input a direction key it gives me this error code. [CODE] it is giving the error for the code [code] which is under the elif right statement, but I imagine that it will have the same issue under the if left statement since they are identical [CODE] in a other project I have practically identical code and it runs perfectly fine, I've compared the two projects to see any differences but I can not find a solution, I am newer to pygame and coding in general so I appreciate any help I can get. the definition of walk left is the sprite animation for walking left, and it is all one line. [CODE]"
+ },
+ {
+  "question_id": 78253503,
+  "ym": "2024-04",
+  "creation_date": 1711941081,
+  "title": "Installing libpostal in Databricks",
+  "tags": [
+   "python",
+   "databricks"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to install libpostal python wrapper in Databricks. pip install postal ended up with CalledProcessError: Command 'pip --disable-pip-version-check install postal' returned non-zero exit status 1. Do you have any suggestion on how to get libpostal running in Databricks? Thank you."
+ },
+ {
+  "question_id": 78253534,
+  "ym": "2024-04",
+  "creation_date": 1711941991,
+  "title": "Why does np.exp(1000) give an overflow warning but np.exp(-100000) not give an underflow warning?",
+  "tags": [
+   "python",
+   "numpy",
+   "precision"
+  ],
+  "score": 4,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "On running: [CODE] Shows an overflow warning. But then why does the following not give an underflow warning? [CODE]"
+ },
+ {
+  "question_id": 78253553,
+  "ym": "2024-04",
+  "creation_date": 1711942502,
+  "title": "removing item from list of list is removing entire list not just item",
+  "tags": [
+   "python"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to remove value \"0\" from my list of list a subset of that list is: [CODE] so I expect the result to be [CODE] But instead it's removing the entire list instead of just \"0\" I have tried the following: [CODE] and [CODE] which give me: [CODE] basically removing all the lists that have it instead of just item in the list I have also tried doing a nested for loop for this. I removed the code but the logic was something like: [CODE] which basically complained \"ValueError: list.remove(x): x not in list\". Which from what I understand means it did not find the value. I might be missing something obvious or misunderstanding something but I can't seem to figure out what this is. Please point me to the obvious thing that I'm missing. Thanks"
+ },
+ {
+  "question_id": 78253564,
+  "ym": "2024-04",
+  "creation_date": 1711942818,
+  "title": "sway exec doesn&#39;t do the same as the same command in cli",
+  "tags": [
+   "python",
+   "notifications",
+   "execution",
+   "archlinux",
+   "window-managers"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have written an python program to handle sending notifications to dunst with notify-send. i am aware that there are better alternatives, but i wanted to make it on my own. This is my program located in /home/theo/Repos/volumebar-dunst [CODE] When I run the program from the command line, for example: [code] a notification pops up saying what it should say. But if I try to trigger it with the keybind set in [code] which is: [CODE] it just gets to the part of the python script where the command to the cli to for example with raise to raise the volume is sent [CODE] after this it seems to have an error or to just exit the program. the last adjustment is still made though. what disturbs me is that the same command executed from me and from sway seem to do different things and i don't understand why. For trying to solve it I tried logging what the program from sway executed does, and it sends notifications up until the point where [code] is executed. after that the program seems to crash. Unfortunately I didn't find anything about it online."
+ },
+ {
+  "question_id": 78253579,
+  "ym": "2024-04",
+  "creation_date": 1711943224,
+  "title": "No response from inline buttons of a pyrogram based telegram bot",
+  "tags": [
+   "python",
+   "regex",
+   "telegram",
+   "pyrogram"
+  ],
+  "score": -2,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "So i am making a telegram bot in pyrogram that will help users to provide the video lectures links with the help of rest api. When i use /lecture with this code, bot sends message perfectly with inline buttons. But when i click on buttons, it is not responding. [CODE] For checking where the issue is, i tried print but it didn't worked and in logs it is not printing any thing. Even their is no error in the logger. I think maybe i have used wrong regex! I also tried startswith method but the issue still same. [CODE]"
+ },
+ {
+  "question_id": 78253701,
+  "ym": "2024-04",
+  "creation_date": 1711946623,
+  "title": "Python &quot;Illegal instruction (core dumped)&quot; when importing certain libraries (beautifulsoup4. yfinance)",
+  "tags": [
+   "python",
+   "python-3.x",
+   "ubuntu",
+   "beautifulsoup",
+   "yfinance"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am using Python3.10 on Ubuntu 22.04.4, and I am trying to run code that I originally wrote on a Windows 11 machine. Whenever I run this script-- [code] --it always stops at the import stages, and fails to import [code] and [code] in particular: [CODE] When I run this script in the terminal, it only ever prints [code] . Following that print statement, it spits out [code] : [CODE] I have done some research into this \"Illegal instruction\" error and have come across failed imports of TensorFlow, numpy, and others because of incompatible cpu architecture, yet I do not know how it would apply to beautifulsoup4 in this situation. How could I successfully import [code] and [code] without the [code] error? (Architecture output of [code] ): [CODE]"
+ },
+ {
+  "question_id": 78253702,
+  "ym": "2024-04",
+  "creation_date": 1711946635,
+  "title": "Raspberry Pi transmitting CSV files using scp not working when in crontab?",
+  "tags": [
+   "python",
+   "shell",
+   "cron",
+   "raspberry-pi",
+   "raspberry-pi3"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "So i am trying to send 2 CSV files from one Pi to another Pi for a project. I have done this and it works. shell code below: called fileTX.sh [CODE] again, this works when I execute in the terminal perfectly. But when I add the line of code to do this in crontab, it doesn't work. the code i put into crontab is: @reboot /home/me/fileTX.sh & I know it isn't transmitting because when I edit the csv files on the TX pi, they are not being modified on the RX pi. I strongly believe the syntax I have in crontab is correct. I used the full file path in crontab to reference the shell script. I've made the script executable. I have played around with having \"@reboot sh/bash/#!/bin/bash /home/me/fileTX.sh &\" and none of those variations work. So which is the correct prefix to reference the bash script with? Is there anything else I'm missing?? i used crontab before for other programs (only python) and it works fine. I don't understand why this isn't working."
+ },
+ {
+  "question_id": 78253711,
+  "ym": "2024-04",
+  "creation_date": 1711946805,
+  "title": "Django is not raising validationerror",
+  "tags": [
+   "python",
+   "django"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "[CODE] In above code Django is not raising the validation error. It is printing 'this is not equal condition' but it is not raising error. I have tried available solutions."
+ },
+ {
+  "question_id": 78253728,
+  "ym": "2024-04",
+  "creation_date": 1711947343,
+  "title": "How to fix issue with column alignment when printing pandas dataframe with emojis?",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "score": 1,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "When printing a DataFrame with emojis, the column header alignment issue worsens with more columns. This doesn't happen without emojis. Any solutions? With Emojis [CODE] [CODE] Without Emojis [CODE] [CODE]"
+ },
+ {
+  "question_id": 78253797,
+  "ym": "2024-04",
+  "creation_date": 1711949030,
+  "title": "Copying data between tables in same SQL Server DB using Python is too slow",
+  "tags": [
+   "python",
+   "sql-server",
+   "pandas",
+   "sqlalchemy",
+   "mapping"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am trying to copy data from one table to another table in the same database through Python. The current speed at which the data is copied is 4.5s per 100 records which is excessive. I have to copy millions of records and at 4.5s per 100 records it would take forever. Can anyone suggest a better way? Following is my code [CODE] Changing the chunk_size is not helping at all. At first I implemented the logic using a for loop only - which was fetching records one by one of course. After some research I got to know about the SQLAlchemy and I implemented it but it only optimized the speed a little giving me 4.5sec per 100 records. I tried implementing the parallel processing method but that is giving me the following error: Error inserting data: ('IM002', '[IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified (0) (SQLDriverConnect)') Following is the code where I've made changes for parallel processing [CODE]"
+ },
+ {
+  "question_id": 78253818,
+  "ym": "2024-04",
+  "creation_date": 1711949557,
+  "title": "How to specify column data type",
+  "tags": [
+   "python",
+   "python-polars"
+  ],
+  "score": 5,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have the following code: [CODE] But if the first list is empty, I get a [code] instead of the [code] that I need: [CODE] I tried using the [code] of the [code] function like: [CODE] but this failed with: [CODE] How can I get this to work? i need the type of this column to be [code] event if the first list is empty."
+ },
+ {
+  "question_id": 78253842,
+  "ym": "2024-04",
+  "creation_date": 1711950025,
+  "title": "Clipping raster by bounding box with gdal",
+  "tags": [
+   "python",
+   "gis",
+   "raster",
+   "gdal",
+   "wgs84"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I've been trying to clip a raster file(.tif) with gdal. But getting Error: \"Attempt to create 0x0 dataset is illegal,sizes must be larger than zero\". Can anyone tell me what is wrong with the code ? Edit : Below are my GetGeoTransform() and GetGeoProject() outputs of my tif file, in case it's needed. PROJCS[\"WGS 84 / UTM zone 44N\",GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4326\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",81],PARAMETER[\"scale_factor\",0.9996],PARAMETER[\"false_easting\",500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH],AUTHORITY[\"EPSG\",\"32644\"]] [CODE]"
+ },
+ {
+  "question_id": 78253860,
+  "ym": "2024-04",
+  "creation_date": 1711950239,
+  "title": "Asynchronous scraper + Django",
+  "tags": [
+   "python",
+   "django",
+   "asynchronous",
+   "django-channels"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to create an application that displays information to the user from an asynchronous scraper. The scraper must work independently and continuously. The user, when visiting the desired page of the site, must automatically subscribe to the flow of an independently working scraper. For example: the scraper works using [code] . It collects, processes and sends processed data. The user has visited the site and should be able to see the data that the scraper gave during its last iteration. When the scraper again collected, processed and returned the data, the user’s data should be automatically updated, and so on in a circle. Unfortunately, I can’t show you the project code due to confidentiality. Next I will describe the methods that I found and tried to apply. All of them are somehow related to Django Channels and multiprocesses and threads. Which of these methods is the most correct and how to connect your scraper correctly? Maybe I missed some other method, I don't know. Multiprocessing, Pipe. It was suggested to create a separate script process (in my case, an asynchronous scraper) and use Pipe to pass this data to another script (in my case, Django View). Websockets. Create an WS stream and connect to it. SSE. This option seemed to me the most correct, since I do not need a two-way connection as in web sockets. I only need to update information on the client when upda"
+ },
+ {
+  "question_id": 78253976,
+  "ym": "2024-04",
+  "creation_date": 1711952828,
+  "title": "Why do not some code change the dtype of the pandas column?",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I tried to change the dtype of the string type column(with date) to datetime. So, initially the column type was 'object', and expected final dtype was datetime64. I tried this code for changing. [CODE] But the dtype of my_df['date'] is still 'object'. After checking that, I tried other code. [CODE] In this time, the dtype was changed! Why is this happened?"
+ },
+ {
+  "question_id": 78253997,
+  "ym": "2024-04",
+  "creation_date": 1711953212,
+  "title": "vision transformers: RuntimeError: mat1 and mat2 shapes cannot be multiplied (32x1000 and 768x32)",
+  "tags": [
+   "python",
+   "machine-learning",
+   "deep-learning",
+   "pytorch",
+   "transformer-model"
+  ],
+  "score": -2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to do Regression on the vision transformers model and I cannot replace the last layer of classification with the regression layer [CODE] I get this error when I try to initialize and run the model [CODE] The problem is that there is a mismatch between the regression layer and the vit_b_16 model layer, what would be the correct way to solve this issue"
+ },
+ {
+  "question_id": 78254013,
+  "ym": "2024-04",
+  "creation_date": 1711953692,
+  "title": "How to use SpaCy NER?",
+  "tags": [
+   "python",
+   "nlp",
+   "spacy",
+   "named-entity-recognition"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am working on a mini-project to cluster similar sentences together. Before I can achieve that, I have to perform pre-processing to the extremely dirty data (these data are all user inputs, free text). One of the pre-processing step that I thought of is to identify each sentence and classify it with a category. Even though it is free text, there are some key token per sentence such as \"LOOK\", \"REPLACE\", \"CHECK\". To classify each sentences, I looked into NLP and discovered SpaCy. One of the component in SpaCy, NER, seems like the perfect task for this. I believe my use case is that I do not need to use the full SpaCy pipeline for this classification. I also understand that I need to add in my custom labels into the NER. My question is - can I just add my custom label into SpaCy NER using [code] and run the NER onto my dataset without the having to re-train the SpaCy model? My end goal is to simply classify the sentences into a category, based on the keywords. This is quite unclear despite several days of researching. Greatly appreciate any clarification on this. TIA."
+ },
+ {
+  "question_id": 78254057,
+  "ym": "2024-04",
+  "creation_date": 1711954594,
+  "title": "@Class needs function but when add more than 0 parameters crashing",
+  "tags": [
+   "python",
+   "logging"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm coding a logger in python and right now I'm working on a logic which catches an unexpected error of a function. This is already working correctly, but now I wanted that there is an argument for a file path, to set up a log file. This is my code for an example usage: [CODE] And this is the catch function in a Logger class: [CODE] The error I'm getting is this: [CODE] Thanks for any help, cya!"
+ },
+ {
+  "question_id": 78254249,
+  "ym": "2024-04",
+  "creation_date": 1711957697,
+  "title": "How to solve a system of linear equations in Python with an iterative method?",
+  "tags": [
+   "python",
+   "list",
+   "matrix",
+   "sympy"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have a system of linear equations represented as strings in Python, and I need to find integer values (positive or negative) for each of the variables that satisfy all equations simultaneously without contradictions. The number of variables and equations can vary, so the solution should adapt accordingly. Here's an example of such a system of equations: [CODE] It is important to keep in mind that the program must adapt to the number of variables (Xi and Yj) or/and equations that there are, this is just an example, where we have 8 unknowns and 7 linear equations. For this example, one of the possible solutions where there are integer values that satisfy all the equations simultaneously (without contradictions), could be: [CODE] Note that if they manage to satisfy all the equations: [CODE] In the case of equations with the value of 0 it must necessarily be decomposed into 2 values equal in magnitude but of opposite sign (X2 and Y2 should have opposite values)"
+ },
+ {
+  "question_id": 78254250,
+  "ym": "2024-04",
+  "creation_date": 1711957699,
+  "title": "Connection error while using requests module in PyCharm",
+  "tags": [
+   "python",
+   "module",
+   "python-requests",
+   "connection"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to get the location of the ISS using an API. I imported Python's requests module and tried to use the ISS API using [code] , but I'm getting this error: Code: [CODE]"
+ },
+ {
+  "question_id": 78254310,
+  "ym": "2024-04",
+  "creation_date": 1711958826,
+  "title": "what would happen if the &quot;signal.signal&quot; function call is removed",
+  "tags": [
+   "python",
+   "multithreading",
+   "signals",
+   "multiprocess",
+   "sigchld"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have this legacy code and I'd like to add error handling to it. To my surprise, I found that the try and except did not work in it. After some debug, turns out it was because of the [code] code that made the main process to ignore the child exceptions. So in the original code, [code] would never be reached. I doubt if this was done correctly by the previous programmer and I'd like to remove the [code] line so that the [code] would work as expected. But I don't know if this would cause any trouble in handling the child process.(for example, zombie child process that I'm not aware of being created). Any suggestions on how to modify it? [CODE]"
+ },
+ {
+  "question_id": 78254332,
+  "ym": "2024-04",
+  "creation_date": 1711959162,
+  "title": "In python how to share a large data structure across modules (no copies)",
+  "tags": [
+   "python",
+   "pandas",
+   "module",
+   "global-variables"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am working on a prject where I use a Pandas dataframe, rather large, and I need to let several functions access it. So far I have used a single python script, where I create the dataframe as global to the script, and then define the various functions, which read and write from/to it. So far, so good. Now, the project is growing, and so is the number of functions, and I would like to split the project into several files (modules). The first idea is to let the dataframe to be global across the modules, and I have found some info on how to do it (I would still appreciate a comment on which is the best/most pythonic/most efficient way). However, I have rad that this is frown upon. So, what would be the best approach, taking into account that the dataframe can become quite large, so that making a copy local to each function, when called, would be inefficient? Thanks!"
+ },
+ {
+  "question_id": 78254372,
+  "ym": "2024-04",
+  "creation_date": 1711959840,
+  "title": "colab-error: subprocess-exited-with-error",
+  "tags": [
+   "python",
+   "deep-learning",
+   "artificial-intelligence",
+   "google-colaboratory"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "!pip install ecco This error originates from a subprocess, and is likely not a problem with pip. Downloading scikit-learn-0.23.2.tar.gz (7.2 MB) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.2/7.2 MB 39.6 MB/s eta 0:00:00 error: subprocess-exited-with-error × pip subprocess to install build dependencies did not run successfully. │ exit code: 1 ╰─> See above for output. note: This error originates from a subprocess, and is likely not a problem with pip. Installing build dependencies ... error error: subprocess-exited-with-error × pip subprocess to install build dependencies did not run successfully. │ exit code: 1 ╰─> See above for output. note: This error originates from a subprocess, and is likely not a problem with pip. Collecting ecco Using cached ecco-0.1.2-py2.py3-none-any.whl (70 kB) Requirement already satisfied: transformers~=4.2 in /usr/local/lib/python3.10/dist-packages (from ecco) (4.38.2) Requirement already satisfied: seaborn~=0.11 in /usr/local/lib/python3.10/dist-packages (from ecco) (0.13.1) Collecting scikit-learn~=0.23 (from ecco) Using cached scikit-learn-0.24.2.tar.gz (7.5 MB) Installing build dependencies ... done Getting requirements to build wheel ... done error: subprocess-exited-with-error × Preparing metadata (pyproject.toml) did not run successfully. │ exit code: 1 ╰─> See above for output. note: This error originates from a subprocess, and is likely not"
+ },
+ {
+  "question_id": 78254374,
+  "ym": "2024-04",
+  "creation_date": 1711959881,
+  "title": "Why is python running in 3.8.5 if I&#39;m using a Python 3.10 SDK?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "azure",
+   "ml-studio"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am trying to use Azure ML Studio for a project and am attempting to replicate a google colab '.ipynb' to rerun the code in my own compute instance. For this, I searched for someone that had a similar problem to my own here on stack overflow and followed the steps in the solution , which included going to the terminal and activating the 3.10 SDK environment. The code is running on python 3.10 in the google colab, and I am attempting to run the same code in my workspace but having issues with library compatibility. Lo and behold, my python version is still at 3.8.5 When I try this in a cell, I get [code] [CODE] When I try this though, I get [code] : [CODE] Recreated the steps from the aforementioned solution I restarted the kernel from the drop-down. I tried to open the jupyter notebook from 'Manage' > 'Compute' > 'Applications' > 'Jupyter notebook' And even tried creating a new notebook with the same conditions as in ML Studio. Selected the appropriate kernel, checked version again, only to continue to get 3.8.5 I was expecting the python version to be at 3.10 so I can run the code with its compatible version. Even still, I don't know what I am doing wrong or why the kernel won't execute the code in the expected python version. What can I do to ensure that I can run my python code in the 3.10 version already available in the kernel? Thank you"
+ },
+ {
+  "question_id": 78254396,
+  "ym": "2024-04",
+  "creation_date": 1711960206,
+  "title": "How do I choose individual colors for contours in matplotlib",
+  "tags": [
+   "python",
+   "matplotlib"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "In my short python code below I am plotting risk levels based on values in a csv file and using a shapefile. The code works, but I would like to select specific individual colors for each level, namely green, yellow, orange and red. Currently it works if I put \"Blues\", or \"Reds\" as in the attached png.[ . The line in the code [CODE] does not work. How do I specify individual specific colors. help will be appreciated. The risk data in \"Tmaxrisks.csv\" is as [CODE]"
+ },
+ {
+  "question_id": 78254412,
+  "ym": "2024-04",
+  "creation_date": 1711960432,
+  "title": "I want to extract only the graph parts from this image in python how do i go about it?",
+  "tags": [
+   "python",
+   "machine-learning",
+   "image-extraction"
+  ],
+  "score": -3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I want to extract the two graphs on the right hand side together nor seperately both can be extracted as one ( https://i.sstatic.net/RqwkB.jpg ) Im not sure what to try i am very new to this. I am using python and i hae extracted the text from the image and saved it in a csv [CODE]"
+ },
+ {
+  "question_id": 78254414,
+  "ym": "2024-04",
+  "creation_date": 1711960462,
+  "title": "How to solve this simple python problem, I don&#39;t know how to fix. There&#39;s some error I can&#39;t debug",
+  "tags": [
+   "python",
+   "while-loop"
+  ],
+  "score": -3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to make a simple guess the number game which the computer would randomly pick a random number then the user would input the correct number between 1 and 10 and there's a guess limit of 6. [CODE]"
+ },
+ {
+  "question_id": 78254422,
+  "ym": "2024-04",
+  "creation_date": 1711960518,
+  "title": "PermissionError: [Errno 13] Permission denied in a python program",
+  "tags": [
+   "python",
+   "encryption"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "when I run my python program I encounter an error saying:PermissionError: [Errno 13] Permission denied and I do not know why it is not working I was wondering if i could somehow elevate myself when running this program. I am using vscode and I am trying to encrypt some files. [CODE] I have not tried anything because I do not even know where to start"
+ },
+ {
+  "question_id": 78254479,
+  "ym": "2024-04",
+  "creation_date": 1711961303,
+  "title": "Running 10,000 SELECT queries against SQLite takes hours",
+  "tags": [
+   "python",
+   "sql",
+   "sqlite"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am using Python and the [code] lib to run around 10,000 SELECT queries against a single table. Running it locally on my not-high-spec-but-not-ancient laptop this is taking six or seven hours to complete. I created a composite index on the fields but that didn't make any difference. Here's the table and the query (the table is geolocation data for IP addresses, with the \"addresses\" being ints made by stripping the full stops): [CODE] [CODE] I'd expect it to take a while but not this long. Does the problem lie with Python, SQLite, me? Thanks. [EDIT] Looking at the query plan revealed that my index wasn't being used. I made separate indexes and that solves the problem. Thanks."
+ },
+ {
+  "question_id": 78254492,
+  "ym": "2024-04",
+  "creation_date": 1711961519,
+  "title": "&#39;Image&#39; object has no attribute &#39;shape&#39;",
+  "tags": [
+   "python",
+   "deep-learning",
+   "pytorch",
+   "data-augmentation",
+   "image-augmentation"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to implement prime augmentation on my dataset. Previously I was getting error raise ValueError('pic should be 2/3 dimensional. Got {} dimensions.'.format(pic.ndim)) ValueError: pic should be 2/3 dimensional. Got 4 dimensions. The first print gives the shape: img_prime shape: torch.Size([3, 3, 320, 320]), so I removed the first element which is probably the batch size, Then I converted the tensor array to numpy and transposed so that the shape becomes (320,320,3) i.e in a (H,W,C) format. [CODE] But now I am getting an error: [CODE] Whole trace of the error: [CODE] from dataset.py: [CODE]"
+ },
+ {
+  "question_id": 78254501,
+  "ym": "2024-04",
+  "creation_date": 1711961586,
+  "title": "How to disable application/json in Swagger UI autodocs of a FastAPI application?",
+  "tags": [
+   "python",
+   "swagger",
+   "fastapi",
+   "swagger-ui",
+   "media-type"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "My API can return only a file: [CODE] But in Swagger UI, I can see that [code] still remains. How to disable it?"
+ },
+ {
+  "question_id": 78254516,
+  "ym": "2024-04",
+  "creation_date": 1711961810,
+  "title": "Plane bestfit only gives parabola over scatterplot?",
+  "tags": [
+   "python",
+   "pandas",
+   "matplotlib",
+   "jupyter-notebook"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have plotted a bunch of data as a scatter plot on 3 axes. I used one way and got a parabola shape, which wasn't what I wanted, but the example given shows a distinct plane shape. I guess I am confused/don't know enough to properly diagnose what my issue is, because looking up and changing the equation only breaks the notebook. [code] and [code] in the code below is basically the data. [CODE] And when this plots, I get a very obvious red parabola. How would I get a plane?"
+ },
+ {
+  "question_id": 78254529,
+  "ym": "2024-04",
+  "creation_date": 1711961957,
+  "title": "How to setup datadog alerts without time intervals",
+  "tags": [
+   "python",
+   "amazon-web-services",
+   "logging",
+   "slack",
+   "datadog"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I want to create a datadog alert when a specific phrase is found in my logs, however when I create a monitor with the specific query I need, I must specify over what time period I want the query evaluated (which causes one notification when the log is spotted, and another notification when the interval elapses without the same log being spotted again). Is there a way to create a monitor such that when a specific log is spotted, I instantly get the first notification and not get any follow up notification?"
+ },
+ {
+  "question_id": 78254555,
+  "ym": "2024-04",
+  "creation_date": 1711962350,
+  "title": "RuntimeWarning: invalid value encountered in arcsin",
+  "tags": [
+   "python",
+   "numpy"
+  ],
+  "score": 0,
+  "answer_count": 4,
+  "is_answered": false,
+  "body_excerpt": "I have the following code: [CODE] I am receiving the following RuntimeWarning: invalid value encountered in arcsin that I do not understand why. Can someone please help me?"
+ },
+ {
+  "question_id": 78254579,
+  "ym": "2024-04",
+  "creation_date": 1711962723,
+  "title": "Import trained LSTM model on Streamlit",
+  "tags": [
+   "python",
+   "lstm",
+   "streamlit"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have trained a LSTM model on Colab and saved the model. Below is the code of my model: [CODE] Then, I load the model on Streamlit with the below code: [CODE] The trained model LSTM_model.keras and the streamlit app named main.py both are kept in same directory/path. I run the straemlit app by executing the below command from the same directory where the two files are kept. [code] But when I run the Streamlit app, I get the error: [CODE] When I run main.py, the model should successfully loaded so that I can use this model to predict"
+ },
+ {
+  "question_id": 78254582,
+  "ym": "2024-04",
+  "creation_date": 1711962773,
+  "title": "Correct matrix multiplication and 2D affine mapping using scipy",
+  "tags": [
+   "python",
+   "scipy",
+   "matrix-multiplication",
+   "affinetransform"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have two sets of 2D data [code] and [code] I have to assume that there is a 2×2 matrix [code] and a 2x1 column vector [code] such that: [code] With [code] being the Gaussian error (mean of 0 and variance of [code] ). My goal is to estimate the matrix [code] and vector [code] for which the sum of squared distances between [code] and the predictions is minimized. I am not sure how to do it in the right way. So far, that's what I've done: [CODE] In this implementation, I am not strictly sticking to the mathematics that I introduced before the code. I am doing [code] instead of [code] . The reason is that I am not sure how to implement it with column vector instead of row vectors. Anyway, is the result the same ? How could I modify my python code in order to implement exactly what I wanted to implement and be 100% consistent with the mathematics that I introduced earlier ? Secondly, I am not dealing with the Gaussian error in my code because I am not sure if I have to. Is it implicitly done in the minimize function of scipy ?"
+ },
+ {
+  "question_id": 78254631,
+  "ym": "2024-04",
+  "creation_date": 1711963520,
+  "title": "How do I move the next line (line 1125) separated from the preceding line (line 1124) in a csv file using python pandas?",
+  "tags": [
+   "python",
+   "csv",
+   "google-bigquery"
+  ],
+  "score": 1,
+  "answer_count": 3,
+  "is_answered": false,
+  "body_excerpt": "Image of CSV line taken in Notepad++ I tried searching online but couldn't find a similar problem or solution. I'm thinking about iterating through each row in the csv file. Please give me resources how I can solve this issue. Any answer is appreciated. Here is the given output of the log: [CODE]"
+ },
+ {
+  "question_id": 78254706,
+  "ym": "2024-04",
+  "creation_date": 1711964551,
+  "title": "’Certificate is missing required extension‘ error when using module cryptography.x509",
+  "tags": [
+   "python",
+   "cryptography",
+   "x509"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I was using module cryptography.x509 sign certificate,when I want to verify the server cert,I got this error: [code] ,what extension I miss? I'm new to this sign and certificate,so most code is copyed from x509 reference ,and it is just a demo,so all I want is make the verify work here is the code: generate cert part [CODE] verify part: [CODE] thanks! --orange"
+ },
+ {
+  "question_id": 78254737,
+  "ym": "2024-04",
+  "creation_date": 1711964970,
+  "title": "I get invalid token error when trying to verify id token with firebase",
+  "tags": [
+   "javascript",
+   "python",
+   "firebase",
+   "flask",
+   "firebase-authentication"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am trying to pass a token from my react app to the flask server so I can verify it. this is the flask route [CODE] and this is the react part [CODE] I checked if the userToken is type of string on both ends I printed in the console both tokens and they are both identical I printed the error from the exception, see it below, however my computer clock is set to automatic and it seems correct [code]"
+ },
+ {
+  "question_id": 78254757,
+  "ym": "2024-04",
+  "creation_date": 1711965258,
+  "title": "Create a Job in UC4 (Automic Workload Automation) scheduler to execute python script",
+  "tags": [
+   "python",
+   "workload-scheduler",
+   "automic",
+   "uc4"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I watched documentation on UC4 (automic automation) but couldn't find the help where I can create a job and execute my python script. I have developed on python script for web scrapping. This script doesn't required any input parameters. I want to create on job on UC4 in which this job will execute this python script. also I have to execute this python script. where I have to save this file in order to execute this script. because we have 4 environments for UC4. PS - I am using UC4 web interface version is \"Automic web interface 21.0.8\". I am very much new to UC4 hence step by step approach would be highly appreciated. Thank you !"
+ },
+ {
+  "question_id": 78254765,
+  "ym": "2024-04",
+  "creation_date": 1711965385,
+  "title": "Django custom user admin not reflected in admin site",
+  "tags": [
+   "python",
+   "django",
+   "django-custom-user"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am new to django and going through legacy django project where Custom user admin is configured with following: [CODE] [CODE] Also in app1.models.py, where [code] is further inherit from [code] . [CODE] In [code] : [code] There's no [code] in [code] folder. The problem here is that the [code] model is not associated with this particular [code] . Even if I remove this [code] in [code] the users are still displayed. Here's the admin interface for Users. As you see, the fields are also different from what is defined here: [code] Why is the custom user admin not working in this case?"
+ },
+ {
+  "question_id": 78254766,
+  "ym": "2024-04",
+  "creation_date": 1711965390,
+  "title": "multiple locks in Python",
+  "tags": [
+   "python",
+   "multithreading",
+   "python-multithreading"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "In my Python3.12 code I have three threads in which the first thread T1 is a consumer, the second thread T2 is a producer, and the third thread T3 is a logger. However, I have three additional variables N, P, and Limits in T2 manipulated by a function which are also manipulated by a another function in T3 as well. The question is what is the right approach in terms of number of locks and their manipulation in such a situation ? In other terms, do I need to have one ore more lock(s) to handle the 3 variables ? I have tried using one lock (Lock) but did not get the expected result. I am not sure if the following is accurate. Basically, thread T2 has to call the following method. [CODE] while thread T3 has to call this one. [CODE] So, I ended up in using a Lock before calling update_variables_1() and update_variables_2() in the respective threads."
+ },
+ {
+  "question_id": 78254889,
+  "ym": "2024-04",
+  "creation_date": 1711967019,
+  "title": "how to use asyncio.serve_forever() without freezing GUI?",
+  "tags": [
+   "python",
+   "sockets",
+   "tcp",
+   "python-asyncio"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to create GUI with pyqt5 for tcp communication. I have 2 different .py file one for GUI and one for TCP. tcp.py contains tcpClients and tcpServer classes which has a function called tcp_server_connect (can be found below) to create connection between client and server. GUI has a button called connect and i want to call the function tcp_server_connect when it is pressed. When I press it GUI freezes and not respond. There is no error. I think it is because of server.serve_forever() loop but I am not sure how to solve this problem. [CODE]"
+ },
+ {
+  "question_id": 78254902,
+  "ym": "2024-04",
+  "creation_date": 1711967182,
+  "title": "Raspberry Pi 3b solid freezes whilst compiling new version of python",
+  "tags": [
+   "python",
+   "raspberry-pi",
+   "compilation",
+   "freeze"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "appreciate your reading! As the title says model 3b (non plus) freezes during compilation at what always seems the same place during the make -j 4. Few points: Stuck with the 3b for now, so please do not recommend upgrade as its not an option right now (though is probably wise!) Possibly down to cooling maybe, i will be getting a full size heat sink in the coming weeks. But again for now im limited. So if potentially heat issue what are my BEST options? use less cores? or reduce the cpu hz? or both? Im not using an SD card but a usb3 (not a cheapo) memory stick. Could this be an issue? (stole the original sd for another project!) On a side note, is there any way (in easish steps) to compile the app on a windows machine then port across the executable and required files? Every time i look into installing toolchains etc for even just basic windows it gets messy. Either no full guide or tutorial, or the guides dont tell you what to do when things go wrong (couldnt even get a simple GTK install into VS2022 just error after error, tho the guides werent much help ,every one using different methods) Any guidance would be helpful. rpi 3b os raspberry pi os Bullseye legacy 64bit. Done the usual apt-get update upgrade etc Currently compiling again with just 2 cores to see but i dont hold any hope! Do not have any thing to paste of where it gets to yet, stupid i should of copied it, but i"
+ },
+ {
+  "question_id": 78254993,
+  "ym": "2024-04",
+  "creation_date": 1711968239,
+  "title": "How can I send TOO MANY requests to DIFFERENT sites and get responses?",
+  "tags": [
+   "python",
+   "python-requests",
+   "multiprocessing",
+   "grequests"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "How can I send a lot of requests to DIFFERENT sites, I have a database of sites (1kk) and need to check whether they are alive or not, conditionally if you just do it through grequests (Python) chunks of software (100 requests in 10 threads ~128second) it will take 12.5 days, but for me it's too long and I I am sure that this can be done much faster. Can you tell me what I can use in this case? I'm just collecting information about the main page of the sites. Here is my code, I want to improve it somehow, what can you recommend? I tried to throw every request into the stream, but it feels like something is blocking it, I will use a proxy so that my IP is not blocked due to more requests Help who can! [CODE]"
+ },
+ {
+  "question_id": 78255053,
+  "ym": "2024-04",
+  "creation_date": 1711968917,
+  "title": "My Skribbl.io inspired Game Is giving me an error on the console",
+  "tags": [
+   "python"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Im trying to make a skribbl.io based guessing game but it gave me an error Traceback (most recent call last): File \"/Users/kalybarly/Skribbl.py\", line 37, in print(f'Letter {word_place}: {letter_hint[word_place]}') IndexError: list index out of range [CODE] The intended output was: _ _ _ _ <- It will print _ to show how much letters there are in the word. ( Already Working but only when one guess is made which is not supposed to happen ) Word: Nintendo Word: Sega Sega ( if it says your word it means you are correct )"
+ },
+ {
+  "question_id": 78255078,
+  "ym": "2024-04",
+  "creation_date": 1711969200,
+  "title": "How can I customize django TextField for Inline Editor",
+  "tags": [
+   "python",
+   "django",
+   "django-forms",
+   "rich-text-editor",
+   "django-widget"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm developing an internet forum platform using Django and facing a challenge regarding the customization of the [code] to support inline editor without third-party editors such as TinyMCE or CKEditor. The objective is to empower users to compose rich content including code snippets, links, images, tables, and formatted text directly within the TextField. However, after I found a tutorial , I haven't found a clear solution for implementing inline editor functionality. I want to create inline editor that uses different special characters to display content in the browser. Could anyone point us an examples or documentation for customizing Django [code] to support inline editor?"
+ },
+ {
+  "question_id": 78255117,
+  "ym": "2024-04",
+  "creation_date": 1711969864,
+  "title": "Getting Assertion Error: col should be column while assigning a value to pyspark df",
+  "tags": [
+   "python",
+   "dataframe",
+   "apache-spark",
+   "pyspark"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am trying to assign some value to an empty dataframe but getting error: Getting Assertion Error: col should be column Refer the code below for reference- [CODE]"
+ },
+ {
+  "question_id": 78255143,
+  "ym": "2024-04",
+  "creation_date": 1711970294,
+  "title": "Ambiguous output with python and files",
+  "tags": [
+   "python",
+   "file"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I was testing how filestreams work in python and I wrote some code as follows: [CODE] Contents of test2.txt are as follows: [CODE] I ran the code and the output is as follows: [CODE] Someone please help me understand as to why [code] returns 18446744073709551623 and also why '\\n' has index 8 instead of 7 if we assume '5' to get index 6. Thank you in advance."
+ },
+ {
+  "question_id": 78255236,
+  "ym": "2024-04",
+  "creation_date": 1711971501,
+  "title": "Page.rect isn&#39;t the real page dimension with PyMuPDF 1.24",
+  "tags": [
+   "python",
+   "pdf",
+   "dimensions",
+   "pymupdf"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have the following PDF document: pixelated-image.pdf Which is generated printing an image with the default image viewer of Windows. And I try to draw a rectangle across the page border with this code: [CODE] But I get this file: https://github.com/pymupdf/PyMuPDF/files/14822508/pixelated-image-with-bounded-page.pdf Does someone know why the page.rect doesn't match with the real page size? I need to transform those dimensions somehow? Doing some tests, I've discovered that the real page dimension is more or less: [CODE] However, page.rect gives me the following dimension: [CODE] Thanks."
+ },
+ {
+  "question_id": 78255277,
+  "ym": "2024-04",
+  "creation_date": 1711971962,
+  "title": "RandomForest project",
+  "tags": [
+   "python",
+   "machine-learning",
+   "random-forest"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am very new and fresh to machine learning and this is my first project I am working on as part of a college course. I chose UK football (soccer) matches. I have chosen to use a Random Forest. Using different sources I have managed to get 20 years worth of data on said matches, clean the data and build my model. However, I am stuck. How do I actually get the model to make predictions for future matches? Thanks I've tried to load the model and then use a CSV file with only the Date, Home_Team and Away_Team columns populated, leaving the other columns blank for the model to predict these values - is this the correct way to do this? Update: Thanks - please see the code used to build the model; [CODE] New CSV for future predictions: [CODE] Updated CSV contains all of the same columns (with only Date, Home_Team and Away_Team columns populated as this is the only info currently available and the other columns wanting the model to make predictions for. But when attempting to get predictions for the new CSV, I get the following; \"Feature names must be in the same order as they were in fit.\\n\" ValueError(message) [CODE]"
+ },
+ {
+  "question_id": 78255340,
+  "ym": "2024-04",
+  "creation_date": 1711972811,
+  "title": "How to identify the attribute and dunder method in python object since they both start with double underscore?",
+  "tags": [
+   "python",
+   "object"
+  ],
+  "score": -2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am getting hard time in distinguishing between the identification of an attribute and dunder method that is related to object. see example below. [CODE] since [code] is an attribute while others are dunder method. How would i identify since starts with double underscore?"
+ },
+ {
+  "question_id": 78255426,
+  "ym": "2024-04",
+  "creation_date": 1711973856,
+  "title": "How To Make Custom Loss Function in Keras/Tensorflow",
+  "tags": [
+   "python",
+   "tensorflow",
+   "keras",
+   "loss"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I will briefly describe my issue and get to the point quickly. I am creating Jupyter notebook for classification prediction. I am using Keras Tensorflow for probability prediction. The classification nature is binary classification. My specific goal is to optimize the model for ROC AUC score. Here is my model definition. [CODE] This is snippet of code showing the configuration and fitting the model. As you can see the loss function is being set with method [code] . The \"custom_loss\" is the name of the function. The issue is I can't come up with such a function \"custom_loss\" that will meet my requirement for ROC AUC. The nature of the loss function is that the smaller the loss is the better the model performs. In this case I want to use rather NEGATIVE ROC AUC score. I have researched about how to setup the loss function. But I could not make it. This is what I have tried so far. [CODE] When I run it, I get this error. [CODE] I have used information from sources [like]( https://saturncloud.io/blog/creating-custom-loss-functions-in-kerastensorflow/ https://www.tensorflow.org/api_docs/python/tf/keras/Model#compile ). If you know how to do that, thanks for taking your time."
+ },
+ {
+  "question_id": 78255509,
+  "ym": "2024-04",
+  "creation_date": 1711975019,
+  "title": "Python Multiprocessing with mp.Manager().dict() is giving runtime error when constructed using class",
+  "tags": [
+   "python",
+   "multiprocessing",
+   "multiprocessing-manager"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have been researching but couldn't solve this one with the lack of documentation on multiprocessing.Manager().dict(). I'm trying to download tickers information from yahoo finance using multiprocessing and have constructed the class below: [CODE] And this class is used in main.py as below: [CODE] By the looks of it I'm able to start all the processes but each of them are giving me a runtime error as below: [CODE] I'm trying to get a dictionary in below format: [CODE] Am I missing something here? Thanks."
+ },
+ {
+  "question_id": 78255527,
+  "ym": "2024-04",
+  "creation_date": 1711975234,
+  "title": "Can&#39;t get sc.read_10x_mtx to read my data",
+  "tags": [
+   "python",
+   "typeerror",
+   "bioinformatics",
+   "scanpy"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a (hopefully) quick question for you this morning. Whenever I use the sc.read_10x_mtx (and below is my text block) I get the following error. [CODE] Using sc.read_10x_mtx and having my data properly import from 10x matrix software"
+ },
+ {
+  "question_id": 78255586,
+  "ym": "2024-04",
+  "creation_date": 1711975963,
+  "title": "Python 3.12.2 can&#39;t install Selenium 4.19 distribution package",
+  "tags": [
+   "python",
+   "selenium-webdriver"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I've installed Python (version 3.12.2) in my offline environment. I'm looking to install the latest version of Selenium (version 4.19) via distribution from the Selenium website and imported into my offline environment. Upon running \"pip install...\" to install Selenium I receive the error as highlighted below in the screen capture. I can't figure out the error or how to fix it. Does anyone have an idea what is causing this and what the solution is? I'm following the same method to install Selenium that I used previously for my Python version 3.10.2 and Selenium-3.141.0-py2.py3-none-any.whl distribution package. The \"pip install..\" syntax worked for that but now it's no longer working and I can't figure out why. Python Error"
+ },
+ {
+  "question_id": 78255628,
+  "ym": "2024-04",
+  "creation_date": 1711976432,
+  "title": "Scrape Google Search Results Python BeautifulSoup",
+  "tags": [
+   "python",
+   "web-scraping",
+   "beautifulsoup",
+   "google-search-api"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a query for google, which show me 8000 results with link, I only want to scrape links(urls) in search results, I am able to get first page links, Is there any method to scrape next pages. Here is my code [CODE]"
+ },
+ {
+  "question_id": 78255709,
+  "ym": "2024-04",
+  "creation_date": 1711977333,
+  "title": "Chi-square goodness of fit test Python SciPy",
+  "tags": [
+   "python",
+   "statistics",
+   "chi-squared",
+   "goodness-of-fit"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "in the SciPy Manual v1.12.0 https://docs.scipy.org/doc/scipy/tutorial/stats.html there is an example for the Chi-square goodness of fit test: [CODE] My question is, why do they use df=10 in \"crit = stats.t.ppf(quantiles, 10)\", and how to determine a proper value for df? Many thanks in advance. It's just a question regarding general understanding."
+ },
+ {
+  "question_id": 78255788,
+  "ym": "2024-04",
+  "creation_date": 1711978498,
+  "title": "python lambda function works in colab but not in jupyter for loop",
+  "tags": [
+   "python",
+   "pandas",
+   "for-loop",
+   "lambda"
+  ],
+  "score": -3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Code doesn't work as intended in jupyter notebook and I have just run the update request but much of my environment was at the latest version already (so don't think it is a version) here is the code (that is suppose to remove spaces and commas from strings in the specific column); [CODE] e.g. [code] goes to [code] jupyter executes the code with no errors reported but doesn't change the data. Colab runs perfect the first time. The same is needed for director column however here there is only one name ; e.g. [code] goes to [code] (or should!) I want to convert objects like director from a first name, last name to a joined firstnamelastname, similarly the actors, convert their full names into a single string (one for each actor) Here is the dataframe."
+ },
+ {
+  "question_id": 78255846,
+  "ym": "2024-04",
+  "creation_date": 1711979400,
+  "title": "Solving Constraints with Closed World Assumption in Z3 Solver",
+  "tags": [
+   "python",
+   "z3",
+   "solver",
+   "smt",
+   "z3py"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am working on a constraint satisfaction problem using the Z3 Solver in Python, where I need to solve a constraint of the form: [CODE] Given a set of facts, such as: [CODE] I want to apply the closed world assumption, meaning if something is not known to be true, it should be considered false, to find the only possible solution that satisfies both the given facts and the constraint. My goal is to do this without introducing extra information or assumptions beyond what's strictly provided. I'm currently unsure how to implement the closed world assumption effectively in Z3 to limit the solution space accordingly. Is there a way to instruct Z3 to operate under the closed world assumption directly, or would I need to model this assumption explicitly in my constraints? Any pointers or examples of how to achieve this with Z3 would be greatly appreciated. Initially, I attempted to manually specify everything not stated as True as False, but this approach proved to be too exhaustive and impractical for my purpose. It significantly increases the complexity and size of the problem without effectively leveraging Z3's capabilities."
+ },
+ {
+  "question_id": 78255915,
+  "ym": "2024-04",
+  "creation_date": 1711980183,
+  "title": "&quot;Pip install -r /code/requirements.txt&quot; inside docker raises error",
+  "tags": [
+   "python",
+   "docker",
+   "pip"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "So, I'm running this command inside docker image: [code] It raises following warning and after that the error: [CODE] If I'm installing [code] outside docker with command above all libraries are being installed, yet inside docker it causes the error. Full docker file: [CODE] What should I do?"
+ },
+ {
+  "question_id": 78255992,
+  "ym": "2024-04",
+  "creation_date": 1711981095,
+  "title": "PyTorch Geometric SAGEConv - Expected scalar type Long, but found Float?",
+  "tags": [
+   "python",
+   "types",
+   "pytorch",
+   "pytorch-geometric"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to implement graph neural networks from the torch_geometric library of model types. I am receiving an error: \"RuntimeError: expected scalar type Long but found Float\" in this line of the SAGEConv module: [CODE] I realize that there are similar questions on Stack Overflow, but I don't think that there is clear guidance regarding how to troubleshoot effectively in torch_geometric. I tried to reduce my problem to the simplest code possible: First, I import SAGEConv: [CODE] Then, I create very basic node and edge tensors for the graph: [CODE] Finally, I call my SAGEConv layer [CODE] I can't wrap my head around this because both \"x\" and \"ei\" variables are LongTensor type: [CODE] This has been driving me a little crazy. Any assistance with finding what I've done wrong would be extremely appreciated. In case of a version issue, here is my pip freeze for the packages: [CODE] Edit 1: I upgraded both [code] and [code] to the most recent versions and the error still exists. Though the message is now \"expected m1 and m2 to have the same dtype, but got: __int64 != float\""
+ },
+ {
+  "question_id": 78256090,
+  "ym": "2024-04",
+  "creation_date": 1711982584,
+  "title": "What exactly is recursion depth in Python?",
+  "tags": [
+   "python",
+   "recursion",
+   "sys"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "From my understanding, when a recursive function is executed in Python, a stack is created internally, containing the function's calls. I assumed that the recursion depth is the number of functions in this stack, but that doesn't seem to be the case. Consider the following pseudo-factorial function : [CODE] When we call [code] with the argument [code] , it should directly return [code] after going through the [code] conditional. If I set the max recursion depth to 3 using [CODE] And then I call , a [code] is raised. [CODE] Why does this happen? Shouldn't the stack contain just one call to [code] , which should then be popped, right as [code] returns [code] ? So, what exactly does recursion depth mean in Python?"
+ },
+ {
+  "question_id": 78256116,
+  "ym": "2024-04",
+  "creation_date": 1711982782,
+  "title": "I have problem uploading files to minio bucket using python app",
+  "tags": [
+   "python",
+   "flask",
+   "minio",
+   "minio-client"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Problem Description: I'm encountering an issue with file uploads to MinIO using Python code. When I upload files with the the Python script, the uploaded files appear in the MinIO bucket but have no size and cannot be opened. However, when I manually upload files, they are viewable and have a size. What I've Tried: Verified MinIO bucket settings: I have confirmed that the MinIO bucket settings are correct and that both manually uploaded files and files uploaded via the code are stored in the correct bucket. Checked content type: I'm setting the content type correctly using the get_content_type() function to ensure that the uploaded files are recognized correctly. Expected Outcome: I expect that files uploaded via the Python script should be viewable and have a size, similar to manually uploaded files. [CODE]"
+ },
+ {
+  "question_id": 78256137,
+  "ym": "2024-04",
+  "creation_date": 1711982942,
+  "title": "Keep websocket alive",
+  "tags": [
+   "python",
+   "python-3.x",
+   "websocket"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a websocket subscription watcher: [CODE] It works properly, but at some point it freezes and stops accepting responses. The [code] don't help, it just hangs indefinitely until a manual reboot. I understand that I need to insert a ping-pong function that will periodically check its performance. But I don't understand where and how to add a checker. How can I keep my websocket alive?"
+ },
+ {
+  "question_id": 78256155,
+  "ym": "2024-04",
+  "creation_date": 1711983210,
+  "title": "Mismatch in pytorch Hubber Loss calculation",
+  "tags": [
+   "python",
+   "deep-learning",
+   "pytorch",
+   "neural-network"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "So I have two matrices that I need to calculate the hubber loss, my predictions x and my labels y as follows: their shapes return respectively x.shape = torch.Size([16, 3]) y.shape = torch.Size([16, 3]) when I extract the zero values from the matrices with: [CODE] their shapes turn to torch.Size([47]) they lose one sample because it was null so their contents is as follows: [CODE] and [CODE] [CODE] when I calculate the loss from this I get the result tensor( 22.3675804138 , grad_fn=HuberLossBackward0) but for my needs, I must calculate the loss from each of the three classes separately, and I do it as follows [CODE] first I take out any number that is zero (as done before) and then I select each class, and calculate the loss from the three classes sum them, and then I divide them by the number of classes, resulting in the loss tensor( 22.1220340729 , grad_fn=DivBackward0), the print of the classes contents is as follows: [CODE] there is a difference of 0,2455463409 the losses even though all the numbers match, does anyone knows why this could be happening? Maybe some kind of rounding error? Or am I doing something wrong?"
+ },
+ {
+  "question_id": 78256159,
+  "ym": "2024-04",
+  "creation_date": 1711983221,
+  "title": "How can I make CTRL+C interrupt the script without closing Selenium WebDriver?",
+  "tags": [
+   "python",
+   "windows",
+   "selenium-webdriver",
+   "keyboardinterrupt"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "My Python script uses Selenium to automate a browser on Windows. I want to be able to interrupt the script by pressing CTRL + C . But even if I catch the exception, the WebDriver terminates on the interrupt: [CODE] When CTRL + C is pressed, the WebDriver window closes immediately. Any subsequent calls to driver methods raise a urllib3 exception. If I am using WebDriver in Python REPL and I need to terminate some function via interrupt, I don't want that to destroy my driver instance. Similarly when testing a longer automated process, I would like to be able to cancel execution manually if something goes awry but allow the browser window to remain open for debugging. I could use an instance of Remote WebDriver (via Selenium Grid) on my local machine as suggested here but I do not want to add complexity with managing the grid. The solutions mentioned here seem to only work on Unix. Is there a simple way to achieve this on Windows?"
+ },
+ {
+  "question_id": 78256167,
+  "ym": "2024-04",
+  "creation_date": 1711983324,
+  "title": "Indexing into torch tensor with variable length indices along an axis",
+  "tags": [
+   "python",
+   "pytorch",
+   "large-language-model"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to compute the word probabilities of a list of tokenized words according to a language model, and I need some fancy indexing. My inputs, illustrated with toy example below: token_list: n_words x max_tokenization_length (e.g., three words where the max tokenization length is 3) pxhs: n_words x (max_tokenization_length + 1) x |vocabulary|, (e.g. three words, four sets of logits for 3+1 tokens, and dimension 1000 vocab) next_word_token_ids: list of tokens that constitute a new word (e.g., all tokens that start with a space character). [CODE] Desired output is a length 3 list of word probabilities computed as follows: [CODE] In practice, I want to index by replacing the first pad_token_id with the new word token ids, and then nothing (this doesn't work as an index, just illustrating): [CODE] I wrote a very slow function that does this: [CODE] I need something faster, thanks in advance for your help!"
+ },
+ {
+  "question_id": 78256183,
+  "ym": "2024-04",
+  "creation_date": 1711983559,
+  "title": "Whether the missing value depends on other feature/variable or not",
+  "tags": [
+   "python",
+   "dataframe",
+   "null",
+   "relationship",
+   "missing-data"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am solving a data science problem. In which I have 20 features thos are dateCrawled: Date the car was crawled. (Date) name: Name of the car. (String) seller: Type of seller (private or dealer). (String) offerType: Type of offer (e.g. sale, repair, etc.). (String) price: Price of the car. (Integer) abtest: Test type (A or B). (String) vehicleType: Type of vehicle (e.g. SUV, sedan, etc.). (String) yearOfRegistration: Year the car was registered. (Integer) gearbox: Type of gearbox (manual or automatic). (String) powerPS: Power of the car in PS. (Integer) model: Model of the car. (String) kilometer: Kilometers the car has been driven. (Integer) monthOfRegistration: Month the car was registered. (Integer) fuelType: Type of fuel (e.g. diesel, petrol, etc.). (String) brand: Brand of the car. (String) notRepairedDamage: Whether or not the car has any damage that has not been repaired. (String) dateCreated: Date the car was created. (Date) nrOfPictures: Number of pictures of the car. (Integer) postalCode: Postal code of the car. (Integer) lastSeen: Date the car was last seen. (Date) from the above features [code] having missing. I want to know whether the missing value of [code] depends on any other missing value feature or not, if depends than what to do next. Also, I want to find the relationship between the features for example => model depends on brand or not, vehicleType depends "
+ },
+ {
+  "question_id": 78256202,
+  "ym": "2024-04",
+  "creation_date": 1711983815,
+  "title": "Stored procedure asynchronous execution: NotImplementedError: Async query is not supported in stored procedure yet",
+  "tags": [
+   "python",
+   "asynchronous",
+   "stored-procedures",
+   "snowflake-cloud-data-platform"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to use the async job function in Python worksheet to test the asynchronous feature. But I'm getting an error NotImplementedError: Async query is not supported in stored procedure yet The same code I'm using in the Snowflake stored procedure. How to fix this error to achieve asynchronous execution?"
+ },
+ {
+  "question_id": 78256223,
+  "ym": "2024-04",
+  "creation_date": 1711983980,
+  "title": "How, in Python 3, can I have a client open a socket to a server, send 1 line of JSON-encoded data, read 1 line JSON-encoded data back, and continue?",
+  "tags": [
+   "python",
+   "json",
+   "python-3.x",
+   "sockets"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have the following code for a server listening on a port: [CODE] I am attempting to connect to it with the client below: [CODE] When I try to connect with the server I get the following stacktrace: [CODE] What changes should I be making to the above code in the client and/or server so the client sends a single line of input containing a JSON string and the server, after constructing the output, returns a single line of output containing a JSON string of output which the client can parse and work from there? I am in the process of porting an application to Python 3. I would like a character encoding of UTF-8."
+ },
+ {
+  "question_id": 78256229,
+  "ym": "2024-04",
+  "creation_date": 1711984063,
+  "title": "AttributeError: &#39;NoneType&#39; object has no attribute &#39;next&#39;; looked through multiple articles with the same error",
+  "tags": [
+   "python",
+   "python-3.x",
+   "doubly-linked-list"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I created a simple Doubly Linked List, with an append method and a str () that is supposed to return the elements present in the list. Here is the code; [CODE] When I execute this, it returns \"AttributeError: 'NoneType' object has no attribute 'next'\" I removed the condition [CODE] And it works as expected, which is quite strange. I have created lists before and this has never happened to me. Am I doing something wrong? Thanks in advance!"
+ },
+ {
+  "question_id": 78256240,
+  "ym": "2024-04",
+  "creation_date": 1711984230,
+  "title": "How to specify path in import_module function to dynamically import modules?",
+  "tags": [
+   "python",
+   "dictionary",
+   "python-importlib"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a class that should dynamically import a module depending on a parameter passed to the class's constructor. I'm doing this by using a dictionary where the keys are the possible parameter values, and the values are [code] functions. In this function, I cannot figure out how to get the module name and the package name to agree with each other and work properly. Here's my file structure: [CODE] The [code] file contains the class that contains the dictionary with the import statements. In [code] I run a tkinter GUI that imports the [code] class when submitted. Here's what the dictionary in the class looks like: [CODE] From my understanding, this should look in the [code] folder for the [code] module inside the [code] folder. I've checked [code] to make sure this folder is being searched. I've tried rearranging where I put the [code] part of the path, but this seems to be the proper way to call this. I've also tried [code] in place of [code] . The error I get says [code] . What am I doing wrong here?"
+ },
+ {
+  "question_id": 78256241,
+  "ym": "2024-04",
+  "creation_date": 1711984234,
+  "title": "Cannot find a solution for the CodeHS Phone Book Problem",
+  "tags": [
+   "python"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Write a program that keeps a dictionary of names and their corresponding phone numbers. Repeatedly ask the user for a name. Then, do one of the following three things, depending on what they enter: If they enter nothing, exit the loop. If they enter a name that exists as a key in your dictionary, simply print the corresponding phone number. If they enter a name that is NOT in your dictionary as a key, ask the user for a phone number, and then put the name and phone number in your dictionary. Print out the final dictionary. My solution works the intended way but for some reason it wont work for both sides of the CodeHS's check sheet to see if it is deemed correct in their algorithms eyes. I have tried pretty much everything I could think of as I am not the best coder but I can never get a solution that satisfies the interpreters needs. The boxes I'm trying to check off both have the same name; that being, \"You should print the phone number for names who already exist in the dictionary\". Please keep in mind I'm relatively new to Python. Any and all help is appreciated! [CODE] I have tried relentlessly to get this problem fixed and have had no avail."
+ },
+ {
+  "question_id": 78256263,
+  "ym": "2024-04",
+  "creation_date": 1711984485,
+  "title": "How to load the RetrievalQA model from a file?",
+  "tags": [
+   "python",
+   "langchain",
+   "large-language-model",
+   "retrievalqa",
+   "langchain-together"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "The model is saved to a file now how can I load the model again and use it to make predictions? To save the model I followed the steps mentioned in the doc . [CODE]"
+ },
+ {
+  "question_id": 78256304,
+  "ym": "2024-04",
+  "creation_date": 1711985032,
+  "title": "Why is apache-tvm available for python 3.10 but not python 3.12?",
+  "tags": [
+   "python",
+   "pip",
+   "apache-tvm"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "The package I want to install is [code] . I checked it doesn't specify python version in pypi: https://pypi.org/project/apache-tvm/ I can use pip to install it in python 3.10: [CODE] But in python 3.12, pip can't find the package: [CODE] I want to know why pip doesn't work in higher version. It may caused by some version check, but I can't find it on pypi project page."
+ },
+ {
+  "question_id": 78256329,
+  "ym": "2024-04",
+  "creation_date": 1711985323,
+  "title": "What is the correct syntax for a Python function/method argument when it has more than one possible type hints?",
+  "tags": [
+   "python",
+   "python-typing"
+  ],
+  "score": 0,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "[CODE] What is the correct type hint for the [code] argument of this function? According to documentation : path may be a path-like object. If path is of type [code] (directly or indirectly through the PathLike interface), the type of the name and path attributes of each [code] will be [code] ; in all other circumstances, they will be of type [code] . So, it can either be a [code] or [code] object representing a path, or an object implementing the [code] protocol. How do I write these possibilities for the type hinting?"
+ },
+ {
+  "question_id": 78256333,
+  "ym": "2024-04",
+  "creation_date": 1711985354,
+  "title": "Protecting workbook using openpyxl",
+  "tags": [
+   "python",
+   "excel",
+   "openpyxl"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am trying to protect an excel workbook using openpyxl. [CODE] So far, my code has boiled down to this. I don't get any errors and the new protected_raw_data.xlsx file gets created but there is no protection on the workbook when I open it. Does openpyxl only protect new workbooks and not existing workbooks? Any insight would be greatly appreciated."
+ },
+ {
+  "question_id": 78256362,
+  "ym": "2024-04",
+  "creation_date": 1711985631,
+  "title": "When run onnx with CUDAExecutionProvider, it raise &quot;FAIL : Failed to load library libonnxruntime_providers_cuda.so with error&quot;",
+  "tags": [
+   "python",
+   "linux",
+   "artificial-intelligence",
+   "onnx",
+   "onnxruntime"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "[CODE] I use following cmd find the not found so [CODE] I guess it's because env PATH issue, how to set PATH to let python onnx find libonnxruntime_providers_cuda.so I try to locate the so, the so exist and manually add so dir to LD_LIBRARY_PATH, the err still exist [CODE] following is my full onnx code: [CODE]"
+ },
+ {
+  "question_id": 78256389,
+  "ym": "2024-04",
+  "creation_date": 1711985979,
+  "title": "Chromadb from_documents function giving error",
+  "tags": [
+   "python",
+   "langchain",
+   "chromadb"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "The following function was working till a few days ago but now gives this error: ValueError: Expected EmbeddingFunction._ call _ to have the following signature: odict_keys(['self', 'input']), got odict_keys(['args', 'kwargs']) Please see https://docs.trychroma.com/embeddings for details of the EmbeddingFunction interface. Please note the recent change to the EmbeddingFunction interface: https://docs.trychroma.com/migration#migration-to-0416---november-7-2023 I am not sure what changes are necessary to work with this. [CODE] docs.trychroma.com/migration#migration-to-0416---november-7-2023"
+ },
+ {
+  "question_id": 78256468,
+  "ym": "2024-04",
+  "creation_date": 1711987083,
+  "title": "Directory PermissionError: [Errno 13] Permission denied - Python",
+  "tags": [
+   "python",
+   "error-handling",
+   "permission-denied",
+   "roboflow"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to run a python program on PyCharm. When I try to access a directory I tranferred from Roboflow that has a trained model for image detection it gives PermissionError: [Errno 13] Permission denied: 'F:\\ProjetosPython\\pythonProject\\license_plate_detector_model.pt' The program uses [code] , I've tried using VSCode it gives the exact same error I also tried on a different computer, exact same problem This is how I call the directory I updated it to the full path just to make sure I have changed the permissions on pretty much every single file/directory in the project here This is the full project directory ls I've also tried changing the python interpreter, reinstalling PyCharm, reinstalling Python in general, changing the default windows python. The program does run with no issue once I remove the access to the directory... so I'm thinking it's probably something to do with a specific roboflow file?"
+ },
+ {
+  "question_id": 78256497,
+  "ym": "2024-04",
+  "creation_date": 1711987489,
+  "title": "Using already deployed Snowflake UDF from snowpark",
+  "tags": [
+   "python",
+   "snowflake-cloud-data-platform",
+   "user-defined-functions"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "So I have a prebuilt and predeployed set of Python UDFs that I would like to use from within a snowpark program. I defined the UDFs in SQL: [CODE] Now I want to leverage those UDFs from snowpark python dsl. Something like: [CODE] Is there a way to do this, or am I required to redefine dg_utility__field_contains_phone_number within my snowpark program? I want to be able to share UDFs between SQL and python. I think I could just use session.sql, but that would require me to generate dynamic SQL against the dataframe I want to apply these functions to and I'm looking to avoid that."
+ },
+ {
+  "question_id": 78256542,
+  "ym": "2024-04",
+  "creation_date": 1711988082,
+  "title": "How to solve the problem &quot;Insufficient privileges to complete the operation.&quot; calling Azure API with a token (Python script)",
+  "tags": [
+   "python",
+   "azure",
+   "azure-active-directory"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am trying to create a script in Python that, using a token that I have obtained thanks to the help of Microsoft: https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-client-creds-grant-flow#get-a-token , allows me to authenticate in the Azure portal and be able to make a GET call to obtain the information of one or more users. I can get the token with a script just providing tenant, [code] and [code] but then when I call the API with the token, I get an error. This is the piece of code, just the function, that provides me the .json with the info I need: [CODE] I get this error: [CODE] I tried other scripts, I've seen videos and I have this error again and again. Is it maybe because I do need to apply any police or change any API permission for this access via token?"
+ },
+ {
+  "question_id": 78256559,
+  "ym": "2024-04",
+  "creation_date": 1711988287,
+  "title": "AttributeError: module &#39;flax.traverse_util&#39; has no attribute &#39;unfreeze&#39;",
+  "tags": [
+   "python",
+   "attributeerror",
+   "jax",
+   "flax"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to run a model written in jax, https://github.com/lindermanlab/S5 . However, I ran into some error that says [CODE] I tried to replicate this error by [CODE] And the error reads: [CODE] I'm using: [CODE] I think this is an issue relating to the version of flax, but does anyone know what exactly is going on? Any help is appreciated. Let me know if you need any further information"
+ },
+ {
+  "question_id": 78256623,
+  "ym": "2024-04",
+  "creation_date": 1711989209,
+  "title": "Is there an option to deploy streamlit application without using any cloud platform?",
+  "tags": [
+   "python",
+   "deployment",
+   "cloud",
+   "streamlit"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a developed streamlit application for company's internal usage and relies a bit on the VPN connection for resources and networks. However, due to confidentiality protocols enforced by the company, they are prohibiting the usage of GitHub, Docker, Heroku or any other cloud platform. I am seeking guidance on alternative strategies to circumvent the reliance on the clould platform. Any links or resources would be useful. Application is fully developed via python/streamlit. Need a alternative approach for deployment other than Cloud platforms."
+ },
+ {
+  "question_id": 78256627,
+  "ym": "2024-04",
+  "creation_date": 1711989308,
+  "title": "Firestore .get() Method Times Out in Firebase Function Despite High Resources",
+  "tags": [
+   "python",
+   "firebase",
+   "google-cloud-firestore",
+   "google-cloud-functions"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm encountering an issue with a Firebase Cloud Function that is intended to read a list of task IDs from Firestore and return them. Despite the Firestore document being small and increasing the function's resources, the function consistently times out when attempting to fetch the document using the [code] or [code] method. Below is the function's code: [CODE] Few milliseconds after the function is called, it logs the [code] correctly but times out without logging [code] . The only log I get before the timeout is: [CODE] Could someone help identify what I might be missing or suggest why the Firestore function interactions are experiencing such significant delays? Are Firebase functions interacting with Firestore inherently slow, or could there be another issue that I'm missing? Here are some additional details: The Firestore user document is very small, with less than 10 fields (mostly strings and numbers), and one of the fields is [code] , a list of strings. There is only one user in Firestore! and that user has the right uid! I've increased the function's resources to 8 CPUs and 4GB of memory and set the timeout to 300 seconds, but the issue persists. My Firestore security rules are set to allow read and write for all documents: [CODE]"
+ },
+ {
+  "question_id": 78256629,
+  "ym": "2024-04",
+  "creation_date": 1711989350,
+  "title": "Apply style on different columns from different rules through a for loop",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I try to highlight different columns from a DataFrame with different lists of words as references. If I chain the [code] to the Styler object, it works, but if I apply successively the [code] through a for loop, it highlights both columns with the last list of words. [CODE]"
+ },
+ {
+  "question_id": 78256632,
+  "ym": "2024-04",
+  "creation_date": 1711989398,
+  "title": "Using python to query splunk and get SID - error 404",
+  "tags": [
+   "python",
+   "splunk"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have this query (below): When I run this query in Splunk web, I get back SID and get data using SID. When I use curl command, I get back SID and get data using SID. But when I use Python, I get SID in the response with status code 201. [CODE] I get back the SID. But when I use the SID to get the results, I get error 404, [code] [CODE] #aquery.txt contents below. [CODE]"
+ },
+ {
+  "question_id": 78256679,
+  "ym": "2024-04",
+  "creation_date": 1711989902,
+  "title": "Why does Python&#39;s multiprocess use all cores if I am telling it not to?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "multiprocessing",
+   "python-multiprocessing"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am running a script that includes [CODE] There are 128 cores in my server. However, even though I create a pool with just 50 of them, when I run [code] in the terminal I see that all 128 cores are being used by my script, and each at 100% usage. Why is this happening? I thought only [code] cores could be used my script. Or does this depend on what [code] is actually doing?"
+ },
+ {
+  "question_id": 78256688,
+  "ym": "2024-04",
+  "creation_date": 1711990024,
+  "title": "Python to sort nested XML alongside unsorted siblings",
+  "tags": [
+   "python",
+   "xml",
+   "sorting",
+   "elementtree"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I need to sort the \"line\" elements of the following sample XML with Elementtree by reqdate (desc - most recent to oldest). [CODE] The result I'm looking for is the following. [CODE] The use case is that this is being sent to a printer that uses the order in the XML and the lines need to print in this order. I'm playing around with the sorted function and lambda sort but haven't figured it out."
+ },
+ {
+  "question_id": 78256773,
+  "ym": "2024-04",
+  "creation_date": 1711990989,
+  "title": "No overlapping Scheduling using CP-SAT in OR-Tools",
+  "tags": [
+   "python",
+   "algorithm",
+   "or-tools",
+   "cp-sat",
+   "constraint-satisfaction"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "can anyone help me on how can I prevent overlapping in my scheduling, the scheduling must be no overlap in terms of room assignment [CODE] I tried this but it only constraints for time [CODE] this is the output C:\\Users\\Admin\\project\\last>python main.py (0, 0): Instructor: 0 Schedule 1 - Room: 0, Day: 0, Time: 3-6 Schedule 2 - Room: 1, Day: 3, Time: 0-2 (0, 1): Instructor: 0 Schedule 1 - Room: 1, Day: 0, Time: 6-8 Schedule 2 - Room: 1, Day: 3, Time: 5-6 (1, 2): Instructor: 1 Schedule 1 - Room: 0, Day: 0, Time: 0-3 Schedule 2 - Room: 1, Day: 3, Time: 2-4 (1, 3): Instructor: 1 Schedule 1 - Room: 1, Day: 0, Time: 8-10 Schedule 2 - Room: 1, Day: 3, Time: 4-5 (2, 0): Instructor: 0 Schedule 1 - Room: 0, Day: 0, Time: 3-6 Schedule 2 - Room: 1, Day: 3, Time: 0-2 (2, 1): Instructor: 0 Schedule 1 - Room: 1, Day: 0, Time: 6-8 Schedule 2 - Room: 1, Day: 3, Time: 5-6 (3, 2): Instructor: 1 Schedule 1 - Room: 0, Day: 0, Time: 0-3 Schedule 2 - Room: 1, Day: 3, Time: 2-4 (3, 3): Instructor: 1 Schedule 1 - Room: 1, Day: 0, Time: 8-10 Schedule 2 - Room: 1, Day: 3, Time: 4-5"
+ }
+]

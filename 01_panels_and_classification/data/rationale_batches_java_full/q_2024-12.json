@@ -1,0 +1,1567 @@
+[
+ {
+  "question_id": 79240778,
+  "ym": "2024-12",
+  "creation_date": 1733017382,
+  "title": "Row-Level Locking for Concurrent Processing in Java",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "multithreading",
+   "jpa"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a table called [code] where I process messages received over time. I am running a Java Spring Boot application deployed across multiple instances and JVMs. When a message with a specific [code] is picked for processing, I set its status to [code] . I want to ensure that no other instance or thread picks up the same rows while they are being processed. Essentially, I need to lock the rows with the same [code] so that only one instance can process them at a time. Other instances should wait if the rows are in the [code] state and retry after the processing is completed. The goal is to make other instances wait while the [code] state is active and allow them to process the message only after the status changes. I am using Java JPA and Hibernate, and I do not have shared caching between the instances. Is there a way to achieve this using pessimistic locking? Table structure example: id message status time x hello processing 11-12-24:11:08:09Z x boy processing 12-12-24:11:08:09Z y hi completed 12-12-24:11:08:09Z z me initial 12-12-24:11:08:09Z"
+ },
+ {
+  "question_id": 79240927,
+  "ym": "2024-12",
+  "creation_date": 1733028350,
+  "title": "Dynamic SQL clause with SQL IN operator",
+  "tags": [
+   "java",
+   "sql",
+   "google-bigquery"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have an SQL template file that has the following clause: [CODE] Here is an issue, when value of [code] is say [code] , query becomes [CODE] This is perfect. And in my JAVA code I use [code] to replace the [code] with desired value and also have [code] as provided in the string values. The issue is when I have multiple values, say I have [code] and [code] . Then my code translates this to [CODE] As it is obvious, the first boolean condition syntax is invalid. I am trying to do this because in my use case [code] at times is part of the filter clause and at times it is not. How do I get around this? I can modify the template but don't know how/what to modify to get to solve this."
+ },
+ {
+  "question_id": 79241027,
+  "ym": "2024-12",
+  "creation_date": 1733034811,
+  "title": "SimpleDateFormat working on Non-English Locale(Nepali or Devnagari)",
+  "tags": [
+   "java",
+   "locale",
+   "simpledateformat",
+   "non-english"
+  ],
+  "score": 3,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I am having confusion on understanding the following piece of code: [CODE] The value stored in [code] [code] is Nepali language equivalent of \"2024-11-30 12:51:46\". I assumed that the above piece of code would throw an exception, but to my surprise, the code works perfectly. The output of the program is [code] How does it work?"
+ },
+ {
+  "question_id": 79241531,
+  "ym": "2024-12",
+  "creation_date": 1733055766,
+  "title": "How to batch transaction in Java Neo4J API using CALL { } IN TRANSACTIONS?",
+  "tags": [
+   "java",
+   "neo4j",
+   "transactions"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am developing a Java application using Neo4j version 5.20.0 ( [code] ) and I want to save a list of Person objects in the database. Currently, I have a method for creating nodes that uses a single large transaction: [CODE] However, I am saving a large number of nodes, and during the operation, I encounter the following error: [CODE] I understand that this is related to the data volume and transaction size. My goal is to break this process into smaller transactions to avoid such issues. I know that in Cypher there is a CALL { ... } IN TRANSACTIONS statement that allows processing data in batches. Is it possible to implement a similar logic in Java code? If so, how can I do that?"
+ },
+ {
+  "question_id": 79241538,
+  "ym": "2024-12",
+  "creation_date": 1733055957,
+  "title": "How do i solve this error Object optimistic locking failure exception in java",
+  "tags": [
+   "java",
+   "spring-boot",
+   "spring-data-jpa"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am having object optimisitic locking failure exception, in my model i have post, users, comment , message, email, and status. In the post service i implemented the logic to creatpost, edit, delete etc and in the user service i called the post service and find the post by it's id, i check for the user by it's id and then create a list of post and add the post and return the post response when i run my test it throw this exception. I tried to put @transaction to manage all transaction and i also added @version to the post model but it's still did'nt work This is the test [CODE] Below is the implementation: [CODE] Below is the stack trace: [CODE]"
+ },
+ {
+  "question_id": 79241654,
+  "ym": "2024-12",
+  "creation_date": 1733059374,
+  "title": "Failing JWT Authentication in spring with async requests",
+  "tags": [
+   "java",
+   "spring",
+   "asynchronous",
+   "spring-security"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Hello everyone I wrote an api Backend in Spring and added jwt Authentication. The problem is that I wrote everything async and now the Authentication doesnt work with the async methodes. The token is right and works with non async methodes. It looks like there are two requests but there is only one. Those are the logs: [CODE] and this is the code: [CODE] My async config: [CODE] [CODE] My filter: [CODE] I tried with a delegatingSecurityContextAsyncTaskExecutor in the AsyncConfig but this didn't work."
+ },
+ {
+  "question_id": 79241715,
+  "ym": "2024-12",
+  "creation_date": 1733061465,
+  "title": "OkHttp first call to execute method returns unreadable characters",
+  "tags": [
+   "java",
+   "okhttp"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "On first call [CODE] All subsequent calls are processed correctly [CODE] Request code [CODE] The response comes from SharePoint In Postman it works correctly right away"
+ },
+ {
+  "question_id": 79241725,
+  "ym": "2024-12",
+  "creation_date": 1733061592,
+  "title": "How to Enable Keyboard Navigation in a Non-Focusable JPopupMenu in Java Swing?",
+  "tags": [
+   "java",
+   "jframe",
+   "jpopupmenu"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am working with a JPopupMenu in Java Swing and need to allow users to navigate through the menu using the up/down arrow keys. However, I am setting the JPopupMenu to be non-focusable (popupMenu.setFocusable(false)) to prevent it from receiving focus itself. When the JPopupMenu is non-focusable, I am unable to capture keyboard events (like up/down arrow keys) to navigate between the JMenuItems. The up/down keys don't seem to work, and I can only interact with the menu using the mouse. How can I enable keyboard navigation for a JPopupMenu that is non-focusable? Specifically, how can I allow up/down arrow key navigation and selection (with Enter) for menu items in a JPopupMenu without making the entire menu focusable? [CODE]"
+ },
+ {
+  "question_id": 79241838,
+  "ym": "2024-12",
+  "creation_date": 1733065317,
+  "title": "How to handle frequently changing group counts?",
+  "tags": [
+   "java",
+   "mysql",
+   "spring-boot"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am facing a problem, don't know the best practice. The Problem: When new data is created, one of its field either be group X or group Z. Group counts must be balanced after some time. Like we can assign to Group Z if last one was Group X. Z-X-Z-X.. should be fine. We can count the Z and X and then assign the new one to a group, but in this way everytime I create new data, I have to count X and Z group on database. We can use cache but it seems bad practice because counts are changing frequently. What is the best option?"
+ },
+ {
+  "question_id": 79241883,
+  "ym": "2024-12",
+  "creation_date": 1733066634,
+  "title": "How to show more items in DatePicker Android?",
+  "tags": [
+   "java",
+   "android",
+   "xml",
+   "datepicker"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a date picker: [CODE] and it looks like this: result I get I am trying to make next two and previus two dates visible. It shoudl look like this: wanted result"
+ },
+ {
+  "question_id": 79242026,
+  "ym": "2024-12",
+  "creation_date": 1733071224,
+  "title": "Error in updating client list in server UI FXML",
+  "tags": [
+   "java",
+   "user-interface",
+   "javafx",
+   "server",
+   "fxml"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm working on a simple client-server project. The function of it doesn't really matter because I'm having a problem with the client list in my server UI. It uses FXML and has a listView to list the clients IP address but it doesn't update when a new client is launched. I tried a bunch of methods to approach this but I would love some help here. I've given the codes below. If what I've provided is not sufficent please let me know and I'll update this post. [CODE] This is my server side code and when a new client is connected it does print out to the console a new client is connected but like I mentioned the ListView in the UI doesn't update. Here's my controller and the FXML codes: [CODE] When a new client is connected \"clientListView is initialized.\" is printed in the console. Here's the FXML file of the server UI: [CODE]"
+ },
+ {
+  "question_id": 79242045,
+  "ym": "2024-12",
+  "creation_date": 1733071900,
+  "title": "Read password protected .doc file with Java",
+  "tags": [
+   "java",
+   "encryption",
+   ".doc"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have been reading password protected .docx files with org.apache.poi.poifs.filesystem.POIFSFileSystem as follows [CODE] This works just fine. Now I need the equivalent for a .doc file. The above code fails since there is no such thing as EncryptionInfo in a .doc file. Ive explored the following options: Aspose.Words: This seems to be the best option, its licensed OpenOffice / UnoAPI: it works locally, but I can not install OpenOffice in prod JODConverter: does not support password protected .doc Am I missing something here? reading a .doc file with Java sounds like a very simple thing to do, any ideas ? Thanks!"
+ },
+ {
+  "question_id": 79242062,
+  "ym": "2024-12",
+  "creation_date": 1733072452,
+  "title": "IntelliJ IDEA getter template Optional return value not output",
+  "tags": [
+   "java",
+   "intellij-idea"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to create a code template which is a modified default template for a getter, which would return Optional of the member. The code I have is shown below: [CODE] However when using this, the Optional<> is not output and just the field type: [CODE] Any ideas as to what I'm doing wrong?"
+ },
+ {
+  "question_id": 79242110,
+  "ym": "2024-12",
+  "creation_date": 1733073853,
+  "title": "Regex for replacing chars that appear two times or more in java",
+  "tags": [
+   "java",
+   "regex",
+   "string",
+   "char"
+  ],
+  "score": 0,
+  "answer_count": 4,
+  "is_answered": true,
+  "body_excerpt": "I am doing exercises online and came across a question that tasked me with removing all the characters that appeared in the string 2 or more times. For example: [CODE] would become \"e\", and [CODE] would become \"\", and [CODE] would become \"He wrd\" I know there are other solutions, but I'm wondering if there is a regex for this. I tried a few different things: [CODE] and a few other, but all seems to replace the entire string, and I only want to replace all chars that appear more than one time. So, is there a regular expression for this?"
+ },
+ {
+  "question_id": 79242206,
+  "ym": "2024-12",
+  "creation_date": 1733076867,
+  "title": "How to show border with double line and alpha color in JavaFX WebView / WebKit?",
+  "tags": [
+   "java",
+   "css",
+   "javafx",
+   "webkit"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I need a border with double line and alpha color in WebView. This is my code: [CODE] And this is the result: If I use [code] I get Could anyone say how to do it, if it is possible? PS. [code] returns this version: Mozilla/5.0 (Linux x86_64) AppleWebKit/617.1 (KHTML, like Gecko) JavaFX/23 Safari/617.1."
+ },
+ {
+  "question_id": 79242258,
+  "ym": "2024-12",
+  "creation_date": 1733078401,
+  "title": "How can I make sure that a String variable is set before the panel switch?",
+  "tags": [
+   "java",
+   "swing",
+   "nullpointerexception"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I want to make a quiz game using Java. I used panels to display different \"stages\" of the quiz (more like different interfaces) and I used cardLayout to navigate through those panels (each panel is in a different file). I have a panel called [code] in which, basically, there are a few buttons with subjects one can choose from. Pressing one of those buttons leads to another panel, [code] , in which there are two buttons, a \"Practice\" button and a \"Test\" one. Each of those buttons, if pressed, will open their respective panels and the quiz will finally start. The thing is, I want all the questions and options to be imported from a [code] file. This would work just fine if I use only one [code] , but I've made a [code] for each of the subjects that the player can choose from, and based on which button is pressed in the [code] , I want the questions to be imported from its corresponding [code] . I've tried to compact the code as much as I could, so I've made a version of the quiz that does not really do what it should do (it actually does not work much and it looks quite bad), but that's not the point. It's to see where the problem might be. So: [CODE] The [code] file: [CODE] I've thought of making a shared class, that every other class can access, which looks like this: [CODE] Then there is [code] : [CODE] Then there is [code] for the two modes, test and practice: [CODE] The [code"
+ },
+ {
+  "question_id": 79242264,
+  "ym": "2024-12",
+  "creation_date": 1733078585,
+  "title": "How can I teleport a player to the Nether?",
+  "tags": [
+   "java",
+   "minecraft",
+   "minecraft-forge"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm new at Minecraft Modding and I created a simple mod that checks if the player is in The End when they log in, if not they are teleported to a random coordinate there. I was trying to develop the same mod but to teleport the player to the Nether but I keep getting the \"Invalid Player Data\" error. Could anyone help me? The event log in for the End Dimension: ​ [CODE] The code with the Nether Version: [CODE] I tried several ways to use the changeDimension() function or teleport the player without doing any verification and I still get the same error"
+ },
+ {
+  "question_id": 79242282,
+  "ym": "2024-12",
+  "creation_date": 1733079561,
+  "title": "I can not login via using Spring Security form login",
+  "tags": [
+   "java",
+   "spring",
+   "spring-security"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to implement form login using spring security and a custom login page. But I am getting [code] during login. [CODE] My User implentation [CODE] This exception is occuring when spring is trying to reach [code] method. When I look at it with a debugger I can see that all of the child entities are giving same exception as can be seen from the picture below. All of the separete entites are giving the same error. When I searched from the internet it said this could be due to entities fetch type being lazy but they are eager in my code. Also in the internet they were talking about it not being transaction but my user class has transactional annotation at the beginning. I am also adding my Authorities class for conveniance. [CODE] I also checked if this is a recurring problem in other parts of my code or is it only during spring security login and I found out everything is working out as expected. During the registration process I used debugger to see if I can reach my user instances can access and they can as it can be seen in the picture below. Clearly connections are working as expected in my code but for some reason when springsecurity is trying to authenticate users it can not access them. I am not sure if my spring security config is needed so I am adding it too and my [code] is allowed. [CODE] I do not now what do or what to search for anymore so any help is appreci"
+ },
+ {
+  "question_id": 79242435,
+  "ym": "2024-12",
+  "creation_date": 1733085774,
+  "title": "Database Connection using OAuth2 Token",
+  "tags": [
+   "java",
+   "spring-boot",
+   "jdbc",
+   "oauth-2.0",
+   "snowflake-cloud-data-platform"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am working on a Spring Boot project where I need to connect to Snowflake db using OAuth2 token which expires in every 10 min. Does Spring Boot has any simple approach to achieve the same ? My Approach: I've made a custom class that extends HikariDataSource and managing connection and creating new connection every time token expire. [CODE]"
+ },
+ {
+  "question_id": 79242512,
+  "ym": "2024-12",
+  "creation_date": 1733088263,
+  "title": "How can you build a URI in Java that has a path segment fully URL encoded?",
+  "tags": [
+   "java",
+   "uri",
+   "spring-resttemplate"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to call the GitLab Repository File API ( https://docs.gitlab.com/ee/api/repository_files.html ) It states that the file path is part of the URL path and it should be url encoded. When i try to use RestTemplate.getForObject and pass in the built url as a string it re-encodes the encoded path segment... [CODE] This calls [code] aka double encoded.. Ok then i try to build a URI and pass that in instead of the String. [CODE] This approach builds the URI [code] AND the RestTemplate.getForObject does not re-encode it! However that [code] in the URI is still not encoded... Not even sure why i tried this one but ofc it doesn't work.. [CODE] This results in a URI [code] A double encoded [code] character!!! To be clear the desired URI is [code]"
+ },
+ {
+  "question_id": 79242659,
+  "ym": "2024-12",
+  "creation_date": 1733096006,
+  "title": "Springboot Oauth2 Principal object",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "spring-security",
+   "oauth2resourceserver"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I use springboot3 with spring-boot-starter-oauth2-resource-server. I can receive Jwt object using @AuthenticatedPrincipal in controller and I have access to jwt data in method access-control annotations like @PreAuthorize: [CODE] Is there any way to deal with custom principal object in @PreAuthorize and @AuthenticationPrincipal like here: [CODE] MyPrincipal: [CODE] I would like to add such ability if no easy way to implement it in current Spring Security implementation. From developer side it would be enough to add MyPrincipal, JwtPrincipal, and a bean: [CODE] P.S. Correct answer from spring security author can be found here"
+ },
+ {
+  "question_id": 79242966,
+  "ym": "2024-12",
+  "creation_date": 1733113824,
+  "title": "I am trying to create UI framework using selenium java but facing issue in initiating webdriver not sure whether this is advisable to do",
+  "tags": [
+   "java",
+   "selenium-webdriver"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I'm creating a Selenium automation framework using java. When passing WebDriver from LoginPage back to BasePage, I got an error so I'm using [code] in BasePage. Not sure of the correct way to do this. [CODE]"
+ },
+ {
+  "question_id": 79243113,
+  "ym": "2024-12",
+  "creation_date": 1733120377,
+  "title": "How to Run Liquibase Updates Programmatically in Version 4.29 with Rollback Support?",
+  "tags": [
+   "java",
+   "spring-boot",
+   "liquibase",
+   "database-versioning"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm currently using Liquibase version 4.29 in my Spring application and I want to run Liquibase updates programmatically instead of via the command line. I have enabled Liquibase with the property liquibase.enabled=true , and while the migration scripts run successfully when I start my application, I am encountering issues with rollbacks. When I run migrations using the Liquibase command line interface (CLI) and then perform a rollback using liquibase rollback , it works as expected. However, when I see that Liquibase runs the scripts when I start the Spring application, the rollback does not work as expected; it returns \" 0 changes rolled back. \" I've noticed that the liquibase.update() method has been deprecated. The documentation suggests using the following approach: [CODE] Given that update() is deprecated, what is the recommended way to execute Liquibase updates programmatically while ensuring that: Liquibase migrates the scripts successfully, or else the Spring application fails to start if the migration fails. Rollbacks work correctly, similar to the CLI. Any guidance or examples would be greatly appreciated!"
+ },
+ {
+  "question_id": 79243178,
+  "ym": "2024-12",
+  "creation_date": 1733122318,
+  "title": "Snakeyaml loadAll, modify data, then dumpAll",
+  "tags": [
+   "java",
+   "yaml",
+   "snakeyaml"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to use snakeyaml to read a yaml file, modify some values, and then write it to another file. I hava multiple documents in 1 file (divided by [code] ) so I need to use [code] to read the file and then [code] to write it, my issue is I can't get this to work but a simple [code] and [code] works fine (of course I had to remove the multiple documents and keep one only) Here is the working code using just [code] and [code] if the yaml contains one document only. [CODE] Now here's my implementation when trying to use [code] and [code] , where once I do [code] all I get is an empty file. [CODE]"
+ },
+ {
+  "question_id": 79243302,
+  "ym": "2024-12",
+  "creation_date": 1733125510,
+  "title": "How to persist entities in @ManyToMany relationship with @EmbeddedId",
+  "tags": [
+   "java",
+   "spring",
+   "hibernate"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am using Spring Boot 3. I have 2 entities in @ManyToMany relationship: Meeting (table name is 'meeting') and Document (table name is 'document'), the relationship table is 'relation_document_meeting'. What I want to do is, when I save a new Meeting and a related new Document (both of them have no ID), Hibernate will create 2 new records, 1 in 'meeting' and 1 in 'document', as well as a new record in 'relation_document_meeting'. Below is my entities: Entity Meeting: [CODE] Entity Document: [CODE] Entity RelDocumentMeeting (the relationship entity) [CODE] The EmbeddedId [CODE] Now, when I do persist a couple of new Meeting and Document (both have no ID), it throws an error [CODE] How I'm adding meeting [CODE] Is there anyway to do it? Or I have to persist one side of relationship first?"
+ },
+ {
+  "question_id": 79243495,
+  "ym": "2024-12",
+  "creation_date": 1733130993,
+  "title": "java.lang.LinkageError: loader constraint violation in interface itable initialization for class org.slf4j.helpers.BasicMarkerFactory",
+  "tags": [
+   "java",
+   "spring",
+   "jboss",
+   "slf4j"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am getting this error while deploying a spring application xapp WAR in JBOSS EAP 8 server. after migrating application from jboss eap7 to jboss eap 8, jdk 11 to 17 and spring 5 to spring 6. I am using versions: JDK 17, spring framework 6.1.9, SLF4J 2.0.7.redhat-00002. slf4j: [CODE] esapi: [CODE] below is the error: [CODE] below are the esapi configs [CODE] can anyone help me resolve this error?"
+ },
+ {
+  "question_id": 79243520,
+  "ym": "2024-12",
+  "creation_date": 1733131442,
+  "title": "Getting 403 Forbidden from Cloudflare when accessing FlightRadar24 API using Java RestTemplate",
+  "tags": [
+   "java",
+   "spring-boot",
+   "httprequest",
+   "flightradar24-api"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to access the FlightRadar24 API using Java and Spring's RestTemplate, but I'm receiving a 403 Forbidden error from Cloudflare. What I'm trying to achieve: According to the FlightRadar24 API documentation, I want to retrieve flight data by: Using the base URL https://fr24api.flightradar24.com/api . Sending my API token in the Authorization header as a Bearer token. Setting the API version in the Accept-Version header to v1. Making a GET request to the appropriate endpoint. My Code: [CODE] The Error I'm Receiving: When I run my application, I get the following exception: [CODE] It appears that Cloudflare is blocking my request, and instead of the expected JSON response, I receive an HTML page. Additional Information: I'm using Java 21 and Spring's RestTemplate. It seems that Cloudflare is detecting and blocking my request as automated traffic. The API documentation specifies that the API token should be sent in the Authorization header and that the API version should be specified in the Accept-Version header. My Question: How can I successfully send a request to the FlightRadar24 API from my Java application without being blocked by Cloudflare? Is there a way to configure RestTemplate (or another HTTP client) to access the API despite Cloudflare's protection mechanisms, given that I have legitimate API credentials? Any help or suggestions would be greatly appreciated. "
+ },
+ {
+  "question_id": 79243543,
+  "ym": "2024-12",
+  "creation_date": 1733131831,
+  "title": "Why does the AudioRecord output only zeros?",
+  "tags": [
+   "java",
+   "android",
+   "backend",
+   "audio-recording"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am using Java Android AudioRecorder (Code as below). When I start recording, rms is normal value larger than 0. Several seconds after recording, rms only gets 0.0 value, which means audioBuffer is a zero buffer. How can I fix it? Thanks. [CODE] And here is a more detailed version of my code: [CODE] I have logged the rms. At the beginning it is normal value larger than 0. Then suddenly it becomes 0."
+ },
+ {
+  "question_id": 79243566,
+  "ym": "2024-12",
+  "creation_date": 1733132430,
+  "title": "How to configure RequestLog for multiple webappcontext in jetty12",
+  "tags": [
+   "java",
+   "eclipse",
+   "jetty",
+   "handler",
+   "jetty-12"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "[code] has been removed from jetty12, we should configure Server.setRequestLog for request logging. But with this setup we cannot seperate request logs per different webappcontext and all the requests will be logged to a single file. Any suggestions on how can we achieve this, it would be a great help. Thank you. Note : we used WebAppContext.insertHandler(RequestLogHandler) in jetty10 and jetty11 to achieve the above setup. I tried configuring as below. But the RequestLog doesn't belong in a WebAppContext configuration and its creating a new server instance and couldn't log the requests. This should be done at startup of the Server. Please look into the below code snippet. Example.xml [CODE] Findings : Using RequestLog, we cannot seperate the requestlogs based on the WebAppContext. There's no webapp specific RequestLog support. Requirement : I want to record request logs per webappcontext, If there is any workaround kindly share."
+ },
+ {
+  "question_id": 79243672,
+  "ym": "2024-12",
+  "creation_date": 1733134948,
+  "title": "Tomcat fails to start due to error in tomcat-users.xml configuration",
+  "tags": [
+   "java",
+   "eclipse",
+   "tomcat",
+   "tomcat9"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "yesterday tomcat was working properly in my machine on eclipse , today tomcat failed to start even tho i didn't change anything i was trying to run my JEE project on the tomcat server but it failed to run and then i tried to run the tomcat server alone after that i closed the project and it still doesn't run , and when i wanted to check for probelms there were an error in the settings file tomcat-users.xml the error is cvc-elt.1.a: Cannot find the declaration of element 'tomcat-users'. the general configuration what's in the settings file"
+ },
+ {
+  "question_id": 79244010,
+  "ym": "2024-12",
+  "creation_date": 1733141002,
+  "title": "Can Mockito actually mock the deep inner function return?",
+  "tags": [
+   "java",
+   "spring-boot",
+   "junit5"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "My code is somewhat \"modular\", each module is reused by many other modules. So, I want to test the [code] : [CODE] Then here's [code] : [CODE] The 2 APIs return different values, and that's what I want to mock, because I want to ensure the behavior of processing data on my end keep the same every auto test goes, unless there's changes. Also, there's some mappings / process from [code] to [code] How can I mock the [code] 's values on the 2 [code] methods when testing from the [code] class?"
+ },
+ {
+  "question_id": 79244033,
+  "ym": "2024-12",
+  "creation_date": 1733141443,
+  "title": "How to get the name=value pairs of all loaded properties files in a SpringBoot application",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "properties",
+   "environment-variables"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I work with a SpringBoot application which has a lot of .properties files in several different directories. The directories are listed using: [code] and then within those, there are profiles pointed to by the [CODE] This causes a problem when either a key is repeated in multiple places (which one is being used???), or when multiple properties files have the same name (which one overrides which????). What I want to do is have my app. output ALL key-value pairs on startup (when a debug flag is set!) from all application.properties or application-XXX.properties files it is reading from. This doesn't seem to be as simple as I thought it would be. I've researched this on StackOverflow and elsewhere, but the closest I can find is this: Is there a way to get list of loaded properties file in SpringBoot application? I've been playing with the code in that question for a while but I can only make it give me the value of any given key , not the list of ALL key-value pairs. This must have been done before? Or is there a security reason why it is blocked?"
+ },
+ {
+  "question_id": 79244078,
+  "ym": "2024-12",
+  "creation_date": 1733142249,
+  "title": "Is there openapi generator for java that can generate a specific endpoint and related components from a large specification?",
+  "tags": [
+   "java",
+   "openapi",
+   "openapi-generator",
+   "openapi-generator-maven-plugin"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have an openapi file version 3.0.1 consisting of about 1000 lines (generated automatically in a large monolithic project). I want to generate a client for java for one specific endpoint. At the same time, I don’t want to generate all the endpoints and components as this will increase the size of the final jar file too much. I also didn’t want to manually remove all endpoints except the one needed, since the file is very large and perhaps in the future integration with other endpoints will be needed. Is there any way to do this? I saw this question Generate only one specific endpoint from API but it only explains how to generate a separate endpoint. But with this approach, all models are generated. I would like the necessary models to be determined themselves"
+ },
+ {
+  "question_id": 79244149,
+  "ym": "2024-12",
+  "creation_date": 1733143670,
+  "title": "Input Field value passed by using selenium disappears",
+  "tags": [
+   "javascript",
+   "java",
+   "selenium-webdriver"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "An input field deletes the value after it's entered using SendKeys via JS in Selenium. The value appears briefly, then disappears. How to fix this? I am using Java with selenium & maven. [CODE] I have tried multiple xpath. Selenium Sendkeys method. Sendkeys by Mouse Actions. Tried Resetup of whole project."
+ },
+ {
+  "question_id": 79244189,
+  "ym": "2024-12",
+  "creation_date": 1733144408,
+  "title": "How to convert format to java properly",
+  "tags": [
+   "java",
+   "decimalformat"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have a code line like this [code] My unitPrice before above line : 2.1450000000000000000000000000000 After [code] my unitPrice : 2.145 But my unitPrice before the line like that : 271.4050000000000000000000000000000 After [code] then my unitPrice : 271.40 How it is works ? I have to convert this line to java but every time I get different values. I tried [code] and [code]"
+ },
+ {
+  "question_id": 79244216,
+  "ym": "2024-12",
+  "creation_date": 1733144893,
+  "title": "Log4j2 RollingFile configuration is not working with efs ( elastic file system ) for SizeBasedTriggeringPolicy policy",
+  "tags": [
+   "java",
+   "logging",
+   "log4j",
+   "log4j2",
+   "amazon-efs"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to implement the RollingFile policy, but rolling is not executed even though the log file size is more than 50MB. The log files are on efs. The current version of Log4j is 2.17.1 . [CODE]"
+ },
+ {
+  "question_id": 79244232,
+  "ym": "2024-12",
+  "creation_date": 1733145241,
+  "title": "Questions about how to collect modules",
+  "tags": [
+   "java"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Question Example I have the following code: [CODE] I am trying to collect the import modules used in this code. Some of these modules don't seem to be available on GitHub or in the usual repositories. Where can I find them, or what are the correct dependencies I need to add?"
+ },
+ {
+  "question_id": 79244233,
+  "ym": "2024-12",
+  "creation_date": 1733145256,
+  "title": "How to document custom APIs in a Keycloak extension using Swagger/OpenAPI?",
+  "tags": [
+   "java",
+   "swagger",
+   "keycloak",
+   "quarkus",
+   "openapi"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm developing a custom Keycloak extension and want to expose custom APIs as part of Keycloak's endpoints (e.g., [code] ). Additionally, I want to document these APIs using [code] and serve the [code] for them, similar to how Keycloak's admin API is documented. I followed these steps: Created a [code] resource for the custom API. Registered the resource using a [code] and [code] . Added the [code] and [code] dependencies to the extension's [code] . Tried adding [code] OpenAPI-related properties (e.g., [code] ) in a new [code] file inside the extension. However, the APIs work but the Swagger/OpenAPI documentation does not show up. The [code] is not recognized, and Swagger UI is not accessible at [code] or [code] . Ensured that the extension was correctly deployed and the custom API worked at [code] . Verified dependencies for [code] and [code] in the [code] . Despite these efforts, [code] and [code] documentation are not generated or accessible."
+ },
+ {
+  "question_id": 79244239,
+  "ym": "2024-12",
+  "creation_date": 1733145337,
+  "title": "How to use agent-embedder-maven-plugin to add javaagent for tests in a spring-boot project",
+  "tags": [
+   "java",
+   "spring-boot"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a spring-boot project where I want to enable loadTimeWeaving for entityManagerFactory. I know that I can create a bean of [code] like below. [CODE] and it works well when I add [code] . Command [CODE] There are two problems with the above approach- I have to hardcode the version managed by spring-boot-starter-parent. Adding javaagent at multiple deploy scripts as well as IDE config. I came across agent-embedder-maven-plugin where I can embed javaagent as below. [CODE] But it doesn't work while running the tests and I have to manage two configs Explicitly use javaagent for test Use plugin for executing jar for deployment How can I use agent-embedder-maven-plugin for running tests as well? Currently, I am running test by adding configuration to surefire plugin like below - [CODE] Edit - Additionally, At time test code do not enable weaving, causing tests to fail. I have added a GitHub repo ( link ), and pull request ( link ) that is causing issues for further help."
+ },
+ {
+  "question_id": 79244322,
+  "ym": "2024-12",
+  "creation_date": 1733147170,
+  "title": "Spring auto redirect to auth/login but l want redirect to successful.html how l fix it",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "spring-security"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have a registration form in register.html that sends a POST request to the [code] endpoint. After submitting the form, I want to redirect the user to [code] instead of [code] . However, it is automatically redirecting to /auth/login instead of [code] . File [code] [CODE] my Authencation redirect controller for html File [code] [CODE] there is my user controller, file [code] [CODE]"
+ },
+ {
+  "question_id": 79244357,
+  "ym": "2024-12",
+  "creation_date": 1733147833,
+  "title": "What are the alternatives to SecurityManager for sandboxing untrusted code in Java?",
+  "tags": [
+   "java",
+   "security",
+   "jvm",
+   "sandbox"
+  ],
+  "score": 6,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I’ve been working on a project that involves dynamically loading and executing third-party code. Obviously, this is inherently risky, and I need a way to sandbox the code and limit its permissions. Java’s SecurityManager has been useful (despite its complexity), but with it being deprecated and eventually removed, I’m left scrambling for alternatives. Here’s the issue. I need to restrict what this dynamically loaded code can do. For example, it should only be able to access certain directories or communicate with specific IPs or domains. SecurityManager allowed me to enforce these kinds of restrictions at the JVM level. Without it, I’m not sure how to achieve this anymore. I’ve thought about using Docker or Podman, but those aren’t practical for my needs. Docker is too heavy since it requires a service running in the background, and I need something lightweight that can run on end-user machines without any extra setup. Podman is lighter but doesn’t work across all platforms. My project has to support Linux, Windows, and macOS. So, here’s what I’m looking for. I need a way to sandbox code in a lightweight and cross-platform manner. Ideally, it would integrate with Java or a similar high-level, compiled language. The solution shouldn’t require root privileges or external dependencies like Docker, and it needs to be secure enough to restrict file system and network access for untr"
+ },
+ {
+  "question_id": 79244404,
+  "ym": "2024-12",
+  "creation_date": 1733148837,
+  "title": "Making database work with a Dockerized Java Spring application",
+  "tags": [
+   "java",
+   "database",
+   "docker",
+   "hibernate",
+   "spring-mvc"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I would like to run my containerized Java Spring application which runs completely fine on my machine (of course, lol). I have a problem with the JPA database connection. What stumps me is that this also happens all the same when using just the H2 in-memory database. Here is the error in the Docker container: [CODE] I have tried using all the help, including several AIs, for no avail so far. This is my Dockerfile: [CODE] This is my docker_compose.yaml: [CODE] I have tried using both the containarized database at port 5435 and the native localhost database on port 5433. Both to no avail unfortunately, I always receive the same error. And I've also tried the in-memory database as mentioned. Here goes my application.properties: [CODE] Here goes the full updated code in a GitHub repo: https://github.com/jaroslavchladek/kurabu.info Kindly please for Your help. Any idea why this might happen? Thanks."
+ },
+ {
+  "question_id": 79244407,
+  "ym": "2024-12",
+  "creation_date": 1733148907,
+  "title": "Liquibase update stuck on &quot;Executing on Database: database url&quot;",
+  "tags": [
+   "java",
+   "maven",
+   "liquibase"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am quite stuck with a problem with liquibase. I am trying to connect to my oracle db and run my liquibase changelog. The command I am running is as follows: [code] It runs just fine, but gets stuck on the line \"Executing on Database: database url\" . I added debug flag to the command and it shows, that liquibase actually gets stuck on \"Changelog query completed.\" . Please help me fix it. Thank you! (Sorry for my english, I am not native) I tried using terminal to run the command, but the outcome is still the same. I also tried checking connection to the database and it works just fine! As I wrote above I tried adding the debug flag and it resulted in some progress I also tried googling, but didn't find any help"
+ },
+ {
+  "question_id": 79244514,
+  "ym": "2024-12",
+  "creation_date": 1733151017,
+  "title": "Define a object to be unique in a Set, irrespective of order of List elements within the given object",
+  "tags": [
+   "java",
+   "arraylist",
+   "set",
+   "equals",
+   "hashcode"
+  ],
+  "score": -2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a Class B defined as below --> [CODE] In my code, I am using below logic to identify duplicate(non-unique) elements of object type B --> [CODE] Need to find unique B type elements, irrespective of order of list elements in object B e.g. suppose 1 instance of object B(B1) is as below -> [CODE] Another instance of object B(B2) is as below -> [CODE] Now, I want B1 and B2 to be same in above set -> add() operation, where we find unique elements. So B1 and B2 will be non-unique. In order to achieve this how should I define hashcode() and equals() methods for class B?"
+ },
+ {
+  "question_id": 79244551,
+  "ym": "2024-12",
+  "creation_date": 1733151810,
+  "title": "How to set up a java module to run directly (not via a .jar file) without having to specify a main class",
+  "tags": [
+   "java",
+   "module",
+   "program-entry-point"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "How does one set up a java program that can be run as a module simply by doing [code] ? I know this is possible because I have seen it in, e.g., the jwebserver documentation; you can run this by doing [code] . However there doesn't seem to be any evidence in the jdk source code about specifying the 'main' class of the module at any point, neither in the [code] file, nor in any of the main-containing classes of the module (of which there are two, not one). How does the module know which main-containing class to pick as the main entry point for running the module? Is there some sort of convention that's not well documented? (e.g. if a package in the module contains a class called [code] , is this special in any way? and should there only be one Main.java file over all packages in the module?) In https://dev.java/learn/modules/intro/ there's an example of a module run without specifying the main class in the commandline, but it just says: To launch a modular app, run the java command with a module path and a so-called initial module - the module that contains the main method but without clarifying how this main method (and its respective class/package) is detected or specified for the module as the specific package/class to be used as the main entry point; and there's no requirement for a module's packages to not have more than one such main-containing class. Please note the quest"
+ },
+ {
+  "question_id": 79244572,
+  "ym": "2024-12",
+  "creation_date": 1733152074,
+  "title": "How to stop service&#39;s process when service has been stopped?",
+  "tags": [
+   "java",
+   "android",
+   "kotlin"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have a startable service which is bound to separate process. When service has been started a process is born. But when service was stopped the process still alive and consuming RAM. How to kill this process correctly? Is it correct to call exitProcess(0) from a onDestoy method of the service?"
+ },
+ {
+  "question_id": 79244591,
+  "ym": "2024-12",
+  "creation_date": 1733152380,
+  "title": "SLF4J doesn&#39;t find provider from logback-classic on vertx",
+  "tags": [
+   "java",
+   "maven",
+   "logback",
+   "slf4j",
+   "vert.x"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to add Logback on a Vertx project, but it seems SLF4J can't see logback even if itself come from a logback dependency. I used maven dependency logback-classic, which transitively imports slf4j-api and logback-core. When I run a simple main class with random log I have the following error: [CODE] My pom.xml: [CODE] The running class: [CODE] I run it with the IntelliJ run tool which silently run (I have shorten paths with '...'): [CODE] My logback.xml file: [CODE] I didn't find any dependencies conflict or duplication. OpenJdk22 is used. I expect to get logback logs at runtime Edit: Thanks to @Ceki answer, it appear that the problem was with IntelliJ, the logback-classic jar was not provided in the classpath generated run command, after an IntelliJ cache clean and a restart the problem was solved. Now logback-classic is provided in classpath and it work as expected."
+ },
+ {
+  "question_id": 79244614,
+  "ym": "2024-12",
+  "creation_date": 1733152798,
+  "title": "Use Web View with Android Automotive?",
+  "tags": [
+   "java",
+   "android",
+   "android-webview",
+   "android-automotive"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "is it possible to use Web View with Android Automotive? I am developing an Android app for Android Automotive in which I want to use a Web View. According to some sources, that doesn´t work with Android Automotive. However, when I use the Automotive emulator I can still use a Web View properly. Does anyone have any experience with that?"
+ },
+ {
+  "question_id": 79244810,
+  "ym": "2024-12",
+  "creation_date": 1733156350,
+  "title": "Spark Driver out of memory due to communication with executors",
+  "tags": [
+   "java",
+   "scala",
+   "apache-spark",
+   "memory-management",
+   "out-of-memory"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "My Spark Driver fails with OOM: [CODE] Spark config: [CODE] There are 9 executors and 919 tasks total. Code is executed within: [CODE] With some int and string accumulators (string accumulators controlled to not grow indefinitely) After each task completed I can see this log (for each task it's approx. ~60000-62000, no outliers): [CODE] And Spark fails with OOM after ~270/919 tasks completed. My understanding is that it fails when Executors communicate their state to Driver and Driver is accumulating this info doing all JSON stuff. However, 270 * 60 Kb ~ 15 Mb and shouldn't kill Driver with OOM, unless it is copied multiple times internally. Simplest solution here is to add memory to driver, but I'm wondering how can I investigate this OOM further to prove my theory that OOM occurred due to Executor -> Driver communication Thanks!"
+ },
+ {
+  "question_id": 79244924,
+  "ym": "2024-12",
+  "creation_date": 1733158577,
+  "title": "ObjectMapper truncates strings in Map",
+  "tags": [
+   "java",
+   "json",
+   "dictionary",
+   "objectmapper"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to parse a JSON string into a [code] using [code] . To achieve this, I used this simple code below. [CODE] The code runs without any error, and all the property keys are visible in the created map; but some of the values are truncated. In this example, I used the JSON string below: [CODE] But for the property [code] , [code] generates the string below. Which as you can see it's being cut in the middle. [CODE] I assumed there was a problem with my JSON string, but when I validated it with JSONLint it seemed fine. Can anyone help me fix this issue? Note: Values staying as String is fine for me. I just want to get the whole string without truncation."
+ },
+ {
+  "question_id": 79244969,
+  "ym": "2024-12",
+  "creation_date": 1733159322,
+  "title": "Calling a Spring Controller that has a @RequestPart parameter of type HashMap&lt;FilesUploadEnum, MultipartFile&gt;",
+  "tags": [
+   "java",
+   "spring-boot",
+   "postman",
+   "multipartform-data",
+   "multipartfile"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a Spring Controller for a service that uploads a variable number of files and I would like to send them all encapsulated in a [code] object instead of one by one as [code] -annotated [code] parameters. The elements of [code] are possible qualitative types for each file, for example: [CODE] The code for the Controller is: [CODE] My question is: can I use Postman to make a HTTP request that such a controller can accept? I included [code] as a Header, but I couldn't find a way of sending the [code] part in the Body/form-data part of the request. I cannot just include the names of the files as keys and the corresponding files as values. Or maybe I cannot make such a request with Postman and I have to use another Client app? Thanks in advance for any help I can get :) ."
+ },
+ {
+  "question_id": 79245187,
+  "ym": "2024-12",
+  "creation_date": 1733164165,
+  "title": "Cucumber (Java) - Converting Checked Exceptions to Runtime Exceptions - Is this a good idea?",
+  "tags": [
+   "java",
+   "exception",
+   "error-handling",
+   "cucumber"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "The testing framework that I am working on is based on Cucumber and Selenium in Java. The codebase contains a lot of base/common methods that perform certain actions and these methods throw checked exceptions (for operations such as File Reading or Parsing JSON payloads) - the checked exceptions in these methods are not handled using a try-catch block and are instead just thrown. As a result, any method that calls these methods needs to throw that exception as well. This has resulted in a very 'polluted' codebase where almost every method is throwing an exception even when there is no connection between what the method does and what exception it is throwing, even when these methods are several layers 'above' the original method that is generating the exception. As I understand it, in the end these checked exceptions are eventually handled by the Cucumber framework code itself - in that the test/scenario execution fails and the framework moves to the next test/scenario. So, is it a good idea to use a try-catch block in the base/common methods that are generating the checked exceptions, and converting them to Runtime exceptions that fail the test that is being executed and moves on to the next test/scenario? The way I see it, anytime such a checked exception occurs, the test is a failure and needs to be re-run anyways. Thus, with this technique, the checked exception is not throw"
+ },
+ {
+  "question_id": 79245217,
+  "ym": "2024-12",
+  "creation_date": 1733164924,
+  "title": "Jaxb get Root Element which validated an XML against a multiple Root Elements XSD",
+  "tags": [
+   "java",
+   "xml",
+   "xsd",
+   "jaxb",
+   "xmlroot"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "We have an xsd with multiple possible root elements. The xml to validate can adopt any of them, but obviously once per xml. I cannot divulgate the actual xsd but let's imagine something similar: [CODE] In the actual xsd adopted, root elements are much more than two, and also their content can vary very much. We cannot change the way it is done, we have to respect its standard. We also have a Jaxb validator Java code which already works fine, this is just the \"hearth\" of it: [CODE] However I have necessity to define which of all Root Elements actually validated the xml. So which sole Root Element was adopted into the current validated xml. The project will receive a very large amount of those xml, so I'd like to adopt the lighter possible solution (i.e: no further DOM in memory). It would be even better if Jaxb itself would tell me which Root Element validated the xml, following the validation process."
+ },
+ {
+  "question_id": 79245223,
+  "ym": "2024-12",
+  "creation_date": 1733165111,
+  "title": "Maven is not picking up environment variables from `.env` file when trying to compile Quarkus project",
+  "tags": [
+   "java",
+   "quarkus"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am using a M1 MAC and GRAALVM 23 using [code] command. However I am running into issues where it's not picking up the environment variables from my .env file. I'm not sure how to go about fixing this? My whole intention is to compile this and then run this in Docker using the [code] file that is provided by Quarkus. It works just fine locally. I had to limit the output below since it was beyond the 30K character limit. [CODE] pox.xml [CODE] Application.properties [CODE]"
+ },
+ {
+  "question_id": 79245240,
+  "ym": "2024-12",
+  "creation_date": 1733165408,
+  "title": "Java Swing: User typing text - inserting it in the middle of a sentence: The problem is the cursor jumps to the end after each letter being typed",
+  "tags": [
+   "java",
+   "swing",
+   "jtextpane"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I know Java Swing is dated, but I still use it. Mostly I use JTextArea and it works fine, if the users wants to insert text in the middle of existing text. But there is no line spacing in JTextArea and in Hebrew with punctation the punctation of the lines above and below overlap. Therefore I used a JTextPane instead and was able to change the line spacing. BUT if the user wants to insert text into an existing text, the cursor jumps to the end of the text after EACH letter. That makes inserting text tedious. I did a lot of googling, but have not found anything on this topic. Here is my code: [CODE] and [CODE] Does anyone still remember how to go about this in Java Swing? Any ideas are appreciated. Thank you for your kindness. UPDATE Here the text is set. I guess I have to set the caret position after inserting the text. [CODE] UPDATE Here is the minimal reproducible example: [CODE]"
+ },
+ {
+  "question_id": 79245296,
+  "ym": "2024-12",
+  "creation_date": 1733166640,
+  "title": "How do I intercept a logging method before its argument is passed in?",
+  "tags": [
+   "java",
+   "spring-aop"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm working in a Java project where I'm trying to use Spring AOP to create a logger that masks PII data (Personally Identifiable Information). The approach is to have something declarative. Following some tutorials, I came up with an annotation that is used to demarcate PII data: [CODE] I have a POJO where the getter method is annotated with the [code] type: [CODE] My Aspect looks like this: [CODE] The code that does the logging is using a delegating \"veneer\" over the slf4j Logger interface since trying to use the default from the [code] results in a CGLIB error as the implementation class is [code] . The code that does the logging uses the delegating logger to log information like this: [CODE] The aspect intercepts the call properly, but the getter has already been called on the POJO, so I'm just getting the [code] value from [code] , and I don't know if that's the data I'm supposed to mask vs just any random String that someone passes to the logger. I've tried modifying the expression in the aspect to also take into account the annotation, but as soon as I do that, the aspect no longer intercepts the call to [code] . Example: [CODE] and [CODE] The logging veneer looks something like this: [CODE] I don't seem to get any errors regarding the expression, but the aspect intercepting method just doesn't get called anymore as soon as I add the [code] . I've tried with and without t"
+ },
+ {
+  "question_id": 79245302,
+  "ym": "2024-12",
+  "creation_date": 1733166745,
+  "title": "java.lang.IllegalArgumentException: A null comparator has been passed to RowSorter using &lt;display:table&gt; in JSP",
+  "tags": [
+   "java",
+   "jsp",
+   "jstl",
+   "displaytag"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have some code like this: [CODE] But I get this error: Servlet.service() for servlet [jsp] in context with path [/guh] threw exception [java.lang.IllegalArgumentException: A [code] comparator has been passed to [code] . A comparator instance is required] with root cause java.lang.IllegalArgumentException: A [code] comparator has been passed to [code] . A comparator instance is required I tried [code] tag, and [code] tag, outside and inside [code] ."
+ },
+ {
+  "question_id": 79245309,
+  "ym": "2024-12",
+  "creation_date": 1733166874,
+  "title": "Automate debug java with rlwrap",
+  "tags": [
+   "java",
+   "debugging",
+   "breakpoints",
+   "expect",
+   "rlwrap"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I use [code] to debug a Java process [CODE] When the breakpoint stop: [CODE] I do that few times, each time the breakpoint stop How can I do that automatically without wait for breakpoint?"
+ },
+ {
+  "question_id": 79245354,
+  "ym": "2024-12",
+  "creation_date": 1733167843,
+  "title": "Why isn&#39;t the condition Integer.class.isAssignableFrom(getGenericClass()) working correctly in my Java code?",
+  "tags": [
+   "java",
+   "oop"
+  ],
+  "score": 4,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm working on a generic class in Java that stores an object of type T, and I need to check the type of the object to handle null values differently for Integer and String. However, when I try to check the class type with [code] , the condition doesn't seem to trigger as expected. Specifically, I'm trying to return default values (0 for Integer and \"default\" for String) when the stored value is null. But for some reason, my check for [code] doesn't work, and it always falls through to returning null. Here's the relevant code: [CODE] In this example, if I pass [code] to the storage, I expect the code to return different output based on type , but [code] doesn't trigger when the type is Integer, and it always returns null. Expected output: If the type is Integer , I want to return [code] when the value is [code] . If the type is String , I want to return [code] when the value is [code] . Actual output: The output is null in both cases, even though the value is [code] . How can I correctly compare the class type with Integer or String? Is [code] not the right approach in this case, and if not, what is the correct way to compare the class type in this scenario? Also tried [CODE]"
+ },
+ {
+  "question_id": 79245397,
+  "ym": "2024-12",
+  "creation_date": 1733168585,
+  "title": "How to add text to a PDF without significantly Increasing filesize?",
+  "tags": [
+   "java",
+   "pdf",
+   "optimization",
+   "pdfbox"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am trying to use Apache PDFBox to add text to existing PDF pages while keeping the file size increase minimal. My goal is to expand the page height, shift the current content upwards, and add the new text at the bottom of the page. Initially, I used an image-based approach, copying the original page's content as an image and placing it on a newly created page. This caused the file size to grow significantly—from 3 MB to 30 MB for a single PDF. To reduce the size impact, I switched to a content-based approach, directly manipulating the content instead of converting it to an image. While this approach reduced the file size increase, the size still tripled—for example, a 3 MB file grows to 9 MB. I am looking for an effective solution to add text while keeping the file size increase negligible, or at least much smaller than the current results. Any insights into efficient methods, optimizations, or alternative approaches to achieve this using Apache PDFBox would be greatly appreciated. What I Tried: I initially used an image-based approach, where I copied the content of the original page as an image and placed it on the new page with adjusted layout. Result: The PDF file size increased drastically (e.g., from 3 MB to 30 MB). I switched to a content-based approach, where I directly manipulated the content to shift it upwards and added the new text. Result: While this reduced the s"
+ },
+ {
+  "question_id": 79245556,
+  "ym": "2024-12",
+  "creation_date": 1733172451,
+  "title": "Trying to start tomcat 9 and receiving org.apache.catalina.LifecycleException",
+  "tags": [
+   "java",
+   "tomcat",
+   "tomcat9"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Im using [code] and [code] When I startup TOMCAT I'm receiving this error [CODE] I guess this caused by bouncy castle lib but I cant remove then and cant update too cause is working at prod with no problem and has always worked before formatting my pc. someone can help me?"
+ },
+ {
+  "question_id": 79245854,
+  "ym": "2024-12",
+  "creation_date": 1733181053,
+  "title": "How to get FirmwareVersionPreferenceController.java from Android",
+  "tags": [
+   "java",
+   "android"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have an obscure Chinese android device which has developer options locked behind a password. Clicking the model number multiple times brings up a password dialog. I have managed to get this exception out of the device: [CODE] This shows that the password dialog comes from: [CODE] I tried decompiling the Settings app, but this class is not in the apk. There is almost no java code inside it. I suppose it works differently. I would like to have a look at the FirmwareVersionPreferenceController.java because I am hoping to find something about the password there and maybe find a way to bypass it. Does anyone have any idea how to get that file from the device? Where it may be or how to get an instance of the dialog programmatically? This returns that the class was not found: [CODE] Thanks."
+ },
+ {
+  "question_id": 79245882,
+  "ym": "2024-12",
+  "creation_date": 1733182561,
+  "title": "Is there a way to annotate methods to run before or after all classes annotated with @Nested, but not before or after each method annotated as @Test?",
+  "tags": [
+   "java",
+   "junit5"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am using JUnit 5.7.0. I have a class that has a set-up method that I want to run before each nested classes and a tear-down method that I want to run after each nested class, but not before and after each test method within the nested classes. Currently, the code looks something like this: [CODE] Another iteration of the above used @BeforeAll and @AfterAll, respectively, for the setUp() and tearDown() methods. [CODE] Regardless how I do it, I can't get the desired behavior. Either the test data is set up or torn down once each for the outer class only, or it is set up and torn down for every test method. Is what I'm trying to achieve even possible using JUnit's out-of-the-box annotations, or do I just need to resort to calls to unannotated helper methods to get the setUp() and tearDown() methods to run only at the start and end of the test classes and not each test? I know how to do the latter, but I was hoping that JUnit was capable of the desired behavior through annotations alone."
+ },
+ {
+  "question_id": 79245913,
+  "ym": "2024-12",
+  "creation_date": 1733183789,
+  "title": "Gatling check status saveAs function doesn&#39;t work with multiple status check",
+  "tags": [
+   "java",
+   "gatling"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to check the HTTP status and save the status code in a variable, but in Gatling, if I add multiple status checks as follows. [CODE] saveAs function doesn't invoke and RESPONSE_HTTP_STATUS_CODE is always null. What is the issue here? Please refer to the following MVP to reproduce the issue. https://github.com/eranga4u/demo-gatling PS: I am not a Gatling expert."
+ },
+ {
+  "question_id": 79246081,
+  "ym": "2024-12",
+  "creation_date": 1733191525,
+  "title": "elasticsearch Dependency failed to fetch from repo maven - maven project",
+  "tags": [
+   "java",
+   "spring",
+   "maven",
+   "elasticsearch"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "[CODE] I am currently trying to fetch elasticsearch java API from repo maven [CODE] I manually check from mvnrepository.com to make sure it exists and it is: https://mvnrepository.com/artifact/co.elastic.clients/elasticsearch-java/8.16.1 however, when i try to run [code] I got this error [CODE] At first, I thought it was due to proxy however when I delete that dependency and add another libray - it succesfully installed. So, surely it is not due to the proxy right? For reverence the other library that success installed after this particular library got this error is [code] What did I miss? What should I check to fix this? /edit I tried doing it on public wifi with no proxy and I got this error [CODE] //edit: This is my whole pom.xml [CODE]"
+ },
+ {
+  "question_id": 79246685,
+  "ym": "2024-12",
+  "creation_date": 1733211921,
+  "title": "How to Ensure Date Cells in Excel Default to &quot;Date&quot; Format Instead of &quot;Custom&quot; When Generated with Apache POI?",
+  "tags": [
+   "java",
+   "excel",
+   "apache-poi"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am generating an Excel file using Apache POI in Java, and I am formatting some cells to display dates. However, when I open the Excel file and inspect the cells, I notice that the formatted date cells are categorized under Custom instead of Date in Excel [CODE] } I need these cells to be categorized under the Date format in Excel. What I Have Tried: Using different date formats, such as dd-MM-yyyy or MM/dd/yy. Disabling any additional styling to test the behavior with just the date value. Setting locale-specific formats like Locale.US or Locale.UK. Manually inspecting the generated file's regional settings in Excel. My Goal: I want the cells to: Be categorized under Date format instead of Custom in Excel. Is there a way to ensure that the cells default to the Date format category in Excel? If not, what would be the best way to achieve this?"
+ },
+ {
+  "question_id": 79246714,
+  "ym": "2024-12",
+  "creation_date": 1733212555,
+  "title": "SonarLint not picking up exception throwing inside &quot;instance initializer block&quot; of an anonymous class",
+  "tags": [
+   "java",
+   "junit",
+   "eclipse-plugin",
+   "sonarlint",
+   "jmock"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "When I have this kind of Java code: [CODE] I get this message from SonarLint: [CODE] Now I could \"deactivate rule java:S1130\" but it would normally help me nicely. So I would like the SonarLint system to pick up the actual Exception throwing inside of the \"instance initializer block\". How do I stimulate SonarLint to do this? I could live with turning of this rule in test-scope, any help with that would also be welcome. I'm using \"SonarLint for Eclipse: 10.9.1.82333\". PS this indeed is related to the old [code] system I still enjoy using."
+ },
+ {
+  "question_id": 79246920,
+  "ym": "2024-12",
+  "creation_date": 1733216859,
+  "title": "How to sort price values containing $ symbols",
+  "tags": [
+   "java",
+   "sorting",
+   "java-stream"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "When I use streams to sort price values (having $ symbol), the below code is not working properly. I want the values to be sorted with the $ symbol. The values are not sorted properly. [CODE]"
+ },
+ {
+  "question_id": 79247045,
+  "ym": "2024-12",
+  "creation_date": 1733219198,
+  "title": "How can I merge table column cells in a .docx table created using Apache POI",
+  "tags": [
+   "java",
+   "maven",
+   "apache-poi",
+   "docx"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to merge cells in a generated table to have the effect displayed in the image. How can I merge cells for this purpose in a Java application that uses Apache POI to generate a .docx file? Tried different combinations but did not obtain the expected effect. Once the cells are merged when a a lengthy text is added it should span all the merged cells' lengths not use one cell area. Current output Source Block [CODE] Dependencies [CODE]"
+ },
+ {
+  "question_id": 79247068,
+  "ym": "2024-12",
+  "creation_date": 1733219644,
+  "title": "Elasticsearch 8.13 headers",
+  "tags": [
+   "java",
+   "spring-boot",
+   "elasticsearch"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am trying to connect to Elasticsearch 8.13.0 server using Spring Boot 3.3.3, but on startup my Sping boot service throws an error: [CODE] I'm creating RestClient in a following way: [CODE] I've already tried setting Accept header to \"application/json\" or \"application/vnd.elasticsearch+json;compatible-with=8\"? like this: [CODE] And the only thing that has changed was an error message: [CODE] ...the same error but without Content-Type. Can anyone help me with this problem?"
+ },
+ {
+  "question_id": 79247108,
+  "ym": "2024-12",
+  "creation_date": 1733220175,
+  "title": "Spring Boot doesn&#39;t fail if 2 same beans are defined",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "kotlin",
+   "ioc-container"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Recently, I worked with standard tasks using Spring Boot and was faced with unexpected behavior. I have annotation configurations with @Bean annotations and I need to register one of two beans if a specific property is present. Also, I need to inject a created bean into other beans under a specified bean name. I tried to do it as follows: [CODE] But I got an unexpected result for me. That works. Spring does not fail, however I defined 2 beans with the same type and even with the same name. Spring ignored the conflict. I went further and added some conditionals as follows: [CODE] That also works, but Spring ignores creating a bean in method s2 ! Help please is it an expected behavior of Spring Boot? I use Spring Boot 3.3.5."
+ },
+ {
+  "question_id": 79247522,
+  "ym": "2024-12",
+  "creation_date": 1733227352,
+  "title": "Unable to build the project with opentelementery extention",
+  "tags": [
+   "java",
+   "spring-boot",
+   "open-telemetry",
+   "open-telemetry-collector",
+   "open-telemetry-java"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have spring boot project which is on version 2.7.7. We have some dependency on otel telementery for that we have used some part of build.gradle like below. [CODE] I am getting below issue for building the project [CODE] i have tried with updating version to 8.3.5 still it is coming"
+ },
+ {
+  "question_id": 79247526,
+  "ym": "2024-12",
+  "creation_date": 1733227436,
+  "title": "Maven is unable to find the org.testng package in my project",
+  "tags": [
+   "java",
+   "maven",
+   "selenium-webdriver",
+   "testng"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Hye! I have included testng dependency in my pom.xml [CODE] The TestNG plugin in available in the installed section in the eclipse marketplace. Error in the Terminal after running \"mvn clean compile\": Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile (default-compile) on project Smoke-TestNg: Compilation failure: Compilation failure: [ERROR] /home/salman.ali@ROLUSTECH.NET/eclipse-workspace/X2-CRUD-TestNg/src/main/java/Pages/Opportunities.java:[17,18] package org.testng does not exist Detailed Screen Cast of the findings : https://drive.google.com/file/d/1B9wjy7CotyiWCyCuPfVKJZFS59D5Y8Ma/view?usp=sharing"
+ },
+ {
+  "question_id": 79247629,
+  "ym": "2024-12",
+  "creation_date": 1733229255,
+  "title": "How to scale a sequential source in dataflow / beam?",
+  "tags": [
+   "java",
+   "google-cloud-dataflow",
+   "apache-beam"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "The question is about a sequentially emitting source in dataflow? For example the bigqueryio go implementaion is very basic. It reads a query resuls in a loop and emits records sequentially. Therefore dataflow is not scaling the amount of workers and detects a straggler. Pseudocode of such custom DoFn in Java: [CODE] Subsequent steps which consume the source in a ParDo are never scaled. The docs hint this can happen if the custom source does not implement progress (which it does not). Example Transform of the above source in Java: [CODE] How to deal with such sequential source, if there is no other option to consume the data. Is there a strategy one can add later to the pipeline so that it starts paralellizing the processing to multiple workers? *NOTE: Even though my particular problem is with go sdk and bigqueryio, my question is about such a scenario in general. Feel free to provide a generic answer in any familiar beam language sdk."
+ },
+ {
+  "question_id": 79247661,
+  "ym": "2024-12",
+  "creation_date": 1733229843,
+  "title": "How to fix DOCTYPE is disallowed when the feature &quot;http://apache.org/xml/features/disallow-doctype-decl&quot; set to true?",
+  "tags": [
+   "java",
+   "rome"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am using rome tool link to parse the feed, When I parse the certain feeds I am getting below doctype error. [CODE] // Error [CODE]"
+ },
+ {
+  "question_id": 79247709,
+  "ym": "2024-12",
+  "creation_date": 1733230826,
+  "title": "Mockmvc.perform with ContentType application/json but then makes request using application/json;charset=UTF8",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "spring-mvc",
+   "mockmvc"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "This is my Test where i test the Controller [CODE] The response i get is this [CODE] It's the only test where MockMvc does this wierd behaviour with my ContentType in every other it stays application/json For Version we use spring-boot 3.4"
+ },
+ {
+  "question_id": 79247713,
+  "ym": "2024-12",
+  "creation_date": 1733230915,
+  "title": "Wildfly 34.0.1 deployment error: Required services that are not installed:&quot; =&gt; [&quot;jboss.naming.context.java.PostgresDS&quot;]",
+  "tags": [
+   "java",
+   "postgresql",
+   "jpa",
+   "jdbc",
+   "wildfly"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am trying to deploy my web application via wildfly maven plugin and get the following error: [CODE] my persistence.xml: [CODE] PostgreSQL JDBC driver dependency: [CODE] I am using java 23.0.1, wildfly 34.0.1 and latest jakarta dependencies."
+ },
+ {
+  "question_id": 79247718,
+  "ym": "2024-12",
+  "creation_date": 1733231076,
+  "title": "Trying to read Split Zip File throws ZipException in zip4j",
+  "tags": [
+   "java",
+   "zip",
+   "archive",
+   "7zip",
+   "zip4j"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I am having a split zip file test_10G.zip.001 and test_10G.zip.002. I am trying to use isSplitArchive() Function from zip4j. But I am getting an exception saying Zip headers not found. Probably not a zip file . [CODE] Does zip4j support split zip files? I am using zip4j 2.11.5. The zip file is created using 7zip with volumes split as 10 mb."
+ },
+ {
+  "question_id": 79247820,
+  "ym": "2024-12",
+  "creation_date": 1733233015,
+  "title": "Why am I getting &#39;package does not exist&#39; error even though the module and path are correct?",
+  "tags": [
+   "java"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Question: I am trying to use the following code with [code] package: [CODE] However, I’m getting errors like \"package com.dd.plist does not exist\" when trying to run the code. I’ve already added the correct paths to my [code] file, but it’s still not working. Here’s the relevant [code] configuration in my [code] : [CODE] Despite having the paths correctly set, why is this import still causing an error? Could there be something else I missed? I've correctly configured the module and path, and I expected to be able to use the imported modules without any issues"
+ },
+ {
+  "question_id": 79247998,
+  "ym": "2024-12",
+  "creation_date": 1733236073,
+  "title": "VisualVM not listing my JBOSS Java application",
+  "tags": [
+   "java",
+   "jboss",
+   "visualvm"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am using Visual VM to analyse the JVM but when i start the Visual VM, i am not getting my Java process listed in the Local. I even tried running the Visual VM as Administrator but still i cant see the process. Application is running in java-11-openjdk-11.0.10-1 and jboss-eap-7.4. Any idea how to get my application in the Local section of the Visual VM? Visual VM Screenshot This is the Java process, i want to monitor"
+ },
+ {
+  "question_id": 79248115,
+  "ym": "2024-12",
+  "creation_date": 1733238073,
+  "title": "How can I define a vararg with three types in Java?",
+  "tags": [
+   "java",
+   "methods",
+   "syntax",
+   "parameter-passing",
+   "variadic-functions"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "Since I need a Java method to receive any number of objects of three specific classes I decided to use a vararg [code] to implement it. However, I have the restriction that these three classes are: java.lang.String java.lang.Class com.company.MyWidget In my imaginary syntax my method could look like: [CODE] I was thinking I could use a superclass or interface, but the first two classes belong to the JVM and I cannot touch them. How can I do this in Java?"
+ },
+ {
+  "question_id": 79248123,
+  "ym": "2024-12",
+  "creation_date": 1733238149,
+  "title": "Wildfly, Arquillian Remote: Unknown service name jmx",
+  "tags": [
+   "java",
+   "testing",
+   "jakarta-ee",
+   "jboss-arquillian"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am using Wildfly 26 . While trying to use [code] I faced the following error during deployment: [code] [CODE]"
+ },
+ {
+  "question_id": 79248262,
+  "ym": "2024-12",
+  "creation_date": 1733240664,
+  "title": "kafka-streams does not add the right kafka-clients dependency",
+  "tags": [
+   "java",
+   "maven",
+   "apache-kafka",
+   "apache-kafka-streams"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "[code] is suposed to use [code] , but when I run [code] , I get [CODE] My pom.xml [CODE] kafka-streams-3.9.0.pom [CODE]"
+ },
+ {
+  "question_id": 79248270,
+  "ym": "2024-12",
+  "creation_date": 1733240768,
+  "title": "How to get the code to display scanner input numbers as output?",
+  "tags": [
+   "java"
+  ],
+  "score": -2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "In Java, I'm trying to learn and I am at a bit of a loss. My class wants me to: Create a program that can be used to add two integers together. In the beginning, the user is asked to give two integers that are to be summed. The program then prints the formula that describes the addition of the numbers. I'm stuck with trying to get it to describe the addition of the numbers. So far I've gotten this far: [CODE] And I'm stuck with the last line there, trying to figure out how to get it to display what I've already had scanned. I am capable of making it add the numbers together, but I'm not sure how to get it to display those input numbers as well. Any help/explanation would be greatly appreciated"
+ },
+ {
+  "question_id": 79248355,
+  "ym": "2024-12",
+  "creation_date": 1733242025,
+  "title": "Unable to find definition of mvc:cors",
+  "tags": [
+   "java",
+   "xml",
+   "spring",
+   "cors"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am on a Spring 4, java 8 project trying to pick up the pieces from previous mis-handling. I am tasked with restoring a version of web services missing from source control. I am doing this by de-compiling the war and putting the changes back in the source. While doing this, I found the following lines in applicationContext.xml. [CODE] And I copied them into my applicationContext.xml. I Immediately got the following error. [code] The beans definitions with the xmlns are identical between the versions: [CODE] I looked in the spring-mvc def, but there was nothing about cors there. I did some searching, and while there's sites that tell you how to use cors like this, none of them specify the namespace to use to bring this in. Does anyone have any advice?"
+ },
+ {
+  "question_id": 79248393,
+  "ym": "2024-12",
+  "creation_date": 1733242572,
+  "title": "A WebSocket frame was sent with an unrecognised opCode of [7]] Angular | Spring boot",
+  "tags": [
+   "java",
+   "angular",
+   "spring",
+   "spring-boot",
+   "websocket"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "WebSocket Frame with Unrecognised opCode of [7] When Connecting from Angular to Spring Boot WebSocket Server I'm trying to connect an Angular application to a Spring Boot WebSocket server, but I am encountering an error with the following message: [CODE] Here is the Spring Boot WebSocket configuration I'm using: [CODE] And this is the Angular code I’m using to connect to the WebSocket: [CODE] Dependencies in [code] : [CODE] Dependencies in [code] : [CODE] This seems to be related to the WebSocket frame sent from the client-side. I have tried using [code] with the [code] library, but the error persists. Has anyone encountered this issue or knows how to fix this error? Any help would be greatly appreciated! Steps I've tried so far: Verified the WebSocket server endpoint [code] is correctly configured and accessible on [code] , Postman is able to connect. Checked CORS settings. Updated all relevant dependencies, including [code] and [code] ."
+ },
+ {
+  "question_id": 79248418,
+  "ym": "2024-12",
+  "creation_date": 1733243037,
+  "title": "TestNG not showing in run configurations",
+  "tags": [
+   "java",
+   "maven",
+   "selenium-webdriver",
+   "testng"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "TestNG is not showing in run configurations. Steps I took : Create a new maven project Adding testng dependency in the pom.xml file. Installing Testng plugin from eclipse marketplace. Keeping my test class in src/test/java/tests \"tests\" is the package which contains Testclass.java Detailed Screen-cast : https://drive.google.com/file/d/1WXCfvuXA1YBwp6H02PJH_qVvNY8u2Gpt/view?usp=sharing Issue: [CODE] The above code is not showing option to run it as \"Testng\" project. Please help as everything was working fine few days ago. I am worried."
+ },
+ {
+  "question_id": 79248517,
+  "ym": "2024-12",
+  "creation_date": 1733244432,
+  "title": "Flutter and Aandroid Studio build error, how can i solve this?",
+  "tags": [
+   "java",
+   "android",
+   "flutter",
+   "android-studio",
+   "build"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "FAILURE: Build failed with an exception. What went wrong: Execution failed for task ':flutter_plugin_android_lifecycle:compileDebugJavaWithJavac'. Could not resolve all files for configuration ':flutter_plugin_android_lifecycle:androidJdkImage'. Failed to transform core-for-system-modules.jar to match attributes {artifactType=_internal_android_jdk_image, org.gradle.libraryelements=jar, org.gradle.usage=java-runtime}. > Execution failed for JdkImageTransform: C:\\Users\\Raphael Kenaz\\AppData\\Local\\Android\\sdk\\platforms\\android-34\\core-for-system-modules.jar. > Error while executing process C:\\Program Files\\Android\\Android Studio\\jbr\\bin\\jlink.exe with arguments {--module-path C:\\Users\\Raphael Kenaz.gradle\\caches\\transforms-3\\4a46fc89ed5f9adfe3afebf74eb8bfeb\\transformed\\output\\temp\\jmod --add-modules java.base --output C:\\Users\\Raphael Kenaz.gradle\\caches\\transforms-3\\4a46fc89ed5f9adfe3afebf74eb8bfeb\\transformed\\output\\jdkImage --disable-plugin system-modules} I got this error when i tried to build an app with Firebase and Flutter... I'm with this problem for like, 3 days and i can't solve it. My java is the JDK 17, but i already tried with another versions, like 21, 23 and 11 I tried to upgrade flutter, JDK, use another JDK, upgrade ANDROID SDK, install the command-lines, change the emulator, tried to emulate it on my phone, i formatted my pc and nothing worked."
+ },
+ {
+  "question_id": 79248520,
+  "ym": "2024-12",
+  "creation_date": 1733244525,
+  "title": "Gemini Api in Android: Field &#39;license&#39; is required for type with serial name",
+  "tags": [
+   "java",
+   "android",
+   "kotlin",
+   "google-gemini"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying out the template code for the Gemini API Starter template when creating a new project in Android Studio. The default template uses \"gemini-pro\" model which was deprecated long back (they didn't update the template), so I changed it to gemini-1.5-flash. But I've been getting a parsing error: [CODE] Has someone encountered this ? Saw this similar question where the API wasn't returning the required field, but it was supposedly fixed (was another field): Gemini Api Android: SerializationException when deserializing response from server Thanks in advance"
+ },
+ {
+  "question_id": 79248574,
+  "ym": "2024-12",
+  "creation_date": 1733245710,
+  "title": "Flutter Doctor Error: Android Toolchain error- can not execute to determine the version",
+  "tags": [
+   "java",
+   "android",
+   "flutter",
+   "macos",
+   "dart"
+  ],
+  "score": 1,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I'am facing below error while running flutter doctor on may Mac machine with M4c chip. Can someone please help me to resolve this issue. Below is the error after running [code] command. [CODE] I tried every solution out there on internet but not working. Please help me with a solution , this is first time i am using MacOs. Thanks."
+ },
+ {
+  "question_id": 79248720,
+  "ym": "2024-12",
+  "creation_date": 1733248756,
+  "title": "How to deal with protected methods while writing unit tests with JUnit",
+  "tags": [
+   "java",
+   "spring-boot",
+   "unit-testing",
+   "junit",
+   "mockito"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am new to writing unit tests and having a difficult time understanding a lot of the concepts involved. I have a method in a class that I am trying to write a unit test for. See below: [CODE] The [code] method is protected in the [code] class. I cannot change the access modifier as it would affect too much, and this is more so a low-impact way for me to learn unit testing. I have tried to put together unit tests, either by reading documentation or by using ChatGPT to help with explanations, and my head spins by the amount of directions which are suggested. I'm operating under the assumption that I have to somehow \"mock\" or control what returns when [code] is called, but this is yielding problems - I get a compilation error stating that [code] is protected. ChatGPT suggests I spy on [code] , but doing so does not help the compilation error. I'm just not even sure if that is the correct approach. I am looking for something simple that will not only test my [code] method, but help me with a beginner's understanding of writing a unit test and mocking objects, as well as controlling methods within the method I'm testing. Where do I start? Does anyone have any suggestions on how to go about writing a unit test for this? Am I thinking about this the correct way or am I taking the wrong approach? What is the correct approach here?"
+ },
+ {
+  "question_id": 79248766,
+  "ym": "2024-12",
+  "creation_date": 1733249687,
+  "title": "SpringBoot 3.3.6 @ConfigurationProperties injecting a null object into constructor",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm upgrading a spring boot project from 2.7.x to 3.3.6. Hitting a problem with a test using ApplicationContextRunner where the bean being injected into the constructor of a @ConfigurationProperties instance is null. The object injected into a @Bean method is not null. The test below passes on 2.7.x but fails on 3.3.6. There appears to be a change with how the @ConfigurationProperties are being loaded in 3.x. When loaded as part of the full application (instead of the test ApplicationContextRunner/TrivialConfiguration) the non-null KafkaProperties is injected into the wrapper. Can anyone suggest what changes I need to make? I can't see anything directly related in the migration guides. [CODE] [CODE] [CODE]"
+ },
+ {
+  "question_id": 79248894,
+  "ym": "2024-12",
+  "creation_date": 1733253087,
+  "title": "Optimizing plots with millions of points in jfreecharts",
+  "tags": [
+   "java",
+   "database",
+   "plot",
+   "bigdata",
+   "jfreechart"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "lately I've been really into plotting enormous realtime data, so in short I have a mysql database, where I store my data, it updates like for 1000 rows in a sec, I take two columns via jdbc with select and plot it in my jfreecharts data, this process of plotting and getting new info has its own frequency, for now it's like 200ms, so the question is: how can I plot this much points for like 8 hours straight with saving previous points The result now is like 300k points without lagging, but there is surely a lack of optimizing rn UPD: here is some code: [CODE] }"
+ },
+ {
+  "question_id": 79248995,
+  "ym": "2024-12",
+  "creation_date": 1733255234,
+  "title": "Are there any algorithms that allow quick/efficient lookup of hexes based on location on a large subdivided hex/pentagon tiled icosphere?",
+  "tags": [
+   "java",
+   "algorithm",
+   "coordinates",
+   "coordinate-systems",
+   "coordinate-transformation"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "So, I have a subdivided icosahedron sphere (icosphere), and I am looping through its vertices and creating a logical tile-map of hexagons at the location of every vertex in the array. Basically, now I need to start detecting input on the tile-map, and looping through 10k tiles and doing a bounds check every time the user hovers a mouse over or clicks the sphere is way too computationally expensive. I need a way to quickly and efficiently get the tile the user clicks/hovers over. My current idea would be to create a 2D array of tiles (lat/lon), convert the tile's position to lat/lon values, and store the tile at tiles[lat][lon]. The issue with this solution is, latitude and longitude are stored as float values - in this case, they are (in terms of distance) \"the sphere's radius\" away from the sphere's center-point. If I do this, I have to scale the sphere up dramatically, and it's pretty likely that there are going to be many \"un-used\" slots in the array that contain null values. This is pretty messy. If we did this, we'd also have to find some way to ensure that the lat/lon value approximately maps directly onto the tile's x/y coord in the array of tiles (i.e. we could just do [code] to get a tile, but again, this will create an array with many empty slots (which, to my understanding, translates to a lot of wasted memory, as an added negative). I could also store tiles in a dic"
+ },
+ {
+  "question_id": 79249180,
+  "ym": "2024-12",
+  "creation_date": 1733260030,
+  "title": "How to create Map&lt;String, Enum&gt; property field in Spring Boot with . and / symbols?",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have this property class: [CODE] and in my application.yml: [CODE] but I get: [CODE] What can I do to prevent it? Edit: changed to suggested code, still doesn't work. Can someone point out link to ref. doc for this? Edit 2: changed so it reflects my problem with . and - symbols."
+ },
+ {
+  "question_id": 79249406,
+  "ym": "2024-12",
+  "creation_date": 1733266396,
+  "title": "Is it possible to find the average of a group of numbers and return the index of the number furthest from the average with one loop?",
+  "tags": [
+   "python",
+   "java",
+   "average",
+   "pseudocode",
+   "moving-average"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Specifically: Write a function (in python, java or pseudocode) [code] that prints the mean of the numbers in list [code] , and returns a tuple: The tuple's first element is the index of the number furthest from the mean. The tuple's second element is the number furthest from the mean. Can this be done with one loop? I know how to write the function with two loops, and using one or two loops are both [code] time, so the code doesn't technically become more efficient with one loop. But I'm just curious if it can be done. A party trick, if you will. Some of my thought process: So computing the average as you iterate through the list is as simple as [code] , then [code] . And I guess you could calculate which number is furthest from your current average, but by the time you get to the end of the list an extreme number could make your code incorrect , I think?"
+ },
+ {
+  "question_id": 79249489,
+  "ym": "2024-12",
+  "creation_date": 1733269276,
+  "title": "build a date based on given day of month",
+  "tags": [
+   "java"
+  ],
+  "score": -3,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am trying to below - I have an API which accepts two parameter [code] and [code] . if startDate = 10-Dec-2024 03.35.51.229000000 and dayOfMonth = 25 I want the 25th ( complete date, e.g. 25-Dec-2024 03.35.51.229000000 ) of that [code] month if startDate = 10-Dec-2024 03.35.51.229000000 and dayOfMonth = 3 (less than the date of the [code] ), then should give me the 3rd of the next month date e.g. 03-Jan-2025 03.35.51.229000000 How can I achieve this?"
+ },
+ {
+  "question_id": 79249595,
+  "ym": "2024-12",
+  "creation_date": 1733273633,
+  "title": "Convert floating-point value to cyclic range?",
+  "tags": [
+   "java",
+   "floating-point",
+   "modulo",
+   "ieee-754"
+  ],
+  "score": 3,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I'm not sure if I'm using the right terminology, but occasionally I find myself needing to canonicalize a floating-point value to a range in a cyclic manner. (This can be useful, for instance, for values that represent rotations, to special-case rotations by whole quadrants or eliminate redundant rotations by whole turns.) For example, assuming a cycle range of 1.0, the result should be: 0 <= result < 1.0. Inputs 0.25, 1.25, 2.25 and so on should all become 0.25. Of course, this is what the modulo operator [code] supposedly does: [CODE] But it can still produce a negative result for negative input: [CODE] So for years I've been writing this pattern whenever I needed this functionality: [CODE] Today I discovered a bug: starting from very small negative inputs (e.g., [code] ), it turns out that the floating-point result of [code] rounds up to exactly [code] , so, out of range. Which has led to this: [CODE] Even though each line has a justification for being there, the whole is grotesque. (And it comes in two flavors, one for [code] and one for [code] , for double the grotesquery.) I would like to know: Is my \"cyclic\" function above finally robust against all floating-point oddities? Is there a nicer solution? This doesn't feel like it should be so complex. I feel like I'm missing a trick."
+ },
+ {
+  "question_id": 79249844,
+  "ym": "2024-12",
+  "creation_date": 1733284668,
+  "title": "Need to make a partition method for a quicksort class",
+  "tags": [
+   "java"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I need to build a partition method for a quicksort file, my current code just gets stuck somewhere and loops forever. [CODE] This is my current code, it's supposed to do every number in the array except for the first and last but all it does is throw array index out of bounds exceptions or just get stuck somewhere in a loop"
+ },
+ {
+  "question_id": 79249848,
+  "ym": "2024-12",
+  "creation_date": 1733284981,
+  "title": "How to use list of pairs as parameters for a query in postgres",
+  "tags": [
+   "java",
+   "sql",
+   "database",
+   "postgresql",
+   "spring-boot"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am using java spring boot with postgres as my database. I have a table called current logs with many fields. I also have 2 lists one for team ids and one for event dates. Now team_id[0] corresponds to event_date[0] and so on..... I want to write a query which gives me all the records which satisfies a particular set of conditions(you can see them below) on a particular pair. I have tried writing this code : [CODE] But when I tried this code, it gives me SQL grammar exception possibly because of the ARRAY keyword used on my java lists. Is there anyway I can get my required solution?"
+ }
+]

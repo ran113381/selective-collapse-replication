@@ -1,0 +1,82 @@
+[
+  {
+    "qid": 79858789,
+    "answer": "Use `map_rows()` with NumPy for per-row matrix operations, or expand matrix expressions into Polars select clauses. For automated expansion, precompute weight matrices as constants and generate Polars expressions programmatically. Example:\n```python\nresult = df.select(\n    (pl.col('c1')*pl.col('c48') + pl.col('c2')*pl.col('c49') + pl.col('c3')*pl.col('c50')).alias('v1')\n)\n```\nFor chained multiplications, precompute intermediate results. A thin DSL parsing matrix definitions to generated Polars code avoids manual expansion. Note: Polars streaming isn't optimized for dense linear algebra—consider DuckDB for this use case."
+  },
+  {
+    "qid": 79753551,
+    "answer": "BashOperator captures XCom from `print()` output when `do_xcom_push=True`, but only the last printed line is returned. Ensure your Python script outputs ONLY the value—redirect logs to stderr. Better approach: use TaskFlow @task decorator:\n```python\n@task\ndef my_task():\n    return \"value\"\n```\nOr write to XCom explicitly in Python:\n```python\ncontext['ti'].xcom_push(key='my_key', value='my_value')\n```\nThen pull with `{{ ti.xcom_pull(task_ids='task_id', key='my_key') }}`."
+  },
+  {
+    "qid": 79722891,
+    "answer": "Coverage flags must be applied to ALL object files consistently. Verify: (1) Add coverage flags to both `copts` AND `linkopts`, not just via select(), (2) Check that `--coverage`, `-fprofile-arcs`, and `-ftest-coverage` are in compile flags; `-lgcov` in link flags, (3) Ensure `instrumentation_filter` matches target path exactly. Note: `.gcno` files are created at runtime when the binary executes, not compile-time. Run your target binary to generate them."
+  },
+  {
+    "qid": 79836341,
+    "answer": "`ExpectColumnValuesToBeIncreasing` fails on datetime columns—it compares Timedelta objects with integers internally. Workaround: convert Date to numeric representation:\n```python\ndf['Date'] = df['Date'].astype('int64')  # nanoseconds\nsuite.add_expectation(gx.expectations.ExpectColumnValuesToBeIncreasing(column='Date'))\n```\nOr skip this expectation for datetime columns and manually verify ordering. This is likely a GreatExpectations bug with datetime handling. Check your version; older versions had known datetime issues."
+  },
+  {
+    "qid": 79783219,
+    "answer": "The issue: `system()` doesn't reliably capture stdout in QML. Use `QProcess` instead:\n```javascript\nvar proc = new QProcess();\nproc.start(\"/path/to/script.py\", []);\nproc.waitForFinished();\nvar output = proc.readAllStandardOutput();\n```\nAlternatively, redirect your Python output to a temp file and read it from the macro. Ensure your Python script flushes output: add `sys.stdout.flush()` after print(). The `system()` call executes asynchronously; `standardOutput` may be empty."
+  },
+  {
+    "qid": 79834996,
+    "answer": "NumPy's compiled extension (_multiarray_umath.so) is incompatible with Python 3.14 or glibc on Fedora 43. Try: (1) Upgrade NumPy: `pip install --upgrade numpy`, (2) Reinstall in venv: `pip install --force-reinstall numpy`, (3) Verify Python version consistency between venv and mod_wsgi. The issue doesn't occur on Rocky Linux 9 due to different glibc. Use a newer NumPy compatible with Python 3.14, or pin to 1.26.x if that fails."
+  },
+  {
+    "qid": 79755107,
+    "answer": "Transformers 4.44.2 changed cache handling; unsloth 2024.8 is incompatible. Solutions: (1) Upgrade unsloth to latest: `pip install --upgrade unsloth`, (2) If still broken, downgrade transformers to 4.40.x or 4.35.0, (3) Check unsloth's GitHub for version compatibility matrix. This is a version mismatch issue. Verify transformers and unsloth versions are compatible before reinstalling."
+  },
+  {
+    "qid": 79861916,
+    "answer": "Python 3.14 has limited pywin32 support. Try: (1) Downgrade Python to 3.12 or 3.13, (2) Reinstall pywin32: `pip install --force-reinstall pywin32` then run `python -m Scripts.pywin32_postinstall.py -install`, (3) Run as Administrator, (4) Ensure Outlook is fully launched before the script runs. The New Outlook app may prevent COM automation—verify classic Outlook is present. If all fails, consider .NET interop or alternative Outlook packages."
+  },
+  {
+    "qid": 79404481,
+    "answer": "UV requires explicit package data configuration. In `pyproject.toml`, add:\n```toml\n[tool.setuptools.package-data]\nmypackage = [\"j2/**/*.j2\"]\n```\nEnsure `j2/` is a directory with templates. Verify `build-backend = \"setuptools.build_meta\"`. Test with `pip install -e .` to confirm files are included. Your docstring workaround works but isn't portable or maintainable—use proper package data configuration instead."
+  },
+  {
+    "qid": 79604400,
+    "answer": "Custom image Lambdas must return JSON-serializable responses. Verify: (1) Return JSON string, not dict: `json.dumps({...})`, (2) Check custom image includes all required Python deps, (3) Set PYTHONUNBUFFERED=1 in Dockerfile. The console Test tab uses different code paths than Function URLs. Add try/except and log full stack traces to CloudWatch. Compare your Dockerfile against AWS's base image for missing libs or different Python configs."
+  },
+  {
+    "qid": 79323799,
+    "answer": "Use array slicing:\n```python\nA = Matrix[0:2, 0:2]\nB = Matrix[0:2, 2:4]\nC = Matrix[2:4, 0:2]\nD = Matrix[2:4, 2:4]\n```\nOr use `np.split()`:\n```python\ntop, bottom = np.split(Matrix, 2, axis=0)\nA, B = np.split(top, 2, axis=1)\nC, D = np.split(bottom, 2, axis=1)\n```\nBoth are O(1) memory (views, not copies). For dynamic sizes, generalize with computed indices."
+  },
+  {
+    "qid": 79041308,
+    "answer": "`mad()` was removed in pandas 2.0. Replace with:\n```python\n(df[col] - df[col].mean()).abs().mean()\n```\nOr use NumPy:\n```python\nnp.abs(df[col] - df[col].mean()).mean()\n```\nFor Median Absolute Deviation (more robust): `np.median(np.abs(x - np.median(x)))` or `scipy.stats.median_abs_deviation()`. The pandas team deprecated `mad()` in favor of explicit implementations."
+  },
+  {
+    "qid": 79724774,
+    "answer": "The PDF is protected by a proxy requiring session cookies. Solutions: (1) Use Selenium with headless=False to ensure full cookie handling and rendering, (2) Capture network requests in Selenium to find the actual PDF URL behind the viewer, (3) Check if NYSCEF provides an API. The 403 suggests missing authentication. Maintain session cookies between requests. Headless mode often fails with protected content—use headless=False instead."
+  },
+  {
+    "qid": 79687500,
+    "answer": "Don't use non-container widgets as parents—it's unsupported and causes undefined behavior. Children render incorrectly or disappear. Button, Label, etc. lack proper geometry management. Use only Frame, Canvas, PanedWindow, or Notebook as parents. For overlays, use `Canvas.create_window()` or Toplevel windows. Your Entry \"appears inside the button\" due to Button not accounting for child widgets. This breaks across different OSes and Tk versions—avoid it."
+  },
+  {
+    "qid": 79724652,
+    "answer": "The issue: passing `marker_ids` as 2D NumPy array to `CharucoBoard()`, which expects a 1D array. Fix:\n```python\nmarker_ids = np.arange(start_id, start_id + num_markers, dtype=np.int32)\nself.board = cv2.aruco.CharucoBoard(\n    (self.squaresX, self.squaresY),\n    self.squareLength,\n    self.markerLength,\n    self.aruco_dict,\n    marker_ids  # 1D array, not reshaped\n)\n```\nOpenCV 4.11.0 has stricter input validation. Alternatively, omit `marker_ids` and let OpenCV auto-assign."
+  },
+  {
+    "qid": 79862581,
+    "answer": "The issue: `Ok[T] | Err[E]` is invariant in T/E, so `Ok[Dog]` cannot be a subtype of `Ok[Animal]`. Use TypeVar with covariance:\n```python\nT_co = TypeVar('T_co', bound=Animal, covariant=True)\n\n@dataclass(frozen=True)\nclass Ok(Generic[T_co]):\n    value: T_co\n```\nNow `decodeDog()` returning `Result[Dog, str]` satisfies `Result[Animal, str]`. Mypy's complaint is technically correct—your return type must declare an upper bound or use explicit narrowing."
+  },
+  {
+    "qid": 79901629,
+    "answer": "TypeVarTuple cannot transform types with list comprehension syntax. `tuple[list[T] for T in *Ts]` is invalid. Options: (1) Use overloads for specific tuple lengths, (2) Accept `tuple[*Ts]`, return `tuple[list[Any], ...]`, (3) Use runtime type checking with `@runtime_checkable`. For exact typing, you'd need a Python feature enhancement. For now, use a simpler return type or runtime type validation."
+  },
+  {
+    "qid": 79782729,
+    "answer": "`Q` as a Python variable (int) shadows SymPy's Symbol. When passing `'Q'` as string, SymPy sympifies it and triggers the assumptions system, causing the error. Fix:\n```python\nfrom sympy import symbols\nQ = symbols('Q')\ngf = x + y, 5*x - y - Q\nk = solve(gf, [x, Q, y])\n```\nAlways use `symbols()` to define SymPy variables, not bare Python names. The case difference (`Q` vs `q`) only matters because `Q` happened to be a Python int in this example."
+  },
+  {
+    "qid": 79934592,
+    "answer": "The issue: `pytest_plugins` requires the module path to be importable. Ensure: (1) `common/` is on sys.path—add to `pyproject.toml`:\n```toml\n[tool.pytest.ini_options]\npythonpath = [\".\"]\n```\n(2) `common/tests/` has `__init__.py`, (3) Fixtures are module-level, not inside functions. Alternatively, import directly in conftest.py instead of using pytest_plugins. Check Poetry's install mode (editable) and verify `common` is installed in test environment."
+  },
+  {
+    "qid": 79478068,
+    "answer": "Addressing Issue 1: setting `text='my button'` via `style.configure()` sets the *element option*, not the widget's displayed text. Styles define *appearance*, not *content*. The widget still displays text from its constructor. Fix: change widget text directly:\n```python\nbutton['text'] = 'new text'\n```\nOr recreate the widget with new text. For dynamic text changes, modify the widget instance, never the style. Styles don't control widget content—only appearance (colors, fonts, padding)."
+  }
+]

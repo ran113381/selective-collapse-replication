@@ -1,0 +1,90 @@
+========================================================================
+P9 Leg B — RIGOROUS within-SO: dose-response on LLM substitutability
+========================================================================
+panel: bins s1-s4 × 60 months (240 obs)  event=2022-12
+months: 2021-06..2026-05   clusters (month) = 60
+
+=== [0] DESCRIPTIVES (pre vs post ChatGPT) ===
+  gen_share : pre 0.551  post 0.403  Δ -0.148
+  mean score: pre 2.437  post 2.022  Δ -0.416
+  s1 per-mo: pre  23.1  post  31.7  Δ  +8.7
+  s2 per-mo: pre  16.4  post  18.4  Δ  +2.0
+  s3 per-mo: pre  32.6  post  27.5  Δ  -5.0
+  s4 per-mo: pre  22.6  post  12.8  Δ  -9.8
+
+=== [1] DOSE-RESPONSE DiD (headline; γ = score×post, month-clustered) ===
+  γ = -0.3038  SE 0.0379  t -8.02  p 0.0000
+  → each +1 substitutability point ⇒ -26.2% on log-count post-ChatGPT
+  → s4-vs-s1 differential post = -59.8% (3 score points apart)
+
+=== [2] GEN vs VER binary DiD (compare to tag probe) ===
+  β = -0.6100  SE 0.1031  p 0.0000  → GEN vs VER post -45.7%
+
+=== [3] EVENT STUDY (dose slope γ_k by event time; k=-1 ref) ===
+     k   gamma_k
+   -18   -0.2384  PRE
+   -17   -0.1602  PRE
+   -16   -0.0725  PRE
+   -15   -0.0235  PRE
+   -14   +0.0625  PRE
+   -13   -0.1518  PRE
+   -12   +0.0322  PRE
+   -11   -0.2375  PRE
+   -10   -0.1217  PRE
+    -9   -0.1423  PRE
+    -8   -0.3194  PRE
+    -7   -0.2749  PRE
+    -6   -0.0864  PRE
+    -5   -0.1958  PRE
+    -4   -0.1237  PRE
+    -3   -0.1040  PRE
+    -2   -0.1014  PRE
+    +0   -0.0605  post
+    +1   -0.1957  post
+    +2   -0.1211  post
+    +3   -0.3039  post
+    +4   -0.4846  post
+    +5   -0.2643  post
+    +6   -0.2985  post
+    +7   -0.3193  post
+    +8   -0.6050  post
+    +9   -0.4611  post
+   +10   -0.3312  post
+   +11   -0.3757  post
+   +12   -0.5713  post
+   +13   -0.4024  post
+   +14   -0.3228  post
+   +15   -0.6338  post
+   +16   -0.6336  post
+   +17   -0.6015  post
+   +18   -0.6060  post
+   +19   -0.4765  post
+   +20   -0.6142  post
+   +21   -0.3627  post
+   +22   -0.4294  post
+   +23   -0.4900  post
+   +24   -0.4947  post
+   +25   -0.7396  post
+   +26   -0.4895  post
+   +27   -0.4554  post
+   +28   -0.3062  post
+   +29   -0.4833  post
+   +30   -0.3839  post
+   +31   -0.3972  post
+   +32   -0.6083  post
+   +33   -0.4268  post
+   +34   -0.4653  post
+   +35   -0.3754  post
+   +36   -0.4654  post
+   +37   -0.3914  post
+   +38   -0.3527  post
+   +39   -0.3285  post
+   +40   -0.3431  post
+   +41   -0.5593  post
+
+  pre dose-slope trend: intercept -0.1636, slope -0.00307/mo  (≈flat)
+  honest detrended mean post dose-γ = -0.2028 (raw mean post dose-γ -0.4293)
+
+[saved] E:\智能体论文\P9b_IPM_20260919\工作文档\R2_downstream\blind\data\within_so_llm_eventstudy.csv
+
+--- stderr ---

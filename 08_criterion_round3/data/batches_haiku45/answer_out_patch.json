@@ -1,0 +1,10 @@
+[
+  {
+    "qid": 74271596,
+    "answer": "The 405 Method Not Allowed error suggests either your IPFS daemon isn't accepting HTTP requests or there's a library compatibility issue.\n\n**Most likely causes:**\n1. The `ipfs-api` library is deprecated; switch to `ipfshttpclient`\n2. IPFS daemon isn't running or HTTP API is disabled\n3. Problematic parameters like `stream-channels=true` with this API version\n\n**Fix:**\n```bash\npip install ipfshttpclient --upgrade\n```\n\n```python\nfrom ipfshttpclient import connect\napi = connect('/ip4/127.0.0.1/tcp/5001')\ndata = api.cat('QmbFMke1KXqnYyBBWxB74N4c5SBnJMVAiMNRcGu6x1AwQH')\n```\n\nIf daemon isn't running, start it: `ipfs daemon`\n\nThe newer `ipfshttpclient` handles parameters correctly and avoids the conflicting `encoding=json` parameter that causes issues."
+  },
+  {
+    "qid": 76145980,
+    "answer": "Your offset approach works, but you can simplify this using `notna()` to identify contiguous blocks per column:\n\n```python\nresult = df.copy()\nfor col in df.columns:\n    # Find non-NaN regions\n    mask = df[col].notna()\n    # Get start/end indices of contiguous blocks\n    blocks = mask.astype(int).diff().fillna(0).abs().cumsum()\n    # Keep only rows in blocks where column is not null\n    keep_idx = mask[mask].index\n    result.loc[~result.index.isin(keep_idx), col] = np.nan\n```\n\nOr more directly—track the populated row ranges per column:\n```python\nfor col in df.columns:\n    non_nan_idx = df[col].notna()\n    if non_nan_idx.any():\n        first_idx = non_nan_idx.idxmax()\n        last_idx = non_nan_idx[::-1].idxmax()\n        result.loc[~result.index.isin(range(first_idx, last_idx+1)), col] = np.nan\n```\n\nYour counting approach works too—just formalize the offset calculation for each column based on the loop count, ensuring you preserve NaN cells *within* each column's populated span while dropping those outside it."
+  }
+]

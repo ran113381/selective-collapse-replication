@@ -1,0 +1,90 @@
+========================================================================
+P9 Leg B v2 — few-cluster-valid DiD / event study  [questions]
+========================================================================
+sites (7): ['es.stackoverflow', 'math.stackexchange', 'mathoverflow.net', 'pt.stackoverflow', 'ru.stackoverflow', 'stackoverflow', 'superuser']
+treated : ['stackoverflow']
+months  : 2022-06 .. 2023-12 (19 months)
+event   : 2022-12  (ChatGPT 2022-11-30 / SO ban 2022-12-05)
+clean window: k in [start..12]  (drops k>=+13 AI-commercialization regime)
+G = 7 clusters  ->  CR1 INVALID; headline = WCR (webb) + RI
+
+=== [1] HEADLINE clean-window TWFE DiD ===
+  n_obs=133  G=7
+    beta = -0.0795  =>  -7.6% activity effect
+    [CR1 ] se=0.1851  p=0.6677  <-- INVALID (G<12), reference-only, do NOT cite
+    [WCR ] p=0.6669  (webb, B=9999)  95% CI [-100.0%, +inf]  (CI unbounded on one side)  <-- HEADLINE
+    [RI  ] p=0.8571  rank 6 of 7  floor=1/N=0.1429  effect-ratio=0.11x
+
+=== [2] REGIME SPLIT (clean ATT vs long-run AI-commercialization path) ===
+  b_clean (0<=k<=+12): beta=-0.0795 (-7.6%)  WCR p=0.6596
+  b_long  (k>=+13): NA — no k>=+13 months in panel (panel ends k=+12); long-run path not estimable.
+
+=== [3] EVENT STUDY (leads test parallel trends; lags = dynamic ATT) ===
+     k      beta  ~%effect   WCR_p    RI_p  flag
+    -6    -0.025     -2.5%   0.568   1.000  PRE 
+    -5    +0.085     +8.9%   0.392   0.429  PRE 
+    -4    +0.056     +5.8%   0.469   1.000  PRE 
+    -3    -0.002     -0.2%   0.969   1.000  PRE 
+    -2    -0.071     -6.8%   0.410   0.714  PRE 
+    -1   (ref=0)        --      --      --  k=-1 reference
+    +0    -0.013     -1.3%   0.757   0.857  post
+    +1    -0.044     -4.3%   0.606   0.714  post
+    +2    -0.098     -9.3%   0.429   0.571  post
+    +3    -0.052     -5.1%   0.646   1.000  post
+    +4    -0.132    -12.4%   0.490   1.000  post
+    +5    -0.155    -14.3%   0.482   1.000  post
+    +6    +0.008     +0.8%   0.969   1.000  post
+    +7    +0.111    +11.7%   0.753   0.857  post
+    +8    +0.066     +6.9%   0.804   1.000  post
+    +9    -0.111    -10.5%   0.637   1.000  post
+   +10    -0.157    -14.5%   0.572   0.857  post
+   +11    -0.161    -14.9%   0.581   1.000  post
+   +12    -0.202    -18.3%   0.550   0.857  post
+
+  parallel-trends JOINT test on leads (k<=-2):
+    [RI ] p=0.8571  rank 6 of 7  (rank 1 = pre-trend WARNING)
+    [WCR] joint p=0.7808
+    verdict: PARALLEL OK
+
+=== [4] FIXED-HORIZON ATT (pointwise beta_h; del Rio-Chanona -25% benchmark) ===
+  h=+6 : beta=+0.0082 (+0.8%)  WCR p=0.9689  RI rank 7/7 ratio=0.01x  [3mo-sm -1.2%]
+  h=+12: beta=-0.2023 (-18.3%)  WCR p=0.5590  RI rank 6/7 ratio=0.20x  [3mo-sm -16.6%]
+  h=+24: NA — out of sample, panel ends k=+12
+
+=== [5] LEAK-FREE PLACEBO-IN-TIME ===
+  fake event 2022-09  k in (-3, 2)
+  beta=-0.0630 (-6.1%)  WCR p=0.3695  RI rank 2/7
+  verdict: PLACEBO CLEAN (effect ~0)
+
+=== [SC] SYNTHETIC CONTROL ===
+  [WARNING] UNDER-IDENTIFIED: T0=6 <= J=6. SC ILLUSTRATIVE ONLY — headline stays DiD/event-study.
+            (extend pre-period to 2021-01 for a credible SC; SC is identified off pre-fit, not post length.)
+  donor weights: math.stackexchange=1.000
+  RMSPE pre=2.7140  post=2.3320  ratio=0.86
+  clean-window mean gap = +2.3217 (+919.3%)
+  in-space placebo: treated rank 7/7 by RMSPE-ratio  p=1.0000 (floor 1/7=0.1429)
+
+=== [STAGGERED] Sun-Abraham (primary) + Callaway-Sant'Anna (cross-check) ===
+  EXPLORATORY: never-treated-only comparison; with ~7 units fragile. If only the 2022-12 cohort is estimable, SA collapses to its event study.
+    cohort 2022-12: ATT_g=+0.1089 over 13 post months
+    cohort 2024-12: SKIPPED (rmax=-12) — no post periods in panel (out of sample)
+    [CS] cohort 2022-12: ATT=+0.1089
+
+=== [DIAG] control-only placebo + frozen-control arm ===
+  control-only placebo (math = pseudo-treated, no SO):
+    pre-trend RI p=0.1333 rank 2/15
+    pre-trend WCR joint p=None
+    extension-window test: not estimable, panel ends k=+12 (< ext_start=+24); cannot rule controls clean.
+  frozen-control arm (drop most-substitutable first):
+    drop []: ATT=-7.6% (beta -0.0795, WCR p=0.6595, n_ctrl=6)
+    drop ['mathoverflow.net']: ATT=+0.0% (beta +0.0004, WCR p=0.9980, n_ctrl=5)
+    drop ['mathoverflow.net', 'superuser']: ATT=+9.3% (beta +0.0892, WCR p=0.6910, n_ctrl=4)
+    drop ['mathoverflow.net', 'superuser', 'es.stackoverflow']: ATT=+3.7% (beta +0.0362, WCR p=0.8373, n_ctrl=3)
+    drop ['mathoverflow.net', 'superuser', 'es.stackoverflow', 'pt.stackoverflow']: ATT=-20.5% (beta -0.2288, WCR p=0.3917, n_ctrl=2)
+    drop ['mathoverflow.net', 'superuser', 'es.stackoverflow', 'pt.stackoverflow', 'ru.stackoverflow']: ATT=-32.4% (beta -0.3909, WCR p=0.3333, n_ctrl=1)
+    Delta_max=0.4800  rel_drift=6.04 (warn>0.25)  sign_stable=False
+    verdict: DRIFT: ATT moves materially as controls drop — inspect
+
+[saved] D:\ai  半导体 顶刊计划\P9_code\legB\data\eventstudy_v2_questions.csv
+[saved] D:\ai  半导体 顶刊计划\P9_code\legB\data\fh_att_questions.csv
+EXIT=0

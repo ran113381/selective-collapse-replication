@@ -1,0 +1,62 @@
+[
+  {
+    "qid": 79898663,
+    "answer": "The debug window closes because your script finishes without waiting for input. Add `input()` at the end to pause execution, or configure your VS Code launch.json with `\"stopOnEntry\": true` to pause at program start. Alternatively, use `console: \"externalTerminal\"` which keeps the terminal open automatically after execution. The `internalConsole` setting runs without any terminal interaction, which is why it closes immediately."
+  },
+  {
+    "qid": 79880338,
+    "answer": "Yes, tqdm supports manual updates. Use `tqdm(total=100)` to create a bar without iterating, then call `.update(n)` with your manually-calculated percentages: `bar = tqdm(total=100); bar.update(percentage_from_process); bar.close()`. For continuous updates from a second process, wrap the updates in a loop and synchronize with inter-process communication (Queue, pipe, or shared memory) to fetch percentages as available."
+  },
+  {
+    "qid": 79687721,
+    "answer": "LangGraph identifies tools through function docstrings and type annotations. The docstring describes what the tool does, and parameter types guide the LLM on inputs. Long function names are unnecessary—write clear, concise names and detailed docstrings explaining purpose and return behavior. The `@tool` decorator parses the docstring as the tool description. For complex tools, structure docstrings with parameter descriptions and examples. The LLM reads all this metadata to decide when to call the tool."
+  },
+  {
+    "qid": 79900921,
+    "answer": "PySide6/Qt provides the best UIA support among Python frameworks, with most widgets properly exposed. Tkinter lacks reliable UIA integration. For maximum accessibility, consider pywin32 with direct Windows API calls, or wrap native Windows controls. However, no Python framework equals native C++. If accessibility is critical, evaluate whether Python is the right choice, or use PySide6 as the least problematic option and supplement with manual accessibility implementations using `pywinauto` or direct UIA APIs where needed."
+  },
+  {
+    "qid": 79882151,
+    "answer": "Mypy cannot infer fixed-length tuples from list operations. Cast the result explicitly: `return cast(T_week, tuple(week_shifted))`. Alternatively, use a loop with typed assignments: `result: T_week = (week_shifted[0], week_shifted[1], ...)` (verbose but type-safe). Or use `typing.TypedDict` with exact keys if your data structure allows. Assert statements alone won't convince mypy because type narrowing doesn't apply to `tuple()` calls on lists."
+  },
+  {
+    "qid": 79883776,
+    "answer": "You've shadowed the built-in `str()` function. In `printAttr()`, you define `object` as a parameter, but look at your code: `str(eval(...))` calls the built-in str. The issue is likely that `eval(\"object.\"+i+'()')` is evaluating something that returns an int, then you're trying to call it. Check the eval result—some properties may return integers. Rename your parameter from `object` to something else and debug what `eval()` returns for each attribute."
+  },
+  {
+    "qid": 79044503,
+    "answer": "Use type hints with numpy's generic typing: `x: np.ndarray[Any, np.dtype[np.signedinteger[Any]]] = np.array([1, 2, 3], dtype=int)`. However, full type inference of indexed elements requires numpy's experimental typing (numpy >= 1.20). For practical purposes, Pyright/Mypy may still infer `x[0]` as `Any`. Consider using `numpy.typing.NDArray[np.int_]` for simpler annotations, though element type inference depends on your tool versions."
+  },
+  {
+    "qid": 79685952,
+    "answer": "Parse by detecting date-time lines as chunk boundaries. Read lines, identify rows starting with `/` (datetime pattern), group following lines as that chunk's header row plus sensor rows. Build a list of dictionaries where each datetime groups its sensor readings. Then flatten using pandas: collect all rows with columns [Datetime, Xu, Xv, Xx, Xy, Xz, comment, Val_A, Val_B, ...]. Use a loop to detect chunk starts and `pd.DataFrame()` to structure the final output."
+  },
+  {
+    "qid": 79647894,
+    "answer": "No, most database drivers don't support nested dictionary path syntax like `%(country[id])s`. Flatten the dictionary before passing: `person_flat = {**person, 'country_id': person['country']['id']}`, then use `%(country_id)s` in the query. Alternatively, extract the value: `country_id = person['country']['id']` and pass a modified dict. Some ORMs (SQLAlchemy) offer more flexible parameter handling, but raw parameterized queries expect flat key names."
+  },
+  {
+    "qid": 79901558,
+    "answer": "Python's `list.sort()` returns `None` (in-place modification), so you can't chain it. Use the walrus operator (Python 3.8+): `print((l := list(myset)) or sorted(l))` — though this doesn't work cleanly. Best options: (1) `print(sorted(myset))` using the `sorted()` function, (2) separate lines: `l = list(myset); l.sort(); print(l)`, or (3) define a helper as you did. There's no inline method chaining for in-place operations."
+  },
+  {
+    "qid": 79881256,
+    "answer": "The `name` argument in setup.py is the package's distribution name (for pip), not the import name. The import name depends on folder names. If your folder is `my_package/`, you import `my_package` regardless of `setup(name='special_package')`. To rename the import, either rename the folder or use `packages = find_packages()` with `package_dir = {'special_package': 'my_package'}` in setup.py. Always ensure the folder name matches the import name you want."
+  },
+  {
+    "qid": 77584118,
+    "answer": "The issue is media type, not headers. Use `media_type=\"application/json; charset=utf-8\"` for JSON and `media_type=\"text/csv; charset=utf-8\"` for CSV in StreamingResponse. However, StringIO defaults to UTF-8 in Python 3. Ensure `json.dumps()` has `ensure_ascii=False` to preserve accents. For CSV, use `BytesIO` instead: `df.to_csv(index=False).encode('utf-8')` with StreamingResponse and proper media type. Set `Content-Disposition: attachment` for downloads."
+  },
+  {
+    "qid": 76145761,
+    "answer": "Poetry scripts cannot directly run complex shell commands with pipes. Define a Python entry point instead: create a `build.py` script that calls PyInstaller programmatically, then add `[tool.poetry.scripts] builddist = \"build:main\"` to invoke it. Alternatively, run pyinstaller from a Makefile or separate bash script outside poetry. Poetry's `packages` and build process don't integrate PyInstaller natively—use a custom build backend or external tool."
+  },
+  {
+    "qid": 79477454,
+    "answer": "You're not assigning the converted image. `img.convert('L')` returns a new grayscale image but doesn't modify `img` in-place. You need: `img = img.convert('L')` before `np.asarray(img)`. The original `img` remains RGB because convert() doesn't modify the original. After correct assignment, `np.asarray()` of a grayscale PIL image will give shape (266, 485), and for B&W (mode '1'), you'll get a uint8 array of the same shape."
+  },
+  {
+    "qid": 79902845,
+    "answer": "Effective exercises combine multiple approaches: (1) Algorithm problems (LeetCode, Codewars) build logical thinking and pattern recognition; (2) Debugging exercises teach tracing and root-cause analysis; (3) Small projects with defined requirements develop design and decomposition skills; (4) Code reading and refactoring improve pattern recognition. Start with algorithm problems to build fundamentals, progress to projects for context, and regularly debug others' code. Focus on understanding solutions deeply, not just solving. Balance breadth with depth."
+  }
+]

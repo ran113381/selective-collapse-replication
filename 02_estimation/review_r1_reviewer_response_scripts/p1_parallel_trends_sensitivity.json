@@ -1,0 +1,79 @@
+{
+ "note": "平行趋势敏感性。粗化事件研究：前期三窗口（P0-6 口径）+ 后期四能力窗口（Table 4 口径）同一回归，参照月 2022-11，月聚类。**这是 R&R 同族的断点值，不是 R&R 完整偏识别区间**，写回措辞不得称 honest DiD 区间。",
+ "reference_month": "2022-11",
+ "formula": "lc ~ sxW1 + sxW2 + sxW3 + sxY1 + sxY2 + sxY3 + sxY4 + C(bin) + C(ym)",
+ "windows": [
+  {
+   "label": "pre W1 2021-06..2021-11",
+   "col": "sxW1",
+   "beta": -0.3354,
+   "se": 0.0938,
+   "side": "pre"
+  },
+  {
+   "label": "pre W2 2021-12..2022-05",
+   "col": "sxW2",
+   "beta": -0.343,
+   "se": 0.1088,
+   "side": "pre"
+  },
+  {
+   "label": "pre W3 2022-06..2022-10",
+   "col": "sxW3",
+   "beta": -0.3663,
+   "se": 0.0666,
+   "side": "pre"
+  },
+  {
+   "label": "post Y1 2022-12..2023-11",
+   "col": "sxY1",
+   "beta": -0.6404,
+   "se": 0.0848,
+   "side": "post"
+  },
+  {
+   "label": "post Y2 2023-12..2024-11",
+   "col": "sxY2",
+   "beta": -0.827,
+   "se": 0.0669,
+   "side": "post"
+  },
+  {
+   "label": "post Y3 2024-12..2025-11",
+   "col": "sxY3",
+   "beta": -0.7752,
+   "se": 0.0437,
+   "side": "post"
+  },
+  {
+   "label": "post Y4 2025-12..2026-05",
+   "col": "sxY4",
+   "beta": -0.7193,
+   "se": 0.1104,
+   "side": "post"
+  }
+ ],
+ "pre_linear_trend_per_month": {
+  "estimate": -0.00278,
+  "se": 0.00991,
+  "p": 0.7790211483352931
+ },
+ "pre_adjacent_diffs": [
+  -0.0076,
+  -0.0233
+ ],
+ "max_pre_deviation": 0.0233,
+ "gamma_post_minus_pre": {
+  "estimate": -0.4156,
+  "se": 0.0632,
+  "reproduces_headline": -0.416
+ },
+ "lever_months": 30.0,
+ "breakdown": {
+  "delta_per_month_to_zero": -0.01385,
+  "Mbar_to_zero": 5.0,
+  "delta_per_month_to_insignificant": -0.00972,
+  "Mbar_to_insignificant": 3.5
+ },
+ "self_checks": "S1/S2/S3 全部通过"
+}

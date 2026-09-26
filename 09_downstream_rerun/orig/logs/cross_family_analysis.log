@@ -1,0 +1,26 @@
+model=glm-4.6: GLM labels for 5999/6000 (missing 1)
+
+(1) GLM vs Claude, N=5999: binary κ=0.695 (raw 84.8%); weighted κ=0.756; exact 59.6%; ±1 94.5%
+    off 2–3 boundary (n=2344): 96.9%;  on boundary (n=3655): 77.0%
+    score distributions  Claude: {0: 25, 1: 1284, 2: 1589, 3: 2066, 4: 1035}  GLM: {0: 11, 1: 2166, 2: 859, 3: 1649, 4: 1314}
+    confusion (rows Claude 0-4, cols GLM 0-4):
+ glm    0     1    2     3    4
+score                         
+0      2    20    0     0    3
+1      5  1166   92    19    2
+2      2   743  480   322   42
+3      2   210  266  1123  465
+4      0    27   21   185  802
+(4) agreement drift pre 84.1% vs post 85.0%, Fisher p=0.347
+
+(2) GLM vs human consensus, N=300: binary κ=0.526 [0.430, 0.621] (raw 76.3%)  — Claude: κ=0.512 [0.413, 0.607]
+    on agreed questions (N=230): κ=0.618 (80.9%)
+    on adjudicated questions (N=70): κ=0.258 (61.4%)
+
+(3) dose-response with GLM labels (s0 dropped; 0 empty bin-months absent from log spec):
+    OLS γ=-0.227 (SE 0.036) p=4.90e-10  s4-vs-s1=-49%   Poisson γ=-0.180 (SE 0.038) p=1.56e-06   [Claude labels: −0.416]
+E:\智能体论文\P9b_IPM_20260919\工作文档\R2_downstream\orig\05_additional_checks\cross_family_analysis.py:145: DeprecationWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  gs = dd.groupby("post").apply(lambda x: (x.glm >= 3).mean())
+    GLM generative share pre 0.565 → post 0.465   [Claude: .63 → .47]
+
+written: E:\智能体论文\P9b_IPM_20260919\工作文档\R2_downstream\orig\05_additional_checks\glm_relabel\cross_family_glm-4.6.json

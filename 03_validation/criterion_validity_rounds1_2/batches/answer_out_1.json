@@ -1,0 +1,54 @@
+[
+  {
+    "qid": 79884426,
+    "answer": "This is a TensorFlow and Python 3.13 compatibility issue. The segfault occurs in TensorFlow's LLVM backend. Try: (1) Downgrade to Python 3.12 or use TensorFlow nightly builds with 3.13 support; (2) Ensure PyOpenGL is the latest version; (3) Update OpenGL drivers on your system; (4) Try using a different OpenGL implementation (Mesa vs vendor drivers); (5) Set environment variables like OPENBLAS_NUM_THREADS=1. Check TensorFlow GitHub issues for Python 3.13 compatibility reports and consider using Docker with a compatible Python version."
+  },
+  {
+    "qid": 79837960,
+    "answer": "The issue is with how AsyncMock handles async iteration. When you call mock_cursor(), you're creating a new AsyncMock without the configured behavior. Fix: (1) Don't call mock_cursor() again—use mock_cursor directly when patching; (2) Set up async iteration properly with side_effect=[...rows..., StopAsyncIteration]; (3) Use AsyncGenerator library or create a proper async generator. Also, TestClient doesn't work with async endpoints—use AsyncClient from httpx with pytest-asyncio instead for proper async testing."
+  },
+  {
+    "qid": 79688966,
+    "answer": "This error typically occurs when the eigenvalue solver cannot converge, often due to: (1) Ill-conditioned matrices; (2) Incompatibility between numpy 2.0.2 and OpenBLAS 0.3.29; (3) Numerical precision issues. Solutions: (1) Try OpenBLAS 0.3.28 or upgrade to recent versions; (2) Use numpy 1.26.x which is stable with OpenBLAS 0.3.29; (3) Rebuild numpy with a different BLAS (MKL, Accelerate, netlib); (4) Add regularization to ill-conditioned matrices; (5) Check for NaN/Inf values in your data."
+  },
+  {
+    "qid": 79547567,
+    "answer": "Use Django signals to automatically create related records instead of overriding save(). Create signals.py: from django.db.models.signals import post_save; @receiver(post_save, sender=Profile) def create_rank(sender, instance, created, **kwargs): if created: Rank.objects.create(...). Register in apps.py ready() method. This avoids recursive save issues and is the Django best practice for creating child records when parent objects are created."
+  },
+  {
+    "qid": 79601812,
+    "answer": "Use str.split() with expand=True and handle NaN values properly. For Address2, rsplit will return None for single-word entries: df[['Start', 'Last']] = df['Address2'].str.rsplit(' ', n=1, expand=True). Fill missing values: df['Start'] = df['Start'].fillna(''); df['Last'] = df['Last'].fillna(df['Address2']). Alternatively, create a custom function using apply() that handles variable-length splits gracefully regardless of input format."
+  },
+  {
+    "qid": 79405304,
+    "answer": "Bitwise AND operates on individual bits. Grey 100 (binary 01100100) has 1-bits set in certain positions. When you perform bitwise_and(pixel, pixel, mask=100), color is preserved where mask bits are 1 and zeroed where they're 0. Grey masks create partial masking by having fewer 1-bits than 255—colors are dimmed based on which bits are set. Use 255 for full preservation, 0 for complete masking, and grey values for partial effects."
+  },
+  {
+    "qid": 79147028,
+    "answer": "In Pydantic v2, conlist() uses different parameter names. Use: from typing import Annotated; fuel_efficiency: Annotated[list[float], Field(min_length=3, max_length=3)]. The error occurs because v2 uses min_length/max_length (not min_items/max_items). Alternatively: from pydantic import conlist works with Annotated syntax. Verify your Pydantic version—v1 and v2 have incompatible APIs."
+  },
+  {
+    "qid": 79902571,
+    "answer": "```python\nimport numpy as np\nArray1 = np.arange(1.1, 30.1, 0.1)\nArray2 = np.diff(Array1, prepend=Array1[0])\neven_elements = Array1[1::2]  # 2nd, 4th, 6th... (indices 1,3,5...)\nresult = np.sum(np.sqrt(even_elements))\n```\nArray2 keeps first element, then differences. Even-indexed elements means indices 1, 3, 5, etc. (the 2nd, 4th, 6th values). The result is sqrt(1.2) + sqrt(1.4) + ... + sqrt(29.9)."
+  },
+  {
+    "qid": 79601755,
+    "answer": "The error occurs because df['twitter'].str.contains() returns a Series, not a boolean. Fix: def windows_ver(tweet): if 'windows 11' in tweet.lower(): return 'windows 11'... then df['windows_version'] = df['twitter'].apply(windows_ver). Or use vectorized: df['windows_version'] = np.select([df['twitter'].str.contains('windows 11', case=False), df['twitter'].str.contains('windows 10', case=False)], ['windows 11', 'windows 10'], 'windows 8 or older')."
+  },
+  {
+    "qid": 79922356,
+    "answer": "Fix two issues: (1) Remove trailing comma: not_31_days = (4, 6, 9, 11); (2) Use 'in' operator instead of ==: if day == 31 and month in not_31_days. The comparison month == not_31_days doesn't work—you need to check if month is in the tuple. This checks if the month has only 30 days and day is 31, then prints the error."
+  },
+  {
+    "qid": 79918326,
+    "answer": "PyDirectInput has known issues with Win key combinations in v1.0.4. Use pyautogui instead (which you verified works), or use the keyboard library: import keyboard; keyboard.hotkey('win', 'd'). If staying with PyDirectInput, add sleep(0.1) between keyDown and keyUp for proper timing. Consider upgrading to the latest PyDirectInput version or switching to keyboard/pyautogui libraries which handle modifier keys reliably."
+  },
+  {
+    "qid": 79835431,
+    "answer": "Use broadcasting or np.tile(): equator = np.linspace(-1, 1, height); equator_2d = np.tile(equator[:, np.newaxis], (1, width)). For multiple keypoints (e.g., -1→1→-1): values = np.linspace(-1, 1, height//2); values = np.concatenate([values, values[::-1]]); equator_2d = np.tile(values[:, np.newaxis], (1, width)). This creates rows with repeated values and handles multiple value ranges with custom keypoints."
+  },
+  {
+    "qid": 79919189,
+    "answer": "The error means time_step from _step() or _reset() doesn't match time_step_spec. Ensure: (1) time_step_spec matches what _reset() returns; (2) All observations match _observation_spec exactly in dtype and shape; (3) Reward/discount specs match their actual values. Verify both methods return TimeStep objects with correct structure. Debug by printing actual time_step.observation.shape and comparing to spec."
+  }
+]

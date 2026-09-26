@@ -1,0 +1,82 @@
+[
+  {
+    "qid": 79938463,
+    "answer": "PyMC's progress bar callbacks don't integrate well with Streamlit's reruns. The core issue is that Streamlit reruns the entire script on each update, losing callback state. Use threading to run sampling in a separate thread and update a threadsafe queue that Streamlit reads. Alternatively, use PyMC's built-in progress support with `progress_bar=True` and capture its output via context managers. For real-time feedback: wrap the sampling in a thread, use a Queue to communicate progress, and update `st.progress()` in the main thread using `st.session_state` to persist across reruns."
+  },
+  {
+    "qid": 79549461,
+    "answer": "The issue is that `map()` returns a Series of tuples, which can't be unpacked directly. Use `apply()` with `expand=True` instead: `mydf[[\"d3\", \"d2\", \"d1\"]] = mydf[\"mynum\"].apply(lambda x: pd.Series(last_3_divisions(x, 2)))`. Or use `result_type='expand'` if using pandas >= 0.25. Alternatively, convert to DataFrame first: `df = pd.DataFrame(mydf[\"mynum\"].map(lambda x: last_3_divisions(x, 2)).tolist(), columns=[\"d3\", \"d2\", \"d1\"])` and concat with original."
+  },
+  {
+    "qid": 79780819,
+    "answer": "The PyQt5 stubs only define one overload for `connect()`. Add a custom stub in your project's `stubs/PyQt5/QtCore.pyi` with the queued connection overload: `def connect(self, slot: \"PYQT_SLOT\", type: QtCore.Qt.ConnectionType = ...) -> QtCore.QMetaObject.Connection: ...`. Include `py.typed` marker in your stubs directory. Alternatively, use `# type: ignore[call-arg]` on that line, or cast: `btn.clicked.connect(cast(Any, clicked), QtCore.Qt.QueuedConnection)`."
+  },
+  {
+    "qid": 79919524,
+    "answer": "This is a Jupyter kernel issue—the custom module may not be properly reloaded after edits. Solutions: (1) Restart your kernel before re-importing, (2) Use `importlib.reload()` in your notebook: `import importlib; importlib.reload(mymodule)`, (3) Ensure the correct Python interpreter is running (check `sys.executable`), (4) Verify `library/` is in sys.path. If using venv, ensure you're using the correct kernel—reinstall ipykernel: `pip install --force-reinstall ipykernel`."
+  },
+  {
+    "qid": 79885116,
+    "answer": "Redirect stdout/stderr to a PyQt widget to capture output safely. Create a custom stream class that emits signals, and connect them to a QTextEdit. Use `sys.stdout = CustomStream(signal_emitter)` at startup. This prevents terminal closure from killing the app. Example pattern: class Stream(QObject): text_written = pyqtSignal(str); def __init__(self): super().__init__(); sys.stdout = self. Then connect text_written signal to append to QTextEdit. This way users see output in-app, not in a closeable terminal."
+  },
+  {
+    "qid": 79722099,
+    "answer": "The `_msi` module is Windows-specific and shouldn't be needed on Linux. Your venv got corrupted during the OS migration. Rebuild it completely: delete `venv`, create fresh with `python3 -m venv venv`, activate, then `pip install -r requirements.txt`. The msilib import comes from old Python installations or broken dependencies. If issue persists, check that your Python 3.x installation is complete and not mixing Windows/Linux builds. Django should work fine without msilib on Linux."
+  },
+  {
+    "qid": 79723041,
+    "answer": "Add negative lookahead/lookbehind to prevent empty matches: `(?<!\\w)(?=\\b[MCDXLVI]+\\b)M{0,4}(?:CM|CD|D?C{0,3})(?:XC|XL|L?X{0,3})(?:IX|IV|V?I{0,3})(?![-\\w])`. The `(?<!\\w)` prevents matching after word chars, and `(?![-\\w])` prevents matching before hyphens or word chars. This stops false positives on 'X' in 'X-ray' and before 'Cil'. Test with case-insensitive flag. The lookarounds ensure valid standalone Roman numerals only."
+  },
+  {
+    "qid": 79807844,
+    "answer": "Yes, your code structure will serialize correctly. All custom layers (UPDoubleConv, DoubleConv) are registered with `@tf.keras.utils.register_keras_serializable()` and have `get_config()` and `from_config()` methods. The nested Sequential models will serialize recursively. Load with: `model = tf.keras.models.load_model('model.h5', custom_objects={'UPDoubleConv': UPDoubleConv, 'DoubleConv': DoubleConv})`. Ensure all custom layers are imported before loading. Test with `model.save()` and `load_model()` to verify."
+  },
+  {
+    "qid": 79810195,
+    "answer": "Python 3.13's frozen dataclass exception cannot reassign `__traceback__`. The issue is in contextlib when re-raising exceptions in frozen contexts. Workaround: (1) Don't use `@dataclass(frozen=True)` on exception classes, (2) Use `raise ... from exc` instead of context manager reraise, (3) Update to Python 3.14+ which may fix this, or (4) Catch and re-raise without traceback modification: `except Exception: raise`. This is a CPython issue with frozen dataclasses; avoid frozen=True on exceptions."
+  },
+  {
+    "qid": 78088003,
+    "answer": "Protobuf's dynamic class creation isn't discoverable by IDEs. Solutions: (1) Install protobuf stubs: `pip install types-protobuf` (if available), (2) Add a .pyi stub file manually in your project with class definitions, (3) Use `# type: ignore` on the import, or (4) Use protoc's `--pyi_out=.` flag (v3.20+) to generate .pyi files. For long-term: use protobuf v4+ with native Python type hints, or ensure IDE includes protobuf plugins. Mypy can use generated stubs with `--python-executable` set correctly."
+  },
+  {
+    "qid": 79146851,
+    "answer": "Yes, the package name is always the same for install and uninstall. `pip install requests` and `pip uninstall requests` use identical names. Minor caveat: package names can have dashes or underscores—pip normalizes both to the same distribution, so `pip install my-package` and `pip uninstall my-package` both work. Similarly, `pip install my_package` works. However, always use the official package name from PyPI for consistency. Check with `pip index versions package-name` to verify the canonical name."
+  },
+  {
+    "qid": 79686145,
+    "answer": "Use `Start-Process -NoNewWindow -PassThru` or `Start-Job`. For true nohup behavior (survive terminal closure), try: `Start-Process python \"my_program.py\" -NoNewWindow -WindowStyle Hidden`. This detaches from terminal. Alternatively, use `Start-Job -ScriptBlock { python my_program.py }` which runs in background. For most robust solution: create a scheduled task with `Register-ScheduledJob`, or use NSSM (Non-Sucking Service Manager) to wrap it as a Windows service. Note: subprocesses spawn by the Python script inherit the parent's job object; ensure they're not in the same job."
+  },
+  {
+    "qid": 79783307,
+    "answer": "The documentation and behavior are inconsistent. `uv build` falls back to implicit PEP 517/518 defaults when `[build-system]` is missing. To match documentation and avoid surprises, add explicit `[build-system]` to pyproject.toml: `[build-system]\\nrequires = [\"hatchling\"]\\nbuild-backend = \"hatchling.build\"`. This makes builds explicit and reproducible. If you want uv NOT to build, create `.whl` only or disable the feature explicitly. Check uv changelog for version-specific behavior changes."
+  },
+  {
+    "qid": 79860752,
+    "answer": "Linux/Mint common issue: your venv is using the wrong Python interpreter, or pandas wasn't installed to that venv. Steps: (1) Verify venv is active: `which python` should show `/path/to/venv/bin/python`, (2) Reinstall: `pip install pandas`, (3) If still broken, delete venv and recreate: `python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt`. (4) In Jupyter: ensure you're using the correct kernel (Kernel > Change kernel). Linux Mint requires kernel reinstall after venv recreation."
+  },
+  {
+    "qid": 79780338,
+    "answer": "The dataset mapping function is adding `'image': None` to all messages due to how Hugging Face datasets handles dictionary keys. When you create a dict with an 'image' key in user but not system, the system message gets the key set to None. Solution: only include 'image' in content when it exists—don't add the key at all for system messages: `{\"type\": \"text\", \"text\": ...}` without 'image'. Or check sample presence: `if 'image' in sample: {\"type\": \"image\", \"image\": sample['image']}`."
+  },
+  {
+    "qid": 79884645,
+    "answer": "CodeQL can't locate the query pack. The error suggests the CLI doesn't have access to `python-security-extended.qls`. Solutions: (1) Update CodeQL CLI: `codeql --version` and upgrade if needed, (2) Specify full path to queries: pass absolute path instead of query name, (3) Download query packs explicitly: `codeql pack install`, (4) Check that CodeQL data directory is correctly set in Azure DevOps agent. If on Ubuntu self-hosted agent, ensure CodeQL binary is in PATH and has permissions. Try running CodeQL command directly in agent SSH to debug."
+  },
+  {
+    "qid": 79477586,
+    "answer": "Azure ML's `data.ilearner` is a proprietary model format, NOT LightGBM format. The error occurs because you're trying to load it as LightGBM. Solutions: (1) Export the trained model from Azure ML Pipeline in standard format (ONNX, pickle) using the model output port, (2) Use Azure ML SDK to download and convert: `from azureml.core import Model; model = Model(ws, 'model-name'); model.download()`, (3) If you need the actual model weights, retrain using scikit-learn locally: use the exported predictions to validate."
+  },
+  {
+    "qid": 79937124,
+    "answer": "Your frequency-based transcoding detection approach is sound—checking for bandwidth limits (Nyquist cutoff) works. Key improvements: (1) Use FFT on PCM samples, check for frequency content above expected bitrate ceiling, (2) Compare spectral shapes: transcoded audio has artificial bandwidth limits, (3) Test multiple chunks across file duration—transcoding artifacts appear consistently. Faster: extract spectral centroid and entropy instead of full spectrogram. Edge case: lossless recompression (FLAC from MP3) won't show spectral cutoff. Consider metadata checks too."
+  },
+  {
+    "qid": 79548754,
+    "answer": "You need to transpose first, then reshape. The shape (3,4,2) needs to become (8,3) with interleaved data. Use: `arr.transpose(1,2,0).reshape(8,3)`. Breakdown: transpose moves the 3 outer arrays to last position (4,2,3), then flatten to (4,2*3)=(4,6), then reshape to (8,3). Verify order with: `result[0]` should be `['a1','b1','c1']`. If orientation differs, try `arr.transpose(2,1,0).reshape(8,3)` or adjust reshape parameters. Use `arr.reshape(-1,3)` for generic flattening."
+  },
+  {
+    "qid": 79549259,
+    "answer": "The issue is that reimporting overwrites the class in the module namespace. Use `importlib.import_module()` with namespace isolation or alias differently: `Mod1 = importlib.import_module(\"Mod1\")`; `Mod2 = importlib.import_module(\"Mod2\")`; then access as `Mod1.Module()` and `Mod2.Module()`. Or rename on import: `module_1_cls = getattr(importlib.import_module(\"Mod1\"), \"Module\")`; `module_2_cls = getattr(importlib.import_module(\"Mod2\"), \"Module\")`. This keeps references separate. Avoid importing into the same name slot."
+  }
+]

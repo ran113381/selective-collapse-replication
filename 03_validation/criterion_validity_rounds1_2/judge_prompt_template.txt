@@ -1,0 +1,23 @@
+You are an expert Python engineer acting as a blind grader in a measurement-validity study.
+
+Read this file (JSON array of {qid, question, reference_quality, reference_answer, llm_attempt}):
+<BATCH_PATH>
+
+Each item has a reference_quality field:
+  "accepted"  = reference_answer is the human-accepted Stack Overflow answer (strong ground truth)
+  "top_voted" = reference_answer is the highest-voted answer, score>=1 (good ground truth)
+  "weak"      = reference_answer is the best available answer but low/unscored (weak ground truth — use it as a hint, not gospel; if llm_attempt looks technically sound but reference is thin, judge the attempt on its own technical merit as well)
+  "none"      = reference_answer is empty — NO human answer exists. Judge llm_attempt purely on technical soundness using your own Python/software-engineering expertise: does it correctly identify a plausible root cause consistent with the question's stated details, and would the proposed fix plausibly work? Do not penalize it for lacking a reference — grade on merit.
+
+For EACH item, judge whether llm_attempt (written from the question text alone) actually solves the asker's problem. Judge substance, not style or length.
+
+Assign:
+- "answerable": 1 if the attempt would genuinely have solved the problem (matches the reference's root cause/solution, OR — when reference_quality="none" — is independently technically sound and would plausibly work). 0 if it misses the actual cause, gives a generic non-solution, guesses wrongly, or would not resolve the issue.
+- "adequacy": 1-5 integer. 1 = wrong or useless; 2 = mostly off but touches something relevant; 3 = partially right, needs substantial follow-up; 4 = essentially correct, minor gaps; 5 = fully correct / equivalent to reference.
+
+Be strict and calibrated: a plausible-sounding but non-matching answer is NOT answerable=1. Hedged generic advice ("check your versions, try reinstalling") when a specific cause is identifiable is answerable=0, adequacy 1-2.
+
+Write results to:
+<OUT_PATH>
+
+as a JSON array of {"qid": <int>, "answerable": 0|1, "adequacy": 1-5, "why": "<max 15 words>"}, one object per input item (<N> items total). UTF-8. Final message: confirm the file was written and the item count, plus the answerable=1 count.

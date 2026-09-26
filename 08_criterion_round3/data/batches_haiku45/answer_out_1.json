@@ -1,0 +1,82 @@
+[
+  {
+    "qid": 76809890,
+    "answer": "The issue is that `groupby(level=0, axis=1)` operates on column index levels, not column names. After renaming, your index doesn't change—only values do. Use this instead:\n\n```python\ndf.set_index('item').groupby(level=0, axis=1).apply(list)\n```\n\nOr better yet, rename as a separate column grouping:\n\n```python\ncols = pd.DataFrame({'orig': df.columns, 'group': df.columns.str.split('_').str[-1]})\nresult = df.groupby(cols['group'], axis=1).apply(list)\n```\n\nAlternatively, transpose, groupby on axis=0, then reshape back. The key insight: axis=1 groupby operates on column *index levels*, not derived values. Rename column *labels* afterward or restructure your MultiIndex first."
+  },
+  {
+    "qid": 78936478,
+    "answer": "The problem: `input()` writes prompts to stderr, not stdout. Your code reads stdout in a loop, missing stderr entirely. Solution: use threading or asyncio to read both streams simultaneously:\n\n```python\nimport threading\nstdout_thread = threading.Thread(target=read_stream, args=(process.stdout,))\nstderr_thread = threading.Thread(target=read_stream, args=(process.stderr,))\nstdout_thread.start()\nstderr_thread.start()\n```\n\nOr use `process.communicate()` for simpler cases. For interactive programs, consider using `pexpect` library which handles bidirectional interaction cleanly. Your current approach processes stdout, then stdin, then stderr sequentially—by then prompts are already printed without being captured."
+  },
+  {
+    "qid": 79756013,
+    "answer": "Use `np.atleast_1d()` to convert scalars to arrays while keeping arrays unchanged:\n\n```python\ndef f(x):\n    x = np.atleast_1d(x)\n    out = np.zeros(np.shape(x))\n    for i, X in enumerate(x):\n        out[i] = scipy.integrate.quad(y, 0, 5)[0]\n    return out\n```\n\nThis one-liner handles both float and ndarray inputs. Alternatively, `np.asarray()` also works but doesn't guarantee 1D. For robust type checking, add:\n\n```python\nif not isinstance(x, (np.ndarray, list)):\n    x = np.atleast_1d(x)\n```\n\nAvoid strings by checking isinstance first. `atleast_1d` is cleaner than manual `if/else` conversion logic."
+  },
+  {
+    "qid": 76379440,
+    "answer": "The `db.get()` method excludes embeddings by default for performance. Include them explicitly:\n\n```python\nresults = db.get(include=['embeddings'])\n```\n\nOr during collection creation, ensure the embedding function is properly initialized. If you're querying a persisted database, verify:\n\n```python\ndb = Chroma(collection_name=db_collection_name, \n            persist_directory=\"./data\",\n            embedding=embeddings)\nresults = db.get(include=['embeddings'])\n```\n\nThe parquet file contains embeddings; they're just filtered out by `get()` unless explicitly requested. This is intentional—embeddings are large and often unnecessary for metadata queries. Check that your embedding model is the same when reloading."
+  },
+  {
+    "qid": 76380677,
+    "answer": "The issue is backslash escaping in Windows paths. Use raw strings or forward slashes:\n\n```python\nparent_dir = r'C:\\localfolder\\'\n# OR\nparent_dir = 'C:/localfolder/'\n```\n\nYour current `'C:\\localfolder\\\\'` has problematic escaping. Better yet, use `pathlib`:\n\n```python\nfrom pathlib import Path\nparent_dir = Path('C:/localfolder')\nmy_source_files = [\n    parent_dir / 'Tdsx_Hyper_Templates' / f'{Tableau_extract_name}.hyper',\n    parent_dir / 'Tdsx_Hyper_Templates' / f'{Tableau_extract_name}.tdsx'\n]\n```\n\nPathlib handles cross-platform paths cleanly. The FileNotFoundError suggests the constructed path is malformed—verify with `print(my_source_files)` before the function call."
+  },
+  {
+    "qid": 77401727,
+    "answer": "Convert RGB to HSV (Hue, Saturation, Value) color space. Hue represents angle on the color wheel, while brightness/saturation determine distance from center:\n\n```python\nimport colorsys\nr, g, b = 92/255, 4/255, 12/255\nh, s, v = colorsys.rgb_to_hsv(r, g, b)\n# h in [0,1] = angle in [0, 360°]\n# s in [0,1] = saturation (distance-like)\n# v in [0,1] = brightness\n```\n\nPosition marker at: angle = h * 360°, distance = s * radius. Brightness (v) adjusts marker size or color intensity. This is the standard approach for color wheels with brightness. The issue with dark red (92,4,12) is low V; it's the same hue as bright red but darker."
+  },
+  {
+    "qid": 73564704,
+    "answer": "Slicing `[4:1:-1]` starts at index 4 and goes backward to (but not including) index 1 with step -1, yielding indices 4, 3, 2: \"oht\".\n\nSlicing `[4:1]` without a step defaults to step=1 (forward), but start > stop with forward step is impossible, so it returns empty.\n\nThe step parameter is essential for reverse iteration. Examples:\n```python\nname = 'Python'\nprint(name[4:1:-1])   # \"oht\" (indices 4,3,2)\nprint(name[::-1])     # \"nohtyP\" (full reverse)\nprint(name[5:1:-1])   # \"noht\" (indices 5,4,3,2)\n```\n\nPython slices are `[start:stop:step]`. Negative step reverses direction; the start/stop logic inverts accordingly."
+  },
+  {
+    "qid": 76380556,
+    "answer": "The issue is likely CRS mismatch or precision loss in coordinate transformation. Ensure both geometries use the same coordinate system:\n\n```python\ncircle = circle.buffer(0)  # Clean up geometry\nshapes = [city[idx].buffer(0).intersection(circle) \n          for idx in tree.query(circle)]\n```\n\nIf using GPS coordinates, convert to projected system (UTM) before buffering and intersection:\n\n```python\nfrom shapely.ops import transform\ncircle_projected = transform(to_local_projection, circle)\nshapes = [transform(to_local_projection, city[idx]).intersection(circle_projected) \n          for idx in tree.query(circle)]\n```\n\nThe `.buffer(0)` simplifies self-intersecting or invalid geometries. Also verify your circle is created with sufficient precision—GPS-to-degree conversion can lose detail. Check results with `for shape in shapes: print(shape.is_empty)`."
+  },
+  {
+    "qid": 67782993,
+    "answer": "Load the model, generate predictions on test data, then use sklearn.metrics:\n\n```python\nimport pickle\nfrom sklearn.metrics import f1_score\n\nwith open('model.pkl', 'rb') as f:\n    model = pickle.load(f)\n\ny_pred = model.predict(X_test)\nf1 = f1_score(y_test, y_pred)\nprint(f1)\n```\n\nFor multi-class, specify average type:\n```python\nf1 = f1_score(y_test, y_pred, average='weighted')\n```\n\nEnsure your test data (X_test) and true labels (y_test) are available. If you only have the model, you need test labels to compute F1—there's no way around it. For feature importance or other model diagnostics, check the model's built-in methods like `.feature_importances_`."
+  },
+  {
+    "qid": 74271091,
+    "answer": "Use `isin()` and `map()` with a case-insensitive lookup:\n\n```python\nlist_names = ['tom', 'zeo']\ndf['matched'] = df['name'].str.lower().map(\n    lambda x: next((name for name in list_names if name == x), np.nan)\n)\n```\n\nOr more efficiently with a dict:\n```python\nlookup = {name.lower(): name for name in list_names}\ndf['matched'] = df['name'].str.lower().map(lookup)\n```\n\nYour loop overwrites the column each iteration—only the last value persists. The `map()` approach applies the lookup row-wise. For case-insensitive matching with original casing, use the first approach or preserve the matched value from the list."
+  },
+  {
+    "qid": 75905091,
+    "answer": "Use `csv` module or `pandas.read_csv()` instead of manual parsing—both are much faster:\n\n```python\nimport csv\ndef get_data(filename):\n    with open(filename) as infile:\n        return list(csv.reader(infile))\n```\n\nOr with pandas (fastest for large files):\n```python\nimport pandas as pd\ndf = pd.read_csv(filename)\nreturn df.values.tolist()\n```\n\nYour loop is slow because: 1) `rstrip()` on each line, 2) `split()` each line, 3) `append()` individually (list resizing). The C-level `csv` module is 5-10x faster. For truly massive files, use pandas with chunking or `dask`. Avoid reinventing CSV parsing—use the standard library."
+  },
+  {
+    "qid": 79920013,
+    "answer": "The code is incomplete, but the issue is likely that `TextObjectInterface` requires proper registration and the format isn't being used in the document. Missing steps:\n\n1. Register the interface:\n```python\nrenderer = LatexRenderer()\ndoc = editor.document()\ndoc.documentLayout().registerHandler(LATEX_FORMAT, renderer)\n```\n\n2. Insert with proper char format:\n```python\nfmt = QTextCharFormat()\nfmt.setObjectType(LATEX_FORMAT)\nfmt.setProperty(1, latex_string)\ncursor.insertText(chr(0xFEFF), fmt)  # Object replacement char\n```\n\n3. Complete the `render_latex` method—the code cuts off. Ensure matplotlib figure is saved to QImage. TextObjectInterface requires explicit document insertion; just setting the format doesn't display anything."
+  },
+  {
+    "qid": 75305752,
+    "answer": "Use `setattr()` to dynamically add methods from a dictionary:\n\n```python\nmethods = {\n    \"walk\": lambda self: print(f\"{self.name} is walking\"),\n    \"run\": lambda self: print(f\"{self.name} is running\"),\n}\n\nclass Animal:\n    def __init__(self, name):\n        self.name = name\n\nfor method_name, method_func in methods.items():\n    setattr(Animal, method_name, method_func)\n\na = Animal(\"Dog\")\na.walk()  # Works!\n```\n\nOr wrap it in a decorator:\n```python\ndef add_methods(methods_dict):\n    def decorator(cls):\n        for name, func in methods_dict.items():\n            setattr(cls, name, func)\n        return cls\n    return decorator\n\n@add_methods(methods)\nclass Animal:\n    ...\n```\n\nThis is cleaner than looping after class definition and applies all methods in one decorator."
+  },
+  {
+    "qid": 73914963,
+    "answer": "The entry box is empty—check before converting to int:\n\n```python\nif not messagebox_shown and value:\n    value = value.strip()\n    if value:  # Ensure it's not just whitespace\n        value = int(value) % 2\n        if hand == value:\n            # ...\n            messagebox_shown = True\n```\n\nOr use try/except:\n```python\ntry:\n    value = int(value) % 2\nexcept ValueError:\n    continue  # Skip empty entries\n```\n\nThe error \"invalid literal for int() with base 10: ''\" means `value_widget.get()` returned an empty string. Entry widgets can have empty values—always validate before converting. Check that all VALUE widgets are populated, or use default values for missing entries."
+  },
+  {
+    "qid": 75305999,
+    "answer": "The issue is variable scope—the function references buttons before they're created. Use `lambda` to defer the call:\n\n```python\ndef mainpage():\n    def delete_buttons():\n        signup_btn.destroy()\n        login_btn.destroy()\n        # other cleanup\n    \n    signup_btn = Button(root, text=\"Sign-Up\", command=delete_buttons)\n    login_btn = Button(root, text=\"Log-In\", command=delete_buttons)\n```\n\nOr use lambda to capture variables:\n```python\nsignup_btn = Button(root, command=lambda: (signup_btn.destroy(), login_btn.destroy()))\nlogin_btn = Button(root, command=lambda: (signup_btn.destroy(), login_btn.destroy()))\n```\n\nThe problem: defining `delete()` before `B1` exists means the name isn't bound. Define the function after button creation, or use lambda to defer evaluation. Avoid calling the function at button creation—pass the function object, not the result."
+  },
+  {
+    "qid": 79549916,
+    "answer": "launch.json benefits for Python debugging:\n\n1. **Environment variables**: Set `PYTHONPATH`, debug flags without CLI\n2. **Arguments/inputs**: Pass command-line args or stdin without typing\n3. **Module debugging**: Debug by module name (`-m module_name`) not file path\n4. **Conditional breakpoints**: Set complex breakpoints via config\n5. **Workspace-specific**: Different configs for different projects\n6. **Auto-reload**: Restart debugger on file changes\n7. **Configurations**: Multiple debug profiles (dev, test, production)\n\nFor your standalone scripts, the main gain is running scripts without CLI repeatedly and setting workspace-specific arguments. It's optional but convenient for complex workflows. Without it, you manually type python commands each time."
+  },
+  {
+    "qid": 69793288,
+    "answer": "Read n and list in one line:\n\n```python\nn, *m = map(int, input().split())\nprint(m)  # [5, 6, 9, 8, 5, 6, 0]\n```\n\nOr explicitly:\n```python\ninput_data = list(map(int, input().split()))\nn = input_data[0]\nm = input_data[1:]\n```\n\nThe `*m` unpacking captures all remaining elements after `n`. Input: `7 5 6 9 8 5 6 0` → n=7, m=[5,6,9,8,5,6,0]. This assumes the first value is the count; if you just want to read all as a list, use `m = list(map(int, input().split()))`."
+  },
+  {
+    "qid": 75905386,
+    "answer": "The issue is type consistency: nodes are strings but `dist` is initialized with `float('inf')`. Also, `dist[str(sink)]` should exist but may not if sink wasn't in the graph. Fix:\n\n```python\ndef longest_path(source, sink, edges):\n    graph = defaultdict(list)\n    nodes = set()\n    for edge in edges:\n        u, v, weight = edge.split(\"->\")[0], edge.split(\"->\")[1].split(\":\")[0], int(edge.split(\"->\")[1].split(\":\")[1])\n        graph[u].append((v, -weight))\n        nodes.update([u, v])\n    \n    ordering = topological_sort(graph)\n    dist = {node: float('inf') for node in nodes}  # All nodes, not just ordered\n    dist[str(source)] = 0\n    # ... rest of algorithm\n```\n\nEnsure `str(sink)` exists in `dist`. Debug by printing `dist.keys()` to verify sink is present."
+  },
+  {
+    "qid": 70547384,
+    "answer": "The code doesn't wait for the page to load or find the CID element. Use WebDriverWait:\n\n```python\nfrom selenium.webdriver.support.ui import WebDriverWait\nfrom selenium.webdriver.support import expected_conditions as EC\nfrom selenium.webdriver.common.by import By\n\ndriver.get(url)\nsearchInput = WebDriverWait(driver, 10).until(\n    EC.presence_of_element_located((By.XPATH, \"//input[@placeholder='...']\" ))\n)\nsearchInput.send_keys(\"75-05-8\")\nsearchInput.send_keys(Keys.ENTER)\n\n# Wait for CID result\ncid_element = WebDriverWait(driver, 10).until(\n    EC.presence_of_element_located((By.XPATH, \"//*[contains(text(), 'Compound CID')]\"))\n)\nprint(cid_element.text)\n```\n\nYour hardcoded xpath is fragile. Inspect the page to find a more robust selector (class, id, text content). Also, `driver.close()` exits immediately—remove it or add a wait."
+  },
+  {
+    "qid": 78821753,
+    "answer": "Pandas 2.2.2 is stricter about format matching. Your timestamp has timezone (`+0000`) but the format string doesn't:\n\n```python\n# Option 1: Include timezone in format\npd.to_datetime(df['timestamp'], format='%Y-%m-%d %H:%M:%S.%f%z')\n\n# Option 2: Tell pandas to handle UTC\npd.to_datetime(df['timestamp'], format='%Y-%m-%d %H:%M:%S', utc=True)\n\n# Option 3: Strip timezone before parsing\ndf['timestamp'].str.replace(r'\\+\\d{4}$', '', regex=True).pipe(pd.to_datetime, format=STANDARD_DATETIME_FORMAT)\n```\n\nPandas 1.5.3 had lenient auto-detection; 2.2.2 enforces format strictly. The `.%f%z` format matches microseconds + timezone offset. Use `format_error='coerce'` to handle mixed formats: `pd.to_datetime(df['timestamp'], format='...', errors='coerce')`."
+  }
+]

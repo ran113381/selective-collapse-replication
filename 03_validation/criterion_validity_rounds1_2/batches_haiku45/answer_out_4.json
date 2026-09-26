@@ -1,0 +1,82 @@
+[
+  {
+    "qid": 79836360,
+    "answer": "The issue is that `get_level()` has a `while True` loop waiting for input. During check50 testing, if a non-integer is provided or input stream closes, it hangs indefinitely instead of exiting.\n\nFix: Add a mechanism to break the loop or use a try-except for EOF:\n\n```python\ndef get_level():\n    while True:\n        try:\n            level = int(input(\"Level: \"))\n            if 1 <= level <= 3:\n                return level\n        except EOFError:\n            exit(1)\n        except ValueError:\n            pass\n```\n\nAlternatively, check50 may be timing out because your program expects input after the score is printed. Make sure your program ends cleanly with no remaining input() calls after the final iteration."
+  },
+  {
+    "qid": 79724307,
+    "answer": "Your assertion fails because RSA uses the Carmichael function λ(n) = lcm(p-1, q-1), not φ(n) = (p-1)(q-1). The constraint is `e*d ≡ 1 (mod λ(n))`, so (e*d - 1) is divisible by λ(n), but not necessarily by φ(n).\n\nUse Carmichael's function:\n\n```python\nfrom math import gcd\nλ = (p-1) * (q-1) // gcd(p-1, q-1)  # Carmichael function\nt, r = gm.t_divmod(gm.sub(gm.mul(e, d), one), λ)\nassert(r == zero)\n```\n\nYour keys are valid; the mathematical assertion was checking the wrong divisor. Encryption/decryption work because RSA's correctness depends on λ(n), not φ(n)."
+  },
+  {
+    "qid": 79936742,
+    "answer": "Your `PetFrames` list is created once at class definition time using the initial `State=2`. When you update `State`, the images aren't reloaded.\n\nFix: Recreate `PetFrames` when `State` changes:\n\n```python\ndef update_state(new_state):\n    self.State = new_state\n    self.PetFrames = [\n        tk.PhotoImage(file=f\"PetAssets/Pet{self.Pet}{self.PetStates[self.State]}1.png\").zoom(4,4),\n        tk.PhotoImage(file=f\"PetAssets/Pet{self.Pet}{self.PetStates[self.State]}2.png\").zoom(4,4)\n    ]\n    self.frame = 0\n\ndef animation():\n    self.frame = (self.frame + 1) % len(self.PetFrames)\n    canvas.itemconfig(image_id, image=self.PetFrames[self.frame])\n```\n\nCall `update_state(0)` to switch to Idle and reload the image files."
+  },
+  {
+    "qid": 79884362,
+    "answer": "Python needs two operators to avoid ambiguity and maintain consistency with function calling conventions.\n\nWith a single `*x` operator, parsing becomes problematic: is `f(*args)` collecting positional values, keyword values, or both? Python would need complex disambiguation rules.\n\nThe current design reflects the underlying semantics:\n- `*args` collects positional arguments (order matters, naturally a sequence)\n- `**kwargs` collects keyword arguments (named values, naturally a mapping)\n\nThis mirrors function calls: `f(1, 2, name=3)` has two distinct argument types. Using separate operators makes code intent explicit and parsing unambiguous. A unified operator would require Python to inspect context or introduce unpredictable behavior."
+  },
+  {
+    "qid": 79884360,
+    "answer": "When Python terminates, stdin/stdout may be closed. When `atexit` handlers run after the main program finishes, calling `input()` can fail with \"I/O operation on closed file.\"\n\nFix: Wrap input() in try-except:\n\n```python\nimport atexit\n\ndef console_pause(args):\n    if args.pause:\n        try:\n            input(\"Press enter to continue\")\n        except (EOFError, ValueError):\n            pass\n\natexit.register(console_pause, args)\n```\n\nAlternatively, avoid calling input() in atexit when the script is run in batch mode. The batch file environment may close stdin before atexit handlers execute. Catching the exception gracefully handles this edge case without changing behavior in interactive mode."
+  },
+  {
+    "qid": 79919712,
+    "answer": "When `np.vectorize()` is called without `otypes`, it determines output dtype by calling your function once with a sample input. That trial call converts uint8(40) to float64, causing overflow (40-80=-40 in float64 range).\n\nOn the actual call without `otypes`, numpy performs the computation as: uint8 value → intermediate float64 operations → overflow.\n\nWith `otypes=[np.float64]` explicitly set, numpy knows the output type beforehand, so the input stays as uint8 during subtraction (uint8(40)-80 wraps to 216), then converts to float64.\n\nFix: Specify `otypes` explicitly or convert input to float before subtraction:\n\n```python\nnp.vectorize(f, otypes=[np.float64])(np.array([np.uint8(40)]))\n```"
+  },
+  {
+    "qid": 79783265,
+    "answer": "psycopg3 uses C extensions for UUID handling. PyInstaller doesn't automatically bundle these hidden imports.\n\nFix: Add hidden imports in your PyInstaller command:\n\n```bash\npyinstaller --onefile \\\n  --hidden-import=psycopg._uuid \\\n  --hidden-import=uuid \\\n  __main__.py\n```\n\nOr create a runtime hook file `runtime-hook.py`:\n\n```python\nimport psycopg._uuid\n```\n\nThen:\n```bash\npyinstaller --onefile --runtime-hook=runtime-hook.py __main__.py\n```\n\nThe issue is that SELECT queries use psycopg's uuid adapter which loads the C extension `_uuid`. INSERT queries may not trigger this adapter, which is why they work."
+  },
+  {
+    "qid": 79756235,
+    "answer": "Your `get_greeting` resource has a URI template `greeting://{name}`, but FastMCP may not support dynamic URIs in the same way as static file URIs. Dynamic resources require special handling.\n\nFix: Check if FastMCP supports templated resources, or restructure:\n\n```python\n@mcp.resource(\"greeting://user\")\ndef get_greeting() -> str:\n    name = \"user\"  # Extract from context or query\n    return f\"Hello, sir {name}!\"\n```\n\nAlternatively, use a tool instead of a resource for dynamic inputs:\n\n```python\n@mcp.tool()\ndef get_greeting(name: str) -> str:\n    return f\"Hello, sir {name}!\"\n```\n\nTools are better suited for operations with parameters. Resources are typically for static content. This explains why static `file://data/file.txt` and simple-signature prompts work, but parametric resources don't appear."
+  },
+  {
+    "qid": 79148054,
+    "answer": "Error 0xC0000005 is an access violation (segmentation fault). This typically indicates missing MySQL C runtime libraries or version mismatch.\n\nFix: Install MySQL Connector/C or ensure compatibility:\n\n1. Install mysql-connector-c via official MySQL website or package manager\n2. Update mysql-connector-python to latest version: `pip install --upgrade mysql-connector-python`\n3. Verify MySQL service is running\n4. Check connector architecture matches Python (32-bit vs 64-bit)\n\n```python\nimport mysql.connector\ndb = mysql.connector.connect(\n    host=\"localhost\",\n    user=\"root\",\n    password=\"password\",\n    database=\"test\"\n)\n```\n\nIf still failing, try PyMySQL as alternative: `pip install PyMySQL`"
+  },
+  {
+    "qid": 79858798,
+    "answer": "Yes, using `build()` to create sub-layers based on `input_shape` is the recommended Keras pattern. This is exactly what `build()` is designed for—deferring layer creation until input shape is known.\n\n```python\ndef build(self, input_shape):\n    in_channels = input_shape[-1]\n    if in_channels != self.out_channels:\n        self.res_conv = Convolution(...)\n        self.res_norm = layers.BatchNormalization()\n    super().build(input_shape)\n```\n\nThis approach is documented in official Keras documentation and widely used. Pitfalls are minimal—ensure:\n1. Set created layers to instance variables (self.res_conv)\n2. Call `super().build(input_shape)` at the end\n3. Check for None in `call()` before using conditional layers\n\nThis is preferred over `__init__()` because it avoids creating unused layers when channel dimensions match."
+  },
+  {
+    "qid": 79149378,
+    "answer": "Streamlit's `st.dataframe()` and `st.data_editor()` don't expose header styling options directly. The pandas Styler styles are not fully rendered in Streamlit.\n\nWorkarounds:\n\n1. Use HTML table with custom CSS:\n```python\nhtml = f\"<table style='border-collapse: collapse;'><tr style='background-color: #4CAF50; color: white;'><th>Market</th><th>Metro Quota</th></tr></table>\"\nst.write(html, unsafe_allow_html=True)\n```\n\n2. Use an alternative table library like `st.write(df)` with markdown, or try third-party components\n\n3. Use Plotly or custom HTML rendering for full control\n\nStreamlit prioritizes simplicity over styling flexibility. For complex data visualization, consider exporting to an interactive HTML file or using JavaScript libraries."
+  },
+  {
+    "qid": 79604458,
+    "answer": "Python sets maintain O(1) average search time regardless of size, limited only by available RAM and hash collision rates. There's no practical maximum size that degrades to O(n).\n\nPython's dict/set implementation automatically resizes the hash table as it grows, maintaining a load factor around 2/3. When the table gets too full, Python allocates a larger table and rehashes all entries.\n\n```python\nm = set()\nfor i in range(10**7):  # Works fine\n    m.add(i)\nprint(999999 in m)  # Still O(1)\n```\n\nThe only limits are:\n- System RAM (memory for the hash table)\n- Hash collision density (rare with good hash functions)\n- Time to resize (periodic O(n) rehashing, amortized to O(1) per operation)\n\nSets tested with 10^9+ elements still perform well in practice."
+  },
+  {
+    "qid": 79477947,
+    "answer": "Your approach is slow because `check_duplicate()` does O(n) scans for each element. Better: compute a canonical form and use a set.\n\nFor D4 symmetry (permute indices 0,1,3,4 but not 2):\n\n```python\nfrom itertools import product\n\ndef canonical_form(el):\n    return (el[2], tuple(sorted([el[0], el[1], el[3], el[4]])))\n\nmylist = [list(i) for i in product(range(5), repeat=5) if sum(i) == 5]\nseen = set()\nnewlist = []\nfor el in mylist:\n    key = canonical_form(el)\n    if key not in seen:\n        seen.add(key)\n        newlist.append(el)\n```\n\nThis reduces duplicate detection from O(n) to O(1) lookup, making overall complexity O(n) instead of O(n²). Define `canonical_form()` to normalize your specific symmetries."
+  },
+  {
+    "qid": 79837533,
+    "answer": "Your dbus_next code structure is correct, but likely issues:\n\n1. Signal name may be wrong; check actual dbus interface with: `dbus-send --session --print-reply --dest=org.freedesktop.Notifications /org/freedesktop/Notifications org.freedesktop.DBus.Introspectable.Introspect`\n\n2. Subscribe to correct signal (usually 'Notify'):\n\n```python\ndef on_notify(message):\n    body = message.body\n    print(f\"Notification: {body[1]} - {body[3]}\")\n\nbus = await MessageBus(bus_type=BusType.SESSION).connect()\nintrospection = await bus.introspect('org.freedesktop.Notifications', '/org/freedesktop/Notifications')\nobj = bus.get_proxy_object('org.freedesktop.Notifications', '/org/freedesktop/Notifications', introspection)\nnotif_iface = obj.get_interface('org.freedesktop.Notifications')\nnotif_iface.on_notify(on_notify)\n```\n\nAlternatively, use simpler dbus-monitor while debugging to find exact signal path."
+  },
+  {
+    "qid": 79756612,
+    "answer": "python-restx doesn't directly support `x-tagGroups`. Use `vendor()` to add custom OpenAPI extensions:\n\n```python\nfrom flask_restx import Api\n\napi = Api(doc='/docs')\napi.vendor({\"x-tagGroups\": [\n    {\"name\": \"Public\", \"tags\": [\"Resource1\", \"Resource2\"]},\n    {\"name\": \"Internal\", \"tags\": [\"Internal\"]}\n]})\n\nnamespace = Namespace(\"Resource1\", tags=[\"Resource1\"])\n```\n\nOr add to individual endpoints:\n\n```python\n@namespace.route('/public')\n@namespace.vendor({'x-internal-endpoint': 'false'})\nclass PublicResource(Resource):\n    pass\n```\n\nThis adds the extension to the generated OpenAPI spec. Note: Swagger UI may not render `x-tagGroups` natively, but ReDoc does. Check your API documentation tool's support."
+  },
+  {
+    "qid": 79919245,
+    "answer": "When using `del` on session values in Flask, you must mark the session as modified:\n\n```python\n@app.route('/remove_item/<int:item_index>', methods=['POST'])\ndef remove_item(item_index):\n    del session[\"cart\"][item_index]\n    session.modified = True  # Important!\n    return redirect(url_for(\"shopping_cart\"))\n```\n\nWithout `session.modified = True`, Flask doesn't detect that the session dict changed (since you modified an existing object rather than reassigning the whole dict). The session isn't persisted to the client/server.\n\nAlternatively, reassign the entire session value:\n\n```python\ntemp_cart = session[\"cart\"]\ntemp_cart.pop(item_index)\nsession[\"cart\"] = temp_cart\n```\n\nThe `session.modified` flag tells Flask to regenerate the session cookie on response."
+  },
+  {
+    "qid": 79479213,
+    "answer": "Your query works but isn't optimal. Better approaches:\n\n1. Use `exclude()` with a QuerySet directly:\n```python\navailable = CartObject.objects.filter(status=\"pending\").exclude(\n    id__in=OnGoingProcess.objects.values_list('associated_object', flat=True)\n)\n```\n\n2. Use reverse relation:\n```python\navailable = CartObject.objects.filter(status=\"pending\", associated_process__isnull=True)\n```\n\n3. Use `~Q()` with exists:\n```python\nfrom django.db.models import Q, Exists\navailable = CartObject.objects.filter(status=\"pending\").exclude(\n    Exists(OnGoingProcess.objects.filter(associated_object=OuterRef('pk')))\n)\n```\n\nOption 2 is most efficient—it uses a single LEFT JOIN instead of separate queries. Your current code evaluates the inner query first, which can be inefficient with large datasets."
+  },
+  {
+    "qid": 79934876,
+    "answer": "This is a known issue with Flake8 2026.4.0 where the format string configuration is being parsed as a dict key instead of a format spec.\n\nWorkaround: Check your Flake8 configuration files (`.flake8`, `setup.cfg`, `pyproject.toml`, `tox.ini`) and remove any `format` setting:\n\n```ini\n# .flake8 - REMOVE THIS:\nformat = '%(row)d,%(col)d,%(code).1s,%(code)s:%(text)s'\n```\n\nDowngrade Flake8 temporarily:\n```bash\npip install flake8==6.1.0\n```\n\nOr update to latest (if patch is released). This is a VS Code Flake8 extension bug where it passes a format string that the new version doesn't handle correctly. Removing custom format configs or waiting for an extension update should resolve it."
+  },
+  {
+    "qid": 79648852,
+    "answer": "SQLAlchemy doesn't expose direct control over INSERT batching during flush, but you can use SQLAlchemy events to intercept and batch manually:\n\n```python\nfrom sqlalchemy import event\n\nbatched_inserts = {}\n\n@event.listens_for(session, 'before_bulk_insert')\ndef receive_before_bulk_insert(mapper, connection, raw_sql):\n    # Intercept and batch inserts here\n    pass\n```\n\nAlternatively, manually manage insertion:\n\n```python\nsession.flush()  # Insert parents\nparent_ids = [cfg.id for cfg in configs]\nfor trans in all_trans:\n    trans.config_id = parent_ids[trans.idx]\nbulk_insert_mappings(session, all_trans)  # Batch child insert\n```\n\nOr use `executemany()` directly with raw SQL:\n\n```python\nvalues = [(trans.config_id, trans.name) for trans in trans_list]\nconnection.execute(text('INSERT INTO trans (config_id, name) VALUES (:cid, :name)'), [dict(zip(['cid', 'name'], v)) for v in values])\n```\n\nThe limitation is that ORM relationships require manual handling."
+  },
+  {
+    "qid": 79755894,
+    "answer": "SQLAlchemy doesn't provide built-in evaluation of filter conditions against in-memory objects. Options:\n\n1. Manual evaluation (tedious but works):\n```python\nu2 = User(name='Bart', age=66)\nif u2.age > 28:  # Recreate filter logic\n    print(\"Matches\")\n```\n\n2. Add to session without committing:\n```python\nsession.add(u2)\nsession.flush()  # Insert, but don't commit\nif session.query(User).filter(User.age > 28).filter(User.id == u2.id).first():\n    print(\"Matches\")\nsession.rollback()\n```\n\n3. Extract filter to a Python function:\n```python\ndef matches_query(obj, query):\n    for key, op, value in filter_specs:\n        if getattr(obj, key) > value:\n            return True\n    return False\n```\n\nOption 1 is simplest for single queries. Option 2 works but requires DB access. For complex filters, extract filter logic into reusable functions outside SQLAlchemy."
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "qid": 79880487,
+    "answer": "The GTK buffer's `modified_changed` signal doesn't emit when undo/redo operations occur—this is expected GTK behavior. Undo bypasses the normal edit path. Solution: Connect to the `changed` signal instead, which fires on all modifications including undo. Alternatively, manually track undo/redo stack changes by connecting to the `undo_action_name` and `redo_action_name` properties if available, or wrap your text buffer to intercept undo/redo and manually emit notifications. For your use case, switching to `changed` is simplest: `text_view.get_buffer().connect('changed', on_modified_changed)`."
+  },
+  {
+    "qid": 79860334,
+    "answer": "This is a macOS tkinter rendering bug where `grid_remove()` doesn't properly refresh the display on subsequent calls. The window manager retains stale geometry. Fix: Call `update_idletasks()` after `grid()` to force a redraw: `current_page.grid_remove()` → `new_page.grid()` → `window.update_idletasks()`. Alternatively, switch to `pack()`/`pack_forget()` which handles macOS refresh better. Or force a full window redraw with `window.update()` after switching. This is a known macOS/tkinter compatibility issue with no clean root cause fix."
+  },
+  {
+    "qid": 79808718,
+    "answer": "This error indicates the transformers package exists but the Jupyter kernel isn't using it, likely due to kernel isolation. Verify the kernel has transformers: in Jupyter, run `!pip list | grep transformers`. If missing, install: `!pip install --upgrade transformers torch`. If already installed, the kernel may be pointing to a different Python. Restart the kernel after install. If using a conda environment, ensure it's the active environment when starting Jupyter. The M4 Mac isn't the issue—verify with `!which python` to confirm kernel Python matches your transformers installation."
+  },
+  {
+    "qid": 79900482,
+    "answer": "Measuring latency across process boundaries with `time.perf_counter_ns()` is unreliable—each process has its own clock baseline. For GPU tensors, use `torch.cuda.Event` for GPU-side timing: synchronize on both producer and consumer with `torch.cuda.synchronize()`, then create events before/after transfers. For CPU timing, use a shared reference point via IPC or measure end-to-end in one process. Alternatively, use `time.time()` (lower resolution) consistently across both processes, acknowledging IPC jitter makes sub-millisecond precision unrealistic."
+  },
+  {
+    "qid": 79862285,
+    "answer": "Use `list.eval()` with a conditional inside a map to replace and expand: `df.with_columns(pl.col('a').map_elements(lambda lst: [x if x != '55' else '55.11,55.12' for x in lst]).str.split(',').list.explode()).drop('a').rename({'a': 'a'})`. Better: use `list.eval()` directly: `df.with_columns(pl.col('a').list.eval(pl.when(pl.element() == '55').then(pl.lit(['55.11', '55.12'])).otherwise(pl.lit([pl.element()]))).list.explode())`."
+  },
+  {
+    "qid": 74636944,
+    "answer": "Your regex `\\w*\\d\\w*` removes all words containing digits, killing dates and 'No'. Remove that line entirely. Instead, selectively clean only the 'Name' column: apply lowercasing and punctuation removal to specific columns, not globally. Stopwords removes 'No'—exclude 'status' column from stopword filtering. Better approach: clean each column separately with targeted regex: Name gets alphanumeric normalization, Date is left alone, Status/Number bypass cleaning. Use `df.loc[:, col] = df[col].apply(cleaning_func)` for column-specific operations."
+  },
+  {
+    "qid": 79550040,
+    "answer": "Static arguments cannot be differentiated. `omega` is marked static, but `grad()` tries to trace through it. Solution: remove `omega` from `static_argnames` in the inner `hamiltonian` jit if you need gradients w.r.t. it. If `omega` must be static (e.g., JIT compilation depends on its value), don't differentiate w.r.t. it—only compute gradients for `kappa` and `alpha0`. Use `grad(solve_diff, argnums=(2, 3))` to exclude `omega` and `n`. Alternatively, restructure: don't nest jits; keep `hamiltonian` undecorated or make it a traced function."
+  },
+  {
+    "qid": 79937545,
+    "answer": "Partial embeddings suggest ELSER inference timeout or pipeline processor failure. Check: (1) Task logs: `GET /_task/taskid?detailed` to see processor-level errors; (2) Verify ELSER model still deployed: `GET /_ml/trained_models`; (3) Retries consumed without error logging. Solution: Reindex with smaller batch size (100-200), add `timeout` to pipeline config, increase model resources. Check indices mapping for `rank_features` field configuration. Run a subset first: `size: 10` to confirm pipeline works end-to-end before full reindex."
+  },
+  {
+    "qid": 79900562,
+    "answer": "Dynaconf's `@get` on nested lists returns intermediate dict structure instead of the final list. Workaround: (1) Add `dynaconf_merge = true` to the section containing `@get` reference; (2) Flatten the config path—use `@get google.calendar` instead of splitting; (3) Use a direct reference without nesting. Example: `[default.celery.google.calendar] ids = @get google.calendar.calendar_ids` instead of nested reference. This is a known limitation when `@get` references nested structures—flattening paths resolves it."
+  },
+  {
+    "qid": 78937157,
+    "answer": "The package `lib_resume_builder_AIHawk` doesn't exist on PyPI. Verify the exact spelling and check PyPI. If it's a private/local package, install from source: `pip install git+https://github.com/username/lib_resume_builder_AIHawk.git` or `pip install -e /local/path`. Ensure the repo has `setup.py` or `pyproject.toml`. If you meant a different package, search PyPI for similar names. If it's a custom internal package, add your private repo to pip config."
+  },
+  {
+    "qid": 79478558,
+    "answer": "You're building strings, not DataFrames. Use pd.DataFrame with a list of dicts: `results = []; [results.append({'Lookup item': item, 'Corresponding item': get_score_by_id(df_past, item) or 'NAN'}) for item in items]; new_df = pd.DataFrame(results)`. Or more concisely: `new_df = pd.DataFrame({'Lookup item': items, 'Corresponding item': [get_score_by_id(df_past, i) or 'NAN' for i in items]})`. Avoid building strings with string concatenation—that won't parse back into a DataFrame."
+  },
+  {
+    "qid": 78692274,
+    "answer": "You can't remove just the title bar on Windows without removing borders—`overrideredirect(True)` removes both. Alternatives: (1) Use `wm_attributes('-toolwindow', 1)` on Windows for a thinner title bar; (2) Accept the standard frame. On Linux/Mac, `overrideredirect()` offers more control. tkinter doesn't expose fine-grained window chrome control. If you need custom chrome, consider PyQt5/PySide2 which wraps native APIs for title bar customization."
+  },
+  {
+    "qid": 79858728,
+    "answer": "Redis Stream consumer group 'taskiq' doesn't exist or expires after inactivity. On worker startup, the group isn't re-created. Solution: (1) Ensure the scheduler creates the group during startup with proper retention; (2) Configure Redis persistence: add consumer group config in taskiq broker setup. Check Redis: `XINFO STREAM taskiq` to verify group exists. (3) Handle the error gracefully with retry logic. Add initialization in broker setup: check/create group on first run."
+  },
+  {
+    "qid": 79837831,
+    "answer": "Random 1-minute hangs with Gunicorn 2 workers × 4 threads (8 total) suggest thread pool exhaustion or database lock. If a callback blocks all threads (sync DB query, heavy compute), requests queue. Solutions: (1) Convert callbacks to async with `dcc.Loading` to prevent blocking; (2) Increase worker processes/threads; (3) Profile with py-spy to find blocking calls; (4) Add timeouts to DB queries. Check Gunicorn logs: `gunicorn --access-logfile - --error-logfile -`. The 800ms→60s jump indicates contention, not network latency."
+  },
+  {
+    "qid": 79809226,
+    "answer": "Use a list comprehension for Pythonic filtering: `[k for k in d.keys() if k[0] == n]`. More readable than a loop. For iteration efficiency, omit `.keys()` since dict iteration is already keys: `[k for k in d if k[0] == n]`. For functional style: `filter(lambda k: k[0] == n, d)`. Dict comprehension variant: `{k: d[k] for k in d if k[0] == n}` if you need the values too. All are idiomatic Python 3.12."
+  },
+  {
+    "qid": 79900718,
+    "answer": "Type checkers can't infer T from union/Annotated types at call-time. Use TypeVar with bound and @overload, but accept that special forms fall to `Any`: `from typing import TypeVar, Union; T = TypeVar('T'); def convert(value: Any, output_type: type[T] = Any) -> T: adapter = TypeAdapter(output_type); return adapter.validate_python(value)`. Pydantic's TypeAdapter handles runtime validation correctly; static type inference for `int | str` requires explicit type narrowing post-call or passing as `Literal` strings."
+  },
+  {
+    "qid": 79604732,
+    "answer": "507 Insufficient Storage means the server rejected your request due to lack of resources. You're likely rate-limited or blocked; 507 differs from 429 (rate limit). Verify with a non-proxy request first. If consistent with proxies, either the proxy pool is exhausted or the site blocks rotating-proxies. Solutions: (1) Add request delays: `DOWNLOAD_DELAY = 2`; (2) Rotate user agents; (3) Check if proxy IPs are blocked; (4) Use single static proxy if available. 507 can also indicate server issues—try again later."
+  },
+  {
+    "qid": 79687611,
+    "answer": "Set the y-axis lower bound explicitly: `plt.ylim(bottom=2)` before `MaxNLocator`. MaxNLocator respects manual limits. Alternatively, use explicit ticks: `plt.yticks(range(2, int(df['mag'].max()) + 1))`. Or with MaxNLocator: `ax.yaxis.set_major_locator(MaxNLocator(nbins=30, integer=True))` and set limits via `set_ylim(2, None)`."
+  },
+  {
+    "qid": 79920733,
+    "answer": "Syntax error in `utils/variables.py`—missing commas after list elements. Fix: `admin = [1408442799925235794, 1445017368123277460, 1079504634772738078, 1272691594591473695, 1379137477192843264]`. Your code never reaches the check because the import fails silently. After fixing, verify the role check works: test with `print(f'Admin check: {any(r.id in admin for r in ctx.author.roles)}')` to debug."
+  },
+  {
+    "qid": 79479289,
+    "answer": "StatefulDoFn's process() must yield elements, not return floats. The error 'float is not iterable' suggests `process()` returns a single float instead of an iterable. Solution: Ensure `process()` yields the EMA value: `yield (key, ema_value)`. Use `BagStateSpec` to store EMA state per key. Check your `process()` signature returns a generator or list. Example: `def process(self, element): ... state.write(new_ema) ... yield (element['key'], new_ema)` not `return ema_value`."
+  }
+]

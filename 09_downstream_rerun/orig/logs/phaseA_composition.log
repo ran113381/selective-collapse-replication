@@ -1,0 +1,36 @@
+==========================================================================
+PHASE A1 — composition-friendly dose-response (3 estimators x 3 languages)
+==========================================================================
+
+[python]  n_months=60
+  PPML fixed-total dose  gamma=-0.3698 (se 0.0510, p=4.108e-13)   => -30.9%/point, s4-s1 -67%
+  OLS log-count dose     gamma=-0.4156 (se 0.0673, p=6.691e-10)   [existing headline]
+  log-ratio(s4/s1) post  beta =-1.2162 (se 0.1217, p=1.647e-23, Newey-West L=6)
+
+[javascript]  n_months=60
+  PPML fixed-total dose  gamma=-0.1940 (se 0.0446, p=1.369e-05)   => -17.6%/point, s4-s1 -44%
+  OLS log-count dose     gamma=-0.2288 (se 0.0674, p=0.0006901)   [existing headline]
+  log-ratio(s4/s1) post  beta =-0.6239 (se 0.1711, p=0.0002663, Newey-West L=6)
+
+[java]  n_months=60
+  PPML fixed-total dose  gamma=-0.1237 (se 0.0367, p=0.0007564)   => -11.6%/point, s4-s1 -31%
+  OLS log-count dose     gamma=-0.1233 (se 0.0524, p=0.01849)   [existing headline]
+  log-ratio(s4/s1) post  beta =-0.3623 (se 0.1492, p=0.01515, Newey-West L=6)
+
+==========================================================================
+PHASE A4 — placebo cutoffs + permutation null (python, headline)
+==========================================================================
+  placebo: true 2022-12 gamma=-0.4156; rank 1/13 most-negative among 13 candidate cutoffs (1 = most extreme)
+  permutation null (2000 draws, shuffle bin scores): obs gamma=-0.4156, null mean=-0.0052 sd=0.2440, one-sided p=0.04248
+
+==========================================================================
+PHASE A4 — Benjamini-Hochberg FDR across confirmatory family
+==========================================================================
+  python dose (PPML)         raw p=4.108e-13   BH-adj q=1.643e-12
+  javascript dose (PPML)     raw p=1.369e-05   BH-adj q=2.738e-05
+  java dose (PPML)           raw p=0.0007564   BH-adj q=0.001008
+  answer-margin DiD          raw p=0.022   BH-adj q=0.022
+
+DONE
+
+--- stderr ---

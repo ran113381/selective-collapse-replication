@@ -1,0 +1,1575 @@
+[
+ {
+  "question_id": 79834396,
+  "ym": "2025-12",
+  "creation_date": 1764570386,
+  "title": "Java 17 Documentation Tool causes failed UnknownElementException for record parameter",
+  "tags": [
+   "java",
+   "java-17",
+   "doclet",
+   "documentation-tool",
+   "scanner"
+  ],
+  "score": 4,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am using the javax.tools.DocumentationTool to parse the Documentation of my source code base. I am using Java 17 jdk to run. It is triggering an javax.lang.model.element.UnknownElementException exception when a record method parameter. The code is not even accessed via getter method. The stack trace as can be seen is when the record Component is visited. [CODE] The code is like below. [CODE] The way the DocumentationTool was called is by calling the visitor scanner specifically a class inheriting the ElementScanner9 object. [CODE] Any ideas for this? I called the doclet to scan, \"--show-types public\" does it have any effect?"
+ },
+ {
+  "question_id": 79834516,
+  "ym": "2025-12",
+  "creation_date": 1764578605,
+  "title": "Spring WebClient takes too long to process the first request — subsequent calls fast",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "webclient"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm using Spring WebClient in my Java application to authenticate with Keycloak. The issue I'm facing is: The first WebClient request takes a long time (5-9 seconds), but all subsequent requests are extremely fast. This slowdown happens consistently everyday when I try to access the application for the first time. Here’s my WebClient configuration: [CODE] And here is the login method making the Keycloak token call: [CODE] What I’ve observed: It only happens for the very first request after startup. Could be related to connection pool initialization, DNS lookup, SSL handshake, or WebClient configuration. Using block() — but I need blocking here since this method must return synchronously. Why does the first WebClient request take significantly longer than subsequent ones, and how can I prevent or reduce this startup delay? Any insights, profiling tips, or config improvements would be very helpful."
+ },
+ {
+  "question_id": 79834647,
+  "ym": "2025-12",
+  "creation_date": 1764584031,
+  "title": "Why does RestTemplate, starting from Java 21, run on a different thread even without virtual threads and without @Async, and why does MDC get lost?",
+  "tags": [
+   "java",
+   "spring",
+   "jvm",
+   "resttemplate",
+   "mdc"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "i recently migrated from java17 to 21. I use logback MDC to log http request and response. each http request may lead to execute several resttemplate sync call. i use mdc to generate UUID as traceId in jakarta servlet filter and get MDC befre and after resttemplate call to log traceId and resttemolate request and response. after migrate to java 21 the resttemolate executes in different thread and mdc values missed. even if virtual thread is not enabled."
+ },
+ {
+  "question_id": 79834721,
+  "ym": "2025-12",
+  "creation_date": 1764587328,
+  "title": "Even when connecting Web3j via WebSocket, I can’t receive blocks instantly",
+  "tags": [
+   "java",
+   "blockchain",
+   "web3-java"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I made sure the RPC URL definitely starts with wss , but Web3j still keeps fetching blocks at specific intervals instead of receiving them in real time. Do I need to call a different method? My Web3j version is 5.0.1 . [CODE] It fetches multiple blocks in batches every 3–4 seconds. The networks I used are Polygon (amoy) and Infura.io’s free plan RPC ."
+ },
+ {
+  "question_id": 79834724,
+  "ym": "2025-12",
+  "creation_date": 1764587392,
+  "title": "Lower Bounded Wildcards: is it about superType or subType",
+  "tags": [
+   "java",
+   "generics",
+   "lower-bound"
+  ],
+  "score": 0,
+  "answer_count": 4,
+  "is_answered": true,
+  "body_excerpt": "Oracle documentation mentioned it clearly. a lower bounded wildcard restricts the unknown type to be a specific type or a super type of that type. To write the method that works on lists of Integer and the supertypes of Integer, such as Integer, Number, and Object, you would specify List<? super Integer>. The term List<Integer> is more restrictive than List<? super Integer> because the former matches a list of type Integer only, whereas the latter matches a list of any type that is a supertype of Integer. However when I try to add a supertype to a lower bounded collection it produce compiler error. [CODE] Does the expression Collection<? super Item> means any superType to Item or any subType of Item ?"
+ },
+ {
+  "question_id": 79834742,
+  "ym": "2025-12",
+  "creation_date": 1764588159,
+  "title": "Android Java Surfaceview, declaring and hiding",
+  "tags": [
+   "java",
+   "android",
+   "surfaceview"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a main activity with a button. When I press the button, a hidden [code] becomes visible and an animation shows. It's working really well, but I have two problems. First, what is the proper way to declare an external [code] class in the manifest? I have declared it as a normal activity, but I'm pretty sure it's not the correct way. Android studio says: The class should provide a default constructor (a public constructor with no arguments). How do I do that? Second, when the animation is finished I want to hide the [code] again. How and where do I do this? Manifest: [CODE] Main Activity: [CODE] intervalSurfaceView: [CODE]"
+ },
+ {
+  "question_id": 79834897,
+  "ym": "2025-12",
+  "creation_date": 1764595868,
+  "title": "Java Swing Invisible Image",
+  "tags": [
+   "java",
+   "swing",
+   "user-interface",
+   "archlinux"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "Context: I'm trying to make an app with java swing, however when trying to add a background to the Login Page, the image does not show up. It is there and moves other JComponents when adding a layout to the root JPanel of the Page, it just, doesn't display the image. I've also tried JavaFX but it seems like I'm having the same problem over there. I've also tried to find if anyone else has the same problem, however couldn't find anything useful. After spending a whole day trying to figure out a solution, I resorted to asking over here Pc Info: This is my PC info if it sums up to be a DE promblem [CODE] The Code: And here is the code that is giving me problems: Login Page class: [CODE] Page class: [CODE] JImageLabel class: [CODE] Window class: [CODE] Main Class: [CODE] Screenshots: Updates 12/29/25 Well, it has been quite some time and so far nothing has worked, I've tried Changing the image type Changing the image location (and path) Setting [code] to true Made sure that the JLabel is actually added to root Made sure that root is set as the root node of the JFrame I'm starting to think it has to do with some bug when using Java Swing/JavaFX in Hyprland/Arch, however I can't confirm it"
+ },
+ {
+  "question_id": 79835008,
+  "ym": "2025-12",
+  "creation_date": 1764602622,
+  "title": "Representing 4 types of Card Templates Adhering to DDD",
+  "tags": [
+   "java",
+   "c#",
+   "go",
+   "domain-driven-design"
+  ],
+  "score": 0,
+  "answer_count": 3,
+  "is_answered": false,
+  "body_excerpt": "I have an Entity Called CardTemplate. For physical cards, there will have to be a pattern chosen to physically print the card. And based on the two types of operations that the cards are allowed to do, the templates must also have a range of possible card numbers as a property if the cards are going to be used for banking operations (operation type1) and no range is needed otherwise(operation type 2). So we will have 4 types of cards: physical with operation type 1, physical with operation type 2, virtual with operation type 1, and virtual with operation type 2. How can I represent these in code while implementing the rules for each type of card? I first thought of having 4 types, but what if there were another IF (if the card is x then y)? We will then have to have 8 types"
+ },
+ {
+  "question_id": 79835242,
+  "ym": "2025-12",
+  "creation_date": 1764619577,
+  "title": "Android Java - UI does not load intermittently",
+  "tags": [
+   "java",
+   "android"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Im developing a app in Android using Java. When i run the app in android studio the UI does not load completely, i can see the bottom navigation and toolbar but the fragments do not load 90% of the time when i run the app in Android Studio. This is the main layout when the app loads: [CODE] Is this something to do with Android Studio or is this to do with my code? I tried: [CODE] But still no luck."
+ },
+ {
+  "question_id": 79835251,
+  "ym": "2025-12",
+  "creation_date": 1764620132,
+  "title": "How to check the online/offline status of a POS Printer in Java?",
+  "tags": [
+   "java",
+   "javafx",
+   "point-of-sale",
+   "network-printers"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am developing a Java application that prints receipts to a DGT POS Printer Speed Line 300-UL. The printer is connected via Ethernet (network), not USB. I want to implement a feature where the application checks if the printer is online before sending a print job, so that if the printer is offline, the user (cashier) receives a warning and the order is not lost. Currently, I am using [code] in Java to get the printer by name, but I cannot reliably determine if the printer is online. The printer’s name is detected correctly, but there is no status information. I have considered: Using WMIC or querying the Windows printer port → doesn’t work reliably for this printer. Sending a small test print to check if the printer is reachable → works, but I wonder if there is a cleaner way. My questions: Is there a way in Java to check the online/offline status of a network POS printer by name? Is there a method to reliably get the printer IP from Java if only the printer name is known? Are there any best practices for POS Ethernet printers to verify connectivity before printing? I am specifically targeting DGT POS Printer Speed Line 300-UL, but general solutions for Ethernet POS printers in Java are also welcome. Thanks in advance! My print function [CODE] And printBytes function: [CODE]"
+ },
+ {
+  "question_id": 79835369,
+  "ym": "2025-12",
+  "creation_date": 1764634042,
+  "title": "Using FitWidth and FitHeight results in a snapshot with a smaller rendered image than expected",
+  "tags": [
+   "java",
+   "javafx",
+   "canvas",
+   "snapshot"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Intro The following code implements a [code] on an image using a canvas. The Idea is to stack a Canvas object over an ImageView , draw on it, and finally render the StackPane (image + canvas) using the SnapshotParameters and WritableImage . Code The [code] method simply creates a [code] with the specified width and height (matching the original image's dimensions), and takes a [code] of the [code] on it. This is the full code: [CODE] Issue The issue is that when the image's [code] and [code] are set to values smaller than their actual width and height, the snapshot captures the entire [code] , using the [code] and [code] values rather than the image's actual width and height, since the [code] size is bound to the [code] 's. The resulting snapshot image will keep its original size (since the [code] size matches the image's), but with a [code] rendered inside it because [code] and [code] were smaller than the image's actual height and width. The screenshot below is from my PC's file explorer, showing different results generated by using various Fit Width values from 200 to 500, compared to the original image at its actual size. All the images have the same dimensions, but the rendered ones [code] varies depending on the value used for the [code] . Is there a way for the rendered StackPane to occupy the full height and width as the original image?"
+ },
+ {
+  "question_id": 79835427,
+  "ym": "2025-12",
+  "creation_date": 1764642427,
+  "title": "Multi-Gradle with Spring Boot Config Question",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "gradle",
+   "build.gradle"
+  ],
+  "score": 4,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm looking for an explanation to why do I need to have a [code] in my service directory to stop the root build.gradle from treating it like a buildable project: My Directory: [CODE] My [code] [CODE] root [code] : [CODE] Each of the service's projects have their own [code] for their specific dependencies. So I won't post those. If I didn't include the [code] at the root of the service directory I'd continuously receive the following error: [CODE] But I had discovered that the build.gradle was treating my service directory as a buildable project, even though I thought in the settings.gradle I dictated it was the subdirectories, i.e [code] , not the service directory. I had to include in the build.gradle in question: [CODE] I guess I just don't understand why it would treat my service directory as a buildable project, and why I would have to include what was printed just above this to prevent it. Any explanation / insight would be helpful."
+ },
+ {
+  "question_id": 79835445,
+  "ym": "2025-12",
+  "creation_date": 1764644543,
+  "title": "Data Ownership and Transaction Managment in SOA",
+  "tags": [
+   "java",
+   "architecture",
+   "transactions",
+   "soa"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to learn more about Service Oriented Architecture as to me, it seems like a good middle ground between monolithic and micro service applications. Please correct me if I'm wrong but the primary goal is to segment domains (business logic) into separated independent services that are still wrapped by an overarching build orchestrator. From my perspective, even though the domains are separated and independent, that doesn't necessarily mean that each domain should control an independent persistent layer, instead they should share a persistent layer to share referential integrity and maintain easy querying. This leads me to my primary questions : If there are multiple independent services that are all making transactions to the db, how do you ensure that if there is a failure in a downstream process, how do you properly manage the rollback of the previous transactions? Do you just literally chain try catches from the start all the way to the end to ensure that the lowest process is successful? In both these two other posts, people point out 2 phase commit protocol. Is this still used/relevant (I ask because the posts are rather old)? Data Management in SOA Transaction Management in SOA"
+ },
+ {
+  "question_id": 79835446,
+  "ym": "2025-12",
+  "creation_date": 1764644612,
+  "title": "Why large string log data cause the java progress memory high?",
+  "tags": [
+   "java",
+   "memory",
+   "memory-leaks",
+   "pmap",
+   "nmt"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "problem--why the large string log data cause the jvm memory go high? problem: the java process is using more and more memory over time. jvm argument:java -Xmx5120M -Xms5120M -XX:NewRatio=1 -XX:MetaspaceSize=512m -XX:MaxMetaspaceSize=512m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/data/log -XX:+PrintCommandLineFlags -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -Xloggc:/data/log/gc-%t.log -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=20m -XX:ErrorFile=/data/log/hs_err_%p.log -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=80 -XX:+UseCMSInitiatingOccupancyOnly -XX:AutoBoxCacheMax=20000 -XX:-UseBiasedLocking -XX:NativeMemoryTracking=detail -jar /data/app/app-live-admin-service/app_live_admin_services.jar jdkversion:openjdk version \"1.8.0_412\" the docker memory is 8GB jcmd GC heap info: [CODE] heap_info [CODE] nmt info detail see jcmd pid VM.native_memory detail scale=MB > nmt.txt [CODE] jmap detail data pmap info [CODE] pmap1.txt pmap2.txt data10.txt there are many memory info has be releated to the large string log data(The log may be serval days before). So i do a version that not log large string data then the memory is normal. I want to know why the large string log data will cause the jvm memory go high? And which area the memory go high(the log address is not in the nmt info)? The large string log data means that t"
+ },
+ {
+  "question_id": 79835509,
+  "ym": "2025-12",
+  "creation_date": 1764653378,
+  "title": "Unable to configure SSL Context For Open Feign Client. Getting PKIX Error",
+  "tags": [
+   "java",
+   "spring-boot",
+   "ssl",
+   "jks",
+   "openfeign"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am seeking to establish a mutual TLS (mTLS) connection between two of my Spring Boot applications: a Backend service and a Web service. For that reason, I have created keystores, certificates, and truststores. Here are my commands. [CODE] Backend Application Properties file. [CODE] Web Application Properties file. [CODE] SSL Configuration for Open Feign [CODE] Feign Client [CODE] When trying to call backend api from web service using open feign client it is throwing error i am unable understand the point of failure. threw exception [CODE]"
+ },
+ {
+  "question_id": 79835635,
+  "ym": "2025-12",
+  "creation_date": 1764663733,
+  "title": "Launching a jar by directly loading jar bytes in memory from a graal native image and launching the application no disk writes",
+  "tags": [
+   "java",
+   "javafx",
+   "jar",
+   "classloader",
+   "graalvm"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm building an application launcher using GraalVM native image. The launcher downloads an encrypted JAR, decrypts it in memory, and needs to launch it without ever touching the disk. Security requirement - the decrypted application code should never be written anywhere. Is it possible to load the full jar? What I've tried (all failed): Direct ClassLoader approach - Doesn't work, native-image has no bytecode interpreter Embedding JVM via JNI -Too complex and wasted a full day, and it never worked and i did not see or understand what was wrong and where and won't try this again due to jni unless some guides me. Technically possible, but it is a nightmare to work with it. Writing temp JAR and spawning [code] - Works perfectly BUT defeats the entire purpose (JAR is on disk, even if briefly), this is currently for testing my app. I'm bundling a JRE means the launcher will download if not found on the user's machine, same as the jar from my server, so I can spawn Java processes. I just need a way to tell that JVM process, \"here's a JAR in memory, load it\" without writing files. How do enterprise apps handle this? Game launchers, IDE updaters, etc - they must have solved this problem, right? I love Java, but here I just don't like it. I can not compile it to a full native image as some libs don't support it, which I have in my jar. Also, all methods of loading by defineClass work in "
+ },
+ {
+  "question_id": 79835732,
+  "ym": "2025-12",
+  "creation_date": 1764670730,
+  "title": "paho Android MQTT client does not send PINGREQ to broker when phone screen is off",
+  "tags": [
+   "java",
+   "android",
+   "mqtt",
+   "paho"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a small android app implementing a foreground service which communicates with mosquito mqtt broker, using paho MQTTClient: org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.5 Everything is fine except the case when screen is off and charging cable disconnected. In this case, it gets disconnected from broker because “has exceeded timeout”, which is caused by the fact that client doesn’t send any pingreq. If screen is on (locked or not) and no charging cable connected I can see the pingreq every keepalive interval. The same when screen is off with charging cable connected. It’s the same behavior on Android 9 and 14 Regarding android settings on A14 I allowed the app “to use battery in the background without any restrictions” (unrestricted mode), in the app settings. on A9 its allowed background activity and no battery optimization The service is started in MainActivity in a standard way with [CODE] And in MQTTService class [CODE] What am I missing here? It doesnt look to be a MQTT clinet issue, but rather android power management. [Edit on dec-3]Here are some updates as a desperate solution I implemented a dedicated thread which sends a dumb message to broker every keepalive interval. With this thread the client is no longer disconnected by the broker. found I missed a connection parameter: automaticReconnect which default is false. After setting it to true, I start seei"
+ },
+ {
+  "question_id": 79835767,
+  "ym": "2025-12",
+  "creation_date": 1764672861,
+  "title": "Application migration to Websphere Liberty",
+  "tags": [
+   "java",
+   "servlets",
+   "osgi",
+   "classloader",
+   "websphere-liberty"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am migrating an application to Liberty. The application is servlet-based and uses JSP files. I have created Dockerfiles, a Helm chart, and Liberty configuration files such as [code] . My application is packaged with its own set of JARs. I am using parent-last delegation to isolate the application from Liberty interference. Current Error: [CODE] Root Cause: The Liberty servlet-3.0 feature provides [code] (Servlet 3.1 API) to the parent classloader, while the embedded [code] bundle provides [code] (Servlet 3.0 API) to OSGi bundles. This results in the same class name being loaded as different class objects, which triggers the [code] . What I have tried: Keeping the Liberty servlet feature and removing the servlet bundle from the application. This causes [code] and [code] classes to be not found. Keeping the servlet bundle and removing the Liberty servlet feature. This prevents the application from starting, as Liberty requires servlet features to deploy WARs. Keeping both the Liberty servlet feature and the servlet bundle. This leads to the [code] described above."
+ },
+ {
+  "question_id": 79835817,
+  "ym": "2025-12",
+  "creation_date": 1764675691,
+  "title": "Unable to locate an element with the xpath expression //span[@class=&#39;windowTitle&#39;]",
+  "tags": [
+   "java",
+   "html",
+   "selenium-webdriver",
+   "xpath"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "OK I cannot figure out this error. We are running an IE test (testng with selenium) (which opens Edge) on a Jenkins machine. I keep getting this error \"Unable to locate an element with the xpath expression //span[@class='windowTitle']\" (see HTML below). The Jenkins logfile has the source HMTL and when I inspect and do a search for \"//span[@class='windowTitle']\" it finds it fine. When we get a Jenkins error I always download to Eclipse and run locally on my machine. When I do that it finds the xpath with no problems. Xpaths prior to this statement are also found. Usually with \"Object Errors\" it can be a driver/browser mismatch. I don't have direct access to the Jenkins machine but they told me it is Edge Version 142.0.3595.53 and we just updated (to try to fis the problem which didn't work) the driver to 142.0.3595.80. HTML code is (partial) [CODE] As I say those object errors are usually a result of mismatched browser/driver but these should be compatible. The code searching for the XPATH: [CODE] [code] does a [code] for the expected condition. The property \"searchPage_Title\" is [code] I am not sure what else to try. Again to reiterate it works find when I run it locally from my machine. My Edge is 142.0.3595.80 and Edge Driver is 142.0.3595.76. I don't believe the IEDriverServer has changed in a long time. I did a query for the latest version 4.14.0.0. I would like to include "
+ },
+ {
+  "question_id": 79836078,
+  "ym": "2025-12",
+  "creation_date": 1764691493,
+  "title": "java stream api: logging inside a stream",
+  "tags": [
+   "java",
+   "logging",
+   "stream"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Disclaimer: The question below was met with quite a bit of critisicm. The only reason I did not delete this question is becasue stackoverflow doesnt let me after somebody reacted on it. Also the code has been altered so lots of the criticism doesnt apply anymore. I did trigger some discussion though. I guess that's good. Maybe this concept will result in an improved new question from me or somebody else. Here it comes: I really love the way you can program with java streams as a way to get from an input variable to a output in a series of well defined standardized steps, like map and filter. Therefore it sometimes feel like a pitty to leave this structure. Sometimes it seems easier and more readible to leave this structure, but that might be because a lack of available library functionality, best practices or my knowledge thereof. Let's look at this 'old-school' code (well it does have Optional and var so not that old-school) [CODE] You could write this into something like this: [CODE] Did I make more readable code here or not? Not quite sure yet. I But I guess when there are any library functions that would support an approach similar to this, it might become (even?) more readable. Can anybody improve upon this code, preferrably using existing mainstream libraries?"
+ },
+ {
+  "question_id": 79836133,
+  "ym": "2025-12",
+  "creation_date": 1764694670,
+  "title": "How to give root access to Java Runtime Process?",
+  "tags": [
+   "java",
+   "bash",
+   "runtime"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to run a bash command through Java.Runtime.exec(), specifically coredumpctl. I am only able to run the command on a bash terminal when I login as a root user, and this doesn't seem to be the same permission that the Java.Runtime has. Is there any way to modify the Java.Runtime login or grant the Runtime root access?"
+ },
+ {
+  "question_id": 79836300,
+  "ym": "2025-12",
+  "creation_date": 1764707004,
+  "title": "Java Springboot talking to Elasticache - API calls fail during ecs tasks auto-scaling",
+  "tags": [
+   "java",
+   "spring-boot",
+   "amazon-elasticache",
+   "lettuce",
+   "valkey"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Java Springboot application talks to Aws Elasticache using Lettuce client running on ECS. Springboot version 3.4.5 Lettuce version 6.8.1.RELEASE Elasticache Valkey serverless using IAM authentication Observed weird behavior during Load test. When ECS tasks auto-scaling kicks off on high load (cpu >50%) during 500rps, API latency spikes API calls timeout with 504 elasticache commands fail with connection timeout, command timeout Ecs tasks health check fails and tasks get created/killed continuously in a loop for a while It takes ~30mins for the tasks to scale up properly, then everything settles down and APIs behave normally. Auto-scale policy triggers when: CPU utilization >50% Memory utilization >50% Elasticache config: maxTotal 15 maxIdle 8 minIdle 3 connection timeout 3s command timeout 2s What is going wrong here? Below is the elasticache configuration class. Thanks in advance. [CODE] }"
+ },
+ {
+  "question_id": 79836329,
+  "ym": "2025-12",
+  "creation_date": 1764710189,
+  "title": "How to define Run/Debug configuration templates per module?",
+  "tags": [
+   "java",
+   "intellij-idea",
+   "jvm",
+   "aspectj"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Is it achievable in any way, shape or form, to be able to create a JUnit Run/Debug configuration template that has VM argument [code] and it being applied to only one of many modules? I have multiple modules, and one is called acceptance-tests, and only in this module I am using an AspectJ weaver, thus needing an aspectjweaver -javaagent. In another module there are unit tests, but when running them from the IDE I don't want the VM argument with aspectjweaver -javaagent to propagate to these unit tests, because it only throws errors and nothing else. I am using the IntelliJ's \"green arrow\" runner to run test in various places in various amounts, thus the need for the template, but it is completely unnecessary in other modules. If need be, I can implement any other strategy that allows for restricting this VM argument to only one module. I tried attaching it to the currently running JVM, which works, but it is being attached after all classes are loaded so it doesn't weave anything."
+ },
+ {
+  "question_id": 79836333,
+  "ym": "2025-12",
+  "creation_date": 1764710538,
+  "title": "Java Module System Breaking Serialization of Standard Library Classes - Is there a better solution than --add-opens?",
+  "tags": [
+   "java",
+   "xstream",
+   "java-module"
+  ],
+  "score": 1,
+  "answer_count": 4,
+  "is_answered": true,
+  "body_excerpt": "Problem When serializing Java standard library classes (like [code] , [code] , [code] , etc.) using frameworks like XStream, Jackson, or Gson, I'm forced to use [code] flags: [CODE] This is required because serialization frameworks need deep reflection access to private fields, but the module system blocks this even though my code properly declares module dependencies: [CODE] The Core Issue I cannot open another module's packages from my [code] - only the owning module can do that. The [code] directive only works for your own packages: [CODE] This design seems fundamentally broken for legitimate serialization use cases. Why This Matters [code] is a maintenance nightmare - Must track all affected modules across JDK versions Runtime-only solution - Can't be declared in code, hard to discover when missing Standard library classes aren't exotic - These are normal, stable public APIs ( [code] , [code] , [code] , etc.) Affects all reflection-based frameworks - Not just serialization but also ORMs, testing frameworks, etc. Questions Is there a comprehensive library providing serialization converters/adapters for common JDK classes? Specifically looking for XStream converters, but interested in solutions for Jackson/Gson as well. Why doesn't the JDK provide a \"serialization-friendly\" module that explicitly opens these stable classes for reflection? Something like [code] that could be o"
+ },
+ {
+  "question_id": 79836589,
+  "ym": "2025-12",
+  "creation_date": 1764744234,
+  "title": "Cannot import Place.Field.NAME, LAT_LNG, ADDRESS in Google Places SDK 5.x",
+  "tags": [
+   "java",
+   "android",
+   "kotlin",
+   "android-studio",
+   "android-studio-3.0"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am using the new Google Places SDK in my Android app. [CODE] But the class doesn't contain these fields. What is the correct dependency or import for accessing Place.Field in the latest Places SDK?"
+ },
+ {
+  "question_id": 79836804,
+  "ym": "2025-12",
+  "creation_date": 1764760794,
+  "title": "Hibernate: Invalid stream header &quot;[-0.&quot; when trying to deserialize pgvector embedding into JPA entity",
+  "tags": [
+   "java",
+   "spring",
+   "hibernate",
+   "jpa",
+   "pgvector"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I created a PGvector database: [CODE] and defined a JPA entity following Hibernate's documentation regarding vectors : [CODE] However, when trying to deserialize the embedding into a Document object, [CODE] I get the following error: [CODE] Info: [code] translates to [code] , which is the first few characters of the embedding of an entry. I tried [code] as well, but without luck. Any idea what this could be?"
+ },
+ {
+  "question_id": 79836830,
+  "ym": "2025-12",
+  "creation_date": 1764762213,
+  "title": "How to use Callbacks in Android Kotlin",
+  "tags": [
+   "java",
+   "android",
+   "kotlin"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "Callbacks in Adapter :- If i having an adapter and there i having a button onto which i want to click and pass that value to the activity inorder to navigate or toast something on the screen."
+ },
+ {
+  "question_id": 79837267,
+  "ym": "2025-12",
+  "creation_date": 1764790978,
+  "title": "Hibernate LazyInitializationException - Cannot evaluate .toString()",
+  "tags": [
+   "java",
+   "spring",
+   "hibernate"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm migrating from Spring Boot 2.7 to Spring Boot 3 and this means i'm migrating from Hibernate 5 to Hibernate 6. I'm meeting some LazyInitializationException . This is part of a entity of mine: [CODE] And this is my other entity: [CODE] Since I passed to Hibernate 6 I'm meeting Hibernate Lazy Exception each time I make a get of an entity from another entity, this is a simple code sample: [CODE] The BaseDocClass contained by the UserDocClass has only the id, the other attributes are empty and when I try to run that code I'm meeting this exception (package name censored): [CODE] I tried most solutions I read online to solve this. I tried adding [code] annotation on attibute columns but it didn't work. I tried even using things like the Spring properties: [CODE] But it still doesn't work. I tried using [code] annotation on method and it didn't work. Do you have any other ideas? Here's the complete stacktrace: [CODE]"
+ },
+ {
+  "question_id": 79837422,
+  "ym": "2025-12",
+  "creation_date": 1764806995,
+  "title": "Why don&#39;t my MySQL usernames match when I use them in JDBC?",
+  "tags": [
+   "java",
+   "mysql",
+   "jdbc"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I’m having trouble understanding how MySQL users actually work. When I run: [code] MySql shows: [code] . But my username when i log in is ade . so when I to set a connection using [code] , I try both usernames but it gives me: [CODE] or [CODE] It only works when using the user [code] . (my implementation below.) [CODE] So what’s the difference between them? Isn’t it supposed to work with [code] or [code] as well? I’m confused about how this works underneath. Please give me some guidelines or help me understand this confusion. Thanks in advance!!"
+ },
+ {
+  "question_id": 79837459,
+  "ym": "2025-12",
+  "creation_date": 1764812821,
+  "title": "Unable to ingest GeoJSON into DDF 2.26.45 (Solr error + ingest fails with no detailed message)",
+  "tags": [
+   "java",
+   "solr",
+   "ddf"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm running DDF 2.26.45 on macOS and configured it to use an external Solr 8.6.1 running locally at: [CODE] DDF detects Solr correctly: [CODE] I created a Solr core: [CODE] Solr starts correctly. Goal I want to ingest a simple GeoJSON file into the DDF catalog. File: /tmp/test-location.geojson [CODE] Command used inside DDF Karaf [CODE] Also tried: [CODE] Result [CODE] Enabled debug logging: [CODE] ingest_error.log excerpts [CODE] ddf.log Solr error spam [CODE] Additional details GeoJSON transformers appear in service:list: [CODE] The ingest command always returns: [CODE] The DDF admin UI shows: [CODE] I only created a single Solr core named \"alerts\". I'm not sure what cores or configsets DDF requires when using external Solr. Question Exactly what Solr cores and configsets does DDF 2.26.45 require when using external Solr, and how do I configure them so that: GeoJSON ingestion works The Solr error \"cannot sort on multivalued field: id_txt\" stops The internal alerts/persistence store initializes properly If anyone has a working external-Solr setup for DDF 2.26.x, please share the required cores, configsets, and schema.xml examples."
+ },
+ {
+  "question_id": 79837783,
+  "ym": "2025-12",
+  "creation_date": 1764842953,
+  "title": "Disable Button as click is still processed",
+  "tags": [
+   "java",
+   "javafx"
+  ],
+  "score": 1,
+  "answer_count": 7,
+  "is_answered": true,
+  "body_excerpt": "Suppose a click on a JavaFX button is processed for some period of time (e.g. it performs some IO). How do you block interaction with that button while a click is still being processed? Say, it is processed for one second, and during that second no clicks made by the user should be processed. I feel there's a better way than to manually manipulate the [code] property. Java 8, JavaFX 8. [CODE]"
+ },
+ {
+  "question_id": 79837982,
+  "ym": "2025-12",
+  "creation_date": 1764856279,
+  "title": "How to connect to MCP server (Transport type: Streamable HTTP) in MCP Inspector (v0.17.2)",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "mcp-server"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have this local MCP-server and I want to test with this MCP Inspector , I followed this tutorial but it does not work. Got this following error. My MCP-server written in java (Spring boot) using: [CODE] McpApplication.java [CODE] ToolService.java [CODE] And these are config option. [CODE] Need some help!"
+ },
+ {
+  "question_id": 79838110,
+  "ym": "2025-12",
+  "creation_date": 1764863480,
+  "title": "How can I solve this problem of test difference?",
+  "tags": [
+   "java",
+   "regex",
+   "unit-testing"
+  ],
+  "score": -2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "As far as I understand, the difference between expected and actual one is NBSP ( Non‐Breaking Space ). I don’t know how to remove this. It doesn’t get highlighted and cannot be found using CTRL+H (looking for \\u00A0). I've already tried: searching via CTRL+H to remove or replace it deleting the entire line and rewriting it manually. here is the code of my test: [CODE]"
+ },
+ {
+  "question_id": 79838187,
+  "ym": "2025-12",
+  "creation_date": 1764868688,
+  "title": "How to prevent pixels from overwriting each other in processing?",
+  "tags": [
+   "java",
+   "shader",
+   "processing",
+   "fragment-shader"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am learning dithering, and the best way for me to do this is to play around in processing. My end goal is to create something that mimics the aesthetic of The Return of Obra Dinn. My code so far does 2 things: detect edges and change the color of edge pixels to white complete bayer dithering (though i think I may have done it a little differently than true bayer dithering. but this is not my issue, i'm fine the way it is and learning this on my own). The issue I am having is that the white edge pixels are not rendering. If I remove all the bayer dithering pieces in the draw function, it does draw correctly. However, with the bayer dithering it disappears. I sense it has to do with the order of how I'm rendering this, but I can't seem to figure out what I should change. So far, I have tried moving things around in the draw function so that the whole chunk of changing edges happens at the end of the draw function rather than the start. I've also tried adding an if statement so that any white pixels on img are skipped when going through the loops of dithering. Maybe I'm loading and updating pixels incorrectly? [CODE] I know my code is not written efficiently. Again, I'm learning dithering so it's easier for me to first start by breaking up my challenge before optimizing. Looking for some help to figure out what I am doing wrong. Can you point me in the right direction at least?"
+ },
+ {
+  "question_id": 79838205,
+  "ym": "2025-12",
+  "creation_date": 1764870183,
+  "title": "Spring Boot 4.0.0 + GCP : java.lang.NoSuchMethodError: org.springframework.boot.context.config.ConfigDataLocationResolverContext.getBootstrapContext()",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "google-cloud-platform"
+  ],
+  "score": 5,
+  "answer_count": 4,
+  "is_answered": true,
+  "body_excerpt": "I upgraded a Spring Boot application to Spring Boot 4.0.0 with Java 25 LTS, and I am using: [CODE] When the application starts, it fails with: [CODE] It looks like Spring Cloud GCP is calling a method that no longer exists in Spring Boot 4. Is Spring Cloud GCP 7.x compatible with Spring Boot 4.0.0 ?"
+ },
+ {
+  "question_id": 79838312,
+  "ym": "2025-12",
+  "creation_date": 1764878538,
+  "title": "How to handle variable-length header values when parsing HTTP requests in Java?",
+  "tags": [
+   "java",
+   "string",
+   "http",
+   "http-headers",
+   "text-parsing"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I'm building an HTTP server and parsing request headers. My current code fails when the [code] header includes a port number because I'm splitting on [code] . Current Code: [CODE] Problem: Works for [code] Fails for [code] (no port) Question: What's the best way to rejoin header values that may contain colons? What I've tried: Checking [code] but feels clunky Using [code] instead of [code] Which approach is more robust for HTTP header parsing?"
+ },
+ {
+  "question_id": 79838375,
+  "ym": "2025-12",
+  "creation_date": 1764884430,
+  "title": "javafx.controls module can&#39;t be found but it exists in the right location",
+  "tags": [
+   "java",
+   "javafx",
+   "module-path"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm using JDK 25, Apache Netbeans and Windows 11. My JavaFX SDK folder is in [code] and I verified that it is indeed in the lib folder, but the compiler still says it can't find it. I'm pretty sure I initialized the correct VM options. My build tool is Ant. VM Options: [CODE] build.xml: [CODE] Erorr Message I keep getting: Error occurred during initialization of boot layer java.lang.module.FindException: Module javafx.fxml not found Also can't find [code] What am I possibly doing wrong and why can't the compiler find these two files? I read some stuff regarding dependencies causing this type of error. If that is the case, how would I be able to configure these dependencies properly? Full code: [CODE]"
+ },
+ {
+  "question_id": 79838436,
+  "ym": "2025-12",
+  "creation_date": 1764890910,
+  "title": "Swing tutorial: InputVerifier setup",
+  "tags": [
+   "java",
+   "swing",
+   "inputverifier"
+  ],
+  "score": 3,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "Below you find the example code for an InputVerifier from the swing tutorial , slightly modified to compile error-free under java 25. The code creates an InputVerifer ( [code] ), which is set to the four JTextFields. Nowhere in the code the InputVerifier is \"removed\" (set to null), but in its [code] method it is set anew with every verification ( [code] ). Commenting out this line shows no different behaviour on my side. So is this line at least recommendable or maybe even necessary for reasons I cannot figure out? [CODE]"
+ },
+ {
+  "question_id": 79838482,
+  "ym": "2025-12",
+  "creation_date": 1764898227,
+  "title": "Testcontainer: H2 is still used in test, Domain &quot;TEXT&quot; not found;",
+  "tags": [
+   "java",
+   "postgresql",
+   "spring-boot",
+   "hibernate",
+   "testcontainers"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have a very simple example: the entity uses [code] column and the test fails because of it, despite using PostgreSQL testcontainer: application-test.properties [CODE] Dog.java : [CODE] DogRepository.java : [CODE] DogTest.java : [CODE] When I run the test I get the error: [CODE] From what I understand, [code] is not used by [code] , however works with [code] . It should work with PostgreSQL testcontainer, yet it doesn't, so it seems like the test is still using [code] , and I don't see why. How do I make the test run without removing [code] column type?"
+ },
+ {
+  "question_id": 79838557,
+  "ym": "2025-12",
+  "creation_date": 1764912586,
+  "title": "Getting duplicate records In Parquet files created In Kafka Consumer",
+  "tags": [
+   "java",
+   "apache-kafka"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "So when The consumer polls records after subscribing to kafka topic when the Very first parquet file created its has some offset entries but is creating a Huge file and when the next file created it has offset entries from previous files too so meaning that the latest File is having records from past entries why this duplicate records coming and until the batch is true we are not committing anything need solution to resolve the duplicate record issue Any Resolutions [CODE]"
+ },
+ {
+  "question_id": 79838587,
+  "ym": "2025-12",
+  "creation_date": 1764915584,
+  "title": "Fields are not showing on screen after upgrading gwt from 2.8.0 to 2.10.0 and java 8 to 10",
+  "tags": [
+   "java",
+   "gwt"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Fields are not showing on screen after upgrading gwt from 2.8.0 to 2.10.0 and java 8 to 10. org.dominokit:domino-ui -> 1.0.7 and com.google.jsinterop:base -> 1.0.0. [CODE] The above widget not loading in screen."
+ },
+ {
+  "question_id": 79838612,
+  "ym": "2025-12",
+  "creation_date": 1764918307,
+  "title": "Risks of using Java 25 LTS versus Java 21 LTS in a new Spring Boot backend",
+  "tags": [
+   "java",
+   "angular",
+   "postgresql",
+   "spring-boot"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I’m starting an inventory system: multi-branch, reporting, invoicing, which I plan to maintain for several years. Tentative stack: Backend: Java + Spring Boot DB: PostgreSQL Interface: Angular 21 But I have some doubts about versions: Java: Option A: Java 21 LTS + Spring Boot 3.5 Option B: Java 25 LTS + Spring Boot 3.5 or 4 PostgreSQL: 16, 17 or even 18 for this new project. And I’d like to clarify a few questions about the following: For a new backend with Spring Boot, what risks do you see in using Java 25 LTS instead of Java 21 (library compatibility, tooling, stability) as of today? For PostgreSQL, what criteria would you use to choose between 16, 17 or 18 in a CRUD-intensive inventory system? Is there any strong reason to avoid any of these versions in production right now?"
+ },
+ {
+  "question_id": 79838626,
+  "ym": "2025-12",
+  "creation_date": 1764919905,
+  "title": "Binding two JavaFX services&#39; running properties",
+  "tags": [
+   "java",
+   "concurrency",
+   "javafx-8"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "How do I bind the [code] property of one [code] to the same [code] of another [code] that it (re)starts? The first service must be considered running as long as the \"nested\" service is. In my simple demo, there's only one nested service, yet there could be more. The problematic part is [code] does not return a [code] with a [code] method. It instead returns a [code] that does not expose such a method. I could override [code] in a subclass to return [code] , but the method is [code] , could not be overridden. I am hesitant to declare a separate property in my [code] subclass (say, [code] ). I don't want the service's clients to even know whether it has nested services. I am fine with declaring [code] , on the other hand, if necessary (may be called by another client beforehand, not the one requesting/ binding to the [code] property). What is the best way to achieve my goal? Here's a demo that does not achieve it. Its idea is to keep the \"Start\" button disabled as long as the service, in its entirety, is running. [CODE] [CODE] Once you run it and press the button, you get this console: [CODE] Instead, it should be: [CODE] Java 8."
+ },
+ {
+  "question_id": 79838627,
+  "ym": "2025-12",
+  "creation_date": 1764919909,
+  "title": "I cannot connect to my HC-05 bluetooth module using my own Java app",
+  "tags": [
+   "java",
+   "android",
+   "bluetooth",
+   "hc-05"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I built a Java app where I implemented bluetooth functionality. Using the documentation I managed to discover devices and pair with them. I managed to get the whole device info (address, name), but it fails when I want to establish communication with the module. In the ConnectThread constructor: [CODE] In the ConnectThread method run(): [CODE] In the MainActivity, when I choose a device from the paired devices list: [CODE] ** What I have in my LOGCAT** [CODE] Using the Serial Bluetooth Terminal from google play I managed to connect to my module and send data so I figure that the problem is on my end but I can't find any information about why this happens.If anyone can help me, that would be great!"
+ },
+ {
+  "question_id": 79838727,
+  "ym": "2025-12",
+  "creation_date": 1764928325,
+  "title": "CircuitBreaker is going to OPEN state from CLOSED before minimumNumberOfCalls",
+  "tags": [
+   "java",
+   "circuit-breaker",
+   "resilience4j"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm using custom configuration for the [code] : [CODE] According the above code I should get [code] only after ten calls, but I'm getting at 6 th call. I've checked it's not [code] . FYI: I'm using Resilince4j 2.3.0, and its COUNT_BASED window. What could be the reason ?"
+ },
+ {
+  "question_id": 79838766,
+  "ym": "2025-12",
+  "creation_date": 1764930290,
+  "title": "PKIX path building failed: unable to find valid certification path — How to load PEM certificate into truststore at runtime in Spring Boot?",
+  "tags": [
+   "java",
+   "ssl",
+   "ssl-certificate",
+   "webclient",
+   "x509"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I am getting the below SSL error when my Java (Java 21, Spring Boot 3/4) application makes a REST call to a gateway: [CODE] I already have the server certificate in a [code] file (X.509 certificate). Example format: [CODE] My Java application needs to trust this certificate when calling the Gateway. The Gateway requires certificate pinning — if the cert is not trusted, the request fails immediately. When my Java/Spring application starts: Load this PEM certificate from [code] Add it to an in-memory truststore (JKS or PKCS12) at runtime Use that truststore for all outbound REST calls (WebClient / RestTemplate) I do not want to modify the JVM default [code] . I want the application itself to load & trust only the pinned certificate. What I have tried I tried manually loading the cert: [CODE] This loads successfully, but configuring it into SSLContext is failing. My WebClient configuration attempts: [CODE] But unless the certificate is in a real truststore file, Spring throws the same [code] . Question How do I correctly: Load an X.509 PEM certificate inside [code] Programmatically create an in-memory truststore Register that truststore with [code] (or [code] ) so that only that certificate is trusted? Ensure that calls to the Gateway no longer fail with PKIX errors? Constraints Java 21 Spring Boot 3.4.x / 4.x Certificate is a [code] file containing a full X.509 certificate (NOT a"
+ },
+ {
+  "question_id": 79838872,
+  "ym": "2025-12",
+  "creation_date": 1764937122,
+  "title": "Nested JavaFX Services",
+  "tags": [
+   "java",
+   "javafx",
+   "javafx-8"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "How do I nest [code] s / [code] s in JavaFX — or achieve the same effect by other means? I created a simplistic form for \"saving\" DB connection settings. Here's what it should be. It has two fields: URL and password. Valid credentials are \"test\" and \"test\". It has two buttons: [code] and [code] . [code] attempts to connect using provided credentials (that is, imagine it does). If they are not, then the fields get outlined in red. [code] first performs step 3 ( including the handling ) and, if successful, saves the settings. Notice how the testing task is nested in the saving task (while still being an independent task on its own). Important: testing connection can be done clicking either button, but saving must be performed only on clicking [code] . Approach #1 I can declare two separate [code] s. It means the saving listener is not activated on testing. However, the connection failure handling (red outlining) must either be duplicated in the save listener or be missing (in my MRE it's missing). Both scenarios are undesirable. In the real application, the testing functionality belongs to a child component's scope (imagine, for example, the testing button would be inside some container with a tiny spinner to boot that reflected the test status). It would be a bit weird if my form would be nosing around in the child component's scope repeating the same failure handling. [CODE] [C"
+ },
+ {
+  "question_id": 79838989,
+  "ym": "2025-12",
+  "creation_date": 1764944254,
+  "title": "Spring boot Kafka batching for all partitions",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "apache-kafka",
+   "spring-kafka"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have Spring Boot with Kafka batching and a topic with 3 partitions. For example, I want to have 1 batch with 100 records continuously if I have a lot of messages in the topic, but if I have a low rate, then I want my app to send me a batch with 100 records or to wait 10 seconds and send me as big batch as possible. Right now, I have the following properties in my test app (concurrency is 1): [CODE] And the problem is that if I have 1 partition, it works fine, but if I create a topic with 3 partitions, I start getting 3 small batches with a 10-second interval each. I assume that the listener listens for partitions separately and does not combine messages from them. Is it possible to achieve it without the creation of a custom implementation of a listener to cache the responses, probably, and then divide them by batch size? Or are there other solutions? This property does not help since I use it for now, but it creates just a delay between polls, and in case of a big queue, I process very slowly. [CODE]"
+ },
+ {
+  "question_id": 79839079,
+  "ym": "2025-12",
+  "creation_date": 1764950125,
+  "title": "Caused by: java.lang.ClassNotFoundException: org.mockito.internal.creation.bytebuddy.inject.MockMethodDispatcher",
+  "tags": [
+   "java",
+   "mockito",
+   "junit5",
+   "jboss-arquillian",
+   "payara-micro"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have integration tests configured in my project with payara-micro-managed, arquillian, and junit5. Everything works fine until I use Mockito. I get this error: [CODE] I don't understand why I get this error even though I have the mockito-core library. My configuration looks like this: maven profile for building payara micro jar and running tests [CODE] arquillian.xml [CODE] @Deployment method [CODE] Test [CODE] Dependencies [CODE] Im using payara 6.2025.11"
+ },
+ {
+  "question_id": 79839094,
+  "ym": "2025-12",
+  "creation_date": 1764951052,
+  "title": "ClassCastException Mono&lt;Void&gt; unit test Java",
+  "tags": [
+   "java",
+   "spring-boot",
+   "mockito"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "i have the method in springboot that consume a endpoint [CODE] and this test [CODE] but in the line promise.block() return ClassCastException, any idea what it might be, this is a error in console: [CODE]"
+ },
+ {
+  "question_id": 79839168,
+  "ym": "2025-12",
+  "creation_date": 1764956361,
+  "title": "Gradle does not add the correct main-class entry in the manifest.mf file",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "gradle"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I have tried for days now to get the Gradle build to produce a Spring Boot jar file that will run. Everything builds ok except for one thing. Gradle does not put the correct main-class entry in the manifest.mf file. It puts: [CODE] in the manifest file. No matter what I've tried so far that Gradle accepts as a properly formatted build.gradle file, will produce a manifest.mf file with that one entry that I need the PropertiesLauncher class. I've tried every example I could fine with Google in my build.gradle file. It builds fine but refuses to add the correct main-class entry in the manifest. If I manually add the main-class entry in the file and splice it back into the jar everything work fine. My program launches just fine and everything is great. This is a multi-project Gradle build. The following is my gutted build.gradle. There is some possible proprietary stuff in it, and delete hopefully unnecessary stuff. I'm hopping there is enough here for analysis. If more is needed I might have to cough up more info. Hopefully most of what's needed is in the bootJar task. [CODE]"
+ },
+ {
+  "question_id": 79839208,
+  "ym": "2025-12",
+  "creation_date": 1764959198,
+  "title": "From which package do I import @WebMvcTest in Spring Boot 4.x?",
+  "tags": [
+   "java",
+   "spring-boot",
+   "spring-mvc"
+  ],
+  "score": 4,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "[CODE] VS code says: The import [code] cannot be resolved When I run the tests, I get the following: [CODE] I used this as reference: https://docs.spring.io/spring-boot/api/java/org/springframework/boot/webmvc/test/autoconfigure/WebMvcTest.html My pom has: [CODE] Am I doing the import correctly?"
+ },
+ {
+  "question_id": 79839373,
+  "ym": "2025-12",
+  "creation_date": 1764975961,
+  "title": "Is it possible to inspect method invocations on a JDBI DAO using aspect-oriented programming?",
+  "tags": [
+   "java",
+   "spring",
+   "aop",
+   "aspectj",
+   "jdbi"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "We mostly use [code] with DAO interfaces to interact with our RDS. I'm trying to get visibility of when each DAO method is invoked. We have hundreds of methods across dozens of interfaces, so adding logs to every invocation individually is impractical. I was hoping to use an AOP advice based on JDBI annotations on the interface methods. We have [code] advice for some controller methods, which works well, but the same approach isn't working for DAO methods. I suspect this is because both Spring AOP and JDBI work by creating proxy classes based on the interface, so that JDBI is able to get an instance and use it to interact with the database, but my aspect can't \"see\" that instance to apply the advice. I'm pretty new to this though and still getting my head round the details. Sample project on GitHub: https://github.com/Vaent/jdbi-aop-example Example code snippets (simplified): [CODE] [CODE] [CODE] I've tried different advice types, different pointcut expressions including [code] and [code] , using a separate pointcut method, using a custom annotation instead of the JDBI one. Nothing I've tried seems to make any difference. Is there a workaround or a way to configure the aspect/interface so that JDBI's on-demand extension can interact with AspectJ/Spring AOP/any other aspect-oriented framework?"
+ },
+ {
+  "question_id": 79839444,
+  "ym": "2025-12",
+  "creation_date": 1764987051,
+  "title": "Resize JFrame when moving to new screen",
+  "tags": [
+   "java",
+   "swing"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have two monitors with different resolutions. I would like for a [code] to dynamically resize when dragged to a different monitor. When dragging to a new frame, the label will update, but the frame will not change size. I've tried various combinations of revalidation, repainting, everything I can think of. [CODE]"
+ },
+ {
+  "question_id": 79839624,
+  "ym": "2025-12",
+  "creation_date": 1765016703,
+  "title": "Spring boot 3.4.x OIDC2.0 - Try to ignore SSL validation, but not working and throws exception - DNS not matching",
+  "tags": [
+   "java",
+   "spring-boot",
+   "oauth-2.0",
+   "apache-commons-httpclient",
+   "spring-resttemplate"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Trying create an Oauth 2.0 browser flow by using spring-boot 3.x (3.4.11) spring-framework 6.x application. authorization_code has generated. Then [code] call to make the token is failing [code] To ignore SSL and host verification, code has been added. [CODE] log says [CODE] Please note : -I don't have any access to server to update \"SSL certificate\"."
+ },
+ {
+  "question_id": 79839643,
+  "ym": "2025-12",
+  "creation_date": 1765019437,
+  "title": "What is the most efficient way to validate file data against Couchbase documents using Spring Batch— N1QL timestamp range, KV lookups, or USE KEYS?",
+  "tags": [
+   "java",
+   "spring-batch",
+   "couchbase",
+   "file-processing"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have a validation use-case where an input file contains a list of records that were updated at a certain timestamp. I need to verify that the data in the file matches the data stored in Couchbase. Each record in the file includes a document ID and some fields. The file header also contains a timestamp that indicates when all records in the file were updated. I’m evaluating three possible approaches in spring batch for fetching the corresponding documents from Couchbase in a item processor 1. N1QL query with timestamp range Query Couchbase using a GSI on the timestamp field, something like: [CODE] This returns all documents updated during the timestamp window. 2. KV lookup per record Read the file line by line, extract document IDs, and do: [CODE] This may result in 100k–700k KV lookups depending on file size. 3. N1QL with [code] Collect keys in batches (e.g., 500–1000 at a time) and run: [CODE] This reduces the total number of network round trips. My Questions: Which approach is fastest and most scalable for validating up to ~700k records? Is a timestamp range query more efficient than bulk KV operations? Is [code] recommended for batch fetch patterns like this?"
+ },
+ {
+  "question_id": 79839644,
+  "ym": "2025-12",
+  "creation_date": 1765020067,
+  "title": "Efficient way to update 100k–200k Couchbase documents using Java SDK in a transactional setting",
+  "tags": [
+   "java",
+   "spring",
+   "rx-java",
+   "couchbase",
+   "vert.x"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am using the Couchbase Java SDK and need to update a field in a large number of documents (100k–200k). The update depends on three fields , and I must update a fourth field inside a transactional context. I am considering several approaches but I am unsure which is the most efficient and scalable. Use Case Couchbase , Java Update condition: based on [code] , [code] , [code] Update target: [code] Estimated affected documents: 100k–200k Must run updates in a transaction Approaches I am considering 1. Keyset pagination + batch update Fetch document IDs in chunks using keyset pagination. In each chunk, either: Run a N1QL [code] query Perform KV [code] operations I tried this but didn't perform not even better than N1Ql must have done something wrong 2. Query to fetch keys + multi-threaded batch updates Run [code] to get all matching document IDs. Execute N1QL update batches across multiple threads. 3. Single N1QL update statement [CODE] Simplest approach, but unsure about performance and transactional behavior for large datasets. Questions Which approach is recommended for updating 100k–200k Couchbase documents in a transaction? Is keyset pagination + [code] faster or safer than a single large N1QL update? Does multi-threading improve performance inside a transaction? Are there best practices for bulk transactional updates using the Java SDK?"
+ },
+ {
+  "question_id": 79839700,
+  "ym": "2025-12",
+  "creation_date": 1765028143,
+  "title": "Can I use vibe coding tools with wpilib?",
+  "tags": [
+   "java",
+   "wpilib"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "Today, I'm learned google launched new vibe coding tool, That name is Antigravity. I heard Antigravity is based on vscode therefore I want to learn can I use wpilib with that tool. Also, I'm asking for Antigravity but my question for all because in my team there are too many rookie year programming member and I want to if vibe coding possible I want to teach them. By the way if same question yes for cursor, windsurf or any other vibe coding tool please tell me. Thanks for answers."
+ },
+ {
+  "question_id": 79839727,
+  "ym": "2025-12",
+  "creation_date": 1765031567,
+  "title": "Reversal of Linked List with head and tail node recursively",
+  "tags": [
+   "java",
+   "arraylist",
+   "linked-list"
+  ],
+  "score": -1,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I am working on a LeetCode question. I am able to solve it using other approaches but not via this approach . I am trying to reverse a singly linked list recursively. When I run the code, my output for 1->2->3->4 is 4->1. I am unable to understand why the link for the middle nodes is breaking. In my main function, I have created a node ans that points to the tail and I am returning ans in the main function. [CODE]"
+ },
+ {
+  "question_id": 79839862,
+  "ym": "2025-12",
+  "creation_date": 1765045379,
+  "title": "Syper CSV CsvBeanWriter giving SuperCsvReflectionExceptionerror extracting bean value for field name error",
+  "tags": [
+   "java",
+   "supercsv"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "[CODE] This is my csvData class [CODE] I don't know what the error is I have been trying to find it for a long time. It does not write to the CSV file. I felt that the getters may be an issue but I cant wrap my head around it. This is the error: [CODE] Which means it cannot access the getters but I cannot figure out why."
+ },
+ {
+  "question_id": 79839887,
+  "ym": "2025-12",
+  "creation_date": 1765048070,
+  "title": "Performing Peer - Peer connection with Turn server",
+  "tags": [
+   "java",
+   "network-programming",
+   "cloudflare",
+   "p2p"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm writing an application for a peer to peer service with a TURN server, but I'm struggling to construct one. If my understanding is correct, there are three steps needed for a successful peer to peer connection with a TURN server. Get a relay address from the TURN server Establish a handshake with the remote server Start the connection I'm trying both TCP and UDP (hoping one of them will work), yet I can't seem to get past the relay step. I'm not sure if this is the right approach. Any help is appreciated. My TURN server is active, and the credentials are correct and active. Using the ice4j library from Jitsi, I'm creating the allocation request with [code] and adding the required attributes. After sending the request I keep getting an [code] response. My TCP code is in my repository. Because the files are big, I have added them here in the git. Please find the link: gitlink . Below are smaller snippets to help. UDP [CODE] It never reaches success. It always gives me a failure with a socket timeout exception, even though the server is active and listening. For UDP I'm using the ice4j library. TCP [CODE] Here as well, I'm not able to extract the relay address. Most articles I have come across are mainly about TURN servers or creating your own TURN servers. Please help me understand how I can acquire a relay address with Java, or let me know what's wrong with my approach."
+ },
+ {
+  "question_id": 79840176,
+  "ym": "2025-12",
+  "creation_date": 1765101435,
+  "title": "Spring Boot 4.0.0. cannot resolve symbol DataJpaTest",
+  "tags": [
+   "java",
+   "spring-boot",
+   "testing"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am new to Java and Spring Boot. I am building a small CRUD app to learn about JPA and the H2 database. This is my POM file: [CODE] When I annotate a test with DataJPATest, it cannot resolve it. I tried with Claude Code, a new spring. Initializer pom (with JPA, test, and H2 dependencies) as well as searching the Web manually. I found import statements like: [CODE] However, the [code] does not exist. I invalidated caches (I use IntelliJ), deleted .m2/org/springframework/boot, and did several mvn clean install. No solution yet. I fear I am missing something very obvious, due to my little hands-on experience with either Java or Maven. I found this: DataJpaTest and AutoConfigureTestDatabase in Spring Boot 4.0.0 . But here \"jpa.test\" (test) is missing."
+ },
+ {
+  "question_id": 79840455,
+  "ym": "2025-12",
+  "creation_date": 1765136706,
+  "title": "Hibernate doesn&#39;t load attribute nodes with entity graph",
+  "tags": [
+   "java",
+   "spring",
+   "hibernate",
+   "jpa",
+   "spring-data-jpa"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have the next entity three: [CODE] I am using spring 3.5.x version with spring data (hibernate) with cosium jpa entity graph lib to build query with appropriate graph. Graph structure: [CODE] And the problem is the final node elements are not loaded at all. I enabled hibernate logs by [code] and don't see any sql queries related to the final node element. So it's initialized with LAZY (as proxy) but I don't expect it...though others are initialized as expected. Even second node elements are initialized. And one interesting thing is...when I comment [code] it works as expeted...there are all elements in context. What can be wrong? I don't have any hibernate speicifc configuration at all. All associations have LAZY fetch type and default Fetch mode"
+ },
+ {
+  "question_id": 79840459,
+  "ym": "2025-12",
+  "creation_date": 1765137426,
+  "title": "What&#39;s the best practice of distributed transaction implementation for java/spring based service",
+  "tags": [
+   "java",
+   "design-patterns",
+   "transactions",
+   "distributed-transactions",
+   "saga"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am going to try to implement such thing and thinking about the best practice. Of caurse I know about some patterns like SAGA with transaction outbox but I never used it in practice. Is there any libraries or integrated framework that's the best for implementation or there are some other practice in a real production?"
+ },
+ {
+  "question_id": 79840467,
+  "ym": "2025-12",
+  "creation_date": 1765138634,
+  "title": "Captures all domain names within a property SubjectAlternativeName",
+  "tags": [
+   "java",
+   "regex",
+   "x509certificate"
+  ],
+  "score": -4,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I’m trying to extract a specific portion of text and haven’t had success despite testing multiple patterns and looking at similar examples. After struggling for a while, I figured it was time to ask for help. I’m working in Java and want to capture all DNS names listed in the SubjectAlternativeName block. The raw text is: [CODE] So far I have the following regex: [CODE] However that only captures the first entry in the list which is *.google.com I would like to get all dns names. Any idea whether that is possible?"
+ },
+ {
+  "question_id": 79840541,
+  "ym": "2025-12",
+  "creation_date": 1765153171,
+  "title": "Under high load, streams obtained via LaunchedClassLoader are unexpectedly closed, causing file read failures",
+  "tags": [
+   "java",
+   "spring-boot",
+   "maven"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Issue We are developing a component in a Spring Boot application that loads YAML configuration files from the classpath using ClassLoader#getResourceAsStream. After upgrading from Spring Boot v2.5.12 (OpenJDK v11) to Spring Boot v3.3.3 (OpenJDK v17), under high load (large numbers of concurrent requests), the stream in this component is unexpectedly closed, resulting in failed file reads. Please advise on possible countermeasures. Note: The issue does not occur under low load; processing completes successfully. Version information Spring Boot: v2.5.12 -> v3.3.3 Red Hat OpenJDK: v11.0.17 -> v17.0.9 Maven: v3.5.3 -> v3.9.6 SnakeYAML: v1.28 -> v2.2 Note: The issue occurs after the upgrade. Runtime environment Packaging: Executable JAR (fat jar) Deployment: OpenShift container environment (OpenJDK 17) Error log (excerpt) [CODE] Relevant source code (excerpt) [CODE] Notes: A new stream is used per request; streams are not shared across requests. The stream is closed properly by the caller using try-with-resources. Known facts Heap dump analysis confirms the class loader in use is LaunchedClassLoader. Applying the setting to use the legacy class loader described under “Nested Jar Support” in the Spring Boot 3.2 release notes prevents the issue from occurring. Reference: https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.2-Release-Notes#nested-jar-support Reproduction c"
+ },
+ {
+  "question_id": 79840559,
+  "ym": "2025-12",
+  "creation_date": 1765157100,
+  "title": "Problem with Specificsfion and Strategy design pattern",
+  "tags": [
+   "java",
+   "spring",
+   "rest"
+  ],
+  "score": 0,
+  "answer_count": 3,
+  "is_answered": false,
+  "body_excerpt": "I’m writing with a question I encountered in my project. I have one superclass and three subclasses, which inherit attributes from the superclass, and each subclass has its own specific attribute. I need to implement filtering with any combination of parameters (using Specifications). I’m not sure how to apply the Strategy pattern here. I tried something like having a [code] and, for example, [code] , [code] , and maybe some interface for this, but honestly, I’m not sure. Here comes the question of the [code] , where I don’t know how to structure everything so that it works with the Strategy design pattern."
+ },
+ {
+  "question_id": 79840573,
+  "ym": "2025-12",
+  "creation_date": 1765160874,
+  "title": "To change default Signature1 in PDFBox",
+  "tags": [
+   "java",
+   "pdfbox"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "In PDFBox, I'd like to change the default Signature1. I've tried to change the field of PDSignatureField by setting setPartialName, but will not affect to the signature name, still remaining Signature1. When I need to delete( refer this url ), I use SignaturePerson1 for fullFieldName with method removeField(), but can't find/delete. If using Signature1, I can delete. Any help would be appreciated. The location I do for setting setPartialName with \"SignaturePerson1\": [CODE]"
+ },
+ {
+  "question_id": 79840710,
+  "ym": "2025-12",
+  "creation_date": 1765180236,
+  "title": "Error &quot;The requested version (2016-11-15) of service AmazonEC2Internal does not exist&quot;",
+  "tags": [
+   "java",
+   "amazon-web-services",
+   "spring-boot",
+   "maven",
+   "amazon-ec2"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have migrated the AWS SDKs (ec2, s3, sts, cloudformation and all) v1.x to 2.x in my springboot project. After that migration, all things went fine but for ec2 related service, I am facing the following error: The requested version (2016-11-15) of service AmazonEC2Internal does not exist in my [code] , using [code] as 2016-11-15. Is there any new [code] available for AWS SDK 2.x? [CODE]"
+ },
+ {
+  "question_id": 79840739,
+  "ym": "2025-12",
+  "creation_date": 1765182621,
+  "title": "Google Pay Decryption Failure with Tink",
+  "tags": [
+   "java",
+   "google-play"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to integrate Google Pay in Direct Integration mode. I'm having trouble decrypting the payment data once received. [CODE] This fails. I have added my Public Key on https://pay.google.com/ under the Direct Integration. And I'm trying on TEST mode. The [code] method throws an error. Error Log: Caused by: javax.crypto.AEADBadTagException: Tag mismatch! at java.base/com.sun.crypto.provider.GaloisCounterMode$GCMDecrypt.doFinal(GaloisCounterMode.java:1395) at java.base/com.sun.crypto.provider.GaloisCounterMode.engineDoFinal(GaloisCounterMode.java:406) at java.base/javax.crypto.Cipher.doFinal(Cipher.java:2205) at io.apptizer.payments.util.GooglePayECv2Util.decryptGooglePayPayload(GooglePayECv2Util.java:231) ... 73 common frames omitted What could be causing the issue? Edit: On the Google Pay Console, my added Public Key is on \"Inactive\" status. I don't see any option to bring it to Active status."
+ },
+ {
+  "question_id": 79840796,
+  "ym": "2025-12",
+  "creation_date": 1765186511,
+  "title": "Wrong behavior of background thread execution in android",
+  "tags": [
+   "java",
+   "android",
+   "power-management",
+   "background-thread"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have an app with a background thread which must send periodically a message to MQTT broker to keep the connection aliave. (see this post paho Android MQTT client does not send PINGREQ to broker when phone screen is off ) The periodicity of the messages is not critical and i use Thread.sleep() in a loop to send these messages. Here is the java code of the thread [CODE] The messages are logged on server side so I can see the message timestamp and time difference between them. After few days of testing it shows complete random values of delta t between messages. Initially, after first start after app installation, if the screen is on, or connected to a charger, with a sleep time of 20000 msec, the message frequency looks ok [CODE] When screen is off and no charger connected, then delta t gets random and much much higher than expected value. [CODE] And the value gets bigger and bigger until the MQTT broker disconnects the client because of inactivity.. [CODE] More than that, it started to show values lower than 20000 msec sleep time!?! [CODE] The application is set either to use battery in unrestricted mode or is set to “never sleep”, the behavior is the same. I can understand that power management can have impact on execution, but I cannot understand how sleep( msec ) can return before msec to elapse!!! Is there a way to make this thread to behave consistent?"
+ },
+ {
+  "question_id": 79840826,
+  "ym": "2025-12",
+  "creation_date": 1765189496,
+  "title": "Encrypt data on client side using cryptoJs and decrypt on server side SFCC (Java) Cipher",
+  "tags": [
+   "java",
+   "encryption",
+   "cryptojs",
+   "salesforce-commerce-cloud",
+   "cleartext"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "My project requires several storefront network requests to be encrypted and sent over, so thats its not interpreted by any outsider and pose a threat to the system or user. Typically sensitive or customer specific data shouldn`t be sent over as clear text. My request occurs through front end (client side) ajax and processed at the back end. The back end logic involves submitting the received data to an external API. But since the external API supports data only in clear text format, the data has to be encrypted at client side, consecutively received and decrypted back to clear text froamt at the server side. Thereafter forwarding it to the API from server side itself. My back end is based out SFCC (Salesforce Commerce Cloud built on Java having SFCC API`s for server side logics) and I need suitable API`s do the job communicating betwee client and server side."
+ },
+ {
+  "question_id": 79840829,
+  "ym": "2025-12",
+  "creation_date": 1765189656,
+  "title": "BouncyCastle BKS Keystore fails to load on Oracle JDK 21 but works on OpenJDK 21",
+  "tags": [
+   "java",
+   "jboss",
+   "java-21"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am facing an issue when loading a BKS (BouncyCastle) keystore in a Spring-based application running on Oracle JDK 21 . The same code works without any issues on OpenJDK 21 . Environment details: OS : Oracle Linux 9.6 JDK (problematic) : Oracle JDK 21.0.9 JDK (working) : OpenJDK 21.0.9.0.10 App Server : JBoss EAP 8 Keystore Type : BKS Provider : BouncyCastle 1.82 I reproduced the issue locally by setting up the exact same environment (Oracle Linux 9.6 + Oracle JDK 21). On OpenJDK 21 the keystore loads successfully; on Oracle JDK 21 it fails. [CODE] Provider list (Oracle JDK 21) Even after inserting the provider at index 1, the keystore still fails: [CODE] Error stack trace [CODE] The alias exists, and passwords are correct in both environments. The keystore loads perfectly on OpenJDK 21 with the same file and password. What I have tried Added BouncyCastle to [code] : [CODE] Forced the provider programmatically: [CODE] Verified the provider order via logging. Verified keystore integrity using [code] . Recreated the entire environment locally — issue only appears on Oracle JDK 21. Expected result BKS keystore should load successfully on Oracle JDK 21, same as OpenJDK 21. Actual result Oracle JDK 21 always throws [code] . OpenJDK 21 works without any issues. Question Is there a known incompatibility or restriction in Oracle JDK 21 related to the BouncyCastle [code] keystore type?"
+ },
+ {
+  "question_id": 79841090,
+  "ym": "2025-12",
+  "creation_date": 1765205713,
+  "title": "Hibernate @oneToOne mapping is unable to use L2 cache when mapping returns no Object",
+  "tags": [
+   "java",
+   "hibernate",
+   "caching",
+   "one-to-one"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have 2 JPA classes with bi-directional onetoOne mapping : [CODE] I have enable L2 cache for Hibernate and also enable hibernate sql logs to see what queries are being executed to DB using : [CODE] I do em.find() for Person and expect that once the person entity is returned, the carDetails is also cached in the L2 cache and no more queries will be produced as we will get cache hits. But in the case where the person doesn't own any cars I am seeing that every time I access the carDetails a new query is fired to DB instead of storing that no carDetails were returned earlier. I also read hibernate-docs-collection-cache , since collections are not automatically cached I have also tried : [CODE] Using this the relationship should be cached but I still see that query hits the DB, in hibernate logs. Is there a way to fix this?"
+ },
+ {
+  "question_id": 79841126,
+  "ym": "2025-12",
+  "creation_date": 1765208631,
+  "title": "How can I control the shutdown order of Spring-managed beans that I don’t create myself?",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "kubernetes",
+   "micrometer"
+  ],
+  "score": 3,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have a Spring Boot application running in Kubernetes. I’m trying to implement a graceful shutdown flow using a readiness probe : App receives [code] . App should start returning [code] from [code] so Kubernetes stops sending new traffic. Existing requests finish. App shuts down. I’d like to record metrics for the last few [code] calls (especially the [code] responses during shutdown) using Micrometer’s [code] . However, I’m seeing that the [code] is already closed while the readiness probe is still hitting [code] . Relevant k8s config: [CODE] Controller: [CODE] Logs around shutdown: [CODE] So when my [code] reports [code] and [code] starts returning [code] , [code] is already [code] , which means I can’t reliably record those [code] metrics. From what I can see: [code] is created and managed by Spring Boot auto-configuration. On [code] , Spring Boot shuts down and eventually calls [code] . I don’t directly control the registry bean (no custom bean definition, no [code] , etc.). Questions Is there a way in Spring Boot to delay or customize when [code] is called during shutdown , so that I can still write metrics during the last readiness probe calls? If not, what is the recommended pattern to: Keep [code] responding with accurate status during shutdown, and Still record metrics for those responses, when [code] is managed by Spring Boot?"
+ },
+ {
+  "question_id": 79841206,
+  "ym": "2025-12",
+  "creation_date": 1765214334,
+  "title": "Is there a way to set $JAVA_HOME on a per project basis for Maven?",
+  "tags": [
+   "java",
+   "maven",
+   "configuration"
+  ],
+  "score": 0,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "Looking through Maven's documentation , I can see that I can set [code] in my [code] in my home directory, but this is a global setting. I have some projects that need a specific maven version (which I manage with mvnvm ) as well as a specific java version (java 11.0.29). I'd prefer if I could set [code] per project, maybe as some configuration setting I've missed that goes in one of the many [code] configs."
+ },
+ {
+  "question_id": 79841353,
+  "ym": "2025-12",
+  "creation_date": 1765228783,
+  "title": "Process does not terminate in Spring environment and Spring Boot application is not responding",
+  "tags": [
+   "java",
+   "spring-boot",
+   "processbuilder"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "My endpoint which gets audio and image bytes as request parts: [CODE] There is a [code] method call inside the [code] method. In [code] I created a [code] object and pass a command that will run an FFmpeg CLI application. But the Postman doesn't even respond. It just says \"sending request\". [CODE] What am I doing wrong?"
+ },
+ {
+  "question_id": 79841425,
+  "ym": "2025-12",
+  "creation_date": 1765235532,
+  "title": "64- bit exception generated in a 64- bit environment",
+  "tags": [
+   "java",
+   "eclipse",
+   "tomcat"
+  ],
+  "score": 0,
+  "answer_count": 8,
+  "is_answered": true,
+  "body_excerpt": "I am trying to run a web application that is on Tomcat 9 using Java 17. I am using the latest version of Eclipse to compile and run the application. The application is starting up with the following exception: [CODE] I understand that this exception is thrown due to an attempt to use a 64- bit DLL with a 32- bit JVM. Consequently, I was careful to make sure that I downloaded a 64- bit Java 17 JVM, and I set my Tomcat installation so that it utilizes that 64- bit JVM. Unfortunately, despite my efforts, I am still getting the same exception. Has anyone else seen this problem? Can someone tell me how to fix it?"
+ },
+ {
+  "question_id": 79841586,
+  "ym": "2025-12",
+  "creation_date": 1765262196,
+  "title": "How to make the Spring AI chat client to wait for chat memory advisor to finish its work before returning the response?",
+  "tags": [
+   "java",
+   "spring-boot",
+   "spring-ai"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am using Sprig AI and Google Gemini's model, and I am using Spring AI chat client to interact with the LLM model, When I call the LLM model the [code] writes the message in the MongoDB (customised storage) and the response from the chat client is returned before the message storing operation completes. Now I want to make the ChatClient to wait for memory write operation to complete before returning the response. I tried of creating custom [code] and overriding the method which is responsible for storing the chat memory in MongoDB, but the method is with access specifier private. How can I make the chatClient to wait for the completion of chat memory storing logic in the MongoDB? MessageChatMemoryAdvisorMethod: [CODE] ChatClientConfiguration: [CODE] ChatMemoryConfig: [CODE] LLM Model call: [CODE]"
+ },
+ {
+  "question_id": 79841611,
+  "ym": "2025-12",
+  "creation_date": 1765264017,
+  "title": "Java Map.computeIfAbsent consuming high memory",
+  "tags": [
+   "java",
+   "java-8",
+   "heap-memory",
+   "profiling",
+   "method-reference"
+  ],
+  "score": 7,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I had written a method to update a [code] , provided an [code] id value (ex: client id) as key, the method would check if the key is available in the map, if not it would create an entry and associate a new [code] for the key. If available, then it would return the existing list. Initially, I wrote the method using [code] combined with [code] . [CODE] The above was working fine, later I thought of refactoring it to use [code] which would do the above same thing. Hence I changed the method as [CODE] Even though I expected it to work, I encountered an unexpected heap memory consumption during performance testing. Any idea why the new code is consuming a lot of heap memory."
+ },
+ {
+  "question_id": 79841757,
+  "ym": "2025-12",
+  "creation_date": 1765273438,
+  "title": "Scrolling to JTree node vertically only",
+  "tags": [
+   "java",
+   "swing"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Our [code] subtype automatically scrolls to its selected node. It's implemented essentially as follows: [CODE] Some nodes have long names. When such a node is selected, its [code] performs both vertical and horizontal scrolling. I was tasked with disabling the horizontal scrolling. In my attempted solution (see the snippet below), I trick Swing into believing it has to show a different [code] than the one that actually corresponds to the selected node. However, the challenging part is to retrieve the \"current\" X and width. If you hardcode them as zeroes, as I did, the horizontal scroll bar is going to be reset to the beginning each time selection occurs, even if the bar is in the middle. I guess there may be other pathways as well. How do can achieve my goal? Java 8. [CODE]"
+ },
+ {
+  "question_id": 79841837,
+  "ym": "2025-12",
+  "creation_date": 1765277943,
+  "title": "Spring boot 4 and RestClient Mocking",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "unit-testing"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am in the process of migrating one of our application to Spring Boot 4.0.0. One of the changes I tried to incorporate is using the [code] . Code-wise all the changes are fine and everything is working correctly. What seems to fail is the testing part. In our test we use [code] to mock [code] calls. I see that [code] has a method: [CODE] In my code I have created a bean of [code] [CODE] This bean is autowired into the class that makes the respective calls, and I create a [code] in there: [CODE] So in my tests I try to set up the [code] by autowiring the [code] created above: [CODE] The behavior I see is that the mocking is not happening and it tries to call the real server. Note: my test class has the following annotations: [CODE] One thing I noticed that makes the mocking work is the following: [CODE] So instead of creating a client in the constructor like : [CODE] and using this client for all calls, the mocking works only if I create a new client every time from the builder. Also, because I need to start the whole application context, I have to use the [code] annotation. I can't use [code] because of the already-existing [code] . The workaround I found was to use [code] , but this will require quite some time since I would need to change a lot of mock calls (around 200). Has anyone experienced this? Any help would be greatly appreciated."
+ },
+ {
+  "question_id": 79841955,
+  "ym": "2025-12",
+  "creation_date": 1765285258,
+  "title": "ColtrolsFx&#39;s auto completion not showing up",
+  "tags": [
+   "java",
+   "javafx",
+   "controlsfx"
+  ],
+  "score": 4,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to bind auto completions on a text field with the library controlsfx. The problem is that somehow on the packaged version of the app it doesn't show up, while in the gradle-run or tar/zip (no bundled jre) version yes. In the class scope: [CODE] In the [code] scope: [CODE] With [code] which just checks if any software/username starts with the user text. I've tried swapping the [code] with a [code] listener on the text fields and it does not change, while a [code] listener just makes the parent pane not show up at all. I'm on Windows 11, packaging with jpackage. No exceptions seem to be generated in all cases. Versions: java 25 2025-09-16 LTS javafx 25.0.1 controlsfx 11.2.2 wix 6.0.0+8c7432e UPDATE : I created a sample application and it still shows the same signs. [CODE] [CODE] By running the application without any deferral it doesn't open (I guess it hangs), while adding [code] has the same result of not showing up."
+ },
+ {
+  "question_id": 79842203,
+  "ym": "2025-12",
+  "creation_date": 1765300149,
+  "title": "Jakarta Persistence can&#39;t find Entity classes",
+  "tags": [
+   "java",
+   "jpa",
+   "jakarta-ee"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to update my old Java EE project to run on Jakarta EE and I've run into an issue I can't seem to resolve. When I use the persistence for Jakarta the compiler says it can't find the classes for my annotations, for example @Entity, @NamedQueries etc. I get the error: [code] I get this despite having the Jakarta imports. I also have this in my POM: [CODE] I am using JDK11 and Glassfish 7.0.2.4 I can see the Entity and other classes if I mouseover the import jakarta.persistence.*; import so I'm a bit confused why it won't compile. Any help is much appreciated. Edit: Sorry for the delay in getting back to you. Thanks for the comments. Using Jakarta 10 in the POM has resolved the initial problems I had."
+ },
+ {
+  "question_id": 79842258,
+  "ym": "2025-12",
+  "creation_date": 1765304674,
+  "title": "Spring Data Couchbase @JsonAnySetter / @JsonAnyGetter support",
+  "tags": [
+   "java",
+   "spring",
+   "jackson",
+   "spring-data-couchbase"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am working on a service that uses Spring Data Couchbase and I have an entity that maps some of the fields of a document and I need all the other fields to be mapped to a Map<String, Object>. I was hoping to use @JsonAnyGetter and @JsonAnySetter to map any field unrecognized in the entity to a Map field, but it seems that is not working for me. I tried de-serializing a string representation of the couchbase document using an ObjectMapper and the entity is correctly de-serialized with the unrecognized fields into the map. So I am thinking that this may be an issue with Spring Data Couchbase but I am not sure if its supported or I am missing some configuration. The entity is pretty simple: [CODE]"
+ },
+ {
+  "question_id": 79842308,
+  "ym": "2025-12",
+  "creation_date": 1765309556,
+  "title": "JTextArea.setEditable(true) is not working",
+  "tags": [
+   "java",
+   "swing",
+   "jtextarea"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have a JTextArea called premiseText. It is initialized with a default value and is setEditable(false). When I want User to change that value, I have a JButton called editPremise that, in that button's ActionPerformed, calls setEditable(true). I have another JButton that is setEnabled(false) but which is changed to setEnabled(true) inside that same ActionPerformed. That second button changes to being enabled as expected, but the JTextArea never becomes editable. I have a JFrame that is set up to swap what JPanel is being displayed in response to a different set of JButtons. That code is added below: [CODE]"
+ },
+ {
+  "question_id": 79842362,
+  "ym": "2025-12",
+  "creation_date": 1765314762,
+  "title": "Gradle Fails to Find Tuya SDK 6.11.1 (com.thingclips.smart) - Repository Issue?",
+  "tags": [
+   "java",
+   "android",
+   "maven",
+   "gradle",
+   "tuya"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "It's been 3 months now that I am encountering a persistent Gradle build failure while attempting to integrate the Tuya SmartLife App SDK for Android. The main dependency is failing to resolve. I'm on React Native (Expo) I use a native bridge to execute the native Android Tuya SDK functions configured in the [code] folder. You'll find my code below: Error: [CODE] android/build.gradle: [CODE] android/settings.gradle: [CODE] android/app/build.gradle: [CODE]"
+ },
+ {
+  "question_id": 79842376,
+  "ym": "2025-12",
+  "creation_date": 1765315797,
+  "title": "Httpclient in java send a POST request",
+  "tags": [
+   "java",
+   "rest",
+   "post"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I want to make an API caller with all CRUD methods using java I want to be able to get all the data with json then parse it and only get data with it's unique id The thing that I can't figure out is how do I send data using an API. I get that I can use an id but what if I need to modify not one but 2 or more fields how do I do it then while Parsing a json? So I have implemented the GET method but I can't think of how to implement the POST one Here is the code from my methods class where I have all the methods I'm using Jackson to parse json and Java's Httpclient [CODE] Here is how I get my data back [CODE] That's the output when I run it all [CODE] I also have an error class [CODE] as well as link class [CODE] That's what I have in main [CODE] I started my programming classes a few months ago and that's my first project on my own"
+ },
+ {
+  "question_id": 79842444,
+  "ym": "2025-12",
+  "creation_date": 1765322060,
+  "title": "Avoiding duplicated Spring Bean classes that just have different field-level `@Value` annotations",
+  "tags": [
+   "java",
+   "spring",
+   "reflection",
+   "annotations",
+   "spring-annotations"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "Suppose that I have two classes that differ only in terms of their [code] \"values\" on their fields. For example: [CODE] And... [CODE] This feels like a waste, but the hurdle I can't overcome is that [code] annotation. What I feel like should be possible is to do something like the following, where I just have a single [code] class that is able to take a \"name\" or something and then act as if it has a [code] on it's [code] field. Then wiring up those beans could look like this: [CODE] Or maybe there would be some sort of [code] or builder or what have you. However, I don't know what this more abstract [code] would look like. The codebase that I spend most of my day job in is littered with this sort of thing: multiple variations on a class with many, many fields that only vary by their [code] annotations. I've played around a bit with reflection, however even if I were able to change the \"value\" of a [code] annotation (the double \"value\" there has always bothered me...), I think I would end up changing that for every instance of the class, whereas I'm looking to achieve something like each instance of the class having different [code] s. The wrinkle of the instances still behaving as if they had the [code] annotation is important in my use case, since there are other things that look for that annotation, but maybe the answer is to ultimately take a second look at those things as "
+ },
+ {
+  "question_id": 79842482,
+  "ym": "2025-12",
+  "creation_date": 1765328883,
+  "title": "Mapping multiple derived classes with differing field names",
+  "tags": [
+   "java",
+   "lombok",
+   "mapstruct"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have several classes as follows: [CODE] and their associated DTOs: [CODE] I am trying to create the corresponding mappers/mapper configs that will describe the mappings from Object to ObjectDto. If I define a mapperconfig for ParentToParentDto as: [CODE] and the mapper as: [CODE] My implementation looks correct with the correct mappings for id<->idDto. When I create the ChildToChildDto mapper, I would prefer not to have to repeat the id<->idDto mappings, but I cannot figure out how to accomplish that. I have tried: [CODE] and the mapper as: [CODE] as well as quite a number of other incantations. Unfortunately, the ChildToChildDto does not pick up the id<->idDto mapping from the parent. This seems like it should be a solved problem, but I cannot find a solution."
+ },
+ {
+  "question_id": 79842502,
+  "ym": "2025-12",
+  "creation_date": 1765332229,
+  "title": "is @Transactional(isolation = Isolation.REPEATABLE_READ) enough for safe incrementing?",
+  "tags": [
+   "java",
+   "spring",
+   "spring-data-jpa",
+   "transactions"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Is it possible to lost increment here? If not, is it possible in case of read_commited level? [CODE]"
+ },
+ {
+  "question_id": 79842662,
+  "ym": "2025-12",
+  "creation_date": 1765353386,
+  "title": "Efficient designs to handle different kinds of request from a client in a server",
+  "tags": [
+   "java",
+   "sockets",
+   "design-patterns",
+   "client"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm making a program where a server listens for requests from a client. My problem arises when the client sends a request and the server has to determine which kind of request it is in order to handle it. My naive approach is to use a serializable object that wraps an enum representing the request type along with the data needed to process it, and then use switch statements to handle each specific request. But what if the program scales? It becomes cumbersome to write a lot of switch statements. I found another way where each request type has a class linked to an action through an interface, and I handle them using a HashMap. Is this approach efficient, or is it too much overhead? Maybe I’m confusing things. Please give me some guidelines on how to work with this. Thanks!"
+ },
+ {
+  "question_id": 79842710,
+  "ym": "2025-12",
+  "creation_date": 1765355856,
+  "title": "fix blocking issue when trying to parse HTTP request in java",
+  "tags": [
+   "java",
+   "http",
+   "sockets",
+   "server",
+   "blocking"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to parse HTTP requests for fun and I'm currently stuck because the method I'm using blocks until input is received. [CODE] I'm trying to read into a buffer and parsing the request until it's done. I have a small class which creates a [code] where I send in a simple [code] request such as [code] . When my buffer is of a much smaller size like 8 bytes, the request is read in chunks and parsed correctly. But when my buffer is much bigger and can read the entire request in one go, only the request line gets parsed. Then, the loop above gets returned to and blocks on the third line where it needs to read. But [code] keeps the connection alive and my program is just waiting for input that's never sent. Is there a viable solution to my problem as is other than looking for a non-blocking socket in java?"
+ },
+ {
+  "question_id": 79842774,
+  "ym": "2025-12",
+  "creation_date": 1765360113,
+  "title": "The purpose of an if statement condition, it is java21-ConcurrentHashMap-transfer method code:2463Line",
+  "tags": [
+   "java",
+   "java.util.concurrent",
+   "concurrenthashmap",
+   "java-21"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am using Java 21. The following code is from the source code of class [code] . [CODE] Condition 1: [code] , I can understand it. Condition 2: [code] , I can't think of a special case; it feels like it can't happen. Condition 3: [code] , is the same. Are conditions 2 and 3 for defensive programming?"
+ },
+ {
+  "question_id": 79842788,
+  "ym": "2025-12",
+  "creation_date": 1765360585,
+  "title": "stuck at error code 21 using Dahua Java NetSDK",
+  "tags": [
+   "java",
+   "ip-camera"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "So I'm trying to read the thermal data from the Dahua IP Cam model TPC-BF5401. I couldn't find any comprehensive documents so I just read the manual tried to follow the examples bundled with the SDK at https://depp.dahuasecurity.com/integration/guide/download/SDK (I'm using the x64 Java version on Linux). I managed to read the point-wise temperature using this script [CODE] (this script is quite similar to the RealplayEx example that comes along with the SDK if you're familiar. Just filling a point info struct with x and y pixel values, and it returns temp data) Now the problem is I want to read region-wise thermal data instead of point-wise data. I add the following function to the script above: [CODE] and invoke it with [CODE] every combination of (channel, presetID, ruleID, meterType) I have tried all return this: [CODE] According to online sources, that line of Chinese, along with the error code 21, might indicate that the problem either: the camera is not configured correctly the response struct is incorrect From here I'm stuck. The error comes from inside the dynamic linked library, so I don't know what to do know. Plus I have yet to pinpoint exactly what ruleID and presetID to config to and from the camera, region/rectangle/polygon ruleID and PTZ presetID I assume? And channel seems to always be 0 and meter of type 1, correct me if I'm wrong? Anyone had the same problem,"
+ },
+ {
+  "question_id": 79842879,
+  "ym": "2025-12",
+  "creation_date": 1765366095,
+  "title": "Spring boot creates 2 security filter chains instead of 1 in spring boot 3.5.8",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "spring-security"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm migrating code from spring boot 2.7.5 to 3.5.8. Before the migration everything worked fine Here is my internal security configuration in my library [CODE] the class gets into the context like this [CODE] Next, I include this library in my project and when I run it I get [CODE] This happens because the next bin gets into the context earlier [CODE] The error was fixed by adding the following settings to application.yaml [CODE] or [CODE] with [CODE] but it seems to me that this is not entirely correct and may lead to negative consequences. How can only managementSecurityFilterChain be excluded from the context ?"
+ },
+ {
+  "question_id": 79842955,
+  "ym": "2025-12",
+  "creation_date": 1765370282,
+  "title": "Spring Boot: Default value in application.properties not used when environment variable is missing in Docker",
+  "tags": [
+   "java",
+   "spring-boot",
+   "docker",
+   "application.properties",
+   ".env"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I have the following entries in my application.properties: [CODE] And I inject them like this: [CODE] My intention is: If an environment variable (e.g., [code] ) is provided, use it If not provided, use the default value defined after the colon When I run the application in Docker without setting [code] in the [code] file, the application fails to start with this error: Caused by: org.springframework.util.PlaceholderResolutionException: Could not resolve placeholder 'organization.id' in value \"${organization.id}\" This makes it look like the default value from [code] is being ignored. Why is Spring Boot not using the default value from [code] when the environment variable is missing inside Docker, and how can I make Spring use the default when the env var is not defined? I want Spring to: use the value from the environment if it exists otherwise, use the default from [code] But not fail when the env variable is simply not provided."
+ },
+ {
+  "question_id": 79842996,
+  "ym": "2025-12",
+  "creation_date": 1765372670,
+  "title": "Portaudio is recording a weird distorted waveform when recording jack devices and firefox",
+  "tags": [
+   "java",
+   "audio",
+   "java-native-interface",
+   "signal-processing",
+   "portaudio"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am not sure why this is happening so I am coming here to look for any sort of help I can get. Basically when recording any jack device such as firefox in my app it comes out as distorted. But it works perfectly fine when recording it to a wav file in the demo code attached, or when recording my microphone. The full source of my application is at https://github.com/1vers1on/bolt This image shows the impulses when recording firefox. This is the waveform when recording firefox when nothing is playing. This waveform is what is shown when recording my microphone. Completely normal as expected. The relevant files in my source code are \"Bolt.java\", \"PortAudioInputStream.java\", \"InputThread.java\", and all of the jni folders and c source code. The following demo code works completely as expected with all input devices. [CODE] Here is the PortAudioInputSource.java [CODE] This is the InputThread.java file [CODE]"
+ },
+ {
+  "question_id": 79843126,
+  "ym": "2025-12",
+  "creation_date": 1765380154,
+  "title": "How to generate a link inside a footnote with Apache POI?",
+  "tags": [
+   "java",
+   "apache-poi"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am able to create footnotes, and I'm able to make links, but when I try to make a link inside a footnote Word refuses to open the resulting document. Here's a minimal example that reproduces the problem: [CODE] We've figured out that the problem is that this file is missing inside the [code] : [code] . It should contain this XML: [CODE] If I add that, Word will open the document. The big question is ... why doesn't Apache POI add this file? What can I do to make it add the file with the correct content? (I've tried Apache POI 5.2.5 and 5.5.1, same result.)"
+ },
+ {
+  "question_id": 79843154,
+  "ym": "2025-12",
+  "creation_date": 1765381708,
+  "title": "How to use Request/Reply Pattern using Smallrye with MQ in Java",
+  "tags": [
+   "java",
+   "jms",
+   "quarkus",
+   "messaging",
+   "smallrye"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I’m trying to implement an RPC-style Request/Reply pattern using SmallRye Reactive Messaging with IBM MQ in a Quarkus application. I already know how to implement this pattern using plain JMS: Producer sends a message with a unique JMSCorrelationID Consumer replies using the same correlation ID Producer uses a message selector like: [code] so it only receives the matching response This works fine in traditional JMS because I can create a temporary queue and attach a dynamic message selector at consumption time. Problem with SmallRye SmallRye Reactive Messaging does not seem to allow dynamic correlation IDs on the [code] channel. The configuration requires a static selector in [code] , for example: [CODE] But for a Request/Reply pattern every request has a different correlation ID (usually a UUID), so I cannot preconfigure a fixed selector. SmallRye does not offer a way to: Create a dynamic consumer at runtime Apply a selector dynamically Bind an incoming channel to a temporary queue created on the fly So I cannot recreate the usual JMS Request/Reply flow using SmallRye unless I fall back to raw JMS APIs. Question Is there any way to implement the JMS Request/Reply pattern with dynamic correlation IDs (or temporary queues) using SmallRye Reactive Messaging + IBM MQ? Or is the only viable solution to bypass SmallRye and use the JMS API directly for this specific use case?"
+ }
+]

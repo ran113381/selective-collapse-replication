@@ -1,0 +1,40 @@
+{
+ "_meta": {
+  "purpose": "In-context rubric prototype: Claude-classified 30 real python SO questions (2023-06) to validate the AI-substitutability classifier before scaling to opus. Doubles as few-shot seed + human-gold seed.",
+  "rubric": "score 0-4 on: self-containment / context-independence / judgment-vs-retrieval / unique-answer / one-shot. >=3 = GEN (ChatGPT answers from text alone), <3 = VER (needs the asker's specific context/debugging/judgment).",
+  "result": "13 GEN / 17 VER. KEY: substitutability is QUESTION-level, finer than tags — same pandas/django tag splits across GEN and VER.",
+  "classifier": "claude-opus (in-context prototype, this file)"
+ },
+ "labels": [
+  {"id": 76377950, "label": "GEN", "score": 4, "why": "Conceptual: why '300 is 301-1' is True — canonical CPython int-caching answer, self-contained"},
+  {"id": 76377964, "label": "VER", "score": 1, "why": "Speed up Gekko on the asker's specific 14-var/10k-eq model — needs judgment on their setup"},
+  {"id": 76378000, "label": "VER", "score": 2, "why": "Clear tty from a systemd service on RPi; asker says standard 'clear' fails — non-standard context"},
+  {"id": 76378030, "label": "GEN", "score": 3, "why": "pandas csv×list multiply — standard data-wrangling how-to (borderline, vague data)"},
+  {"id": 76378059, "label": "VER", "score": 2, "why": "ModuleNotFound despite pip install — env/venv debugging of asker's machine"},
+  {"id": 76378061, "label": "GEN", "score": 3, "why": "relative-import ImportError — classic, standard package-structure answer"},
+  {"id": 76378108, "label": "GEN", "score": 4, "why": "All root-to-leaf paths of a tree — standard DFS algorithm, generatable"},
+  {"id": 76378138, "label": "VER", "score": 1, "why": "conda proxy works on work wifi not home wifi — highly env-specific"},
+  {"id": 76378174, "label": "GEN", "score": 3, "why": "slowapi exempt-domain how-to — library API question (niche but retrievable)"},
+  {"id": 76378181, "label": "GEN", "score": 3, "why": "merge dataframes by matching suffix — standard pandas pattern"},
+  {"id": 76378248, "label": "VER", "score": 1, "why": "Debug the asker's 'messy' minimax tictactoe code — context-specific debugging"},
+  {"id": 76378252, "label": "VER", "score": 1, "why": "AsyncIOScheduler interaction with the asker's specific event-loop code — debugging"},
+  {"id": 76378321, "label": "GEN", "score": 3, "why": "Rename CSV columns from a config file — standard generic data transform"},
+  {"id": 76378323, "label": "VER", "score": 1, "why": "Django customer-search over asker's specific models/views — their code"},
+  {"id": 76378373, "label": "GEN", "score": 4, "why": "Alternatives to classmethod+property (removed in 3.11) — conceptual, standard answer"},
+  {"id": 76378374, "label": "VER", "score": 1, "why": "docker python-minimal error after ubuntu 20->22 on asker's EC2 — env debugging"},
+  {"id": 76378401, "label": "VER", "score": 1, "why": "IsADirectoryError in asker's Kivy/buildozer Android build — env-specific"},
+  {"id": 76378414, "label": "VER", "score": 2, "why": "Dash Leaflet callback; asker 'close, missing something' — debug their callback"},
+  {"id": 76378441, "label": "VER", "score": 1, "why": "pandas merge blows up to 1.6TB RAM on asker's data — perf/memory debugging"},
+  {"id": 76378461, "label": "GEN", "score": 3, "why": "Multi-condition column assignment (np.select) — standard pandas how-to"},
+  {"id": 76378524, "label": "VER", "score": 2, "why": "Design an interpolation over a node network — needs algorithm judgment on their data"},
+  {"id": 76378535, "label": "GEN", "score": 3, "why": "LeetCode 21 merge sorted lists recursion error — canonical problem"},
+  {"id": 76378543, "label": "VER", "score": 1, "why": "Cython install 'Non-zero exit' on asker's PyCharm/Win10 — env/toolchain debugging"},
+  {"id": 76378578, "label": "GEN", "score": 3, "why": "Understand io.FileIO.__init__ in CPython source — deep but conceptual/explainable"},
+  {"id": 76378592, "label": "GEN", "score": 4, "why": "Read three ints on one line (input().split()) — beginner canonical how-to"},
+  {"id": 76378628, "label": "VER", "score": 2, "why": "'int' has no astype after upscaling asker's WhatsApp script — debug their code"},
+  {"id": 76378670, "label": "GEN", "score": 3, "why": "pandas .query/.where behavior — common, standard explanation"},
+  {"id": 76378700, "label": "VER", "score": 2, "why": "mypy rejects asker's specific protocol impl — type-system + their code"},
+  {"id": 76378761, "label": "VER", "score": 1, "why": "Celery duplicate queues under load on asker's redis setup — production-specific"},
+  {"id": 76378770, "label": "VER", "score": 2, "why": "WinError 32 file-in-use after asker's FB upload+delete — their specific flow"}
+ ]
+}

@@ -1,0 +1,1541 @@
+[
+ {
+  "question_id": 71302393,
+  "ym": "2022-03",
+  "creation_date": 1646093162,
+  "title": "Canonical way to use webpack to bundle assets AND generate Typescript definitions",
+  "tags": [
+   "javascript",
+   "typescript",
+   "webpack"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a project that builds a typescript library with various assets. Here's how its webpack is configured: [CODE] That works fine. It transforms the assets, complies the Typescript, and bundles it all. But it doesn't generate [code] files, which are needed by any Typescript consumers of the library. Here's what my research has shown: The [code] package recommends using a DeclarationBunderPlugin . But this is an experimental project that hasn't been updated in six years. Some other plugins to handle this that don't seem particularly well supported. See dts-bundle referenced in this SO question as well as other plugin code provided in answers to that question. There is also a plugin referenced in this SO question . I've also seen recommendations to just run [code] and copy over the [code] files. See the comments in this SO question , for example. See also this even older SO question . That's fine, but I was a little surprised not to see any tooling to handle this. As far as I can tell, the webpack documentation is silent on this in its typescript section . Is there a recommended/best/canonical approach for this? Is it just some version of 3. above--i.e., generate your [code] files separately and manually add them to your distribution package? I've put together a small example repo that demonstrates the problems with just using [code] or [code] on their own."
+ },
+ {
+  "question_id": 71302410,
+  "ym": "2022-03",
+  "creation_date": 1646093356,
+  "title": "Get unique user identificator, which doesn&#39;t change even upon page refresh",
+  "tags": [
+   "javascript",
+   "node.js",
+   "reactjs"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Is there any trick to get a unique user identifier, which doesn't change, when the user refreshes the browser? I've tried socket.io and sessionID from express, but those change when the user refreshes the browser. Why? I'm trying to make a game without the need to log in. The User class will create a lobby with friends and then start the game, which will be locked for any other users, but I want to make the feature, that if the user who has already started/joined any game will refresh the browser, he will be reconnected to his game. I'd already set up the database which is ready for the unique user identifier, so the lobby/game will know who will be authorized to join and who will be not. Code of how my sessions are set up: [CODE] With this set up, the sessionID is constantly changing when the requests are from the same user. P.S. Yes, the secret code is unsafe, I will change it after I will make it work."
+ },
+ {
+  "question_id": 71302461,
+  "ym": "2022-03",
+  "creation_date": 1646093942,
+  "title": "onClick rolling number animations in javascript",
+  "tags": [
+   "javascript",
+   "random",
+   "generator",
+   "rolling-computation"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "im starting to figure out how I can do rolling numbers animation in javascript onClick. So basically I have: [CODE] And what I would like to do is have numbers from from their current position if the person pressing a button and got 2434 and the next time the press the button the next answer would be like 132, but there would be a rolling up animation to get the next number of 132, and so on.. I seen this on google when I asked for a number generator, and their animation was sick. But sadly no documentation on googles scrolling numbers. Does anyone have any ideas where I can go try and find documentation? Thanks!"
+ },
+ {
+  "question_id": 71302518,
+  "ym": "2022-03",
+  "creation_date": 1646094580,
+  "title": "Filter out search results with low quality images",
+  "tags": [
+   "javascript",
+   "tampermonkey",
+   "userscripts"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Attempting to filter out search results with low quality images in a table. I have run it in the browser console and receive the error something is undefined, but as to what, I am unaware of. [CODE] Here is a minimal working example of the html the script is attempting to work for. [CODE] I am hoping to use the [code] attribute of the [code] element to identify low and medium quality images. In the src they are referred to as \"low quality\" and \"medium quality\", but to the user they are simply \"small\" and \"medium\". So, I begin the script with a query to select all [code] elements, then out of this selection, select only the [code] elements that possess the [code] attribute. Finally, if the [code] attribute matches either [code] or \"medium\" then hide the results by setting \"display:none;\"."
+ },
+ {
+  "question_id": 71302531,
+  "ym": "2022-03",
+  "creation_date": 1646094732,
+  "title": "How to click on an a tag who&#39;s text matches a given string puppeteer",
+  "tags": [
+   "javascript",
+   "node.js",
+   "bots",
+   "puppeteer"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to write a purchasing bot for supreme website as a way to teach myself javascript and pupetteer. I am having trouble finding a way to click on the item that contains the text that is given as an argument in the function. Here is what I am trying ''' [CODE] ''' The error I get is: TypeError: page.$x is not a function Am I going about this the correct way or is there a better method This is a brief overview of the HTML [CODE] I want to click the a class thats text is 'Knowledge Tee' Thanks"
+ },
+ {
+  "question_id": 71302563,
+  "ym": "2022-03",
+  "creation_date": 1646095083,
+  "title": "useHistory.push work with useEffect and Redux",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "redux"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I writing a simple React application with two components assigned to two urls: [CODE] In App.tsx, i have a navigator use useHistory.push to allow user jump between \"/foo\" and \"/bar\". user's name will be capture here and store in a Redux state as well. In foo.tsx and bar.tsx, they're petty much same but loading different type of data from API. the code structure like: [CODE] What i had observed: when i first time accessed /foo, the foo page loaded all component and ran useEffect once at last, this process which is the design by the react Hook in the doc i'd read. I continue clicked the foo tab (useHistory.push(\"/foo\")),nothing on the page changed, which mean the useEffect didn't be invoked since it's dependence (user.name in this case) didn't change. I dispatched a new value to user.foo, i saw the useEffect was invoked as expecting. when i jumped to the \"/bar\" and above processes happened similary for querying data of bar back. at this point, I saw data of foo and bar were in the Redux state because i uses useHistory.push() to keep the session (if i understanding correctlu). the purpose to do so because i'd like to have a cross check on both data of foo and bar in either /foo or /bar pages. however, when i jumped back to /foo from /bar, the useEffect had been invoked even though the value of user.name stayed same. it's like useEffect ignored the dependence and reckoned this time"
+ },
+ {
+  "question_id": 71302588,
+  "ym": "2022-03",
+  "creation_date": 1646095430,
+  "title": "How do i get the value of a select menu after pressing a button? (discord.js)",
+  "tags": [
+   "javascript",
+   "discord",
+   "discord.js"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have a message with 2 action rows. One contains a select menu, and the other contains a button. How do i get the selected item from the select menu when the button is pressed? I have this following code so far: [CODE] I need the variable taskName to be the selected option in a select menu. The select menu is in the same message as the button, and it has the custom Id 'selectTask'. This is the code for the select menu and button menu: [CODE]"
+ },
+ {
+  "question_id": 71302638,
+  "ym": "2022-03",
+  "creation_date": 1646096063,
+  "title": "condensing JavaScript import localStorage",
+  "tags": [
+   "javascript"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Below is the code that I came up with to import the values of a key in [code] and supply each value the key holds into a [code] . Being that I'm very new to JavaScript, I was wondering if there's a better way to do what I did below and still provide the same outcome ? Code : [CODE] Is there a better way to achieve it ?"
+ },
+ {
+  "question_id": 71302689,
+  "ym": "2022-03",
+  "creation_date": 1646096754,
+  "title": "setState with return in TYPESCRIPT",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "typescript",
+   "react-tsx"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "Oops, my friends, I have this \"problem\" when using setState, as setState is not asynchronous I can't use it the way I want. I set the value and when calling the function to send back the value returns with \"delay\". How do I resolve this? [CODE]"
+ },
+ {
+  "question_id": 71302718,
+  "ym": "2022-03",
+  "creation_date": 1646097089,
+  "title": "How can I change the value of a checkbox based on the value of a select option?",
+  "tags": [
+   "javascript",
+   "forms"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a form in which I need to show some checkboxes if a select input \"member library\" option is selected. This dynamically shows items available. If from the same select input someone selects \"free\" these checkboxes are hidden and different items are displayed. I have the showing and hiding of the checkboxes working in my code but when I'm hiding the checkboxes I would like to clear the checkboxes so that they are unchecked if the \"free\" option is selected. I have tried to change the checked to false when the select option is changed but I can't seem to get to work. I have tried putting it inside my raceHide function and when I could not get that to work and I tried making it a separate function. Any help in steering me in the right direction would be greatly appreciated. [CODE] This is what I ended up using based on Daniel's help. [CODE]"
+ },
+ {
+  "question_id": 71302720,
+  "ym": "2022-03",
+  "creation_date": 1646097106,
+  "title": "How to Set Dynamic Properties to Variable in TypeScript?",
+  "tags": [
+   "javascript",
+   "angular",
+   "typescript",
+   "undefined"
+  ],
+  "score": 2,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to set some dynamic properties to a variable in typescript. The problem I'm facing is when I try to set it I run into the error \"uncaught TypeError: Cannot set properties of undefined (setting 'varname')\" It needs to be set on this variable as it is used to render some other data on the page, I also cannot define a model for the data as I do not know how many properties will be returned or there name/values. How can I assign dynamic properties to my variable. Ex code [CODE] Example JS Fiddle: https://jsfiddle.net/mtj6L3zq/"
+ },
+ {
+  "question_id": 71302756,
+  "ym": "2022-03",
+  "creation_date": 1646097606,
+  "title": "Can JavaScript be run in Visual Studio? If so, how?",
+  "tags": [
+   "javascript",
+   "visual-studio"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "need to be pointed in the right direction regarding writing/running JavaScript in Visual Studio, since I got my feet wet into programming using Visual Basic. I'm in the process of applying for a bootcamp in NYC and part of the application process includes an interview in which I may have to demonstrate a tiny bit of JS. I know it is traditionally run in web browsers but if I can also do it within the familiar environment of the IDE i learned in that would be amazing. (I have Visual Studio versions 2015 and 2019.) Thanks!"
+ },
+ {
+  "question_id": 71302776,
+  "ym": "2022-03",
+  "creation_date": 1646097814,
+  "title": "How do I disable Owl Carousel on this template",
+  "tags": [
+   "javascript",
+   "css",
+   "owl-carousel"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am not a web developer - but trying to do my best for a friends company. I started with a template that uses Owl Carousel, but now I've gotten very deep into it and we do not need the carousel feature. When I try to remove the JS, the entire site breaks. I just want it to not swipe between pages (try dragging your mouse across) https://luxusco.com/Beta/Finalindex2.html Any help?"
+ },
+ {
+  "question_id": 71302795,
+  "ym": "2022-03",
+  "creation_date": 1646098040,
+  "title": "Looping an entire p5js script",
+  "tags": [
+   "javascript",
+   "graphics",
+   "3d",
+   "p5.js"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I was wondering if it is possible to run the following code on the p5js web editor or within VS code multiple times and change the parameters a, b, A, B, H from an array of predefined values every time it runs and save the PNG image locally. My aim is to let the script run and generate a wide range of plots with these parameters varying. This is a simplified version of my problem so running the loop within the draw loop is not possible. Is there a way to loop the entire script? Many thanks in advance. [CODE]"
+ },
+ {
+  "question_id": 71302817,
+  "ym": "2022-03",
+  "creation_date": 1646098353,
+  "title": "how to add CSS style by javascript",
+  "tags": [
+   "javascript",
+   "css"
+  ],
+  "score": -1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am new to javascript. try on changing the CSS style by javascript. I would like to add the style for the a tag under the specific p tag(.font_8), and the a tag already has some style. the style I try to do is this, but I would like to add the style by javascript. [CODE]"
+ },
+ {
+  "question_id": 71302843,
+  "ym": "2022-03",
+  "creation_date": 1646098651,
+  "title": "The function is not called within another function in JavaScript",
+  "tags": [
+   "javascript",
+   "node.js",
+   "function",
+   "telegram"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I've encountered a completely incomprehensible behavior of calling a function inside a function. When I call telegram() function inside runParser() after fs.writeFile it just doesn't work. But if I execute it outside runParser() function, it works properly. That said, I have a log() function that gives me a console.log with text. It works. Why is this happening, can I call it inside the function? Also, I noticed that if I put the function at the beginning of try block it works. [CODE] telegram.js [CODE] log.js [CODE]"
+ },
+ {
+  "question_id": 71302859,
+  "ym": "2022-03",
+  "creation_date": 1646098815,
+  "title": "In cypress Returning Api reponse to another function is displaying undefined",
+  "tags": [
+   "javascript",
+   "cypress"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm calling a function GetApiResponse() from CallApi() which is returning an object of Api response. If I'm printing that response in GetApiResponse() in display complete object in console. But i'm passing this to 'passstatus' variable in CallApi function. But here it's displaying undefined. I tried JSON.Stringyfy() stuff but it didn't work for me. I want to use that reponse from GetApiResponse() function in ApiCall function. [CODE] [CODE]"
+ },
+ {
+  "question_id": 71302893,
+  "ym": "2022-03",
+  "creation_date": 1646099270,
+  "title": "How do I make this multi-login take me to another html within my code? (JavaScript)",
+  "tags": [
+   "javascript"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I started a beginners project to learn more about JS with a multiuser ATM. Things I'm trying to do: 3 Users that have password and balance when they log in The login page should redirect you to the ATM site, and it will show you your balance in a pre-built calculator I want to make the ATM work too but I first need to get the login right Here is my code [CODE] [CODE] [CODE]"
+ },
+ {
+  "question_id": 71302907,
+  "ym": "2022-03",
+  "creation_date": 1646099431,
+  "title": "Node Send Files as URL",
+  "tags": [
+   "javascript",
+   "node.js",
+   "reactjs",
+   "express"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have an image file in the server side, and would like to send this image to the client side to display it in the web. It seems like [code] can only be used in a DOM, it sounds impossible to convert the image file to URL in expressJS, or is there any other way to return the image as URL from server side? I am now trying to send the image buffer and try to use [code] on the client side. It seems like [code] containing a bunch of weird character string, and I tried to create a Blob, but the image does not render on the web at all. [CODE] [CODE] Below are part of the res I got on the client side [code]"
+ },
+ {
+  "question_id": 71302916,
+  "ym": "2022-03",
+  "creation_date": 1646099562,
+  "title": "why I am getting undefined when I try to access on my property in node js",
+  "tags": [
+   "javascript",
+   "node.js",
+   "reactjs",
+   "mongodb",
+   "express"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have sent data from frontend to backend when I console what type of requests I have gotten I can see the data is showing into the console but when I try to access those properties I got undefined. I have also tried with a query, body but both get undefined when I try to access the property. Backend code: [CODE] Frontend: [CODE]"
+ },
+ {
+  "question_id": 71302920,
+  "ym": "2022-03",
+  "creation_date": 1646099590,
+  "title": "React: React-Redux: Redux-Thunk: Memory Leak on Unmounted Component",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "redux",
+   "react-redux",
+   "redux-thunk"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Im going to formulate this question as best I can because this is very confusing. I am using redux for my applications state. and I am using redux-thunk to handle all of my async api calls to the database. I am using redux-thunk to handle my async POST api call to the database to add data. I have a parent component and a nested component. The parent component contains my data grid which is the AG React Data grid. I am switching from my parent component that contains my data grid, to the component that contains the form I will use to input data to be stored to the database. Once the async call is finished I want to route back to the original view that contains the grid (The grid, and the input form are nested into the Parent component, and Im using react-router to switch between the two views) Once the async call is dispatched using a thunk, the app calls history.goBack() before the action being dispatched is actually complete, as it should in an async call. The issue is it results in these two errors when routing back to the original view. Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function. Uncaught (in promise) TypeError: rowData.map is not a function How am I able to make sure that the action is comple"
+ },
+ {
+  "question_id": 71302922,
+  "ym": "2022-03",
+  "creation_date": 1646099636,
+  "title": "Cypress: Add cookie to external api calls from localhost frontend",
+  "tags": [
+   "javascript",
+   "cookies",
+   "cypress"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have an external api deployed to a dev server and a frontend app running on localhost . I need to attach the cookies I get from logging in, to both my localhost and external API domain. I can see the cookies are indeed there using [code] , however all external API calls within the react app happen without the cookies. From what I can see, you can only add cookies to the baseUrl requests, but I want to run my tests against a deployed backend (so developers don't need to have a running instance of a local backend, which is whats currently working fine as they are both on localhost) [CODE]"
+ },
+ {
+  "question_id": 71302951,
+  "ym": "2022-03",
+  "creation_date": 1646099970,
+  "title": "React.js inserting multiple states into one main state",
+  "tags": [
+   "javascript",
+   "reactjs"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to make an app where an 'Owner' can have multiple 'cars', I have my App.js file where the Owner enters there name and can enter there car details ('Car name' and 'Car Type'), a Owner can have multiple Cars, and when they click 'Add car entry' a Component where they enter there car details called 'OwnersCars' is repeated. Like so to If an owner fills out the input boxes in this component (For X amount of cars) then clicks 'Save Owner' i want the owner aswell as a list of all there cars to be saved into one State. Currently i have my app.js file like this (count is used to know the number of OwnersCars divs) [CODE] and i have my ownersCars.js file with the OwnersCars component like this [CODE] but when i click save user it only saves the latest car entry! Would anyone be able to help? Sorry for the mess and lack of css i removed a bunch of things from the original code so it was easier to follow on StackOverflow. Also im fairly new to react so im sure theres alot of things that need to be changed for this to work."
+ },
+ {
+  "question_id": 71302960,
+  "ym": "2022-03",
+  "creation_date": 1646100106,
+  "title": "Having trouble getting values from an array of objects in javascript",
+  "tags": [
+   "javascript",
+   "html",
+   "arrays",
+   "javascript-objects"
+  ],
+  "score": -1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am making a program to get user input from HTML forms and compile them into an object for each user. So, I have an HTML form, I make a constructor, then I set up a click event to make the object, then I put it in the variable, and then I am trying to put that variable in an array of objects, before finally using a for loop to get all of the information from each object in this array. However, I am having trouble with that last part (or at least I think). Every time I run the code, the console log does display the message, but it is coming up with undefined rather than the user input. Can someone help please? [CODE] [CODE]"
+ },
+ {
+  "question_id": 71302997,
+  "ym": "2022-03",
+  "creation_date": 1646100502,
+  "title": "How do I multiply an array of numbers with another array of numbers in javascript",
+  "tags": [
+   "javascript",
+   "arrays"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I've been trying to make an array of numbers be able to times another array of numbers without doing [code] . I've tried a lot of methods such as: [CODE] Although that's only one number the array can multiply to. I'd like a function that can do: [CODE] Please note I don't want it to be something like [CODE] I'm willing to give all my reputation as a bounty if someone is able to answer my question."
+ },
+ {
+  "question_id": 71303010,
+  "ym": "2022-03",
+  "creation_date": 1646100759,
+  "title": "How to add dynamic elements in Owl Carousel?",
+  "tags": [
+   "javascript",
+   "html",
+   "owl-carousel"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have a problem with Owl-carousel when I add dynamic data using vanilla JavaScript it rendered in side [code] but not working. [CODE] I need it to render here: [CODE] is there a way to solve this problem? Thank you for your time. This is the output of the code. this is my desired output."
+ },
+ {
+  "question_id": 71303029,
+  "ym": "2022-03",
+  "creation_date": 1646101040,
+  "title": "Trying to pass input value as new object into an array",
+  "tags": [
+   "javascript",
+   "html",
+   "css"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm working on a simple library app with javascript. Right now I'm working on getting the input values of the form to pass into the myLibrary array with a constructor function when I submit the form. I've hit a wall as nothing is passing into the array and I'm unsure if my form isn't submitting or if something else is off. If anyone could give me an idea of where I might be going wrong that would awesome. [CODE] main.js [CODE]"
+ },
+ {
+  "question_id": 71303045,
+  "ym": "2022-03",
+  "creation_date": 1646101182,
+  "title": "Angular Boilerplate not reading abp",
+  "tags": [
+   "javascript",
+   "node.js",
+   "reactjs",
+   "angular",
+   "aspnetboilerplate"
+  ],
+  "score": -2,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "hello hile working on boilerplate project im now learning to consume services from the backend (asp .net) on angular via http requests, so i was trying to add delete method on mycomponent.ts but my typescript won't read abp variable and i cant import the animations: [appModuleAnimation()] are they related? for no reason here is my component code: [CODE] here is some screenshots for more details : no import suggestion here: not reading abp variable:"
+ },
+ {
+  "question_id": 71303063,
+  "ym": "2022-03",
+  "creation_date": 1646101401,
+  "title": "how to check dynamically created checkbox is checked using jquery",
+  "tags": [
+   "javascript",
+   "html",
+   "jquery"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "[CODE] this is the script to run And html looks like below [CODE] This code only checks the first check box. not any other.. I also tried [CODE] and many other ways"
+ },
+ {
+  "question_id": 71303065,
+  "ym": "2022-03",
+  "creation_date": 1646101412,
+  "title": "Sum of all values from a dynamic key in object array",
+  "tags": [
+   "javascript",
+   "arrays",
+   "reactjs"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to sum all similar keys in an object array. Each object will have similar keys but each array may not have similar object keys. I was thinking of storing the keys in another array and looping over that but not sure the best way. Scorecard output example Scorecard1 input example: [CODE] Scorecard2 input example: [CODE] Scorecard.jsx [CODE]"
+ },
+ {
+  "question_id": 71303069,
+  "ym": "2022-03",
+  "creation_date": 1646101514,
+  "title": "Defining multiple names for the same getter/setter function in a JavaScript class",
+  "tags": [
+   "javascript",
+   "class"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "How can I assign multiple names to the same getter/setter function inside a JS class? I know I can just do something like this: [CODE] but is there a simple way to give the same function multiple names without copying the code? I know I don't need different functions, but if someone else is using the class (or I just forget) and wants to use a different name for the function (i.e, different abbreviations, grey/gray, etc.), it would be convenient."
+ },
+ {
+  "question_id": 71303077,
+  "ym": "2022-03",
+  "creation_date": 1646101622,
+  "title": "How to configure eslint to catch duplicate import on same line?",
+  "tags": [
+   "javascript",
+   "eslint",
+   "es6-modules"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Consider the following Javascript import: [CODE] [code] will give warning/error on rule no-duplicate-imports but, how can I configure [code] to warns/error if I write code like: [CODE]"
+ },
+ {
+  "question_id": 71303080,
+  "ym": "2022-03",
+  "creation_date": 1646101634,
+  "title": "I want to implement select and scroll the window without touching scroll bar using javascript",
+  "tags": [
+   "javascript",
+   "reactjs"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Suppose an user wants to select all the content from a webpage, he/she selects and start dragging the pointer to the bottom edge of the window. Now who can we make the webpage scroll down."
+ },
+ {
+  "question_id": 71303131,
+  "ym": "2022-03",
+  "creation_date": 1646102277,
+  "title": "Unhandled promise rejection when executing file using node",
+  "tags": [
+   "javascript",
+   "node.js",
+   "async.js"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am trying to run a cron job on Heroku which runs daily. The node version this Heroku server/project uses is v9.4. I am also using the async package v2.6.1 When I run the file using node: [code] It gives an error and doesn't run the file anymore: [CODE] I've went ahead and tried adding a try catch block inside of the async block, but it still throws the same error. [CODE] If I were to use node v12 and run the same command, it works just fine with no errors. It only happens when I switch to node v9 where this error occurs. The only idea that comes to mind is to upgrade the node version of my server project to avoid this error."
+ },
+ {
+  "question_id": 71303209,
+  "ym": "2022-03",
+  "creation_date": 1646103080,
+  "title": "Deployed app on Heroku, but can&#39;t access mongoDB from it",
+  "tags": [
+   "javascript",
+   "mongodb",
+   "heroku",
+   "mongoose",
+   "mern"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I deployed my first MERN stack app on Heroku, it is basically a liquor inventory manager. However it is unable to access database. Whenever I make an Axios call, my requests get rejected. I've wasted 7 hours trying to fix it today but to no avail. Any help is appreciated. Here is my server.js [CODE] This is my package.json [CODE] Here are checklists of what I tried: Whitelist IP on mongoDB with 0.0.0.0/0 Double check connection string from mongoDB and way it is set up in .env Check if any item is stuck in devdependencies instead of dependencies Double check my Heroku config variables and ensure they match .env Update nodejs to latest And yes this runs fine locally. EDIT: While testing some stuffs on heroku local, I noticed that backend running locally causes deployed app to work as intended. However it stops being able to access database again once I terminate local. Seems like backend didnt even start running when deployed. Still have no clue.... any help is appreciated EDIT2: Added error screenshot. enter image description here"
+ },
+ {
+  "question_id": 71303253,
+  "ym": "2022-03",
+  "creation_date": 1646103576,
+  "title": "Vue - Loading all dynamic components once before rendering",
+  "tags": [
+   "javascript",
+   "html",
+   "forms",
+   "vue.js",
+   "vue-component"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm Working on a complex vue form, where I'm using dynamic components to render multiple parts of the form. Using and , it first renders the default section, then the respective sections when I click on specific tabs. I have to start from \"Ship From\" tab but something on \"Label Specification\" tab depends on the Shop From section (see below img). So I can solve the problem by rendering the \"Label Specification\" section first. But my requirement is to start from \"Ship From\" section. So either I have to preload all the dynamic components or start at Label Spec then switch fast before user can see it. How can I solve the issue? here is the code for tabs and components: [CODE] Here is img of my work"
+ },
+ {
+  "question_id": 71303295,
+  "ym": "2022-03",
+  "creation_date": 1646104116,
+  "title": "Saving User Choices Locally",
+  "tags": [
+   "javascript",
+   "html"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "So I'm making this website for a personal project (my class' entertainment) and I've decided to make the site capable of switching themes at the user's click of a dropdown menu, what I want to do is be able to have the last theme they chose saved as the theme that it will automatically set when they re-open the site here's the important part of the code [CODE] I was hoping to be able to do that by implementing LocalStorage, the issue is, I can't seem to get it to work (I ain't got a dang clue how it works and I can't find the answer on the internet). could someone maybe help me, or point me to a place where I can find a solution that works for my code"
+ },
+ {
+  "question_id": 71303296,
+  "ym": "2022-03",
+  "creation_date": 1646104117,
+  "title": "canvas.toDataURL() returns [object Promise]",
+  "tags": [
+   "javascript",
+   "node.js",
+   "canvas",
+   "discord.js",
+   "node-canvas"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Can someone please tell me why [code] shows [code] ? I want to load a [code] image on my website with an image tag in HTML. Here is my code: [CODE] Sorry, but I'm still learning, and I do not see anything of this on the web. EDIT: Here you can see the result on my website: Any assistance would be greatly appreciated. Thank you."
+ },
+ {
+  "question_id": 71303308,
+  "ym": "2022-03",
+  "creation_date": 1646104222,
+  "title": "Streaming Chunk json data from POST request",
+  "tags": [
+   "javascript",
+   "json",
+   "axios",
+   "stream",
+   "fetch"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have a scenario that I need to upload an zip file. In the zip file, there are lots of image files which will upload to AWS S3. Because of the large amount of files in that zipfile, I want to get the information of upload process. In my opinion, the way I can get information is by using streaming response. Once server uploaded a file, respon a json to client. Every time I upload a image to S3, I want to response a json object like the example bellow. example for json streaming response: [CODE] I'm trying to achieve this approach by using vue(cdn version) + axios(cdn version). The code bellow which is how I upload my zip file. [CODE] but those examples I found are using axios npm package which I can't use. Is there any recommend method or any resources that I can search? Thanks for helping!"
+ },
+ {
+  "question_id": 71303321,
+  "ym": "2022-03",
+  "creation_date": 1646104340,
+  "title": "Why does my array get reversed despite me not touching it at all?",
+  "tags": [
+   "javascript",
+   "node.js",
+   "arrays",
+   "mongodb",
+   "express"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am building a website and I have a router, however the problem is not the router, but the calculations inside it, I am making an array [code] and after putting what I want in it all the values are okay, however right before I render a page the values of the array apparently get reversed? I am not even touching the values on the other code, here it is: [CODE] when I am console logging tomato array for the first time it outputs: [CODE] And for the second time it outputs tomato it outputs this! : [CODE] I have been reading this code for hours and I don't understand why the array is reversed! Any help would be very appreciated!"
+ },
+ {
+  "question_id": 71303372,
+  "ym": "2022-03",
+  "creation_date": 1646104847,
+  "title": "Problem outputting HTML table from Javascript",
+  "tags": [
+   "javascript",
+   "html-table",
+   "javascript-objects"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to bring in data from an external json file, and use it to generate a table. I'm running into a problem on line 52 'Uncaught TypeError: Cannot convert undefined or null to object at Function.keys' . When I comment out the first 2 async functions, use the sample data in the 'mountains' variable and reference 'mountains' instead of users the html table generates as expected. I think the problem has to do with my 2nd async function but I'm a newbie at a loss. Any help appreciated! [CODE]"
+ },
+ {
+  "question_id": 71303413,
+  "ym": "2022-03",
+  "creation_date": 1646105273,
+  "title": "JSON.parse overrides the original values which result into unexpected behavior",
+  "tags": [
+   "javascript",
+   "reactjs"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am taking values from local storage, But when I am doing filtering it is affecting the original values in the storage. How can I overcome this problem? [CODE]"
+ },
+ {
+  "question_id": 71303444,
+  "ym": "2022-03",
+  "creation_date": 1646105789,
+  "title": "Shiny Javascript Events not working with $(#id) jQuery selector",
+  "tags": [
+   "javascript",
+   "r",
+   "shiny"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "In the documentation from RStudio about javascripts events in shiny https://shiny.rstudio.com/articles/js-events.html , there is this example for the [code] event : [CODE] and it says : Since these events are triggered specifically on an output element, you may add the listener on the output element instead of on the document, although the latter also works, e.g. but when I try to use the first method in my shiny app, it doesn't seems to work. For example if you run the app bellow, only the method with the [code] selector is working and triggers a message. [CODE] I suppose that I'm missing something as in the documentation, it says that the 2 method should work. Any help appreciated, thanks"
+ },
+ {
+  "question_id": 71303460,
+  "ym": "2022-03",
+  "creation_date": 1646105919,
+  "title": "Pass content of ts variable in js file",
+  "tags": [
+   "javascript",
+   "angular",
+   "typescript"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I was wondering if it's possible to use the content of a [code] variable and use it in [code] file ? I'm feeling trapped now I realize that I don't know how can I achieve it. Please send me any suggestion easy to implement if possible. My ts file with the [code] that I want to use in my [code] file. The content of this variable is the value of my select input. [CODE] Now, How can I create the instance and use this variable in my [code] file ?"
+ },
+ {
+  "question_id": 71303469,
+  "ym": "2022-03",
+  "creation_date": 1646106012,
+  "title": "Why is this function call returning undefined as well",
+  "tags": [
+   "javascript",
+   "arrays",
+   "printing"
+  ],
+  "score": -2,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have written a simple JavaScript code to print the max number of an array and get undefined printed as well. [CODE]"
+ },
+ {
+  "question_id": 71303553,
+  "ym": "2022-03",
+  "creation_date": 1646106833,
+  "title": "React component not updating when redux state changes",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "react-native",
+   "redux"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I have a React component that maps state to props to get data via redux. Everything works fine with the action and the value being updated properly in the reducer. My only problem is that when the state value changes, I want my component to re render so that it is always displaying the most up to date value in the reducer. As of right now I have to call a separate function that refreshes the component, but I'd rather have it automatically re render every time that value changes in the reducer. Action: [CODE] Reducer: [CODE]"
+ },
+ {
+  "question_id": 71303556,
+  "ym": "2022-03",
+  "creation_date": 1646106842,
+  "title": "regex email valid despite missing dot extension",
+  "tags": [
+   "javascript",
+   "regex"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I've this regex for email [CODE] my test case is [code] but it returned true. What's wrong here? https://codesandbox.io/s/regex-forked-h7r6wk?file=/src/index.js:180-187"
+ },
+ {
+  "question_id": 71303594,
+  "ym": "2022-03",
+  "creation_date": 1646107205,
+  "title": "Can not compile HTML that Load From API Dynamically On Angular 11",
+  "tags": [
+   "javascript",
+   "angular"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have an API that load Menu String Looks Like : [CODE] I want to place this on Agular HTML page. Its shows fine but router link does not work. I understood that its not compile because of dynamic loading. My front end code below : [CODE] and I m calling this from [CODE] The problem is menus show but routerLink can not work link click I provide some screenshots:"
+ },
+ {
+  "question_id": 71303603,
+  "ym": "2022-03",
+  "creation_date": 1646107294,
+  "title": "How to add hashtag and mention in textInput react-native",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "react-native"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I'm facing this challenge when client want me to add mention and hashtag to the textInput, will look like this I tried some lib , but they are not give me the result like this, so i tried to make a custom one,, but i wonder how can we detect when we type \"@\" or \"#\", i struggle for days because of this, please help"
+ },
+ {
+  "question_id": 71303622,
+  "ym": "2022-03",
+  "creation_date": 1646107480,
+  "title": "How To Retain or keep hidden div element after page reloaded?",
+  "tags": [
+   "javascript",
+   "html",
+   "jquery"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have a hidden div on my page, I want to know what kind of way I can do to keep showing the div when the page is reloaded, with the following example: This my html : [CODE] This My javascript : [CODE] this right-value.php : [CODE] here what I want to do is what kind of way I can do to keep the kt_datatable_fetch_display on or after the page is reloaded. Thanks for any help."
+ },
+ {
+  "question_id": 71303677,
+  "ym": "2022-03",
+  "creation_date": 1646108300,
+  "title": "Displaying a message when value is not found show error message in JavaScript",
+  "tags": [
+   "javascript",
+   "error-handling"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am confusing how can I show an error message when I won't find any data [CODE] [CODE]"
+ },
+ {
+  "question_id": 71303694,
+  "ym": "2022-03",
+  "creation_date": 1646108490,
+  "title": "how to build object JS",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "redux",
+   "reselect"
+  ],
+  "score": -2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have an array of booking and types. From these two arrays I need to build an object. Everything works great, except for the types. Types return an array in each object (same). How can you return the correct object? [CODE]"
+ },
+ {
+  "question_id": 71303699,
+  "ym": "2022-03",
+  "creation_date": 1646108600,
+  "title": "Unable to POST data to database through react",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "frontend",
+   "backend",
+   "mern"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "consider the following button: [CODE] so the state variable c, is used to check which step in the form filling process the user is in, now on click of the button, if the state of c === 1, then I've defined a function to post the data, and later called it. setC(1) is done for the previous step when c ===0, anyways I know that the state of C is 1 because the Button shows \"Book!\", but its not entering the postData function at all ."
+ },
+ {
+  "question_id": 71303709,
+  "ym": "2022-03",
+  "creation_date": 1646108673,
+  "title": "how to remove an eventlistener when it&#39;s directly added on HTML file",
+  "tags": [
+   "javascript",
+   "html",
+   "dom-events"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "there is a button that I am going to add to the page with innerHTML the button has an eventlistener on it [code] and in bellow, I am going to remove the event from the button by another event listener but I can't do it with [code] I have readen: why doesn't removeEventListener work? Javascript removeEventListener not working they are about removing events that are added with javascript addEventListener .but here we add the event directly into HTML. [CODE] [CODE] is there a way to remove the event? without changing the HTML to something like : [CODE]"
+ },
+ {
+  "question_id": 71303710,
+  "ym": "2022-03",
+  "creation_date": 1646108676,
+  "title": "How these two lines of code performing exactly the same operation on the javascript object rect?",
+  "tags": [
+   "javascript",
+   "function",
+   "object",
+   "methods",
+   "arguments"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "line1: [CODE] line2: [CODE] The hypothetical functions invoked in these two lines of code may perform exactly the same operation on the (hypothetical) object rect .but the method invocation syntax in the first lines more clearly indicates the idea that it is the object rect that is the primary focus of the operation."
+ },
+ {
+  "question_id": 71303712,
+  "ym": "2022-03",
+  "creation_date": 1646108690,
+  "title": "Error when trying to install react-redux-form",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "forms",
+   "react-redux",
+   "react-redux-form"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "My NPM cannot install react-redux-form for my project. I need assistance, please. C:\\Users\\folder>npm install react-redux-form@latest --save npm ERR! code ERESOLVE npm ERR! ERESOLVE unable to resolve dependency tree npm ERR! npm ERR! While resolving: confusion@0.1.0 npm ERR! Found: react@17.0.2 npm ERR! node_modules/react npm ERR! react@\"^17.0.2\" from the root project npm ERR! npm ERR! Could not resolve dependency: npm ERR! peer react@\"^15.3.0 || ^16.0.0\" from react-redux-form@1.16.14 npm ERR! node_modules/react-redux-form npm ERR! react-redux-form@\"1.16.14\" from the root project npm ERR! npm ERR! Fix the upstream dependency conflict, or retry npm ERR! this command with --force, or --legacy-peer-deps npm ERR! to accept an incorrect (and potentially broken) dependency resolution. npm ERR! npm ERR! See C:\\Users\\james\\AppData\\Local\\npm-cache\\eresolve-report.txt for a full report. npm ERR! A complete log of this run can be found in: npm ERR! C:\\Users\\james\\AppData\\Local\\npm-cache_logs\\2022-03-01T03_50_51_548Z-debug.log After compilation Failed to compile ./src/components/ContactComponent.js Module not found: Can't resolve 'react-redux-form' in 'C:\\Users\\dir\\src\\components' This error occurred during the build time and cannot be dismissed. My Jason file [CODE]"
+ },
+ {
+  "question_id": 71303717,
+  "ym": "2022-03",
+  "creation_date": 1646108737,
+  "title": "how to get html get id value in input",
+  "tags": [
+   "javascript",
+   "html",
+   "jquery",
+   "forms"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "hello I'm new in html I'm trying to get id value in input field. now I'm abele to get id value in dropdown input , now I'm trying to get in normal input. I need get ID value in this input [CODE] my script for get value in dropdown field [CODE] My dropdown input [CODE]"
+ },
+ {
+  "question_id": 71303722,
+  "ym": "2022-03",
+  "creation_date": 1646108790,
+  "title": "How to check an eitem is present in which array in javascript?",
+  "tags": [
+   "javascript",
+   "node.js",
+   "arrays",
+   "search"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have two 3 unique arrays: [CODE] with [code] we can findout that it is in [code] array. but If we take [code] and want to search which arrayname it is present in? How can I do that"
+ },
+ {
+  "question_id": 71303741,
+  "ym": "2022-03",
+  "creation_date": 1646108999,
+  "title": "Make animation happen when a section is in view using javascript",
+  "tags": [
+   "javascript",
+   "html",
+   "css"
+  ],
+  "score": 4,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am still learning web designing and I wanted to start an animation on a div which is in middle of the page. I searched for it but everywhere I found it using j-query. Is there any way it can be done using pure CSS and JavaScript. [CODE] Please help if it can be done using javascript only and if not then what is the easiest way of doing it."
+ },
+ {
+  "question_id": 71303755,
+  "ym": "2022-03",
+  "creation_date": 1646109116,
+  "title": "Using Apple Sign in, why is apple auth not redirecting after authenticating (when using face id)?",
+  "tags": [
+   "javascript",
+   "apple-sign-in"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am sending a user to the apple authentication site where they fill in their apple login information on a form: [CODE] After it has authenticated the user, it redirects the user to the URL that is defined in the [code] property. Then I verify the token and log in the user on my end. That works beautifully. The problem occurs when, instead of opening the window with the form fields, it opens a sheet at the bottom of the Safari mobile browser to allow the user to use face id. If you follow through with that, it looks like it recognizes your face and closes the sheet but it never redirects the user to my URL page where I log in the user after verifying their token. Has anybody encountered this? I would love some ideas on how to solve this please!"
+ },
+ {
+  "question_id": 71303784,
+  "ym": "2022-03",
+  "creation_date": 1646109424,
+  "title": "Implement multiple autocompletes for one input",
+  "tags": [
+   "javascript",
+   "html",
+   "jquery",
+   "web",
+   "frontend"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I currently have an input field that has an autocomplete, I’m trying to have essentially a two stage autocomplete for each entered item, for example typing I would show IP Address, selecting that enters “ipAddress=“ into the input, I would then like to display another autocomplete in the same input based on the selected option to display the available addresses. Then they would add a comma and repeat to add any other filters. I just am not sure what this would be called or how to implement this so any tips or ideas would be greatly appreciated"
+ },
+ {
+  "question_id": 71303797,
+  "ym": "2022-03",
+  "creation_date": 1646109503,
+  "title": "Javascript with blockchain development, address.trans returns [] when theres no transactions pend",
+  "tags": [
+   "javascript",
+   "node.js",
+   "blockchain"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "address.trans returns [] when theres no transactions pend if(txs === []){ returns a transaction still Any solutions? Basically registering a \"depo\" when I never depo'd to the generated wallet. enter image description here"
+ },
+ {
+  "question_id": 71303858,
+  "ym": "2022-03",
+  "creation_date": 1646110149,
+  "title": "Can we make timer in alert using javascript?",
+  "tags": [
+   "javascript",
+   "timer",
+   "alert"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I want to make an alert that has a timer in it, the alert will show this message: Please wait to process data 3 second.. Please wait to process data 2 second.. Please wait to process data 1 second.. and if the timer is done, the text will change to: Succesfully process data.. I tried this one: [CODE] but this code will show the timer in div, not in alert. I tried to edit to make it show in alert but still can not figure it out."
+ },
+ {
+  "question_id": 71303880,
+  "ym": "2022-03",
+  "creation_date": 1646110374,
+  "title": "Pizza order - extra cheese",
+  "tags": [
+   "javascript",
+   "arrays",
+   "boolean"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm having problems understanding JavaScript. I have the following assignment. I'm trying to add to the final cost. the Extra Cheese. [CODE]"
+ },
+ {
+  "question_id": 71303917,
+  "ym": "2022-03",
+  "creation_date": 1646110724,
+  "title": "Parsing JSON values in React JS and mapping to component",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "json",
+   "fetch-api"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have been stuck for days trying to pull data into my components from a Fetch API JSON result. As a React beginner, this has been a challenge for me and any direction to help me learn and resolve the issue is appreciated. I have the following JSON response copied below followed by my component setup. My thoughts are that I am not pulling in the correct JSON key values in order or something along those lines. JSON: [CODE] App.js: [CODE]"
+ },
+ {
+  "question_id": 71303921,
+  "ym": "2022-03",
+  "creation_date": 1646110752,
+  "title": "How to start all print by a tab in Python",
+  "tags": [
+   "javascript",
+   "python",
+   "command-line"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a script (in Python), that is called by another script (in JavaScript). And to have better readability of the log in my command line, I'd like that all the prints of the subscript (in Python) start with a tabulation. Is there a way to do that with one command, or should I put manually a [code] at the beginning of all my print? I wanted to add the tab in the calling script, but when there are several prints in a row, only the first one gets the tab. PS: if it can help, the calling of the Python script: [CODE]"
+ },
+ {
+  "question_id": 71303952,
+  "ym": "2022-03",
+  "creation_date": 1646111052,
+  "title": "What is the proper way to update a parent component with a shared service in ngOnInit - Angular 13",
+  "tags": [
+   "javascript",
+   "angular",
+   "angular-services",
+   "angular-changedetection",
+   "angular13"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I've come across a situation a few times where I use a shared service in a component's [code] to update a value in another component, which just so happens to be a parent. This results in the infamous [code] in development mode, and change detection will not pick up the change. I understand why this happens and it is expected behaviour. My strategy is to use a zero delay [code] to defer the code execution until after the initial change detection has finished. For reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop#zero_delays To me, it seems like a workaround for something very common, and I feel Angular probably has another solution I'm not aware of. So my question is: Is there an Angular way to update a parent component with a shared service in ngOnInit . I have tried all other lifecycle hooks and they all result in the same error as well. Using a subject and an async pipe is the same. Here's an example: a service that changes the font color of the main component when a child component is opened: https://stackblitz.com/edit/angular-ivy-kkvarp?file=src/app/global-style.service.ts Service [CODE] app.component.ts [CODE] app.component.html [CODE] styles.css [CODE] main.component.html [CODE] test.component.ts [CODE] Opening the test component sets the service variable, which changes the style of the main component. If you set the variable without using [co"
+ },
+ {
+  "question_id": 71303986,
+  "ym": "2022-03",
+  "creation_date": 1646111406,
+  "title": "I want to keep the file upload optional but the form is not submitting if file is not uploaded",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "react-bootstrap",
+   "bootstrap-5"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I've created a form where I want the file upload to be optional, it's in React & React Bootstrap. But when I don't upload the file the form is not being submitted. I'm using a custom form validation, and it works fine. Also, here I'm trying to upload the single file to the backend, which is also working fine. But I am not able to submit the form without file upload. [CODE]"
+ },
+ {
+  "question_id": 71304001,
+  "ym": "2022-03",
+  "creation_date": 1646111504,
+  "title": "React-Bootstrap Navbar is Breakaing My Website",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "bootstrap-4",
+   "navbar",
+   "react-bootstrap"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "i am trying to pull a bootstrap Navbar from the documentation here however when I follow the steps of setting it up, (using the npm install, updating the index.html, and updating the index.JS to import the CSS) I try to test it but it doesn't show anything. I cant find react-bootstrap in my package.json file but I have the latest version downloaded (npm install react-bootstrap bootstrap@5.1.3). I'm still new to React so I'm not sure what else to check. Here is the code for the NavbarComp.js [CODE] here is the Index.js file: [CODE] Everything goes into my MainComp.js [CODE] here is my package.json [CODE] Here is my GitHub (though I'm not sure if uploaded it correctly, it was acting funny) https://github.com/Shaneeyb/Portfolio-Website here is a screenshot of what it looks like: Screenshot The error it's giving me is: [CODE]"
+ },
+ {
+  "question_id": 71304042,
+  "ym": "2022-03",
+  "creation_date": 1646111937,
+  "title": "Clicking the submit button to go to the next tab only changes the URL but not the tab and the component itself. How can I fix?",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "material-ui",
+   "react-router-dom"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have these tabs for Step1 and Step2. In step1, I have this submit button to go to the next tab, it does update the URL, but the component does not update. It still stays on tab1. How can I fix this? I kind of wanted to direct the user to the Step2 tab once the user has clicked the [code] button in [code] I recreated this in codesandbox: https://codesandbox.io/s/dawn-cloud-uxfe97?file=/src/Page.js [CODE] Tabs [CODE]"
+ },
+ {
+  "question_id": 71304116,
+  "ym": "2022-03",
+  "creation_date": 1646112639,
+  "title": "Decimal Integer literals with a leading zero are forbidden in strict mode?",
+  "tags": [
+   "javascript",
+   "android",
+   "react-native",
+   "react-native-debugger"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "enter image description here [CODE]"
+ },
+ {
+  "question_id": 71304154,
+  "ym": "2022-03",
+  "creation_date": 1646113061,
+  "title": "array.push seems to create new array",
+  "tags": [
+   "javascript",
+   "node.js",
+   "arrays"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am grappling with the way my array.push() works while making paginated API requests in Node.JS. My API gives 10 results per request by default. The API gives a 'next' URL in the link header if there are more records to be retrieved. So I am using parse-link-header NPM to get this new link and make subsequent requests in a do while loop. My code makes all necessary requests of assignment submissions for a student, for each course they are enrolled in. E.g., the student is enrolled in 3 courses. And there are: 19 assignments in course #1 12 assignments in course #2 0 assignments in course #3 I should get 3x arrays with the number of items in the array === the number of assignments in that course. E.g.: [CODE] But for each request that is made, it is dividing it into 10 records per array (until there is no 'next' page). So instead the arrays look like this when they are returned (simplified for example): [CODE] I know I am just doing something silly but am presently unable to figure it out. My code: [CODE] Many thanks for any assistance you can provide."
+ },
+ {
+  "question_id": 71304180,
+  "ym": "2022-03",
+  "creation_date": 1646113305,
+  "title": "How can I write the string output from a module to a file in a separate node.js file",
+  "tags": [
+   "javascript",
+   "node.js"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm just starting to learn node.js (literally my second task) and I need to write two modules (one for prime numbers under 100 and one for even numbers under 50 - this is one separate requirement). The next requirement is that I import these modules to a node.js file and write the outcomes to 'nums.txt' file. If I write straight forward strings to files and run tests on them it executes perfectly, but when I try to write Array.toString() to the file I get TypeError [ERR_INVALID_ARG_TYPE]: The \"data\" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received type function ([Function (anonymous)]) What am I missing? I've read through most questions on here, gone through the documentation and tried everything from changing my module return statements and even trying to add toString in the filehandler. These are the modules: [CODE] My Node.js file [CODE] I just know it is something simple that I'm missing but I can't seem to figure it out. Any tips on debugging Node.js would also be greatly appreciated."
+ },
+ {
+  "question_id": 71304187,
+  "ym": "2022-03",
+  "creation_date": 1646113351,
+  "title": "Fetch all images and keep in separate variable using jquery",
+  "tags": [
+   "javascript",
+   "jquery"
+  ],
+  "score": 3,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am working on web crawling (using axios, cheerio to get html from website)so as per requirement I have to fetch images from all section A,B but issue is due to this images are static.. sometimes section A contain 2 images and sometimes section B contain 3 images.. so requirement is keep section A images in different variable and section B images in different variable. I got stuck here how to do this... no idea how to distinguish this. [CODE] jquery Code: [CODE]"
+ },
+ {
+  "question_id": 71304201,
+  "ym": "2022-03",
+  "creation_date": 1646113485,
+  "title": "How to use web components in Svelte?",
+  "tags": [
+   "javascript",
+   "web-component",
+   "svelte"
+  ],
+  "score": 6,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I want to use few web components from https://github.com/microsoft/vscode-webview-ui-toolkit . But I don't know to how to use them in Svelte as svelte treats the web components as svelte components. When I try to use them as, [CODE] I get this error, [CODE]"
+ },
+ {
+  "question_id": 71304221,
+  "ym": "2022-03",
+  "creation_date": 1646113684,
+  "title": "How to style a child element when its parent element is hovered on (js stylesheet)",
+  "tags": [
+   "javascript",
+   "css"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a js style file with a notification component that has its own class. It contains a viewDot div with its own separate class in the same file that is present when the notification hasn't been clicked on yet. The viewDot div is inside of the div that has the notificationStyle class. I want to make it so that if I hover over the notification with a cursor, the color of the viewDot also changes. As it is below, the color of the viewDot only changes if I hover directly on the viewDot. Any tips on accomplishing the described behavior are greatly appreciated [CODE] The variable [code] is imported from this ComponentStyles.js file to a Component.jsx file for a Component using the file path and the styles are made using [code] before the code block for the component. In the code block for the component, I use [code] in order to use something like [code] for the elements inside the component."
+ },
+ {
+  "question_id": 71304349,
+  "ym": "2022-03",
+  "creation_date": 1646114668,
+  "title": "How to insert text to both text fields - small code",
+  "tags": [
+   "javascript",
+   "html",
+   "jquery-selectors"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I wrote a code so I can autofill a webpage, the issue is that i want it to autofill 2 text fields but my code is only filling the first one. My knowledge is very limited so I don't know how to autofill the second text field with a different phrase. [CODE] In the example above, I'm able to insert the team name \"Manchester United F.C.\" but I would like it to fullfill the other field with \"Old Trafford\". Can anyone help me?"
+ },
+ {
+  "question_id": 71304364,
+  "ym": "2022-03",
+  "creation_date": 1646114835,
+  "title": "How do I make my discord bot to send a message on a certain time or date",
+  "tags": [
+   "javascript",
+   "discord.js"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Let's say I wanted my bot to greet me at my birthday and have my bot greet me in a direct message every single year. How can we achieve it ? Code : [CODE]"
+ },
+ {
+  "question_id": 71304367,
+  "ym": "2022-03",
+  "creation_date": 1646114856,
+  "title": "Lowdb (json database) with Next.js via Netlify returns internal server error 500 on API route, works locally",
+  "tags": [
+   "javascript",
+   "node.js",
+   "next.js",
+   "netlify",
+   "lowdb"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I've got a really simple JSON flat file db setup that works when running locally but doesn't work once it's hosted on Netlify. I don't get any other error info besides a 500 error on the server. I get the error even if all I do is import the [code] object, so something is happening with the lowdb object. I've also tried using another json db library called StormDB and I get the same issue. Return my API route with a static import of the json file (no db libraries) also works fine. I'm new to Next.js and this seems related to maybe the SSR portion of things since the API routes run only on the server? Do I need to structure my files differently? Are these libraries not compatible? Lowdb says it works with Node, and everything works locally for me. Here is my db init file (root/db/db.js) [CODE] And my only API route (root/pages/api/clusters.js) [CODE]"
+ },
+ {
+  "question_id": 71304384,
+  "ym": "2022-03",
+  "creation_date": 1646114985,
+  "title": "My react-native-app freezes when i use while loop",
+  "tags": [
+   "javascript",
+   "react-native",
+   "while-loop",
+   "date-fns",
+   "react-native-calendars"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "This component displays calendar to the patients so that they can select the appointment day from the appointment days of doctor. Doctor appointment days are fetched from api. What i am trying to achieve is to disable all other weekdays days in the calendar except the doctor appointment days so that patients can only press one of the appointment days. i am using react-native-calendars library and date-fns-library for dates. However my app is freezing once while loop is being defined. What am i doing wrong here ? Also is there a better way of doing what i am trying to achieve? [CODE]"
+ },
+ {
+  "question_id": 71304459,
+  "ym": "2022-03",
+  "creation_date": 1646115551,
+  "title": "How to make the picture move up to the center of the screen after a second after the page is loaded",
+  "tags": [
+   "javascript",
+   "jquery",
+   "css"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a question! I have a picture on the lower part of the picture when the mobile phone is installed. I hope that after entering the website, the user can automatically pull the duck screen up a little after 1 second, so that the duck can be displayed on the mobile phone. Right in the middle> But I have two problems now, because my program has not been a web program for a long time, I don’t know if I can write it like this ? What about the middle? 2. How to make the duck scroll to the middle after one second after the page is loaded? Thank you for seeing my question, whether or not you have helped me with the above questions. [CODE] [CODE] [CODE]"
+ },
+ {
+  "question_id": 71304465,
+  "ym": "2022-03",
+  "creation_date": 1646115637,
+  "title": "createUserWithEmailAndPassword provided by Firebase v9 freezes the app",
+  "tags": [
+   "javascript",
+   "firebase",
+   "react-native",
+   "firebase-authentication"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am new to firebase authentication. I am creating a react native app. I am using createUserWithEmailAndPassword for signing up new user. I have attached an event handler to handle the submission of form which fires the function onRegister. I wish to make use of the promise object that is returned from createUserWithEmailAnPassword. When trying to debug using chrome, debugger does not move into the try block(password is more than 6 digits and email is also valid). The app freezes. The console log I have written in the try block is also not printed. But, in my firebase console, a new user is created. If I pass an invalid password, the code within the catch block is triggered. The app dosent freeze. How to prevent the app from freezing and make use of the object being returned from createUserWithEmailAndPassword? [CODE]"
+ },
+ {
+  "question_id": 71304564,
+  "ym": "2022-03",
+  "creation_date": 1646116332,
+  "title": "Vue CDN Script use state accross routes",
+  "tags": [
+   "javascript",
+   "vue.js",
+   "vuex",
+   "vue-router",
+   "cdn"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Im using vue via CDN Script like this: [CODE] But I cant access either the [code] or [code] in routes except only the page the script is on. I'm not using npm or any package manager, and due to certain constraints I'm stuck with this method. How can I make this work? HAVE THE STATE/DATA SHARED ON ALL ROUTE TEMPLATES."
+ },
+ {
+  "question_id": 71304566,
+  "ym": "2022-03",
+  "creation_date": 1646116340,
+  "title": "Styled-system in react native using stylesheet",
+  "tags": [
+   "javascript",
+   "react-native",
+   "mobile",
+   "native",
+   "react-native-stylesheet"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am trying to make stylesheet in react native able to use dynamic value, but i have no idea how to declare it, and can we change the styling name of react native style sheet?"
+ },
+ {
+  "question_id": 71304642,
+  "ym": "2022-03",
+  "creation_date": 1646117037,
+  "title": "How to randomize the number before stopping at the lucky number. (Javascript)",
+  "tags": [
+   "javascript",
+   "loops"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a button that generates a random number (from 1-100) after a click. I have to make it: Loop through random numbers with an interval of 100ms. Loop stops after 10 numbers. Disable the button when numbers are looping. Enable the button when looping stops. Not sure if I have done the code correctly, I am able to let numbers loop after click but unable to make it stop after 10 numbers. I am also unable to diable when looping and enable the button when looping stops. Appreciate your kind help. Thanks! Here's my code: [CODE]"
+ },
+ {
+  "question_id": 71304666,
+  "ym": "2022-03",
+  "creation_date": 1646117210,
+  "title": "Three.js - How to update a PlaneBufferGeometry?",
+  "tags": [
+   "javascript",
+   "three.js",
+   "plane"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to create an ocean for my Three.js application. I took the example from this site: https://codepen.io/RemiRuc/pen/gJMwOe?fbclid=IwAR2caTQL-AOPE2Gv6x4rzSWBrOmAh2j-raqesOO0XbYQAuSG37imbMszSis [CODE] Issue is, I'm using [code] instead of [code] , and it seems there are some differences My code in [code] after creating the waterPlane [CODE] I'm not getting any errors, but no matter what I do, all I get is a flat wireframe plane geometry that doesn't move or anything. I think issue is in the updating of the plane?"
+ },
+ {
+  "question_id": 71304705,
+  "ym": "2022-03",
+  "creation_date": 1646117467,
+  "title": "Binding data JS",
+  "tags": [
+   "javascript"
+  ],
+  "score": -2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I want to bind the data to the {{}} mustache template. Here the code: [CODE] The script is provided as shown below: [CODE] That is what I'm done so far: [CODE] But it doesn't meet the requirement that only allows use pure JS only without the framework ( Im using mustache library) Anyone help me, thank you"
+ },
+ {
+  "question_id": 71304738,
+  "ym": "2022-03",
+  "creation_date": 1646117673,
+  "title": "How do I save this in firestore the way I want it to be to be structured?",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "firebase",
+   "google-cloud-firestore"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have these data: [CODE] Saving this in firestore would look like this: How do I save this in firestore where the fields of [code] , [code] , [code] , [code] and [code] is not inside the [code] map? I kind of wanted to save it like this: This is how I saved it in Firestore: [CODE]"
+ },
+ {
+  "question_id": 71304739,
+  "ym": "2022-03",
+  "creation_date": 1646117681,
+  "title": "need for json loader in webpack 5",
+  "tags": [
+   "javascript",
+   "json",
+   "webpack",
+   "geojson"
+  ],
+  "score": 5,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I want to import [code] file extension just like [code] files (I don't need any special parsing). as I seen in webpack docs: Since webpack >= v2.0.0, importing of JSON files will work by default. You might still want to use this if you use a custom file extension . See the v1.0.0 -> v2.0.0 Migration Guide for more information but when I switch documentation version to webpack 5, there is no more content about this solution. what is best practice to have [code] files without downloading any extra module"
+ },
+ {
+  "question_id": 71304773,
+  "ym": "2022-03",
+  "creation_date": 1646117868,
+  "title": "React +using html drag not getting event value on different components",
+  "tags": [
+   "javascript",
+   "html",
+   "reactjs",
+   "drag-and-drop",
+   "draggable"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Am new to react , so was just introducing drag and drop functionalities in react components. Here am dragging components from leftPanelComponent and and dropping to RightPanelComponent , meaning both are different components in react. so am not getting event value on RightPanelComponent on Drop function In LeftPanelComponent , [CODE] Here am not getting the element value inside ev ( like ev.currentTraget) Also in my RightPanelComponent am just writing drop function like [CODE] Here also am not receiving the drop value . Some how i need to get the dragged value [CODE] Is this the right way to do the same in react , since i can see in UI , element is getting dragged with + sign when it enter on drop area But am not getting event value on Drop function in RightPanelComponent.(its getting undefined) Am i missing something , please correct me if am wrong"
+ },
+ {
+  "question_id": 71304800,
+  "ym": "2022-03",
+  "creation_date": 1646118057,
+  "title": "How to check if an object exists in an *empty* Array",
+  "tags": [
+   "javascript",
+   "arrays",
+   "object",
+   "javascript-objects"
+  ],
+  "score": -1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have an empty array [CODE] and then I have another [code] of 2 objects (can vary) [CODE] the [code] key which make users unique. As you can see I have 2 users with same id I only want to add the first one. What I did so far [CODE] The first method appending both elements even thier [code] are same and the second method is doing nothing or is not appending anything."
+ },
+ {
+  "question_id": 71304815,
+  "ym": "2022-03",
+  "creation_date": 1646118156,
+  "title": "Cannot find module &#39;/workspace/index.js&#39; error after repository push attempt to railway.app",
+  "tags": [
+   "javascript",
+   "node.js"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I just had an error I just fixed, but now I am getting this error saying cannot find module workspace, I have no idea what workspace is. Here is the full error: [CODE] I don't know how to fix this issue so I would really appreciate it if someone helped me with this one. If you can't help but had the time to view it, still thank you!"
+ },
+ {
+  "question_id": 71304828,
+  "ym": "2022-03",
+  "creation_date": 1646118244,
+  "title": "Hover on element within anchor tag without selecting anchor tag. JS or CSS",
+  "tags": [
+   "javascript",
+   "jquery",
+   "css",
+   "shopify"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am working on a Shopify theme where I need to select the product price & hover on it for tooltip. but the problem is those products all are within an anchor tag. I've tried to find a solution but there's not much info about it. Tried pointer-event: none; but this causes anchor not working anymore. I need the anchor tag to work & at the same time, I need the hover effect on price without selecting the anchor tag because that anchor tag is within a theme & selecting that will cause problems for different themes. SO I've made a Codepen simulation for it. check below & let me know if it is possible with CSS or js doesn't matter. Thank you. I want to hover this box [CODE] [CODE]"
+ },
+ {
+  "question_id": 71304850,
+  "ym": "2022-03",
+  "creation_date": 1646118426,
+  "title": "How to map two arrays and output data for matching parameters",
+  "tags": [
+   "javascript",
+   "arrays",
+   "reactjs",
+   "ecmascript-6"
+  ],
+  "score": 0,
+  "answer_count": 4,
+  "is_answered": true,
+  "body_excerpt": "I have the following two arrays: [CODE] What I would like to do is map through the dates array, displaying all dates and also map through the events array and display the event.title when the event.date matches the corresponding date in the date array.. How can I map the events array with the dates array and when the dates match output the event.title? Currently I have this: [CODE]"
+ },
+ {
+  "question_id": 71304912,
+  "ym": "2022-03",
+  "creation_date": 1646118846,
+  "title": "React Router Dom &amp; Firebase Auth: history.push changes url but does not render new component when called after firebase auth create account",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "firebase",
+   "firebase-authentication",
+   "react-router-dom"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "What I am trying to do I'm using Firebase v9 and React-router-dom v5.3.0 to make a sign up form which creates a new account and redirects the user to the home screen when an account is created. The route for the home screen is \"/\". The problem My plan is to call [code] after calling the sign up function, which should take me to the home screen. However, when running the code, [code] only updated the URL and did not redirect me to the home screen. I had to reload the page for the home screen to show up, otherwise I'd just be stuck in the sign up form. I have been fiddling with the code and what surprises me is when I remove [code] , history.push works just as intended. I suspect this behavior has something to do with firebase's sign up function, but I don't know what it is. Can someone offer an explanation? The code Here's my code for the sign up form: [CODE] The code containing the authentication context and the related function for signing up: [CODE] My [code] component containing the router. [CODE]"
+ },
+ {
+  "question_id": 71304973,
+  "ym": "2022-03",
+  "creation_date": 1646119240,
+  "title": "map reduce count and sum of array of objects",
+  "tags": [
+   "javascript",
+   "arrays",
+   "mapreduce"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "i have an array of objects which has properties with boolean and some properties with integer values. For eg [CODE] I am trying to achieve sum of [code] and [code] , also count of [code] and [code] where they are true. [CODE] I am getting output as below which is correct for sum, [CODE] but i also want count of [code] and [code] where its value true. [CODE]"
+ },
+ {
+  "question_id": 71304996,
+  "ym": "2022-03",
+  "creation_date": 1646119427,
+  "title": "how to customize popup window of available serial devices?",
+  "tags": [
+   "javascript",
+   "css",
+   "web",
+   "popupwindow",
+   "web-serial-api"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am using web serial API to communicate serial devices? when I click on connect button, there is the open window is open with available serial devices. so how can I customize this small window(link background-color, width, height, position, etc...)."
+ },
+ {
+  "question_id": 71304999,
+  "ym": "2022-03",
+  "creation_date": 1646119468,
+  "title": "Add shake animation when the character limit react 100",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "material-ui"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a component that has a limitation, character limit that if it the user reach the limit the component will shake, thats the expected result, but in my current code nothing happen. [CODE] this is the sample code on codesandbox https://codesandbox.io/s/lucid-banach-o6sc1j?file=/src/App.js:1081-1089"
+ },
+ {
+  "question_id": 71305045,
+  "ym": "2022-03",
+  "creation_date": 1646119749,
+  "title": "How to properly specify indices for a four-sided pyramid in WebGL?&quot;",
+  "tags": [
+   "javascript",
+   "html",
+   "graphics",
+   "geometry",
+   "webgl"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am trying to create a 4-sided pyramid in WebGL where each face is a different color and I believe I'm running into issues with the indices. From my understanding, if I specify an indexed array, WebGL should be drawing a line between the corresponding vertices. I believe my code has all the necessary lines covered but I just can't get the pyramid to form correctly. If someone could take a look at my code and help me figure out where I'm going wrong, that would be greatly appreciated! Javascript code: [CODE] I don't think the issue is my HTML code, but it never hurts to include it! HTML: [CODE]"
+ },
+ {
+  "question_id": 71305100,
+  "ym": "2022-03",
+  "creation_date": 1646120126,
+  "title": "Native undo role for the menu bar does not work after programmatic value changes",
+  "tags": [
+   "javascript",
+   "electron"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Code I am building an application menu for the menu bar, and I am using roles to automate some pre-defined functionalities like so: [CODE] Issue The following code part renders the menu and works like magic: [code] but only for normal operations. However, when you programmatically replace the value of a form control (textbox, texarea, etc), and then do some manual changes to that form control, the Undo feature will no longer work. What could have I missed on this? Is this a bug or something? Below are the versions of software used. Environment Software Version Electron [code] Node.js [code] MacOS [code]"
+ }
+]

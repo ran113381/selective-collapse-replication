@@ -1,0 +1,82 @@
+[
+ {
+  "qid": 77582507,
+  "answer": "Subclipse doesn't natively support auto-commit on file save. Instead, consider these approaches:\n\n1. **SVN hooks**: Configure post-commit hooks in your repository to trigger custom actions.\n2. **IDE auto-save + manual commit**: Use Eclipse's auto-save feature, then bind Ctrl+Alt+C to commit via Subclipse keyboard shortcuts.\n3. **External file watcher**: Use tools like WatchDir to monitor file changes and trigger `svn commit` commands.\n4. **Custom build process**: Set up an Ant/Maven build that commits after successful builds.\n\nFor continuous integration workflows, consider using version control systems with better hook support or integrating a CI/CD pipeline that auto-commits passing builds."
+ },
+ {
+  "qid": 77020703,
+  "answer": "To update multiple sheets within a spreadsheet, you need to specify the `sheet_id` (gid) parameter. The code snippet is incomplete, but here's the fix:\n\n```python\ndef APPEND_GSHEET(some_data, sheet_id=0):\n    resource = {\n        \"majorDimension\": \"ROWS\",\n        \"values\": some_data\n    }\n    sheet.values().append(\n        spreadsheetId=SAMPLE_SPREADSHEET_ID,\n        range=f\"Sheet{sheet_id}!A1:B11\",  # Specify sheet name or use gid\n        body=resource,\n        valueInputOption=\"USER_ENTERED\"\n    ).execute()\n```\n\nAlternatively, use `batchUpdate()` for bulk operations across multiple sheets. Each sheet requires its own range specification with the sheet name prefix (e.g., \"Sheet2!A1:W1\")."
+ },
+ {
+  "qid": 75599057,
+  "answer": "The bug is in this line: `newlist=[oglist.split(',')]`. The extra brackets create a list containing a list, so `random.choice()` always selects the entire list.\n\n**Fix:**\n```python\nimport random\n\ndef listgen(num):\n    newlist = oglist.split(',')\n    for x in range(num):\n        print(random.choice(newlist).strip())\n\nprint(\"Type in your list. Separate each name by a comma and press enter when finished\")\noglist = input()\nprint(\"how many random names do you need?\")\nnum = int(input())\nlistgen(num)\n```\n\nRemove the outer brackets and add `.strip()` to remove whitespace after splitting. Now `random.choice()` selects individual names instead of the whole list."
+ },
+ {
+  "qid": 77210413,
+  "answer": "This is expected behavior due to Python's memory reuse. When you create `[3]` in call 1 and call 3, Python reuses the memory address because the object is no longer referenced. However, in call 2, `[1,2,3]` is different, so it gets a new address. In calls 4-5, `[5,6,3]` and `[3]` get new addresses because they're newly created.\n\nPython doesn't guarantee consistent `id()` values across different object creations. The `id()` reflects the memory address at a specific moment, which gets recycled when objects are garbage collected.\n\n**Don't rely on `id()` for logic.** Use `==` for value comparison or `is` for identity checks with objects you hold references to."
+ },
+ {
+  "qid": 76594057,
+  "answer": "Track IN/OUT events to build a stack. The last person still queued is the last IN without a matching OUT:\n\n```python\ndef last_in_first_out(df):\n    queue = []\n    for _, row in df.iterrows():\n        if row['Event'] == 'IN':\n            queue.append(row['Executed'])\n        elif row['Event'] == 'OUT' and queue:\n            queue.pop(0)  # Remove from front for LIFO\n    \n    return queue[-1] if queue else None\n```\n\nAlternatively, group by person and count IN/OUT:\n```python\ndef next_out(df):\n    df['cumsum'] = df.groupby('Executed').cumcount()\n    df.loc[df['Event']=='OUT', 'cumsum'] -= 1\n    in_queue = df[df['cumsum'] > df.groupby('Executed')['cumsum'].transform('max').shift()]\n    return in_queue.iloc[-1]['Executed'] if len(in_queue) > 0 else None\n```"
+ },
+ {
+  "qid": 79240720,
+  "answer": "Query parameters are always strings. `number_of_questions=10` arrives as the string `\"10\"`, not the integer `10`. Pydantic's `Literal[5, 10, 15]` expects an int, causing the error.\n\n**Solution:** Use `str` in the Literal and convert in validation:\n```python\nfrom pydantic import field_validator\n\nclass QuestionParameters(BaseModel):\n    test_type: Union[Literal[\"single_choice\", \"multiple_choices\"], None] = None\n    number_of_questions: Union[Literal[\"5\", \"10\", \"15\"], None] = None\n    categories: Union[List[str], None] = None\n    \n    @field_validator('number_of_questions')\n    @classmethod\n    def convert_to_int(cls, v):\n        return int(v) if v else None\n```\n\nOr define a custom type that accepts and validates string integers before converting."
+ },
+ {
+  "qid": 69400352,
+  "answer": "You can't directly import B if it expects sys.argv. Refactor B to separate argument parsing from logic:\n\n**B.py (refactored):**\n```python\ndef main_logic(param1, param2):\n    # Your actual code here\n    return result\n\nif __name__ == \"__main__\":\n    import sys\n    param1, param2 = int(sys.argv[1]), int(sys.argv[2])\n    main_logic(param1, param2)\n```\n\n**A.py:**\n```python\nfrom B import main_logic\nresult = main_logic(30, 10)\n```\n\nAlternatively, set `sys.argv` before importing if you must keep B unchanged:\n```python\nimport sys\nsys.argv = ['B.py', '30', '10']\nimport B\n```\n\nBut separating concerns is cleaner."
+ },
+ {
+  "qid": 79752184,
+  "answer": "The template `registration/login.html` doesn't exist. Create it in the correct app directory:\n\n**Path:** `yourapp/templates/registration/login.html`\n\nEnsure your `TEMPLATES` setting in `settings.py` includes:\n```python\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,  # Must be True to find app templates\n        'OPTIONS': {...},\n    },\n]\n```\n\nCreate the directories if they don't exist and add a basic login template:\n```html\n<form method=\"post\">\n  {% csrf_token %}\n  {{ form.as_p }}\n  <button type=\"submit\">Login</button>\n</form>\n```\n\nEnsure the app is in `INSTALLED_APPS` in settings.py."
+ },
+ {
+  "qid": 79321189,
+  "answer": "When you assign to `b` inside `B()`, Python treats it as a local variable. Closures can read outer scope variables, but assignment makes them local. Use the `nonlocal` keyword:\n\n```python\ndef A():\n    b = 1\n    def B():\n        nonlocal b  # Declare b as from outer scope\n        b += 1\n        return b\n    return B()\n\nprint(A())  # Output: 2\n```\n\nWithout `nonlocal`, Python sees `b += 1` (an assignment) and assumes `b` is local, causing UnboundLocalError when trying to read it before assignment. The `nonlocal` keyword tells Python to use the outer scope's `b`."
+ },
+ {
+  "qid": 79938784,
+  "answer": "docxtpl doesn't support direct row styling in templates. Use Python to set row shading after document generation:\n\n```python\nfrom docxtpl import DocxTemplate\nfrom docx.shared import RGBColor\nfrom docx.oxml import OxmlElement\nfrom docx.oxml.ns import qn\n\ndoc = DocxTemplate('template.docx')\ncontext = {'tables': {...}}\ndoc.render(context)\n\n# After rendering, access the table and shade rows\ntable = doc.tables[0]\nfor i, row in enumerate(table.rows):\n    if condition_met(row):  # Your condition\n        shading = OxmlElement('w:shd')\n        shading.set(qn('w:fill'), 'FF0000')  # Red background\n        row._element.get_or_add_trPr().append(shading)\n\ndoc.save('output.docx')\n```\n\nAlternatively, use conditional templates that include pre-styled tables for each condition."
+ },
+ {
+  "qid": 79783246,
+  "answer": "Your loop iterates characters, not records. Use list comprehension instead:\n\n```python\n# Your current approach (wrong)\nfor i in newString:  # Loops characters, not lines\n    slicedString = myList[2:-2]  # Slices entire list\n\n# Correct approach\nlines = newString.split('\\n')\nslicedString = [line[2:-2] for line in lines]\nresult = '\\n'.join(slicedString)\n```\n\nOr directly from original list:\n```python\nslicedString = [str(item)[2:-2] for item in myList]\n```\n\nThe key issues: `for i in newString` treats the string as characters (including newlines), and `myList[2:-2]` slices the entire list, not individual items. Use list comprehension with individual string slicing on each item."
+ },
+ {
+  "qid": 69400241,
+  "answer": "The mocked `spark.createDataFrame()` returns a MagicMock, so `count()` also returns MagicMock. Comparisons with MagicMock fail. Configure the mock:\n\n```python\nfrom unittest.mock import MagicMock, patch\n\n@patch('pyspark.sql.SparkSession.builder.getOrCreate')\ndef test_process_batch(mock_spark_builder):\n    # Mock the DataFrame and its count method\n    mock_df = MagicMock()\n    mock_df.count.return_value = 2  # Returns 2 instead of MagicMock\n    \n    # Mock createDataFrame to return our mock_df\n    mock_session = MagicMock()\n    mock_session.createDataFrame.return_value = mock_df\n    mock_spark_builder.return_value = mock_session\n    \n    process_batch(mock_df, \"123\")\n    assert True\n```\n\nSet `return_value` on mocked methods to return actual values instead of MagicMocks."
+ },
+ {
+  "qid": 79835404,
+  "answer": "Logger setup in main.py only applies to that module. To apply formatting to all modules, configure logging at package level:\n\n**Option 1 - Package __init__.py:**\n```python\n# my_pckg/__init__.py\nimport logging\n\nlogger = logging.getLogger('my_pckg')\nlogger.setLevel(logging.DEBUG)\nfh = logging.FileHandler('spam.log')\nformatter = logging.Formatter('%(name)s - %(levelname)s - %(message)s')\nfh.setFormatter(formatter)\nlogger.addHandler(fh)\n```\n\n**Option 2 - Separate config module:**\n```python\n# my_pckg/logger_config.py\nimport logging\n\ndef setup_logging():\n    logger = logging.getLogger('my_pckg')\n    # Configure logger\n    return logger\n\n# my_pckg/foo.py\nfrom .logger_config import setup_logging\nlogger = setup_logging()\n```\n\nThen: `python -m my_pckg.foo` uses the configured logger across all submodules."
+ },
+ {
+  "qid": 79884041,
+  "answer": "Use a **Hidden Markov Model (HMM)** for map-matching GPS traces. Best Python library: **graphhopper-py** or build with **viterbi algorithm**.\n\n**Approach:**\n1. States: points on the route\n2. Emission probability: distance between GPS point and route point (~N(0, 5-10m²))\n3. Transition probability: realistic movement speed\n\n**Python implementation:**\n```python\nfrom scipy.stats import norm\nimport numpy as np\n\n# Viterbi algorithm for most likely path\nemission = norm.pdf(gps_to_route_distance)\ntransition = movement_feasibility(prev_route_point, curr_route_point, time_delta)\n\n# Find sequence maximizing likelihood\n```\n\nAlternative lightweight approach: **spatial index + greedy nearest neighbor**, then smooth with Kalman filter. Libraries: `shapely`, `rtree` for spatial queries, `filterpy` for Kalman filtering."
+ },
+ {
+  "qid": 74637458,
+  "answer": "Python doesn't support true method overloading, but use these alternatives:\n\n**1. Single dispatch (different types):**\n```python\nfrom functools import singledispatch\n\n@singledispatch\ndef parse(arg):\n    raise NotImplementedError(f\"Cannot parse {type(arg)}\")\n\n@parse.register(str)\ndef _(query: str):\n    return doSomethingElse(query)\n\n@parse.register(type(None))\ndef _():\n    return doSomething()\n```\n\n**2. Default arguments:**\n```python\ndef parse(query=None, data=None):\n    if query is None and data is None:\n        return doSomething()\n    else:\n        return doSomethingElse(query, data)\n```\n\n**3. *args/**kwargs:**\n```python\ndef parse(*args, **kwargs):\n    if len(args) == 0:\n        return doSomething()\n    else:\n        return doSomethingElse(*args)\n```\n\n`singledispatch` is cleanest for type-based dispatch."
+ },
+ {
+  "qid": 78256389,
+  "answer": "Chroma 0.4.16+ changed the EmbeddingFunction signature. It now expects `__call__(self, input: List[str]) -> List[List[float]]`.\n\n**Fix your embedding function:**\n```python\nfrom chroma import EmbeddingFunction\nfrom sentence_transformers import SentenceTransformer\n\nclass CustomEmbedding(EmbeddingFunction):\n    def __call__(self, input: List[str]) -> List[List[float]]:\n        model = SentenceTransformer(\"all-MiniLM-L6-v2\")\n        return model.encode(input).tolist()\n\n# Use it\nembedding_function = CustomEmbedding()\ndb = Chroma.from_documents(\n    chunks,\n    embedding_function,\n    collection_name=\"langchain\",\n    persist_directory=\"./chroma_db\"\n)\n```\n\nOr use the built-in:\n```python\nfrom chroma.utils.embedding_functions import SentenceTransformerEmbeddingFunction\n\nembedding_function = SentenceTransformerEmbeddingFunction()\n```"
+ },
+ {
+  "qid": 78562910,
+  "answer": "This is expected. PyCharm warns about accessing `_age` because it's protected (name-mangled). In descriptors, this pattern is normal: the descriptor protocol requires accessing the underlying attribute.\n\n**Solutions:**\n\n1. **Suppress the warning** (IDE inspection: Settings → Inspections → Python → Protected members, disable)\n2. **Rename to non-protected:** Use `self.age_value` instead of `self._age`\n3. **Use `@property` instead:**\n```python\nclass Employee:\n    def __init__(self):\n        self._age = None\n    \n    @property\n    def age(self):\n        return self._age\n    \n    @age.setter\n    def age(self, value):\n        if value > 200:\n            raise ValueError(\"Age cannot be more than 200\")\n        self._age = value\n```\n\nYour descriptor implementation is correct; the warning is just a code-style preference."
+ },
+ {
+  "qid": 68608105,
+  "answer": "scipy.optimize.minimize doesn't natively combine objective, gradient, and Hessian in one return. Options:\n\n**1. Return (f, grad) with jac=True, separate hess function:**\n```python\ndef obj_and_grad(x):\n    obj = np.exp(x) * x**2\n    grad = obj + 2*np.exp(x)*x\n    return obj, grad\n\ndef hessian(x):\n    return np.exp(x) * x**2 + 4*np.exp(x)*x + 2*np.exp(x)\n\nresult = minimize(obj_and_grad, x0=[1.0], jac=True, hess=hessian)\n```\n\n**2. Cache computations in closure:**\n```python\ncache = {}\n\ndef obj(x):\n    cache['exp_x'] = np.exp(x)\n    cache['obj'] = cache['exp_x'] * x**2\n    return cache['obj']\n\ndef grad(x):\n    return cache['obj'] + 2*cache['exp_x']*x\n```\n\nThe first approach is cleaner and scipy-native."
+ },
+ {
+  "qid": 79243681,
+  "answer": "Use a single form with multiple submit buttons having different names:\n\n```html\n<form method=\"POST\">\n  {% csrf_token %}\n  <div class=\"form-group\">\n    <label for=\"title\">Title</label>\n    <input type=\"text\" name=\"title\" value=\"{{ item.title }}\" required>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"memo\">Memo</label>\n    <textarea name=\"memo\" rows=\"5\">{{ item.memo }}</textarea>\n  </div>\n  <div class=\"form-group form-check\">\n    <input type=\"checkbox\" name=\"important\" {% if item.important %}checked{% endif %}>\n    <label for=\"important\">Important</label>\n  </div>\n  \n  <!-- All buttons in one line -->\n  <div class=\"btn-group\">\n    <button type=\"submit\" name=\"action\" value=\"save\" class=\"btn\">Save</button>\n    <button type=\"submit\" name=\"action\" value=\"toggle\" class=\"btn\">Toggle Complete</button>\n    <button type=\"submit\" name=\"action\" value=\"delete\" class=\"btn btn-danger\">Delete</button>\n  </div>\n</form>\n```\n\n**In views.py:**\n```python\naction = request.POST.get('action')\nif action == 'save':\n    # save logic\nelif action == 'toggle':\n    # toggle logic\nelif action == 'delete':\n    # delete logic\n```"
+ },
+ {
+  "qid": 72073728,
+  "answer": "User input of `\\x41` is a literal 4-character string, not a byte escape. Decode it using `codecs` or `bytes.fromhex()`:\n\n```python\nimport codecs\n\nuser_input = input('enter user input in bytes: ')\n# Input: \\x41\\x42\\x43\n\n# Method 1: codecs.decode\nresult = codecs.decode(user_input, 'unicode_escape').encode('ascii')\nprint(result)  # b'ABC'\n\n# Method 2: ast.literal_eval (safer)\nimport ast\nresult = ast.literal_eval(f\"b'{user_input}'\").decode()\nprint(result)  # ABC\n\n# Method 3: Manual parsing (for \\xHH format)\nresult = bytes.fromhex(user_input.replace('\\\\x', ''))\nprint(result)  # b'ABC'\n```\n\nNote: `codecs.decode` with `'unicode_escape'` interprets the escape sequences. `ast.literal_eval` safely evaluates the string as Python code."
+ }
+]

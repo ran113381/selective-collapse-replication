@@ -1,0 +1,1513 @@
+[
+ {
+  "question_id": 79918214,
+  "ym": "2026-04",
+  "creation_date": 1775029842,
+  "title": "How to sync UI state between a page and a fetched sidebar component in Vanilla JS?",
+  "tags": [
+   "javascript",
+   "html",
+   "css",
+   "frontend",
+   "supabase"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am building a multi-page application using Vanilla JavaScript (no frameworks). To avoid code duplication, I fetch a shared sidebar (sidebar.html) and inject it into a placeholder on every page (e.g., profile.html) via a script. The Setup In profile.html, I load the sidebar fragment like this: [CODE] The Problem When a user updates their Display Name or Avatar on the Profile page, I update sessionStorage and send a PUT request to my backend. However, the sidebar (which contains the user's name and avatar) does not update in real-time because it is a separate DOM fragment that has already finished its initial render. Currently, a full page refresh is required to see the changes reflected in the sidebar. I am also struggling with two related issues: Avatar Display : Even after saving the Cloudinary URL to the database and sessionStorage, the profile page often reverts to showing initials instead of the <img> tag on reload. Active State : Since the sidebar is a static fragment, it doesn't \"know\" which page it is currently on to apply an active CSS class to the correct navigation link. What I've Tried Manually selecting sidebar elements (e.g., document.getElementById('sidebarName')) from the profile page's \"Save\" function. This feels brittle as it tightly couples the page logic to the sidebar's internal IDs. Re-fetching the entire sidebar HTML on every update, which causes a flick"
+ },
+ {
+  "question_id": 79918225,
+  "ym": "2026-04",
+  "creation_date": 1775031071,
+  "title": "WebXR + Unity build failing to render on Quest Browser after working previously",
+  "tags": [
+   "javascript",
+   "unity-game-engine",
+   "unity-webgl",
+   "webxr"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am building a VR web app on Unity and using the WebGL platform with the WebXR export . I am not doing much special at the moment except using the WebGLTemplate HTML file to request an XR session when the button is pressed, and the scene is not doing anything extra. Before, the VR experience would ask for permission from the browser then open the immersive-vr experience, but now it gets stuck on the loading pink/purple open world with the three dots loading. I am looking through my commits and cannot find any change (breaking or otherwise) which seperates the previous builds that ran from this one. Also there are no warnings or errors to help. Here is the code I am using to request the XR experience. Also for reference, I am on Unity 6.3 (6000.3.19.f1) and used a scene based on the VR template. [CODE]"
+ },
+ {
+  "question_id": 79918476,
+  "ym": "2026-04",
+  "creation_date": 1775056179,
+  "title": "How to pause and play video using JavaScript in React web project?",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "web",
+   "video"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "How can I pause and play a video using JavaScript in my React web project? I'm developing it in VS Code."
+ },
+ {
+  "question_id": 79918531,
+  "ym": "2026-04",
+  "creation_date": 1775060401,
+  "title": "VSCode with TypeScript Native Preview does not highlight constants specially",
+  "tags": [
+   "javascript",
+   "typescript"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "When i switch to TypeScript Native Preview constants in my [code] files are not different from mutable identifiers. Code is more difficult to read when there are too many mutable and immutable identifiers and they are all with the same color. I have the last version of Typescript Native Preview vscode extenstion. I want to know is this problem known or is it of my ide||configuration. Example Image"
+ },
+ {
+  "question_id": 79918589,
+  "ym": "2026-04",
+  "creation_date": 1775067173,
+  "title": "How can I allow pointer events beneath an element that needs to detect mouse hover? (dHTML)",
+  "tags": [
+   "javascript",
+   "html",
+   "css",
+   "popup",
+   "sidebar"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "Overview In html, css, and js I made a sidebar that can be hidden with a click. I have tried to make users able to hover their mouse over where the sidebar used to be, and showing a button that could then bring it back. What I tried At first I tried pointer-events: none, to allow clicks to go through the hidden sidebar, but that doesn't allow mouse detection for hovering over the sidebar. I made a rectangle div (it was the same size as the sidebar) but transparent and [code] so as to not affect other elements. It would wait for a \"mouseover\" event to show the button, and a \"mouseenter\" event to move the button to the y co-ordinate of the cursor (to make it easier for users to click). It then waited for \"mouseleave\" to hide again. But this fix does not allow clicks to go through the sidebar. The question How can I fix this code to allow users to press the button under a sidebar, while also allowing them to hover over the sidebar element? Example: (this code is not exactly the code I'm dealing with, but includes the general problem as an example): [CODE] [CODE] [CODE]"
+ },
+ {
+  "question_id": 79918596,
+  "ym": "2026-04",
+  "creation_date": 1775068000,
+  "title": "How to implement CSP without &#39;unsafe-inline&#39; in WordPress (Elementor) without breaking site?",
+  "tags": [
+   "javascript",
+   "wordpress",
+   ".htaccess",
+   "content-security-policy",
+   "elementor"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am working on securing a WordPress website that uses Elementor and several plugins. I have implemented a Content Security Policy (CSP) via [code] like this: [CODE] This works fine and the website functions correctly. Problem: Security tools (like Mozilla Observatory) report: CSP implemented unsafely Use of [code] in [code] Recommendation to remove [code] However, when I remove [code] : Elementor layout breaks Inline JavaScript stops working Some features like search, forms, and UI interactions fail Console shows CSP violations for inline scripts What I Tried: Adding CSP nonce dynamically via PHP: Injecting nonce into script tags Using output buffering to modify [code] tags Restricting sources instead of using [code] Allowing only required domains (Google Analytics, Tag Manager, etc.) But Elementor and plugins still rely heavily on inline scripts, and removing [code] breaks the site. Question: Is it possible to implement a strict CSP (without [code] ) on a WordPress site using Elementor without breaking functionality ? If yes: What is the recommended approach? How to handle inline scripts generated by Elementor? If not: Is using [code] considered acceptable in such cases? Expected Outcome: I want to: Improve CSP score (A/A+) Maintain full website functionality But currently, it seems like both cannot be achieved together. Any guidance or best practices would be appreciated."
+ },
+ {
+  "question_id": 79918772,
+  "ym": "2026-04",
+  "creation_date": 1775095924,
+  "title": "Highcharts Accessibility module affect marker enabled",
+  "tags": [
+   "javascript",
+   "highcharts"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "When the accessibility module is included. If you have the markers enabled set at the data point level, for example: [CODE] Then the value will be stored as true for any series except series 1. It will first display correctly, but after an update it will be wrong. I have made a JSFiddle example. This contains 2 series. The first has some data points with markers enabled, and the second has markers.enabled set to false. Load and toggle the series for series 1 in the legend to force a redraw. The second series will now have data markers displayed. If you remove the accessibility module then it works correctly jsFiddle"
+ },
+ {
+  "question_id": 79918773,
+  "ym": "2026-04",
+  "creation_date": 1775096666,
+  "title": "In JavaScript, what exactly does the array method map do, and how is it used?",
+  "tags": [
+   "javascript"
+  ],
+  "score": 1,
+  "answer_count": 4,
+  "is_answered": true,
+  "body_excerpt": "I don’t really understand MDN’s explanation of it. I am trying to understand the JavaScript [code] method. I have researched online, but most explanations feel very vague and academic. I am struggling to understand what this method is actually used for in real-world development. What are the specific scenarios where [code] is the best choice compared to a regular for loop? Additionally, I am confused about the [code] data structure in JavaScript (the one created with [code] ). What is its purpose, and how does it differ from the map() array method? Why are they both called \"Map\" if one is an array function and the other is a storage object? I am looking for a clear explanation that distinguishes between these two concepts and provides practical examples of when to use each. I want to know the why behind the mapping relationship. Thank you for your help!"
+ },
+ {
+  "question_id": 79918872,
+  "ym": "2026-04",
+  "creation_date": 1775115761,
+  "title": "Does a React Activity component in mode visible set by default improve performance?",
+  "tags": [
+   "javascript",
+   "reactjs"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I often come to this case were I render both [code] and [code] for a component. Those have a [code] css rule based on a container query. I know that the [code] is more likely to be visible as our user mostly use bigger screens. Would it improve performance if I render the [code] within an [code] ? [CODE]"
+ },
+ {
+  "question_id": 79918953,
+  "ym": "2026-04",
+  "creation_date": 1775125552,
+  "title": "Do I learn React before JavaScript? I&#39;m confused",
+  "tags": [
+   "javascript",
+   "reactjs"
+  ],
+  "score": 4,
+  "answer_count": 8,
+  "is_answered": true,
+  "body_excerpt": "How do I learn JavaScript as a beginner frontend developer? What resources do I need (video links and written materials)? Also, would you advise diving right into React from CSS? React seems to be so complex. What do I do? I'm confused."
+ },
+ {
+  "question_id": 79919180,
+  "ym": "2026-04",
+  "creation_date": 1775147490,
+  "title": "Highsoft.Highcharts .NET wrapper v11.4.6.3 silently drops ChartEvents.Load string handler — worked in v11.0.1.1",
+  "tags": [
+   "javascript",
+   "c#",
+   "asp.net",
+   "highcharts",
+   "webforms"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm using the Highsoft.Highcharts NuGet package in an ASP.NET Web Forms application targeting .NET Framework 4.8. After upgrading from Highsoft.Highcharts v11.0.1.1 to v11.4.6.3, the ChartEvents.Load property is no longer being rendered into the output HTML by the HighchartsRenderer. [CODE] When I was on v11.0.1.1 the rendered Javascript included [code] However, with v11.4.6.3 the events.load property is completely absent from the rendered JavaScript output. No error is thrown — it's silently dropped. The chart renders fine, but the load callback never fires. I confirmed this in the browser console: [code] Was there a deliberate API change in the Highsoft .NET wrapper between v11.0.1.1 and v11.4.6.3 for how ChartEvents string properties are handled? If so, what is the new recommended way to register chart event handlers with the newer wrapper versions? I've currently reverted to v11.0.1.1 as a temporary fix, but I'd like to upgrade to a newer version."
+ },
+ {
+  "question_id": 79919647,
+  "ym": "2026-04",
+  "creation_date": 1775224503,
+  "title": "Seeking Roadmap and Advanced Resources for Deepening JavaScript Knowledge",
+  "tags": [
+   "javascript",
+   "ecmascript-6"
+  ],
+  "score": 0,
+  "answer_count": 5,
+  "is_answered": true,
+  "body_excerpt": "Hi everyone, I am a developer with a deep interest in JavaScript . I have been working with the language for some time, but I’ve reached a plateau where I'm unsure of my current proficiency level or what specific advanced topics I should tackle next to truly master the language. I am looking for guidance on: Assessment: How can I effectively evaluate my current JS level (Intermediate vs. Advanced)? Learning Path: What are the \"must-know\" advanced concepts (e.g., Closures, Event Loop, Prototypal Inheritance, Memory Management, or Design Patterns) that I should focus on tomorrow to move forward? Resources: Could you recommend any specific books or advanced documentation that offer a deep dive into the engine's internals or complex patterns? I want to move beyond just \"making things work\" to understanding the \"how\" and \"why\" behind the code. Any structured advice or roadmap would be highly appreciated."
+ },
+ {
+  "question_id": 79919649,
+  "ym": "2026-04",
+  "creation_date": 1775224601,
+  "title": "Angular SSR + cpanel + Node.js: UnhandledPromiseRejectionWarning: SyntaxError: Unexpected token &#39;??=&#39;",
+  "tags": [
+   "javascript",
+   "node.js",
+   "angular",
+   "cpanel"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a new Angular SSR project with this specs: ts.config: [CODE] And this libraries in package.json [CODE] My local Node version is [code] In my cpanel I create the project as a Node.js project, and I set Node.Js version 24.13.0, and I point as Application startup file my `server.mjs` Is not builing. I get: Error 503. Service Unavailable The server creates a `stderr.log` file with this content: [CODE] As I investigate the issue seem to be a Node version issue, becase before version 15 `'??='` was not a valid expression. But I don't see where is the Node version suppose to be below the 24 I'm using, both locally to compile and on the server. I ran node -v in the cpanel terminal, in my project, and of course I get 24.13.0. Has anyone had similar issues and/or are they solvable witouth downgrading the node.Js version?"
+ },
+ {
+  "question_id": 79919826,
+  "ym": "2026-04",
+  "creation_date": 1775242969,
+  "title": "How to replace JSON name with a variable in Javascript?",
+  "tags": [
+   "javascript",
+   "jquery"
+  ],
+  "score": 0,
+  "answer_count": 7,
+  "is_answered": true,
+  "body_excerpt": "I am trying to implement a search function with checkboxes and want to replace part of this function with a variable as to not have to write a switch case with the same code varying in one line. This question doesn't include JQuery, but I am using it, so if there is a better solution there, I would appreciate it. [CODE] The [code] variable is my JSON. [CODE] I have tried replacing [code] with a string variable and just the [code] with a variable, but it didn't work. [CODE] results in Unexpected token '[' (at js.js:38:16)"
+ },
+ {
+  "question_id": 79920001,
+  "ym": "2026-04",
+  "creation_date": 1775276882,
+  "title": "Playwright giving me hard time running a browser on existing chrome profile",
+  "tags": [
+   "javascript",
+   "playwright",
+   "playwright-test"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have been browsing through web, debugging with llms but not able to resolve this simple thing. Here's my code: [CODE] I need to open gemini via playwright but using my existing browser context (Profile 2) But its giving me super hard time. Here's the debugging logs: [CODE] Can someone help? I am running it on windows machine and playwright version is [code] . Chrome version: [code] Also its a org managed browser but I hope that should be fine. So I am able to see playwright launching the browser with my user profile but nothing beyond that."
+ },
+ {
+  "question_id": 79920043,
+  "ym": "2026-04",
+  "creation_date": 1775286912,
+  "title": "How to make a single executable .out file for running react webapps in kiosk mode in linux desktop",
+  "tags": [
+   "javascript"
+  ],
+  "score": 3,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Is there some way to make a single binary executable(.out) file for a react webapp that can be run in kiosk mode on linux machines. I tried using a approach of making a shell file which uses chromium to launch the webapp using the deployed URL. I need some way to launch the webapp with just the executable file(no system dependencies involved like chromium). Does electron or Tauri can help in such cases? I searched a bit and found Electron can create a .dev and .AppImage files. Are there any other ways to make such executable files?"
+ },
+ {
+  "question_id": 79920122,
+  "ym": "2026-04",
+  "creation_date": 1775309511,
+  "title": "Why should I learn Javascript if I could just learn jQuery?",
+  "tags": [
+   "javascript",
+   "html",
+   "jquery",
+   "css"
+  ],
+  "score": 2,
+  "answer_count": 11,
+  "is_answered": true,
+  "body_excerpt": "I'm a beginner web developer, and I'm mostly working on a personal website of mine. I'm trying to learn the basic stuff since I'm still in school and don't have much time to learn additional languages. right now, I'm focused on HTML and CSS. I want to begin making my site dynamic, but I'm not sure whether I should learn Javascript or jQuery. some people say jQuery can conflict with existing frameworks, that it's outdated, while some others say it simplifies Javascript. I tried learning Javascript but unfortunately found it too hard. some people say to learn Angular or React or Vue, and I can't find a solid answer."
+ },
+ {
+  "question_id": 79920223,
+  "ym": "2026-04",
+  "creation_date": 1775328887,
+  "title": "How do I compose a base reference for my website?",
+  "tags": [
+   "javascript",
+   "html",
+   "css"
+  ],
+  "score": -6,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am rewriting my website. I have decided upon a structure for its directories, which on my local drive, appears as: Additional directories will be created to contain specific content (e.g., Tools, Toolbox Components, etc.). Each HTML file in these directories needs to reference the same script, css, and image directories as does [code] . What I think I need is some kind of base URL that I can prepend to the href attribute for [code] s and to the [code] attribute for [code] s. In the current case, I need the base to be [code] . When the code is place into the website server, I need the base to be [code] . When I have finished development, I will copy the directory Website to my hosted website. However before I do that, the local version (on my local machine) must be free of errors. In adding directories and pages, I still need to access files that are at the Website level. And because I do not want to be restricted in directory structure (which would occur without a base URL) nor forced into using complex relative paths (that are dependent upon file position within the website structure), I need a mechanism to define the topmost directory of the website. The two ways of which I am aware are using the website absolute root and using [code] . Using [code] causes significant issues when a webpage contains an anchor element that makes reference to some portion internal to the docum"
+ },
+ {
+  "question_id": 79920247,
+  "ym": "2026-04",
+  "creation_date": 1775333684,
+  "title": "Close modal on click outside or on the X icon",
+  "tags": [
+   "javascript",
+   "html"
+  ],
+  "score": 0,
+  "answer_count": 4,
+  "is_answered": true,
+  "body_excerpt": "Learning JS here. I have this function (Vanilla JS) which allows to access directly the opened modal when typing the url (when typing site.com/#modal-faqs it just shows already opened on the browser). But it does not close when clicking on the x icon or outside on the modal. How can I achieve this please? I hope I am clear. Thank you [CODE]"
+ },
+ {
+  "question_id": 79920328,
+  "ym": "2026-04",
+  "creation_date": 1775358072,
+  "title": "adding variables as numbers not working. looking for what I&#39;m missing, not just what the answer is",
+  "tags": [
+   "javascript",
+   "html"
+  ],
+  "score": -1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am stuck. I am trying to add two fields together. If I change the \"+\" to a \"*\" for multiplication, it sees the variables as number and multiplies them, but as is it sees them as strings and creates a new string of \"string1\"\"string2\". I tried forcing using the Number() instruction, but it doesn't work. In my code there is a \"subtotal\" and \"subtotal2\" showing what I mean for adding vs. multiplying. Here is my code: [CODE]"
+ },
+ {
+  "question_id": 79920650,
+  "ym": "2026-04",
+  "creation_date": 1775423877,
+  "title": "WTF Flask dynamically built forms. How to deal with name attribute",
+  "tags": [
+   "javascript",
+   "python",
+   "flask-wtforms"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have build a web page that dynamically creates a form of inputs that has always different names. I achieved this by adapting the individual input field name attribute so I managed assosiate the value with the name. So when I send the form to python, I can splice the name and I associate the name and the value. However I find it difficult to achieve with WTFs. Below is generated by Javascript. The name consists of slots-(index) which is used by the 'FieldList' and the suffix unique_info_x . [CODE] PYTHON: [CODE] What I am looking is someway I am able to iterate form details in a way that I would have the validation done on the inputs and also unique_info_x suffix available as data together with the actual value. I found some information over adapting more information on the name attribute as described. But I am having trouble understanding how to iterate it when it is sent to flask for validation. Maybe there is someway I can hide the unique_info_X? Maybe using labels? Can you help?"
+ },
+ {
+  "question_id": 79920765,
+  "ym": "2026-04",
+  "creation_date": 1775457844,
+  "title": "At what specific point should URL.revokeObjectURL be called?",
+  "tags": [
+   "javascript",
+   "revokeobjecturl"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have some data in an object URL created with [code] . I want to let the user download it as a file, then I want to call [code] to not leak memory. When should [code] actually be called? Things that seem to me to be possibilities: After the download completes. This would be correct if the object URL becomes unreadable upon being revoked. Immediately after the download is initiated. This would be correct if the browser does a kind of reference counting on the data, not freeing it unless both the object URL and the download are done with it. In the next event loop tick after the download is initiated ( [code] ). This would be correct if the browser does that “reference counting”, but doesn’t actually realize the download has started until the end of the current tick. Some delay after the download is initiated ( [code] ). This would be correct if the browser does that “reference counting”, but doesn’t actually realize the download has started until… sometime. Maybe a few milliseconds does the trick, maybe the longer the more reliable? Something else?"
+ },
+ {
+  "question_id": 79920859,
+  "ym": "2026-04",
+  "creation_date": 1775471690,
+  "title": "Where to place window.addEventListener(&#39;online&#39;",
+  "tags": [
+   "javascript",
+   "dom-events",
+   "svelte",
+   "sveltekit"
+  ],
+  "score": 0,
+  "answer_count": 9,
+  "is_answered": true,
+  "body_excerpt": "In a Sveltekit app, I'm listening for [code] and [code] so as to warn the user. I only need to add the event listener at app start. Add to [code] Or [code] in [code] ? Which then means also removing the listeners in [code] I guess. Prior to Sveltekit, I added these listeners in [code] - the one called by [code]"
+ },
+ {
+  "question_id": 79920938,
+  "ym": "2026-04",
+  "creation_date": 1775481566,
+  "title": "Javascript | responsive blog",
+  "tags": [
+   "javascript",
+   "blogs"
+  ],
+  "score": 0,
+  "answer_count": 10,
+  "is_answered": true,
+  "body_excerpt": "i am developing a web blog, i need it to be responsive, so like when i upload the articles by an admin panel the new articles will be on screen and the old one go lower (like a normal blog). Since I am working on the design on HTML and CSS,I have a image that stay still but how do I create the blocks that upload everytime? Sorry I am new to coding and I feel lost, and I don't know how to explain."
+ },
+ {
+  "question_id": 79920951,
+  "ym": "2026-04",
+  "creation_date": 1775483024,
+  "title": "How to fetch a page with a different set of cookies than the current ones?",
+  "tags": [
+   "javascript",
+   "cookies",
+   "fetch-api"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Using the JavaScript fetch API sends the current cookies and optionally allows to send no cookies, but I don't see how to send own cookies without the currently set cookies. Is it possible to send an own set of cookies? Let's say the user currently has: [code] stored in the browser from previous interactions with the site, and want to fetch a page on the same domain with the cookies [code] (key1 is unset), is there a way to do that with Javascript? A general way would be great, but if there is a greasemonkey/user script API that allows that it would be already helpful. I already thought about trying to unset cookies with Javascript as workaround, but this backup/delete/restore approach does not work for Http-Only cookies."
+ },
+ {
+  "question_id": 79920999,
+  "ym": "2026-04",
+  "creation_date": 1775488021,
+  "title": "table-options Attribute: data-header-style=&quot;headerStyle&quot;",
+  "tags": [
+   "javascript",
+   "html",
+   "css",
+   "bootstrap-table"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I use table-options Attribute: data-header-style=\"headerStyle\", In the example classes: 'my-header' does not work I used the following code from https://live.bootstrap-table.com/ , and it doesn't work: classes: 'my-header' [CODE]"
+ },
+ {
+  "question_id": 79921101,
+  "ym": "2026-04",
+  "creation_date": 1775500768,
+  "title": "How do i make the slider thumb go over the actual bar in CSS / Javascript?",
+  "tags": [
+   "javascript",
+   "html",
+   "css",
+   "slider"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "As you can see in the image the thumb stays below the border of the slider, how do i make it so it stays on top and you can't see the border below the thumb anymore? and is there a way to reference the slider thumb in the javascript code? so far i have only been able to modify the slider but not the thumb in the script this is the css slider code: [CODE] and this is how i create the slider object in the script: (a new one gets created every time i call the function to go to the next song) [CODE]"
+ },
+ {
+  "question_id": 79921201,
+  "ym": "2026-04",
+  "creation_date": 1775518071,
+  "title": "Technical Issue: Pie Chart Slice &quot;Distance from Center&quot; and &quot;Color&quot; not updating via Apps Script",
+  "tags": [
+   "javascript",
+   "google-sheets",
+   "google-apps-script",
+   "charts",
+   "pie-chart"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am seeking help regarding a consistent technical issue with Pie Charts in Google Sheets when using Apps Script. The Problem: When I try to programmatically update a Pie Chart, some visual elements update correctly (like the Chart Title and Donut Hole size), but other elements remain unchanged in the UI. Specifically, the following options do not render visually: Distance from center (offset): The slice does not move/explode from the center. Slice Color: The specific color applied to a slice is ignored, and it keeps the default theme color. Observations: This is not a script error, as other properties (like the title) change successfully during the same execution. Manual adjustments through the Chart Editor work perfectly, which suggests the issue is related to how the API handles the \"slices\" configuration object. I have tried refreshing the page and clearing the cache, but the visual state of the slices remains stuck. Has anyone encountered this behavior where only specific chart properties fail to sync with the UI? Is there a known workaround for forcing the chart to redraw these specific slice attributes? Thank you for your time and assistance. Here is my code for creating the chart: [CODE]"
+ },
+ {
+  "question_id": 79921214,
+  "ym": "2026-04",
+  "creation_date": 1775519818,
+  "title": "Number formatting with 2 decimal places on a textbox populated by a variable",
+  "tags": [
+   "javascript",
+   "html"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I can't seem to be able to force two decimal places on the end result of the 'unloadedtotal' textbox after clicking the calculate button. I only know of '.force(2)' but can't get it to work no matter how I've tried adding it. [CODE] [CODE]"
+ },
+ {
+  "question_id": 79921263,
+  "ym": "2026-04",
+  "creation_date": 1775535581,
+  "title": "navigator.getInstalledRelatedApps() is empty on Chrome in Windows 11",
+  "tags": [
+   "javascript",
+   "google-chrome",
+   "web-applications",
+   "progressive-web-apps"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Something must be missing, but I just don't know what. Because the installed web app should be listed in the array when calling [code] but the array is just empty. Chrome (146.0.7680.178) Windows 11 Console Output On https://www.swisswebcams.ch/ (with installed web app) Call in Web App [CODE] Assetlink https://www.swisswebcams.ch/.well-known/assetlinks.json [CODE] Is this even needed for [code] to work? Manifest https://www.swisswebcams.ch/_new/manifest.json [CODE]"
+ },
+ {
+  "question_id": 79921477,
+  "ym": "2026-04",
+  "creation_date": 1775559724,
+  "title": "@google/genai SDK: Does chat.sendMessage config override the ai.chats.create config?",
+  "tags": [
+   "javascript",
+   "vue.js",
+   "google-gemini"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am using the official [code] SDK in a Vue.js application. My goal is to establish a persistent [code] for a chat session, while retaining the ability to cancel individual requests using an [code] . Because an [code] is single-use, I must instantiate a new one and pass its [code] into every individual [code] call. However, doing this seems to completely overwrite the base configuration established in [code] . The LLM entirely forgets the system prompt. Here is a minimal reproducible example: [CODE] I would expect that the 2 configs are merged. Instead, the second one completely overrides the first one. Is this complete configuration overwrite the intended behavior of the SDK? Is manually spreading the base configuration into every single [code] call (e.g., [code] ) the only correct architectural approach here?"
+ },
+ {
+  "question_id": 79921501,
+  "ym": "2026-04",
+  "creation_date": 1775562309,
+  "title": "@google/genai SDK: ai.files.upload ignores abortSignal and doesn&#39;t throw any exception when I try to abort",
+  "tags": [
+   "javascript",
+   "vue.js",
+   "google-gemini"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am using the official [code] SDK in a Vue.js application. I am trying to implement a cancellation mechanism for file uploads using an [code] . However, when I trigger [code] , the [code] method completely ignores the signal. It does not throw any exception, the execution flow completely bypasses the [code] block, and the upload resolves successfully. Funny enough, [code] evaluates to [code] . Here's a minimal reproducible example (note that even though the blob is tiny, I can click the abort button fast enough): [CODE] I would expect that an exception is raised and the code flows into the catch block. Is this intended or is it a bug in the SDK?"
+ },
+ {
+  "question_id": 79921551,
+  "ym": "2026-04",
+  "creation_date": 1775566784,
+  "title": "Listing S3 bucket objects with specific storage class with JavaScript SDK v3",
+  "tags": [
+   "javascript",
+   "amazon-s3"
+  ],
+  "score": -1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I want to filter the [code] by the StorageClass like it is possible in the API: [CODE] How I can do this with JavaScript SDK v3 ? [CODE]"
+ },
+ {
+  "question_id": 79921659,
+  "ym": "2026-04",
+  "creation_date": 1775576620,
+  "title": "window.PptxGenJS is not a constructor",
+  "tags": [
+   "javascript",
+   "salesforce"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "window.PptxGenJS is not a constructor I'm getting this error while trying to generate a ppt from salesforce lwc...any idea what is the issue? Thanks Below is the js code: [CODE]"
+ },
+ {
+  "question_id": 79921773,
+  "ym": "2026-04",
+  "creation_date": 1775587069,
+  "title": "How do I correctly project points onto a map in d3?",
+  "tags": [
+   "javascript",
+   "d3.js"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have data with longitudes and latitudes that I would like to plot as points on top of a map projected onto the visualization space. I pass the point coordinates through the same projection as is used for the map, but my points appear to be slightly off. I know I'm passing longitude and latitude in the correct order. I just feel like I am missing something fundamental about transforming the data, such as what is being described here , in section 2.1.2 (a Javascript issue), the coordinates for the points are off for some reason (a data issue), or there is some discrepancy between where the map is centered and where the points are centered. Here is my JavaScript code. Map data: https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json source [CODE] The resulting visualization looks like this: The points should fall on coastal/island towns:"
+ },
+ {
+  "question_id": 79921950,
+  "ym": "2026-04",
+  "creation_date": 1775616255,
+  "title": "bootstrap 5 Equal Height Columns",
+  "tags": [
+   "javascript",
+   "html",
+   "css",
+   "twitter-bootstrap",
+   "bootstrap-5"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I want to set two columns to be equal. This means the menu column should be the same height as the main column, which changes depending on the browser window size. Below the image is a typed.js script that displays specific text in the main div. How can I do this? I've searched online for solutions, but what I've found is messing up my page layout. [CODE] [CODE]"
+ },
+ {
+  "question_id": 79922009,
+  "ym": "2026-04",
+  "creation_date": 1775629541,
+  "title": "Strategies for bulk-migrating a large Java/JAR codebase and its proprietary dependencies to Node.js/TypeScript",
+  "tags": [
+   "javascript",
+   "java",
+   "typescript",
+   "code-translation",
+   "claude"
+  ],
+  "score": 1,
+  "answer_count": 8,
+  "is_answered": true,
+  "body_excerpt": "We currently have a Node.js application that delegates specific tasks to a Java application (via a [code] file). We have the full Java source code for this [code] . We are currently transitioning our system to expose these functionalities as \"skills\" for an AI Agent within an agentic workflow. To maintain a uniform execution environment and simplify the agent's context, we need to convert this entire Java execution path into native TypeScript . The Problem The Java codebase is quite large and relies heavily on an intricate tree of proprietary internal dependencies. Because these aren't public libraries, we cannot simply swap them out for equivalent npm packages; the dependencies themselves must also be translated from Java to TypeScript . What we want to avoid We want to avoid a purely manual, file-by-file LLM translation (e.g., copying and pasting individual classes into an LLM), as it is highly error-prone, loses cross-file context, and does not scale for deep dependency trees. Questions Given the scale of the project and the need to retain business logic across proprietary dependencies: AST & Transpilation: Are there established Abstract Syntax Tree (AST) approaches or transpilation pipelines (like JSweet, but for modern Node/TS environments) that are highly effective for bulk Java-to-TS conversion when dealing with internal dependencies? Automated Migration Patterns: What i"
+ },
+ {
+  "question_id": 79922036,
+  "ym": "2026-04",
+  "creation_date": 1775632586,
+  "title": "JavaScript practicing websites for free",
+  "tags": [
+   "javascript",
+   "html",
+   "css"
+  ],
+  "score": 4,
+  "answer_count": 7,
+  "is_answered": true,
+  "body_excerpt": "Can anyone tell me as a beginner in JavaScript if there are any sites or things to test my knowledge in JavaScript, HTML or CSS for free? I really want to do that. Cause it's really a big problem for me to remember any memories that I've studied (any language). Can anyone help me with this?"
+ },
+ {
+  "question_id": 79922428,
+  "ym": "2026-04",
+  "creation_date": 1775676350,
+  "title": "LinkedIn Ads API - Can&#39;t find and get ad campaign through api",
+  "tags": [
+   "javascript",
+   "linkedin-api"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm in the process of trying to set up some api calls for fetching ad data from LinkedIn, specifically with regards to the ad campaigns (primarily: what is the campaign's budget, how much has been spent so far in this month, the name of the campaign, etc). Thus far, I have been able to successfully retrieve data for an ad account, but I haven't been able to retrieve any data for an ad campaign. This is my current api call in JavaScript: [CODE] This is the message that I receive afterwards: [CODE] To be honest, I'm really not sure what I'm doing wrong. When I look in the LinkedIn Ads Campaign Manager, I can see the campaign I'm trying to the data of is there, and does exist. Granted, it isn't running/delivering ads, nor does it have any ad sets, but it is there, so I'm left confused when LinkedIn says that the campaign apparently isn't found. I would appreciate help, as well as some guidance on what I should be doing to get the kind of data I need."
+ },
+ {
+  "question_id": 79922642,
+  "ym": "2026-04",
+  "creation_date": 1775723677,
+  "title": "(Webdev noob) Drag &amp; Drop Image Uploader That Returns a URL (No Backend Needed)",
+  "tags": [
+   "javascript"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am making a website. How can I make a drag & drop image uploader, that users could drag and drop their images into my website and that sends the image from my website to any image uploading platforms (like Imgur or catbox) and it returns an image URL that can be used in my website."
+ },
+ {
+  "question_id": 79922650,
+  "ym": "2026-04",
+  "creation_date": 1775724914,
+  "title": "Am I on right track?",
+  "tags": [
+   "javascript",
+   "express",
+   "mern",
+   "livechat"
+  ],
+  "score": 0,
+  "answer_count": 4,
+  "is_answered": false,
+  "body_excerpt": "I am a fresher and doing an remote Internship of 12 weeks. I have assigned 4 tasks to complete in these 12 weeks and I have completed first task. It was simple to fetch ata from API and display on React Frontend. The second task is to build a real time chat app. I have completed UI part and now working on backend. I am implementing the feature of Email OTP Verification . M y question is that am I on right track? I s my code is clean? I 'm not using AI to write code so is my code logic is correct? my database is connected, redis also connected but I havent tested it with frontend yet. You all know the nightmare of CORS is going to happen next 😅. I don't have fear of that because I'm prepared already when I built my first MERN project. Let me know your advise on my code. For refrence I'm attaching Images of code and the GitHub repo url => Project Repo Sending OTP and saving user details in Redis DB with 5 minutes OTP expiration Getting otp enterd by ueser and data from Redis db"
+ },
+ {
+  "question_id": 79922690,
+  "ym": "2026-04",
+  "creation_date": 1775727513,
+  "title": "How can a user script map its own DOM node object to the page’s?",
+  "tags": [
+   "javascript",
+   "dom",
+   "userscripts"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "User scripts are typically executed in a separate realm from the page on which they run, and the objects that represent DOM nodes in the user script are not the same objects that the actual page accesses . And that, for the most part, is a good thing: it prevents mutations to properties and prototypes performed by the page from affecting (and therefore potentially breaking) the user script. But occasionally, a user script needs to pierce through that sandbox and obtain the page’s DOM node object, because the one the user script normally uses lacks some extra properties that the page has installed on its own DOM node object. [CODE] [CODE] Suppose I am holding a DOM node object in the user script’s realm. How to get access to the corresponding object from the page’s realm?"
+ },
+ {
+  "question_id": 79922702,
+  "ym": "2026-04",
+  "creation_date": 1775728053,
+  "title": "Adding javascript to custom link in navigation block",
+  "tags": [
+   "javascript",
+   "wordpress"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to add an onclick function to my custom link in my WordPress menu. I know how to add custom links in my navigation block, but I can't find any attributes for [code] . I have also tried adding a [code] , so I could access it with [code] , but [code] doesn't seem to be a supported attribute either. Here is the code I have tried: [CODE] When I open my WordPress, the [code] attribute is empty (seems like [code] is ignored), and [code] isn't a valid attribute. Is there something I'm missing, or are there other/better ways to achieve the same?"
+ },
+ {
+  "question_id": 79922715,
+  "ym": "2026-04",
+  "creation_date": 1775728714,
+  "title": "How to configure LightningChart JS colors holistically",
+  "tags": [
+   "javascript",
+   "lightningchart"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I want to change the colors and styles of LightningChart JS, and there is an API for it but it feels very clumsy. Essentially, it allows specifying any color and style for a specific object one at a time, but I feel like this is not the way this should be done. I need hundreds of lines of code to set some styles and there are still some elements untouched. Does anyone know a way to do this more conveniently? Ideally I could just define the general color theme using a few control colors and that'd be it, and it'd work for any chart application (not just this particular one). To present the issue I made this minimal example: [CODE] [CODE] EDIT: I did try to change the [code] , but that's not really what I need. There are some preset options but not the exact color theme I want. I guess I'm looking for a way to make a custom theme but looking at the API definition of a [code] , it has like hundreds of properties..."
+ },
+ {
+  "question_id": 79922805,
+  "ym": "2026-04",
+  "creation_date": 1775736008,
+  "title": "type safety and developer experience in large JavaScript/TypeScript projects?",
+  "tags": [
+   "javascript",
+   "typescript",
+   "static-typing"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I’m working on a medium-to-large scale JavaScript/TypeScript project and looking to improve type safety, maintainability, and overall developer experience. Currently: The codebase is partially typed (some areas use TypeScript, others are still plain JavaScript) We use basic IDE support (autocomplete, linting) Type errors are sometimes caught late in the development cycle I’m looking for recommendations on tooling that can help with: Stronger type checking and earlier error detection Better type inference and developer ergonomics Integration with existing workflows (CI/CD, editors, etc.) Gradual adoption in an existing codebase Some specific questions: What tools or plugins significantly improve type safety beyond the default TypeScript compiler? Are there tools that help enforce stricter typing rules or prevent common pitfalls? What’s the recommended setup for scaling type safety in large projects? Any tools for visualizing or analyzing type coverage?"
+ },
+ {
+  "question_id": 79922823,
+  "ym": "2026-04",
+  "creation_date": 1775737695,
+  "title": "How to continue an animation after a condition statement was met in Three.js",
+  "tags": [
+   "javascript",
+   "three.js"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to create an infinite loop of objects which are moving vertically up. The objects are grids, or walls. I plan to delete the wall as soon it goes off the camera, and then create a new wall. Right now I'm just repositioning the existing grid to the bottom, but the animation stops after that. What is the reason? Could someone explain how to do this properly? I also experimented with function that creates new grids, but it just doesn't work. Here is my code. After if statement it just stops to move. [CODE]"
+ },
+ {
+  "question_id": 79922848,
+  "ym": "2026-04",
+  "creation_date": 1775740741,
+  "title": "How to best create a fake HTMLElement for mocking in unit tests and why does not DOMParser/Document.parseHTMLUnsafe work and only return HTMLDocument?",
+  "tags": [
+   "javascript",
+   "html",
+   "unit-testing",
+   "dom",
+   "mocking"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "Background I have code that: wants to check whether an element is a HTML Element with (if) [code] and then act accordingly. According to Stackoverflow this is the modern, recommend way. Testing this, turned out more problematic than thought, because: while you can parse a HTML code easily - best via a modern method like [code] - it is not actually accepted like that, aka [code] will fail! The reason seems to be the \"parsed HTML\" being returned is not actually a [code] , but a [code] , which really may be confusing IMHO, as the subtle difference can cause many errors. To confuse you even more when debugging [code] will always return [code] . you can possibly work around that by using a [code] afterwards, as shown below. This is still quite strange and not self-explanatory, IMHO, when written in a test. Example code [CODE] [CODE] What is the best approach here? Is [code] the best solution or can we maybe get a HTML element (= a \"real\" [code] ) more easily?"
+ },
+ {
+  "question_id": 79922951,
+  "ym": "2026-04",
+  "creation_date": 1775750214,
+  "title": "Why does JavaScript’s Math.round(-1.5) round toward positive infinity instead of following standard rounding?",
+  "tags": [
+   "javascript",
+   "math",
+   "ecmascript-6",
+   "rounding"
+  ],
+  "score": 1,
+  "answer_count": 7,
+  "is_answered": true,
+  "body_excerpt": "If we round a negative number to the nearest integer in JavaScript, in the case of a tie (i.e., a fractional part of 0.5), the nearest integer is the one closer to positive infinity. For example: [code] . What problem or design consideration led JavaScript developers to adopt this approach to rounding instead of the standard mathematical method?"
+ },
+ {
+  "question_id": 79922960,
+  "ym": "2026-04",
+  "creation_date": 1775751251,
+  "title": "ESLint &quot;Cannot access refs during render&quot; error but I am not accessing ref",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "eslint",
+   "react-ref",
+   "eslint-plugin-react-hooks"
+  ],
+  "score": -2,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am trying to pass a ref to a custom function, but I'm getting an ESLint error on [code] from the [code] rule of eslint-plugin-react-hooks . I am not sure why because I am not accessing [code] here, just passing the ref to the component. For some reason, destructuring the hook's return value works fine, but I prefer the [code] way since I may have multiple dialogs ( [code] , [code] ). Error: Cannot access refs during render React refs are values that are not needed for rendering. Refs should only be accessed outside of render, such as in event handlers or effects. Accessing a ref value (the [code] property) during render can cause your component not to update as expected ( https://react.dev/reference/react/useRef ). Code: [CODE] [CODE] [CODE]"
+ },
+ {
+  "question_id": 79923020,
+  "ym": "2026-04",
+  "creation_date": 1775754809,
+  "title": "seekTo(seconds, false) no longer renders preview frames in YouTube iframe player viewport — regression or am I missing something?",
+  "tags": [
+   "javascript",
+   "youtube",
+   "youtube-iframe-api",
+   "seek",
+   "youtubeplayer"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "The seekTo method of the YouTube iframe API has the shape: [CODE] Regarding [code] , the docs say: We recommend that you set this parameter to false while the user drags the mouse along a video progress bar and then set it to true when the user releases the mouse. The implication seems to be that [code] provides some visual feedback at the seek position - otherwise it's not clear what purpose it serves during a drag. I think this used to work but I'm now seeing [code] have no visible effect on the player viewport. (The only effect I can observe is that it semi-pauses a playing player and sets the restart position for the next play call.) Notably, dragging the player's own internal progress bar shows preview frames correctly, so the underlying capability exists — it just seems that this call doesn't trigger it. Questions: Is this a known regression with the new YouTube player UI? Am I missing something — is there a way to trigger preview frame rendering via the API? If this is indeed broken, is there a known workaround for implementing a custom seek bar with visual feedback (other than calling [code] on every drag event, which would cause constant rebuffering)?"
+ },
+ {
+  "question_id": 79923106,
+  "ym": "2026-04",
+  "creation_date": 1775763241,
+  "title": "The client Id for paypal smart buttons need some kind of protection?",
+  "tags": [
+   "javascript",
+   "paypal"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm going to apply payments to my page and the smart buttons take my attention, but what worries me its what happens if someone change the client-id before making the purchase? How paypal verifies that the business account is the correct? I was testing to see how to implement it and i got something like this: [CODE] Also, is possible to make some verifications server side before the creation or capture of the order?"
+ },
+ {
+  "question_id": 79923133,
+  "ym": "2026-04",
+  "creation_date": 1775767425,
+  "title": "Related Posts are not showing thumbnail on blogger",
+  "tags": [
+   "javascript",
+   "html",
+   "jquery",
+   "css",
+   "blogger"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Some time ago, I installed in my site (using Blogger) the Related Posts gadget. The results are good, and really show related posts, not just prioritizing newer posts like other gadgets that I tried before. But a little thing is bothering me: It doesn't show images in Thumbnails from some posts. These could be posts with external link images, so maybe that's the problem? But sometimes even with internal images it doesn't charge the image. Here a print. Someone can help me to fix? My code is: [CODE] [CODE]"
+ },
+ {
+  "question_id": 79923148,
+  "ym": "2026-04",
+  "creation_date": 1775770039,
+  "title": "Access to function in other lexical scope in JS",
+  "tags": [
+   "javascript",
+   "closures"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "How can [code] access the inner function [code] ? I know about lexical scope and closures, but is there any way to make [code] access [code] ? [CODE]"
+ },
+ {
+  "question_id": 79923223,
+  "ym": "2026-04",
+  "creation_date": 1775783644,
+  "title": "How can I consume a REST API from pure JavaScript without using fetch()?",
+  "tags": [
+   "javascript",
+   "html",
+   "css",
+   "rest",
+   "http"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I want to develop a web app that works in older browsers. I know XMLHttpRequest exists, but I don't know if it's the best option or if there's another alternative. If anyone knows, I would really appreciate your help, as I'm a bit lost, to be honest hahahaha."
+ },
+ {
+  "question_id": 79923261,
+  "ym": "2026-04",
+  "creation_date": 1775790964,
+  "title": "Best practices for combining a high pass and low pass filter on an input signal?",
+  "tags": [
+   "javascript",
+   "web-audio-api"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I'm using the JavaScript Web audio API. There is a BiquadFilterNode audio node type with which one can use to apply high pass, low pass, bandpass, etc. filters. I've tried a node graph which looks like: source->lowpass->highpass->destination But that turned out to be not what I expected. Now I am doing: Source->splitterNode->lowpass,highpass->mergerNode->destination The result is almost there; it appears that one of these filters is being applied I've tried everything and I'm not sure what to do to apply both high pass and low pass to an input signal. Worst case scenario, I just have to make a bandpass, but that is a lot of code to rewrite. Any help is appreciated, thanks"
+ },
+ {
+  "question_id": 79923292,
+  "ym": "2026-04",
+  "creation_date": 1775798084,
+  "title": "Emergency Weather App Failure - Receiving emergency evacuation alert but not showing it",
+  "tags": [
+   "javascript",
+   "frontend",
+   "supabase"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "We're making an advanced weather app that displays emergency alerts. It uses the weather.com API and Supabase Realtime to receive emergency notifications. After finishing part of the frontend, we tested it, but it didn't work. Logs shown that the message was sent and received by the publishable key on the frontend, but no alert was displayed. We've double-checked the callback mechanism and used [code] , which verifies the function was executed. Still, it doesn't display the alert. Here's the callback: [CODE] And here's the minimal [code] : [CODE]"
+ },
+ {
+  "question_id": 79923355,
+  "ym": "2026-04",
+  "creation_date": 1775807612,
+  "title": "Fetch function await for an answer but before PHP produces a different output",
+  "tags": [
+   "javascript",
+   "php",
+   "fetch",
+   "httpresponse"
+  ],
+  "score": 0,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "JavaScript calls the PHP routine: [CODE] Then the PHP routine answers that request: [CODE] In this mode, the first output ( [code] ), instead of forcing the download, sends the PDF file as a string to the fetch function, and obviously execution doesn't proceed correctly. The file isn't downloaded, and the response JavaScript is expecting doesn't arrive properly either. I'm looking for a way to download the file produced by the PHP routine and receive a response that the job has completed successfully before continuing."
+ },
+ {
+  "question_id": 79923512,
+  "ym": "2026-04",
+  "creation_date": 1775826789,
+  "title": "Map not rendering with Leaflet.js",
+  "tags": [
+   "javascript",
+   "html",
+   "leaflet"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm returning to leaflet.js and I am unable to render the map with the tutorial from \"Leaflet Essentials\" When I save the file as an .html and open it, there is a blank webpage. I assumed it should be a map as per the example? Grateful for any pointers, please The code I am using is as follows: [CODE]"
+ },
+ {
+  "question_id": 79923756,
+  "ym": "2026-04",
+  "creation_date": 1775849883,
+  "title": "Vite: No matching export in &quot;node_modules/...?sharedworker&quot; for import &quot;default&quot;",
+  "tags": [
+   "javascript",
+   "typescript",
+   "vite"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "When running [code] I get the error [CODE] The problem must be the query suffix [code] . [code] is working, though. The SharedWorker is also working fine in Vite preview."
+ },
+ {
+  "question_id": 79923805,
+  "ym": "2026-04",
+  "creation_date": 1775859475,
+  "title": "Refresh or handle amount change on credit/debit card paypal smart button",
+  "tags": [
+   "javascript",
+   "php",
+   "paypal"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I have implemented paypal smart buttons on a modal, then i realized that if open the credit/debit card form and then close the modal to chose another product. The amount that is configurated is still the same as the last product, and i need to close the form and open again. I just render the buttons on front end and trigger the create order and capture from server side. So what i do is to send a post to the route using the buttons functions. So my question is that if there is a way to trigger refresh or close that form with code or is better relocate the buttons outise the modal."
+ },
+ {
+  "question_id": 79923987,
+  "ym": "2026-04",
+  "creation_date": 1775912191,
+  "title": "getstream No permission to publish VIDEO",
+  "tags": [
+   "javascript",
+   "react-native",
+   "expo",
+   "video-streaming"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I keep getting this error when ever I enable the camera [code] for video calls in my Expo React Native app No permission to publish VIDEO [CODE] [CODE] I'm able to join the call just fine, there's just no video being shown. [CODE] [CODE]"
+ },
+ {
+  "question_id": 79924116,
+  "ym": "2026-04",
+  "creation_date": 1775937556,
+  "title": "An inquiry regarding Promises vs Callbacks and performance impact within the event loop",
+  "tags": [
+   "javascript",
+   "node.js",
+   "event-loop",
+   "libuv"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "so I have been diving into NodeJS's internals and specifically in the event loop and how it handles different phases and whilst I was reading and wrapping my head around things I had a thought about how promises add an extra layer of performance overhead even though I think it is really really small. So, from what I understand during the poll phase callbacks are queued and whatever you're doing is now accessible to you whether its an I/O operation, network or whatever. [CODE] But after the introduction of the Promises API, we can now use .then()/catch(), or async/await. From my understanding when resolving, a task is enqueued within the micro tasks queue, adding an additional performance overhead since now we Poll -> Microtasks Drain instead of just polling. So my question is does this really introduce an additional overhead, and if so how much does performance get impacted? Would appreciate any help or clarification I could get."
+ },
+ {
+  "question_id": 79924146,
+  "ym": "2026-04",
+  "creation_date": 1775945861,
+  "title": "How to display waypoints included in a GPX track in Openlayers",
+  "tags": [
+   "javascript",
+   "openlayers"
+  ],
+  "score": -2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Does anybody know how to display waypoints included in a GPX in Openlayers? I tried the following, but that gives me only the track, not the waypoints: [CODE]"
+ },
+ {
+  "question_id": 79924199,
+  "ym": "2026-04",
+  "creation_date": 1775965161,
+  "title": "Asynchronous request and insertion of received nodes",
+  "tags": [
+   "javascript"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "[CODE] First we create a container [CODE] Next, we send a request to receive an array, and insert the resulting array as nodes. [CODE] Question, can we do this right away [CODE] As from the object [CODE] get a response from the server? The goal is to avoid creating variables like [CODE] As soon as we create an element, we add it to the house and when the response from the server arrives, we add child nodes. Without being bound to a variable..."
+ },
+ {
+  "question_id": 79924201,
+  "ym": "2026-04",
+  "creation_date": 1775965939,
+  "title": "Retrieve property of [object Map] with arrow function - JS",
+  "tags": [
+   "javascript",
+   "discord.js"
+  ],
+  "score": 0,
+  "answer_count": 5,
+  "is_answered": true,
+  "body_excerpt": "Elo, my issue is the following... I have a map in js, which was created through a fetch(). This map however includes an arrow function, of which I can't grasp how to access one of its properties/values [CODE] Additionally, when this map is returned through fetch, both <id>'s are always the same if that is of any help? This is the discord.js result, after fetch(). Now in my case, I need to somehow access that map's username (or rather its value). I've tried more fetching, something like \"let someVar = thisVar.username;\" or whatever js' maps.get() as well, in various ways. Idek anymore, send help. No results when googling either. If any additional code is needed (although I doubt), tell me."
+ },
+ {
+  "question_id": 79924671,
+  "ym": "2026-04",
+  "creation_date": 1776069420,
+  "title": "Detect use of HTTP2/3 in javascript",
+  "tags": [
+   "javascript",
+   "browser",
+   "http2"
+  ],
+  "score": 0,
+  "answer_count": 4,
+  "is_answered": false,
+  "body_excerpt": "Actual problem The actual problem I'm trying to solve is loading resources, among which are potentially 8+ ( more than the parallel connection limit ) long-running requests. (nd-json) The issue is that some firewalls block HTTP2 and HTTP3, so clients automatically fall back to HTTP1. Given parallel connection limits, this can put some fetch requests on hold indefinitely, if the long-running requests fire first. The workaround is to have a number of aliased domains that requests are round-robin'ed between, but this breaks most of the performance advantages of HTTP2&3, which brings me to my question. (if anyone has an idea for a workaround that doesn't have this issue, I'd be happy to hear it) Detecting HTTP 1.1 vs 2 or 3 Older questions have answers relating to performance APIs, but as far as I can see, those have been deprecated, replaced, or shielded for privacy reasons. Also suggested is having the server tell the client which protocol it used. This works in the simple case, but with load balancers and other possible intermediate infrastructure, there might be a mismatch between the protocol the client speaks, and the one the server speaks. A stupidly simple solution might be to first attempt 10 simultaneous long-running requests, then do a simple request with a timeout, and fall back to round-robin if that doesn't get served, but that feels very hacky."
+ },
+ {
+  "question_id": 79924752,
+  "ym": "2026-04",
+  "creation_date": 1776080409,
+  "title": "Render-looping when child and parent components both store state simultaneously",
+  "tags": [
+   "javascript",
+   "reactjs"
+  ],
+  "score": 0,
+  "answer_count": 7,
+  "is_answered": true,
+  "body_excerpt": "What is the best practice in React + TypeScript to prevent component render looping in the following scenario: There is a standalone component (like an independent component from a library) [code] that takes a list of records as input: [CODE] and an identifier of the selected record [CODE] Inside the component, both the selected record and the list of records can change, so they are stored inside the [code] as state: [CODE] If these records change inside the component (for example, due to user actions like mouse selection, button clicks, etc.), then: The state changes Corresponding callbacks are called: [code] when records change [code] when a record is selected The parent component [code] , which calls the child component [code] , also stores state because it knows nothing about the internal structure of the child component [code] (since it calls it from some external library and therefore is forced to store state locally; the same applies to [code] — it stores state locally because it knows nothing about the structure of parent components that will call it) So [code] also has: [CODE] It calls the child component [code] : [CODE] where [CODE] In the child component [code] , when [code] or [code] change, to avoid code duplication, [code] and [code] are not called directly; instead, [code] is used: [CODE] Thus, if [code] or [code] is called in multiple places, there's no need to "
+ },
+ {
+  "question_id": 79924797,
+  "ym": "2026-04",
+  "creation_date": 1776085938,
+  "title": "How to create a dynamic todo list app using Flask, SQL, CSS, JavaScript, HTML, in Pycharm",
+  "tags": [
+   "javascript",
+   "python",
+   "css",
+   "sql",
+   "dynamic"
+  ],
+  "score": 0,
+  "answer_count": 5,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to create a specific to-do list that has the Google keep kind of tick boxes, but I want to create it with Flask so I can store it with the current price of the written list in the database, please I need help on this."
+ },
+ {
+  "question_id": 79924969,
+  "ym": "2026-04",
+  "creation_date": 1776106974,
+  "title": "Raster tiles not rendering colors correctly on map",
+  "tags": [
+   "javascript",
+   "webgl",
+   "mapbox",
+   "raster"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am working on rendering raster tiles on a web map, but I'm encountering an issue where the tiles do not display the expected colors. Instead, they appear either blank, black or incorrectly styled. Environment: Framework: React(JavaScript) Map library: MapLibre GL JS Data source: Raster tiles (converted from GRIB / other weather data) Tile format: PNG Problem Colors are not visible Tiles appear black / transparent No errors in console Code [CODE] Tiles are generated from scientific data (GRIB -> PNG) I suspect it may be related to missing color mapping or alpha channel Question What could cause raster tiles to render without visible color? Is there something required in MapLibre for proper raster color rendering? Expected result Raster tiles should display proper color gradients based on the data"
+ },
+ {
+  "question_id": 79925071,
+  "ym": "2026-04",
+  "creation_date": 1776126801,
+  "title": "JavaScript regular expression behaviour",
+  "tags": [
+   "javascript",
+   "regex"
+  ],
+  "score": -3,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have next JavaScript code in a HTML document. [CODE] Expected output is as follows. [CODE] But instead of it I get the following. [CODE] Why are the [code] and [code] substrings not matched as the splitter part, and therefore fall to the array? Why are there two empty substrings at the array beginning? How can I get the expected output?"
+ },
+ {
+  "question_id": 79925105,
+  "ym": "2026-04",
+  "creation_date": 1776139451,
+  "title": "Using Web audio API Audioencoder to export filtered audio to ogg?",
+  "tags": [
+   "javascript",
+   "web-audio-api"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "https://developer.mozilla.org/en-US/docs/Web/API/AudioEncoder/configure I am reading through these docs, and it seems as though it is possible to encode filtered audio to .ogg without using a third party library or framework Is this true? The docs are quite thorough and I've just stumbled upon this page. I ask because there is literally no clear solution online which confirms that this can be done without either some external lib or much effort working with low level stuff. Dont believe me? Search Google for \"web audio export to [wav/MP3/ogg/etc.]\" Thanks in advance"
+ },
+ {
+  "question_id": 79925305,
+  "ym": "2026-04",
+  "creation_date": 1776165934,
+  "title": "How to scale an emscripten canvas?",
+  "tags": [
+   "javascript",
+   "c++",
+   "emscripten",
+   "sdl-3"
+  ],
+  "score": 3,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I compiled a SDL3 Hello, World! program with emscripten to js and wasm [code] [CODE] then I created a web page for testing. [code] is used by emscripten and [code] is for testing [code] [CODE] this html file is linked some custom javascript [code] [CODE] which grows the canvas when it is clicked on using CanvasRenderingContext2D: scale() method . This works for my test canvas [code] but how can I scale the emscripten canvas [code] ? Here is a live demo of the issue"
+ },
+ {
+  "question_id": 79925449,
+  "ym": "2026-04",
+  "creation_date": 1776178277,
+  "title": "Convert enternt text to &quot;#tags&quot;",
+  "tags": [
+   "javascript"
+  ],
+  "score": 0,
+  "answer_count": 3,
+  "is_answered": false,
+  "body_excerpt": "I am working on a little projekt and I want to user tags, like below on this form, when asking a question. For an additional example here a picture (the blue node.js i.e.), also multiple tags are needed (like in the example). Picture of the tag I meant If someone knows a lib or an example, I would be very happy. Oh, and I am asking, because I was unable to finde anything via Google, maybe I just don't have the right words for the search... Thanks in advance Pantastic"
+ },
+ {
+  "question_id": 79925731,
+  "ym": "2026-04",
+  "creation_date": 1776220134,
+  "title": "(JavaScript/TypeScript + npm) vs C# (WPF/WinForms) in Desktop Development",
+  "tags": [
+   "javascript",
+   "c#",
+   "wpf",
+   "winforms"
+  ],
+  "score": 0,
+  "answer_count": 10,
+  "is_answered": true,
+  "body_excerpt": "🚀 Desktop Development Debate: Electron vs C# (WPF/WinForms) I've been exploring desktop application development and came across an Electron-based project (using npm, Tailwind CSS, and modern web technologies) that really impressed me with its UI design and animations. This got me thinking about the best approach for desktop development: 1️⃣ Electron (JavaScript/TypeScript + npm) vs C# (WPF/WinForms) Which technology stack would you recommend for modern desktop applications? What are the key trade-offs between them? When would you choose one over the other? 2️⃣ Overall Desktop Development: C# vs JavaScript/Electron For building desktop applications in 2025/2026, which ecosystem offers better advantages? Performance, development speed, UI capabilities, and cross-platform support? I'm particularly interested in real-world experiences from developers who have worked with both technologies. What's your take on this?"
+ },
+ {
+  "question_id": 79925810,
+  "ym": "2026-04",
+  "creation_date": 1776237554,
+  "title": "How to detect support for the proposed `_split` window target?",
+  "tags": [
+   "javascript",
+   "browser-api"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "The Microsoft Edge team has proposed a native Split Screen API that allows opening a URL side-by-side using the [code] target: [CODE] In browsers where this isn't supported, [code] is treated as a standard named window, opening a new tab instead of a split pane. I need to implement a fallback (e.g., an internal [code] layout) only when the native feature is unavailable. I've searched [code] and [code] properties but haven't found a reliable flag for this specific API support. Is there a way to programmatically detect if the browser supports the [code] window target?"
+ },
+ {
+  "question_id": 79925876,
+  "ym": "2026-04",
+  "creation_date": 1776244826,
+  "title": "Is there a JavaScript API to trigger the browser-native &quot;Split Screen&quot; feature",
+  "tags": [
+   "javascript",
+   "browser-api"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I want to programmatically trigger the browser-native split-screen feature in modern browsers (Edge, Firefox, Chrome) from a web application. My goal is to let users click a button to display two different URLs side-by-side using the browser's built-in UI. I found this feature in Microsoft Edge (accessible via the \"...\" menu), and I know Firefox and other browsers have similar functionality. Is there a JavaScript API or browser API to trigger this? I'd prefer using native browser features over custom implementations."
+ },
+ {
+  "question_id": 79925885,
+  "ym": "2026-04",
+  "creation_date": 1776245946,
+  "title": "How do I insert an SVG character in Mathjax for my website?",
+  "tags": [
+   "javascript",
+   "html",
+   "svg",
+   "mathjax"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I've implemented a wiki that uses Markdown files with MathJax for the formulas. I want to add my own SVG symbols for integrals, summations, etc. I want to be able to have variables around the new symbols. Here's an example symbol that I've tried to add variables to underneath: [CODE] [CODE]"
+ },
+ {
+  "question_id": 79925945,
+  "ym": "2026-04",
+  "creation_date": 1776251343,
+  "title": "Cycode scan recommends HTML sanitization for iframe.src assignment, but I&#39;m only using a URL—what is the proper mitigation?",
+  "tags": [
+   "javascript",
+   "security",
+   "iframe",
+   "sanitization"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "We have the following code in our Angular application: [CODE] Cycode is flagging this line: [CODE] and suggesting \"use an HTML sanitization library to clean user input before inserting it into the HTML.\". However, I am not inserting content as HTML, but only assigning a string to iframe.src. I understand sanitization is important for HTML insertion, but in this case, loginUrl is a URL string, not raw HTML. To be safe, I added a regular expression to validate auth_token, but the scan still reports the same issue. Is this a false positive, or is there further mitigation needed in this context?. What's the recommended way to address this scanner warning when setting iframe.src with a constructed URL?"
+ },
+ {
+  "question_id": 79926020,
+  "ym": "2026-04",
+  "creation_date": 1776256721,
+  "title": "JavaScript Media Session API: pause works, play doesn&#39;t work",
+  "tags": [
+   "javascript",
+   "google-chrome",
+   "mediasession"
+  ],
+  "score": -3,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to use the Media Session API . That's the playback control in the browser itself: The pause button successfully pauses the sound and the seek bar, but the pause button doesn't turn into a play button for resuming the playback. Tested in Chrome. How can this be fixed? [CODE] [CODE] Warnings for Stack Snippets: Code doesn't seem to run correctly in the Stack Snippets modal dialog when writing a new answer. \"Save & insert into post\" or editing existing posts seems to work. There's only one media control per browser tab. Running several snippets on this SO page might cause them to interfere. Clicking \"Hide results\" or pausing the sound doesn't prevent interference. Reload the page instead, but be careful with unsaved text. Similar but not identical issues: not even init and pause work on Mac? Firefox won't accept complete silence as a workaround → issue (may require GitHub login) → PR → diff inconclusive discussion of the spec (may require GitHub login) → not even init and pause used to work in Chrome no Android notifications ; info not displayed"
+ },
+ {
+  "question_id": 79926197,
+  "ym": "2026-04",
+  "creation_date": 1776275505,
+  "title": "The &lt;map&gt; tag on the image does not work if it is loaded dynamically rather than directly in the HTML code",
+  "tags": [
+   "javascript",
+   "dictionary"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "First of all I produced a simple html file with image mapping: [CODE] then I tried, for web design needs, to use a dynamic construction of the same situation: somewhere in my web page: [code] then executing a JavaScript function: [CODE] In this second case, the behavior is very strange because the [code] link activates only on certain parts of the image and not on others. Let me explain: the mapped area is 0, 0, 100, 100, so a square in the top-left corner, but the pointer and consequently the button click activates between approximately 0 and 50 pixels, while if the pointer moves into the area beyond 50 pixels, the area is no longer active. I tried moving the mapping to different areas of the image and always get the same result: keep in mind that in the upper area (let's say approximately above 50 pixels) everything works, but in the central area of ​​the image there's no way to get it to detect the active area, and in the lower part of the image the clickable area is restored. I really can't explain this behavior. Does anyone have any idea what it could be? Any suggestions on where to look or what to test? I've tried also with [code] and using [code] instead of mapping. The same behavior. It seems that a big central part of the image (a common [code] image) is inactive."
+ },
+ {
+  "question_id": 79926336,
+  "ym": "2026-04",
+  "creation_date": 1776300983,
+  "title": "Resolving imports before sending JS scripts to the browser - is it a good idea and how to do it using Express",
+  "tags": [
+   "javascript",
+   "express",
+   "web",
+   "ecmascript-6",
+   "webserver"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "Say I have a web page with a script that imports from 20 other scripts. I imagine that having to fetch these 20 scripts separately adds more loading time that fetching one giant script. Which leads me to the question : would it be a good idea to \"pre-resolve\" the imports on the server's side, creating a monolithic \"linked\" script (ideally ahead of time) that can be sent to the client in one go ? If not, what would the downsides / issues be ? And if yes, well how do I do that with a NodeJS/Express server ? Are there any packages that already to that ?"
+ },
+ {
+  "question_id": 79926365,
+  "ym": "2026-04",
+  "creation_date": 1776307007,
+  "title": "Character-by-character reveal in multiline text, correct word wrap",
+  "tags": [
+   "javascript",
+   "html"
+  ],
+  "score": -2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm writing an HTML/CSS/JS-only webapp that reveals text character by character. I currently have two elements in the same text box, where the \"ghost text\" determines the final size of the box, and the other progressively reveals via Javascript. The problem I'm encountering is that, at the end of a line, the text often goes past the \"ghost text\" and wraps around abruptly to the next line, which makes it jarring to look at. How would I prevent this while preserving kerning between characters? I've tried to use the Pretext library, but since this is a single-page webapp without Node.js, I can't use that."
+ },
+ {
+  "question_id": 79926504,
+  "ym": "2026-04",
+  "creation_date": 1776329192,
+  "title": "How to improve website loading speed using lazy loading in JavaScript?",
+  "tags": [
+   "javascript",
+   "html",
+   "performance",
+   "lazy-loading"
+  ],
+  "score": 1,
+  "answer_count": 6,
+  "is_answered": true,
+  "body_excerpt": "I have a website and I am trying to improve page load speed. Currently, all images load at once, which slows down the site. I want to implement lazy loading so images only load when visible. Here is a sample of my current HTML: [CODE] What is the best way to implement lazy loading using JavaScript or HTML?"
+ },
+ {
+  "question_id": 79926779,
+  "ym": "2026-04",
+  "creation_date": 1776354936,
+  "title": "On a click eventListener with e.target.name, child element with same name attribute is showing as undefined",
+  "tags": [
+   "javascript",
+   "html"
+  ],
+  "score": 1,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "When I click on the button I get the correct result, but when I click on the icon itself I get [code] . Can someone explain why that happens? Should I use some other attribute instead of [code] for targeting button and icon? [CODE] [CODE]"
+ },
+ {
+  "question_id": 79926795,
+  "ym": "2026-04",
+  "creation_date": 1776356178,
+  "title": "When using the DynamicScroller of vue-virtual-list, there is unexpected gap between sub-list items",
+  "tags": [
+   "javascript",
+   "html",
+   "css",
+   "vue.js",
+   "vuejs3"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Screenshot of actual effect： The abnormal blank space is circled in red。The template and CSS code are as follows: [CODE] [CODE] Format of data source： [CODE] Since I haven't set any padding or margin in CSS, I expect the layout to follow the normal document flow, as shown in the image(The effect without using DynamicScroller)： When I inspected the page structure, I found that the transformY property had been added to each sub-item, and it was precisely this property that caused the gap (because when I manually changed the transformY to 0, the gap disappeared)： All items are 56px in height in this case. I don't know why there is such a transformY, and there are only four elements on the page shown in the image above, yet all the data has been rendered.This is clearly incorrect. I would like to know where I went wrong, as well as the reasons behind the unexpected gaps and incorrect rendering behavior. I would be very grateful if you could help me with this : )"
+ },
+ {
+  "question_id": 79926850,
+  "ym": "2026-04",
+  "creation_date": 1776362106,
+  "title": "What project types best prepare students for real-world software engineering?",
+  "tags": [
+   "javascript",
+   "python",
+   "java"
+  ],
+  "score": 3,
+  "answer_count": 5,
+  "is_answered": true,
+  "body_excerpt": "I am leading a university coding lab where students work in teams on 3-month projects. The goal is to help them become job-ready junior developers by working on problems that reflect real-world engineering challenges. I would like to avoid typical beginner projects and instead focus on systems that teach practical skills. My question is: based on real industry experience, what types of projects or systems provide the most practical learning value for junior developers? I’m especially interested in concrete suggestions or examples that could realistically be scoped into a 2–3 month team project."
+ },
+ {
+  "question_id": 79927032,
+  "ym": "2026-04",
+  "creation_date": 1776393973,
+  "title": "Performance and Compatibility of Rock Pi 4C+ vs Raspberry Pi 4 for Edge AI (YOLO/OCR)",
+  "tags": [
+   "javascript",
+   "python",
+   "c++",
+   "raspberry-pi",
+   "artificial-intelligence"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "Does anyone ever use Rock Pi? Does it function the same as Raspberry Pi? I just found the Rock Pi as an alternative for my final-year project. Is the Rock Pi a good alternative? My project is related to AI edge detection of objects. Will it work properly?"
+ },
+ {
+  "question_id": 79927112,
+  "ym": "2026-04",
+  "creation_date": 1776406865,
+  "title": "Next.js - barrel imports (index.ts re-exports)",
+  "tags": [
+   "javascript",
+   "next.js",
+   "optimization",
+   "bundle",
+   "barrel-import"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "We are working on a large Next.js application and doing a performance audit around barrel imports (index.ts re-exports). From research, barrel files can negatively affect tree-shaking, bundle size, and dev performance, especially in large codebases. However, there are mixed opinions about their usage in smaller modules. In our project: We have many barrel files, especially in backend-related folders at the root level These folders re-export a lot of modules We are not currently using [code] Even if we enable it, it seems it only applies to external packages, not local barrel files Questions: In a large Next.js app, is it recommended to avoid barrel files completely, or just limit them to specific cases? Does Next.js (Webpack/Turbopack) handle tree-shaking of local barrel files well enough, or should we prefer direct imports for performance-critical paths? Are there any plans or existing tools in Next.js to optimize local barrel imports similar to [code] ? What is the recommended pattern for balancing DX vs performance in this case? Would appreciate guidance, especially from real-world experience or Vercel team insights."
+ },
+ {
+  "question_id": 79927209,
+  "ym": "2026-04",
+  "creation_date": 1776415317,
+  "title": "Why doesn’t JavaScript provide a native way to cancel Promise.all when one promise fails?",
+  "tags": [
+   "javascript",
+   "promise"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I’m working with multiple asynchronous operations using [code] : [CODE] from my understanding, if one promise rejects, [code] rejects immediately. However, the other promises continue executing in the background. In some cases I don't want the remaining operations to continue if one fails Is there a built-in or recommended pattern to stop or cancel remaining async operations in this scenario?"
+ },
+ {
+  "question_id": 79927234,
+  "ym": "2026-04",
+  "creation_date": 1776416879,
+  "title": "Using value from column for right clickable menu in table",
+  "tags": [
+   "javascript",
+   "html"
+  ],
+  "score": 0,
+  "answer_count": 10,
+  "is_answered": true,
+  "body_excerpt": "I hope someone can help. I have a 13 column table of members details, using javascript I have a right clickable menu displayable on each row. In one column one, which is hidden, is the record ID number of each member. Is it possible to get the value from this column and use it to show the member details. Ie if the id is 12345 then store it in variable called id-column-one. I have included my code below. Thanks Rob [CODE]"
+ },
+ {
+  "question_id": 79927304,
+  "ym": "2026-04",
+  "creation_date": 1776421712,
+  "title": "How to set dynamic meta tags in a React SPA so they are visible to search engine crawlers?",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "seo",
+   "html-meta"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I’m working on a React-based website where most pages are rendered dynamically. The issue I’m facing is that meta tags like title and description are not being properly indexed by Google for individual pages. Currently, I am using a basic setup without server-side rendering, and all meta tags are static in the main HTML file. Because of this, different pages end up showing the same metadata in search results. What I want to achieve: Unique title and meta description for each page Proper indexing of dynamic pages Better SEO performance for React SPA I have looked into options like React Helmet and Next.js but I’m not sure which approach is best for long-term SEO. Questions: Is React Helmet enough for SEO in 2026, or is SSR (Next.js) required? How does Google handle JavaScript-rendered meta tags now? What is the best scalable approach for SEO in a React-based project? Any practical suggestions or real-world implementations would help."
+ },
+ {
+  "question_id": 79927310,
+  "ym": "2026-04",
+  "creation_date": 1776422189,
+  "title": "Is there any built-in way to determine whether a setTimeout callback has already been executed?",
+  "tags": [
+   "javascript"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "When using [code] , we get back a timer ID that can be used to cancel the timer: [CODE] However, there doesn’t seem to be a built-in way to check whether the timer has already executed or not. I want to know if the timer already run or still pending. Not to get where the list of active timer is stored. like: [CODE]"
+ },
+ {
+  "question_id": 79927321,
+  "ym": "2026-04",
+  "creation_date": 1776423048,
+  "title": "Algolia clone index collections during copy operation",
+  "tags": [
+   "javascript",
+   "collections",
+   "sdk",
+   "clone",
+   "algolia"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I noticed that the copy operation, even wihtout passing scopes, doesn't clone the collections. Is there a way (or workaround) to actually copy the collections configuration? My idea would be to scan all the records for the _collections attribute, then build a map of the collections and call some endpoint to recreate the collections programmatically. I need this because I'll most certainly need to rename all my indexes, and I cannot ask our business to recreate the collections from scratch. It might also be a failsafe in case something goes wrong during some full reindex and we lose data. I'm using the javascript SDK."
+ },
+ {
+  "question_id": 79927394,
+  "ym": "2026-04",
+  "creation_date": 1776430271,
+  "title": "Why Does startTransition Trigger High-Priority Updates and Re-renders Even Without State Changes?",
+  "tags": [
+   "javascript",
+   "reactjs"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I came across the following statement : Calling [code] , even if no updates are triggered inside it , will still cause both a high-priority update and a low-priority update . To check this consider following example: [CODE] Every button click causes a re-render, even though the transition callback is empty. This raises a few questions: Why does a re-render happen if no state updates are triggered inside [code] ? Is this re-render actually a high-priority update , as the statement suggests? If calling [code] still triggers an urgent update, doesn't that kind of defeat the point of it being for low-priority work? The linked blog post is using a custom [code] hook claiming this behavior reflects a high-priority update, but I'm not sure how accurate that is. Can someone explain?"
+ },
+ {
+  "question_id": 79927544,
+  "ym": "2026-04",
+  "creation_date": 1776446471,
+  "title": "Are there security issues with using responseXML property of XMLHttpRequest?",
+  "tags": [
+   "javascript",
+   "security",
+   "xml-parsing",
+   "xmlhttprequest"
+  ],
+  "score": 1,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I am writing JavaScript code that runs in a web browser, retrieves a user-supplied XML file, and gets certain information out of it. I know that XML parsing is a potentially dangerous operation if the XML file is untrusted. My plan was to use the built-in XML parsing that occurs when you use the [code] property of an XMLHttpRequest. However, the information on whether this parsing is protected against such things as XXE attacks and the like is near nonexistent. Is [code] safe to use on untrusted XML? If not, what is?"
+ },
+ {
+  "question_id": 79927799,
+  "ym": "2026-04",
+  "creation_date": 1776498345,
+  "title": "How to prevent re-processing when reading pending entries (ID 0) in Redis stream using XREADGROUP?",
+  "tags": [
+   "javascript",
+   "redis"
+  ],
+  "score": 0,
+  "answer_count": 4,
+  "is_answered": true,
+  "body_excerpt": "I am using Redis Streams with Consumer Groups. I have a consumer running a loop that fetches messages from the Pending Entries List (PEL) using ID [code] before it attempts to read new messages. However, if a message fails to process (or is slow), the [code] is never called. On the next iteration of the loop, [code] returns the same messages again, causing re-processing. [CODE] What is the standard pattern to fetch messages from the Pending Entries List and also prevent the re-processing ?"
+ },
+ {
+  "question_id": 79927800,
+  "ym": "2026-04",
+  "creation_date": 1776498491,
+  "title": "Embedding Javascript into R Shiny Conductor Tour",
+  "tags": [
+   "javascript",
+   "r",
+   "shiny",
+   "conductor"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "This posting is intended to give other users an example of how to use javascript within a Conductor tour within a Shiny app. At the time of writing, the vignette for the Conductor package only says the arguments within new() of onComplete, onCancel, onShow, onHide, onStart, onActive, can contain 'A Javascript code to run' but there are no examples anywhere on what this code might look like. And if you know little to no javascript (as I did) then you end up being stuck for a long time! The code shown below gives one example of what the javascript would look like, and it simply updates an input$ variable of your choice with a value of your choice, that can then be detected by an observeEvent() in the ui.R script/function. In the example, it simply updates input$my_tour_state with either 'true' or 'false', but it could contain either numbers or characters as well. I hope this posting saves others many hours (as I spent) trying to figure out what the javascript would look that would help enable the step that a conductor tour is at to control some of the input widgets. [CODE]"
+ },
+ {
+  "question_id": 79927940,
+  "ym": "2026-04",
+  "creation_date": 1776522749,
+  "title": "Prisma throws &quot;No database host or connection string was set&quot; despite environment variables being configured",
+  "tags": [
+   "javascript",
+   "next.js",
+   "prisma",
+   "neondb"
+  ],
+  "score": -3,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm getting the following error on my Next.js app (deployed on Vercel) when navigating to the \"Add Your Store\" page, which triggers a database operation via Prisma: ``` No database host or connection string was set, and key parameters have default values (host: localhost, user: undefined, db: undefined, password: null). Is an environment variable missing? Alternatively, if you intended to connect with these parameters, please set the host to 'localhost' explicitly. ``` **Stack:** - Next.js (App Router) - Prisma ORM - Neon PostgreSQL (serverless) - Deployed on Vercel **What I've done:** - Set `DATABASE_URL` in Vercel environment variables (using the pooler connection string from Neon) - Set `DATABASE_URL_UNPOOLED` separately for migrations - Ran `prisma migrate deploy` as part of the build command **What I've checked:** - The env variables are defined in Vercel's dashboard under the correct environment (Production/Preview) - `schema.prisma` references `env(\"DATABASE_URL\")` - The error suggests the variable is not being picked up at runtime (`user: undefined`, `db: undefined`) **Question:** Why is Prisma not reading the `DATABASE_URL` at runtime on Vercel, and what's the correct way to ensure the connection string is available to Prisma in a serverless Next.js deployment with Neon PostgreSQL?"
+ },
+ {
+  "question_id": 79927971,
+  "ym": "2026-04",
+  "creation_date": 1776526083,
+  "title": "Adding Multiple Guests to Google Calendar Event via Apps Script and Google Calendar API",
+  "tags": [
+   "javascript",
+   "google-sheets",
+   "google-apps-script",
+   "google-calendar-api"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm inserting or updating events from a Google sheet with the guests' names in one column and their email addresses in another column. For events with multiple guests, the emails and names are separated by commas, i.e. Guest Name Guest Email Leia Organa, Luke Skywalker PrincessLeia@alderaan.gov, justluke@lars_moisture_farm.com Frodo Baggins 9fingersFrodo@hobbiton.shire.me When the script gets to a row with multiple guests, it returns the error: GoogleJsonResponseException: API call to calendar.events.insert failed with error: Invalid attendee email. Here is my script: [CODE] The part that I'm stuck on is: [CODE] I've also created a simplified version of the Google sheet."
+ },
+ {
+  "question_id": 79928037,
+  "ym": "2026-04",
+  "creation_date": 1776535228,
+  "title": "Why does async/await not guarantee execution order when multiple calls are triggered externally?",
+  "tags": [
+   "javascript"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I’m working with an async function like this: [CODE] If I call it sequentially: [CODE] the execution order is predictable. However, if the same function is triggered externally (e.g., user clicks, events, or timers): [CODE] the execution becomes interleaved: [CODE] Why this happens?"
+ }
+]

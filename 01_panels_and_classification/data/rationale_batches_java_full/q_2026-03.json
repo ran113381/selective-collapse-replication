@@ -1,0 +1,1544 @@
+[
+ {
+  "question_id": 79898718,
+  "ym": "2026-03",
+  "creation_date": 1772338748,
+  "title": "Parallel Spring Batch jobs mixing up data",
+  "tags": [
+   "java",
+   "spring",
+   "spring-batch"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am trying to run a separate instance of a Spring Batch job for every file, up to 20 at a time. For some reason, the job is being launched with the same parameters multiple times (same filename + same UUID) even though these are unique. What could be causing the re-use of uuid's and file names? I've created a stripped down job of how im using it to reproduce the issue. This is how I invoke the jobs via main class: [CODE] And here is the job. All it's doing is creating an output file based upon the inputFile name. [CODE] I can confirm that this returns one of each CSV file, there are no duplicates and the File[] array is unique. The problem is, somehow the joblauncher is launching instances with the exact same file name and guid. Here's my output, you can see there are several filenames launched multiple times with the same UUID (ex_13.csv, ex_19.csv). [CODE]"
+ },
+ {
+  "question_id": 79898769,
+  "ym": "2026-03",
+  "creation_date": 1772355920,
+  "title": "Viewpager2 (Horizontal and vertikal) doesn&#39;t refresh the view when calling notifyDataSetChanged()",
+  "tags": [
+   "java",
+   "android",
+   "adapter",
+   "android-adapter",
+   "android-viewpager2"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Helo, I have a Horizontal Aadapter for a ViewPager: [CODE] Inside the HorizontalAdapter I have creating 3 VerticalContainerFragments, which have an inner Vertical Adapter: [CODE] [CODE] The InnverVerticalAdapter has the content with .newInstance() . I want to refresh the InnerVerticalAdapter wlike that: [CODE] But this doesn't work. The VerticalViewPager doesn't refresh. When I try this [CODE] it also doesn't refresh. It has no effect. But why?"
+ },
+ {
+  "question_id": 79898912,
+  "ym": "2026-03",
+  "creation_date": 1772376763,
+  "title": "Oracle, PL/SQL and Java",
+  "tags": [
+   "java",
+   "oracle-database",
+   "jdbc",
+   "plsql"
+  ],
+  "score": 1,
+  "answer_count": 5,
+  "is_answered": true,
+  "body_excerpt": "I’m a PL/SQL developer with strong Oracle experience, interviewing for a role in a Java-based team. They’re happy with my database skills but want me to learn few Java skills before the next round. What core Java and JDBC topics should I focus on for a database-centric role? How deep should I go into OOP concepts? Any quick preparation advice would be appreciated"
+ },
+ {
+  "question_id": 79899234,
+  "ym": "2026-03",
+  "creation_date": 1772433623,
+  "title": "JAVA corretto21 SPRING &quot;javax.net.ssl.SSLPeerUnverifiedException: peer not authenticated&quot;",
+  "tags": [
+   "java",
+   "ssl",
+   "keytool"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I've got a microservices system in Java Spring Boot I create my SSL self-signed key and stores like this way File \"sub.conf\" [CODE] Commands [CODE] Client \"application.yml\" [CODE] Server \"application.yml\" [CODE] It is working good but in deployment logs, between the securing and the message secured, got this exception in server side logs deployment.. wanted to resolve this curious case and understanding something.. \"o.s.security.web.FilterChainProxy : Securing GET /api/utenti/cerca/userid/anonymous o.a.tomcat.util.net.jsse.JSSESupport : Error trying to obtain a certificate from the client [CODE] o.s.security.web.FilterChainProxy : Secured GET /api/utenti/cerca/userid/anonymous\" SECOND SOLUTION (this is not completeley working server-side) if i do like this client yml [CODE] server yml [CODE] I obtain server side these logs and completely not working server spring [CODE] I am following the schemas in SSL::Spring boot : https://docs.spring.io/spring-boot/reference/features/ssl.html#features.ssl DEBUGGING ON WINDOWS WSL SUBSYSTEM THE SOLUTIION #2 (following this guide https://medium.com/@gustavocalcaterra/debugging-yet-another-ssl-tls-error-the-trustanchors-parameter-must-be-non-empty-7dd9cb300f43 ) if i do [CODE] i obtain that \"trustStore type is: pkcs12\" if i do [CODE] i obtain that \"trustStore type is: pkcs12\" And this is very strange, it should gives me jks for one of the twos"
+ },
+ {
+  "question_id": 79899464,
+  "ym": "2026-03",
+  "creation_date": 1772459434,
+  "title": "Initialize a Nested Bean Using Lombok",
+  "tags": [
+   "java",
+   "javabeans",
+   "lombok"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to get Lombok to work on a nested bean class. But every time I get a null pointer exception. My parent bean class is defined as: [CODE] and the nested bean class is: [CODE] Whenever I try to do set a value to nested bean class in my JUnit I get the below error: [CODE] I tried a lot of annotations from Lombok, but nothing worked."
+ },
+ {
+  "question_id": 79899478,
+  "ym": "2026-03",
+  "creation_date": 1772460925,
+  "title": "Mapping boolean to enum with Jackson",
+  "tags": [
+   "java",
+   "jackson-databind"
+  ],
+  "score": 5,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I need to deserialize a boolean YAML field into a enum and vice versa. The two have different names, too. Importantly, there should be only one key for the Java field in the YAML ( [code] ). The enum must not declare a boolean field. The YAML field must keep its boolean type for backward compatibility. MRE: [CODE] [CODE] [CODE] [CODE] Java 8."
+ },
+ {
+  "question_id": 79899589,
+  "ym": "2026-03",
+  "creation_date": 1772471897,
+  "title": "class hierarchy hibernate mapping",
+  "tags": [
+   "java",
+   "hibernate"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm creating the domain class mapping for the following SQL tables: [CODE] I try more. This is the last EntityField class with errors: [CODE] I want to maintain `org_id` in all entities for filtering purposes. I also want to maintain the composite foreign keys in the Java code, but Hibernate is giving me errors: It won't let me map two properties to the same field unless I change `insertable`/`updateable`. Column 'org_id' is duplicated in mapping for entity If I change `insertable`/`updateable`, Hibernate won't let me include `@JoinColumn` within a `@JoinColumns` with a different `insertable`/`updateable`. Column mappings for property 'org' mix insertable with 'insertable=false' Hibernate won't annotate a class property with `@TenantId`. I don't know exactly how to perform this mapping. I don't think it's an unusual use case."
+ },
+ {
+  "question_id": 79899679,
+  "ym": "2026-03",
+  "creation_date": 1772480725,
+  "title": "Why is Intellij&#39;s editor not recognizing standard JSP tags?",
+  "tags": [
+   "java",
+   "jsp",
+   "intellij-idea"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "The project runs fine when I deploy it to Tomcat. The problem is the editor: it flags the taglib URL, and the \"if\" tag, like it's never heard of them. This is a project that I've been working on for a long time; I'm pretty sure it's not a problem with the project, but with the IDE settings. I must have changed something, but I have no idea what. If it was just changing the color, I could live with that, but now I can't use code completion for tag names or attributes. Cannot resolve taglib with uri http://java.sun.com/jsp/jstl/core"
+ },
+ {
+  "question_id": 79899836,
+  "ym": "2026-03",
+  "creation_date": 1772506956,
+  "title": "Why does Java byte[] to int/int to byte[] need operation &quot;&amp;0xFF&quot;",
+  "tags": [
+   "java",
+   "type-conversion",
+   "integer",
+   "byte",
+   "sign-extension"
+  ],
+  "score": 11,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I am trying to convert from [code] to [code] , and int to [code] . But why does java need the operation of [code] thing? Because, you know, in bit level, when you are doing [code] , the bit 0 is still 0, 1 is still 1. Why? [CODE]"
+ },
+ {
+  "question_id": 79899931,
+  "ym": "2026-03",
+  "creation_date": 1772523471,
+  "title": "How to fix ElementClickInterceptedException in Selenium Java",
+  "tags": [
+   "java",
+   "selenium-webdriver",
+   "webdriverwait",
+   "selenium-java"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am currently learning test automation using Selenium with Java. While working on web element testing, I attempted to use the [code] within my test script to scroll the webpage to a specific [code] before interacting with it. However, during execution, I encountered an [code] . I am unsure where the issue originates. To support reusability and cleaner test scripts, I created a utility package that defines common functionalities such as scrolling and element interactions, which I then use across my test classes. I would appreciate guidance in identifying the root cause of this exception and understanding what might be going wrong in my implementation. [CODE]"
+ },
+ {
+  "question_id": 79900129,
+  "ym": "2026-03",
+  "creation_date": 1772540587,
+  "title": "Should I implement UserDetails directly in my User entity or create a separate UserPrincipal class in Spring Security?",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "spring-security",
+   "spring-data-jpa"
+  ],
+  "score": 0,
+  "answer_count": 6,
+  "is_answered": true,
+  "body_excerpt": "I am building a Spring Boot application with Spring Security and JPA. I have seen two approaches for implementing [code] and I am confused about which one to use and why. Approach 1: [CODE] Approach 2: [CODE]"
+ },
+ {
+  "question_id": 79900251,
+  "ym": "2026-03",
+  "creation_date": 1772553455,
+  "title": "Ways to implement sniffy for junit 6",
+  "tags": [
+   "java",
+   "junit",
+   "sniffy"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "When setting up connection testing with JUnit as descibed in the docs, I get the error that @Rule can't be resolved to a type, and from what I've gathered off of the internet, @Rule is no longer a thing for JUnit 5 or 6. I wonder if there's a way to implement sniffy's JUnit testing for newer JUnit versions that don't have @Rule? [CODE]"
+ },
+ {
+  "question_id": 79900287,
+  "ym": "2026-03",
+  "creation_date": 1772555981,
+  "title": "Exclude validation for classes from the package",
+  "tags": [
+   "java",
+   "pmd"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Use PMD 7.22.0 Need to exclude classes from packages and nested packages from the TooManyFields check. Example: [code] The solution from this answer did not work: https://stackoverflow.com/a/68502378/17965846 It looks something like this: [CODE] UPD: Since my question is closed, I will write an answer here. Thanks to @somil-jain answer, the following solution works: [CODE]"
+ },
+ {
+  "question_id": 79900343,
+  "ym": "2026-03",
+  "creation_date": 1772560496,
+  "title": "What is the difference between transaction isolation levels and optimistic/pessimistic concurrency control?",
+  "tags": [
+   "java",
+   "spring",
+   "database",
+   "hibernate",
+   "jpa"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I’m currently learning the basics of database transactions, and I’ve started studying concurrency control. However, I’m struggling to clearly understand the difference between transaction isolation levels and optimistic/pessimistic concurrency control strategies. From what I understand, depending on the isolation level selected (e.g., Read Committed, Repeatable Read, Serializable), different types of locking might be applied to prevent concurrency problems between transactions. At the same time, there are optimistic and pessimistic concurrency control strategies, which also seem to define different approaches to locking and conflict handling. This is where my confusion begins: Are transaction isolation levels and optimistic/pessimistic concurrency control fundamentally different concepts? Are they just different ways of managing concurrency? Or are they complementary concepts, where one operates at a different abstraction level than the other? For example, if I select a specific isolation level, does that already imply a certain concurrency control strategy? Or can optimistic/pessimistic control still be applied independently of the isolation level? I would really appreciate a conceptual clarification on how these ideas relate to each other. Thanks in advance, and apologies if this is a somewhat basic question."
+ },
+ {
+  "question_id": 79900408,
+  "ym": "2026-03",
+  "creation_date": 1772568595,
+  "title": "I&#39;m trying to zoom in on the user&#39;s location but it doesn&#39;t work",
+  "tags": [
+   "java",
+   "android",
+   "openstreetmap",
+   "osmdroid"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "It's for a school project. No matter how much i've tried changing the value or the command it just loads the map and move only a little bit (not even zooming) it's suppoesd to be a running app that tracks your location at real time , it's not really neccesery but i want it to zoom in on the user's location when he opens the map [CODE]"
+ },
+ {
+  "question_id": 79900413,
+  "ym": "2026-03",
+  "creation_date": 1772569729,
+  "title": "Can client application be strict FIPS compliant (FIPS 140-3)?",
+  "tags": [
+   "java",
+   "c++",
+   "security",
+   "fips"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I’m looking into understanding FIPS 140-3 compliance of following clients: Java clients using BouncyCastle FIPS Provider and BouncyCastleJSSE Provider Openssl client using OpenSSL fips provider. In my Java application, Jar Dependencies : log4j-core-2.17.1.jar log4j-api-2.17.1.jar jackson-annotations-2.13.4.jar jackson-core-2.13.4.jar jackson-databind-2.13.4.2.jar bc-fips-2.1.0.jar bcpkix-fips-2.1.10.jar bctls-fips-2.1.22.jar bcutil-fips-2.1.5.jar log4j-jul-2.25.3.jar Set following properties: [CODE] Code Excerpts: [CODE] Variables all indicate BCFIPS/BCJSSE provider classes: [CODE] ClientHello Wireshark trace : Given below Wireshark trace from ClientHello, Can I presume my Java client is in strict FIPS mode ? [CODE] For C++ client, Modified openssl configuration to use fips & base provider. Wireshark trace from openssl s_client (OpenSSL fips provider) seems to have TLS_RSA_WITH-XXX cipher suites, which if I'm not mistaken are non-FIPS compliant suites. [CODE] Both the clients seem to have different list of ciphers/named groups/sig alg. I see algorithms that are FIPS compliant but is there a notion that clients can be strict FIPS 140-3 compliant? Appreciate any help related to this. Thanks"
+ },
+ {
+  "question_id": 79900444,
+  "ym": "2026-03",
+  "creation_date": 1772573150,
+  "title": "Java.awt and itext.FontFactory font refactoring: What&#39;s the best way to refactor a large code base to a new font?",
+  "tags": [
+   "java",
+   "itext",
+   "awt"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am working with a large legacy application. Throughout the application, there are calls to generate PDFs with iText, or to generate text headers for charts etc. which utilize java.awt.Font to load the proper font. Previously this was always run on Windows servers, but now we're putting the application on Linux servers, and ideally it would look the same regardless of the operating system. I've selected a series of replacement fonts that we can use on both operating systems, but I'm a bit stumped on the best way to implement this \"refactoring\". For iText, I'm fine just manually updating them by hand, since there are fewer places it's used. Unfortunately the java.awt.Font issue is messier to resolve because it's all over the place. My plan originally, was that I was hoping I could add the fonts to the java.awt at runtime (which I have done successfully already), and then reassociate the old font family names to the new fonts. Basically, when my application code says [code] I'd like it to render as if it said, [code] . When I manually update those locations like that, it does render with the new font, but again, manually updating all of those locations throughout the code, or even tool assisted with AI would be kind of a nightmare to do/human review. Can anyone help give me guidance on a better methods? I'm open to looking into doing java font config file editing if it's a good "
+ },
+ {
+  "question_id": 79900574,
+  "ym": "2026-03",
+  "creation_date": 1772593267,
+  "title": "How to use XmlAdapter correctly?",
+  "tags": [
+   "java",
+   "xml"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Recently I need to convert Java objects into XML file format, but directly using JAXB to convert Java objects does not meet my needs. Through researching, I found that XmlAdapter can be used to customize XML, but I do not know how to use XmlAdapter correctly to achieve my requirements. The effect I am expecting: [CODE] But the effect after running like this: [CODE] Here is my source code, in Java 8. Here is my target class. [CODE] Here is my origin class. [CODE] Here is my adapter class. [CODE] Here is my [code] class. [CODE] These four classes are all in the same package. If I delete the [code] on the Root class, it will return [code] when running."
+ },
+ {
+  "question_id": 79900628,
+  "ym": "2026-03",
+  "creation_date": 1772605294,
+  "title": "Java 17 for Hadoop and Java 24",
+  "tags": [
+   "java",
+   "hadoop"
+  ],
+  "score": 0,
+  "answer_count": 5,
+  "is_answered": true,
+  "body_excerpt": "I currently have Java 24 installed on my system and I use it for my personal projects. However, for my college work with Hadoop, I need to run it on Java 17. How can I set up Hadoop to use Java 17 without uninstalling or removing Java 24 from my system?"
+ },
+ {
+  "question_id": 79900761,
+  "ym": "2026-03",
+  "creation_date": 1772620142,
+  "title": "Coding minecraft plugin with java",
+  "tags": [
+   "java",
+   "plugins",
+   "editor",
+   "minecraft"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I wanted to make a minecraft plugin but i don't have any idea about how... Do you have any suggestions about editors and library? Also some tutorials to watch or guides for start from 0, maybe some bases or suggestions... Thank u, Tommy"
+ },
+ {
+  "question_id": 79900825,
+  "ym": "2026-03",
+  "creation_date": 1772626946,
+  "title": "How to build strong fundamentals of programming without using AI",
+  "tags": [
+   "python",
+   "java"
+  ],
+  "score": 18,
+  "answer_count": 22,
+  "is_answered": true,
+  "body_excerpt": "I am currently learning programming and I want to build strong fundamentals in subjects like logic building, problem solving, and understanding how programs actually work. However, I have noticed that many learners today rely heavily on AI tools to generate code or solve problems, which sometimes prevents them from fully understanding the concepts themselves. Because of this, I would like to know how a beginner can develop solid programming fundamentals without depending on AI tools. I am interested in learning effective methods such as practice strategies, learning resources, or study approaches that help improve programming logic and conceptual understanding. What are some recommended ways to learn programming deeply and build strong fundamentals while avoiding reliance on AI-generated solutions?"
+ },
+ {
+  "question_id": 79900831,
+  "ym": "2026-03",
+  "creation_date": 1772627595,
+  "title": "Change height of ItemDisplay customName",
+  "tags": [
+   "java",
+   "minecraft"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Is there a way to change the height of the customName from an ItemDisplay Entity? Right now the customName of the ItemDisplay is right in the displayName of my player. My current code: [CODE]"
+ },
+ {
+  "question_id": 79900916,
+  "ym": "2026-03",
+  "creation_date": 1772632818,
+  "title": "How to programmatically get the GPU core count in Java?",
+  "tags": [
+   "java"
+  ],
+  "score": 0,
+  "answer_count": 4,
+  "is_answered": false,
+  "body_excerpt": "I am developing a Java application where I need to detect hardware capabilities for performance optimization. While getting the CPU core count is straightforward using [code] , I cannot find a built-in way to get the number of GPU cores . My requirements: Get the total number of GPU cores (compute units). (Optional) Identify the GPU model name. The solution should ideally work on Windows and Linux. What I've considered: JNI/JNA: I know I can call native C++ libraries, but I'm looking for a more \"Java-centric\" or existing library approach. LWJGL / JOGL: These libraries are great for rendering, but is there a way to extract core counts without initializing a full OpenGL/Vulkan context? OpenCL (JOCL): I suspect this might be the way, but I’m not sure how to query the core count specifically. Is there a standard library or a lightweight wrapper that provides this information? Or is executing a CLI command (like [code] ) and parsing the output the only reliable way?"
+ },
+ {
+  "question_id": 79901008,
+  "ym": "2026-03",
+  "creation_date": 1772639830,
+  "title": "Design billing system microservices communication",
+  "tags": [
+   "java",
+   "spring",
+   "rest",
+   "architecture",
+   "microservices"
+  ],
+  "score": 0,
+  "answer_count": 4,
+  "is_answered": false,
+  "body_excerpt": "I have the following design for billing platform: I'm facing the following question for to implementing the communication between microservices. Microservice 1 is used to configure users, billing params, chargers and etc. using React FE. Microservice 2 is used as a billing engine. It should make API calls to get configured data(users, billing period, charges and etc.) from microservice 1. How should I implement the API into microservice 1? Should I merge public API and private API or I should keep them separated? Both APIs should make SQL queries(call Spring Data JPA repositories and etc.) Some code will be duplicated like DTO business logic and etc. What approach should be used to make the microservices as flexible as possible? Public API - used by React FE to configure users, list users into table, list and edit billing products. Private API - get all users, Get all products, get all billing periods and etc."
+ },
+ {
+  "question_id": 79901102,
+  "ym": "2026-03",
+  "creation_date": 1772648948,
+  "title": "What is the purpose of springdoc.group-configs[_].display-name if Swagger UI derives the group display name from SwaggerUrl instead",
+  "tags": [
+   "java",
+   "swagger",
+   "openapi",
+   "springdoc",
+   "springdoc-openapi-ui"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to understand the relationship between groups and URLs in Springdoc. For example, we might have the following Springdoc configuration: [CODE] I do not understand the purpose of [code] if it is not used anywhere. Where is it supposed to be displayed? In the UI, another property appears to control this. Specifically, [code] objects are used to construct the group's [code] in the UI. The following excerpt from [code] illustrates this: [CODE] As a result, the final display name is simply the name of the URL (\"randomName\" instaead of \"MyApp API\") , that is, [code] , unless a general display name for all URLs is set. This behavior seems unusual because there is only a single [code] property for all URLs, which means it cannot be configured individually for each one. So, what is the purpose of the property [code] , and where is it actually used or displayed, given that the Swagger UI appears to derive the group display name from [code] configuration instead? More generally, what is the relation between URLs and Groups?"
+ },
+ {
+  "question_id": 79901461,
+  "ym": "2026-03",
+  "creation_date": 1772704787,
+  "title": "Redirect all user interactions from one component to another",
+  "tags": [
+   "java",
+   "swing",
+   "event-handling",
+   "mouseevent"
+  ],
+  "score": 0,
+  "answer_count": 4,
+  "is_answered": true,
+  "body_excerpt": "I need to interact with one [code] through another as if I interacted directly with target. This would enable interaction with scaled image of components which would be cheaper to rescale than rebuilding and repainting all original components. Originally I made a testing setup from 2 frames, but anticipating the problems, reduced it to minimal reproducible example of my problem: single [code] with a button that prints \"Hello world!\". Button must be programmatically pressed and released which should call its action. [CODE] Expected output: [CODE] Actual output doesn't contain [code] lines, but button works with real cursor and spacebar presses. Obviously something is wrong with dispatched events or doing it with such events at all. How to possibly implement interactive scaled image of a selected component? Graphics are figured out, but passing raw interactions seems impossible at present time. Update: as I understand [code] class could be used to interact with visible part of GUI, which is not this case, because target wrapper could be child of a viewport which could make some of its area inaccessible for user interaction."
+ },
+ {
+  "question_id": 79901466,
+  "ym": "2026-03",
+  "creation_date": 1772705217,
+  "title": "Is there a Java tool that increases the project version in pom.xml with each commit or push?",
+  "tags": [
+   "java",
+   "git",
+   "pom.xml"
+  ],
+  "score": 1,
+  "answer_count": 6,
+  "is_answered": true,
+  "body_excerpt": "Let's say the project has the following versioning system: \"X.X.X\" , where the first digit represents the major version of the project, the second digit represents the minor version, and the third digit represents the patch. I would like to increment the patch number in the \"pom.xml\" file every time a commit or push is made. Example: Initial version of the project: 1.0.0\" Created a \"README.md\" file -> Made a commit -> The project version is now \"1.0.1\" Wrote tests -> Made a commit -> The project version is now \"1.0.2\" Went through the linter throughout the project -> The project version is now \"1.0.3\" Deleted an unused directory -> The project version is now \"1.0.4\" and so on. Here please tell me, is there already such a tool that solves this task?"
+ },
+ {
+  "question_id": 79901484,
+  "ym": "2026-03",
+  "creation_date": 1772707462,
+  "title": ".yaml not added to group URL",
+  "tags": [
+   "java",
+   "swagger",
+   "openapi",
+   "springdoc",
+   "springdoc-openapi-ui"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "When I change the property [code] to contain the [code] extension, for example [code] , I expect the URLs of the defined groups to include it as well. For example, with the following properties: [CODE] After opening Swagger UI, I expect a request to be made to fetch [code] . However, the request is made to [code] which results in an [code] error. When I manually access [code] , the API file is downloaded. Why is the [code] extension not added even thought it is included in the property? Is this the intended behavior? If so, how can it be included?"
+ },
+ {
+  "question_id": 79901537,
+  "ym": "2026-03",
+  "creation_date": 1772711914,
+  "title": "incompatible types: unexpected return value, void cannot be converted to int",
+  "tags": [
+   "java",
+   "arrays",
+   "find",
+   "position",
+   "element"
+  ],
+  "score": 1,
+  "answer_count": 5,
+  "is_answered": true,
+  "body_excerpt": "Return keyword doesnot supported by vs code while written java programif at the place of return keyword we used system.out.println program are run but I want to run program by the help of return keyword and other issues arise when I am declared an new int value index index variable are used to hd the value of Linear search here arise error"
+ },
+ {
+  "question_id": 79901563,
+  "ym": "2026-03",
+  "creation_date": 1772713585,
+  "title": "CardLayout calculates wrong minimum size",
+  "tags": [
+   "java",
+   "swing"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "[code] for some reason calculates the minimum width regardless of which component is showing. See [code] . Steps to reproduce: Maximize the window. Switch the left component to the pink one (it's narrower). Restore the window. Bam — the divider is positioned in a weird place, as if the wider component is shown. This GUI mimics the actual layout in our app. It has a split pane, its left component is dynamically changed with the help of [code] (which seems to be the most appropriate layout in this case). The container has two components whose sizes vary greatly. The divider location should reflect that (while still being enabled). How do I work-around this issue? MRE: [CODE] Overriding works, but it doesn't feel right. Also, it's not easily applicable in the real app since we use Swing UI Designer GUI forms (we shouldn't, but we do). [CODE] Java 8."
+ },
+ {
+  "question_id": 79901600,
+  "ym": "2026-03",
+  "creation_date": 1772716809,
+  "title": "Why does Apache PDFBox use SHA-1? Is it still secure?",
+  "tags": [
+   "java",
+   "pdfbox",
+   "sha1"
+  ],
+  "score": 0,
+  "answer_count": 9,
+  "is_answered": true,
+  "body_excerpt": "I noticed that Apache PDFBox is using SHA-1 in some parts of its implementation (for example via MessageDigest.getInstance(\"SHA1\")). Since SHA-1 is considered deprecated and insecure for cryptographic purposes, I’m wondering: Why does PDFBox still use SHA-1? Is it used for digital signatures or just internal hashing? Is this safe in a production environment? Should I override it to use SHA-256 instead? For context, I am using PDFBox for digital signing. A security scanner flagged SHA-1 as a weak algorithm, so I want to understand whether this is a real security risk or just a false positive."
+ },
+ {
+  "question_id": 79901610,
+  "ym": "2026-03",
+  "creation_date": 1772717479,
+  "title": "MongoDb mongoTemplate for multiple databases",
+  "tags": [
+   "java",
+   "spring",
+   "mongodb",
+   "orm"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have 2 databases: test : contains a collection called people which holds documents representing the Person and Author class test2 : contains a collection called somethingElse which holds documents representing the SomethingElse class My issue is that when using an autowired MongoTemplate , I can only interact with the collections held inside of test . Saving a new SomethingElse entity creates the collection and inserts it into the test database. How can I ensure that class SomethingElse documents are only fetched,mapped and saved to/from the test2 database? Below is the code showing how the test data is generated, queried as well as the classes they are being mapped to. MongoConfig.java [CODE] TestData.java [CODE] Test.java [CODE] Person.java [CODE] Author.java [CODE] pom.xml [CODE]"
+ },
+ {
+  "question_id": 79901737,
+  "ym": "2026-03",
+  "creation_date": 1772729020,
+  "title": "At time of creating table in postgresql database without mentioning the schema name. What it will take name of schema?",
+  "tags": [
+   "java",
+   "postgresql",
+   "spring-data-jpa"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "At time of creating table in postgresql database without mentioning the schema name. What it will take as a reference for name of schema?"
+ },
+ {
+  "question_id": 79901805,
+  "ym": "2026-03",
+  "creation_date": 1772737400,
+  "title": "Log4J2 best practice for logging string literals and lamdas for complex operations",
+  "tags": [
+   "java",
+   "performance",
+   "log4j2"
+  ],
+  "score": 1,
+  "answer_count": 7,
+  "is_answered": true,
+  "body_excerpt": "When using Log4J2 what is the best approach, considering performance and readability, for logging the following: Information I have to log: [CODE] Option 1: [CODE] Option 2: [CODE] My assumption is Option 1 and Option 2 have very similar performance even if you increase the number of params. And that Option 2 has reduced readability."
+ },
+ {
+  "question_id": 79901906,
+  "ym": "2026-03",
+  "creation_date": 1772749401,
+  "title": "Losing metrics with the same name and different tags using Otel-java agent, alloy and mimir",
+  "tags": [
+   "java",
+   "grafana",
+   "open-telemetry",
+   "alloy",
+   "grafana-mimir"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am using the OpenTelemetry java agent to read and push micrometer metrics from my Java app to Alloy, and from Alloy onwards onto Mimir, which is then read in grafana. micrometer -> opentel agent -> alloy -> mimir -> grafana I have three metrics: [CODE] They always get incremented in the other incoming -> completed or failed MeterRegistry is injected via spring. I know they are getting incremented correctly and I can see them independently using the prometheus endpoint exposed by spring-boot. However, in Grafana I only get the first, the outcome=incoming metric. The rest seem to get lost. I have other counters that follow the same pattern of having one name multiple tags and they experience the same issue. Only the first one ever registers in grafana. Here is the relevant parts of the alloy config: [CODE] We are using the mimir /otel endpoint. The prometheus endpoint caused a myrriad of other problems. The Alloy logs are empty, and I can see in the alloy graph metrics seem to go through (Which makes sense as clearly the first counter goes through)"
+ },
+ {
+  "question_id": 79902010,
+  "ym": "2026-03",
+  "creation_date": 1772774270,
+  "title": "do layering of spring packages really matters , why cant i just use controller and entity classes in same package",
+  "tags": [
+   "java",
+   "spring-boot",
+   "rest"
+  ],
+  "score": 1,
+  "answer_count": 4,
+  "is_answered": true,
+  "body_excerpt": "i am creating a spring boot application for hospital management in which i was told to use layering and not supposed to use only one package . I want to know what difference does it make and how will it improve my project than it already is"
+ },
+ {
+  "question_id": 79902278,
+  "ym": "2026-03",
+  "creation_date": 1772801410,
+  "title": "Javers Entity referenced by another Entity : displaying changes on ID not properties",
+  "tags": [
+   "java",
+   "javers"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Javers 7.10.0 I have a Javers bean defined as shown below. My domain model classes extend an abstract class called Entity. [CODE] Let’s say I have a class [code] that references [code] . Both [code] and [code] extend [code] . [CODE] A [code] call is made on the [code] entity with a populated [code] object containing a specific [code] . Whenever I update the [code] entity with a different [code] , I would like to see detailed changes for the [code] properties, indicating that [code] changed from [code] to [code] . However, when I query changes on the [code] entity using [code] , I only see that [code] changed from [code] to [code] . [CODE] It works as expected if I declare [code] as an [code] and [code] as a [code] . However, I also need to audit [code] itself and be able to query it independently. I feel like I might be missing something. Do you have any suggestions?"
+ },
+ {
+  "question_id": 79902363,
+  "ym": "2026-03",
+  "creation_date": 1772809851,
+  "title": "Spring MVC Disable request time-out for specific endpoint",
+  "tags": [
+   "java",
+   "spring-boot",
+   "spring-mvc"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Is it possible to disable the request time-out for a specific endpoint? Ihave the following: [CODE] This endpoint renders a whole bunch of images and streams the finished renders back to the frontend. Depending on the amound of images that need to be rendered, this can take longer then 30s which is the default time-out for mvc async requests. Currently, this seems to close the stream automatically after 30s even if there is activity. I would like to allow this stream to be open for longer then the 30s while keeping the time-out for the other endpoints in my api. setting this in application.yaml: [CODE] does remove the timeout but this is global which is what I am trying to avoid"
+ },
+ {
+  "question_id": 79902625,
+  "ym": "2026-03",
+  "creation_date": 1772848475,
+  "title": "what&#39;s the best way to audit oldValues in spring boot?",
+  "tags": [
+   "java",
+   "spring-boot",
+   "hibernate",
+   "jpa",
+   "spring-aop"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I am working on a project where I have to audit some fields, I was going to use hibernate envers, but since it doesn't extend to custom logic, I am now in between using AOP to intercept methods with a custom annotation (@auditable), or Jpa entity listeners with hibernate interceptors or events."
+ },
+ {
+  "question_id": 79902682,
+  "ym": "2026-03",
+  "creation_date": 1772866604,
+  "title": "Oauth 2.0 client authentication flow with Spring with apiKey and apiSecret",
+  "tags": [
+   "java",
+   "spring-boot",
+   "oauth-2.0"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I would like to use the spring framework for client authentication but I have an unusual message format to retrieve the bearer token. The closest is client_secret_post but not quite. Below is the curl call that the application needs to match. curl -H \"Accept: application/json\" -H \"Content-Type: application/x-www-form-urlencoded\" -d 'apiKey={key}&apiSecret={secret}' {url}"
+ },
+ {
+  "question_id": 79902845,
+  "ym": "2026-03",
+  "creation_date": 1772895368,
+  "title": "What exercises improve problem-solving skills in programming?",
+  "tags": [
+   "python",
+   "java",
+   "computer-science"
+  ],
+  "score": 2,
+  "answer_count": 7,
+  "is_answered": true,
+  "body_excerpt": "I am currently learning programming and want to improve my problem-solving ability rather than just memorizing syntax or copying solutions. I understand that strong programming skills come from being able to analyze problems, break them into smaller parts, and design logical solutions. However, I’m not sure what kinds of exercises are most effective for developing this skill. For example, some people recommend solving algorithm problems, while others suggest building small projects or practicing debugging. I’m interested in learning which types of exercises actually help strengthen problem-solving skills for beginners. What kinds of exercises or practice methods are most useful for improving problem-solving ability in programming?"
+ },
+ {
+  "question_id": 79902851,
+  "ym": "2026-03",
+  "creation_date": 1772896351,
+  "title": "the best choice of managing data for my pinterest-like project",
+  "tags": [
+   "java",
+   "database",
+   "postgresql",
+   "mongodb",
+   "pinterest"
+  ],
+  "score": 0,
+  "answer_count": 6,
+  "is_answered": true,
+  "body_excerpt": "I'm building a Pinterest-like web application where users can create boards, save images (pins), and organize them with tags. Each pin has metadata such as title, description, image URoierhthwtL, author, and possibly many comments and likes. The data model includes relationships between users, boards, and pins, but the structure of metadata and tags may evolve over time. I'm deciding between PostgreSQL and MongoDB for storing this data. PostgreSQL would provide strong relational integrity and powerful querying for joins between users, boards, and pins. However, MongoDB might offer more flexibility for storing variable metadata and nested documents (comments, tags,jfwje etc.). ryioyhtrjht For a Pinterest-like workload (many reads, tagging, search, user interactions), which database is generally a better choice and why? Are there scalability or schema design considerations that make one option more suitable than the other? Auffff shq khe4bjt wejn nerntjtr ш4риее"
+ },
+ {
+  "question_id": 79903048,
+  "ym": "2026-03",
+  "creation_date": 1772931830,
+  "title": "How to make debugger in IntelliJ IDE skip Java library classes?",
+  "tags": [
+   "java",
+   "debugging",
+   "intellij-idea"
+  ],
+  "score": 3,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Is there a way to have debugger skip Java libary classes? So it would look only at my code. In settings, I have checked Do Not Step into Classes, and below that checked java.* and javax.* but still when I run in debug mode stepping takes me down a long winding rabbit hole of JRE classes and supporting libraries. And this happens even if I click \"Run to cursor\" with cursor in one of my classes. I'm not optimistic but hoping there is some way... as is it makes stepping nearly useless for me."
+ },
+ {
+  "question_id": 79903203,
+  "ym": "2026-03",
+  "creation_date": 1772966296,
+  "title": "Optimization of an OSM-file parser",
+  "tags": [
+   "java",
+   "parsing",
+   "xml-parsing",
+   "openstreetmap"
+  ],
+  "score": 1,
+  "answer_count": 4,
+  "is_answered": true,
+  "body_excerpt": "I need to code a parser that can parse OSM-files and I was wondering how to optimize it in terms of performance and readability. I have here two versions of basically the same parser. One homemade and the other using java own XML-parser. Can someone help me? Thanks a million in advance. [CODE]"
+ },
+ {
+  "question_id": 79903370,
+  "ym": "2026-03",
+  "creation_date": 1772992414,
+  "title": "When processingOver is true, what invariants hold?",
+  "tags": [
+   "java",
+   "annotation-processing"
+  ],
+  "score": 3,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "In Java annotation processing, is the following invariant valid, where [code] is the first argument to [code] and [code] is the second argument? [CODE]"
+ },
+ {
+  "question_id": 79903394,
+  "ym": "2026-03",
+  "creation_date": 1772995176,
+  "title": "What does it mean for an annotation processor to &quot;claim&quot; the empty set of annotations?",
+  "tags": [
+   "java",
+   "annotation-processing"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "The documentation says that if a processor claims a set of annotations, no other annotation processors will be asked to process the set. But it seems that the final round of annotation processing (a) always happens for any processor that has been asked to process before and (b) always has an empty set of annotations. Doesn't this violate the specification? Suppose processor 1 claims the empty set by returning [code] from its [code] method when its [code] argument is empty. According to the documentation, \"subsequent processors will not be asked to process\" the (empty in this case) set. But they are. Am I missing something? Does the specification hold for only situations where [code] returns [code] ?"
+ },
+ {
+  "question_id": 79903430,
+  "ym": "2026-03",
+  "creation_date": 1772999052,
+  "title": "In annotation processing, why does a processor process a file it has generated, even when that file is not annotated with a supported annotation?",
+  "tags": [
+   "java",
+   "annotation-processing"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I would like to understand this annotation processing behavior. Specifically, I have a question about round 2 in the scenario below. (Then I have a small follow-on question about compiler behavior.) Suppose my very simple processor, p0 , supports an annotation [code] . Suppose it is invoked in round 1 with a [code] annotated with [code] . Suppose as a result it generates a simple Java source file that results in a compiler warning. For example: [CODE] There are no other processors. I notice that (not including virtual round zero) there are three rounds of annotation processing. (I was naïvely expecting two.) Here is what happens in the rounds, and I'm trying to understand this behavior in its entirety: (Primordial: \"virtual\" round 0 happens, yielding some root elements. I understand this.) I understand round 1 of 3: the set of annotations is [code] as expected ( [code] is found on the thing it annotates) the set of root elements (from round 0) is a superset of the set of the annotated type element, as expected (there are other things being compiled) [code] returns the appropriate [code] , as expected ( p0 generates [code] .) Round 2 of 3 surprised me: p0 is asked to process again before processing is over, even though there is nothing else annotated with [code] , including [code] : the set of annotations is empty the set of root elements is exactly [code] (the file just written"
+ },
+ {
+  "question_id": 79903438,
+  "ym": "2026-03",
+  "creation_date": 1772999528,
+  "title": "How can I make a jackpot slot in android studio",
+  "tags": [
+   "java",
+   "arrays",
+   "button",
+   "random",
+   "android-button"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I thought I would make a button event that changes the imageview url, but the setImageResource method is somehow doesn't allow putting string. that made me sad :( how can i do this? [CODE] [CODE]"
+ },
+ {
+  "question_id": 79903681,
+  "ym": "2026-03",
+  "creation_date": 1773042400,
+  "title": "How to Create a Composite Index on Multiple Columns in GridDB Using Java API?",
+  "tags": [
+   "java",
+   "griddb"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am working on a GridDB time-series container with columns timestamp (TIMESTAMP) and sensor_id (STRING). I want to optimize the performance of a TQL query that filters on both columns: #code [CODE] I attempted to create individual indexes, but the query performance remains suboptimal. #code [CODE] Specific Questions: How can I create a composite index on both timestamp and sensor_id using the Java API? How do I verify that the composite index is being utilized during TQL query execution? Additional Context: The GridDB Java API documentation mentions createIndex but does not clarify if composite indexes are supported or how to define them."
+ },
+ {
+  "question_id": 79903786,
+  "ym": "2026-03",
+  "creation_date": 1773051538,
+  "title": "Android OpenGL ES 3.0: SIGSEGV in libGLESv2_adreno.so during texture type switching (2D &amp; OES) after long-running sessions",
+  "tags": [
+   "java",
+   "android",
+   "opengl-es",
+   "opengl-es-3.0"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Problem Description I am experiencing a native crash ( [code] ) on an Android device (Qualcomm Adreno GPU) when rendering stickers using OpenGL ES 3.0. The crash occurs inside the Adreno driver ( [code] ) during a draw call. I recently refactored my rendering code to use Vertex Array Objects (VAO) and Vertex Buffer Objects (VBO) to improve performance by reducing CPU-to-GPU command overhead. I am using OpenGL ES 3.0 to render a mix of standard 2D textures and ExternalOES (Camera/Video) textures in a high-frequency render loop. To optimize performance, I implemented Vertex Array Objects (VAO) and VBOs. The application runs smoothly for 1 to 2 hours, but eventually, it crashes with a native SIGSEGV inside the Adreno GPU driver. The Crash Log The crash happens on the GL thread. Here is the relevant backtrace: [CODE] my code: [CODE] [CODE] What I've Checked Memory: No obvious Java-side memory leak. Context: All calls are strictly on the same GL thread and EGL context. Buffers: VBOs are initialized with GL_STATIC_DRAW and are not updated or deleted during the session. Questions Is there a known issue in Adreno drivers where switching between SAMPLER_2D and SAMPLER_EXTERNAL_OES while a VAO is bound leads to internal state corruption or memory leaks in the driver? Should I be calling glBindVertexArray(0) and re-binding it every time I change the glUseProgram or texture target to \"flus"
+ },
+ {
+  "question_id": 79904254,
+  "ym": "2026-03",
+  "creation_date": 1773111574,
+  "title": "Testing if a dialog is pop-up with Playwright for Java",
+  "tags": [
+   "javascript",
+   "java",
+   "integration-testing",
+   "playwright"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have a question about dialog in Playwright Java. My understanding is that you can handle dialog through [code] . But they are not suitable for testing if a dialog is not displayed when you trigger a button or similar. For example, the code that I have tried: [CODE] … doesn't handle if the dialog has never displayed. Would be nice if there is an easy [code] method for fully testing as if the dialog is either displayed or not. Reference: Dialogs | Playwright Java Events | Playwright Java"
+ },
+ {
+  "question_id": 79904264,
+  "ym": "2026-03",
+  "creation_date": 1773112839,
+  "title": "Java HttpClient proxy authentication failing to call getPasswordAuthentication() but still returning status code 407",
+  "tags": [
+   "java",
+   "http",
+   "proxy",
+   "java-http-client"
+  ],
+  "score": 3,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I had code that was using the old [code] class to make calls to a web API. I was trying to convert that code to use [code] instead so that I could make a PATCH call, as the old Java HTTP classes do not support PATCH. I am also behind a proxy, and with my old code, I never had to authenticate to the proxy or do anything special for it because I set the property [code] to true. However, that seems to have no effect when using [code] . Thus, I attempted to follow multiple tutorials on setting up proxy authentication with [code] , but no matter what I do, I cannot get it to actually use the [code] (the [code] method is never called), and it still returns a 407 status code. This is the simple code that I am running that will not make it past the proxy server: [CODE] Is there something I am missing that is causing it not to be able to authenticate to the proxy? Some other questions suggested setting [code] but that seemed to have no effect. Calling the [code] method on the only proxy that the selector can find returns this: [code] . Nothing from here seemed to help. To more clearly delineate what I meant by the last sentence that nothing from this question ( Proxy Authentication with JDK 11 HttpClient ) seemed to help, here is the breakdown of what I tried on that: The first answer to that question said that you have to set the \"Proxy-Authorization\" header on the request. This is som"
+ },
+ {
+  "question_id": 79904411,
+  "ym": "2026-03",
+  "creation_date": 1773133124,
+  "title": "Need help in developing Multi-user Blog platform using java full stack",
+  "tags": [
+   "java",
+   "spring-boot",
+   "web",
+   "deployment"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I need help designing a Multi-User Blog Platform using Spring Boot and React or with HTML, CSS, and JavaScript. What basic modules should I implement? What should be my first step to start the project? What Tech stacks should I have to work with??"
+ },
+ {
+  "question_id": 79904516,
+  "ym": "2026-03",
+  "creation_date": 1773143430,
+  "title": "Spring boot structured logging issue",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "logging"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Current spring implementation of structured logging with ECS format creates object \"service\" with fields: [CODE] I would like to add field \"id\" to the service object, but trying to do that with the StructuredLoggingJsonMembersCustomizer results in: [code]"
+ },
+ {
+  "question_id": 79904555,
+  "ym": "2026-03",
+  "creation_date": 1773146919,
+  "title": "Failed kotlin compilation in submodule",
+  "tags": [
+   "java",
+   "kotlin",
+   "maven"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a multi module project. All working fine with java 8 and kotlin 2.3.0. I want to upgrade java up to 21. After upgrading java kotlin compilatin failing in one of submodules. But in another submodule compiled successfully. In parent POM kotlin-maven-plugin config: [CODE] maven-compiler-plugin: [CODE] In problematic submodule no overriding by other plugins, only this: [CODE] In successful submodule: [CODE] Kotlin compilation failed with many erros in problematic submodule, for example: \"Unresolved reference 'toInstant'. (java.util.Date().toInstant)\" \"Argument type mismatch: actual type is '(Mutable)List!', but '(Mutable)List!' was expected.\" \"Unresolved reference 'isAfter'\" Any suggestions? I tried to completely copy the plugin configuration from the parent POM, still not working. [CODE]"
+ },
+ {
+  "question_id": 79904572,
+  "ym": "2026-03",
+  "creation_date": 1773148153,
+  "title": "Installing GitHub project with JitPack + Maven",
+  "tags": [
+   "java",
+   "maven",
+   "github",
+   "jitpack"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I want to [code] a project from a public GitHub repository. I could clone and install it. However, I want to do it in one go with JitPack without storing sources locally. Example project . My attempt: [CODE] Result: [CODE] Passing a repo id doesn't change anything. [CODE] Maven 3.9.6. Java 8."
+ },
+ {
+  "question_id": 79904588,
+  "ym": "2026-03",
+  "creation_date": 1773149289,
+  "title": "Error with symbol not found: &quot;Method onConstructor_()&quot;",
+  "tags": [
+   "java",
+   "spring-boot",
+   "lombok"
+  ],
+  "score": 4,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Consider: [CODE] I used this @AllArgsConstructor Lombok annotation in my class repository during Spring Boot work. [CODE]"
+ },
+ {
+  "question_id": 79904594,
+  "ym": "2026-03",
+  "creation_date": 1773149780,
+  "title": "Unable to click &#39;Apply&#39; and &#39;Interested&#39; buttons on Nokri.com job pages; chatbot overlay not visible after clicking button",
+  "tags": [
+   "java",
+   "html",
+   "selenium-webdriver"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am automating job applications on Naukri.com using Selenium WebDriver in Java. My code successfully navigates to the job page and opens the job details, but I am unable to click on the 'Apply' or 'Interested' buttons. The buttons exist on the page, but Selenium throws [code] or the click does nothing. I have tried the following: Using [code] and [code] . Scrolling the element into view with [code] . Using Actions class to move to the element. Clicking via JavaScript: [code] Here is the relevant snippet: [CODE] Sometimes a chatbot overlay appears, which might block the button. I am not sure how to reliably handle it. Question: How can I reliably click the 'Apply' or 'Interested' buttons on Naukri.com job pages using Selenium Java, even if overlays like chatbots appear? [CODE]"
+ },
+ {
+  "question_id": 79905138,
+  "ym": "2026-03",
+  "creation_date": 1773215082,
+  "title": "What is an Interface in Java?",
+  "tags": [
+   "java",
+   "interface"
+  ],
+  "score": 0,
+  "answer_count": 21,
+  "is_answered": true,
+  "body_excerpt": "i am currently lost. I am learning Java at school and we have a Project in which a group needs to explain a certain thing in Java. Mine is Interfaces. I am trying to research on what exactly Interfaces now are but i dont see any use cases in which it would be good to use let alone im questioning if i understand it correctly. Could anybody explain what exactly an Interface is and how i use it efficiently? Currently i know that it just gives methods to the class which implements the Interface but i dont see a use case for it due to the Method just being empty. You need to override it either way so why go through all this trouble to make an Interface if you just give the interface implementing class the Method anyway? I do apologize for my bad english, its not my first Language and im not that familiar with gramatically correct writing. Cheers"
+ },
+ {
+  "question_id": 79905242,
+  "ym": "2026-03",
+  "creation_date": 1773222093,
+  "title": "How to change the user that registers CUPS as a job requester from the Java Print API?",
+  "tags": [
+   "java",
+   "java-8",
+   "cups",
+   "ipp-protocol",
+   "cups4j"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm using the Java printing API [1] to print to a printer using CUPS. We are using Java 8 for Java client and CUPS 2.2.6. The Java process is on the same server as the CUPS daemon where all printers are registered. The current problem I'm facing is that I can't change the user requesting the print job who is registered in CUPS. More specifically, I can't change the value in the second column returned by the following command: [code] From the Java API, I'm specifying the [code] [3] attribute (ipp: requesting-user-name). I've tried specifying the [code] attribute [1], but it can't be done from the Java client request. It can only be defined in a listener that's listening for events sent by CUPS regarding the print job status. I want to be able to change the user using the [code] attribute. But if I specify the user \"john\" like this: [CODE] What I see in the CUPS job listing ( [code] ) is that the user who requested the print job is the Linux user that started the Java client process, not the one specified in the RequestingUserName attribute. Is there a way to specify the user in CUPS so that it uses the one sent via RequestingUserName instead of the Linux user that started the Java client process? I can indeed change the value if I use [code] command (e.g., [code] ), john user don't exist on Linux server and is registered on job details from CUPS. Therefore, I understand that the"
+ },
+ {
+  "question_id": 79905259,
+  "ym": "2026-03",
+  "creation_date": 1773223714,
+  "title": "Java Spark mapPartitions retry causing duplicate inserts into BigQuery on task failure",
+  "tags": [
+   "java",
+   "apache-spark",
+   "google-cloud-platform",
+   "google-cloud-dataproc"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have a dataproc java Spark job that processes a dataset in partitions and inserts rows into batches. The code uses rdd.mapPartitions with an iterator, splitting rows into batches (e.g., 100 rows each). Inside the iterator, each batch is inserted using a custom BigQuery insertion method (json based file creation for batch of rows into GCP bucket and loading using BigQuery load job config) Occassionally, the spark task fails due to storage exceptions (\"Read timed out\\tat com.google.cloud.storage.StorageException.translate(StorageException.java:118)). Task failing at line ( [CODE] ) When the task fails, spark retries the entire mapPartitions task, not just the partition batch (the point where the failure occurred). For example, if total 3333 rows were actually being processed and 2200 rows were already inserted successfully, Spark retires the whole task, (processing the entrie dataset again) on task failure, causing duplicates. (2200 + 3333 = 5533). Actual data insertion count should have been 3333 records. Extra rows 2200. Our batch job runs for 24 hours everyday. This issue only occurs sometimes for some hourly jobs when below spark task failure occurs. The dataproc job doesn't fail though. Please let us know how to resolve the issue avoiding duplicate data inserts. Error (Warning) from logs explorer: \"message\": \"Lost task 0.0 in stage 9.0 (TID 13) (<project_id>.c.<project_id>"
+ },
+ {
+  "question_id": 79905467,
+  "ym": "2026-03",
+  "creation_date": 1773239204,
+  "title": "Controller connection to Java",
+  "tags": [
+   "java",
+   "controller"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm making a java program to control a RC Car and a want to control it with a wireless xbox controller. I've tried [code] , but without hot-plugging I don't want to use it. I've seen people recommend LWJGL but it seams a bit large for just controller support. Two last things: I'm developing on Windows and the target platform is a Pi 5."
+ },
+ {
+  "question_id": 79905494,
+  "ym": "2026-03",
+  "creation_date": 1773241238,
+  "title": "Files stored with s3AsyncClient from Netty HttpClient publisher are corrupted",
+  "tags": [
+   "java",
+   "amazon-s3",
+   "aws-sdk",
+   "netty"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to forward file from http download to s3AsyncClient. Its important for it to be asynchronous, and close to zero copy, so i used netty [code] and [code] and I pass file through [code] But when i run this, for larger files, files stored in s3 seems to be corrupted, they end up slightly shorter then source file and some characters seems to be missing. Currently i have following setup: [CODE] My s3Client setup: [CODE]"
+ },
+ {
+  "question_id": 79905524,
+  "ym": "2026-03",
+  "creation_date": 1773244239,
+  "title": "IS there better way to do this?",
+  "tags": [
+   "java",
+   "methods"
+  ],
+  "score": 0,
+  "answer_count": 8,
+  "is_answered": true,
+  "body_excerpt": "I am splitting a Java program into multiple questions for a programming assignment. The goal of the program is to read a message from the user and return only the capital letters in that message. If the message is empty, it returns a message saying no input was given. If there are no capital letters, it returns a message explaining that as well. One part of the program is the method below. This method checks a sentence and builds a new string containing only the uppercase letters. [CODE] is there a better way to do this?"
+ },
+ {
+  "question_id": 79905525,
+  "ym": "2026-03",
+  "creation_date": 1773244393,
+  "title": "MDC and SecurityContext propagation failing when using Virtual Threads (Executor)",
+  "tags": [
+   "java",
+   "spring-boot",
+   "spring-security",
+   "slf4j",
+   "virtual-threads"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am migrating a Spring Boot 3.x application to use Java Virtual Threads. I have replaced my standard async executor with a virtual thread executor: [CODE] When a request comes in, a filter successfully populates the [code] and SLF4J's [code] (with a [code] ). However, when I offload a task using [code] or [code] , the child virtual thread loses both the MDC context and the authentication object. I know about [code] for standard ThreadPools, but since virtual threads shouldn't be pooled, injecting a standard decorator seems like an anti-pattern. I also looked into the [code] library, but I'm unsure how to wire it globally for all virtual threads spawned by Spring without manually wrapping every [code] . What is the canonical, production-ready way in Spring Boot 3 to automatically propagate [code] values (MDC, SecurityContext) to Virtual Threads without writing boilerplate context-wrapping code for every async call? [CODE]"
+ },
+ {
+  "question_id": 79905593,
+  "ym": "2026-03",
+  "creation_date": 1773250236,
+  "title": "Any product to show ROI on code refactoring or improvements",
+  "tags": [
+   "java",
+   "spring",
+   "apache",
+   "architecture"
+  ],
+  "score": 0,
+  "answer_count": 5,
+  "is_answered": false,
+  "body_excerpt": "We have a very large java code base and we are looking for some tools which show technical debt and also shows return of investment in terms of time and money on resolving those issues. Please suggest. Thanks"
+ },
+ {
+  "question_id": 79905626,
+  "ym": "2026-03",
+  "creation_date": 1773252452,
+  "title": "Is it considered an anti-pattern to use nested static classes for service commands and responses?",
+  "tags": [
+   "java",
+   "design-patterns",
+   "structure"
+  ],
+  "score": 0,
+  "answer_count": 7,
+  "is_answered": true,
+  "body_excerpt": "I am structuring the command and response models for my service layer. Currently, putting all models into a single, flat folder (like [code] or [code] ) is becoming hard to manage due to the sheer volume of files. Since most commands and responses are specifically tailored to a single use case or service method, they are rarely reused across different services. I am considering using nested static classes inside the service class itself to encapsulate them tightly with the service they belong to. For the few exceptions that do need sharing, I would extract them into a dedicated [code] folder. Here is a simplified example in Java: [CODE] **My questions are:** Are there any hidden technical drawbacks or known anti-patterns with this approach Does this approach negatively impact automated API documentation tools (like Swagger/OpenAPI) compared to using standalone classes?"
+ },
+ {
+  "question_id": 79905819,
+  "ym": "2026-03",
+  "creation_date": 1773273377,
+  "title": "How do I call Java code from C in a plugin and avoid random fails",
+  "tags": [
+   "java",
+   "c",
+   "linux",
+   "java-native-interface",
+   "dlopen"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Then my plugin, written in C, is loaded it makes an initial call to [code] . It seems to fail completely at random. Running it one time might fail but the next time it might succeed. It looks very much like something inside [code] relies on uninitialized data. Since every little change I make to the code can alter the odds. And if it fails it is likely to segfault later, as if the memory gets corrupted. If it succeeds, everything works fins after that. Running it through valgrind seems to increase (but not guarantee) the chances of success. It also generates tons of warnings (invalid writes below the stack pointer among others). I have only tried it in Linux but with different versions of Java, mostly openjdk-25. The linking is done with meson ( [code] and the path to libjvm.so is set with rpath). The plugin is loaded with [code] . It doesn't really matter what it's a plugin for. I've tried to make a tiny program that just loads my plugin as well. (Consider it a concept for writing plugins in Java for applications written in C.) Of course I've made sure that [code] doesn't contain any random bytes. And that [code] and [code] are NULL before the call to [code] . I've also tried to make the call in a thread with a larger stack. I've tried to increase the stack with [code] . And I've tried several different options to [code] . Any such change can result in temporarily working code"
+ },
+ {
+  "question_id": 79905820,
+  "ym": "2026-03",
+  "creation_date": 1773273442,
+  "title": "Query 4 Firebase Realtime DB nodes asynchronously and then transform the data in Android Java app",
+  "tags": [
+   "java",
+   "android",
+   "asynchronous",
+   "firebase-realtime-database"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Here is my dilemma, I need to query ALL 4 nodes in Firebase Realtime DB in an Android Java app (I have this working fine in iOS): PlayerInGroup Users PlayerPicks Teams I start by getting the Player Count (PlayerInGroup node). For each player; I retrieve the players username (Users node; as that is what will be displayed for the view of the players picks) Followed by the Players Picks (PlayerPicks node) Which lastly I will need to get the Team Info (Teams node) so that I can display the team logo and name in the view as well. I am utilizing interface Callback as seen below: [CODE] Which works and it gets me the data.... BUT here is the thing, the data can be different from one user to the next where it seems the picks per users are \"shifted\" and it doesn't seem to constantly return the data the same for all the user like i am able to achieve in iOS using completion handlers... which by the way stresses me out that Android does NOT have the same completion handler technology else this would be an non issue. Can anyone who may have dealt with this usecase, which I would imagine this is a common usecase, how did you solve for this !? How do i get all the data consistently and then transform it consistently by \"merging\" it based on the logic mentioned above?"
+ },
+ {
+  "question_id": 79906497,
+  "ym": "2026-03",
+  "creation_date": 1773343835,
+  "title": "NullAway dereferenced error using @EnsuresNonNullIf validation method",
+  "tags": [
+   "java",
+   "maven",
+   "nullaway"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "NullAway is reporting a dereference error on all parts of the [code] chain from the snippet below, even though it's been validated by being passed to [code] . I added the [code] annotation to the validation method but it doesn't seem to be working. Is this a defect? Or is it just too complex for NullAway to handle? Using ErrorProne [code] , Nullaway [code] , Java 21 [CODE]"
+ },
+ {
+  "question_id": 79906658,
+  "ym": "2026-03",
+  "creation_date": 1773378998,
+  "title": "How to think the organisation of a Java Spring-Boot multi-module project in a clean architecture? I&#39;d like to redispatch/reforge an hexagonal one",
+  "tags": [
+   "java",
+   "spring-boot",
+   "clean-architecture"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "My context I have a large Java Spring-Boot project that have fitted in an hexagonal architecture. It is focused on cities and local authorities problematic, and study various subjects: cities, enterprises, accounting, taxes, employment, equipment. The project is split in 1 domain project containing only POJO business objects 21 Inbounds modules : Rest, Web, Port 25 Outbounds modules : Spark, Postgis, Port 19 Application modules : Service, main Application, Port At the end, my application is created from 73 maven dependencies. Surely it's me who haven't done things well in some places, but there's a module inflation... Willing to move to a Clean Architecture, I'm considering this: For a given Java module of my project: [CODE] and then the [code] , [code] , [code] , [code] , [code] . (all these notions cannot be gathered under the same module. They are too vast, and they are focusing on very different things) Is this the proper way of setting things? About services* In domain, I think I would implement some [code] classes, provided their methods are only made of interfaces calls and [code] / [code] logic. So that, I would have some use cases about to work with theses services and repository interfaces. The hexagonal project can be seen here , but my subject is general."
+ },
+ {
+  "question_id": 79906727,
+  "ym": "2026-03",
+  "creation_date": 1773389137,
+  "title": "Safely validating AST of LLM-generated PostgreSQL queries in Java to prevent side effects",
+  "tags": [
+   "java",
+   "postgresql"
+  ],
+  "score": 1,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I am building a Text-to-SQL application where an LLM generates PostgreSQL queries based on natural language. These queries are executed against a database using a strict read-only user. However, as an additional application-level security gateway, I need to validate the generated SQL string in Java before execution. My requirements: The query must be strictly a single [code] statement (no multiple statements via [code] ). The query must not execute functions with side effects (e.g., calling a custom Postgres function that modifies data or exposes sensitive system info). What I have tried: I am currently using [code] to parse the SQL and build an Abstract Syntax Tree (AST): Java [CODE] My Question: While checking [code] prevents basic [code] / [code] queries, an LLM might hallucinate or be prompt-injected to generate a query like [code] where the function performs unauthorized actions. Using [code] in Java, what is the most robust approach to traverse the AST (e.g., implementing a custom [code] or [code] ) to inspect all function calls and sub-queries within the [code] clause and [code] conditions? Alternatively, for this specific security validation of AI-generated SQL, is Apache Calcite considered a safer choice?"
+ },
+ {
+  "question_id": 79906755,
+  "ym": "2026-03",
+  "creation_date": 1773393476,
+  "title": "With ArchUnit, how can I make sure that all classes in my project are starting with the same package?",
+  "tags": [
+   "java",
+   "architecture",
+   "package",
+   "archunit"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have a Gradle project with different dependencies. I now want to make sure that all source Java classes in my project are starting with the same packages. How can I achieve this with ArchUnit?"
+ },
+ {
+  "question_id": 79906887,
+  "ym": "2026-03",
+  "creation_date": 1773404027,
+  "title": "Custom swimming entity (Animal) won&#39;t move in water",
+  "tags": [
+   "java",
+   "entity",
+   "minecraft",
+   "minecraft-fabric"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm making a Fabric 1.21.11 mod (Mojang mappings, GeckoLib 5.4.4) with a custom whale entity that extends [code] . The whale won't swim properly. It either stands still, floats to the surface, or gets launched out of water. Current setup: extends [code] [code] [code] [code] [code] Custom goal calls [CODE] I can't extend [code] because the import cannot be resolved in my project. What is the correct way to make a properly swimming entity in Fabric 1.21.11?"
+ },
+ {
+  "question_id": 79906927,
+  "ym": "2026-03",
+  "creation_date": 1773407933,
+  "title": "Does the Java Memory Model permit reordering writes to a volatile variable into a loop?",
+  "tags": [
+   "java",
+   "multithreading",
+   "concurrency",
+   "java-memory-model"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have been learning about the double-checked locking problem in Java , and the Java Memory Model and which optimisations are permitted to be made to a program's execution. I am currently addressing a bug in someone else's code which lazily evaluates a [code] field using double-checked locking. The field must have a unique value according to some lookup function, so the field is initialised in a loop until a unique value is found: [CODE] [code] is not thread-safe because the [code] field is being set before the lookup function has been invoked. Therefore, another thread could observe a value that fails the lookup check while a different thread is still instantiating the variable. My proposed fix was to initialise a local variable inside of the [code] block, but I have concerns about whether this would really resolve the issue, given that an optimiser may reorder the program execution: [CODE] My question is whether there are any JMM rules that prevent an optimiser from re-ordering the volatile write [code] to be inside the while loop? If that were to happen, I believe a separate thread may still see a value of [code] that isn't intended to be returned. It seems to me that that would maintain intra-thread semantics, since the execution of a single thread would still be the same, and I can't see any rules detailed in the JLS that would voilate."
+ },
+ {
+  "question_id": 79907356,
+  "ym": "2026-03",
+  "creation_date": 1773472521,
+  "title": "Difference between ArrayList and LinkedList in Java",
+  "tags": [
+   "java",
+   "arraylist",
+   "data-structures",
+   "linked-list"
+  ],
+  "score": 1,
+  "answer_count": 4,
+  "is_answered": true,
+  "body_excerpt": "I am a beginner learning Java and data structures. I understand that both [code] and [code] are implementations of the [code] interface, but I am confused about when each one should be used. Can someone explain the main differences between them in terms of: Performance Memory usage Typical use cases An example scenario of when to prefer one over the other would also help."
+ },
+ {
+  "question_id": 79907583,
+  "ym": "2026-03",
+  "creation_date": 1773515117,
+  "title": "DFC checkinEx incorrectly carries over (merges) inherited metadata from previous version even after setNull",
+  "tags": [
+   "java",
+   "inheritance",
+   "checkin",
+   "documentum",
+   "documentum-dfc"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am performing a FileNet to Documentum (22.2) migration using DFC (Java). I am hitting a \"Smart Merge\" issue during versioning where Documentum is silently re-applying metadata from the previous version even when I explicitly attempt to null it out on the Private Working Copy (PWC). [CODE]"
+ },
+ {
+  "question_id": 79907635,
+  "ym": "2026-03",
+  "creation_date": 1773522701,
+  "title": "How can I allow the user to use class specific methods in generic class T?",
+  "tags": [
+   "java",
+   "generics"
+  ],
+  "score": 0,
+  "answer_count": 8,
+  "is_answered": true,
+  "body_excerpt": "I am making a custom [code] in Java, as a way to learn more about data structures, and I am trying to make a search method that filters items based on the input, but I ran into an issue. Classes other than primitive types require the use of their own dedicated methods to compare them, such as a [code] on a [code] . How could I accommodate for such in my code? Attached is current search method that does not compare content inside classes: [CODE] Edit: Thank you for all the replies everyone, I'd like to include the currently applied solution in case anyone wants to see how i ended up editing the code and even though the original question was solved if you have any suggestions of further improvement I'm all ears! [CODE]"
+ },
+ {
+  "question_id": 79907875,
+  "ym": "2026-03",
+  "creation_date": 1773578657,
+  "title": "spring.batch.jdbc.initialize-schema=always not working anymore",
+  "tags": [
+   "java",
+   "spring",
+   "spring-batch"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Although, I don't use anotation @EnableBatchProcessing, but my application not use config of spring batch in file application.yml to create schema of metadata's spring batch. How can I fix it? The version of java spring boot that I use: 4.0.3 This is my file batch config & custome GenericExcelStreamingReader): [CODE] [CODE] This is my application config: [CODE]"
+ },
+ {
+  "question_id": 79908096,
+  "ym": "2026-03",
+  "creation_date": 1773610234,
+  "title": "How should toString methods be formatted",
+  "tags": [
+   "java",
+   "oop",
+   "tostring",
+   "conventions"
+  ],
+  "score": 0,
+  "answer_count": 6,
+  "is_answered": true,
+  "body_excerpt": "I lately learned about the toString method and its uses. From what I've been taught, the toString method is used as a concise representation of an object as a string of characters, usually used as a debugging tool. My question is how should I format my toString methods so they would provide a concise reflection of the object's values at the moment? Let's e.g. say that I have the next classes: [CODE] In the specified scenario, we have inheritance and composition of classes, which made it quite difficult for me to find toString methods' return values that would return comprehensible reflections of the objects they describe. What would be the best/conventional way to implement the toString methods' return values for such a use (concise reflection of the object's values at a moment)? Thanks!"
+ },
+ {
+  "question_id": 79908287,
+  "ym": "2026-03",
+  "creation_date": 1773644120,
+  "title": "What is the best java sound framework/api",
+  "tags": [
+   "java",
+   "javasound"
+  ],
+  "score": 1,
+  "answer_count": 15,
+  "is_answered": true,
+  "body_excerpt": "I am looking for a better sound framework/api then the default java one because the only audio files that is useful and an everyday person would use is .wav I am trying to get .mp3 and .mp4 as well because I am making a audio player. Thanks for any answers."
+ },
+ {
+  "question_id": 79908643,
+  "ym": "2026-03",
+  "creation_date": 1773678714,
+  "title": "Which programming language is best for learning System Design?",
+  "tags": [
+   "java",
+   "c++",
+   "go",
+   "system-design"
+  ],
+  "score": 2,
+  "answer_count": 9,
+  "is_answered": true,
+  "body_excerpt": "I’m planning to start learning System Design, but I’m a bit confused about which programming language I should focus on for it. Most of my experience so far is with C++ and JS, but I often see people discussing system design using Java, and recently many developers also recommend Go. As someone who is just starting with System Design, I wanted to ask: Is learning System Design with C++ a good choice? Is Java generally preferred for System Design interviews and learning resources? Should beginners consider Go since many modern systems use it? Or does the language not matter much, and the focus should mainly be on concepts and architecture? I’d really appreciate guidance from people who have already gone through this journey. Thanks!"
+ },
+ {
+  "question_id": 79908833,
+  "ym": "2026-03",
+  "creation_date": 1773698540,
+  "title": "Clarifying what an ADT is",
+  "tags": [
+   "java",
+   "data-structures",
+   "implementation",
+   "abstract-data-type"
+  ],
+  "score": 1,
+  "answer_count": 7,
+  "is_answered": true,
+  "body_excerpt": "I'm a bit stuck on the concept of an Abstract Data Type (ADT), what I know is that, and ADT is an idea (implemented through an Interface) that dictates how a program structures its data. But when implementing ADTs, we use other fundamental ADTs (arrays, sets, etc). The part that confuses me is what makes those fundamental ADTs objectively different to the ADTs we've implemented recently (Stacks, Queues). Any help would be great!"
+ },
+ {
+  "question_id": 79909082,
+  "ym": "2026-03",
+  "creation_date": 1773738284,
+  "title": "Why am I getting this NullPointerException, and how can I fix it?",
+  "tags": [
+   "java",
+   "nullpointerexception"
+  ],
+  "score": 0,
+  "answer_count": 8,
+  "is_answered": true,
+  "body_excerpt": "I am new to Java and facing an issue with NullPointerException when trying to call a method on an object. Here is my code: [CODE]"
+ },
+ {
+  "question_id": 79909421,
+  "ym": "2026-03",
+  "creation_date": 1773765547,
+  "title": "How to handle connection timeouts and retries in GridDB Java client?",
+  "tags": [
+   "java",
+   "griddb"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I’m working with GridDB using the Java client and noticed that sometimes the connection fails due to timeouts or temporary network issues. Currently, I’m creating a connection like this: [CODE] However, if the connection fails, the application throws an exception and doesn’t retry."
+ },
+ {
+  "question_id": 79909532,
+  "ym": "2026-03",
+  "creation_date": 1773776581,
+  "title": "Where to put linkTo method in Spring?",
+  "tags": [
+   "java",
+   "spring"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I was having a discussion, where one dev-A said that linkTo should be linked directly in the controller (links that point to the controller itself), the others in the assembler, and dev-B said that he would have to put all the link logic in an Assembler class. Which dev is correct?"
+ },
+ {
+  "question_id": 79909600,
+  "ym": "2026-03",
+  "creation_date": 1773785112,
+  "title": "How to contextually allow spaces between tokens?",
+  "tags": [
+   "java",
+   "antlr4"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "In my grammar it should normally be allowed to freely insert whitespaces between tokens. However, this shouldn't be the case for semantic versions: [code] feels wrong. In the grammar below, whitespaces are sent to the hidden channel and should be allowed between a version comparator and the version itself, but not the version components. How can I check for whitespaces between them and report as unwanted tokens? In my case adding predicates is fine as this is only used in Java. [CODE] (as a part of https://codeberg.org/stonecutter/stonecutter/src/branch/0.9/stitcher/src/main/antlr/dev/kikugie/stitcher/antlr/Stitcher.g4 )"
+ },
+ {
+  "question_id": 79909740,
+  "ym": "2026-03",
+  "creation_date": 1773815592,
+  "title": "Java: Using Enum for Linked List sorting question",
+  "tags": [
+   "java",
+   "linked-list"
+  ],
+  "score": 0,
+  "answer_count": 19,
+  "is_answered": true,
+  "body_excerpt": "I'm working on a project for a college class that involves reading a text file and using the values in that text file to populate two doubly linked lists. The nodes need to contain a String name, String genre, release Date, Date value of when the movie was received by the theater, and an enum value of if the movie status is \"released\" or \"received\". These nodes then have to be sorted into one of the two doubly linked lists based on if the enum value is \"released\" or \"received\". The sorting of nodes into the proper linked list is where I'm getting stuck and would love some advice on what direction to take here. Here's my (currently unfinished) method for reading the text file: [CODE] This is my linked list class: [CODE] And this is the class for getting and setting data to pass to the node constructor: [CODE] Any advice would be greatly appreciated, as I find I'm really struggling with this. Edit: Forgot to add that the information in the text file I was provided for testing is formatted like this: Edge Path,Comedy,11/03/2024,02/20/2025,received"
+ },
+ {
+  "question_id": 79909748,
+  "ym": "2026-03",
+  "creation_date": 1773817391,
+  "title": "Installing MyFaces, PrimeFaces and OmniFaces - Maven dependencies not found",
+  "tags": [
+   "java",
+   "maven",
+   "primefaces",
+   "quarkus",
+   "myfaces"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I was using the command line tool to generate a REST-based basic project (the one with the GreetingResource). Here the dependencies from the Maven pom.xml: [CODE] I am trying to install the Faces + PrimeFaces + OmniFaces extensions. The customer explicitly wants this for the prototype software. So, this means adding the following dependencies to the pom.xml (I basically copied them from https://github.com/melloware/quarkus-faces/blob/main/pom.xml ): [CODE] However, IntelliJ / Maven complains about not being able to find them: Dependency 'org.apache.myfaces.core.extensions.quarkus' not found Here's my .m2 settings.xml: [CODE] I thought this would be a fairly easy task to add Faces + PF + OF to the project. I looked at many examples (I do not remember all the links, but they were many): https://www.melloware.com/quarkus-faces-using-jsf-with-quarkus/ https://quarkus.io/extensions/org.apache.myfaces.core.extensions.quarkus/myfaces-quarkus/ and more. But they all fail to download the respective artifacts. What am I missing?"
+ },
+ {
+  "question_id": 79909961,
+  "ym": "2026-03",
+  "creation_date": 1773838114,
+  "title": "Intercepting how IntelliJ IDEA orchestrates Gradle project",
+  "tags": [
+   "java",
+   "gradle",
+   "intellij-idea"
+  ],
+  "score": 0,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "the Gradle Java project I open with IntelliJ IDEA has its settings like: B/E/D -> Build Tools -> Gradle -> Build and run using : Gradle (Default) the other option is Build and run using : IntelliJ IDEA , which is not the case here I suppose that with having this option set as above all the project actions triggered with IDE UI (menu \"Build project\" \"Rebuild project\" \"Build module XX\" etc and these form Gradle popup box) are orchestrated by Gradle. I hope these IDE orchestration commands are (or at least can be translated to) Gradle command-lines with tasks and parameters and switches. How to get them? ... just intercept what IntelliJ issues to Gradle ... unfortunately the IDE build window is short-spoken about it . thanks"
+ },
+ {
+  "question_id": 79909990,
+  "ym": "2026-03",
+  "creation_date": 1773840601,
+  "title": "How to compute a stable SHA-256 (or other hash) string for a Java object with nested classes, List, Set, and Map fields?",
+  "tags": [
+   "java",
+   "hash",
+   "jackson",
+   "sha256",
+   "apache-commons"
+  ],
+  "score": 0,
+  "answer_count": 7,
+  "is_answered": true,
+  "body_excerpt": "I need to compute a deterministic SHA-256 (or similar) hash string for a Java POJO that contains nested objects, [code] , [code] , and [code] fields. Class may contains ordered and unordered data structure. Ex: [CODE] What I tried: Serialize the object to JSON with Jackson and then run it through [code] from Apache Commons Codec: [CODE] What I need: I want the hash to be consistent and identical as long as the logical content is the same — even if unordered data structures ( [code] , [code] ) return elements in a different order internally. For ordered data structures ( [code] ) and class fields, I understand their order is fixed unless I explicitly change it — so those do not need any special handling. Questions: Is there a standard library (Jackson, Apache Commons, Guava) that handles this normalization before hashing? If not, what is the recommended approach to deep-normalize a Java object (sorting maps by key, sets by element, recursing into nested objects) before serializing and hashing?"
+ },
+ {
+  "question_id": 79910097,
+  "ym": "2026-03",
+  "creation_date": 1773848355,
+  "title": "JMenuItem rendering offset with 1.8.0_481",
+  "tags": [
+   "java",
+   "windows",
+   "swing",
+   "jmenuitem"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "After updating from 1.8.0_291 to 1.8.481 I noticed that JMenuItems are now rendered with a big offset on the left side, when using the Windows LAF (did not test on other platforms so far). In some cases this even results in the content not being rendered completely and in general it looks really ugly. Here are 2 images as comparission The accelerator/mnemonic is pushed to the right without any padding and the icon is hunched up against the text. I tried setting alignment, text position and gap (suggested by different AI agents and online search) but to no avail [CODE] The issue can be reproduced using this project https://github.com/SanityResort/MenuItemReproducer Switching between the two sdk versions causes the rendering change. Is there any way to retain the behavior of 291? Is it a known issue? So far I have not found anything about it."
+ },
+ {
+  "question_id": 79910114,
+  "ym": "2026-03",
+  "creation_date": 1773849562,
+  "title": "How do I delete an entity in a one-to-many relationship?",
+  "tags": [
+   "java",
+   "database",
+   "spring-data-jpa"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm implementing a small e-commerce system, but I've encountered the following problem: I can't delete entities with one-to-many relationships. I have a shopping cart class that goes as follow: [CODE] I also have an item entity representing the product data in the shopping cart: [CODE] I mainly want to implement the logic of shopping cart buying. The following is my shopping cart buying logic: [CODE] When I click to purchase, a request will be sent to this interface. My expectations are: 1. To obtain the user's shopping cart; 2. To delete the purchased items in the shopping cart; 3. To generate an order; 4. To save the order; 5. To save the shopping cart. However, I found that the items in my shopping cart still exist. What can I try next?"
+ },
+ {
+  "question_id": 79910157,
+  "ym": "2026-03",
+  "creation_date": 1773854372,
+  "title": "Termux Run command service doesn&#39;t return results bundle",
+  "tags": [
+   "java",
+   "android",
+   "termux",
+   "runcommand"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have an Android app and need to run termux commands from it and get results. I have this code in [code] [CODE] And this in [code] : [CODE] I am receiving null instead of result bundle (so, have true in termux_bundleNull tag). Don't know how to fix it. Read https://github.com/termux/termux-app/wiki/RUN_COMMAND-Intent#RUN_COMMAND-Intent-Result-Extras to write this. In example app I run just [code] (in real app need some git commands). Tried reading all extras in onHandleIntent by this code [CODE] but all I receive is [code] - only the extra that I've set myself and nothing else, that may contain command result. Also tried adding additional extras [CODE] to intent in TermuxUtils.exec, but this also didn't helped. By the way, the code worked in my app that was written using old android.support libraries, and after migrating project to androidX it fails. What may be the problem?"
+ },
+ {
+  "question_id": 79910197,
+  "ym": "2026-03",
+  "creation_date": 1773858400,
+  "title": "Looking for an idea for a project to work on while studying programming",
+  "tags": [
+   "java",
+   "c#",
+   "c++",
+   "c"
+  ],
+  "score": 4,
+  "answer_count": 14,
+  "is_answered": true,
+  "body_excerpt": "I'm currently finishing my degree in Software Engineering and I'm looking for a project idea to work on alongside my studies. I'd like a fairly comprehensive project that incorporates many of the tools and programming languages in high demand in the professional world (such as Docker, for example), without taking months to complete. I'd like the project to be done in Java, C, C++, or C#, if possible. I have a Raspberry Pi available, and I'm open to buying some inexpensive hardware (camera, sensor, etc) if the project is interesting. I'd like something interesting that has real practical value, at least for my own use. Not just \"rebuilding a web browser\" or something I'll never use. If you have any ideas, I'm all ears — even if some of the criteria aren't met. Many thanks to everyone who participates!"
+ },
+ {
+  "question_id": 79910206,
+  "ym": "2026-03",
+  "creation_date": 1773859600,
+  "title": "What&#39;s the best way to learn Java in 2026 in your opinion?",
+  "tags": [
+   "java",
+   "backend"
+  ],
+  "score": 1,
+  "answer_count": 16,
+  "is_answered": true,
+  "body_excerpt": "I just want diverse opinions and maybe even references/links to Java learning roadmaps. What's the best way to approach learning Java as a language itself in today's time? Maybe some courses, books, blogs, etc... recommendations"
+ },
+ {
+  "question_id": 79910282,
+  "ym": "2026-03",
+  "creation_date": 1773868665,
+  "title": "How can Mixins be used to inject into a lambda statement",
+  "tags": [
+   "java",
+   "lambda",
+   "minecraft",
+   "mixins",
+   "spongeapi"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am making a Minecraft mod and need to add a Mixin targeting a method invocation inside a lambda body. I have the following target class: [CODE] and I have the Mixin class [CODE] What should the [code] and [code] parameter look like? I know lambdas are stored as methods in the bytecode under the name [code] , but when I tried that in the [code] parameter, Mixin can not find the method and throws an error. Here is the stack trace: [CODE] I can not [code] or [code] the lambda, since this is almost certainly going to cause compatibility issues with other mods"
+ },
+ {
+  "question_id": 79910291,
+  "ym": "2026-03",
+  "creation_date": 1773869806,
+  "title": "Grpc client with channel whose name is derived from the stub class",
+  "tags": [
+   "java",
+   "spring",
+   "spring-grpc"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "In Spring-Grpc , I can configure clients declared as a beans to use named channels: [CODE] and then configure those channels in my application properties. For example: [CODE] Alternatively, I can have them created via annotations: [CODE] I would like to just use this annotation with package scanning, rather than listing all the clients, and have it work out the name of the channel based on the name of the service. [CODE] Is that possible?"
+ },
+ {
+  "question_id": 79910303,
+  "ym": "2026-03",
+  "creation_date": 1773871368,
+  "title": "How to Test Builder Pattern that Returns an Object with No Accessors?",
+  "tags": [
+   "java",
+   "unit-testing",
+   "junit",
+   "builder",
+   "command-pattern"
+  ],
+  "score": 0,
+  "answer_count": 5,
+  "is_answered": true,
+  "body_excerpt": "I have a fairly standard Builder that returns a Command... Builder: [CODE] The command class looks like the following: [CODE] Please note that the [code] doesn't have any accessors. So, how do I verify behavior of the [code] to verify that it is building the AddCommand object correctly? Any friendly direction on a decent practice would be greatly appreciated."
+ },
+ {
+  "question_id": 79910444,
+  "ym": "2026-03",
+  "creation_date": 1773902815,
+  "title": "Micronaut 4.10.9: Native Image build fails with NoClassDefFoundError in JacksonDatabindFeature after upgrading Jackson to 2.21.1",
+  "tags": [
+   "java",
+   "jackson",
+   "micronaut",
+   "graalvm-native-image"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Context I am working on a Micronaut 4.10.9 application using Java 21 and GraalVM 21 . By default, the framework pulls in [code] version 2.19.x . The Problem Our Security analysis tool reported a security vulnerability in the default Jackson version and recommended a bump to 2.21.1 . However, after forcing this upgrade, my GraalVM native image build fails . Steps to Reproduce Using Micronaut 4.10.9 . Force the Jackson version upgrade using the Jackson BOM in [code] : [code] Run the native image build command (e.g., [code] ) Error Message Build fails during the native image generation phase with the following trace: Error: Feature defined by io.micronaut.jackson.JacksonDatabindFeature unexpectedly failed with a(n) java.lang.NoClassDefFoundError. Please report this problem to the authors of io.micronaut.jackson.JacksonDatabindFeature. What I Have Tried I confirmed the version upgrade works fine when running on a standard JVM (JIT). The issue only appears during the Native Image build process. I suspect a binary incompatibility between the [code] (which provides GraalVM reachability metadata for Jackson) and the newer Jackson 2.21.1 classes. I have verified that all Jackson modules are aligned to the same version (2.21.1) via the BOM. Question Is there a known compatibility issue between Micronaut 4.10.x and Jackson 2.21.1 specifically for native images? Should I be using a differe"
+ }
+]

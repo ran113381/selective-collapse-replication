@@ -1,0 +1,1549 @@
+[
+ {
+  "question_id": 70934256,
+  "ym": "2022-02",
+  "creation_date": 1643673699,
+  "title": "Tomcat 9 unable find org.apache.ibatis inside docker container with java 17",
+  "tags": [
+   "java",
+   "docker",
+   "mybatis",
+   "tomcat9",
+   "java-17"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am trying to rewrite the existing java application to upgrade it to java17 and tomcat 9 along with dockerization But while I am trying to run it in the docker container I am seeing the error below [CODE] But StringBoolHandler class has the above-mentioned methods overridden and no compiler errors in IDE either I am able to successfully start and run the application in IDE This is my docker file [CODE] I am able to find [code] in lib of deployed application in docker container please feel free to suggest me any type of modifications needed to make my Dockerfile better"
+ },
+ {
+  "question_id": 70934272,
+  "ym": "2022-02",
+  "creation_date": 1643673868,
+  "title": "How does java choose between a method with same name, parameters and class in different dependencies?",
+  "tags": [
+   "java"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "We recently ran into a scenarium that we have two corporate dependencies and each one of them has a specific method with the same name, parameters and class, probably a copy-and-paste. Both dependencies are declared as direct dependency in my actual microservice. Imagine something like: [CODE] We noticed the problem because maven reported it in our build when we added the second dependency, we checked and even thought the output is the same, they have slightly different implementations. My question is, how does the JVM decides which one of this methods to use in runtime?"
+ },
+ {
+  "question_id": 70934287,
+  "ym": "2022-02",
+  "creation_date": 1643674086,
+  "title": "How to propagate properties in parent POM to child POM post build",
+  "tags": [
+   "java",
+   "maven"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Have many shared libraries (jar) that use a common parent POM. Parent POM has property log4j.version defined as 2.17.1 Child projects A and B have log4j dependency defined with version ${log4j.version} mvn clean install works fine. But when I look at the generated artifact for projects A or B, their POM still says log4j version in dependencies section as ${log4j.version}. That won't have the desired effect of going with version 2.17.1 if other projects start using library A or B. What is a way to keep the version definition in parent, yet have the child projects specify the version in the built artifact? And I don't want to add log4j dependency in parent POM because I have few child projects that do not need/use log4j at all. Also, that doesn't solve the problem because even then the child projects after build will not call out the dependency to log4j at all? Probably worse than what I have now"
+ },
+ {
+  "question_id": 70934361,
+  "ym": "2022-02",
+  "creation_date": 1643674932,
+  "title": "Mockito ArgumentCaptor needs stubbing even if I use verify?",
+  "tags": [
+   "java",
+   "unit-testing",
+   "testing",
+   "junit",
+   "mockito"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am trying to write a Unit Test for the following service method: [CODE] I use [code] so that I catch the [code] parameter in the private method that my service method calls: [code] . [CODE] The test is working, but if I remove [code] line, it throws \"null pointer exception error\" because in this case [code] parameter in the update method is null. So, do I have to use the mentioned stubbing in the [code] method? I think I do not need it because the verify already performs that task via [code] . Is that true?"
+ },
+ {
+  "question_id": 70934372,
+  "ym": "2022-02",
+  "creation_date": 1643675035,
+  "title": "print a jagged array from a file",
+  "tags": [
+   "java"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "i am trying to print a jagged array just like my txt file is. I have already found the rows I was told to create a 2d array now with just the rows since we don't know the columns yet and then find the doubles there are in the file. [CODE]"
+ },
+ {
+  "question_id": 70934432,
+  "ym": "2022-02",
+  "creation_date": 1643675581,
+  "title": "Java - Is it Possible to Use Spring Cloud Stream Kafka and RabbitMQ for the Same Application",
+  "tags": [
+   "java",
+   "apache-kafka",
+   "rabbitmq",
+   "spring-cloud-stream",
+   "spring-rabbit"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "We have an application that is already using Spring Cloud Stream with RabbitMQ, some endpoints of the application are sending messages to Rabbit MQ. Now we want new endpoints start sending messages to Kafka, hoping that the existing endpoints continue using RabbitMQ with Spring Cloud Stream. I am not sure if this is even possible, because this means we have to include both kafka and rabbit binder dependencies in pom.xml. What configuration changes we need to make in the yml file so that the app understands what bindings are for kafka and what bindings are for Rabbit? Many thanks."
+ },
+ {
+  "question_id": 70934451,
+  "ym": "2022-02",
+  "creation_date": 1643675842,
+  "title": "Why does spring-boot include compile transitive dependencies from a test direct dependency?",
+  "tags": [
+   "java",
+   "spring-boot",
+   "maven",
+   "maven-3",
+   "java-17"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am generating my build and I am seeing deployed with my microservice compile transitive dependencies such as log4j, that came with a direct test dependency such as spring-boot-starter-test. That is also confirmed when I run [code] and gets the output below: [CODE] Following my dependencies list: [CODE] I edited the dependencies above and placed exclusions for log4j in the spring-boot-starter-test and the log4j dependencies were gone. But I tested in another project that I have only three dependencies and none of them is spring-boot-starter-test and log4j shows up again, which leads me to my first question, why log4j were gone from the first project if I just placed exclusions in spring-boot-starter-test? Here's the exclusions: [CODE] And here's my second project dependencies: [CODE] And a second question is, shouldn't all the transitive dependencies be excluded from my final jar independent to its scope to a direct test dependency? I mean, shouldn't log4j not be included in my final jar since it is inherited by a direct test dependency?"
+ },
+ {
+  "question_id": 70934552,
+  "ym": "2022-02",
+  "creation_date": 1643676762,
+  "title": "Sonar Doesn&#39;t pick lombok Annotations ( Remove unused private field)",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "sonarqube",
+   "lombok"
+  ],
+  "score": 5,
+  "answer_count": 3,
+  "is_answered": false,
+  "body_excerpt": "I am using sonar version 8.9.6. I know this issue has been asked around a lot of times and I have tried a lot of those and none of the solutions have worked for me. The following are some of the things that I have tried: 1) [CODE] added the following plugin [CODE] and then added the following property [CODE] Added [code] and added the following properties [CODE] None of these have worked for me and especially sonar exclusions doesn't work at all. Any help would be appreciated and Thanks in advance."
+ },
+ {
+  "question_id": 70934558,
+  "ym": "2022-02",
+  "creation_date": 1643676817,
+  "title": "ForkJoinPool::shutdown vs ForkJoinPool::shutdownNow after ForkJoinPool::join",
+  "tags": [
+   "java",
+   "multithreading",
+   "fork-join",
+   "forkjoinpool"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Code: [CODE] I have above code to perform some tasks in parallel. Given that [code] already makes caller thread wait until completion, wondering if it should be [code] instead of [code] in the [code] block. Note: [code] only reads from the input list."
+ },
+ {
+  "question_id": 70934566,
+  "ym": "2022-02",
+  "creation_date": 1643676972,
+  "title": "How can I make a drawing animation with a child of View, drawing each Path&#39;s line one by one?",
+  "tags": [
+   "java",
+   "android",
+   "draw"
+  ],
+  "score": 6,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Using the code I found in this StackOverflow answer I successfully can draw anything in a Canvas by finger, and I will see what I draw while I draw it. From this, I want to make a function triggered on button press that will do two things: Erase what is drawn over the canvas. Replay whatever picture was drawn over it before canvas was cleared, by redrawing each path's lines one by one at a constant speed. In order to do so, I have slightly modificated the [code] code, so it stores each drawn point accordingly: [CODE] That way, I can load the X and Y points later in loops (that's the idea at least). The problem is I am not sure how to trigger the \"redraw\" on the canvas for each line. I tried to store the canvas from the \"onDraw\" like this: [CODE] And then, I make this method for the button which I want to erase and replay the previously drawn strokes: [CODE] When I press the button, the method [code] doesn't behave as expected. It's like it remains \"thinking\" (processing) and, when you least expect it, refreshes all the changes in a single blow; instead, I want it to be a smooth animation where you can see the entire Path previously drawn by finger, replayed line by line, point by point. What am I doing wrong? What should I change to obtain the expected behaviour?"
+ },
+ {
+  "question_id": 70934678,
+  "ym": "2022-02",
+  "creation_date": 1643678469,
+  "title": "Eclipse import from git not recognizing source folders",
+  "tags": [
+   "java",
+   "git",
+   "eclipse"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I wanted to share a Java project with another computer. I went on the first computer and created a GitHub repo out of it by clicking [code] . Then, I went to the other computer and clicked [code] . But when I opened the project, all the packages were like [code] and [code] . It didn't recognize the \"src\" folder was a source folder. Did I do one of these steps wrong?"
+ },
+ {
+  "question_id": 70934786,
+  "ym": "2022-02",
+  "creation_date": 1643679763,
+  "title": "How to convert a string number into an integer in Java?",
+  "tags": [
+   "java",
+   "string",
+   "integer",
+   "bufferedreader",
+   "filereader"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have imported a text file into my program that contains several scores from a gamer. I am in need of adding the scores from each gamer - while attempting to do so, I realized that those scores are coming from a text file, therefore, they are actually strings, not numbers. I am wanting to convert the string number into an integer but have not been able to do so by using the parseInt() method, I have attempted to use the following method in my code: [code] [code] But have not been able to do it successfully. Here is my current work: [CODE] This is my output: [CODE] Please note that the output of my scores appears correctly when the program is ran. In addition, here is the information from the text file: Bob,167,123,159,102,102,189,183,173,197,148 Sally,189,130,138,113,159,116,134,196,150,144 Mario,104,106,120,188,143,189,149,174,163,100 Lev,152,159,195,140,154,176,107,128,166,181 Carden,158,200,175,114,117,150,176,181,131,132 Adelie,175,199,122,104,198,182,175,153,120,165 Lada,161,108,102,193,151,197,115,137,126,186 Xavier,178,171,147,113,107,129,128,189,165,195 Raffi,176,144,151,124,149,112,158,159,119,177 Chang,135,144,177,153,143,125,145,140,117,158 Mich,156,105,178,137,165,180,128,115,139,157 Mason,162,185,108,106,113,135,139,135,197,160 Cora,186,115,106,126,135,108,157,156,187,120 Sergio,117,105,115,116,193,200,176,134,122,153 Jonas,132,163,196,101,134,159,131,104,135,168 "
+ },
+ {
+  "question_id": 70934925,
+  "ym": "2022-02",
+  "creation_date": 1643681589,
+  "title": "What could cause a freezing socket between C++ and Java?",
+  "tags": [
+   "java",
+   "c++",
+   "sockets",
+   "messaging",
+   "file-transfer"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am trying to implement socket connection between C++ client and Java server. It must be cappable of sending files, and image file for every iteration as well as text. The C++ client is a dll. I am suffering to understand where is the problem. If both applications are sockets - locked by default, yet the client seems to \"overtake\" the server. For this reason server is sending request for data first, than just next - data should come back. I thought that should work, but not. Also setting some sleep between messages in the server improves functionality, but with or withouth sleep - Beep() server freezes, it seems it is working just slightly slower than client - it seems there is no synchronization. Plese help! Can you can give any valuable advice? Below are important parts of both applications: C++ client [CODE] Java Server [CODE] I will appreciate any help. Thank you very much for the time spent!"
+ },
+ {
+  "question_id": 70934932,
+  "ym": "2022-02",
+  "creation_date": 1643681690,
+  "title": "Can I use 2d graphics as background for components in java?",
+  "tags": [
+   "java",
+   "swing",
+   "paint",
+   "graphics2d"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "can someone help me to know why the whole jtextfield is not visible when adding it to a jpanel that has a painted image icon? here is my code for the sample. thanks :) without typing anything on it, only part of it is visible. [CODE]"
+ },
+ {
+  "question_id": 70934998,
+  "ym": "2022-02",
+  "creation_date": 1643682524,
+  "title": "Remove extra space on button and remove rounded corner in Android Studio",
+  "tags": [
+   "java",
+   "android",
+   "xml"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to make 4 buttons in a grid layout, but I don't know how to remove the extra space on top and bottom on each button. I also don't know how to remove the rounded corner. I tried to use cornerRadius but it does nothing. Here's the screenshot of the layout.As you can see, there's a gap in the middle of top and bottom buttons. Here's the xml code: [CODE]"
+ },
+ {
+  "question_id": 70935026,
+  "ym": "2022-02",
+  "creation_date": 1643682897,
+  "title": "Gradle (Java) cannot find symbol for class in subdirectory of package",
+  "tags": [
+   "java",
+   "android",
+   "gradle"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "It's been some years since I have programmed Java and I am having trouble with resolving a build issue with not finding a symbol for a class in the same package directory structure. [CODE] The following class is attempting to reference [code] . Note the package declarations for both classes. [CODE] I am importing [code] in other source files and able to reference [code] there but, for this source file, Gradle cannot resolve the symbol. What am I missing? (This is an Android project by the way, in case that is relevant.) In advance, thank you."
+ },
+ {
+  "question_id": 70935036,
+  "ym": "2022-02",
+  "creation_date": 1643683094,
+  "title": "How to get one string value from the Mainactivity to a cardview Adapter?",
+  "tags": [
+   "java",
+   "android",
+   "android-studio",
+   "android-intent",
+   "adapter"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have the get location method running on the mainactivity which gets the latitude and longitude of the user and stores it in the form of a string. My cardview holds the contacts added by the user in the phone in the form of a recyclerview in the mainactivity itself. How can I transfer the two strings of Latitude and Longitude that I get from the main activity to my cardview customAdapter that is supposed to take that location and send an sms whenever that particular contact's cardview is pressed. I tried using [code] to pass the string but I get the [code] error right now. This is my [code] method that records the location data in the MainActivity [CODE] and this is my cardview customAdapter [CODE] This is my mainactivity right now [CODE] I would really love any assistance in helping me figure this out."
+ },
+ {
+  "question_id": 70935053,
+  "ym": "2022-02",
+  "creation_date": 1643683309,
+  "title": "Advanced 2-D Array map generation for 2D Platformer game with Java (processing)",
+  "tags": [
+   "java",
+   "arrays",
+   "multidimensional-array",
+   "processing"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to figure out a way to make my simple map generation better. So the question to be specific is, how do I make my random 2-D array platform generator, less random so it looks more like a platformer game level as well as adding a bit more variables to it for adding variation to each Map Generated. Explanation below. Currently, I have this: [CODE] It builds a 2d array with 1s and 0s, I tried to make it less random so it looks like a playable terrain. the top-most section will be 0's (air), the bottom-most will be 1's (platform). Then the middle will have a mix to make floating platforms and such. So far I've got nothing. The next Idea that popped up was to have the number go from 0-N. This works by: 0 will always be air, 1 will always be a platform, 2 can be a platform of a different image, let's say a diagonal platform to form a slope off the edge 3 can be a collectible or anything ...etc My issue is I can't figure out how to generate the numbers in a way that will make the map not look like a mess. I came up with a setup for my variables: [CODE] After all, that's done, then I run a function to replace all values with their respective \"Sprite\" and then display them on the screen. [CODE] Overall, this is how it's used: [CODE] This is how it would end up looking (obviously different each generation): But right now, I have something like this: I've looked everywhere for a"
+ },
+ {
+  "question_id": 70935075,
+  "ym": "2022-02",
+  "creation_date": 1643683662,
+  "title": "Loading Spring-boot properties to POJO",
+  "tags": [
+   "java",
+   "spring-boot",
+   "spring-properties"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I have properties like this: [CODE] I have a POJO: [CODE] However, this POJO is in another jar, so I can't add annotations. So I thought I'd try something like this: [CODE] But I can't get my class to load the properties. How can I get it to work in this scenario?"
+ },
+ {
+  "question_id": 70935095,
+  "ym": "2022-02",
+  "creation_date": 1643683850,
+  "title": "How to access file name within a DoFn in an unbounded pipeline",
+  "tags": [
+   "java",
+   "google-cloud-dataflow",
+   "apache-beam"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm looking for a way to access the name of the file being processed during the data transformation within a DoFn. My pipeline is as shown below: [CODE] Each file that is processed is an XML document. While processing the content, I need access to the name of the file being processed too to include in the transformed record. Is there a way to achieve this? This post has a similar question, but since i'm trying to use XmlIO I havent found a way to access the file metadata. Below is the approach I found online, but not sure if there is a way to use it in the pipeline described above. [CODE] Any suggestions are highly appreciated. Thank you for your time reviewing this. EDIT: I took Alexey's advice and implemented a custom XmlIO. It would be nice if we could just extend the class we need and override the appropriate method. However, in this specific case, there was a reference to one method which was protected within the sdk because of which I couldn't easily override what i needed and instead ended up copying a whole bunch of files. While this works for now, I hope in future there is a more straighforward way to access the file metadata in these IO implementations."
+ },
+ {
+  "question_id": 70935160,
+  "ym": "2022-02",
+  "creation_date": 1643684586,
+  "title": "&quot;Module not found, required by&quot; when implementing maven library via gradle using javafx?",
+  "tags": [
+   "java",
+   "gradle",
+   "javafx",
+   "module"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am using gradle 7.3.1 in Intellij 2021.3 to build a JavaFX application. And I need external libraries dependency for the backend part. This is the complete [code] script that is pre-built by the idea: [CODE] and then I updated [code] : [CODE] Before I updated the [code] , the application launches just fine and shows a javafx window application. But, after I updated that, [code] is thrown. resulting the following error: [CODE] Do I have to download manually the modules? or any steps that I miss? Please enlighten me. :'("
+ },
+ {
+  "question_id": 70935215,
+  "ym": "2022-02",
+  "creation_date": 1643685369,
+  "title": "Output file contains wrong data",
+  "tags": [
+   "java"
+  ],
+  "score": -2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a program that is to ask the user their name (this will be used as the file name). Problem 1: how to I add .txt to the name given to make the file output as .txt. Then the user is asked how my test entries would they like to enter (this works). Next they input an integer for each entry with a value between 0-150. (This works) Last, it is to store the validated test entries in the variable \"score\" then write the entries on separate lines. Problem 2: the program will create a file that contains the invalid entries that are not between 0-150. How do I fix this? [CODE]"
+ },
+ {
+  "question_id": 70935358,
+  "ym": "2022-02",
+  "creation_date": 1643687169,
+  "title": "finding the average of rows of a jagged array",
+  "tags": [
+   "java"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to find the average of rows i have on a jagged 2d array I already printed the array out but the average part is printing out the wrong averages. what is wrong with my code? [CODE]"
+ },
+ {
+  "question_id": 70935405,
+  "ym": "2022-02",
+  "creation_date": 1643687733,
+  "title": "How to handle a non-resolvable parent POM?",
+  "tags": [
+   "java",
+   "eclipse",
+   "maven",
+   "pom.xml"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I've found quite a lot questions regarding this. None of which seemed to help. I have some old code using Eclipse SWT V4234 that I'm trying to resurrect. I have cloned the repo with git and imported it into Eclipse IDE. [CODE] This resulted in this error : Project build error: Non-resolvable parent POM for eclipse.platform.swt:eclipse.platform.swt:3.8.0-SNAPSHOT: Could not find artifact org.eclipse:eclipse-parent:pom:1.0.0-SNAPSHOT and 'parent.relativePath' points at wrong local POM What I need to understand is what the \"Parent\" attribute is attempting to achieve. My assumption (maybe incorrectly) was I had cloned SWT as a standalone project without dependence to any parent. If I comment out the parent attribute, the issue disappears, but as I have little knowledge on Maven and Java development this made me ask why this was required in the first place. So what is the relationship between groupId/artifactId (eclipse.platform.swt) and the Parent groupId/artifactId (org.eclipse). So what is org.eclipse and why does it need to be mentioned? Is it fine they overlap? Do I need to reference the parent POM if I'm making a standalone package for SWT? Is it safe just to comment out the parent attribute?"
+ },
+ {
+  "question_id": 70935413,
+  "ym": "2022-02",
+  "creation_date": 1643687838,
+  "title": "How to close program if text document is not found",
+  "tags": [
+   "java"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "This is the top of my program. You are to type in a .txt file name for it to open. Problem: How do I have the program display an error message and close the program if .txt file is not found? [CODE]"
+ },
+ {
+  "question_id": 70935463,
+  "ym": "2022-02",
+  "creation_date": 1643688518,
+  "title": "A fatal error has been detected by the Java Runtime Environment in SafeFetchN with JavaFX on M1 Mac",
+  "tags": [
+   "java",
+   "javafx",
+   "fatal-error",
+   "apple-m1"
+  ],
+  "score": 4,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have had this error for over 6 months now, and I feel like I have tried everything at this point. Whenever I run a Java Application that uses some kind of JavaFX elements (could be as simple as an empty GridPane, with or without an animation,...), it works for a few seconds, then stops and prints the following : [CODE] Here is one sample of code that will give this error for example: [CODE] No matter what JDK (Azul, Oracle, Bellsoft,... aarch64) or IDE (Netbeans, IntelliJ,...) I use, the error is always the same. I am on a 2020 Mac (so running with the M1 chip)."
+ },
+ {
+  "question_id": 70935508,
+  "ym": "2022-02",
+  "creation_date": 1643688991,
+  "title": "Open CV java.lang.UnsatisfiedLinkError",
+  "tags": [
+   "java",
+   "scala",
+   "opencv"
+  ],
+  "score": -1,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "Hey guys I am working on a Scala/Java project and we are using OpenCv to image processing. I have been stuck for several days trying to import the library, I went through different errors but right now the one I am having in the last attempts is [CODE] Please, I would be very grateful if someone could help me. I don't know what else to try. Thank you in advance!"
+ },
+ {
+  "question_id": 70935569,
+  "ym": "2022-02",
+  "creation_date": 1643689723,
+  "title": "Why does this only work on designed comboBox and not on hardcoded swing?",
+  "tags": [
+   "java",
+   "swing",
+   "combobox"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "Newbie question: So this code here [CODE] works when I try it on comboBoxes from [code] tab in NetBeans. But when I try to apply it to my coded ComboBox, I get a message from [code] saying [code] . Can I get an explanation why and what is the alternative for hardcoded [code] ? Purpose of code: a dynamic [code] so whatever I pick from [code] will have each own set of lists for [code] NOTE: I also tried to change [code] to just [code] . Source code of my project: https://github.com/kontext66/GuwiPos/blob/main/GuwiPos Sorry for the confusion everyone, I do have a main class. [CODE] Main.java, GuwiPos.java"
+ },
+ {
+  "question_id": 70935678,
+  "ym": "2022-02",
+  "creation_date": 1643690692,
+  "title": "Spring Web App Deployment:: how do you hide data in application.properties?",
+  "tags": [
+   "java",
+   "spring",
+   "hibernate",
+   "security",
+   "web-deployment"
+  ],
+  "score": -1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "everyone! this is going to be my first time pushing a newly developed Spring Boot App and I was wondering if there is a way to protect passwords and other sensitive information written in the application.properties file. Assuming we have the following lines: [CODE] The source code is to be first stored on GitHub and having the credentials stored in plain text does not seem to be a good idea. So, I could probably add the file to the .gitignore one; I could set some environment variables on the host but how would it populate the .properties file afterward? Also, this seems quite cumbersome in terms of the scaling later on. So, basically, I am trying to see how it is done in a real-life :) Please, help :)"
+ },
+ {
+  "question_id": 70935683,
+  "ym": "2022-02",
+  "creation_date": 1643690725,
+  "title": "groovy.lang.MissingMethodException: No signature of method: java.lang.String.name() is applicable for argument types: () values: []",
+  "tags": [
+   "java",
+   "groovy"
+  ],
+  "score": 3,
+  "answer_count": 4,
+  "is_answered": true,
+  "body_excerpt": "I am new to this groovy script, as i have requirement to update the java 1.7 to java8 for my project,after upgrading the version both java & groovy then facing issue with the groovy syntax. In java 7 it worked without any issues,but in java 8 facing below error . The below error is occruing while i am trying to find specific tag element as below : [CODE] [CODE] Note : in some places name() method is working but other places facing this error please help me here. Thanks in advance."
+ },
+ {
+  "question_id": 70935740,
+  "ym": "2022-02",
+  "creation_date": 1643691357,
+  "title": "How to stop for loop from printing the same input?",
+  "tags": [
+   "java",
+   "loops"
+  ],
+  "score": 0,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I'm a beginner in Java so I tried experimenting for loops. What I'm trying to do is to print my input based on the amount of order. But it just repeats my third input. My Code [CODE] The output is: Enter amount of order: 3 Enter product name: headset Enter quantity: 5 Enter product name: mouse Enter quantity: 2 Enter product name: monitor Enter quantity: 1 Product name is monitor x1 Product name is monitor x1 Product name is monitor x1 Output I expect: Enter amount of order: 3 Enter product name: headset Enter quantity: 5 Enter product name: mouse Enter quantity: 2 Enter product name: monitor Enter quantity: 1 Product name is monitor x1 Product name is mouse x2 Product name is headset x5"
+ },
+ {
+  "question_id": 70935800,
+  "ym": "2022-02",
+  "creation_date": 1643692027,
+  "title": "How to navigate from fragment to Activity in Android navigation component?",
+  "tags": [
+   "java",
+   "android",
+   "android-jetpack"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "In navigation graph, i have an Activity(MainActivity) which contains 4 fragments. I navigate that fragments using bottomnavigation view through NAV Graph (JetPack Navigation) . I need to play video using Exo Player. So for that reason. i take a fragment which contains recyclerview of videolist. when i pass the intent from VideoListAdapter Class like [CODE] for playing full screen video in PlayVideo Actvity it shows me error of marshal value, & parcel.write.os() , so what have to do?...Please help me."
+ },
+ {
+  "question_id": 70935810,
+  "ym": "2022-02",
+  "creation_date": 1643692118,
+  "title": "How to authenticate firebase using email/password on desktop for individual users (javafx)",
+  "tags": [
+   "java",
+   "firebase",
+   "javafx",
+   "google-cloud-firestore"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I'm still in the planning phase of a project. Is it possible to authenticate a user on desktop using java just to read data from firestore? The only documentation I can find is related to admin access, which I don't think is a smart idea. I also saw something using webview from javafx if I understand correctly. Can someone help me understand how to do this, or let me know if it's at least possible? We have a mobile app that is creating and viewing data on firestore. My job is to find a way to make a desktop version that only reads the data"
+ },
+ {
+  "question_id": 70935853,
+  "ym": "2022-02",
+  "creation_date": 1643692537,
+  "title": "Is there any way I can create a Scheduled Job with custom Job Name and Job Group for SFTP Endpoint",
+  "tags": [
+   "java",
+   "spring-boot",
+   "apache-camel",
+   "sftp",
+   "quartz-scheduler"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "From URI of the Route looks like below sftp://{{host}}/{{remoteFolderLocation}}?username={{username}}&password={{password}}&recursive=true&useUserKnownHostsFile=false &move=.consumed&maximumReconnectAttempts=3&readLock=changed&readLockMinAge=10s&fastExistsCheck=true &scheduler=quartz2&scheduler.cron=0+0/10+ +1/1+ +?+ * I want to consume files from SFTP Server remote folder location and also have control on the Job Name and Job Group created by Camel Quartz2 Component Can someone let me know how to achieve the above requirement??"
+ },
+ {
+  "question_id": 70936117,
+  "ym": "2022-02",
+  "creation_date": 1643694864,
+  "title": "Combining multiple read/write Binders",
+  "tags": [
+   "java",
+   "vaadin",
+   "vaadin-flow"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm refactoring a view from using [code] and mutable state to using pure views with [code] and [code] . As part of the old view, I have several components with binders that don't bind directly to [code] but to its fields, and the components encapsulate and manage those fields entirely. A simplified model: [CODE] And for the view code: [CODE] How can I achieve something like the following? [CODE] I've tried using [code] , but I think due to its implementation, the \"getter\" always returns the same value (by instance equality), the field is never considered modified by the binder, and the setter is never called. I've thought about refactoring the components [code] and [code] to bind directly to sub-properties given a [code] , but I feel like there should be a better solution."
+ },
+ {
+  "question_id": 70936140,
+  "ym": "2022-02",
+  "creation_date": 1643695129,
+  "title": "I am trying to make a pointcut. but its giving an Exception",
+  "tags": [
+   "java",
+   "spring",
+   "aop",
+   "aspectj",
+   "pointcut"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "here i am using a point cut annotation as follows: [CODE] it giving me an exception which is as: [CODE] I have just started learning AOP any suggestion or help is going to help a lot thanks."
+ },
+ {
+  "question_id": 70936310,
+  "ym": "2022-02",
+  "creation_date": 1643696556,
+  "title": "Can&#39;t create new table in Mysql used foreign key",
+  "tags": [
+   "java",
+   "mysql",
+   "jdbc",
+   "mysql-workbench"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "This is what i have used to create new table [CODE] This is the error I'm facing ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=1000 primary key, f_name varchar(100) not null, f_lo varchar(300) not null, u_i' at line 2 Refer this image :- https://i.sstatic.net/uXeoO.png"
+ },
+ {
+  "question_id": 70936350,
+  "ym": "2022-02",
+  "creation_date": 1643696827,
+  "title": "Postgres query to HQL: select t from TableName t where t.isActive=true order by t.extension-&gt;&#39;desc&#39;",
+  "tags": [
+   "java",
+   "postgresql",
+   "groovy",
+   "hql"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Postgres query: [CODE] This work's fine. Need help with HQL query which will do the same job. [CODE] Method threw 'java.lang.IllegalArgumentException' exception. context: there is a table TableName where one column is extcol which contains object. Need to sort TableName based on a property desc which present in extcol json object."
+ },
+ {
+  "question_id": 70936542,
+  "ym": "2022-02",
+  "creation_date": 1643698080,
+  "title": "Is it guaranteed that the term &quot;version&quot; appears in the output of `java -version`?",
+  "tags": [
+   "java"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "There's a 10 year old question, Correct way to check Java version from BASH script . Obviously some flaws of that approach were already pointed out, since we no longer have \"the Java\", but also OpenJDK and others. Does Java guarantee that the output always contains the term \"version\", i.e. it must neither be translated, nor abbreviated (\"v.\") and also not omitted?"
+ },
+ {
+  "question_id": 70936568,
+  "ym": "2022-02",
+  "creation_date": 1643698373,
+  "title": "How i round off two decimal point in java?",
+  "tags": [
+   "java",
+   "android",
+   "decimal",
+   "rounding"
+  ],
+  "score": -2,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Like it comes : 692589 i want the value similar : 69.23 I want to know more than one process to perform this task in java"
+ },
+ {
+  "question_id": 70936580,
+  "ym": "2022-02",
+  "creation_date": 1643698455,
+  "title": "How can I restrict someone from entering numbers or special characters in my NAME edittext",
+  "tags": [
+   "java",
+   "android",
+   "xml",
+   "user-interface"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am facing this problem, I don't want someone to enter any special char or numbers in my name field. I want to restrict people from entering any numbers or special characters in my name edittext. Please help me resolve this issue. I am creating a setup profile form for my users. This is My XML file [CODE] This is the Image"
+ },
+ {
+  "question_id": 70936771,
+  "ym": "2022-02",
+  "creation_date": 1643699806,
+  "title": "Why we need to handle or throw checked exceptions in Java?",
+  "tags": [
+   "java",
+   "exception",
+   "checked-exceptions"
+  ],
+  "score": -1,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I am new to Java, I read that checked exception get raised during compile time only i.e. program will not compile successfully if there is a checked exception which is not handled or thrown. If something is preventing a compiler to compile a code, then we could just erase it or recode it in another way so that problem doesn't exist. For example, if we are trying to open a file which is not there in system, we should not just open it. So why the need to handle/throw these exceptions ?"
+ },
+ {
+  "question_id": 70936895,
+  "ym": "2022-02",
+  "creation_date": 1643700633,
+  "title": "How to correctly map a JSON structure to an object?",
+  "tags": [
+   "java",
+   "json",
+   "jackson",
+   "json-deserialization"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "How to correctly map the following structure to an object There is JSON: [CODE] Classes: [CODE] How do I need to write in class Products? Mapper: [CODE]"
+ },
+ {
+  "question_id": 70936945,
+  "ym": "2022-02",
+  "creation_date": 1643700924,
+  "title": "Rejecting GET requests with additional query params",
+  "tags": [
+   "java",
+   "spring-boot",
+   "http",
+   "spring-mvc"
+  ],
+  "score": 4,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have an HTTP GET endpoint that accepts some query parameters: [CODE] If the clients will send additional query parameters, the endpoint will ignore them. [CODE] I want to reject HTTP requests that will send additional query parameters: [CODE] I can change the signature of the method to accept a map and validate the values in the map as suggested here . Is there a way to do with while keeping the cleaner and self explained method signature?"
+ },
+ {
+  "question_id": 70936952,
+  "ym": "2022-02",
+  "creation_date": 1643700969,
+  "title": "How to implement Pattern Layout in log4j2 2.17.1 migrated from log4j 1.2.17 version?",
+  "tags": [
+   "java"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Migrated from log4j 1.2.17 to log4j2 2.17.1 and getting issue in Pattern Layout class. [CODE] Above snippet was used in log4j 1.2.17 version and after migration getting compilation error for Pattern Layout and File Appender class. [CODE]"
+ },
+ {
+  "question_id": 70937015,
+  "ym": "2022-02",
+  "creation_date": 1643701408,
+  "title": "Android Studio Bumblebee unable to use Safeargs",
+  "tags": [
+   "java",
+   "android",
+   "kotlin",
+   "gradle"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have recently updated my android studio to Stable Bumblebee version . I want to use Nav controller with safe args in my new android project .But as the Gradle plugin has changed to 7.1.0 , I am confused that where to add classpath dependency of safe args. Can you please help ?"
+ },
+ {
+  "question_id": 70937075,
+  "ym": "2022-02",
+  "creation_date": 1643701762,
+  "title": "Asynchronous single task executor",
+  "tags": [
+   "java",
+   "asynchronous",
+   "double-checked-locking"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm in doubt if the solution below is correct for the following: in a multi-user application any user can start processing of given data by clicking a button processing takes long time thus it should be executed asynchronously to not block GUI if one user has already started the processing, the other requests should be rejected till it completes Below is the code used to solve this: [CODE] [code] is [code] as below: [CODE] What confuses me here is the synchronization (i.e. blocking) in [code] . I understand that blocking here is very short and not critical, but shouldn't asynchronous method be always implemented without blocking? If so, I can't imagine how \"single processing\" can be achieved without synchronization."
+ },
+ {
+  "question_id": 70937158,
+  "ym": "2022-02",
+  "creation_date": 1643702245,
+  "title": "In Android studio, if I tried to click account creation btn without filing the required fields, the app crashes",
+  "tags": [
+   "java",
+   "android",
+   "firebase",
+   "android-studio"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "` [CODE] ` ** java.lang.IllegalArgumentException: Given String is empty or null at com.google.android.gms.common.internal.Preconditions.checkNotEmpty(com.google.android.gms:play-services-basement@@17.3.0:5) at com.google.firebase.auth.FirebaseAuth.createUserWithEmailAndPassword(com.google.firebase:firebase-auth@@20.0.2:1) at com.james.tamilquiz.SignupActivity$1.onClick(SignupActivity.java:64) at android.view.View.performClick(View.java:8160) at android.widget.TextView.performClick(TextView.java:16222) at android.view.View.performClickInternal(View.java:8137) at android.view.View.access$3700(View.java:888) at android.view.View$PerformClick.run(View.java:30236) at android.os.Handler.handleCallback(Handler.java:938) at android.os.Handler.dispatchMessage(Handler.java:99) at android.os.Looper.loop(Looper.java:246) at android.app.ActivityThread.main(ActivityThread.java:8633) at java.lang.reflect.Method.invoke(Native Method) at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:602) at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1130) I/Process: Sending signal. PID: 21407 SIG: 9 **"
+ },
+ {
+  "question_id": 70937209,
+  "ym": "2022-02",
+  "creation_date": 1643702569,
+  "title": "I thought answer of these time complexity is O(n) but it is wrong. Can someone explain?",
+  "tags": [
+   "java",
+   "annotations",
+   "big-o",
+   "code-snippets"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "What is the big-O notation of the given code snippet? [CODE]"
+ },
+ {
+  "question_id": 70937237,
+  "ym": "2022-02",
+  "creation_date": 1643702796,
+  "title": "Problem with adding long term validation to signed pdf using iText",
+  "tags": [
+   "java",
+   "pdf",
+   "itext",
+   "digital-signature"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a problem with adding long-term-validation to PDF signed using iText. Do not know why it generates broken pdf. When I try to add LTV to PDF signed by different lib (ex 'node-signpdf') then I got valid PDF. Signing of pdf looks like this: [CODE] Enabling LTV is basically taken from iText examples -> https://github.com/mkl-public/testarea-itext7/blob/master/src/main/java/mkl/testarea/itext7/signature/AdobeLtvEnabling.java My code can be found here -> https://github.com/lstachowiak/pdf-sign-and-enable-ltv-example Thanks in advance for any help!"
+ },
+ {
+  "question_id": 70937250,
+  "ym": "2022-02",
+  "creation_date": 1643702856,
+  "title": "How to have query string parameter(s) and field name(s) different",
+  "tags": [
+   "java",
+   "spring",
+   "spring-mvc",
+   "binding"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I have a controller which will have 3 query strings. Instead of having 3 fields in controller, I am defining them in class. [CODE] Now in controller , I am able to accept them [CODE] Now, this works as expected, if I pass the query string as is. eg: [code] . But, How do I accept the query parameter names different to it's corresponding fieldName. I should be able to call it as below: [code] ."
+ },
+ {
+  "question_id": 70937295,
+  "ym": "2022-02",
+  "creation_date": 1643703110,
+  "title": "Not able to print logs to Tomcat&#39;s CATALINA_BASE by using log4j2",
+  "tags": [
+   "java",
+   "log4j2"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have update our code from log4j to log4j 2.17.1 And I want to stored the log file to servers under the Apache tomcat. I am using the log4j2.properties mentioned below. When I run the code, then the logs file is printed in under code structure(see in below attached screenshot)but I want to print the logs file in QA-Servers under apache tomcat. Please help me to solve the issue."
+ },
+ {
+  "question_id": 70937346,
+  "ym": "2022-02",
+  "creation_date": 1643703460,
+  "title": "Looking for a way to override application.properties values during application runtime",
+  "tags": [
+   "java",
+   "spring-boot",
+   "ibm-mq"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have written a small application to publish messages to IBM MQ using Spring boot.I have following properties in my applications.properties. Code is working when I input a destination queue name and the message without any issue, Now I want to input the queue manager name and based on the queue manager name ibm.mq.QueueManager,ibm.mq.connName should be changed. Appreciate if someone give me a suggestion. Do I need to come up with a separate method with a MQ connection initiation? [CODE] I have included following setter in my controller class, but it seems it does not overriding the property file as I intended. [CODE] current method of publishing messages [CODE]"
+ },
+ {
+  "question_id": 70937351,
+  "ym": "2022-02",
+  "creation_date": 1643703473,
+  "title": "The git-push command failed",
+  "tags": [
+   "java",
+   "git",
+   "maven",
+   "github"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am facing this problem for a very long now.I am able to ssh clone the repo and commit to the same repo, but when try [code] the build is failing as below. [CODE] The thing is when I try to [code] it should use [code] instead of [code] . Can someone please help me resolve this ?"
+ },
+ {
+  "question_id": 70937392,
+  "ym": "2022-02",
+  "creation_date": 1643703757,
+  "title": "Return city in which most people live - stream()",
+  "tags": [
+   "java",
+   "java-stream",
+   "java-17"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have a class called Person (name,surname,city,age) and I added to it persons. I have to find the city that lives the most people - in my case is \"Meerdonk\". I tried using stream(), but I cannot figure out how. This is my code: [CODE] At [code] , I don't know what I should do to get my most populated city, and if max. is OK to be used, as I want to get the max (most populated city). Can someone explain me please what I should use to get out the most populated city? Or just to let me know what I have wrong?"
+ },
+ {
+  "question_id": 70937414,
+  "ym": "2022-02",
+  "creation_date": 1643703892,
+  "title": "intellij step over button does not work as expected",
+  "tags": [
+   "java",
+   "debugging",
+   "intellij-idea"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "My problem is that when I click on step over , it does not jump over the addChar method, but enters it. Should not the step over button jump over the method but the step into button go into it? https://i.sstatic.net/rRp0J.png"
+ },
+ {
+  "question_id": 70937481,
+  "ym": "2022-02",
+  "creation_date": 1643704264,
+  "title": "Caching java instance for peformance",
+  "tags": [
+   "java",
+   "xml",
+   "caching"
+  ],
+  "score": 0,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "Please assist, What is meant by caching this line/new instance in java for example: [CODE] I know I have to store insome sort of memory... may someone show me an example. Thanks."
+ },
+ {
+  "question_id": 70937537,
+  "ym": "2022-02",
+  "creation_date": 1643704622,
+  "title": "Swagger generated code date issue &quot;Java 8 date/time type java.time.OffsetDateTime not supported by default&quot;",
+  "tags": [
+   "java",
+   "swagger",
+   "openapi",
+   "swagger-codegen"
+  ],
+  "score": 3,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I have SpringBoot Java (server stub) code generated from a YAML API definition file which I coded in SwaggerHub. I use Open API 3. I cannot get this generated code working, seems quite buggy. The error I cannot fix is this one: [CODE] I get it when I git the API docs URL. [code] I tried all suggestion which I could find on the web but nothing helps. I think it's related to this field which I have in my YAML file. [CODE] I tried registering JavaTimeModule and all that was suggested on the web. I don't understand this error. I don't know even if I am putting this in the right place. But this is the fix I tried. [CODE] I put it in the [code] . In general, I don't understand why this generated code is so buggy. https://github.com/FasterXML/jackson-modules-java8/issues/219 serialize/deserialize java 8 java.time with Jackson JSON mapper How should I fix this?"
+ },
+ {
+  "question_id": 70937593,
+  "ym": "2022-02",
+  "creation_date": 1643704890,
+  "title": "2dimension matrix interface for add() and copy()",
+  "tags": [
+   "java",
+   "interface"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Trying to implements the interface functions. Having some issues. For makeEmpty() function seems like i need to transverse the matrix but not sure what that means For addition and copy function how should i do it For the test class i havent write yet. Not very sure how to write java class [CODE] java interface is boolean type for add() and copy() correct? [CODE]"
+ },
+ {
+  "question_id": 70937687,
+  "ym": "2022-02",
+  "creation_date": 1643705352,
+  "title": "Using javax @Transient annotation with a field of MappedSuperclass",
+  "tags": [
+   "java",
+   "spring",
+   "hibernate"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Javax's [code] annotation when applied over an [code] class' field will prevent the annotated field from being persisted into the database as a column. Is there a method to selectively achieve this behavior (of excluding the persistence of a certain column) for a field in a MappedSuperclass? To clarify, I want some field [code] present in a MappedSuperclass to be persisted for some entity classes that extend the MappedSuperclass and excluded from persistence in some other extending entity classes. I have tried shadowing the field [code] in the extending class and annotating it with [code] , however, this doesn't seem to work. Is there any alternative approach that would enable this behavior?"
+ },
+ {
+  "question_id": 70937793,
+  "ym": "2022-02",
+  "creation_date": 1643705868,
+  "title": "HTML tags are not working when defined within stringbuilder",
+  "tags": [
+   "java",
+   "html",
+   "css",
+   "stringbuilder"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am defining HTML tags in String format, but I am not getting expected final result in HTML format. [CODE] Actual result that I'm getting is : [CODE] But I want it be in HTML format. I referred lot of similar questions, but I am unable to get expected result even after following those solutions. Please help!!"
+ },
+ {
+  "question_id": 70937825,
+  "ym": "2022-02",
+  "creation_date": 1643706040,
+  "title": "Is there any other way to add an ActionListener to a button using windowbuilder (eclipse) in design mode than to double click on the button?",
+  "tags": [
+   "java",
+   "eclipse",
+   "actionlistener",
+   "windowbuilder"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm new to windowbuilder designer with eclipse. I'm using eclipse 2021-12, jdk 17 and windowbuilder 1.9.8 version. I'm trying to add an actionListener on a button in design mode. But when I double-click on this button in design mode, to add an actionListener, nothing happens. Here is my source code in source mode : [CODE] And here is the rendering in design mode : the rendering in design mode"
+ },
+ {
+  "question_id": 70937851,
+  "ym": "2022-02",
+  "creation_date": 1643706136,
+  "title": "How to set TCP NODELAY for db connections on a spring boot application",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "spring-data"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a java web application built on spring boot and spring data using Hikari pool, deployed in azure Kubernetes cluster, connecting to azure postgres database. To solve a performance issue the Azure team has advised to set TCP NODELAY for this application. Can you please advise how to configure this for the spring application"
+ },
+ {
+  "question_id": 70937906,
+  "ym": "2022-02",
+  "creation_date": 1643706353,
+  "title": "How to Colorize String Results in JSP?",
+  "tags": [
+   "java",
+   "mysql",
+   "jsp"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "In my jsp file below last <%=rs.getString(\"results\")%> as results returns 3 different results as W,L and D. How can I show W for green, L for red and D for yellow for using if condition and/or other statement? If any problem I added code to this link: https://codeshare.io/EBbOyO Thanks in advance to those who will help. [CODE]"
+ },
+ {
+  "question_id": 70937912,
+  "ym": "2022-02",
+  "creation_date": 1643706383,
+  "title": "Why does complier give casting error even after declaring type explicitly?",
+  "tags": [
+   "java",
+   "collections",
+   "future"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a Callable defined as : [CODE] I am using future like this: [CODE] I get following error in [code] line : java.util.List cannot be applied to java.lang.Object. I understand the solution is to cast return value of f.get(). But I wanted to know the reason behind this error and if there is solution other than casting ?"
+ },
+ {
+  "question_id": 70937915,
+  "ym": "2022-02",
+  "creation_date": 1643706399,
+  "title": "Date format in Spring Batch Excel",
+  "tags": [
+   "java",
+   "spring",
+   "apache-poi",
+   "spring-batch",
+   "spring-batch-excel"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to read an Excel file with Spring Batch and Spring Batch Excel and cells in date format are read in a different format form the file. In my file dates are in [code] and when Spring/POI are reading data [code] is used and in [code] method the parameter [code] has a pattern of [code] . Is there a way to force the date pattern when reading ? My rowmapper configuration is [CODE] Thank you in advance"
+ },
+ {
+  "question_id": 70938015,
+  "ym": "2022-02",
+  "creation_date": 1643706891,
+  "title": "Android studio - link external library",
+  "tags": [
+   "java",
+   "android",
+   "android-studio",
+   "kotlin",
+   "import"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm having issues with linking the library to Android studio the correct way. I created external library and tried to link it to my project. What I actually did (not intended) was importing library but rather as a clone. As a final result now there is duplicated source for my lib, one in actual library, one in project as imported module. Can I somehow link the library, so there is no actual source but a reference/link to it? Screenshot of how lib is added to project: P.S: I used Project -> New-> Import Module with import option (first try I didn't have the import checkbox filled and the library was just empty)"
+ },
+ {
+  "question_id": 70938022,
+  "ym": "2022-02",
+  "creation_date": 1643706932,
+  "title": "Save loaded RecyclerView inside another RecyclerView after Scroll",
+  "tags": [
+   "java",
+   "android",
+   "android-recyclerview"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have a [code] inside another [code] , the problem is that after I scroll the first [code] , then when I return to the top, the inner [code] is recreated and accordingly resets the scrolled position. How to make it so that when the main [code] is scrolled, the secondary [code] are saved and not reset? This is implemented in the Play market, I need to do the same. As it looks to me How it looks in the Play store"
+ },
+ {
+  "question_id": 70938053,
+  "ym": "2022-02",
+  "creation_date": 1643707074,
+  "title": "No query defined for that name [getUserByCity], Spring boot JPA NamedQuery from jpa-named-queries.properties",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "hibernate",
+   "jpa"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "There are many existing questions for this issue but my case is little different because I am trying to use named query in EntityManager. I am trying to use named query(Defined in jpa-named-queries.properties not using @NamedQuery) in EntityManager but I am always getting No query defined for \"name\". I have a class User [CODE] I have its repository which is extended from JpaRepository as well as from CustomUserRepository. Here is my customer user repository. [CODE] I am using this [code] method from user repository. Everything works fine if I declare named query above User class as follows. [CODE] But not working If I am adding named query in [code] with this I am getting no named query found for this key. following is my jpa-named-queries.properties file contents [CODE]"
+ },
+ {
+  "question_id": 70938115,
+  "ym": "2022-02",
+  "creation_date": 1643707387,
+  "title": "Collection.toArray(...) performance in Android",
+  "tags": [
+   "java",
+   "android",
+   "performance",
+   "benchmarking"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I've seen the performance of [code] compared with [code] in multiple articles both on StackOverflow and on external sites , but all the analyses I've found so far were run on standard \"desktop\" JVM. Did anyone run similar benchmarks on Android?"
+ },
+ {
+  "question_id": 70938280,
+  "ym": "2022-02",
+  "creation_date": 1643708146,
+  "title": "Log4j Migration - How to migrate Custom File Appender with log4j bridge or logj2",
+  "tags": [
+   "java",
+   "log4j",
+   "log4j2"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have one customer appender class that was implemented in log4j 1 as below: [CODE] I'm trying to migrate this class to use bridge (log4j-1.2-api-2.17.1) (and log4j 2 core and api version 2.17.1) I noticed that: 1> The Log4j bridge does not have FileApennder class. The migration doc did list the FileAppender as one of the supported components 2> log4j 2 File appender cannot be extend as the class is defined as \"public final class FileAppender\" My questions are: 1> What is the best way to migrate custom File Appender in this case? 2> What is the equivalent of below classes in log4j2? org.apache.log4j.FileAppender; org.apache.log4j.helpers.CountingQuietWriter org.apache.log4j.helpers.LogLog"
+ },
+ {
+  "question_id": 70938297,
+  "ym": "2022-02",
+  "creation_date": 1643708242,
+  "title": "How to add classpath in new version of Android Studio",
+  "tags": [
+   "java",
+   "android",
+   "gradle"
+  ],
+  "score": 53,
+  "answer_count": 5,
+  "is_answered": true,
+  "body_excerpt": "I updated my android studio version to bumblebee version. Now I want add navigation component to my project. I want add classpath to gradle, but this file gradle has been changed and I don'y know how can I add this. I want add this [code] to gradle files! My project gradle file is : [CODE] How can I add this classpath to application gradle ?!"
+ },
+ {
+  "question_id": 70938308,
+  "ym": "2022-02",
+  "creation_date": 1643708324,
+  "title": "How do I return a byte array as response using spring boot and ajax?",
+  "tags": [
+   "javascript",
+   "java",
+   "ajax",
+   "spring-boot"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am trying to create a page that will download a file from a data stream. I am able to get the byte stream and I want to return this to client side to save it as file. I tried the code below however, the file that is being saved is corrupted. The download process also is too quick that I think it is not downloading properly.. Java code: [CODE] } Javascript code: [CODE] Hope you guys could help me."
+ },
+ {
+  "question_id": 70938355,
+  "ym": "2022-02",
+  "creation_date": 1643708504,
+  "title": "How to convert this String array to array so that I can print all the results coming from a for loop to a string separated by commas",
+  "tags": [
+   "java",
+   "arrays",
+   "string",
+   "arraylist",
+   "collections"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "[CODE] Coverage Report List is a method that accepts two string arguments. I'm learning right now so any other approaches are also welcome."
+ },
+ {
+  "question_id": 70938395,
+  "ym": "2022-02",
+  "creation_date": 1643708679,
+  "title": "check if block is any liquid (minecraft forge 1.18.1)",
+  "tags": [
+   "java",
+   "minecraft",
+   "minecraft-forge"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a function that is being called for every block. And I want that the function returns true when it is a fluid (not only Minecraft fluids aka other mod fluids example: oil) This is my code: [CODE] I searched, and I didn't found anything that could help me"
+ },
+ {
+  "question_id": 70938482,
+  "ym": "2022-02",
+  "creation_date": 1643709116,
+  "title": "Postgresql rule on insert to do nothing and return the given instence",
+  "tags": [
+   "java",
+   "sql",
+   "postgresql",
+   "spring-data-r2dbc"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I am trying to write a rule that on insert if there is conflict to do nothing. The hard part is that I am using java code for interacting with the db and the save method expects an instance to be returned. So the goal I am trying to achieve is, a rule that triggers on conflict when inserting, does nothing and returns the given instance. I have tried to do something like that : [CODE]"
+ },
+ {
+  "question_id": 70938509,
+  "ym": "2022-02",
+  "creation_date": 1643709226,
+  "title": "How to get an element within an ArrayList of elements using Selenium Java",
+  "tags": [
+   "java",
+   "selenium-webdriver",
+   "findelement"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have an array list in Java that gives me a list of machine names as below: [CODE] This DIV has 22 machines. Each machine has its own individual entities like machine name, part number etc. I want to loop through each machine card and get the value of its individual entity. [CODE] In above code I am unable to pass something like below [CODE] How do I get the text/value of each entity by parsing through individual machine? Outer HTML [CODE] Thanks in advance."
+ },
+ {
+  "question_id": 70938608,
+  "ym": "2022-02",
+  "creation_date": 1643709657,
+  "title": "Illegal State Exception in mediaplayer.prepare android",
+  "tags": [
+   "java",
+   "android",
+   "android-mediaplayer",
+   "surfaceview",
+   "android-bitmap"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I am using a method in asynctask in the class VideoSurfaceView. But I am getting crash. I tried other ways too but didn't worked. Below is the code: ...... [CODE] I am getting error as, [CODE] I am getting error in mMediaPlayer.prepare(); . Kindly let me know where exactly I need to fix this issue. I tried using mMeiaPlayer.perpareAsync too but didn't worked."
+ },
+ {
+  "question_id": 70938651,
+  "ym": "2022-02",
+  "creation_date": 1643709821,
+  "title": "Android strings Localisation working partially",
+  "tags": [
+   "java",
+   "android",
+   "xml",
+   "string",
+   "localization"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am trying to use Localisation in my app where I am using 3 languages, when I switch languages not all strings are being translated, some strings are displayed in English only whatever language I switch to. This is the code I am using which is working partially: [CODE]"
+ },
+ {
+  "question_id": 70938689,
+  "ym": "2022-02",
+  "creation_date": 1643710015,
+  "title": "10000000000%10 returning 8 in Java",
+  "tags": [
+   "java",
+   "data-structures",
+   "linked-list",
+   "modulo"
+  ],
+  "score": -2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Q ) To reverse two linked lists, add them and return a reversed linked list of the sum ` https://leetcode.com/problems/add-two-numbers/ [CODE] For the input: [9] [1,9,9,9,9,9,9,9,9,9] Output: num1 = 9 num2 = 9999999991 sum = 10000000000 l = 8 (why is 10000000000%10=8 here?) sum = 1000000000 l = 0 sum = 1000000000 l = 0 sum = 100000000 l = 0 sum = 10000000 l = 0 sum = 1000000 l = 0 sum = 100000 l = 0 sum = 10000 l = 0 sum = 1000 l = 0 sum = 100 l = 0 sum = 10 l = 1 sum = 1 Please help"
+ },
+ {
+  "question_id": 70938727,
+  "ym": "2022-02",
+  "creation_date": 1643710213,
+  "title": "Spark Avro Schema Value is Coming Null",
+  "tags": [
+   "java",
+   "apache-spark",
+   "apache-kafka",
+   "avro",
+   "spark-structured-streaming"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I reading from a Kafka Topic which has data in Avro format below is my code : [CODE] I am getting the value as null for my I can see the data in Kafka side but in Spark all values are coming as zero or null below is my output: [CODE] Is I am doing anything wrong here ? Not able to figure out why value are coming empty ? Below is Schema return for the schema registry: [CODE]"
+ },
+ {
+  "question_id": 70938816,
+  "ym": "2022-02",
+  "creation_date": 1643710596,
+  "title": "MySQL and the Java finaliser thread - High CPU consumption",
+  "tags": [
+   "java",
+   "hibernate",
+   "mysql-connector"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "My app (which uses hibernate) is running into high CPU consumption. When I take the thread dump, and analyze this, I see the following: http-nio-80-exec-75 thread obtained com.mysql.jdbc.LoadBalancedConnectionProxy's lock & did not release it. Due to that finalizer thread is BLOCKED as shown in the below graph. If Finalizer thread is blocked for a prolonged period, your application will experience memory problems. The read time for the queries in question is really high, which is why the thread isn't releasing the lock. These are simple queries and cannot be tuned more. Other than increasing the core for better CPU, is there anything else that can be done? Thanks"
+ },
+ {
+  "question_id": 70939204,
+  "ym": "2022-02",
+  "creation_date": 1643712153,
+  "title": "Flowable correlation catch event happens before data is persisted",
+  "tags": [
+   "java",
+   "activiti",
+   "bpmn",
+   "camunda",
+   "flowable"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "As far as I am aware of, data is persisted in Flowable when it reaches a waiting state. In our process we have a delegate which are starting a calculation and logging an ID for tracking purposes, and waits for a JMS message to restart the flow, like this: In the \"Start Calculation\" delegate we have code like this: [CODE] Both this calculation and this logging takes some time. And sometimes the logging takes more time than the calculation - meaning that the JMS message arrives before the \"Start Calculation\" delegate is finished. If this happens, the correlation: [CODE] Does not result in any answer, and the process will be waiting indefinite. Most of the time this is not a problem when logging is faster than the calculation. How can I solve this, I haven't found any methods to force persisting of variables before the delegate is finished. I guess I can wait for a minute and try again in the MessageHandler class, but as there are many JMS messages coming, but only a few that actually correlates, I feel that this will cause unnecessary noice. Maybe if I move the logging to its own delegate, and uses an inclusive gateway to this and the catch event will solve it. But hoping for a more elegant solution."
+ },
+ {
+  "question_id": 70939217,
+  "ym": "2022-02",
+  "creation_date": 1643712205,
+  "title": "change ant.zip() output directory",
+  "tags": [
+   "java",
+   "gradle",
+   "ant",
+   "zip",
+   "build.gradle"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I want to store output of [code] inside build directory. I'm doing it the following way for now. [CODE] Is there way to directly do it in [code] ?"
+ },
+ {
+  "question_id": 70939241,
+  "ym": "2022-02",
+  "creation_date": 1643712315,
+  "title": "JitsiMeetConferenceOptions() reflects error in android studio",
+  "tags": [
+   "java",
+   "android",
+   "android-studio",
+   "jitsi"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I implement [CODE] in android studio and it shows error. Here in the logcat, it shows that JitsiMeetConferenceOptions() has private access in ‘org.jitsi.meet.sdk.JitsiMeetConferenceOptions"
+ },
+ {
+  "question_id": 70939261,
+  "ym": "2022-02",
+  "creation_date": 1643712413,
+  "title": "TestNG - Getting start time of before method",
+  "tags": [
+   "java",
+   "selenium",
+   "testng"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm executing a few hundred tests in test classes consisting of a singular beforeMethod test, followed by a variable amount of primary tests and occasionally an afterMethod. The purpose of the beforMethod test, is to populate the test environment with data used in the primary tests while separating logging and recording from the primary tests, which we report on. We have set up an automatic issue creation tool using a listener. We've found that it would give great value to add execution time to this tool, so that it can show us how long it would take to reproduce the errors in said issues. To this end, I have made a simple addition to this code, that uses ITestResult.getEndMillis() and getStartMillis() to get the execution time. The problem we're experiencing with this approach, is that if the test encounters a failure during the primary tests, ITestResult.getStartMillis() will not account for the start time of the before method, but only the primary method. How would we go about determining the start time of the test class itself (always the beforeMethod), rather than just the current method? Since we're running hundreds of tests in a massive setup, a solution that allows this without changing each separate test class, would definitely be preferable. The setup of the java test classes look something like this (scrubbed of business specifics): [CODE] So in this case, the proble"
+ },
+ {
+  "question_id": 70939270,
+  "ym": "2022-02",
+  "creation_date": 1643712441,
+  "title": "Can we convert (marshal) java objects with variables of &#39;Object&#39; data type using JAXB",
+  "tags": [
+   "java",
+   "xml",
+   "object",
+   "jaxb",
+   "marshalling"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have Class with variables which have 'Object' data type. I have to use the Object data type because the data type of that filed is unknown. (Sometimes it is a String, String Array, Or other custom object etc.). But when we use 'Object' the JAXB Marshalling process is failing with errors. Is there a way to handle this ? My class is similar to below [CODE] } when I use the @XmlTransient for the 'Object subject'. Marshalling errors are not available. But it does not add the 'subject' filed to the XML file."
+ },
+ {
+  "question_id": 70939299,
+  "ym": "2022-02",
+  "creation_date": 1643712597,
+  "title": "Using pre-defined class names in java",
+  "tags": [
+   "java"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm fairly new to Java. I learnt that the names of predefined classes in java are not keywords and thus we can use those as identifiers. I tried out the following code: (I know that that import is redundant) [CODE] and the out put was: [CODE] However, when I replaced [code] with import [code] , I got an error cause it tried to instantiate the predefined Process class. I had assumed that the program will check scope by scope and will thus execute the userdefined class constructor in both cases. How am I wrong?"
+ },
+ {
+  "question_id": 70939304,
+  "ym": "2022-02",
+  "creation_date": 1643712628,
+  "title": "Prevent Flux Publisher from going out of memory",
+  "tags": [
+   "java",
+   "project-reactor",
+   "rsocket"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to use a [code] to stream events to subscribers using RSocket. There can be a huge backlog of events (in the database) and they must be send out in order without any gaps without either flooding the publisher (out of memory) or the consumer. None of the [code] 's seem suitable: IGNORE: I'd like to block (or get a callback when there's more demand), not get an error ERROR: I'd like to block (or get a callback when there's more demand), not get an error DROP: bad, because events cannot be skipped (no gaps) LATEST: bad, because events cannot be skipped (no gaps) BUFFER: leads to out of memory on publisher I have everything working, but if I don't limit my rate in the subscribers the publisher side goes out of memory -- that's bad, as a bad subscriber could kill my service. For some reason, I'm misunderstanding how back pressure works. Everywhere I look there is talk of [code] . This works, but it only works for me on the subscriber side. Using a [code] on the publisher side has no effect at all. I've used [code] and [code] to create the events I want on the publisher side, but they don't seem to respond to back pressure at all. So I must be missing something as the whole back pressure mechanism in Reactor is described as very transparent and easy to use... Here's my publisher: [CODE] And my consumer: [CODE] What I don't understand why this wouldn't work. The [code] uses"
+ },
+ {
+  "question_id": 70939341,
+  "ym": "2022-02",
+  "creation_date": 1643712784,
+  "title": "Combine Two Json Objects in java which is in single json array",
+  "tags": [
+   "java",
+   "json"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have one Json array which is consist 2 or 3 json objects, now I need to combine both the json objects into single json object, 1st json object is coming from one method 2nd is coming from another method let me explain with example [CODE] then I need output like [CODE] In no of slots If I have duplicates need to remove or if unique need to combine, any help will be appreciate. Thanks in advance"
+ },
+ {
+  "question_id": 70939512,
+  "ym": "2022-02",
+  "creation_date": 1643713441,
+  "title": "Eclipse common launch for several machine",
+  "tags": [
+   "java",
+   "eclipse",
+   "eclipse-plugin"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a project written in Java using Eclipse and I have a lot of users (students) that every day have to install and run it. I'm searching a common configuration like [code] . My idea is to install something or to say to my user: go in this directory and do this command for running like for Angular ( [code] ). Is it possible or no? Or to have a script that configure Eclipse workspace in automatically way."
+ },
+ {
+  "question_id": 70939663,
+  "ym": "2022-02",
+  "creation_date": 1643714162,
+  "title": "What is the difference between addFirst and addLast in Deque interface",
+  "tags": [
+   "java"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "They seem like behaving in the same way, throwing out the elements in a LIFO pattern. [CODE] Prints out : 10,9,8,7,6,5,4,3,2,1,0, [CODE] Prints out : 10,9,8,7,6,5,4,3,2,1,0,"
+ },
+ {
+  "question_id": 70939667,
+  "ym": "2022-02",
+  "creation_date": 1643714179,
+  "title": "Mapping a Point to latitude and longitude with mapstruct",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "mapstruct"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have this Model: [CODE] And I want this DTO [CODE] How do I map with mapstruct the two?"
+ },
+ {
+  "question_id": 70939676,
+  "ym": "2022-02",
+  "creation_date": 1643714216,
+  "title": "Display all elements of queue using linked list",
+  "tags": [
+   "java"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am trying to print the values of Queue but don't know why I'm getting wrong output. I have used java Can you help me solving this? The output I'm getting is 7 7 But expected output is 7 5 8 6 7 [CODE]"
+ },
+ {
+  "question_id": 70939718,
+  "ym": "2022-02",
+  "creation_date": 1643714421,
+  "title": "How to assign multiple value from HashMap to variables in Java?",
+  "tags": [
+   "java",
+   "dictionary"
+  ],
+  "score": 1,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I have a HashMap and assign key-value pairs to variable as shown below: [CODE] However, I am not sure about what is a proper way to assign multiple values from this HashMap. I thought a loop of course, but for naming variables, maybe there would be a better approaches. Any idea? [CODE]"
+ },
+ {
+  "question_id": 70939794,
+  "ym": "2022-02",
+  "creation_date": 1643714836,
+  "title": "Error : &quot; execute() is called on closed connection when trying to persist value with an Update sql statement&quot; in java . Implementing Apis with jax-rs",
+  "tags": [
+   "java"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "enter image description here I am trying to persist a value in my table using an update sql statement but i got this error : \" execute() is called on closed connection\" .. Someone knows how to fix it ?"
+ },
+ {
+  "question_id": 70940006,
+  "ym": "2022-02",
+  "creation_date": 1643715856,
+  "title": "Conversion Bluetooth inputstream to an image, java android app",
+  "tags": [
+   "java",
+   "android",
+   "image",
+   "bluetooth",
+   "inputstream"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "How to convert bluetooth inputstream to an image in java android app? Data are devided into chunks. Chunk by chunk is catched in inputstream, but it can't hold more than one chunk. The idea is to put together all chunks (stream by stream) to a byte array and then make a bitmap."
+ },
+ {
+  "question_id": 70940020,
+  "ym": "2022-02",
+  "creation_date": 1643715938,
+  "title": "Decrypting a ZIP file in PHP encrypted using Java",
+  "tags": [
+   "java",
+   "php",
+   "encryption",
+   "aes",
+   "sha256"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I've been trying to decrypt a ZIP file in PHP which was encrypted using Java. I already have written a function in Java, which is decrypting files perfectly. However, I haven't been able to decrypt the file in PHP. Please find the code snippet below. Please let me know if more info is required or I'm unclear anywhere. Java (Decryption Function) [CODE] Java (generateKeySpec) [CODE] PHP Code I've written so far [CODE] Any sort of help is most appreciated. Thank you all! :)"
+ },
+ {
+  "question_id": 70940056,
+  "ym": "2022-02",
+  "creation_date": 1643716086,
+  "title": "Integer Object (Unicode) to Characterobject",
+  "tags": [
+   "java",
+   "integer",
+   "character"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": ":)I am pretty new to coding! My question is as following: I have a method which gets a Integer Object i as a parameter and this Integer is supposed to be a Unicode. Now my question is, is there a way to transform a given Unicode to a Characterobject? A little example to illustrate the question: [CODE] of course this doesn't work but i can't find a way around it.... Downcasting didnt work and I usually use char and int but in this case i have to do it that way. Thanks for the help already!!"
+ },
+ {
+  "question_id": 70940062,
+  "ym": "2022-02",
+  "creation_date": 1643716118,
+  "title": "Waffle SpringBoot error logging - Invalid Authorization header: Negotiate",
+  "tags": [
+   "java",
+   "spring-boot",
+   "log4j2",
+   "waffle"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Our application uses Waffle SpringBoot starter to identify the Active Directory user for user authentication of our application. However, everytime a user logs in, there is an error logged though it does not prevent authentication. This has resulted in ballooning of the log file very soon to 100s of MBs. The error I am getting is as follows [CODE] I have tried to filter this error from being printed in Log4J2 by using RegexFilter on [code] but that has also not worked. I need help to figure If this error is indicative of any wrong configuration? If not, how to turn off printing this error in log files using Log4J2?"
+ }
+]

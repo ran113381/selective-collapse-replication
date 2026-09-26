@@ -1,0 +1,1548 @@
+[
+ {
+  "question_id": 75304371,
+  "ym": "2023-02",
+  "creation_date": 1675209764,
+  "title": "Cipher.doFinal() returning part of decrypted string for a long string",
+  "tags": [
+   "java",
+   "encryption",
+   "aes",
+   "aes-gcm",
+   "block-cipher"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am experiencing an issue when decrypting a string using sunjce : [CODE] if I pass the whole ciphertext to doFinal it works correctly but if I call it correctly it only returns partial string. FOr instance for the input [CODE] The decrypted bytes only contain \"000000\" but if I use [CODE] and remove the update so it correctly prints the original string. What might be the reason? if I pass an empty byte array to doFinal after the update it also results in the same data loss. I want to know the logic behind it, it passes for small texts but for texts of this size it simply does not work. this is my input [CODE] This is how I am printing the decrypted string [CODE] This is how I am passing the input string as bytes to the encrypt function [CODE] this is how I am calling encrypt [CODE] When I use [code] during decryption followed by [code] or [code] it only returns [code] after I use the returned [code] to [code] But if I directly call [code] during decryption the result string I get is the original string."
+ },
+ {
+  "question_id": 75304413,
+  "ym": "2023-02",
+  "creation_date": 1675210267,
+  "title": "How to GCP Cloud Build + Java 17 + Gradle 7.6",
+  "tags": [
+   "java",
+   "gradle",
+   "google-cloud-platform",
+   "cloudbuild.yaml"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Can't figure out how to use Cloud Build + Gradle + Java 17 to build a Java Jar file. I can't find any example cloudbuild.yaml that uses Gradle 7.6, which is required for my Gradle build. I'm not trying to build an image, just a jar file. The project is stored in GCP Cloud Source and includes the Gradle Wrapper. Here's the cloudbuild.yaml [CODE] Here's the cloudbuild error Status: Downloaded newer image for gradle:7.6-jdk17 docker.io/library/gradle:7.6-jdk17 ERROR ERROR: build step 0 \"gradle:7.6-jdk17\" failed: starting step container failed: Error response from daemon: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: exec: \"build\": executable file not found in $PATH: unknown tried searching for example cloudbuild.yaml files for Java 17 + Gradle 7.6 - no luck tried using Google's examples, but they all use java 8"
+ },
+ {
+  "question_id": 75304520,
+  "ym": "2023-02",
+  "creation_date": 1675211426,
+  "title": "Java Selenium. 2 column array. 2 elements to fill out on page. 1 loop per row",
+  "tags": [
+   "java",
+   "selenium-webdriver"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am searching but am struggling to find the right wording to get results. I have a .csv file with 2 columns. I need to navigate to a page, sendKeys column 1 to element 1, sendKeys column 2 to element 2, click element 3, click element 4, loop for next row until no more rows exist in the array. I have everything figured out except \"sendKeys column 1 to element 1, sendKeys column 2 to element 2\". I have this: [CODE] Works like a charm to print the array to the console. Pretty sure: [CODE] would work if I just had one column and one element to fill out, but how do I get column 2 and element 2 in there?"
+ },
+ {
+  "question_id": 75304532,
+  "ym": "2023-02",
+  "creation_date": 1675211608,
+  "title": "LSTM in DL4J - All output values are the same",
+  "tags": [
+   "java",
+   "lstm",
+   "recurrent-neural-network",
+   "deeplearning4j",
+   "dl4j"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to create a simple LSTM using DeepLearning4J, with 2 input features and a timeseries length of 1. I'm having a strange issue however; after training the network, inputting test data yields the same, arbitrary result regardless of the input values. My code is shown below. (UPDATED) [CODE] Here's an example of the output: (UPDATED) [CODE] So far I've tried tried changing a number of hyperparameters, including the updater (previously Adam), the activation function in the hidden layers (previously ReLU), and the learning rate; none of which fixed the issue. Thank you."
+ },
+ {
+  "question_id": 75304937,
+  "ym": "2023-02",
+  "creation_date": 1675216614,
+  "title": "Java code in vscode not respecting breakpoints set in another thread, but it will break if set in the main thread",
+  "tags": [
+   "java",
+   "maven",
+   "visual-studio-code",
+   "debugging"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am using vscode to debug a relatively huge java application with multiple maven modules. The core application is loaded and compiled, can be launched successfully in debug mode, and all breakpoints for the code in the main thread are working properly. I managed to debug using launch and attach features. This Java application has a feature it allows loading the [code] script which will call Java code and classes referenced in JAR files that are specified in the classpath of the [code] command line. When the main application is launched, you can then load the Jython script. The moment you load a Jython script, it will launch that script in another thread and starts executing. I managed to launch the application in debug mode using this command line: [CODE] The above command line is a summarized version of the one I am using to clarify the problem. From VS Code, I managed to attach it to the running application using this setting in vscode [code] : [CODE] The good thing is that if I set a breakpoint on the core application in the main thread, the execution will stop, and I can see the source code and debug without any problem. In another separate small maven project (which is supposed to be part of the core application), I developed customization for some of the classes in the main application. The custom code is compiled and generated custom JAR files which are added to the cla"
+ },
+ {
+  "question_id": 75305134,
+  "ym": "2023-02",
+  "creation_date": 1675219362,
+  "title": "Spring Boot app runs through the spring-boot-maven-plugin, but not the jar",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "maven"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have a Spring Boot application that builds a jar successfully. However, when I run this jar, I receive an error: [CODE] [CODE] However, I am able to run the app through the [code] via IntelliJ maven tab or through the [code] . The plugin is included in the pom: [CODE] What could be a reason for this difference? I had previously received an error for not having a [code] method declared in the generated manifest, but added the maven-jar-plugin to specify this [CODE]"
+ },
+ {
+  "question_id": 75305150,
+  "ym": "2023-02",
+  "creation_date": 1675219603,
+  "title": "is there a way to use &gt; and &lt; with Strings?",
+  "tags": [
+   "java"
+  ],
+  "score": -2,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "i want to ask the user to input a number between 0 and 180. but the variable has to be a String. [CODE] when i run and input a letter instead of a number, i get this message: [CODE]"
+ },
+ {
+  "question_id": 75305192,
+  "ym": "2023-02",
+  "creation_date": 1675220110,
+  "title": "Custom annotation used with @RequestMapping is not working in spring boot",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have created custom annotation like this [CODE] I have the following controller [CODE] The [code] api is also being called with GET request, i am expecting that it should only be called upon POST request."
+ },
+ {
+  "question_id": 75305285,
+  "ym": "2023-02",
+  "creation_date": 1675221114,
+  "title": "Ignore Specific Field(s) on POJO in all mapping implementations Mapstruct",
+  "tags": [
+   "java",
+   "spring-boot",
+   "lombok",
+   "mapstruct"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "My persistent entities has fields [code] , [code] , [code] , [code] . I would like mapstruct to always ignore mapping these fields, since they are autogenerated using hibernate annotations. I don't like the idea of doing [code] repeatedly. Is there a way to do this at the, for e.g. at my entity level, instead of the Mapper method level? Or is there some other better solution than repeating the annotations? bit more context - the mapping implementations use builders generated by lombok. my entites can either extend [code] or [code] all my entities, [code] and [code] use [code] [code] has [code] and [code] [code] has [code] and [code] and extends [code]"
+ },
+ {
+  "question_id": 75305460,
+  "ym": "2023-02",
+  "creation_date": 1675223290,
+  "title": "How to create checkToken in SpringBoot microservice?",
+  "tags": [
+   "java",
+   "spring-boot",
+   "spring-security",
+   "oauth-2.0",
+   "microservices"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm creating a microservice framework in spring boot 3 and spring security 6, and I'm not understanding how I can make my client application validate the token in the authenticating application. [CODE] I tried to run it the same way I did with previous versions, but I got no results."
+ },
+ {
+  "question_id": 75305467,
+  "ym": "2023-02",
+  "creation_date": 1675223431,
+  "title": "Cannot connect to ActiveMQ Classic",
+  "tags": [
+   "java",
+   "activemq-classic"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "We use IBM MQ for some JMS integration between some of our micro services. Because IBM MQ docker image does not run on Mac book laptops with Apple M1 processor we configured our applications requiring JMS integration to be able to run against ActiveMQ broker as well. We use the latest version of ActiveMQ classic which is 5.17.3 and we run it as a docker container. For most of us who tried to run against ActiveMQ everything works OK but we have a colleague that is unable to start the application because it fails to connect to the ActiveMQ broker. All we can see in the application logs is this: [CODE] Googling for [code] brought us some old internet posts but none of them brought any light. Part of the ActiveMQ docker logs we can see below log entry after broker is started which makes us think the broker is started OK. Also he can access the ActiveMQ admin console when hitting http://localhost:8161/admin URL [CODE]"
+ },
+ {
+  "question_id": 75305487,
+  "ym": "2023-02",
+  "creation_date": 1675223670,
+  "title": "Image Encryption: Convert Image Pixel Data into Byte Values",
+  "tags": [
+   "java",
+   "arrays",
+   "encryption",
+   "rgb"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm attempting to encrypt the content of a file, in this case a png, and not the actual file itself. This way I can see the difference between ECB and CBC encrpytion (example photos here: . My intuition: I'm unsure if this is the best or even correct approach but my logic is to take the pixel data from the png and store it into an array. Then take the array and convert to a byte array. This way I can encrypt it using either ecb or cbc and then simply reverse the process afterwards. My attempted code: Is this conversion correct and if not, how would I correctly convert them? I suspect it's incorrect because somewhere in this conversion the rgb values are getting messed up and that's why the ecb implementation fails to draw an outline. [CODE] After encryption and reversing my process: ECB: Incorrect output, should have a rough outline of the penguin like in the github link attached CBC: This is actually correct given the nature of cbc encryption Additional Code after encryption: I know this reversal is also probably incorrect but I figured if I can get the inital conversion correct, I will be able to fix this. [CODE]"
+ },
+ {
+  "question_id": 75305610,
+  "ym": "2023-02",
+  "creation_date": 1675225175,
+  "title": "requireFilesDontExist - Maven Plugin - How to?",
+  "tags": [
+   "java",
+   "maven",
+   "maven-plugin",
+   "maven-enforcer-plugin"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to fail the maven build when certain files are present anywhere in build path. Looking at enforcer plugin: requireFilesDontExist . But we need to know absolute file path for it to work. How to use it (or create new) when i have only file names and it can be anywhere in build path?"
+ },
+ {
+  "question_id": 75305658,
+  "ym": "2023-02",
+  "creation_date": 1675225699,
+  "title": "How to extract boolean value out of a Mono&lt;Object&gt; in a non blocking way",
+  "tags": [
+   "java",
+   "spring",
+   "reactive-programming",
+   "spring-webflux"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a validation method which involves reactive and non reactive objects. [CODE] Question: How can I return a [code] value after successful check of [code] without using [code] or [code] The method which calls [code] is used in another reactive method: [CODE] Please help me with a way to return a [code] successfully without blocking any [code] I am new to Reactive programming. Any help is appreciated. Thanks in advance."
+ },
+ {
+  "question_id": 75305875,
+  "ym": "2023-02",
+  "creation_date": 1675227841,
+  "title": "Java locking simple multi threaded queue class to avoid starvation",
+  "tags": [
+   "java",
+   "multithreading",
+   "synchronized"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm currently reviewing concurrency and wanted to double check my understanding. Let's say I have a simple queue class that I want to use multiple threads to take jobs off of the queue and run. [CODE] Pardon my syntax I quickly put this together. Anyways, I have a 2 part question. To avoid starvation of the [code] method, would it be better to lock the [code] and then unlock, and then separately lock the [code] ? That way in between checking the jobq is empty and polling a job off, the [code] has a chance to acquire the lock? If the above is the case (it's better to unlock after the [code] check), how would you do so with this synchronized object? Since the [code] is nested within the [code] loop which is nested within the [code] loop."
+ },
+ {
+  "question_id": 75305882,
+  "ym": "2023-02",
+  "creation_date": 1675227896,
+  "title": "Why String Builder is returning its length zero, while returning some value of it",
+  "tags": [
+   "java",
+   "java-8",
+   "stringbuilder"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "In below program, String buffer is working as expected, but in case of string builder, the length of String builder is zero, while it's giving me some data. So my question is, if string builder has some value, how can it return its length zero? [CODE]"
+ },
+ {
+  "question_id": 75305972,
+  "ym": "2023-02",
+  "creation_date": 1675228789,
+  "title": "Spring Boot `TestPropertySource` not Working",
+  "tags": [
+   "java",
+   "spring-boot",
+   "configuration"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have a simple unit test, and I'd like for the unit tests to load up a test property file that I've placed in [code] instead of the property file in [code] . My test class is set up as follows: [CODE] My project file structure is as shown below: But I am getting the following error, suggesting I'm not specifying this property file correctly: [code] How do can I manage to get the [code] file to be used instead of the [code] file for my unit tests?"
+ },
+ {
+  "question_id": 75306358,
+  "ym": "2023-02",
+  "creation_date": 1675232638,
+  "title": "IntelliJ won&#39;t open on Mac: error message displays &quot;This application &quot;IntelliJ IDEA&quot; can&#39;t be opened.&quot;",
+  "tags": [
+   "java",
+   "macos",
+   "intellij-idea",
+   "jetbrains-ide"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have been using IntelliJ for about 6 months now on my Mac and it has always worked perfectly fine. For context, I have also been using PyCharm without any problems as well. Now, whenever I try opening IntelliJ, I only receive that error message. I've tried accessing it through the terminal but it isn't working. Is there a reason why this is happening? Edit: After giving it a day and reinstalling the IDE, it seems like it is back to full functionality."
+ },
+ {
+  "question_id": 75306507,
+  "ym": "2023-02",
+  "creation_date": 1675233864,
+  "title": "How do I pass bearer token and other info from Spring Service to Grpc Interceptor?",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "grpc",
+   "grpc-java"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a Spring GraphQL application that calls the other internal microservice using the gRPC protocol. I need to set the bearer token and other information to the gRPC header, I believe we can set it up using the gRPC interceptor ( [code] implementation). I tried the below approach: Based on How to Access attributes from grpc Context.current()? I created a key so that we can refer it in spring-service and interceptor [CODE] Here I am getting [code] userInfo in the interceptor method. am I missing something here? The other option is to use ThreadLocal to hold the context but I am kind of not sure if it's the right choice here."
+ },
+ {
+  "question_id": 75306514,
+  "ym": "2023-02",
+  "creation_date": 1675233913,
+  "title": "Getting List of objects with max version property from list of objects Java 8",
+  "tags": [
+   "java",
+   "list",
+   "java-8"
+  ],
+  "score": -2,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I have a list of object. Object contain name and version now in the List we have different names with version and same name with different version. eg: [CODE] Now in the response i need something like below [CODE] Can we do this using java8 features?"
+ },
+ {
+  "question_id": 75306543,
+  "ym": "2023-02",
+  "creation_date": 1675234082,
+  "title": "Android 12 facebook login stuck in black screen",
+  "tags": [
+   "java",
+   "android-studio",
+   "facebook-login"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm trying use facebook login in API level 31, but every times I press my login button try to go to facebook login page, it just stuck in black screen like this stuck in black screen ,and there is not show any exception or error, I also try use lower API and work fine. How can I solve this problem? edit:My other button that open external browser also fail to open in API level 31."
+ },
+ {
+  "question_id": 75306593,
+  "ym": "2023-02",
+  "creation_date": 1675234407,
+  "title": "Run gradle bootBuildImage Error:Can&#39;t find bundle for base name jakarta.servlet.LocalStrings, locale en_US",
+  "tags": [
+   "java",
+   "spring-boot"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I cant run gradle bootBuildImage in rocty linux 9.1 with a Springboot project. [CODE] [CODE] build.gradle: [CODE]"
+ },
+ {
+  "question_id": 75306605,
+  "ym": "2023-02",
+  "creation_date": 1675234502,
+  "title": "How to use java language to dynamically debug APK in AndroidStudio?",
+  "tags": [
+   "java",
+   "android-studio",
+   "android-debug"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Requirement: I now have a [code] without project file and code, I want to modify its code in java language without using smali and to dynamically debug the modified java file. I looked up many ways to dynamically debug the apk on the internet, and the internet is full of debugging using smali language, there is no case of debugging the apk using java language. Now, I am able to modify and run CrackMe.apk, but I don't know how to debug my code dynamically, I would like to ask how to implement dynamic debugging feature? Steps: I extract the dex file from [code] , convert it to [code] file, remove the [code] and [code] packages from the jar file (not removing it will prompt the existence of the same package name after Add As Library). Then create a new blank project [code] in AS software, add [code] As Library. then create a new class [code] with the same name in the file path [code] , modify the code [code] to [code] and compile it. After compiling, overwrite the new MainActivity.class in the path [code] with the [code] file of the same name in the old [code] , and then convert the [code] to [code] and replace the old [code] , then after signing it, it can be installed and run. During this process, can I debug the new MainActivity.java file at the AS software breakpoint in the test project path [code] . The class file generated by the test project is in the test project file path"
+ },
+ {
+  "question_id": 75306720,
+  "ym": "2023-02",
+  "creation_date": 1675235467,
+  "title": "Send Image in Whatsapp without showing in Image editer of whatsapp?",
+  "tags": [
+   "java",
+   "android",
+   "image",
+   "whatsapp"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am making a demo app which functionality is that send image automatically without showing it in whatsapp image editor. How can I send the image directly my app to whatsapp? Image Video Demo On button click i am sending image but open below screen which i don't want and share image directly to my contact. Here is demo Video to send image directly application to whatsapp."
+ },
+ {
+  "question_id": 75306760,
+  "ym": "2023-02",
+  "creation_date": 1675235929,
+  "title": "How to convert integer value to minutes in java",
+  "tags": [
+   "java",
+   "duration"
+  ],
+  "score": -4,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I'm getting integer value from db as example integer value = 47. But when I pass that value to front end I need to convert it as minutes. My scenario is I have 4 steps each step I'm getting an integer value, and after getting integer values I get the SUM of that 4 values. Then I have to convert that to minutes or hours. [CODE] OutPut:- [CODE] I need to convert this output for minutes and send it back to the front-end."
+ },
+ {
+  "question_id": 75306761,
+  "ym": "2023-02",
+  "creation_date": 1675235957,
+  "title": "Can&#39;t mount application.yaml into docker java 8 spring",
+  "tags": [
+   "java",
+   "spring",
+   "docker",
+   "docker-compose",
+   "configuration"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Can someone explain me, why it doesn't mounted and java don't read application.yaml? This is my dockerfile: [CODE] and this is docker compose [CODE] I tried [code] but it still doesn't work. I also tried this [CODE] [CODE] and it's still doesn't work. This doesn't work too: [CODE]"
+ },
+ {
+  "question_id": 75307019,
+  "ym": "2023-02",
+  "creation_date": 1675237785,
+  "title": "Changing the font of the entire application from an activity in Kotlin",
+  "tags": [
+   "java",
+   "android",
+   "kotlin"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a bilingual program (Persian, English). I want the font of the program to change when the Persian language is selected And when the English language is selected, the default font (Them) will be applied In simple words, I want to change the font of the entire program from the activity Persian English [CODE] I tested but it didn't work"
+ },
+ {
+  "question_id": 75307026,
+  "ym": "2023-02",
+  "creation_date": 1675237817,
+  "title": "Why @OneToMany relations generate additional SQL select queries?",
+  "tags": [
+   "java",
+   "hibernate",
+   "spring-data-jpa"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "[CODE] In a database, an author already contains one book. I create a new book for an author and want to save it. But when the function addBook is called the existing book is loaded from the database. I see the additional SQL query in logs: @Query[\"select book ....\"] How can I fix it? I don't want to have additional SQL selects"
+ },
+ {
+  "question_id": 75307095,
+  "ym": "2023-02",
+  "creation_date": 1675238341,
+  "title": "shopify authentication with firebase",
+  "tags": [
+   "java",
+   "firebase",
+   "oauth",
+   "shopify"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have been working on a project where I have to develop an android web application of a website that's made with Shopify. I used java for the purpose and in my app, I used firebase authentication because the client wants to store data in firebase. Now the problem is when the user logs in through my app, he gets to see the website view but needs to log in again since the website is on Shopify. Is there any way by which Shopify authenticates the user data from firebase data so the user doesn't have to provide details again? I searched a lot about it and its something to do with OAuth and access tokens, but I have no clue how to integrate it. Someone, please help me with a solution."
+ },
+ {
+  "question_id": 75307153,
+  "ym": "2023-02",
+  "creation_date": 1675238867,
+  "title": "Preventing Pending Writes in Firebase with Transactions Not Working",
+  "tags": [
+   "java",
+   "android",
+   "firebase",
+   "google-cloud-platform",
+   "google-cloud-firestore"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I aim to insert the name in Cloud Firestore when the button is clicked, but I don't want the save to be pending if the user is not connected to the internet. I don't like the behavior of Firebase where it saves pending writes, even if the internet connection is restored. I researched and found that Firebase developers suggest using transactions to prevent pending writes when there is no internet. I have tried this, but the result is still the same: if there is no internet, it saves pending writes, and when the internet connection is restored, it rewrites to Firestore. Why aren't transactions working as expected? [CODE] I am short on time as I want to deliver this project to the company on the specified date, and I don't want to waste time. If it's not possible to solve the problem with transactions, please let me know so I can look for alternative solutions."
+ },
+ {
+  "question_id": 75307193,
+  "ym": "2023-02",
+  "creation_date": 1675239128,
+  "title": "Empty driverClassName in pool properties during initializing",
+  "tags": [
+   "java",
+   "spring",
+   "tomcat",
+   "jdbc",
+   "spring-jdbc"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm getting weird behavior of Spring JDBC with Tomcat and Oracle db. During initializing of db connection (from pool which is configured in Tomcat) the [code] is empty, so I get [code] . I'm not sure why it is empty, the initialization during Tomcat startup looks OK. All ten connection have been initialized OK, but then a few hours later, the [code] is empty. Well, even the URL is empty. I enabled debugging of 'org.apache.tomcat.jdbc.pool' to FINE to get more info, but no luck. [CODE] I'm using: Tomcat: 9.0.69 Spring JDBC: 5.3.22 ojdbc: 12.1.0.2.0 What do you think? Where could a problem?"
+ },
+ {
+  "question_id": 75307260,
+  "ym": "2023-02",
+  "creation_date": 1675239534,
+  "title": "How to invoke Spring channel adapter from rest api?",
+  "tags": [
+   "java",
+   "spring-boot",
+   "spring-integration"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am new to Spring integration. I have a JDBC inbound channel adapter as below. When the spring boot application starts below adapater is invoked and starts reading from DB. But i want below to be invoked only after REST API is called [CODE] I am unable to understand how to start reading from DB only after generateFile API is invoked I am not sure how to"
+ },
+ {
+  "question_id": 75307264,
+  "ym": "2023-02",
+  "creation_date": 1675239566,
+  "title": "LAZY Loading not working Spring Data 3.0.0 Hibernate - After Spring Boot Migration to 3.0",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "spring-data"
+  ],
+  "score": 5,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "After migrating to Spring Boot 3.0 our integration test showed that deleting a user did not work properly. The User has two properties, where both are defined the same (at least thats what I think, see below). What I figured is, when I load the User object one of the properties of User are not loaded. Only if I define the property, which can not be loaded, as EAGER. If I now try to delete the User, this does not work because there is still the one property in DB which reference to the User. I can not figure out whats the problem maybe I am missing something My User Entity [CODE] User Terms Of Use which works to load [CODE] My Settings which does not load: [CODE] As you can see in my screenshot, when I load the entity User by ID it only shows the User Terms of Use ant not the User Settings Just to make clear, they are within the DB :) Hope Someone can point me to a correct direction UPDATE I made a sample project to prove it does not work. The test fails with an [code] once I try to access the [code] . https://github.com/de313e/SpringEagerLoadingIssue"
+ },
+ {
+  "question_id": 75307328,
+  "ym": "2023-02",
+  "creation_date": 1675239878,
+  "title": "why does @GetMapping not working as I expected?",
+  "tags": [
+   "java",
+   "spring-boot"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I started learning Spring and been watching this video https://youtu.be/9SGDpanrc8U from Amigoscode. I followed along and did what he did but my code acts differently than his, maybe i missed something, but I set on it for two hours trying to figure out what's not working and nothing works. here is the code [CODE] And the Student class [CODE] when he runs the code in the video, the websites loads a list with a single student details in it. when I run it, it shows this: Whitelabel Error Page \\n This application has no explicit mapping for /error, so you are seeing this as a fallback I checked Stack Overflow and other websites for this problem, most say it is because the controller doesn't handle what to do in case of an error, but that's not the case here. and the others say it's because packaging hierarchy, i tried splitting Demo2Application into two, one for the Application one for the RestController and put them in hierarchical order where Demo2Application shows before RestController, still didn't work so I reversed the splitting back to what the video showed. Here is the log when I run: Log Truly Frustrated, will appreciate anything you have for me."
+ },
+ {
+  "question_id": 75307372,
+  "ym": "2023-02",
+  "creation_date": 1675240139,
+  "title": "Subscription to Redis Stream Blocks Connections for Other Requests With Vert.x",
+  "tags": [
+   "java",
+   "redis",
+   "vert.x"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm implementing an application with Vert.x (and their Redis Client library) that is able to listen to Redis Streams. For that I have [code] instances in my app subscribing to it. The Vert.x documentation states: A common configuration is to set the maximum size of the pool to the number of available CPU cores The pool provides connections to be used for requests to Redis. For instance, the pool size could to 6. If more than 6 instances trying to subscribe, the first 6 have no problems, but all the instances trying to subscribe afterwards can't because no connections are left. Is the \"common configuration\" are hard limit? Could I also have 10k connections? Does Vert.x provide a way to separate pools for different purposes (for subscriptions and for other stuff)? Is there a solution to handle many connections mainly used for stream subscriptions with Vert.x? Unfortunately, the Vert.x documentation doesn't provide much information."
+ },
+ {
+  "question_id": 75307425,
+  "ym": "2023-02",
+  "creation_date": 1675240443,
+  "title": "For-loop returning wrong results",
+  "tags": [
+   "java",
+   "loops",
+   "for-loop",
+   "infinity"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am getting wrong results resolving below task: Generalized harmonic numbers. Write a program GeneralizedHarmonic.java that takes two integer command-line arguments n and r and uses a for loop to compute the nth generalized harmonic number of order r, which is defined by the following formula: formula [CODE] This is my code but I could not get the correct test output.The output result is always [code] . test outputs"
+ },
+ {
+  "question_id": 75307608,
+  "ym": "2023-02",
+  "creation_date": 1675241516,
+  "title": "Kafka Error serializing Avro message Caused by: java.net.SocketException: Connection reset",
+  "tags": [
+   "java",
+   "apache-kafka",
+   "apache-kafka-streams",
+   "confluent-schema-registry"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Im trying out Kafka streams, managed to stream normal string from one topic to another, but now i want to serialize it as AVRO message. Ive looked around the internet for a solution but i didnt find one so this is kinda my last hope. This is my code [CODE] When i run it i get the following error: [CODE] No idea whats wrong, and ive searched multiple websites to find a solution, to no avail. please help"
+ },
+ {
+  "question_id": 75307782,
+  "ym": "2023-02",
+  "creation_date": 1675242334,
+  "title": "Can i save CameraX recorded video in SQLite database?",
+  "tags": [
+   "java",
+   "android",
+   "sqlite",
+   "android-camera2",
+   "android-camerax"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "My requirement is that I have to built a video recording app in which user will save his 30 seconds of video which will be sent to the another server. User will use the video recording only for once. How can I store that 30 second recorded video in SQLite database as I cannot store it in gallery as it is confidential. Any help in this topic is highly appreciated. Below is my demo app in which I'm just saving it into the gallery for now. [CODE]"
+ },
+ {
+  "question_id": 75307801,
+  "ym": "2023-02",
+  "creation_date": 1675242475,
+  "title": "org.hibernate.MappingException: persistent class not known: for non entity class",
+  "tags": [
+   "java",
+   "mysql",
+   "spring-boot",
+   "hibernate",
+   "hibernate-mapping"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have issue deploying a new version of my app in tomcat. I got an exception for class which was an entity with @OneToOne relation to another entity class. In the new version of the app, the both classes are not entities anymore and don't have relation. Is appear is tried to clean the MySQL, but it fails on this step and I try the couple of tings online and still is not working, any help will be welcomed. [CODE]"
+ },
+ {
+  "question_id": 75307803,
+  "ym": "2023-02",
+  "creation_date": 1675242507,
+  "title": "Getting error of &quot;Cannot inject @Test annotated Method [useFilepath] with [class java.lang.String]&quot;",
+  "tags": [
+   "java",
+   "eclipse"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Iam using two different classes which generated the latest files in the directory, so this latest file is calling in the main method,but getting and error. First latest file class file code: [CODE] Second latest file class file code: [CODE] This is the main code which i am calling the filepath [CODE] The main method is to compare the two latestexcel file and paste the differnec between the excelf file."
+ },
+ {
+  "question_id": 75307866,
+  "ym": "2023-02",
+  "creation_date": 1675242840,
+  "title": "Spring Controller mapping using regex",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am getting a following GET request http://localhost:8080/flamingo-json/en/web/Mobile/our-program/Tiers-recognition-Redesigned/rewards-program-new.html For the above url I have defined the following Mapping in spring rest controller [CODE] but I am unable to get \"Mobile/our-program/Tiers-recognition-Redesigned/rewards-program-new.html\" value in the Path variable 'page' and I am getting 404."
+ },
+ {
+  "question_id": 75308056,
+  "ym": "2023-02",
+  "creation_date": 1675243734,
+  "title": "AspectJ on children objects",
+  "tags": [
+   "java",
+   "spring",
+   "aspectj",
+   "spring-aop"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm starting to work with AspectJ and I'm trying to do something that I don't know if it's possible. This is my code: [CODE] This code fails, with the error: [CODE] However, I can intercept MyOtherObject like this, but not it's setters: [CODE] I don't want to intercept the setters of the object MyOtherObject everywhere, because this object is used in more places in the program where I don't need aspects. However I want to intercept them only when used in a class that extends MyAbstractObject. I'm using Spring with AspectJ. Thanks."
+ },
+ {
+  "question_id": 75308111,
+  "ym": "2023-02",
+  "creation_date": 1675244039,
+  "title": "Converting Oracle Database Types to Postgres / Hibernate Mapping",
+  "tags": [
+   "java",
+   "postgresql",
+   "hibernate",
+   "annotations",
+   "pojo"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Currently i am migrating my legacy application from Oracle to Postgres. Within my POJOs i am having issues with following new datatypes. Datatype in Oracle New Datatype in Postgres Data Type in Spring Boot (Hibernate Entity) NUMBER(X,0) NUMERIC(X,0) String SMALLINT NUMERIC(1,0) boolean How can i map this within my Hibernate Entity correctly? Currently i am getting always Type Exceptions because of character does not match numeric etc. For the boolean is somehow fixed it by adding @Type(type=\"org.hibernate.type.NumericBooleanType) but there i have also to change the Java Type from boolean to Boolean which i would like to avoid My current research should i need to write an own UserType for it, but somehow i am bit confused because i don't think Numeric to String / boolean is such a rare case so that nobody included already a Logic / UserType within Hibernate."
+ },
+ {
+  "question_id": 75308136,
+  "ym": "2023-02",
+  "creation_date": 1675244171,
+  "title": "How to fetch the data In JAVA from refcursor resultset in postgres stored procedure",
+  "tags": [
+   "java",
+   "postgresql",
+   "ref-cursor"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am using a Postgres database. And I have one stored procedure which returns a refcursor as below [CODE] I am calling the SP in pgAdmin tool as below and getting proper result : [CODE] Now I am trying to call the above SP from my Java code and trying to obtain the result from the refcursor , but I am not able to fetch. I looked around many forums but I did not find any single way on how to obtain the value from the refcursor in postgres. My sample minimum relevant java code : [CODE] Can some one please help me out. I am stuck here."
+ },
+ {
+  "question_id": 75308237,
+  "ym": "2023-02",
+  "creation_date": 1675244702,
+  "title": "okhttp string problem if using string in .url",
+  "tags": [
+   "java",
+   "string",
+   "url",
+   "okhttp"
+  ],
+  "score": 1,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I'm using API from a website and it needs two strings String one: modelId String two: inferenceId both of them are equal to value [CODE] My issue is in Example: A [CODE] if I added both modelId string and inferenceId string the the above code, the API doesn't work correctly but if I add the text directly there like in below, everything works great Example: B [CODE] Both of the above gives me the EXACT same result if I got the value of request.url(); but the API gets faulty with the example A But works fine with example B Log of Example A (faulty one) I/System.out: Second Step: {\"id\":\"f9828985-af41-46be-b8bc-ef81504b4a87\",\"state\":\"queued\",\"prompt\":\"cow\",\"seed\":4523184,\"width\":1024,\"height\":1024,\"numberOfImages\":1,\"steps\":50,\"weightsId\":\"8b1b897c-d66d-45a6-b8d7-8e32421d02cf\",\"workspaceId\":\"d76af992-7c3e-4b1a-bc72-46b27de7c377\",\"createdAt\":\"2023-02-01T09:56:42.255006+00:00\",\"images\":[],\"modelId\":\"8b1b897c-d66d-45a6-b8d7-8e32421d02cf\"} Log with Example B (Working perfect) I/System.out: Second Step: {\"id\":\"3f9f5c8d-320f-4afc-85c4-454522118c16\",\"state\":\"finished\",\"prompt\":\"cow\",\"seed\":4523184,\"width\":512,\"height\":512,\"numberOfImages\":1,\"steps\":50,\"weightsId\":\"1285ded4-b11b-4993-a491-d87cdfe6310c\",\"workspaceId\":\"d76af992-7c3e-4b1a-bc72-46b27de7c377\",\"createdAt\":\"2023-02-01T08:54:31.244159+00:00\",\"images\":[{\"id\":\"f6518aea-f2a3-47ac-b9ff-81ca8c996206\",\"uri\":\"https://dreamtrain.s3.us-wes"
+ },
+ {
+  "question_id": 75308290,
+  "ym": "2023-02",
+  "creation_date": 1675244938,
+  "title": "How to block a maven dependency from getting downloaded",
+  "tags": [
+   "java",
+   "maven",
+   "security",
+   "sonarqube"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I want to block a library so that developers are not able to download any old version of library or some libraries altogether. Maven has a enforcer plugin but we cant enforce everyone to use it at enterprise level. I am looking for a solution which can block this even if it is mention in the POM. Want to fail the build if blocked library is present. I am exploring multiple solution either at maven level or by using some scanning tools. Objective is to do it as early as possible. Artifact scanning is one way but it happens after the build when artifacts are generated which is waste of time. Any suggestions ?"
+ },
+ {
+  "question_id": 75308360,
+  "ym": "2023-02",
+  "creation_date": 1675245325,
+  "title": "Alternative of camel Java config for configuring routes using camel in spring 6",
+  "tags": [
+   "java",
+   "spring",
+   "apache-camel",
+   "spring-framework-beans"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I’m using camel-spring-javaconfig to configure camel routes in spring 5 application. Now I’m migrating to spring 6 and found that camel-spring-javaconfig is deprecated. So I want to know how to configure camel routes with out using camel-spring-Javaconfig in spring 6 applications"
+ },
+ {
+  "question_id": 75308541,
+  "ym": "2023-02",
+  "creation_date": 1675246183,
+  "title": "How can I get youtubeVideo Title from URL for android studio?",
+  "tags": [
+   "java",
+   "android",
+   "database",
+   "jison"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I want to get the youtube video title from a url so I found this code below (IOUtils) is depreciated any other way to do this [CODE] second way i tried [CODE] This code gets a an error Cleartext HTTP traffic to www.youtube.com not permitted so I found this answer Android 8: Cleartext HTTP traffic not permitted but I am still getting some error I don't understand."
+ },
+ {
+  "question_id": 75308610,
+  "ym": "2023-02",
+  "creation_date": 1675246521,
+  "title": "Which one performs better in Java? Creating object or getting from cache twice?",
+  "tags": [
+   "java",
+   "performance",
+   "low-latency"
+  ],
+  "score": -5,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "The object has 6,7 fields. [code] is a map read. Which one is faster? [CODE] or [CODE] For Java with low latency, which of the above is better?"
+ },
+ {
+  "question_id": 75308687,
+  "ym": "2023-02",
+  "creation_date": 1675246810,
+  "title": "Spring Boot @RequestParam and @NotNull order",
+  "tags": [
+   "java",
+   "spring-boot",
+   "spring-annotations"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "my code is like this [CODE] Then when I miss the param keywords, it would return [CODE] I have written a handle to match @NotNull, when the code is [CODE] Then when I miss the param keywords, it would return [CODE] I need the rename param like [code] match to [code] and want to get the second result, but I didn't want to write the code like [CODE] What should I do?"
+ },
+ {
+  "question_id": 75308704,
+  "ym": "2023-02",
+  "creation_date": 1675246858,
+  "title": "CosmosDB : CosmosPatchOperation not working via Stored Procedure",
+  "tags": [
+   "java",
+   "azure-cosmosdb",
+   "azure-cosmosdb-sqlapi"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I want to replace cosmos batch with Stored Proc as my requirement is to upsert 100+ records which cosmos batch does not support. I am adding 2 java objects and 1 CosmosPatchOperations in List and passing to below method.Whenver I am adding cosmos patch object no rows got inserted/updated otherwise it is working fine.I want to perform both insertion and patch operation in same transaction. Can somebody please guide how to modify SP so that it supports both insert and patch operation. [CODE] Stored Proc [CODE]"
+ },
+ {
+  "question_id": 75308760,
+  "ym": "2023-02",
+  "creation_date": 1675247106,
+  "title": "is there any good way to monitor apache beam dataflow job pipeline state?",
+  "tags": [
+   "java",
+   "google-cloud-dataflow",
+   "statsd"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "We have a dataflow job which we want to monitor using StatsDClient, so we want to send a metrics from Dataflow job to our telegraf through StatsDClient to get heart beat of the dataflow job inorder to determine whether dataflow job is running or failed so that we can setup some alerts to it. we tried initializing StatsDClient in main function and tried sending metrics by checking PipelineResult.getState() method, however this approach is not working for us"
+ },
+ {
+  "question_id": 75308762,
+  "ym": "2023-02",
+  "creation_date": 1675247108,
+  "title": "Post request and &quot;The method received in the request-line is known by the origin server but not supported by the target resource&quot; error",
+  "tags": [
+   "java",
+   "spring",
+   "jackson",
+   "postman"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am using Postman and learning how to do a POST request to add a new [code] to the cart and write it to the database. The [code] code for the item is: [CODE] with getters and setters. In [code] framework I have the next method: [CODE] Using postman in the body part I selected [code] -> [code] : (its the result of a [code] request.) [CODE] Postman give me an [code] error but I have no idea why, I am using tomcat 9. Is there same problem also for the date format? EDIT: So the problem is only on the [code] , I have to format in a way that is readable by java with a Post request. Snooping around I did find this solution: How to send Date in REST API in POST method (if you are using maven) [CODE] the add in the AppConfig di spring: [CODE] and int the [code] class over the [code] variable: [CODE] the post is now just looks like the next: [CODE] I still have a question, reading this i did understand generally how it works, where can I find some other info on how this works? or if someone want to explain I am happy to listen."
+ },
+ {
+  "question_id": 75308776,
+  "ym": "2023-02",
+  "creation_date": 1675247149,
+  "title": "Remote Execute the legacy tool in another machine via SSH vs TCP/IP vs RPC vs others",
+  "tags": [
+   "java",
+   "ssh",
+   "tcp",
+   "network-programming"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "We have a Java web application which collects the inputs from the user and executes the legacy simulation tools in a remote machine by sharing the inputs in the JSON files. The simulation tools doesn't have the option to run via HTTP request, therefore we have opted SSH. But there are some bottlenecks as below per the current design, In order to avoid the manual steps of SSH authentication by keys/password, we have implemented Kerberos ticket based authentication which breaks often when windows updates, user changes the password and some other scenarios Input and results are in JSON file formats in specified directories and each workflows will process it based on workflows the worflow id's matches with the directory name Monitoring is the very tedious task as per current design. Because few of the workflows run for hours-days. So we need to update the application with the current status as Running-UpToDate-Compeleted/Error. Workflow will be running in commandline mode, it will update the logs/progress from remote system to server machine via SSH and we write this content into files. once user clicks on Refresh button, Application checks the progress file in specific directory and update the status. But it involves additional steps to get the current status and also it is slow because it involves file operation and copying from one machine to another. Is there anyway we could op"
+ },
+ {
+  "question_id": 75309051,
+  "ym": "2023-02",
+  "creation_date": 1675248454,
+  "title": "How to map to interfaces using Model mapper?",
+  "tags": [
+   "java",
+   "modelmapper"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am trying to use model mapper to map to an interface, and I am able to do it if I add this type map and converter to the mapper: [CODE] I hope the names are self-explanatory on what type of beans they are. With this, I need to do this for every new implementation. If I do not add the mapping, I get an error: [CODE] How do I let the mapper take care of mapping between the implementation and the interfaces? Is this even possible?"
+ },
+ {
+  "question_id": 75309062,
+  "ym": "2023-02",
+  "creation_date": 1675248492,
+  "title": "Integrating 2Checkout Payment Gateway in a Spring Boot Application",
+  "tags": [
+   "java",
+   "spring-boot",
+   "payment-gateway",
+   "2checkout"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am trying to integrate 2Checkout payment gateway into my Spring Boot application, but I am having difficulty finding up-to-date and comprehensive documentation online. Can anyone provide guidance or share their experience with integrating 2Checkout and Spring Boot? What are the key steps involved and what resources would be helpful?"
+ },
+ {
+  "question_id": 75309461,
+  "ym": "2023-02",
+  "creation_date": 1675250616,
+  "title": "Apache Beam Java (SDK versions 2.43.0 - 2.44.0) batch loads to BigQuery fail using Storage Write API",
+  "tags": [
+   "java",
+   "google-bigquery",
+   "google-cloud-dataflow",
+   "apache-beam"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have a batch Apache Beam pipeline that worked successfully until I upgraded from version 2.42 to 2.43 and above. The pipeline uses Storage Write API to write to Biguery and it now fails with the error: [code] . When I switched to FileLoads method instead of StorageWriteAPI it works again. But wondering what's wrong with StorageWriteAPI now. Tried checking the release notes but couldn't find anything helpful ( https://github.com/apache/beam/releases ). Can I please get some help here?"
+ },
+ {
+  "question_id": 75309490,
+  "ym": "2023-02",
+  "creation_date": 1675250748,
+  "title": "Fabric instance crashing when creating custom item group",
+  "tags": [
+   "java",
+   "minecraft",
+   "minecraft-fabric"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I tried making a custom item group for my mod but when I run the code, the game instantly crashes. fabric 1.19.2 [CODE] i tried writing a custom item group for my mod using FabricItemGroupBuilder logs: [CODE]"
+ },
+ {
+  "question_id": 75309495,
+  "ym": "2023-02",
+  "creation_date": 1675250772,
+  "title": "How to convert one json layout to different layout",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "graphql"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Do we have any tools or technologies where I can pass a layout as input and get layout in different format based on my requirement. I have one REST end point and it is being used by 2 different user and in future there will be multiple users. First user wants response in below format. layout1: [CODE] Second user wants response in below format. This layout will be complex but I am using a simple example. layout2: [CODE] I am able to resolve this issue using java and spring boot but it required coding effort once a new user comes and wants a new layout."
+ },
+ {
+  "question_id": 75309519,
+  "ym": "2023-02",
+  "creation_date": 1675250909,
+  "title": "Android App that draws a path as user moves(Using Google Maps SDK)",
+  "tags": [
+   "java",
+   "android",
+   "google-maps"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "It is drawing a polyline based on where the user was and now is but for some reason it creates another line which points from the new LatLng to the Origin(Where the user started) LatLng I am trying to figure out why but I am struggling to find the problem in my code As you can see it draws a line as the user moves but on each new latlng it draws this really straight line to the latlng Please Note: Yes I know some of the code I am using in LocationRequest is deprecated I will update it in the final version [CODE] In Theory: The app should draw a simple polyline based on where the user was and where they are now(simple right?) Reality: It is drawing a polyline based on where the user was and now is but for some reason it creates another line which points from the new LatLng to the Origin(Where the user started) LatLng Tried: Tried to find anything on the google docs even tried ChatGPT(not going to lie) but I can't find a solution."
+ },
+ {
+  "question_id": 75309652,
+  "ym": "2023-02",
+  "creation_date": 1675251659,
+  "title": "Send XML File through httpRequest using Genexus 17",
+  "tags": [
+   "java",
+   "xmlhttprequest",
+   "genexus"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to send a XML path in a httprequest. I try in different ways and none works. My last try was: [CODE] The message is always \"Object reference not set to an instance of an object.\" Application is based in Java. I trying send a XML file to a API."
+ },
+ {
+  "question_id": 75309674,
+  "ym": "2023-02",
+  "creation_date": 1675251741,
+  "title": "servlets named [cxf] and [AxisServlet] are both mapped to the url-pattern [/services/*]",
+  "tags": [
+   "java",
+   "eclipse",
+   "tomcat",
+   "soap",
+   "cxf"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have created very basic SOAP service project with Java in Eclipse according to tutorial . I used Tomcat 10 and Apache CXF 2.x . Got error while launching service: [CODE] Console output: [CODE]"
+ },
+ {
+  "question_id": 75309684,
+  "ym": "2023-02",
+  "creation_date": 1675251809,
+  "title": "Thread Join + ScheduledExecutorService not working as expected",
+  "tags": [
+   "java",
+   "multithreading",
+   "threadpool"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "In the below code snippet, I notice the following sequence of execution. Why is the control going back to the flow outside the someMethod() before completing the activity in the someTask block? Shouldn't it complete everything inside thread2 before moving to the next line of code as thread2.join() has been invoked? [CODE] [CODE] [CODE]"
+ },
+ {
+  "question_id": 75309899,
+  "ym": "2023-02",
+  "creation_date": 1675252998,
+  "title": "Does Resource Server in Spring make call to Authorization Server (Spring) on every request?",
+  "tags": [
+   "java",
+   "spring-boot",
+   "authorization-server"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am new to Spring Boot and I am developing a simple API with few endpoints. Now I am implementing an Authorization Server (Oauth2AuthorizationServer) and Resource server with my endpoints. I have noticed that when AuthServer issues once a JWT token with provided credentials (I am using credential flow), Resource Server is able to verify the JWT even when the AuthServer is stopped. How that magic happens? I was thinking in the beginning that AuthServer must authorize every request made to the resource server. I can't figure it out how Resource server is able to decode the JWT even the auth server is down. Please, can somebody explain it to me how exactly things work. When I try to make the first request to Resource server and AuthServer is stopped, there is an error - that there is no @Bean with decoder()."
+ },
+ {
+  "question_id": 75309926,
+  "ym": "2023-02",
+  "creation_date": 1675253092,
+  "title": "UndeliverableException on a simple Observer. I don&#39;t understand where come from",
+  "tags": [
+   "java",
+   "android",
+   "rx-java",
+   "azure-maps"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "The error message is: The exception could not be delivered to the consumer because it has already canceled/disposed the flow or the exception has nowhere to go to begin with. I cant get where it comes from... From where I've been searching, the problem is on error handling, which I don't know where should I do it. I need to solve this as fast as I can if you guys can help me out. So my LocationService: [CODE] My NotificationLiveData: [CODE] My manager: [CODE] My observer: [CODE] Error Log: [CODE]"
+ },
+ {
+  "question_id": 75310050,
+  "ym": "2023-02",
+  "creation_date": 1675253733,
+  "title": "Kotlin JOOQ fetch data and then map static data afterwards",
+  "tags": [
+   "java",
+   "spring",
+   "kotlin",
+   "jooq"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "It is possible to map static properties after selecting data from DB? For example if I want that result of some field will be always [code] . I will add an example to make myself more clear. Target dto I want to fill via JOOQ [CODE] Since static_value is val and its not optional, I need to initialize that property while creating object. So way to create object only with [code] and map [code] afterwards is not possible. This is a solution that works, I add my enum value as string via [code] method, but this approach is not really something that I would want. [CODE] But I would like to ask if there is way how to do something like [CODE] So I dont have to select these properties statically via SQL and therefore I can bypass problems with ENUM dialects and other issues linked to this approach."
+ },
+ {
+  "question_id": 75310207,
+  "ym": "2023-02",
+  "creation_date": 1675254539,
+  "title": "Apache POI Excel Date",
+  "tags": [
+   "java",
+   "excel",
+   "apache-poi"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to do automations in Java with Apache POI and I need to convert a date dd-MM-yyyy into the format that Excel saves dates. like 31.12.2022 equals to 44926 in Excel. so I searched a bit and discovered that the number equals the days that have passed between 1.1.1900 and in this example 31.12.2022 so i searched for a function that calculates this but only got some that have irregular differences than from excel. I also tried with ChatGPT but no luck. [CODE] I used this code and as I said earlier it'ss not the same result I get in Excel at first I thought it was just a difference of 4 that is always the same so I just added +4 but then I realized that this doesnt work because sometimes its 3 or smth else."
+ },
+ {
+  "question_id": 75310227,
+  "ym": "2023-02",
+  "creation_date": 1675254665,
+  "title": "Mock Service with SoapUI",
+  "tags": [
+   "java",
+   "unit-testing",
+   "groovy",
+   "mocking",
+   "soapui"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I created a mock service in SoapUI, with the following code: [CODE] The method [code] is returning a null value on the requests after the first one. The other variables and methods in [code] are returning values normally. I tried using [code] instead of [code] and [code] in [code] place."
+ },
+ {
+  "question_id": 75310285,
+  "ym": "2023-02",
+  "creation_date": 1675254991,
+  "title": "Looking for the 302 redirect code, instead getting 200 OK status code",
+  "tags": [
+   "java",
+   "http",
+   "network-programming",
+   "java-http-client"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I made a Java program to check whether a web request will redirect or not. As there are some status codes in HTTP protocol, I need to look for 302 status code that expresses redirect request, Here is my code spinnet: [CODE] The [code] variable shall contain the 302 value as my PHP code sets a 302 redirect code and location header by the following code [code] , but instead, It contains 200 code expressing OK. I have checked using Wireshark, It returns 302. What can be the potential issue causing this?"
+ },
+ {
+  "question_id": 75310300,
+  "ym": "2023-02",
+  "creation_date": 1675255076,
+  "title": "How to write jdbc inbound channel adapter programmatically to read data from DB and pass to output channel?",
+  "tags": [
+   "java",
+   "spring-boot",
+   "spring-integration"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am new to spring integration and i want to write the below flow programmatically I have below inbound channel adapter in which I query the DB and passing it to OutChannel and from OutChannel to AccountOutputChannel. AccountOutputChannel has refernce of a class which calls onMessage when message is available on AccountOutputChannel How can I do this all programmatically [CODE]"
+ },
+ {
+  "question_id": 75310303,
+  "ym": "2023-02",
+  "creation_date": 1675255086,
+  "title": "difference between times(1) and atMostOnce() in mockito",
+  "tags": [
+   "java",
+   "mockito"
+  ],
+  "score": -4,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "what is the difference between [code] and [code] in Mockito verify method? as both will result in same behavior so what is the difference between them? is their any difference in their internal working? [code] [code]"
+ },
+ {
+  "question_id": 75310435,
+  "ym": "2023-02",
+  "creation_date": 1675255776,
+  "title": "Parametrize the usage of static variables in an abstract class",
+  "tags": [
+   "java",
+   "static",
+   "abstract-class",
+   "parametrize"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am generating a report for a customer of our company. I have a abstract class with lots of static final int members: [CODE] In my class where I generate my report I use them like this (simplified a bit): [CODE] Now there is a change in the requirement. I need to support another Customer with totally different ItemIDs which i want to put in another static class. The name of the items stay the same, just the values are different. [CODE] How do I properly parametrize this, without changing every line of code where I initialize my itemIDs? I don't want to initialize the itemIDs like this: [CODE] I would like to change as little as possible."
+ },
+ {
+  "question_id": 75310558,
+  "ym": "2023-02",
+  "creation_date": 1675256441,
+  "title": "Getting the count of rows from a web table -SELENID",
+  "tags": [
+   "java",
+   "selenide"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am working with Selenide, however, I need to count the number of rows in the table to write tests. The table has the functionality of displaying the number of rows, I want to check that when selecting, for example, 15 rows, 15 is displayed in the table. However, I do not understand exactly how to count them using selenide. [CODE]"
+ },
+ {
+  "question_id": 75310663,
+  "ym": "2023-02",
+  "creation_date": 1675257031,
+  "title": "How to filter out a particular keyword(part/Substring) which is unique from a map key?",
+  "tags": [
+   "java",
+   "dictionary"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a Map<String,String> [CODE] from this map is it possible to extract keys in a list of Strings {\"BusDetails0\",\"BusDetails1\"}? please help thanks"
+ },
+ {
+  "question_id": 75310956,
+  "ym": "2023-02",
+  "creation_date": 1675258434,
+  "title": "Error creating bean with name &#39;abcController&#39;: Unsatisfied dependency expressed through field &#39;Employeeepository&#39;",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "maven",
+   "spring-data-jpa"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am unable to solve this error Unsatisfied dependency\" expressed through field 'employeeRepository' I added [code] and also tried many solution available on the internet but still not able to resolve it. [CODE] MainApplication class [CODE] Controller [CODE] Entity class [CODE] ERROR LOG [CODE]"
+ },
+ {
+  "question_id": 75311052,
+  "ym": "2023-02",
+  "creation_date": 1675258862,
+  "title": "force hibernate insertion under @Transactional method to happen in the same order they received",
+  "tags": [
+   "java",
+   "hibernate",
+   "spring-data-jpa"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm saving 2 entries to the same table 1 by 1 with JPA and Hibernate under some Transactional flow chain. the entries are not committed until the transaction is over of course, but weirdly they are saved to the table in the opposite order. for example: t1: transactional flow invoked t2: entry 1 saved to table X t3: entry 2 saved to table X t4: the transaction is over. when I check the table I can see entry 2 received a lower id then entry 1. is there something I can do in order to force hibernate to persist in the order I intended?"
+ },
+ {
+  "question_id": 75311076,
+  "ym": "2023-02",
+  "creation_date": 1675258980,
+  "title": "Q class not generating by query-dsl for nested embedded objects inside document class in spring data",
+  "tags": [
+   "java",
+   "spring-data-jpa",
+   "spring-data-mongodb",
+   "querydsl"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have below collection and embedded documents [CODE] And ContactDetails.java looks like below: [CODE] StateDetails look like below: [CODE] And AddressDetails look like below: [CODE] After building , I am not getting Q class for AddressDetails, due to which I am facing issues in building Predicate. Below is my generated QPersonDetail class [CODE] And below is generated QContactDetails: [CODE] I referred many threads including https://querydsl.com/static/querydsl/5.0.0/reference/html/ch03s03.html but still not able to figure out issue. Even i tried with [CODE] annotation on contactDetails, above. Any idea, where I am missing. I dont want AddressDetails to be annotated as @Document."
+ },
+ {
+  "question_id": 75311126,
+  "ym": "2023-02",
+  "creation_date": 1675259221,
+  "title": "ScheduledExecutorService not working as expected",
+  "tags": [
+   "java",
+   "multithreading",
+   "java-threads"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "On executing the following code, the statement System.out.println(\"completed\"); gets executed before the executor even though delay is set to 0. Why is it so? How can the order be maintained here? [CODE]"
+ },
+ {
+  "question_id": 75311178,
+  "ym": "2023-02",
+  "creation_date": 1675259450,
+  "title": "Thread with interruption in java",
+  "tags": [
+   "java",
+   "multithreading"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a question about threads in Java. I have the following code: [CODE] Why if I introduce an interrupt does it still enter the loop? (without break). I understand the operation of the thread when there is an exception."
+ },
+ {
+  "question_id": 75311217,
+  "ym": "2023-02",
+  "creation_date": 1675259643,
+  "title": "Can&#39;t understand this multi-threading exception behavior",
+  "tags": [
+   "java",
+   "multithreading",
+   "exception"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "According to the documentation for ReentrantLock.newCondition() , the calling thread needs to own a lock before calling a signaling method: If this lock is not held when any of the Condition waiting or signalling methods are called, then an IllegalMonitorStateException is thrown. Indeed, this is what I see when I try it: [CODE] So why do this restriction exists in [code] ? I believe there is no such restriction in C++ ."
+ },
+ {
+  "question_id": 75311244,
+  "ym": "2023-02",
+  "creation_date": 1675259767,
+  "title": "XSLT 3 | Hash Function",
+  "tags": [
+   "java",
+   "xml",
+   "saxon",
+   "xslt-3.0"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "We've been looking to generate a hash of a certain text from a given document and came up with the following version of XSLT: [CODE] ...which does the job. The downside is that, it couldn't tested locally (on Altova/Stylus Studio) without modification and we would like to be able to do it. This is functional only in runtime that relies on Saxon-HE-9*. In an attempt to fix this, we gave the below version a shot (inspired from HERE ): [CODE] ...which works only locally on Altova but does not work in runtime as we use Saxon-HE but the feature is supported only on Saxon-PE/EE. In order to overcome this, we came up with this version: [CODE] ...which works locally on Altova XMLSpy but not in runtime as Saxon complains the following: [CODE] Now the question: Is it possible to achieve the requirement at all? Thanks in advance. [CODE] PS: The below version (inspired from HERE ) appears to work both locally and remotely, if the text to be hashed is not too long, but the text that is being hashed here is too long, longer that what's permitted on an HTTP URL, thus is not an option: [CODE] For reference, here is the Saxon extension function: [CODE]"
+ },
+ {
+  "question_id": 75311596,
+  "ym": "2023-02",
+  "creation_date": 1675261187,
+  "title": "How to check for Internet Connectivity on API 30 or higher?",
+  "tags": [
+   "java",
+   "android",
+   "android-studio",
+   "kotlin",
+   "mobile"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I want to check Internet connection using Network Capabilities but it is giving me this error: Must be one of: NetworkCapabilities.NET_CAPABILITY_MMS, NetworkCapabilities.NET_CAPABILITY_SUPL, NetworkCapabilities.NET_CAPABILITY_DUN, NetworkCapabilities.NET_CAPABILITY_FOTA, NetworkCapabilities.NET_CAPABILITY_IMS, NetworkCapabilities.NET_CAPABILITY_CBS, NetworkCapabilities.NET_CAPABILITY_WIFI_P2P, NetworkCapabilities.NET_CAPABILITY_IA, NetworkCapabilities.NET_CAPABILITY_RCS, NetworkCapabilities.NET_CAPABILITY_XCAP, NetworkCapabilities.NET_CAPABILITY_EIMS, NetworkCapabilities.NET_CAPABILITY_NOT_METERED, NetworkCapabilities.NET_CAPABILITY_INTERNET, NetworkCapabilities.NET_CAPABILITY_NOT_RESTRICTED, NetworkCapabilities.NET_CAPABILITY_TRUSTED, NetworkCapabilities.NET_CAPABILITY_NOT_VPN, NetworkCapabilities.NET_CAPABILITY_VALIDATED, NetworkCapabilities.NET_CAPABILITY_CAPTIVE_PORTAL, NetworkCapabilities.NET_CAPABILITY_NOT_ROAMING, NetworkCapabilities.NET_CAPABILITY_FOREGROUND, NetworkCapabilities.NET_CAPABILITY_NOT_CONGESTED, NetworkCapabilities.NET_CAPABILITY_NOT_SUSPENDED, NetworkCapab... [truncated] My code: [CODE] } I tried to fix it with Android Studio's auto-correction, but instead of writing the control code I wanted, it changed it with a different code."
+ },
+ {
+  "question_id": 75311666,
+  "ym": "2023-02",
+  "creation_date": 1675261521,
+  "title": "Is there a way to make var a compile-time error in Maven?",
+  "tags": [
+   "java",
+   "maven",
+   "var"
+  ],
+  "score": -1,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "We're updating to us Java 17. Is there a way in Maven to make it so that using [code] creates a compile-time error without compiling for an older version of java? In other words, I don't want to have to tell Maven to compile for 1.8 or the like. I'd also prefer not to use an IDE centric solution since we don't all use the same IDE."
+ },
+ {
+  "question_id": 75311704,
+  "ym": "2023-02",
+  "creation_date": 1675261701,
+  "title": "How to implement pipeline design pattern using reactive webflux?",
+  "tags": [
+   "java",
+   "reactive-programming",
+   "spring-webflux"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have two simple interfaces called [code] and [code] and they are defined like: Processor: [CODE] SeedPreProcessor: [CODE] and a [code] defined like: [CODE] I want to for a [code] to execute all the [code] in the list [code] one by one. How can I achieve this?"
+ },
+ {
+  "question_id": 75311746,
+  "ym": "2023-02",
+  "creation_date": 1675261909,
+  "title": "Java for loop running both true and false conditions",
+  "tags": [
+   "java",
+   "arrays",
+   "if-statement"
+  ],
+  "score": -2,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I refactored a working project to practice creating callable methods when I broke the app. This app includes a simple String array with a method that matches user input with the array and prints the element name and index. If I don't include a break at the end of the if else statements the app can match valid input but runs both if and else statements. It actually prints the if statement in the order of the index and prints the else output the number of times as the length of the array. In the attached pic, the input was index 0. if statement output In the pic index 0 was matched and printed with the number of else outputs as in the array. It seems the else statement is reading the array length. If I add the break, the app only recognizes index 0 and will run the if statement as expected, but also runs the else statement. But only prints out if else output once. I hope this is clear. Trainers have simply said it is impossible to for a for loop to print of which I understand, yet I'm having a different experience. Here is the code: [CODE] I expect to match valid user input and run the if statement or run the else statement."
+ },
+ {
+  "question_id": 75311751,
+  "ym": "2023-02",
+  "creation_date": 1675261937,
+  "title": "How to create bullet points in the WXPFRun level in a word document with apache poi?",
+  "tags": [
+   "java",
+   "ms-word",
+   "formatting",
+   "apache-poi",
+   "xwpf"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am creating a Word document with Apache poi library. The whole document has only 1 paragraph. The styles and fonts are implemented with the help of different runs (XWPFRun). Things were all okay until I encountered a requirement with bullet points. Under a header I need to write few points with bullets. The problem is if I create a new paragraph for the bullets then the format of the document will be affected. Therefore I am not able to use [code] for the bullet points. I have to create a seperate runner (XWPFRun) and add the bullet points. In the picture below the same requirement has been shown. I did the following but I could not implement the bullet points :- [CODE] The array contains the values - XWPFRun run1 and XWPFRun run2"
+ },
+ {
+  "question_id": 75311889,
+  "ym": "2023-02",
+  "creation_date": 1675262584,
+  "title": "Hibernate inserts child into parent table",
+  "tags": [
+   "java",
+   "hibernate",
+   "jpa"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have the followings at Java level: [CODE] And the following tables in the DB: [CODE] When I try to save a WordDoc, the Hibernate fails with the following error: [CODE] Why it tries to persist the WordDoc into the parent class's table? It has several additional attributes so it not fit into that."
+ },
+ {
+  "question_id": 75312042,
+  "ym": "2023-02",
+  "creation_date": 1675263231,
+  "title": "How to detect refresh, tab closing, webrowser closing. Vaadin 6, Java 8, Sping, Must work on Firefox",
+  "tags": [
+   "java",
+   "spring",
+   "firefox",
+   "vaadin"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Hi How to detect refresh, tab closing, webrowser closing in Firefox? Im using Java 8, Spring na Vaadin 6 libraries for now. Javscript solution mentioned many times on this portal dont work in my case. Regards"
+ },
+ {
+  "question_id": 75312070,
+  "ym": "2023-02",
+  "creation_date": 1675263435,
+  "title": "Microstream issue Could not obtain access to &quot;jdk.internal.misc.Unsafe&quot;",
+  "tags": [
+   "java",
+   "gradle",
+   "micronaut",
+   "microstream"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm doing my first steps using Microstream in a Micronaut application (JDK 17). I have implemented the following repository [CODE] And my data root to store the data. [CODE] When I store a product I get an [code] since Microstream wants to access [code] but that's of course no allowed by default. [CODE] When I start the Micronaut application adding the VM option [code] everything works fine. As mentioned in the listing above the type [code] is an interface and something in this data structure triggers the error. The actual implementation of [code] is a Java record called [code] . [CODE] I have replaced the map in [code] from [code] to [code] and the problem is gone without using [code] , so it has clearly to do with my data structure [code] . The problem is I cannot run my tests using Gradle, even if I tell the JVM to add that option. [CODE] So I have the following questions: Does anyone have a clue why Microstream needs to access that and point me the directions what could probably be wrong? Is there a way to run the my tests in the Gradle build and add the VM option, so the tests can be executed and workaround the issue?"
+ },
+ {
+  "question_id": 75312118,
+  "ym": "2023-02",
+  "creation_date": 1675263590,
+  "title": "How to mock a method in Java for testing",
+  "tags": [
+   "java",
+   "junit",
+   "mockito",
+   "spy",
+   "junit-jupiter"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a class A which has a [code] calling a [code] in class B. In class B [code] is calling [code] in class C. Class C implements [code] . I am trying to test [code] in class A using junit, mockito. [CODE] I am getting an error of null pointer exception for class C [code] . Do I need to mock that as well? Is there a way I can mock [code] so that the test does reply on the implementation in [code] ? As my aim is to test [code] , I am fine mocking other methods."
+ },
+ {
+  "question_id": 75312132,
+  "ym": "2023-02",
+  "creation_date": 1675263655,
+  "title": "Behaviour should change due to authorization at service or controller level?",
+  "tags": [
+   "java",
+   "service",
+   "controller"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I want to fetch some resources and I expect 2 different behaviours depending on the connected user. If the user is an admin, he retrieves all the resources, otherwise he only retrieves the resources he can access. Are there some recommendations about such a case? What is the best way to do this and why? Here are the different options I found : At the controller level : [CODE] At the service level : [CODE] Should I create 2 controllers : [CODE]"
+ },
+ {
+  "question_id": 75312380,
+  "ym": "2023-02",
+  "creation_date": 1675264741,
+  "title": "Missing quotes on UUID when using Apache Avro",
+  "tags": [
+   "java",
+   "maven",
+   "avro"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I use the Apache Avro Maven Plugin to generate my Java classes from my .avsc definitions. I have some fields that are declared as UUID strings as follows: [CODE] In Avro 1.11.0 these fields were mapped as properties of type [code] by the generator. Starting with Apache Avro 1.11.1, the generator maps these fields as properties of type [code] , which is an improvement imo. However, when calling the [code] method of a generated class with one of such fields, the output is not a valid JSON since the UUID field is not surrounded by quotes. I have looked into the [code] generated code, and indeed, UUID fields are not serialized with surrounding quotes. Am I missing something or is this a bug?"
+ },
+ {
+  "question_id": 75312495,
+  "ym": "2023-02",
+  "creation_date": 1675265305,
+  "title": "Java Streams API: Apply a filter to a field of the objects to be filtered",
+  "tags": [
+   "java",
+   "collections"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Inspired by the Stream API's way of composing small functions, and by [code] which allows me to create comparators that compare certain fields, I'm looking for a similar style to create predicates that test certain fields. Given this [code] and given a collection [code] of [code] , I want to compute a smaller collection [code] of [code] where the name matches a certain regular expression. It is very convenient to convert a regular expression into a predicate, let's say [code] . Now, of course [code] will do the trick. But I'm looking for convenience methods in a style similar to [code] ... [code] -- something like this, perhaps? Is this in the JDK? Is this worth having, do you think? Does a library exist that does this? (Of course, I can't do [code] because that gives me a list of names, not a list of [code] .)"
+ },
+ {
+  "question_id": 75312580,
+  "ym": "2023-02",
+  "creation_date": 1675265663,
+  "title": "How do I create a button to go back from the settings page",
+  "tags": [
+   "java",
+   "android",
+   "android-studio"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Image to my error I'm new to Android app development and I created a new settings activity from the provided templates. I'd like to create a button which redirects the user back to the main screen(I figured this part out), though I am unable to create a . the image shows where I'm currently stuck"
+ },
+ {
+  "question_id": 75312661,
+  "ym": "2023-02",
+  "creation_date": 1675266046,
+  "title": "How do I stop the timer from counting down when I switch to pause state?",
+  "tags": [
+   "java",
+   "time",
+   "game-development"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a java game wherein there is a countdown timer from 60 secs. It works fine, but when I pause the game and return back to play state. the original time is now reduced because I found out that the timer still keeps running from the system no matter what gameState I'm in. How do I fix this? I tried storing the remainingTime to a pauseTime variable whenever I switch states, and just subtract it and stuff. But my efforts seem to failed. [CODE]"
+ },
+ {
+  "question_id": 75312778,
+  "ym": "2023-02",
+  "creation_date": 1675266617,
+  "title": "Java Json Repeating the key",
+  "tags": [
+   "java",
+   "json"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have a problem always i call the method addplayers he inserts into the jsonfile the array required, but, he always create new key , so, i'm trying to insert a new player in the key Players always i create a new player. I created some conditions for that but is not working, like parsing the file and check the key. the expecteded result : [CODE] the result at moment: [CODE] The Method [CODE]"
+ },
+ {
+  "question_id": 75312804,
+  "ym": "2023-02",
+  "creation_date": 1675266780,
+  "title": "Java module system: how to avoid leaking all packages of transitive modules",
+  "tags": [
+   "java",
+   "java-9",
+   "java-module"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "In java module system, we can have: [CODE] by doing this the packages exposed by [code] module will effectively become part of the API exposed by the [code] . We may want to avoid this to a certain degree, would be nice, for example, to allow only visibility on certain classes, the ones used by [code] in the signature of the methods it contains perhaps. Is there any way to do this, i.e. allow only certain classes or packages to be leaked ?"
+ },
+ {
+  "question_id": 75312891,
+  "ym": "2023-02",
+  "creation_date": 1675267169,
+  "title": "How to check a map of strings for a key and increment the key value by 1 every time a key exist in the map?",
+  "tags": [
+   "java",
+   "maps"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a [CODE] The datas are extracted automatically from an xml, So if i want to add another [code] key I need to update the map with a key like this BusDetails2.BusDetail.DriverID… etc. is it possible? So far i tried to extract the distinct keys from the map and i got the result as a list of String [BusDetails,BusDetails1] [CODE] Please help Thanks"
+ },
+ {
+  "question_id": 75312920,
+  "ym": "2023-02",
+  "creation_date": 1675267259,
+  "title": "Null Check to avoid Null pointer exception",
+  "tags": [
+   "java",
+   "null"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have something like this: [CODE] I am looking for efficient way to do the null check but don't want to add many if's . I have similar thing in many places and looking for the best way to address this. Thanks in advance."
+ },
+ {
+  "question_id": 75313115,
+  "ym": "2023-02",
+  "creation_date": 1675268157,
+  "title": "Set Bounds Not working in Java Swing for a Button",
+  "tags": [
+   "java",
+   "swing",
+   "user-interface"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "This program just creates a [code] and a [code] . When I click on that button a new UI Appear which I coded so that it doesn't go outside the bounds of [code] . My main problem is that I'm trying to make the width and height of the button smaller so that it looks more like an app icon. But when I set the bounds on the button it doesn't change anything when I run the code. [CODE]"
+ }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "qid": 79647131,
+    "answer": "np.split(a, 2) splits along axis 0 by default, returning (1, 2, 2) subarrays. To extract (2, 2) subarrays directly, use indexing: `result = [a[i] for i in range(2)]` or simply `[a[0], a[1]]`. Alternatively, reshape before splitting: `a.reshape(-1, 2, 2)` creates your desired shape, then index into it. If you need the split operation specifically, pass axis=0 explicitly, but indexing is clearer and avoids the extra reshape step for your use case."
+  },
+  {
+    "qid": 79836040,
+    "answer": "PyInstaller's OpenCV support is fragile. Try: 1) Upgrade pyinstaller-hooks-contrib to latest (2025.01+), 2) Use `--collect-binaries cv2 --hidden-import=cv2` flags, 3) Switch to opencv-python (not headless)—headless lacks binary dependencies PyInstaller needs, 4) Test with `--onedir` before `--onefile` for easier debugging. If still failing, try pinning to opencv-python==4.8.0.76 which has better PyInstaller support than recent versions. Avoid downgrading to 4.5.5 unless absolutely necessary."
+  },
+  {
+    "qid": 79899422,
+    "answer": "The traceback is incomplete, but CompositeVideoClip timing issues are common in moviepy 2.2.1. Ensure each subclip has explicit durations: `clip1.set_duration(c0)`, `clip2.set_duration(c1 - c0)`, etc. Verify clips are at correct positions—CompositeVideoClip expects clips at (0, duration) intervals. Also check if moviepy 2.2.1 has known threading issues with your Python 3.14; try downgrading to 1.0.3 if 2.2.1 remains unstable."
+  },
+  {
+    "qid": 79780944,
+    "answer": "Polygon requires deterministic test cases. For random programs, you need: 1) A custom checker program that validates output format/bounds rather than exact match (validate sum and average mathematically), 2) Seed the random generator in your code with a fixed seed before submission, or 3) Contact Polygon support about checker programs for stochastic solutions. Polygon's default expects exact output match, so random programs typically need custom validation logic."
+  },
+  {
+    "qid": 79548741,
+    "answer": "For 100-200 LEDs with minimum spacing, use scipy.optimize with a well-designed objective. Key approaches: 1) Use differential_evolution or simulated_annealing for global optimization, 2) Enforce 1cm spacing as penalty function, 3) Leverage 4-fold symmetry to reduce variables 16x, 4) Use FFT-based light propagation for O(n log n) evaluation instead of O(n²), 5) Start with greedy placement, refine with optimization. Consider Bayesian optimization (scikit-optimize) if evaluations are expensive."
+  },
+  {
+    "qid": 79548070,
+    "answer": "This is Python's descriptor protocol. When you access a function through an instance (`bs.fn()`), Python implicitly binds it and passes `self`. To prevent this: 1) Use `@staticmethod` decorator, 2) Use `@classmethod` for class-level binding, 3) Assign directly to instance: `b.fn = fn` (bypasses class lookup). Functions in class namespace become method descriptors automatically. Check Python documentation on descriptors for deeper understanding of this binding behavior."
+  },
+  {
+    "qid": 79650016,
+    "answer": "Your feedforward architecture is reasonable for this task. Key checks: 1) Ensure inputs are normalized (valve states 0-1, pressure scaled), 2) Use train/val/test split to detect overfitting (if training loss drops but val doesn't improve, you're overfitting), 3) Increase dropout to 0.3-0.5 or add L2 regularization, 4) Verify pressure targets are normalized consistently with inputs. Try early stopping with patience=10 and learning rate scheduling. If performance plateaus, collect more real data—data augmentation may be insufficient."
+  },
+  {
+    "qid": 79780171,
+    "answer": "Use pd.to_datetime with format inference: `df['Joining_Date'] = pd.to_datetime(df['Joining_Date'], infer_datetime_format=True, errors='coerce')`. This auto-detects most formats. For stubborn cases, parse manually: `df['Joining_Date'] = df['Joining_Date'].apply(lambda x: pd.to_datetime(x, format='%d-%m-%y', errors='coerce') if isinstance(x, str) else x)`. The errors='coerce' converts unparseable values to NaT. Convert to consistent format with `.dt.strftime('%Y-%m-%d')`."
+  },
+  {
+    "qid": 79549008,
+    "answer": "Common causes of image upload failures: 1) Missing Pillow: `pip install Pillow`, 2) AWS permissions incomplete—ensure IAM user has s3:PutObject on the bucket, 3) MEDIA_URL defined twice in settings (visible in config), 4) Storage backend not properly configured. Verify: django-storages installed, AWS_STORAGE_BUCKET_NAME set, AWS credentials in env vars, and ImageField doesn't override storage. Check S3 bucket ACLs allow uploads from your IAM user."
+  },
+  {
+    "qid": 78818979,
+    "answer": "Watchdog's Observer runs in a daemon thread and can hang if the main thread exits or doesn't call stop/join. Ensure proper shutdown: `observer.stop(); observer.join()`. In StackStorm context, use a greenlet-safe wrapper—eventlet may not play well with Watchdog threads. Consider running observer in a separate daemon thread communicating via queue instead of blocking. Provide a cleanup hook in the sensor's `cleanup()` method to gracefully stop the observer."
+  },
+  {
+    "qid": 79898983,
+    "answer": "`compile()` only checks syntax, not semantics. `list(1, 2, 3, 4, 5)` is syntactically valid Python—the bytecode shows CALL_FUNCTION with 5 args. It compiles successfully but fails at runtime: `TypeError: list expected at most 1 argument, got 5`. Python allows you to call any function with any number of args at compile time; the error occurs during exec(). Use `dis.dis()` to inspect bytecode; syntax errors would fail earlier at compile stage."
+  },
+  {
+    "qid": 79322812,
+    "answer": "`uv run -m` may not be supported in your uv version. Check `uv --version`. Try: 1) Direct Python: `python -m pydantic_ai_examples.pydantic_model`, 2) Reinstall package: `uv add pydantic_ai[examples]` then `uv sync`, 3) Use uv run without -m: `uv run pydantic_ai_examples.pydantic_model` (if executable), 4) Upgrade uv: `uv self update`. Older uv versions don't support `-m` flag. If stuck, fall back to direct Python execution."
+  },
+  {
+    "qid": 78938890,
+    "answer": "This is a Qt/OpenGL issue with Wayland on Fedora 40. Fix: 1) Force X11: `export QT_QPA_PLATFORM=xcb` before launching, 2) Switch to X11 session in login screen, 3) Reinstall Qt: `conda install qt`, 4) Update: `conda update anaconda-navigator`, 5) Last resort: use command-line conda instead. The error indicates anaconda-navigator can't initialize GLX under Wayland. X11 session or the environment variable should resolve it immediately."
+  },
+  {
+    "qid": 79686332,
+    "answer": "`np.random` is a module, not a function. Use: `np.random.rand()`, `np.random.randn()`, `np.random.randint()`, etc. Alternatively, use the recommended API: `rng = np.random.default_rng(); rng.random()`. The new Generator API is preferred; it doesn't create identical arrays with same seed on successive calls unless you explicitly reseed. Remove the `()` after `np.random`—you're trying to call the module itself."
+  },
+  {
+    "qid": 79937049,
+    "answer": "Hallucinations + missed DuoPacks suggest: 1) Synthetic data quality—vary backgrounds, angles, lighting more; 500 uniform synthetics can't fix 110k real images, 2) Class imbalance—DuoPack under-represented. Increase weight: use `cls_weight` parameter during training or oversample DuoPack in batches, 3) Lower confidence threshold from default 0.25 to 0.5, 4) Check if DuoPack should be separate class. Retrain with more diverse synthetic data and weighted loss—this is fundamental to your hallucination problem."
+  },
+  {
+    "qid": 79688908,
+    "answer": "Your decorator + proxy approach works but is complex. Simpler alternatives: 1) Use pandas `.attrs` dict to store metadata on transformed dataframes, 2) Return tuples: `(result_df, {\"inputs\": [...], \"outputs\": [...]})`, 3) Make transformations into classes with `inputs` and `outputs` properties. For automatic column tracking, inspect function source with `inspect.getsource()` and parse column names (fragile). Best practice: explicit metadata beats magic tracking—document inputs/outputs at function definition level."
+  },
+  {
+    "qid": 79604901,
+    "answer": "sed doesn't support non-greedy quantifiers (`?`). Use: `sed 's/^\\(https[^ ]*\\)/\"\\1\"/g'` to match https until first space. Or use Perl: `perl -pe 's/(https\\S+)/\"$1\"/g'`. The `[^ ]*` matches non-space chars—equivalent to non-greedy in sed. For Windows sed (Gow), escape carefully: `sed 's/\\(https[^ ]*\\).*$/\"\\1\"/g'` if URLs are at line end. Test regex101 with sed mode to verify patterns."
+  },
+  {
+    "qid": 79323513,
+    "answer": "This is a Google Speech Recognition API backend limitation, not your code. The API mishears \"one\"/\"two\" and misinterprets single digits. Workarounds: 1) Use alternative engine (Azure, AWS)—they handle low numbers better, 2) Post-process with fuzzy matching: if recognized is 'won', replace with 'one', 3) Add more audio training data, 4) Use different keywords like 'option one' instead of bare 'one', 5) Increase microphone gain/clarity. No library fix exists—this is upstream API behavior. Consider switching speech providers."
+  },
+  {
+    "qid": 79753276,
+    "answer": "`.so` files are compiled C extensions. `_multiarray_umath.cpython-313-x86_64-linux-gnu.so` is built from `numpy/_core/src/multiarray/` C source during numpy install. The filename format is `{module}.{python_version}-{platform}.so`. Inspect with `nm` or `objdump` on Linux. Source is in numpy repo. Build system (meson/Cython) compiles C code to `.so`. You can read numpy's pyproject.toml to see build rules; look for `_multiarray_umath` in the meson.build files under _core."
+  },
+  {
+    "qid": 79687251,
+    "answer": "Responses API is newer but incomplete. Assistants API will be supported for a while—you can safely ignore the deprecation warning. The Responses API uses direct `messages.create()` instead of threads; you maintain message history in memory and pass it each call. For now, stick with Assistants API; migration path will be clearer once Responses API documentation covers all Assistants features. Monitor OpenAI changelog for official migration guide—likely coming Q1 2026."
+  }
+]

@@ -1,0 +1,78 @@
+[
+  {
+    "qid": 71700434,
+    "answer": "Your top layer isn't solid because the condition `if i == n - 1` fills only the bottom row. To make the top solid, change it to `if i == 0`. This fills the first (top) row completely with asterisks while keeping others hollow. The logic is otherwise correct—it's just checking the wrong row index. Change that single line condition and your pyramid will display correctly."
+  },
+  {
+    "qid": 79686671,
+    "answer": "Pylance can't automatically narrow the union type because dictionary literal inference doesn't propagate Literal type constraints through variables. Use the explicit type cast approach: `result: ChatCompletionMessageParam = {\"role\": author, \"content\": self.item.value()}  # type: ignore` or cast: `cast(ChatCompletionMessageParam, {...})`. Alternatively, use an if-elif chain checking `author` values—type guards work better than dictionary inference here."
+  },
+  {
+    "qid": 75304987,
+    "answer": "Your code logic is sound. The issue is likely case sensitivity or whitespace. Try converting to lowercase: `for letter in syr_str.lower():`. However, a simpler approach: `syr_list = [to_nato[letter] for letter in syr_str if letter in to_nato]`. This does the same check in one line. If still empty, verify the input string matches dictionary keys exactly (watch for spaces or encoding issues)."
+  },
+  {
+    "qid": 74635937,
+    "answer": "The leak occurs because xarray creates a regular grid and ffill/interpolation spreads sparse point values across empty cells. The melt→index→to_xarray flow fills implicit NaN values. Fix: use sparse arrays with `xr.DataArray(..., sparse=True)` or avoid fillna(0) until visualization. Alternatively, keep points as unstructured coordinates without gridding rather than forcing them onto a regular lat/lon mesh."
+  },
+  {
+    "qid": 79604132,
+    "answer": "The `with` statement closes the buffer, and PIL needs it open to read image data later. Solution: Don't use `with`—manually call `buffer.close()` after PIL loads the image, or convert to bytes first (`buffer.getvalue()`) and create PIL Image from bytes. The bytes approach is cleanest: `img = Image.open(io.BytesIO(buffer.getvalue()))`."
+  },
+  {
+    "qid": 79808955,
+    "answer": "Cython's ext_modules from setup.py doesn't expose Python-level symbols. Use py_modules instead for pure Python wrapping, or declare functions in a .pyx file properly. For keeping .py files hidden while maintaining imports, wrap them in a Cython extension that re-exports the symbols explicitly. The compiled .pyd contains binary code but needs Python wrapper code to expose function signatures."
+  },
+  {
+    "qid": 72074137,
+    "answer": "The queue popping logic is wrong. Using `queue=queue[count:]` creates a new list each iteration—inefficient and error-prone. Replace with `from collections import deque` and use `queue.popleft()` instead. Also, your visited check and bounds checking look correct, but the queue manipulation is breaking the BFS. Use deque for proper O(1) queue operations."
+  },
+  {
+    "qid": 78819380,
+    "answer": "Your progress bar updates sequentially because the database query blocks the main thread. Use threading: wrap the db query in `threading.Thread(target=query_func).start()` or use a ThreadPoolExecutor. Call `root.update_idletasks()` in the query loop itself, or better: run the query on a background thread and send progress updates via a queue that the main thread reads during `update_idletasks()`."
+  },
+  {
+    "qid": 68606646,
+    "answer": "Use psutil library: `import psutil; memory_info = psutil.virtual_memory(); if memory_info.available <= threshold: save_file()`. In Colab specifically, you can also check `/proc/self/status` or use `memory_profiler`. psutil works across platforms and gives real-time available memory. Install via pip if needed."
+  },
+  {
+    "qid": 72824773,
+    "answer": "Use tuple unpacking with the `*` operator: `if number in range(*VALID_YEARS)`. The `*` unpacks the tuple as separate arguments to range(). Alternatively, extract values: `if number in range(VALID_YEARS[0], VALID_YEARS[1])`. The unpacking approach is cleaner and more concise."
+  },
+  {
+    "qid": 78939613,
+    "answer": "The 405 error indicates the IPFS HTTP API endpoint doesn't support your request format. Check: (1) IPFS daemon is running on port 5001, (2) update ipfsapi library (`pip install --upgrade ipfshttpclient`), or (3) use requests directly: `requests.get('http://127.0.0.1:5001/api/v0/cat', params={'arg': 'QmbFMke1...'})`. Version mismatch between client and daemon is the likely cause."
+  },
+  {
+    "qid": 70934480,
+    "answer": "Find paths WITH Psych_Measure, then check all visit paths and exclude matches: `has_psych = set(glob.glob('sub*/visit*/Psych_Measure')); all_visits = glob.glob('sub*/visit*'); missing = [v for v in all_visits if not any(p.startswith(v) for p in has_psych)]`. Alternatively, iterate each visit directory and use `os.path.exists(path + '/Psych_Measure')`."
+  },
+  {
+    "qid": 67782229,
+    "answer": "The variable `number_of_donuts` is defined in `main()` but `donuts()` function references it without scope access. Pass it as a parameter: `def donuts(number_of_donuts): if number_of_donuts >= 10: print('many') else: print(f'Number of donuts: {number_of_donuts}')`. Then call `donuts(number_of_donuts)` from main(). Also add error handling for missing arguments."
+  },
+  {
+    "qid": 77211228,
+    "answer": "NO, the code is NOT thread-safe. `os.getcwd()` is NOT an atomic operation. Another thread can call `os.chdir()` between your two getcwd() calls, causing the assert to fail. Python's CWD is a process-global resource. If concurrency is needed, either: (1) use thread-local working directories via context managers, (2) synchronize with a Lock, or (3) avoid changing CWD across threads."
+  },
+  {
+    "qid": 69401441,
+    "answer": "Use mypy in your CI pipeline: add a GitHub Actions step `- run: pip install mypy && mypy .` before tests. Mypy statically checks type hints. Alternatively use pyright (`pyright .`) or pyre. Add a `mypy.ini` or `pyproject.toml` to configure strictness. This enforces type compliance at CI time, failing the build if types don't match."
+  },
+  {
+    "qid": 71701326,
+    "answer": "Use `groupby().idxmin()`: `df.loc[df.groupby(['date', 'p'])['distance'].idxmin()]`. This groups by date and p, finds the index of minimum distance per group, then selects those rows. Alternative using nsmallest: `df.loc[df.groupby(['date', 'p'], group_keys=False).apply(lambda x: x.nsmallest(1, 'distance')).index]`."
+  },
+  {
+    "qid": 77919134,
+    "answer": "BorutaPy doesn't accept sample_weight in fit(). Instead, pass weights to the RandomForestClassifier: `forest = RandomForestClassifier(...); forest.fit(X, y, sample_weight=weights)` then pass the fitted forest to BorutaPy. Or use BorutaShap which better supports weighted data. BorutaPy uses the pre-trained classifier's feature importances, so weights must be applied during classifier training."
+  },
+  {
+    "qid": 70934517,
+    "answer": "Complete the script by stripping newlines and writing results: `with open('jack.txt') as fid: urls = fid.readlines(); results = []; \nfor url in urls: \n  url = url.strip(); \n  try: response = requests.get(url); results.append(f'{url} {response.status_code}'); \n  except: results.append(f'{url} Error'); \nwith open('results.txt', 'w') as out: out.writelines([r+'\\n' for r in results])`."
+  },
+  {
+    "qid": 79782535,
+    "answer": "The scale parameter showing as NoneType likely means argparse isn't setting a default or the argument isn't being passed. Check: (1) add `default=1` to argparse argument definition: `parser.add_argument('--scale', type=int, default=1)`, (2) pass the parsed args to __init__: `app = WalkingPanda(scale=args.scale)`. The function signature is fine; the issue is argument parsing or instantiation."
+  }
+]

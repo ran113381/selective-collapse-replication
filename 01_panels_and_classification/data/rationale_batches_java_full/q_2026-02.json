@@ -1,0 +1,1576 @@
+[
+ {
+  "question_id": 79880350,
+  "ym": "2026-02",
+  "creation_date": 1769920030,
+  "title": "Does function/method overriding occur only when polymorphism is implemented in java?",
+  "tags": [
+   "java",
+   "polymorphism",
+   "overriding"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to clarify the relationship between Method Overriding and Polymorphism in Java. From my understanding, overriding happens when a subclass provides its own implementation of a method inherited from a parent class. However, is it accurate to say that overriding only occurs when polymorphism is being implemented? Or are these two distinct concepts that just happen to overlap? Specifically, I’d like to know: Is overriding considered a subset/type of polymorphism (Runtime Polymorphism)? Can you have overriding in a program without \"using\" polymorphism in a practical sense? Could someone provide a clear code example that demonstrates how overriding facilitates polymorphism in Java?"
+ },
+ {
+  "question_id": 79880361,
+  "ym": "2026-02",
+  "creation_date": 1769924716,
+  "title": "Spring cannot find @PathVariable name for @RequestMapping despite &#39;-parameters&#39; compiler option",
+  "tags": [
+   "java",
+   "spring",
+   "instrumentation",
+   "datadog",
+   "javaagents"
+  ],
+  "score": 7,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have been observing a weird issue in my application. Recently we started observing a lot of exceptions of this type in our logs: [code] : Name for argument of type [code] not specified, and parameter name information not available via reflection. Ensure that the compiler uses the [code] flag. The [code] compiler option is already being passed (checked in Gradle debug logs, it's probably from the Spring Boot plugin) and when I run [code] to inspect the compiled class, I can see the [code] metadata section with the correct method arguments. Also, this issue seems to occur intermittently (as observed in Datadog). As in calls succeed sometimes and fail other times, even for the same methods. We use pinned version numbers for Spring (3.3.13) and its dependencies so it's unlikely that this is some change in the Spring version. Also this was changed a long time back, so should not be the root cause. This leaves me with two theories: A bug in the JVM. We use OpenJDK version 17.0.15+6-alpine-r0 although I can't find any open issues for this version. The Datadog javaagent we use for instrumentation is somehow messing with the [code] metadata of the controller classes. In either case I am not sure how to investigate. Is there any way to get debug logs or introspect the behaviour of java agents? Edit: I've decided to update all controller methods in our application for now. No root cause"
+ },
+ {
+  "question_id": 79880456,
+  "ym": "2026-02",
+  "creation_date": 1769946527,
+  "title": "It&#39;s not possible to automatically add a synthetic no-args constructor to an unproxyable bean class",
+  "tags": [
+   "java",
+   "quarkus",
+   "quarkus-rest-client"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have below class, which is used to generate the metaData of the class [CODE] I am using this class as a base class to extend the other class, to know the entityClass as as below. Since this ServiceBase is generic class, and the type get erased. Due to this I have to add the constructor [CODE] Now In the application I am using as [CODE] Error [CODE] If I add no arg constructor [CODE] [CODE] The test case [CODE]"
+ },
+ {
+  "question_id": 79880554,
+  "ym": "2026-02",
+  "creation_date": 1769959844,
+  "title": "Is there something wrong with commons-net-3.12.0.jar when I get java.lang.NoClassDefFoundError?",
+  "tags": [
+   "java",
+   "android",
+   "ftp"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I got this crash report: [CODE] in the line \"ftp.disconnect()\" in this piece of my source code: [CODE] which also contains: [CODE] In my build.gradle(app) I have [CODE] Everything works fine on most Android devices but obviously not all. Does anyone have an idea what I am doing wrong?"
+ },
+ {
+  "question_id": 79880626,
+  "ym": "2026-02",
+  "creation_date": 1769968520,
+  "title": "Spring Boot 4 / Spring Security 6 – @WithMockUser returns 401 Unauthorized in MockMvc test",
+  "tags": [
+   "java",
+   "spring-boot",
+   "spring-mvc",
+   "spring-security",
+   "spring-boot-4"
+  ],
+  "score": 2,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I’m setting up a project using Spring Boot 4.0.2 (Spring Security 6) and I’m getting a 401 Unauthorized in a [code] integration test, even though I’m using [code] . I suspect this might be related to changes in Spring Security packages or test configuration in comparison to Spring Boot 3x, but I can’t spot what’s wrong. Security configuration [CODE] Controller [CODE] Integration test [CODE] Relevant dependencies [CODE] Mockito response [CODE] PS: Here is my repo: https://github.com/francislainy/ecom-product-service Thanks very much."
+ },
+ {
+  "question_id": 79880817,
+  "ym": "2026-02",
+  "creation_date": 1770008030,
+  "title": "How to systematise a checking of &quot;a quite equals to b&quot; (either with round method or | a - b | ~ 0) for any value of a?",
+  "tags": [
+   "java",
+   "math",
+   "rounding"
+  ],
+  "score": 0,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "My context I have implemented an [code] method for a speed object ( [code] here) that when it faces a comparand being in [code] when it is itself in [code] (in example) puts the comparand in [code] too before comparing the values. And I'm testing it in this test where it is triggered by the last [code] statement: [CODE] My problem Somewhere in the [code] method, a [code] responds (correctly!) [code] because from: the [code] object valued [code] and an [code] parameter for the [code] method valued [code] that should be considered equals after conversion, it is comparing eventually [code] to [code] ... whose the four last decimals aren't equal. My question I could say in this case: [code] But my [code] that compares values and decides to convert one to another unit of measure first, is supposed to work for any range of values... Conclude from [code] is correct. But what if the two numbers compared were [code] and [code] ? [code] wouldn't then have a sense. I would like to know how from one of the comparands, I might decide the value to put on the right member of my inequality. In this second example, it could be: [code] instead. Said another manner: How to automate the determination of the proper [code] value from a [code] value here: [code] in order to be sure that this checking will have a sense whatever the value of [code] ?"
+ },
+ {
+  "question_id": 79880927,
+  "ym": "2026-02",
+  "creation_date": 1770022209,
+  "title": "How to obtain the pooled funds of a token in Uniswap v3?",
+  "tags": [
+   "java",
+   "uniswap",
+   "web3-java"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "How do I obtain the aggregated WETH tokens in Uniswap v3? Currently, I'm obtaining the pooled WETH by reading the [code] and [code] of the Uniswap V3 Pool, mapping the active liquidity (L) within the current price range to an equivalent token/WETH quantity pair to get its virtual reserves. However, sometimes the value differs from the actual pooled WETH. Are there any other methods to obtain this value? [CODE]"
+ },
+ {
+  "question_id": 79880954,
+  "ym": "2026-02",
+  "creation_date": 1770024174,
+  "title": "Paging of batch-loaded, nested fields in Spring GraphQL",
+  "tags": [
+   "java",
+   "spring",
+   "graphql",
+   "spring-graphql"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have the following schema structure (albeit with entity names changed): [CODE] My goal is to batch resolve Fan entities when listing artists and their fans. To do this I had been using Spring Data's Window as a return value from data fetchers (controller methods) which automatically is mapped to a GraphQL connection by Spring GraphQL. I am referencing the ScrollSubrange argument provided automatically by Spring GraphQl to my controller methods, therefore, I am unable to use the @BatchMapping annotation; this means I have to register batch data loaders manually, and given all these batch data loaders' values are 'Window.class', I have to register then using [code] rather than [code] - which then means that I end up not being able to resolve Java type issues where the data loader is expecting [code] but my data loader is returning [code] . What is the correct way to handle batch loading [code] entities for all [code] entities in the result of this query: [CODE] I can't seem to find specific batch mapping + paging examples, or documentation anywhere. Here's what I had so far: Registration of the data loader: [CODE] data fetcher / controller method: [CODE] and finally, the data loader: [CODE] This is the type error I'm seeing for the return statement in the registration of the batch data loader: Inconvertible types; cannot cast 'Mono<Map<Artist,Window>>' to 'Mono<Map<Object,Objec"
+ },
+ {
+  "question_id": 79881060,
+  "ym": "2026-02",
+  "creation_date": 1770033495,
+  "title": "How can I display Edittext and checkbox input (+showing checkbox labels) into a recyclerview (using 2 activities, 1 for input, 1 for display)",
+  "tags": [
+   "java",
+   "android",
+   "android-recyclerview",
+   "android-edittext",
+   "android-checkbox"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm wondering how can I make it so that in a recycler view, the input from the editTexts and the input from the checkboxes are displayed into that recycler view. I mainly would like to see if the checkbox labels from the user chosen checkboxes can be displayed plus the input from the editTexts, but I'm confused on how to really show the labels. What would be a way to make this happen? I've spent a few days on this same issue and have gotten as far as to try and get the habits to actually show in the recycler view. However, I have noted that the recycler view never displays anything at all even when I've added input from both the editTexts and checkboxes. I'm also working with two activities: one for the input (Add_Habit_Activity) and one for display (Home_Page_Activity) passing data from one activity to another. The list holds all the necessary items, but I'm still unsure as to why it still does not display those items in the recycler view. Here is the code for Home_page_Activity.java file: [CODE] Here is the code for the Add_activity_Activity.java file: [CODE] Here is the code used in the Habit_Adapter.java file: [CODE] Here is also the data model class code (Habit_Data_Model.java) file: [CODE] Below is the code for the activity_home_page.xml file: [CODE] Here is the code for the activity_add_habit.xml file: [CODE] Below is the code for the layout (habit_layout.xml) that I'm u"
+ },
+ {
+  "question_id": 79881239,
+  "ym": "2026-02",
+  "creation_date": 1770048047,
+  "title": "Spring Boot 4.0.2 HttpExchange Configuration Properties",
+  "tags": [
+   "java",
+   "spring-boot"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "When using [code] , the property [code] is ignored, leading to [code] . [CODE] My config [CODE] [CODE] The Oauth config works fine. If I set it programmatically it works fine. edit: Tried with serviceclient too. [CODE]"
+ },
+ {
+  "question_id": 79881276,
+  "ym": "2026-02",
+  "creation_date": 1770051213,
+  "title": "API that returns a Flux type cannot output in real time in SpringBoot",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "spring-mvc",
+   "spring-webflux"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm a beginner in SpringBoot, and want to write a demo to test how to use Flux to return data in streaming. I wrote the following two APIs and tested them using Postman. The second API (function2) returns one piece of data per second as expected. However, the first API waited for 10 seconds and then received 10 pieces of data all at once. I want to know why this happened. [CODE]"
+ },
+ {
+  "question_id": 79881510,
+  "ym": "2026-02",
+  "creation_date": 1770074459,
+  "title": "Java in Google Colab is not updating?",
+  "tags": [
+   "java",
+   "google-colaboratory"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am trying to use r5py within a Google Colab environment, and it won't run. The issue I get specifically with r5py is that it needs Java 65, but Colab only recognizes up to 61: java.lang.UnsupportedClassVersionError: java.lang.UnsupportedClassVersionError: com/conveyal/file/FileStorage has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0 I found this question from 6 years ago with a similar issue, but there seems to be a problem with the answer from it: OpenJDK VM warning: the use of signal() and sigset() for signal chaining was deprecated in version 16.0 and will be removed in a future release. Use sigaction() instead. I'm not sure how to change it in this cell: [CODE] Which gives me: [CODE] Shouldn't that match with the major version numbers to Java version? How can I get the right Java version in the environment?"
+ },
+ {
+  "question_id": 79881812,
+  "ym": "2026-02",
+  "creation_date": 1770114395,
+  "title": "C# project within LabVIEW",
+  "tags": [
+   "java",
+   "c#",
+   "labview"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "In LabVIEW, I create a .NET framework constructor: In this constructor, I use the ikvm in order to load a .jar file. Below is the configuration defined in the C# .csproj: [CODE] Also in C#, I wrote a small piece of code to test and the lastErrorMessage and imacesConnectionStatus are as expected. I set the following setting [CODE] I also set to compile 64 bit. Then I try to copy all the .dll to the same path as the .lvproj as well as the .vi. Both lastErrorMessage and imacsConnectionStatus show as empty string when I place a probe there, as shown in the figure, which is different from the standalone test application. The LabVIEW version is Version 2025 Q3 (64-bit) 25.3.3f3 The issue lies in .cs file that interface with Java. If I comment out line 368 and run it in LabVIEW, the imacsConnectionStatus = connectonStatus as expected, but when I include this line and run again in LabVIEW, the imacsConnectionStatus becomes empty. I think some of my setting in the LabVIEW is not correct, since the standalone is working as expected. Could someone help to suggest some potential issue? i also attach the vs2026 debugger to the labview with a break point, as shown in the below screenhot if i disable InetAddress.getByName, the break point would be hit; on the other hand, if i enable back this line, the break point is not hit, suspecting that the whole function is never called. SOLUTION: to so"
+ },
+ {
+  "question_id": 79882049,
+  "ym": "2026-02",
+  "creation_date": 1770131449,
+  "title": "Spring Boot returns 403 instead of 405 when sending GET to POST-only endpoint",
+  "tags": [
+   "java",
+   "spring-boot",
+   "spring-security"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm building a Spring Boot REST API with Spring Security. Some of my endpoints only accept POST requests, e.g.: [CODE] When I send a [code] request to [code] , I sometimes get 403 Forbidden instead of the expected 405 Method Not Allowed . I suspect this has to do with Spring Security intercepting requests before Spring MVC checks the HTTP method. Security configuration snippet: [CODE] What I want: [code] → 405 [code] by unauthorized user → 403 Question: How can I configure Spring Security and/or my controllers so that unsupported HTTP methods return 405 (while keeping method-level authorization with [code] ?"
+ },
+ {
+  "question_id": 79882103,
+  "ym": "2026-02",
+  "creation_date": 1770136474,
+  "title": "No primary or single unique constructor for interface ServerHttpRequest when combining spring-boot-starter-webflux and spring-boot-starter-websocket",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "spring-webflux",
+   "spring-websocket"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm building an app that exposes REST endpoints implemented using [code] ; and websocket endpoints implemented using [code] . I'm seeing the attached runtime exception when combining [code] and [code] dependencies. It occurs when a request comes to my reactive REST endpoint with the following signature: [CODE] Happens in both Spring Boot 3 (I tried version 3.5.10) and 4 (I tried version 4.0.2) I encounter NO such exception if: I remove the [code] dependency or I replace it with [code] Question: Are [code] and [code] simply incompatible, or am I missing some configuration? Full exception: [CODE]"
+ },
+ {
+  "question_id": 79882264,
+  "ym": "2026-02",
+  "creation_date": 1770150856,
+  "title": "how to get the deepest layer of html",
+  "tags": [
+   "java"
+  ],
+  "score": 0,
+  "answer_count": 13,
+  "is_answered": true,
+  "body_excerpt": "from a URL, obtain the excerpt of the text contained in the deeper level of the HTML structure of your content. (using only jdk 17, without javax) 1. The HTML code is divided into lines; 2. Each line can only be one of the following types: a. Opening tag (example: <div>) b. Closing tag (example: </div>) c. Text excerpt (example: “This is the body.”) 3. The same line cannot contain two types of content; 4. Only HTML elements with opening and tag pairs closure are used (example: <div> and </div>, but no <br/>) 5. Opening tags do not have attributes (counterexample: <a href=”link.html”>). I don't want the answer, I want to know how to find it!"
+ },
+ {
+  "question_id": 79882376,
+  "ym": "2026-02",
+  "creation_date": 1770166907,
+  "title": "Is @Async method outside transaction?",
+  "tags": [
+   "java",
+   "spring-boot",
+   "asynchronous",
+   "transactions",
+   "thread-local"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "Have a @Transactional method and call an @Async method (since it's another bean, it' should work via proxiy's around advice normally) but it's another bean and no @Transactional annotation there. So is sendConfirmation method inside the Transaction? does @Async's another threadlocal's context affected origin threadlocal's context and get sendConfirmation out of the transaction ? is @Async removing changes the process or not? [CODE]"
+ },
+ {
+  "question_id": 79882827,
+  "ym": "2026-02",
+  "creation_date": 1770215812,
+  "title": "How to configure spring boot host and port configuration from withing Application",
+  "tags": [
+   "java",
+   "spring-boot"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm still new to spring boot and I would like to know if it is possible to configure host and port from within the @SpringBootApplication implementation. My host and port configuration is external and would not depend on some static properties file. I have developped the following: [CODE] And I suspect I would need to use autowire but I'm not sure How. My SpringBootApplication is launched by org.springframework.boot.loader.launch.JarLauncher. I used the spring-boot-maven-plugin to package my application. So far I target spring boot 3.5.10."
+ },
+ {
+  "question_id": 79882860,
+  "ym": "2026-02",
+  "creation_date": 1770218795,
+  "title": "CMake finds the wrong version of Java, then demands a missing javah",
+  "tags": [
+   "java",
+   "cmake",
+   "dependency-management",
+   "java-home",
+   "buildconfiguration"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm configuring a project on a SLES15 system on which I'm not root. I have Oracle's JDK 17.0.12 installed under [code] ; [code] points there; and [code] is on the path, so that [code] yields [code] . Now, I know that starting with Java 10 or so, the javah executable was removed. So, when CMake looks for Java, it should not fail me on account of not finding it. However, when I do: [CODE] I get : [CODE] Somehow, CMake locates a different version of Java. Ok, so I ran it with [code] . Here's (what I think is) the relevant part of the output: [CODE] and indeed, that executable is version [code] . But - why is CMake ignoring my [code] setting? And what can I do to ensure it finds the right executables, other than set those variables manually?"
+ },
+ {
+  "question_id": 79882894,
+  "ym": "2026-02",
+  "creation_date": 1770221113,
+  "title": "How do I convert this Create_javah call into an add_jar() with GENERATE_NATIVE_HEADERS?",
+  "tags": [
+   "java",
+   "cmake",
+   "jar",
+   "migration",
+   "javah"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm mostly Java-illiterate; unfortunately, I have to update a CMake project which uses Java, to build on a system with a newer version of Java. The old project does this: [CODE] in some loop. I know this is deprecated/unsupported with newer versions of Java, so I want to do the equivalent using [code] . But I don't quite understand which fields map to which: [CODE] How do I specify the classes? And how is the [code] (in my case, [code] ) passed to [code] ?"
+ },
+ {
+  "question_id": 79882940,
+  "ym": "2026-02",
+  "creation_date": 1770223900,
+  "title": "How do I update row in a table while reading rows with a Java stream (adaptive buffering)?",
+  "tags": [
+   "java",
+   "sql-server",
+   "spring-boot",
+   "hibernate"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I get all active items from the database. I check from an external source if they are active or not. And then I set inactive ones as inactive in my database. I do it one by one (as a Java stream) because the data is really big. The problem is that the updates are being committed at the very end of the whole process as it is a transaction. The steps are as following: I am reading data from a big table using a stream (adaptive buffering, also known as unbuffered): [CODE] Then then I pass it to another service for update called [code] . [CODE] Passing to another service didn't help. It still updates after all data is read. How can I send an update request while adaptive reading continues? There are like 50.000 items and only several needs to be updated. The whole process (reading and external checking) takes like 15 minutes. I am just trying to make an update without waiting the end. I tried with [code] , [code] , [code] , [code] keywords but they didn't help. As reference I use Java 25 Spring Boot 3.5 Microsoft SQL Server 2025"
+ },
+ {
+  "question_id": 79883369,
+  "ym": "2026-02",
+  "creation_date": 1770284251,
+  "title": "How do you set Java version to use in both IntelliJ and its terminal on macOS?",
+  "tags": [
+   "java",
+   "macos",
+   "intellij-idea"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Based on answer to How to set or change the default Java (JDK) version on macOS? which explains how macOS resolves which Java version should be used provided that you do not set [code] environment variable. When you are using a single JDK it's not that big of a problem. If all of your projects target the latest JDK that you have installed, it's not a problem. The problem exposes itself when you need to target multiple JDKs across multiple projects which use more features than the IDE provides (git hooks come to mind). Were everything done via terminal, and IDE was used purely for editing features, then you'd set e.g. [code] for a given terminal, but this needs to get cascaded from IDEs such as IntelliJ because they permit setting project-specific JDK. One way to do it in IntelliJ could be using macros and using the [code] macro , and setting it via Settings -> Tools -> Terminal -> Environment Variables, but that place does not resolve macros before starting the shell, but rather pushes them as is. [CODE] How do you cascade the project's JDK configuration into the terminals spawned by IntelliJ?"
+ },
+ {
+  "question_id": 79883411,
+  "ym": "2026-02",
+  "creation_date": 1770286884,
+  "title": "Querysdl is not recognizing inherited entities in a Spring Maven multi-module project",
+  "tags": [
+   "java",
+   "spring",
+   "maven",
+   "querydsl",
+   "multi-module"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am having a problem generating QEntities in my multi-module Spring project, as follows: I have two modules, core and shared. The core module contains all the default entities in my project, and the shared module contains a generic entity to represent audit fields. My standard entities extend this other audit entity. When I generate the project build, even when generating QAuditingEntity, it does not identify the super field of my default entities. Here is the error stack trace and some code snippets: [CODE] QAgendaEntity [CODE] AgendaEntity (core) [CODE] AuditingBaseEntity (shared) [CODE] And these are my dependency settings in the pom: Pom.xml core [CODE] Pom.xml shared: [CODE] How can I solve this problem? It seems that my generated QEntity is not identifying the path of the shared module and the entity generated in it. Thank you in advance for your help and support."
+ },
+ {
+  "question_id": 79883419,
+  "ym": "2026-02",
+  "creation_date": 1770287419,
+  "title": "In Vert.x 5, in a Future composition - how to execute an async operation regardless of the failure state",
+  "tags": [
+   "java",
+   "asynchronous",
+   "reactive-programming",
+   "vert.x",
+   "completable-future"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I have a workflow that I need to asynchronously cleanup after - without losing the completion value or failure state. In essence I need an [code] that returns a completion. In Java's [code] we do: [CODE] Which - I admit - is pretty terrible, but works. But I can't find a good workaround using Vert.x 5 [code] API - there's [code] , but it is completely unaware of the status of the completion it is composed with, so it can't run our [code] ."
+ },
+ {
+  "question_id": 79883516,
+  "ym": "2026-02",
+  "creation_date": 1770294332,
+  "title": "Map Services to anyRunning property",
+  "tags": [
+   "java",
+   "javafx",
+   "javafx-8"
+  ],
+  "score": -5,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "What is the most concise way to map a collection of JavaFX [code] s to a property \"anyRunning\" — true, if at least one of the services is running? [CODE] Java 8."
+ },
+ {
+  "question_id": 79883553,
+  "ym": "2026-02",
+  "creation_date": 1770297292,
+  "title": "What should I use for secure my backend - Java spring boot?",
+  "tags": [
+   "java",
+   "spring",
+   "spring-security",
+   "keycloak",
+   "spring-security-oauth2"
+  ],
+  "score": 0,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "What's up guys? I'm building a scheduling app and thinking about using Spring Security + OAuth2 so I don't have to handle user credentials (email, password, etc.). Keycloak will handle that, so I won't be responsible for persisting the user. honestly, I don't have experience with OAuth2 or Keycloak, so I'm learning as I go. I'm in trouble now because, according to my business rules, I need a user entity so I can save its PK as an FK in other tables. What should I do? Should I forget about OAuth2 and handle users myself, or is there an option to make this work? I thought I could delegate registration/login to Keycloak and only save the name and email, which is all I need. Any hints?"
+ },
+ {
+  "question_id": 79883706,
+  "ym": "2026-02",
+  "creation_date": 1770308682,
+  "title": "ways to have Custom DTO availability on hibernate entity listener&#39;s post update method",
+  "tags": [
+   "java",
+   "spring",
+   "hibernate",
+   "transactions",
+   "ehcache"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have traditional spring hibernate mvc application. we are using spring @Transactional as well. In one of the service methods, i have a java DTO and i want it to be available in hibernates entity listener's onPostUpdate method. What would be some options available ? We tried transient variable attached with entity itself or using ehcache to store the DTO in service method and get the DTO back in entity listener's onPostUpdate method. Below is a sample code. Thanks [CODE]"
+ },
+ {
+  "question_id": 79883720,
+  "ym": "2026-02",
+  "creation_date": 1770309477,
+  "title": "Spring Boot @Async annotation and CompletableFuture",
+  "tags": [
+   "java",
+   "spring-boot",
+   "asynchronous"
+  ],
+  "score": 0,
+  "answer_count": 5,
+  "is_answered": false,
+  "body_excerpt": "i have spring service and method [CODE] Should the method be annotated with `@Async` or is it enough that it returns CompletableFuture that will already run asynchronously and will not block the thread?"
+ },
+ {
+  "question_id": 79883771,
+  "ym": "2026-02",
+  "creation_date": 1770315378,
+  "title": "How to force lower case column names with Spring Data JDBC on H2 database",
+  "tags": [
+   "java",
+   "spring",
+   "h2",
+   "liquibase",
+   "spring-data-jdbc"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "We migrate our database schema to PostgreSQL (17 at this point). While doing so, we want to change table and column names to [code] . This works fine with PostgreSQL. During parts of integration testing, however, we execute our code against an in-memory H2 database. And some part within our tool chain (Liquibase, Spring Data JDBC, H2 database) still forces column names to upper case. Spring Data JDBC entity: [CODE] Liquibase migration: [CODE] Datasource configuration for H2 (excerpt from [code] ): [CODE] The code working against PostgreSQL 17 fails against H2 database with the following error (formatted for readability): [CODE] So we managed to convince \"the whole stack\" to keep table names as lower case. Column names, however, still get converted to upper case. To narrow down the problem, I injected the [code] into an integration test class that has the Spring Data JDBC context fired up against H2 (annotated with [code] ) and queried for all table and column names using [CODE] This returns with output suggesting that both table names and column names within the H2 database are indeed [code] . So the [code] column names seem to originate not from Liquibase but somewhere within the Spring stack. The only workaround I found so far is to explicitly specify every single column's name in lower case: [CODE] Is there a way to tell Spring Data JDBC to do that by default?"
+ },
+ {
+  "question_id": 79883870,
+  "ym": "2026-02",
+  "creation_date": 1770324829,
+  "title": "How do I confirm that JdbcTemplate is fetching the records into the result set in batches of 1000 when setFetchSize(1000) is set on the statement?",
+  "tags": [
+   "java",
+   "postgresql",
+   "spring-boot",
+   "jdbc",
+   "spring-jdbc"
+  ],
+  "score": 6,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "How do I confirm that JdbcTemplate is fetching the records into the result set in batches of 1000 when setFetchSize(1000) is set on the statement? I am using PostgreSQL JDBC driver here. Below is my code: [CODE] Although rs.getFetchSize() logs 1000, how can I be sure that the actual batches pulled from DB to the result set are in sizes of 1000, since I see a heap memory spike for over a minute. Ideally, if only 1000 records stay in the memory one time then there shouldn't be much spike. Can it be due to some other objects getting created in that duration? Note - I am debugging on my local so there are no other incoming requests."
+ },
+ {
+  "question_id": 79884099,
+  "ym": "2026-02",
+  "creation_date": 1770363657,
+  "title": "Statement execution after thread interruption",
+  "tags": [
+   "java",
+   "postgresql",
+   "oracle-database",
+   "jdbc"
+  ],
+  "score": 0,
+  "answer_count": 3,
+  "is_answered": false,
+  "body_excerpt": "Will [code] execution be canceled if the thread that is executing it is [code] ed ( [code] has not yet returned)? For example, after calling [code] . It may be anything: [code] DML procedure call Oracle, Postgres, if it matters. Java 8."
+ },
+ {
+  "question_id": 79884142,
+  "ym": "2026-02",
+  "creation_date": 1770367789,
+  "title": "Is it possible to correctly generate POJO with non-ascii names using jsonschema2pojo-maven-plugin?",
+  "tags": [
+   "java",
+   "code-generation",
+   "jsonschema2pojo"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "Given a javaType Användare (works) and a property \"förnamn\" it generates a class Användare (correctly) but the field is then \"fRnamn\" [CODE]"
+ },
+ {
+  "question_id": 79884204,
+  "ym": "2026-02",
+  "creation_date": 1770372692,
+  "title": "java.lang.UnsatisfiedLinkError: The specified procedure could not be found when trying to use thick (Oracle Instant Client) JDBC connection",
+  "tags": [
+   "java",
+   "spring-boot",
+   "jdbc",
+   "oracle-cloud-infrastructure"
+  ],
+  "score": 1,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "Our DBAs want to enable Transparent Application Failover (TAF) in our Oracle databases and we were told to enable this we needed to change from 'thin' JDBC connections to OCI in our Java applications. To test this (on Windows, which is what our servers will run as well), I've downloaded Oracle's Instant Client , added it to my PATH and updated my JDBC connection string from [code] to [code] but when I try to run a unit test to make sure I can still connect, I get this error: [CODE] Our application is a Java 8 application, using Spring Boot 2.7.18 with the following in my POM to get the driver: [CODE] I've confirmed that ocijdbc23.dll is in C:\\apps\\instantclient_23_0. Can anyone help?"
+ },
+ {
+  "question_id": 79884232,
+  "ym": "2026-02",
+  "creation_date": 1770374826,
+  "title": "Eclipse collection that is concurrent, has unique elements and atomic retrieval and removal",
+  "tags": [
+   "java",
+   "stack",
+   "concurrent-collections",
+   "eclipse-collections"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I wonder if there is a suitable data structure that has the following three characteristics: The collection can be modified by multiple threads Has unique elements in the collection The collection has an atomic retrieval and removal method"
+ },
+ {
+  "question_id": 79884381,
+  "ym": "2026-02",
+  "creation_date": 1770387925,
+  "title": "spring boot starter web as plugin application",
+  "tags": [
+   "java",
+   "spring-boot",
+   "plugins"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm Trying to add a RestContoller spring functionnality to my application as a plugin. So far I've been using spring-boot-maven-plugin with the repackage goal, but I don't know how to load the produced jar as a plugin. I know it works with a command like java -jar spring-plugin.jar, but I want to load it as a Plugin. What I attempted to do is : [CODE] Then invoke the launch method, it throws me an exception: [CODE] What I want to do is start the SpringApplication in a plugin context, and retrieve the reference to my @SpringApplication object (as it is also my Plugin object). Anyone has tried to do similar things ?"
+ },
+ {
+  "question_id": 79884491,
+  "ym": "2026-02",
+  "creation_date": 1770397686,
+  "title": "How does account authentication work for GitHub Copilot and other AI providers in IntelliJ AI Assistant?",
+  "tags": [
+   "java",
+   "intellij-idea",
+   "artificial-intelligence",
+   "jetbrains-ide",
+   "intellij-plugin"
+  ],
+  "score": 0,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "Since the IntelliJ AI Assistant update, I want to know how to link accounts to different AI models, MCPS, agents and ACPs These are the accounts I use: A JetBrains account for the AI Assistant (works) A work GitHub Enterprise account (not linked) A personal OpenAI account (linked) I would also like to connect the Gemini agent to my personal Google account, if possible. The new AI Assistant interface in IntelliJ shows several AI agents, but it is unclear which accounts they use. For example, GitHub Copilot now appears as part of the AI Assistant rather than a separate plugin, but I am struggling to link it to an account. Before, when it was individual, I could link it. Specifically, I am not sure whether: How does intellij use GitHub Copilot, what account is it using? How to log into the account in terms of using it for a request? I downloaded GitHub as a tool and logged in, but it doesn't seem to have opened the AI chat. Any help, please!"
+ },
+ {
+  "question_id": 79884571,
+  "ym": "2026-02",
+  "creation_date": 1770407637,
+  "title": "JavaFx: Set font size of all labels",
+  "tags": [
+   "java",
+   "javafx"
+  ],
+  "score": 1,
+  "answer_count": 5,
+  "is_answered": true,
+  "body_excerpt": "I am using Java / JavaFx 17. In my application there are multiple label objects (ca. 25). Instead of setting for all labels individually the font size, I would like to know, if there is any possibility to set such font size globally for all created label objects? Currently I am setting this to every single label by this command: [CODE] Addendum: I do not use a fxml file for creating the user interface."
+ },
+ {
+  "question_id": 79884916,
+  "ym": "2026-02",
+  "creation_date": 1770475631,
+  "title": "Spring Batch metadata tables are not automatically created in Spring Boot 4",
+  "tags": [
+   "java",
+   "spring",
+   "postgresql",
+   "spring-boot",
+   "spring-batch"
+  ],
+  "score": -3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to set up a Spring Batch project using Spring Boot 4.0.0 The application starts successfully, but the standard Spring Batch meta-data tables (e.g., [code] , [code] , etc.) are not being created in my database. while adding : [CODE] [CODE]"
+ },
+ {
+  "question_id": 79885043,
+  "ym": "2026-02",
+  "creation_date": 1770494841,
+  "title": "Glassfish wants an EntityManagerFactory when using PersistenceContext",
+  "tags": [
+   "java",
+   "jpa",
+   "jakarta-ee"
+  ],
+  "score": 3,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a project I'm converting from Java EE to Jakarta 10. I'm trying to get the persistence to work on Glassfish 7. Unfortunately, when the application is deployed to Glassfish, I get the following error: [CODE] The relevant parts of my RequestBean are: [CODE] My persistence.xml looks like this: [CODE] What I don't understand is I'm trying to use container managed persistence, and according to the Jakarta tutorial the EntityManagerFactory is only required when using application managed persistence. So I'm not sure why Glassfish thinks I want to use application managed persistence. EDIT: I have added the directory structure of my targe folder as I am deploying the artefact as exploded. However I built a WAR to see the location and it is here: [CODE] EDIT2: Thanks to the helpful comments I discovered what was wrong. In my IntelliJ deployment configuration I needed to put the JPA descriptors in the right directory on the left column. This fixed the problem."
+ },
+ {
+  "question_id": 79885060,
+  "ym": "2026-02",
+  "creation_date": 1770498116,
+  "title": "Making a simple relational table in JPA",
+  "tags": [
+   "java",
+   "database",
+   "jpa"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a table that in PostgreSQL looks like this: [CODE] How to map this to JPA? I know I could do something like: [CODE] But that's not quite it. I'm aware of multiple IDs in JPA, but I don't know if they work with own types: [CODE] A third idea is to add the blocked members as a [code] field in [code] directly. All three approaches are missing the constraint as well (so members can't block themselves)."
+ },
+ {
+  "question_id": 79885324,
+  "ym": "2026-02",
+  "creation_date": 1770558534,
+  "title": "What is the correct request body in this Spring scenario and how do I debug it?",
+  "tags": [
+   "java",
+   "spring-boot",
+   "rest",
+   "jpa",
+   "postman"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying out a Spring Boot REST application. Say I have two entities like this: [CODE] Plus the corresponding `JPARepository` interfaces. Now I want to add a controller to create a new [code] class, like this: [CODE] I'm trying to test my application using Postman, which is a simple POST request directed to [code] however I'm not sure what the request body should look like since I'm getting 400 Bad Request results. I'm guessing that I'm doing the JSON wrong somehow, but I can't tell since the controller I wrote is never entered. I'm assuming the conversion from JSON to [code] fails before that, but I don't know where . Please give me the correct request body JSON for this scenario and where it is being transformed into my custom Entity class (since my actual use case is a bit more sophisticated)."
+ },
+ {
+  "question_id": 79885356,
+  "ym": "2026-02",
+  "creation_date": 1770565983,
+  "title": "Type erasure Problem with Java Method references",
+  "tags": [
+   "java",
+   "types",
+   "apache-flink"
+  ],
+  "score": 5,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am using Flink with java where I am facing a type erasure problem. I have an interface called TransformationService, which has multiple implementations, only one of which is used by a single flink job. This is decided at runtime as shown in the code below. Following is the signature of my Transformation Service - [CODE] This is how it is being used in the calling code of the pipeline - [CODE] Each implementation of TransformationService uses concrete key and event types that extend Key and Event classes, respectively. An example implementation of TransformationService - [CODE] This code compiles fine. But when running this code, I encounter the following error - [CODE] I understand that the java compiler erases the actual types of generics during the compilation process, which may lead to flink runtime not being able to deduce the concrete type of the Key for some particular Event class. But when using the following lambda function instead of a method reference as the parameters of the keyBy function, the code compiles and runs fine - [CODE] I am not able to understand the difference between these two approaches and why one works but not the other. According to what I've researched, this is due to a difference in how method references and lambda functions are parsed and run by java, but I am still not able to understand this process completely. Can someone please explain in d"
+ },
+ {
+  "question_id": 79885427,
+  "ym": "2026-02",
+  "creation_date": 1770578579,
+  "title": "How do I properly verify a successful login in Selenium WebDriver using Java and TestNG? Should I use Selenium IDE for verification?",
+  "tags": [
+   "java",
+   "selenium-webdriver",
+   "testng"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am currently learning test automation and working on a homework exercise where I automated a login process using Selenium WebDriver with Java and TestNG. My test successfully navigates to the website, enters valid credentials, clicks the login button, and loads the dashboard page. However, my instructor asked us not only to automate the login process but also to verify programmatically that the login was successful. I am a bit confused about what the best practice is for verifying a successful login using code rather than just visually confirming that the dashboard appears. Right now my script performs the login steps, but I am not sure what I should assert after the login action. Should I verify the URL change, check if a dashboard element is visible, confirm that a logout button exists, or use some other approach? I have also heard about Selenium IDE and I am wondering if verification should be done using Selenium IDE assertions or if it is better practice to perform all verification directly in Selenium WebDriver with TestNG assertions. Here is a simplified version of my current test flow: Open browser Navigate to login page Enter username and password Click login Dashboard loads What is the recommended way to verify login success in a real-world Selenium WebDriver + TestNG automation framework? Also, is Selenium IDE useful for verification in professional automation, or s"
+ },
+ {
+  "question_id": 79885665,
+  "ym": "2026-02",
+  "creation_date": 1770622793,
+  "title": "JPOS incoming message are not using ProtectedLogListener",
+  "tags": [
+   "java",
+   "jpos"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I've added the ProtectedLogListener to prevent certain fields from being printed in logs. As the documentation states, I kept it at the top of the list, but I noticed only outgoing messages are protected, while incoming messages are still logged as they are. I haven't been able to determine why incoming messages aren't using the ProtectedLogListener. Sample Log : [CODE] Channel Config : [CODE] Logger Configuration : [CODE]"
+ },
+ {
+  "question_id": 79885677,
+  "ym": "2026-02",
+  "creation_date": 1770623903,
+  "title": "Redisson RMap.getAll() returns incorrectly deserialized objects for large batches, but works for small batches or single get",
+  "tags": [
+   "java",
+   "caching",
+   "serialization",
+   "redis",
+   "redisson"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am using Redisson [code] as a cache and fetching data in batches using [code] . Original code [CODE] I also use normal single-key access: [CODE] Issue [code] always returns correct data [code] returns incorrect data when [code] is large (e.g. 1000) A field that should be a [code] is sometimes deserialized as a [code] Reducing [code] fixes the issue Sorting keys or using [code] does not fix it Redis data itself is not corrupted Example: [CODE] Same key, different result depending on batch size. Question Is this a known issue or limitation with Redisson [code] for large batches? Is there a recommended maximum batch size? Is this fixed in any Redisson version or requires a different codec? Environment Redisson 3.x Java Redis Default Redisson codec Expected behavior For any key stored in the cache, calling [code] and [code] should return the same object , regardless of batch size. Specifically, fields that are stored as [code] (e.g. [code] ) should always be deserialized as [code] . Actual behavior When fetching a single key using [code] , the object is always deserialized correctly. When fetching small batches using [code] , the data is also correct. When fetching large batches (e.g. [code] ) using [code] , some objects are deserialized incorrectly. In those cases, a field that should be a [code] is deserialized as a [code] . Reducing the batch size fixes the issue. The same key"
+ },
+ {
+  "question_id": 79885837,
+  "ym": "2026-02",
+  "creation_date": 1770639452,
+  "title": "E2E test tools for Lucy Framework",
+  "tags": [
+   "java",
+   "swing",
+   "osgi",
+   "assertj-swing"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I know Lucy is based on Swing and the problem should be reframed as \"How to make e2e test for a Swing app\". However, below are the differences between my programme and a general Swing app. Since Lucy Framework is primarily an OSGi framework, I tried researching into the ways we perform tests for OSGi frameworks in general. However, it seems to me that modularity implies testing separately. What I want is a way to test e2e fully within an OSGi framework . May I know if there's a way/tool to achieve that? Constraints: I'm stuck with Swing for sure. No negotiations on this. It's an OSGi framework which means [code] files are loaded on demand. The main app can launch another Swing/JavaFX window. This affects frameworks like [code] , where it is assumed to test only 1 main class. I tried looking into blackbox testing using [code] and [code] from the Windows SDK just so that we can test the binaries directly without knowledge of the code. However, it doesn't work because Swing doesn't map nicely to native UI, component for component. Refactoring them into java AWTs just for testability is suicide. Since I'm stuck with Swing, blackbox testing is out."
+ },
+ {
+  "question_id": 79885896,
+  "ym": "2026-02",
+  "creation_date": 1770644536,
+  "title": "How to access MCP server running in azure Kubernetes service",
+  "tags": [
+   "java",
+   "spring-boot",
+   "azure-aks",
+   "azure-api-management",
+   "model-context-protocol"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am developing MCP servers for an external service. The MCP server is written with Spring Boot AI framework for Java. I have been deploying APIs to Azure Kubernetes service (AKS) and access them with Azure API management (APIM). I deploy API in AKS, generate the swagger doc for endpoints and upload that to APIM for creating API entries in APIM. APIM forwards request to azure app gateway which acts as load balancer and ingress controller, all of this works fine. Spring Boot MCP server is not an API, it does not have endpoints like Spring Boot REST API which means no swagger doc to upload to APIM. I am not sure how to access MCP server running in AKS. I could not find any documentation from azure to help with wiring up of AKS and APIM in mcp server context. APIM has documentation on how to access APIs as mcp server but the problem is my mcp server does not have rest endpoints like regular api."
+ },
+ {
+  "question_id": 79885962,
+  "ym": "2026-02",
+  "creation_date": 1770650609,
+  "title": "Best practice for ValueState access: multiple value() calls vs caching in instance variable?",
+  "tags": [
+   "java",
+   "performance",
+   "state",
+   "apache-flink",
+   "flink-streaming"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm working with Apache Flink 1.18 and I have a question about the best practice for accessing [code] from a performance perspective. I have a [code] that manages device state through a wrapper class. The state is accessed multiple times across different methods, and I'm wondering which approach is more efficient: Option 1: Call value() each time it's needed [CODE] Option 2: Cache the value in an instance variable [CODE] My concerns: Does [code] perform deserialization on each call, or is the value already cached internally by Flink's state backend? In Option 1, I'm calling [code] multiple times (in [code] it's called twice, in [code] four times). Is there a performance penalty? In Option 2, I cache the value, but is this actually necessary or am I duplicating what Flink already does internally? What's the recommended best practice for high-throughput scenarios? Additional context: I'm using RocksDB state backend Processing around 40 million events daily The [code] object is relatively small (~500 bytes serialized) Which approach should I prefer for optimal performance?"
+ },
+ {
+  "question_id": 79885983,
+  "ym": "2026-02",
+  "creation_date": 1770652060,
+  "title": "Spring Boot + Jetty = ClassNotFoundException: jakarta.servlet.ServletConnection",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "jetty"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have SOAP service which uses Spring Boot 3.5.6 and I'd like to use Jetty but when I run my app and fire a request to it then it returns the dreaded ClassNotFoundException: jakarta.servlet.ServletConnection I read several relevant forum entries but nothing worked for me. Probably I am missing a dependency but not sure which one. My dependencies [CODE] The error is [CODE] How can I make Jetty work with Spring Boot 3.5.6?"
+ },
+ {
+  "question_id": 79885984,
+  "ym": "2026-02",
+  "creation_date": 1770652439,
+  "title": "OpenAM IdP acsurl is null while authenticating (ForgeRock)",
+  "tags": [
+   "java",
+   "single-sign-on",
+   "openam",
+   "idp",
+   "forgerock"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Our customer is using Forge Rock as their IdP and they are configuring SSO to one of the application. We have provided the Sp Metadata to them and it has the AssertionConsumerService for both the POST and Redirect. The customer imported it in their IdP and for the entity id, the AssertionConsumerService imported successfully and the Default is also set. During the authentication, two factor authentication is enabled and after successful authentication, there is a POST request call that would redirect it to the SP side based on the acsUrl attribute in the POST call. But the acsUrl and the index paramters in the request url are null and due to that, we are getting 500 error. Not sure why the ForgeRock Open AM Open AM is not picking the default AssertionConsumerService. Also, we are not sending the AssertionConsumerService in the SAML Request as it is already present in the metadata which was imported by the customer. Please help me identify the root cause of it."
+ },
+ {
+  "question_id": 79886110,
+  "ym": "2026-02",
+  "creation_date": 1770664389,
+  "title": "ExecutorService with try-with resources",
+  "tags": [
+   "java",
+   "concurrency",
+   "executorservice",
+   "try-with-resources"
+  ],
+  "score": 1,
+  "answer_count": 5,
+  "is_answered": true,
+  "body_excerpt": "I was working on a project with my buddy and had to use concurrency for a file downloader. Naturally I went for [code] . My code looked something like [CODE] My buddy saw this and advised \"I don't recommend using ExecutorService with try-with resources\" Why is this? The [code] implements [code] doesn't it? Even IntelliJ gives the hint when I use it without try-with resources."
+ },
+ {
+  "question_id": 79886127,
+  "ym": "2026-02",
+  "creation_date": 1770666414,
+  "title": "gradle unable to find library in IntelliJ",
+  "tags": [
+   "java",
+   "gradle",
+   "intellij-idea"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "This build was working a while ago. I recently opened the project and changed the version numbers of The common library used for input This library here is my build.gradle sections I think relevant [CODE] then I ran task jar and got: [CODE] The contents of ../jars [CODE] So it all looks right to me. Why the error? Tried invalidating cache and restarting."
+ },
+ {
+  "question_id": 79886234,
+  "ym": "2026-02",
+  "creation_date": 1770682698,
+  "title": "Why does Java 25&#39;s File.exists() method return true for an empty string while File.exists() in prior Java versions returned false?",
+  "tags": [
+   "java",
+   "file-io",
+   "java-25"
+  ],
+  "score": 34,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Why does the Java 25 [code] method return [code] for an empty string while [code] in prior Java versions returned [code] ? In the past, calling [code] on an empty string would always return [code] . However, when I updated the JRE that my project was running on to Java 25, it now suddenly returns [code] . In other words, the following code prints out opposite values when run on different versions of the JRE: [CODE] There is a way I could rewrite the code in question to not have to rely on getting a boolean from passing a potentially empty string to [code] , but I was wondering why the definition of this would change. Looking at the underlying source code, I do see that the implementation of this method changed with the deprecation of [code] , but I would still expect the new implementation to preserve the same outputs for the same input."
+ },
+ {
+  "question_id": 79886471,
+  "ym": "2026-02",
+  "creation_date": 1770714024,
+  "title": "Should I catch the Exception thrown by MapState.remove() in Apache Flink user code?",
+  "tags": [
+   "java",
+   "apache-flink",
+   "flink-streaming"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I’m using [code] in a Flink KeyedProcessFunction to manage keyed state. According to the API, methods like get(...), put(...), and remove(...) declare throws Exception, e.g.: [CODE] The documentation says this exception is thrown if the system cannot access the state. I want to understand the recommended practice in Flink: Should I catch this exception in my user code (e.g., around mapState.remove(key))? Or is it preferable to let the exception propagate and let Flink handle the failure via checkpoint/fail-and-restart? If I do catch it, what are the consequences for Flink’s fault-tolerance semantics? Example: [CODE] Is there an official guideline for handling these state access exceptions?"
+ },
+ {
+  "question_id": 79886539,
+  "ym": "2026-02",
+  "creation_date": 1770718637,
+  "title": "How to fix UV and cube model discrepancies?",
+  "tags": [
+   "java",
+   "minecraft-fabric"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Currently, I'm creating my own geo models and rendering them into the world by applying cosmetics to the player, but the problem is that some UVs are in the wrong position, and some cubes are incorrect. I've tried many methods, including using Chat GPT, but the results haven't been very good. Below is the complete code and images. Could someone please help me with this problem? I don't want to use dependencies from another mod like Gekolib or anything similar. [CODE] [CODE]"
+ },
+ {
+  "question_id": 79886591,
+  "ym": "2026-02",
+  "creation_date": 1770723402,
+  "title": "How to automatically detect and map multiple CSV formats into a single entity without unnecessary Java code?",
+  "tags": [
+   "java",
+   "spring-boot",
+   "spring-batch",
+   "csv-import"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am building a Spring Boot 4.0.1 application using Spring Batch 6.0.1 to ingest bank transactions from multiple CSV sources (specifically N26 and Revolut). The Problem The files are all dropped into the same directory, but they have different structures (i.e. different column names). My goal is to read these heterogeneous files and normalize them into a single database entity called, let's say, [code] . My Current Strategy I'm looking for the most \"Spring Batch-native\" way to handle this. My code can already handle N26 transactions. (The class is just called [code] at the moment because this is just what it supports.) Transaction.class: [CODE] I thought, it might have been a good idea to receive the schemaType directly from the API: JobRestController.class: [CODE] and then select the appropriate columns at the line mapper, but I'm not sure if this is the best approach: TransactionLineMapper.class: [CODE] Right now I extract the column names from the YAML file. It's just temporary: CsvSchema.class: [CODE] When it comes to the rest, I'm a bit stuck because I don't know exactly how to adapt the rest of the code: TransactionFieldSetMapper.class: [CODE] [CODE] Transactions are automatically dumped into a MySQL database. I also have a class for postprocessing as I need to run some queries after the job: CategorizationPostProcessing.java: [CODE] My Question Is this the standard way t"
+ },
+ {
+  "question_id": 79886805,
+  "ym": "2026-02",
+  "creation_date": 1770741115,
+  "title": "Is there a way to insist you should pass a const/string literal to a java method?",
+  "tags": [
+   "java",
+   "kotlin"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "People like to write code like this: [CODE] even when the PotatoNotFound constructor already only asks for a potato name and does its own string building. This is doubly bad since these interpolations clutter up our monitoring: instead of having a single line in (say) honeycomb for all of our potato not found needs, each interpolation results in its own very special row in the table, thus ruining everything. I'm designing an API that instead looks like this [CODE] where I can build a map of data into my exceptions, toss them into otel, and correctly group similar entries together. Imagine that: not having to parse other services' error messages with regular expressions. However, this only works if you avoid using [code] and pass string literals into the [code] function. With this as my background. Short of using enums (error numbers are NOT what nice things look like), is there a way to enforce/request that a java method is passed something not entirely unlike a compile time constant to my method? Maybe there's some kind of annotation (I've found the opposite: [code] ) If Java can't do this but Kotlin can I'm happy to hear the Kotlin solution."
+ },
+ {
+  "question_id": 79886979,
+  "ym": "2026-02",
+  "creation_date": 1770758869,
+  "title": "Replace parallelStream() with Executor",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "java-stream",
+   "java-21"
+  ],
+  "score": 0,
+  "answer_count": 4,
+  "is_answered": true,
+  "body_excerpt": "in this answer notes that [code] uses the fork/join common pool which is an Executor, [..] Thus, when I want to replace a piece of code, using [code] , what is the best practice to replace it with a Executor, i.e., more precisely [CODE] Moreover, I want to do parallelization of a request, i.e., invoking and destroying each time a try-with-resources seems to come with a bit of overhead. Is it good practice to hold an ExecutorService as private field, e.g. [CODE]"
+ },
+ {
+  "question_id": 79886984,
+  "ym": "2026-02",
+  "creation_date": 1770759458,
+  "title": "ImageView.setRotate let menubar freeze",
+  "tags": [
+   "java",
+   "javafx"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm writing an application, which simulates and demonstrates a compass based on JavaFX 25 / Java 25 and Maven 3.9.12. This application has a menu bar with some menu items, a compass image (compass.png) set in an ImageView, a slider for setting the rotation speed and a label for showing the current rotation angle. In the background I have a \"calculation thread\", which takes the sliders value, calculates the new heading and updates the label value and let the imageview rotate. This works fine so far, but the effect is, after a couple of seconds, you can not use the menu bar/items anymore. It seems that all menu buttons or sub-menus are completely frozen. Based on commenting out some lines, I am sure, that the command [code] cause the problem. Here is my code so far (based on a reduced, minimal, but reproducible example): My Main.java: [CODE] GUI.java [CODE] CalculationThread.java [CODE] and CompassWindow.java [CODE] My pom.xml [CODE] Add any picture compass.png in [code] -dir, build it with [code] and start it with [code] . Could somebody give me any hint, why menu bar/items freezes and how I can avoid this? Maybe there is another possibility to listen on a change of the slider and let the ImageView rotate?"
+ },
+ {
+  "question_id": 79886998,
+  "ym": "2026-02",
+  "creation_date": 1770761357,
+  "title": "Use Jedis API Version 7+ with connection Pooling",
+  "tags": [
+   "java",
+   "jedis"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I know that starting from Jedis 7, you can build a connection pool like this: [CODE] However, in previous versions, you could get a Jedis instance from a [code] using [code] in a try-with-resources block. How can I achieve the same pattern with the new Jedis 7+ API? Do I now have to update everything and use [code] instead? I would appreciate any help."
+ },
+ {
+  "question_id": 79887007,
+  "ym": "2026-02",
+  "creation_date": 1770762105,
+  "title": "jOOQ: how to fetch custom query into a POJO without building one for each query",
+  "tags": [
+   "java",
+   "sql",
+   "jooq"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have many queries in my code in the form of: [CODE] I don't want to get the result as a [code] instead I want to get the result in a clean simple POJO. I know that I can create a simple Java record and call [code] for this but I don't want to create one POJO per query as these queries are very ad-hoc. Are there any general purpose class I can use here instead?"
+ },
+ {
+  "question_id": 79887417,
+  "ym": "2026-02",
+  "creation_date": 1770816910,
+  "title": "Big O (time complexity) calculation",
+  "tags": [
+   "java",
+   "time-complexity",
+   "big-o"
+  ],
+  "score": 3,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "Can someone explain how to calculate Big O for this algorithm: [CODE] I get that the i-loop values are: 0, 1, 2, 3, 4 so: O(N) And the j-loop values are: 1, 3, 7, 15, 31 so: O(log N) And the k-loop is: 6, 16, 31, 55, 96 so: this is where I don't understand it anymore"
+ },
+ {
+  "question_id": 79887779,
+  "ym": "2026-02",
+  "creation_date": 1770852253,
+  "title": "How to programmatically detect whether a font renders characters as squares?",
+  "tags": [
+   "java",
+   "swing",
+   "fonts"
+  ],
+  "score": 6,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "[code] gives us an array of all installed fonts. At my site, however, not all fonts render text properly; instead some fonts show squares only. Run the code below to see whether you also have \"useless\" fonts. Now I would like to sift out these fonts. Follows a corrected version of my original posted code with the problem solved. All credit goes to Holger in the comments. [CODE]"
+ },
+ {
+  "question_id": 79887813,
+  "ym": "2026-02",
+  "creation_date": 1770859924,
+  "title": "In springboot projects, how to implement front-end preview of pdf, word, excel",
+  "tags": [
+   "java",
+   "excel",
+   "spring-boot",
+   "pdf",
+   "docx"
+  ],
+  "score": 0,
+  "answer_count": 6,
+  "is_answered": true,
+  "body_excerpt": "I am doing back-end development of springboot+java8. Now for some reason the frontend needs to preview the file. I would like to know if there is a way to convert pdf, word, excel, etc. into images to facilitate front-end preview. Or any other preview method. NOTE: The frontend cannot download files (I have no control over this due to some security issues) I asked AI and got some simple answers: use Apache POI or Docx4j to convert word to PDF, and then convert PDF to image, but at the same time AI also told me that Apache POI and Docx4j cannot do a complete word to pdf and cannot process excel. They can only read text content and cannot convert formats. In addition, I also partially understand LibreOffice, but it requires additional deployment on the server and cannot be packaged into a jar package. It may be my last choice. Therefore, I would like to know if there are other solutions that can perfectly preview PDF, word, excel and other files. For possible solutions, my priority is: 1. To achieve the effect, at least it needs to be applicable to both word and pdf, and the format cannot be lost. 2. Open source or free 3. Can be packaged directly into a jar package without additional deployment or complicated settings. Regarding priority, I am not ignoring paid software. The priority works like this: those that meet 3 conditions are given priority over those that meet 2 conditio"
+ },
+ {
+  "question_id": 79887855,
+  "ym": "2026-02",
+  "creation_date": 1770869381,
+  "title": "What is the difference between &#39;Map.entry(k, v)&#39; and &#39;AbstractMap.SimpleImmutableEntry::new&#39;?",
+  "tags": [
+   "java",
+   "dictionary"
+  ],
+  "score": 6,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "What is the difference between [code] and [code] ? I tried to do research, and I really couldn't find much. It seems like [code] is a factory method, while [code] is a class, but I don't really know the logic behind it or anything. While this question sounds like something that would have already been asked, I surprisingly couldn't find anything."
+ },
+ {
+  "question_id": 79888060,
+  "ym": "2026-02",
+  "creation_date": 1770895657,
+  "title": "JAVA : Looping through an unknown number of arrays",
+  "tags": [
+   "java",
+   "arrays",
+   "for-loop"
+  ],
+  "score": 1,
+  "answer_count": 8,
+  "is_answered": true,
+  "body_excerpt": "If I have two arrays of integers and wanted to do a specific function on them (for the sake of this example, add them together), I could stack two for loops like so: [CODE] This can be stacked for any number of arrays. The problem I'm facing is, I don't know how many arrays are going to be coming into my function. How can I stack this to work on any number of arrays?"
+ },
+ {
+  "question_id": 79888078,
+  "ym": "2026-02",
+  "creation_date": 1770896888,
+  "title": "How to load native libraries with a long path?",
+  "tags": [
+   "java",
+   "windows",
+   "path",
+   "java-native-interface",
+   "filesystems"
+  ],
+  "score": 4,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "My Java application is installed to another application's \"test area\", resulting in longer absolute file paths than usual. I can load native libraries from a short file path: [CODE] But not from an extended file path: [CODE] nor from a very long path: [CODE] I've tried: Registry hack changes nothing even after reboot: [CODE] Group Policy\\Local Computer Policy\\Computer Configuration\\Administrative Templates\\System\\Filesystem\\Enable Win32 long paths changes nothing even after reboot Defining [code] environment variable pointing to the long directory path and using [code] with a short name. Using Java 25 - is accepts short extended paths, but fails on long ones. Coercing paths to be shorter by trimming a symbol or two from some directory names works for now but this approach is hitting its limits. I have not tried yet: Symlinking files to a temporary directory, as that approach is quite error prone (due to cleanup, which is ridiculously hard on Windows with its open file deletion policy). I've noticed that [code] and [code] are loaded fine when copied into a deeply nested directory. But [code] does not. So the behavior is library dependent! Here is a test script (read output to determine where error occurs, [code] always returns zero exit code): [CODE] How can I load a native library from a deeply nested, long path? What is the difference between dxil.dll and libEGL.dll?"
+ },
+ {
+  "question_id": 79888248,
+  "ym": "2026-02",
+  "creation_date": 1770913000,
+  "title": "How to add OpenAPI/Swagger annotations in a Spring library consumed by Spring Boot apps?",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "swagger",
+   "openapi"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm building a Spring library that will be consumed by other Spring Boot applications. This library exposes a REST interface, and I want the consuming apps to automatically see my endpoints in their Swagger/OpenAPI documentation. All the consuming apps already include [code] and have fully functional Swagger/OpenAPI UIs. In my library, I just need to annotate the controllerswith OpenAPI annotations, but I don’t want to include the Swagger UI or SpringDoc runtime in the library itself. Which dependency should I include in my library to have access to the OpenAPI/Swagger annotations only? Should I use [code] , [code] , or something else?"
+ },
+ {
+  "question_id": 79888333,
+  "ym": "2026-02",
+  "creation_date": 1770921869,
+  "title": "After upgrading to WildFly 39 base64 encoding throws an error",
+  "tags": [
+   "java",
+   "xml",
+   "base64",
+   "wildfly",
+   "jakarta"
+  ],
+  "score": 5,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "After upgrading a web app to WildFly 39, previously working base64 decoding fails with an exception: [CODE] What did I do wrong?"
+ },
+ {
+  "question_id": 79888668,
+  "ym": "2026-02",
+  "creation_date": 1770978361,
+  "title": "MS Excel displays garbled characters for Azerbaijani text in CSV file exported with UTF-8 encoding",
+  "tags": [
+   "java",
+   "excel",
+   "csv",
+   "utf-8",
+   "character-encoding"
+  ],
+  "score": 1,
+  "answer_count": 11,
+  "is_answered": true,
+  "body_excerpt": "I'm generating a CSV file with Azerbaijani text using Java and UTF-8 encoding with BOM. The file opens correctly in WPS Office, but when opened in MS Excel, Azerbaijani characters appear as garbled symbols. Expected text: Riskli vergi ödəyicilərinin axtarışı What appears in Excel: Riskli vergi Ã¶dÉ™yicilÉ™rinin axtarÄ±ÅŸÄ± My Code: [CODE] What I've tried: ✅ UTF-8 with BOM ( [code] ) ✅ Added [code] line ✅ Tried Windows-1254 encoding ✅ Proper CSV escaping Environment:7 Java 1 Spring Boot MS Excel 2016/2019 (displays garbled text) WPS Office (works correctly) Question: How can I export a CSV file that displays Azerbaijani (or other Unicode) characters correctly when opened in MS Excel? Is there a way to force Excel to recognize UTF-8 encoding properly, or should I switch to a different format like XLSX? [CODE]"
+ },
+ {
+  "question_id": 79888752,
+  "ym": "2026-02",
+  "creation_date": 1770986360,
+  "title": "NoSuchMethodException Warning at mule Runtime 4.9.10 + mule-http-connector 1.11.1",
+  "tags": [
+   "java",
+   "mule",
+   "mulesoft",
+   "mule4",
+   "anypoint-studio"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am using MuleSoft Runtime 4.9.10 with http connector version see below BTW I also checked duplicated post and tried solution there, does not help for me. [CODE] But always get below warning , why ? could it be a Bug in Mulesoft side? either with runtime or with mule-http-connector 1.11.1 ? this version is automatically updated via anypoint mule project moudles which should be correct for mule runtime 4.9.10. [CODE] the proxy config could be related to this issue see below"
+ },
+ {
+  "question_id": 79888847,
+  "ym": "2026-02",
+  "creation_date": 1770996861,
+  "title": "How to handle ClassCastException when trying to cast CLOB to String in Java?",
+  "tags": [
+   "java",
+   "string",
+   "hibernate",
+   "classcastexception",
+   "clob"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm maintaining a Java application using Hibernate 5.0.7 to interact with an Oracle 19C database. The data type of [code] attribute in [code] table is [code] , [code] cannot be cast to [code] is thrown when [code] executes. Pseudo codes are shown blow. [CODE] The approach shown below is given by Poe. [CODE] I'm not able to evaluate whether this approach is good or not. Does Hibernate provide some built-in APIs to tackle this problem?"
+ },
+ {
+  "question_id": 79888992,
+  "ym": "2026-02",
+  "creation_date": 1771013456,
+  "title": "Getting an error trying to make a request to my backend, I&#39;m using Spring Boot with Oauth2 and every time I make a request I got this error",
+  "tags": [
+   "java",
+   "spring-boot",
+   "spring-security",
+   "oauth-2.0",
+   "openid-connect"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm using Oauth2 resource server because the request will come from the FrontEnd, I never saw this error before and I try to debbug but it dont work. At first I thought It was coming from cors but it wasn't, after a while I tried to make the request through Postman but still not working. I'm using Jose for decoding and verify the token. The error [CODE] application yaml [CODE] securityChain [CODE] Controller [CODE] Angular api service [CODE] Angular app config [CODE] Pom [CODE]"
+ },
+ {
+  "question_id": 79889335,
+  "ym": "2026-02",
+  "creation_date": 1771082575,
+  "title": "java.lang.IllegalStateException: This registry can&#39;t create intrusive holders",
+  "tags": [
+   "java",
+   "minecraft-fabric"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I get this error and I don't understand why. Does anyone know why? I see this error when I open the creative menu: java.lang.IllegalStateException: This registry can't create intrusive holders Here is the code: [CODE]"
+ },
+ {
+  "question_id": 79889606,
+  "ym": "2026-02",
+  "creation_date": 1771146797,
+  "title": "Java bug returns 0",
+  "tags": [
+   "java",
+   "trap"
+  ],
+  "score": 0,
+  "answer_count": 5,
+  "is_answered": true,
+  "body_excerpt": "Did you ever think about machine properties in Java? Here is such an issue, which is a trap: [CODE] yields [CODE] Does anybody know why this is so? The JDK is JDK20 and I use Netbeans."
+ },
+ {
+  "question_id": 79889779,
+  "ym": "2026-02",
+  "creation_date": 1771173141,
+  "title": "Can the hasNext() iterator method return false first and then true?",
+  "tags": [
+   "java",
+   "iterator"
+  ],
+  "score": 4,
+  "answer_count": 5,
+  "is_answered": true,
+  "body_excerpt": "I want to implement the [code] interface for iterating over data retrieved through an external system's API. The data may appear in the external system over time. Is it correct to return [code] in the [code] method if there is no next data at the time the method is called, but return [code] if new data appears in the external system the next time the method is called?"
+ },
+ {
+  "question_id": 79889845,
+  "ym": "2026-02",
+  "creation_date": 1771181960,
+  "title": "Type Mismatch: Incompatible Reference for DaoAuthenticationProvider in Spring Security 6",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "spring-security",
+   "spring6"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Type Mismatch: Incompatible Reference for DaoAuthenticationProvider in Spring Security 6 and not able to use the setUserDetailsService() method on reference on the DaoAuthenticationProvider reference. I am encountering a compilation error in Spring Security 6 while configuring DaoAuthenticationProvider. Despite documentation suggesting a no-args constructor exists, my IDE reports that new DaoAuthenticationProvider() expects 1 argument. Additionally, the method setUserDetailsService(UserDetailsService) is flagged as undefined for the DaoAuthenticationProvider type. Could someone provide a Root Cause Analysis (RCA) and the correct configuration steps for this version? SecurityConfig.class : [CODE]"
+ },
+ {
+  "question_id": 79890115,
+  "ym": "2026-02",
+  "creation_date": 1771232797,
+  "title": "Caret in text components visible despite setEditable(false)",
+  "tags": [
+   "java",
+   "swing",
+   "caret",
+   "jtextcomponent",
+   "java-25"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am running a Java Swing application that relies heavily on text components to display information. I am using [code] , [code] and [code] and I am using: [CODE] to achieve the \"display-only\" behavior. This worked fine until I moved from Java 17 to Java 25.0.2. Since then a movable caret is showing inside the non-editable text components. The text is still not editable, but the caret makes me think it is. I could make the caret invisible, but I would have to change this in a ton of locations. Before doing this I wanted to get a confirmation that this is (for some reason I do not understand) an intended change of behavior and not a bug. I could not find an official statement. Edit: Small correction to my initial statement: the caret is actually not visible if the component is not focusable. I need it to be focusable so it can catch key events. Java version: JDK 25.0.2 OS version: Windows 11 (25H2) Look & Feel: [code] (default) Code to reproduce: [CODE]"
+ },
+ {
+  "question_id": 79890161,
+  "ym": "2026-02",
+  "creation_date": 1771236717,
+  "title": "Passing file with feature + line number in cucumber.features with Cucumber 7",
+  "tags": [
+   "java",
+   "cucumber",
+   "bdd",
+   "cucumber-junit"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "With older versions of Cucumber (before Cucumber 7), I was able to run tests by providing a file (.txt file) that contains the path to the feature file and the line number for scenario. Eg: cucumberTests.txt has the content file:src/test/resources/features/test_api.feature:18 And the argument to notify where to find this file was passed in mvn through: -Dcucumber.options=@C:\\path\\to\\file\\cucumberTests.txt With the onset of Cucumber 7 and Junit 5, the use of cucumber.options has been removed and the use of cucumber.features is provided. I have the following configuration in my TestRunner.java [CODE] I'm able to run my cucumber tests using -Dcucumber.features=\"src/test/resources/features/test_api.feature\" -Dcucumber.filter.tags=\"@test1\" But, my usecase requires me to run with file name and scenario number, and no matter which way I try to provide, it doesnt work with any of the combination. -Dcucumber.features=@C:\\path\\to\\file\\cucumberTests.txt OR -Dcucumber.features=@src/test/resources/features/test_api.feature:18 I have already tried a couple of things like changing the contents of cucumberTests.txt to: src/test/resources/features/test_api.feature:18 and also tried by removing the @SelectClasspathResource(\"feature\") parameter from the TestRunner file. But none of them is working. Version used: cucumber - 7.20.1"
+ },
+ {
+  "question_id": 79890287,
+  "ym": "2026-02",
+  "creation_date": 1771252617,
+  "title": "How to make jansi work in a jpackage image on windows",
+  "tags": [
+   "java",
+   "gradle",
+   "log4j2",
+   "jlink",
+   "jansi"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a java console application that uses slf4j and log4j2 for logging an jansi for the colors. Everything works fine when building the application the \"normal\" way, which is: gradle and modularity. Now I try to create a standalone application. It doesn't need to be an executable (exe-file), I actually just don't want that the JRE needs to be installed to run the app. So I use the org.beryx.jlink plugin to create an image (jpackageImage). Everything works. Except of the jansi colors. I already spent several days on this and would really appreciate some help! Details Gradle 9.3.1 Java 25 [CODE] Output 15:29:19.187 [32mINFO [m Message While looks like a white square with a question mark in the console and is shown as [ESC] in Notepad++."
+ },
+ {
+  "question_id": 79890388,
+  "ym": "2026-02",
+  "creation_date": 1771265156,
+  "title": "What is the meaning of greedy problem in data structures and algorithms",
+  "tags": [
+   "java",
+   "data-structures"
+  ],
+  "score": 0,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I have been seeing this very recently that the easy problems in gfg leetcode and codeforces they mention its a greedy problem whats the actual meaning for this and what does that state? Do explain and if it is so what are the best practises to solve such problems!"
+ },
+ {
+  "question_id": 79890406,
+  "ym": "2026-02",
+  "creation_date": 1771267247,
+  "title": "UnknownHostException since Android 15",
+  "tags": [
+   "java",
+   "background",
+   "retrofit2",
+   "android-15"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I’m noticing a lot of UnknownHostException: Unable to resolve host \"xx.xx.xxxx\": No address associated with hostname errors on Android 15 and 16, reported in Firebase. I am using: [CODE] I understand that there are new background execution restrictions in recent Android versions. My question is: what is the alternative to Retrofit in Java for Android to handle background network requests? My application makes many requests that can take time to respond. It is important that the app continues working in the background and does not lose requests. Any help would be appreciated."
+ },
+ {
+  "question_id": 79890669,
+  "ym": "2026-02",
+  "creation_date": 1771313710,
+  "title": "LangChain4j throws &quot;No agent found with name&quot; when using Spring @Bean sub-agents",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "langchain4j"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am using LangChain4j Agentic Supervisor with Spring Framework and defining sub-agents as Spring beans. However, when the supervisor tries to invoke a sub-agent, I get this exception: [CODE] [CODE] [CODE] When debugging inside: SupervisorPlanner.nextSubagent() cartAgent$2 instead of: cartAgent What is the correct way to define and inject LangChain4j sub-agents when using Spring Framework?"
+ },
+ {
+  "question_id": 79890943,
+  "ym": "2026-02",
+  "creation_date": 1771337099,
+  "title": "Graceful shutdown of SimpleAsyncTaskExecutor",
+  "tags": [
+   "java",
+   "spring",
+   "concurrency",
+   "executor",
+   "jcstress"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Spring Framework's [code] allows a submitted task be active while the executor is already closed. At first glance, it happens when, upon certain, quite rare, threads interleaving, new submitted task gets added to unguarded [code] collection of tasks, while [code] method has already handled members of this collection. An MRE provides a testbed for the case and emulates the situation, slightly tweaking the original code of [code] and enforcing this specific threads interleaving. JCStress test results indicate that even though the percentage of the correspondent outcome is very low, fractions of a percent, the probability is still greater than zero: [CODE] The [code] javadoc claims that the class, even though it does not implement [code] interface, provides graceful shutdown. Granted, graceful shutdown could have rather broad meaning, but, JDK's [code] , for example, does not have this issue. The MRE also provides a comparison between the two executors. Hence a question: If the developers of [code] did not intend to implement as strong graceful shutdown guarantees like as [code] provides, shouldn't this fact be mentioned in the javadoc of [code] class to not to confuse its users who might expect stronger guarantees? Otherwise, should this situation be considered a bug?"
+ },
+ {
+  "question_id": 79890951,
+  "ym": "2026-02",
+  "creation_date": 1771338045,
+  "title": "Unable to connect Java Remote Debugger (JDB) over SSH to GitHub Actions instance",
+  "tags": [
+   "java",
+   "ssh",
+   "github-actions",
+   "remote-debugging",
+   "jdb"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to connect to a Java applications running in GitHub Actions with the Java Remote Debugger (JDB) over SSH. Take a simple GitHub Actions workflow that: opens an SSH connection to allow connections to the runner starts the application with the appropriate debug flags on port [code] via either Maven or plain [code] [CODE] Then locally mapping the debug port to the local instance over SSH: [CODE] When I then try connecting to the debugger on port [code] , via either an IDE (Eclipse/IntelliJ) or via the CLI ( [code] ) it just hangs, and fails to connect or timeout. Meanwhile my application is suspended, awaiting a debug connection that never comes."
+ },
+ {
+  "question_id": 79890955,
+  "ym": "2026-02",
+  "creation_date": 1771338320,
+  "title": "Change a xml namespace prefix of an existing element",
+  "tags": [
+   "java",
+   "xml",
+   "dom"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I need to insert a namespace prefix to an existing elements but always get the error [code] Adding a [code] attribute to a root element works fine. [CODE] From [CODE] To [CODE]"
+ },
+ {
+  "question_id": 79891009,
+  "ym": "2026-02",
+  "creation_date": 1771343118,
+  "title": "OutOfMemoryError when converting docx to PDF with Docx4J",
+  "tags": [
+   "java",
+   "pdf",
+   "out-of-memory",
+   "docx4j"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Having a [code] file, I need to convert it to a [code] format. I use Docx4J to do the conversion; more specifically: [CODE] (11.5.7 for [code] is a constraint from another framework that I am forced to use, while 11.5.9 is the latest that I am allowed to use for the support dependency [code] ; the different versions between the 2 artifacts from the same group are not an issue.) Constraints: I am open to alternatives, but cannot use any alternative solution that would rely on iTextPdf. When developing I can use any amount of memory, but when deploying the application I have a hard limit of only 512 MB as [code] for the JVM [CODE] [code] consumes a lot of heap memory, leading the execution to an [code] in the deployment scenario if the file to print becomes too big. So far, the maximum amounts of allocated heap memory registered with jProfiler (an Intellij IDEA tool) is around 2 GB, when testing the application in local. The line [code] is the bottleneck of the block of code; in the same test case that consumed 2 GB, the execution time of that single line. Additionally: inputs and outputs of the block already use streams, so as to avoid loading and writing entire files: this part is therefore already optimised I cannot use xDocReport as a solution, because xDocReportinternally uses iTextPdf; this question is therefore not a duplicate of Converting Docx to image using Docx4j and P"
+ },
+ {
+  "question_id": 79891038,
+  "ym": "2026-02",
+  "creation_date": 1771346225,
+  "title": "Error handling across a pipeline of `direct`/`seda` routes in Apache Camel",
+  "tags": [
+   "java",
+   "apache-camel",
+   "spring-camel"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I’m trying to structure my Camel application as a set of reusable routes that follow the Single Responsibility Principle. My goal is to keep concrete routes clean and straightforward—describing the happy path only—while extracting common error handling into an abstract [code] . Route pipeline structure My application is composed of several “types” of routes that call each other: technical-sender sender process receiver technical-receiver A quick description of each type: technical sender : an entry point, e.g. [code] or [code] sender : unmarshalling, authorization checks, basic validation, calls [code] , marshals the response process : maps the request, calls [code] , maps the response receiver : sets headers, marshals, adds authorization, calls [code] , handles retries technical receiver : a low-level producer, e.g. [code] Each type has its own abstract [code] . Concrete [code] s define only the happy path (no route-specific error handling unless required). In general there are many process routes (per process/message type), while sender/receiver routes are shared (usually one per external system), and technical routes are shared even more (usually one per protocol like REST/SOAP/FTP). Problem The happy path works perfectly, but I’m struggling with error handling. At any step in any route (validation, mapping, unmarshalling, etc.) an exception may occur. External calls can fai"
+ },
+ {
+  "question_id": 79891201,
+  "ym": "2026-02",
+  "creation_date": 1771366234,
+  "title": "Tabs in JTabbedPane move by themselves on windows L&amp;F",
+  "tags": [
+   "java",
+   "swing",
+   "jtabbedpane"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have the following Java 8 program: [CODE] When you scroll all the way to the right tab, and then click between last and previous one, for some reason the tabs are getting \"moved\" to the right, bit by bit, which is really annoying: This seems to happen on Windows L&F which is the system L&F for me. If I omit the [code] call, they don't seem to move around. Is there a way around this behavior in windows L&F? EDIT: Here's another version which makes sure each tab actually is added on the EDT: [CODE] Here after removing the last tab, the default L&F doesn't bug out the same way as the Windows one"
+ },
+ {
+  "question_id": 79891278,
+  "ym": "2026-02",
+  "creation_date": 1771385880,
+  "title": "DDD java - where do i put authorization in this case?",
+  "tags": [
+   "java",
+   "spring",
+   "spring-data-jpa",
+   "domain-driven-design",
+   "ddd-repositories"
+  ],
+  "score": 0,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "Question I'm learning DDD in a puristic way and I’m building a Project Management app. Aggregate root: [code] Project has a manager ( [code] ) and a list of tasks . Each task is assigned to an employee . Business rule: Only the project manager or the employee assigned to a task can mark it complete. I’m trying to decide where to implement this rule . My current design is: [CODE] Is that ok? Should i move authorization to service layer ?"
+ },
+ {
+  "question_id": 79891444,
+  "ym": "2026-02",
+  "creation_date": 1771408965,
+  "title": "Messages are not sent to the queue. RabbitMQ + Apache Camel",
+  "tags": [
+   "java",
+   "rabbitmq",
+   "apache-camel"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "enter image description here I'm trying to test RabbitMQ and Apache Camel. Events are registered in the exchanger, but they aren't sent to the queue. Messages rates are changing in Exchange and Queue (Consumers ACK). The service Apache Camel communicates with RabbitMQ, there is a connection, logs are available. Response Debug only works if you publish a message through ui in rabbit. Code: [CODE] [CODE] [CODE]"
+ },
+ {
+  "question_id": 79891466,
+  "ym": "2026-02",
+  "creation_date": 1771412019,
+  "title": "Java enum: constant-specific value as field vs &quot;computing&quot; it inside switch - which design is preferable?",
+  "tags": [
+   "java",
+   "enums"
+  ],
+  "score": 0,
+  "answer_count": 8,
+  "is_answered": true,
+  "body_excerpt": "Image you have an enum where each constant is associated with a fixed integer code. I see two possible implementations: Option A – store the code as a field: [CODE] Option B – compute the code inside a switch case: [CODE] Which one would you prefer, and why? Or does it not really matter and they are equivalent to you? Or would you implement something completely different? Thank you."
+ },
+ {
+  "question_id": 79891496,
+  "ym": "2026-02",
+  "creation_date": 1771414287,
+  "title": "Spring Boot @Bean Map&lt;String, ChargingGateway&gt;vs automatic Map&lt;String, ChargingGateway&gt; injection behaving differently across 2 seperate project",
+  "tags": [
+   "java",
+   "spring-boot",
+   "javabeans"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Question: I’m seeing different behavior in two Spring Boot applications regarding [code] injection. I have this configuration: [CODE] And this injection point: [CODE] There are multiple implementations of [code] : [CODE] Expected behavior: If bean [code] exists and returns an empty [code] , I expect that empty map to be injected. If I remove the [code] , Spring should inject a map containing all [code] beans (automatic collection injection). What actually happens: In Application A: If bean [code] is present → injected map is empty. If I remove it → injected map contains all [code] beans. (This matches expectations.)` Spring version 3.4.4 In Application B: With bean [code] → injected map is populated. Without it → injected map is also populated. (No observable difference.)` Spring Version 3.2.2 In both applications: Constructor injection is used [code] method name and constructor parameter name are both [code] No [code] or [code] [code] implementations are regular [code] The map is effectively an entry point. If it were empty, the application would fail at runtime. However, in production it works fine in both cases. Question: Under what conditions would Spring choose the automatically constructed [code] (containing all T beans) instead of an explicitly defined [code] ? Could this be affected by: Constructor parameter name metadata (-parameters) Different compilation settings bet"
+ },
+ {
+  "question_id": 79891520,
+  "ym": "2026-02",
+  "creation_date": 1771417040,
+  "title": "AnnotationProcessorPath versions in a Spring Boot Application",
+  "tags": [
+   "java",
+   "spring-boot",
+   "hibernate",
+   "maven"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm working on a Spring Boot 4 project, with Java 25 and Maven. Since Java 23, it is necessary to add the dependencies that perform annotation processing to the [code] of the [code] . Additionally, if the added paths/dependencies are not contained in the [code] , the version must be specified. In my case, [code] must be added as a dependency to the paths. If I were using the [code] , I could use the version property from the [code] to use the same version for [code] as is used for all other hibernate modules. Unfortunately, I must use another parent POM, therefore only the [code] BOM is included, and I cannot access the hibernate version property. Is there a way to get the hibernate version from the [code] BOM without copying it directly into the own project? This would require to manually check after every spring boot update if the hibernate version has changed in spring-boot."
+ },
+ {
+  "question_id": 79891538,
+  "ym": "2026-02",
+  "creation_date": 1771418990,
+  "title": "Spring Boot application (Thymeleaf) with password protection for some URLs and public access for some others",
+  "tags": [
+   "java",
+   "spring-boot",
+   "thymeleaf",
+   "basic-authentication",
+   "http-status-code-401"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm working on a Spring Boot application packaged as JAR, with Thymeleaf templates too. I have these URLs: [code] : REST API with several request mappings with JSON output. [code] : Mapping for HTML login page (just dummy content so far, for testing). [code] : Mapping for HTML main page (just dummy content so far, for testing). I have a Java class for defining Authorization, as follows: [CODE] What I'm expecting is that the user should provide credentials to visit [code] and [code] , but keeping REST API endpoints ( [code] ) public without them. But what I get is a 401 status when executing both commands, instead of getting a 200 status for the second one: [CODE] I think I'm close to get it by editing [code] method but something seems to be wrong."
+ },
+ {
+  "question_id": 79891567,
+  "ym": "2026-02",
+  "creation_date": 1771421273,
+  "title": "Spring Boot error in GitHub Actions : IllegalState Failed to load ApplicationContext",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "maven",
+   "github-actions"
+  ],
+  "score": -3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm doing an assignment for University using Spring Boot, Junit and GitHub. I'm having an error when pushing to my repo that start build and test GitHub Actions. Here is the stack trace of the error I get: [CODE] Here is the [code] : [CODE] And here is my [code] : [CODE] I have no problems when running the tests locally (including the context loading one), but both the build and test pipelines fail when I commit to the main branch. The project is open source and you can check it out here ."
+ },
+ {
+  "question_id": 79891990,
+  "ym": "2026-02",
+  "creation_date": 1771483424,
+  "title": "How to generically deserialize Spring WebClient response",
+  "tags": [
+   "java",
+   "spring-rest",
+   "spring-webclient"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have multiple APIs that returns different response bodies. I want to have a generic service that can deserialize any data to a given type. [CODE] Here [code] can be any DTO My generic service looks like this. [CODE] [CODE] However, when I run the query, the response is not serialized to [code] , it is serialized to [code] since Java is not able to determine what [code] is at run time. Is there any workaround or any other way to achieve a generic REST service to remove code duplication every time I make a REST call."
+ },
+ {
+  "question_id": 79892049,
+  "ym": "2026-02",
+  "creation_date": 1771489482,
+  "title": "Spring Boot 4 removed HttpMessageConvertersAutoConfiguration - recommended migration for server-side MessageConverters?",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "spring-boot-4"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Context In Spring Boot 3.x we relied on: [CODE] to provide [code] wiring. After upgrading to Spring Boot 4: [code] is no longer present in the autoconfigure import list. [code] is deprecated in favor of: [code] [code] However, these appear to target customization rather than providing an injectable [code] bean and it is unclear what the intended replacement is for getting Spring boot configured HttpMessageConverters. Problem I maintain a library that defines a custom server-side argument resolver extending: [CODE] [CODE] Under Spring Boot 4, the resolver fails with: [CODE] This indicates that the [code] passed to the superclass is empty. Questions What is the recommended Spring Boot 4 approach for server-side [code] wiring so that subclasses of [code] reliably receive a non-empty converters list? Is the removal of [code] intentional and is there an official migration guide?"
+ },
+ {
+  "question_id": 79892075,
+  "ym": "2026-02",
+  "creation_date": 1771493169,
+  "title": "Renaming packages with IntelliJ, from a single name to a double",
+  "tags": [
+   "java",
+   "intellij-idea"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I've run into a problem/issue with IntelliJ. I have a large codebase that is named 'com.something.' to 'com.first.second.', ie I want to replace one package name with two package names. I've tried using the [code] function but that could only take one package name. There are work-arounds but I would prefer to have to use only one operation (manual is always error prone). Any ideas?"
+ },
+ {
+  "question_id": 79892180,
+  "ym": "2026-02",
+  "creation_date": 1771499685,
+  "title": "Error creating shaded jar: Unsupported class file major version 69",
+  "tags": [
+   "java",
+   "maven",
+   "maven-shade-plugin",
+   "java-25"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I'm using Maven Shade Plugin to build my executable. Shade 3.6.1 supposedly added support for Java 25, but I'm using 3.6.1: [CODE] yet I still get: [ERROR] Failed to execute goal org.apache.maven.plugins:maven-shade-plugin:3.6.1:shade (default) on project project: Error creating shaded jar: Unsupported class file major version 69 -> [Help 1] after updating."
+ }
+]

@@ -1,0 +1,82 @@
+[
+ {
+  "qid": 79858762,
+  "answer": "Stylesheet changes are slower post-show() because Qt caches compiled stylesheets during initialization. Before display, stylesheets compile once in bulk. After show(), each stylesheet change triggers style recalculation and widget reflow. Use palette-based coloring (your changeBox3) for dynamic updates—it bypasses stylesheet caching overhead. Alternatively, batch stylesheet updates into a single setStyleSheet() call, or pre-compile stylesheets in __init__ and reuse them."
+ },
+ {
+  "qid": 79808907,
+  "answer": "PyCharm Community 2025.2.3 changed how projects appear in settings. Your issue: settings opened globally rather than project-scoped. Fix: Open your project folder with File > Open, let PyCharm recognize it as a project. Then go Settings > Project > Python Interpreter (not just Settings > Interpreter). If still missing, restart PyCharm. Deleting .idea/ was correct but wasn't enough—PyCharm must explicitly mark the folder as a project root."
+ },
+ {
+  "qid": 79601719,
+  "answer": "Error: `msgbox.askyesno.showwarning()` is invalid syntax. askyesno and showwarning are separate functions in the messagebox module, not chained methods. Fix: Use them individually:\n```python\nif msgbox.showwarning('title', 'text') == 'ok':\n    if msgbox.askyesno('title', 'text2'):\n        function()\n```\nEach function returns independently. Don't chain them—call them sequentially in nested if blocks."
+ },
+ {
+  "qid": 77918532,
+  "answer": "Type overloads on @overload methods don't affect instance attributes. Pyright only recognizes return-type overloads, not attribute state. Use a TypeVar-based approach: define a generic class with conditional type narrowing, or use @overload on __init__ with a return-type stub that indicates the type. Better solution: implement a factory method or use typing.Literal with a type-narrowing cast after __init__."
+ },
+ {
+  "qid": 79836922,
+  "answer": "Your selectors fail because the element likely loads dynamically via JavaScript after page render. Even XPaths don't find dynamic content. Fix: Add WebDriverWait:\n```python\nfrom selenium.webdriver.support.ui import WebDriverWait\nfrom selenium.webdriver.support import expected_conditions as EC\nelement = WebDriverWait(driver, 10).until(\n    EC.presence_of_element_located((By.XPATH, your_xpath))\n)\n```\nAlso inspect in DevTools—element might be in shadow DOM. Try checking page source HTML directly."
+ },
+ {
+  "qid": 79838089,
+  "answer": "Python's import statement requires literal module names; variables can't be used directly. Use importlib instead:\n```python\nimport importlib\nname = 'numbas'\nmodule = importlib.import_module(name)\n# Access module contents via module.attr or use getattr()\n```\nFor dynamic sys.path: calculate the directory correctly (shutil.which returns full path to executable), then append and import. Don't use eval()—it's unsafe and slower."
+ },
+ {
+  "qid": 79753309,
+  "answer": "Issue: jupyter --version checks the base environment's Python, not your venv. When you switch kernels in the notebook, you're only switching the kernel—the jupyter command still uses base Python. Fix: Install ipywidgets where the kernel Python lives:\n```bash\nconda activate fastai\nmamba install ipywidgets jupyter\n```\nOr use the kernel's Python to install: `/path/to/fastai/bin/python -m pip install ipywidgets`"
+ },
+ {
+  "qid": 79837059,
+  "answer": "An object is reversible if it can be iterated backward. reversed() requires either __reversed__() method or __getitem__() with integer indices. HBox (ipywidgets) lacks both. Fix: Implement __reversed__():\n```python\nclass MyBox:\n    def __reversed__(self):\n        return reversed(self.items)\n```\nOr convert to list first: `reversed(list(hbox))`"
+ },
+ {
+  "qid": 79934840,
+  "answer": "Bash kernel on Windows is unreliable. Alternatives: (1) Use Python kernel with subprocess for bash commands; (2) Use PowerShell kernel instead (native Windows support); (3) Install WSL (Windows Subsystem for Linux) and use bash there. If you need bash: verify bash.exe path in kernel.json points to Git Bash or WSL bash, not Windows native. Restart Jupyter after kernel.json changes."
+ },
+ {
+  "qid": 74636590,
+  "answer": "Coordinate degrees don't map linearly to kilometers across projections. Use geopy or pyproj to calculate endpoints:\n```python\nfrom geopy.distance import geodesic\nfrom geopy.point import Point\nmidpoint = Point(lat, lon)\nendpoint = geodesic(kilometers=150).destination(midpoint, bearing=angle)\n```\nCalculate both endpoints 150km from midpoint at your bearing. This accounts for spherical geometry."
+ },
+ {
+  "qid": 79922249,
+  "answer": "For Functional API testing, the builder pattern (Option 1) is cleanest—it mirrors Graph API examples. Wrap entrypoint in a factory that accepts checkpointer:\n```python\ndef wf1_builder(checkpointer):\n    @entrypoint(checkpointer=checkpointer)\n    async def wf1(...): ...\n    return wf1\n\nawait wf1_builder(InMemorySaver()).ainvoke(...)\n```\nThis avoids global state and follows standard pytest patterns. Avoid copy() (undocumented) and environment variables (hard to debug)."
+ },
+ {
+  "qid": 79044704,
+  "answer": "Use zip() with dict update:\n```python\nfor d, time in zip(user_data, available_times_array):\n    d['c'] = time\n```\nOr via list comprehension:\n```python\nuser_data = [{**d, 'c': t} for d, t in zip(user_data, available_times_array)]\n```\nFirst modifies in place; second creates new list. Both assume equal length lists."
+ },
+ {
+  "qid": 79323808,
+  "answer": "Model collapses to predicting a constant value—common LSTM issue. Causes: (1) BCEWithLogitsLoss + Sigmoid doubles sigmoid application; (2) Loss plateaus; (3) Vanishing gradients; (4) Insufficient data variance. Fixes: Remove Sigmoid layer (LogitsLoss includes it). Verify loss decreases during training. Check gradient flow:\n```python\nfor p in model.parameters():\n    if p.grad is None: print('Dead gradient')\n```\nIncrease dropout, use gradient clipping, or adjust learning rate."
+ },
+ {
+  "qid": 79687355,
+  "answer": "Question truncated—actual error unknown. Likely issue: token auth header format or URL mismatch. Verify: (1) Bearer token is correct; (2) URL ends with /mcp/ path; (3) Google auth token hasn't expired; (4) Cloud Run endpoint is publicly accessible or auth is configured. Add error handling and debug:\n```python\ntry:\n    result = await client.call_tool(...)\nexcept Exception as e:\n    print(f'Error: {e}')\n```"
+ },
+ {
+  "qid": 79807713,
+  "answer": "Issue: StructuredTool doesn't bind instance methods correctly. Fix: Return bound methods or use a wrapper:\n```python\ndef get_tools(self):\n    return [\n        tool(lambda path: self.read_file(path), name='read_file', ...)\n    ]\n```\nOr use @tool decorator on wrapper functions:\n```python\n@tool\ndef read_file(path: str):\n    return self.read_file(path)\n```\nBetter: Define tools outside the class and pass self as context/state."
+ },
+ {
+  "qid": 79934736,
+  "answer": "Context missing on 'dynamic' and 'optimal' requirements. For a bilingual HTML dictionary (Totonaco↔Spanish), simplest structure: JSON object with two maps loaded into JavaScript:\n```json\n{\"totonaco_es\": {...}, \"es_totonaco\": {...}}\n```\nEmbedded as script or fetched. Search via Object.keys(). For offline use, add localStorage. Consider static HTML generation if dataset is small."
+ },
+ {
+  "qid": 72825192,
+  "answer": "Automating slider CAPTCHAs violates website ToS and may be illegal. This is a security measure. Legitimate alternatives: (1) Use CAPTCHA-solving service (2Captcha, Anti-Captcha) if site permits; (2) Check if site offers API without CAPTCHA; (3) Contact site owner for automation access. Selenium's ActionChains won't reliably solve modern CAPTCHAs—they use ML detection. Don't automate security controls without authorization."
+ },
+ {
+  "qid": 79407087,
+  "answer": "Issues: (1) hello.counter never initialized; (2) logging.info() called directly instead of logger.info(). Fix:\n```python\nhello.counter = 0\ndef hello():\n    if pyautogui.locateOnScreen('1.png', confidence=0.9):\n        hello.counter += 1\n        logger.info(f'Found image: count={hello.counter}')\n```\nMove logger initialization outside logger() function. Don't call logging.info() before logger setup; use the logger instance."
+ },
+ {
+  "qid": 79603426,
+  "answer": "Canvas dimensions are 0 until window is rendered. When you call self.coordinate() in __init__, canvas.winfo_width() returns 0. Fix: Call win.update() before canvas.pack(), or use coordinate calculations after show():\n```python\ncanv.canvas.pack()\nwin.update()  # Force geometry update\ncanv.addText(6, 6, 'hello')\n```\nOr calculate text position relative to canvas size after display, not in __init__."
+ },
+ {
+  "qid": 79478724,
+  "answer": "scoped_session manages thread-local storage automatically—each thread gets the same Session instance, avoiding repeated creation. Your with sessionmaker.begin() approach is also thread-safe but requires explicit context management. scoped_session shines in multi-threaded contexts (web servers) where you want automatic per-thread cleanup:\n```python\nSession = scoped_session(sessionmaker(engine))\nSession.add(user)  # Thread-safe, no explicit close needed\n```\nFor async: use async_scoped_session. Both avoid boilerplate in multi-threaded apps."
+ }
+]

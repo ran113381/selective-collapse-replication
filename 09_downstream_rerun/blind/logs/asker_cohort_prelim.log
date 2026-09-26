@@ -1,0 +1,56 @@
+merged N=6000  months 2021-06..2026-05  pre=1800 post=4200
+
+=== (a) owner resolution ===
+  resolved 5877/6000 = 98.0%
+  by bin:    {0: 0.968, 1: 0.9794, 2: 0.9785, 3: 0.9845, 4: 0.9777}   chi2 p=0.2251
+  by period: {0: 0.9778, 1: 0.9802}   chi2 p=0.6052
+
+=== (b) did the asker pool shift? ===
+  threshold T = max pre-period user_id = 20385089
+  share of questions from pre-ChatGPT-registered accounts:
+    pre  100.0%   (100% by construction)
+    post 60.9%  -> 39.1% of post questions come from NEW accounts
+  median user_id: pre 15,638,402 -> post 16,937,219  (higher = registered later)
+  Mann-Whitney p = 8.98e-27
+
+=== (c) registration recency vs substitutability ===
+  Spearman rho(user_id, s) = -0.1243, p = 1.17e-21
+  mean s by whether the account is new (post-period questions only):
+    pre-registered accounts : 2.124  (N=2508)
+    new accounts            : 1.878  (N=1609)
+
+=== (d) shift-share decomposition of the fall in mean s ===
+  cohort cuts (pre-period id terciles): 12,723,659 / 17,047,912 / T=20,385,089
+  shares  pre : {'cohort_old': 0.3335, 'cohort_mid': 0.333, 'cohort_recent': 0.3335, 'new': 0.0}
+  shares  post: {'cohort_old': 0.3804, 'cohort_mid': 0.121, 'cohort_recent': 0.1078, 'new': 0.3908}
+  mean s  pre : {'cohort_old': 2.566, 'cohort_mid': 2.35, 'cohort_recent': 2.387, 'new': nan}
+  mean s  post: {'cohort_old': 2.185, 'cohort_mid': 2.012, 'cohort_recent': 2.032, 'new': 1.878}
+  TOTAL change in mean s                     : -0.4066
+  WITHIN  (same cohort asks less substitutable): -0.2908  ( 71.5%)
+  BETWEEN (the cohort mix changed = the rival) : -0.1158  ( 28.5%)
+
+=== (e) dose-response (paper's spec) on subsamples ===
+  all askers (truncated panel)       N= 5393  zeros= 0.0%
+      log-OLS gamma=-0.3016 (SE 0.0390) p=1.07e-14   s4/s1=-59.5%
+      PPML    gamma=-0.2845 (SE 0.0385) p=1.38e-13
+  pre-ChatGPT-registered accounts ONLY N= 3970  zeros= 0.0%
+      log-OLS gamma=-0.2547 (SE 0.0444) p=9.66e-09   s4/s1=-53.4%
+      PPML    gamma=-0.2249 (SE 0.0421) p=9.18e-08
+    of which cohort_old              N= 1992  zeros= 0.0%
+      log-OLS gamma=-0.2793 (SE 0.0607) p=4.22e-06   s4/s1=-56.7%
+      PPML    gamma=-0.2617 (SE 0.0595) p=1.09e-05
+    of which cohort_mid              N= 1005  zeros= 8.3%
+      log-OLS gamma=-0.2010 (SE 0.0853) p=0.0185   s4/s1=-45.3%
+      PPML    gamma=-0.2603 (SE 0.0645) p=5.4e-05
+    of which cohort_recent           N=  973  zeros=12.5%
+      log-OLS gamma=-0.1970 (SE 0.0656) p=0.00268   s4/s1=-44.6%
+      PPML    gamma=-0.3117 (SE 0.0818) p=0.000138
+
+=== (e2) pooled PPML with cohort-x-month FE (absorbs the rival's shock) ===
+  cells=720, zero cells=8.9%
+  PPML gamma, cohort-x-month FE = -0.2747 (SE 0.0451), p = 1.15e-09
+  PPML gamma, plain month FE (same cells) = -0.2249 (SE 0.0378), p = 2.74e-09
+
+written: E:\智能体论文\P9b_IPM_20260919\工作文档\R2_downstream\blind\02_estimation\asker_cohort_prelim.json
+
+--- stderr ---

@@ -1,0 +1,6 @@
+[
+  {
+    "qid": 78939613,
+    "answer": "Your `bathrooms` column contains float values (1.00, 2.25, 3.00, etc.), and you need to keep only rows where these values are whole numbers.\n\nThe issue with your for-loop approach is likely inefficient iteration and DataFrame mutation during loops. Use vectorized operations instead:\n\n```python\n# Most efficient: use modulo to check for integer values\ndata = data[data['bathrooms'] % 1 == 0]\n```\n\nAlternatively:\n```python\n# Check if value equals its integer conversion\ndata = data[data['bathrooms'] == data['bathrooms'].astype(int)]\n```\n\nBoth approaches keep only rows where `bathrooms` is a whole number (1.0, 2.0, 3.0, 4.0) and remove rows with fractional parts (1.5, 2.25, 2.75, 3.25, etc.).\n\nThe modulo approach is slightly more efficient since it avoids type conversion. The `%1` operator returns the decimal portion; when it equals 0, the value is a whole number.\n\nAvoid modifying DataFrames during iteration—always use boolean indexing for better performance and clarity."
+  }
+]

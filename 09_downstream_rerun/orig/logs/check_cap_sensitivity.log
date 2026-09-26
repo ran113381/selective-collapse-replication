@@ -1,0 +1,14 @@
+标签 6000 条，能配上正文长度的 6000 条，触顶(≥1400) 312 条 = 5.2%
+触顶率：前期 2.6%，后期 6.3%
+触顶率按 bin（后期）： {0: 11.8, 1: 8.4, 2: 6.9, 3: 5.2, 4: 4.0}
+全样本（应复现 −0.416）                    γ = -0.416 (SE 0.067), p = 6.7e-10,  N题 = 6000
+剔除触顶问题                             γ = -0.414 (SE 0.068), p = 9.6e-10,  N题 = 5688
+剔除 ≥1,000 字符（更狠）                   γ = -0.425 (SE 0.071), p = 2.7e-09,  N题 = 5190
+
+触顶剔除后 γ 变化 +0.001（0%）
+
+--- stderr ---
+E:\智能体论文\P9b_IPM_20260919\工作文档\R2_downstream\orig\02_estimation\review_r1_reviewer_response_scripts\check_cap_sensitivity.py:26: DeprecationWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  cap = lab.groupby(["post"]).apply(lambda g: (g.blen >= CAP).mean() * 100)
+E:\智能体论文\P9b_IPM_20260919\工作文档\R2_downstream\orig\02_estimation\review_r1_reviewer_response_scripts\check_cap_sensitivity.py:28: DeprecationWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  print("触顶率按 bin（后期）：", lab[lab.post == 1].groupby("score").apply(lambda g: round((g.blen >= CAP).mean() * 100, 1)).to_dict())

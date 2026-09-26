@@ -1,0 +1,85 @@
+{
+  "note": "Monthly gamma_k have degenerate month-clustered SEs (as capability_ramp.py notes), so the joint pre-period test uses three pre-period window regressions, not the monthly estimates.",
+  "monthly_gamma_k_validated_against_archive": {
+    "n_matched": 59,
+    "max_abs_diff": 1.5654144647214707e-14
+  },
+  "monthly_cluster_se_degenerate": true,
+  "pre_windows": [
+    {
+      "window": "pre W1 2021-06..2021-11",
+      "lo": 24257,
+      "hi": 24262,
+      "months": 6,
+      "beta": -0.33541449683891,
+      "se": 0.09819855555926649
+    },
+    {
+      "window": "pre W2 2021-12..2022-05",
+      "lo": 24263,
+      "hi": 24268,
+      "months": 6,
+      "beta": -0.34301584441962607,
+      "se": 0.11391728703809786
+    },
+    {
+      "window": "pre W3 2022-06..2022-10",
+      "lo": 24269,
+      "hi": 24273,
+      "months": 5,
+      "beta": -0.36632711195808054,
+      "se": 0.06967414665308885
+    }
+  ],
+  "pre_window_vcov": [
+    [
+      0.009642956313926348,
+      4.485823023429657e-18,
+      -5.560135914084936e-17
+    ],
+    [
+      5.1509521896124115e-17,
+      0.012977148286120378,
+      4.783867499160177e-18
+    ],
+    [
+      4.687822746616739e-17,
+      4.818141493433519e-17,
+      0.004854486711836133
+    ]
+  ],
+  "joint_wald": {
+    "statistic": 48.37715588764467,
+    "df": 3,
+    "p": 1.7701429211314235e-10
+  },
+  "power_by_scale": [
+    {
+      "scale": 0.0,
+      "ncp": 0.0,
+      "power": 0.04999999999999993
+    },
+    {
+      "scale": 0.5,
+      "ncp": 2.749935389493802,
+      "power": 0.25373994161249824
+    },
+    {
+      "scale": 1.0,
+      "ncp": 10.999741557975208,
+      "power": 0.8038676635155788
+    },
+    {
+      "scale": 2.0,
+      "ncp": 43.99896623190083,
+      "power": 0.9999760142875977
+    },
+    {
+      "scale": 4.0,
+      "ncp": 175.99586492760332,
+      "power": 1.0
+    }
+  ],
+  "power_default_scale1": 0.8038676635155788,
+  "self_checks_all_passed": true
+}

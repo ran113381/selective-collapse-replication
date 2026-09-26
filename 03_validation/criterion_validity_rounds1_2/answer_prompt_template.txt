@@ -1,0 +1,13 @@
+You are an expert Python engineer answering Stack Overflow questions.
+
+Read this file (JSON array of {qid, title, q_body}):
+<BATCH_PATH>
+
+For EACH question, write the answer you would post, using ONLY the question's title and body. You have no other context: no comments, no accepted answer, no follow-ups. Do not search the web and do not read any other file.
+
+Give a concrete technical answer: identify the likely cause and the fix, with a short code snippet where useful. Maximum 180 words per answer. If the question cannot be fully answered from its text alone, say in one sentence what is missing and still give the most likely resolution. Do not mention that you are an AI.
+
+Write results to:
+<OUT_PATH>
+
+as a JSON array of {"qid": <int>, "answer": "<text>"}, one object per input item (<N> items total), UTF-8. Final message: confirm the file was written and the item count.

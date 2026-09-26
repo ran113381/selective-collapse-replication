@@ -1,0 +1,78 @@
+[
+  {
+    "qid": 76809763,
+    "answer": "The function `check_coins()` doesn't explicitly return anything, so it returns `None` by default. When you `print(check_coins())`, Python prints the return value (`None`). **Fix:** Remove the outer `print()` or modify the function to return instead of print. Replace `print(check_coins())` with just `check_coins()` if the function already prints the result. Alternatively, have the function return the message and print that: `print(check_coins())` becomes `return` statement inside the function."
+  },
+  {
+    "qid": 79780187,
+    "answer": "Your CSS approach should work, but the selector might need adjustment. Verify the extension is loaded correctly. Try adding `display: inline-block` and setting a max-width on the notification text container. If CSS isn't applying, check browser dev tools to confirm the class name. Alternative: use Panel's Python API to configure notifications if available, or wrap the notification content in a container with forced width. Ensure the CSS rule is placed after any conflicting styles."
+  },
+  {
+    "qid": 76145014,
+    "answer": "Yes, `/path/to/venv/bin/gunicorn` will use the virtualenv automatically. The shebang line (`#!/path/to/venv/bin/python`) ensures it executes with the virtualenv's Python interpreter. This means all site-packages from the virtualenv are available without needing `source activate`. However, **ensure environment variables** (like `DJANGO_SETTINGS_MODULE`) are set in the systemd service file using `Environment=` directives, not just in the activate script."
+  },
+  {
+    "qid": 79902880,
+    "answer": "Generators raise `StopIteration` when exhausted. Calling `next()` more times than yields available triggers this exception. **Fix:** Catch it with try-except or use a default: `try: next(sensor_stream) except StopIteration: print('Generator exhausted')`. Alternatively, for cleaner code, use: `for reading in sensor_stream: print(reading)` which handles `StopIteration` automatically. If you need to handle partial results, check the loop count against the generator length first."
+  },
+  {
+    "qid": 75903640,
+    "answer": "1.7M scenarios is expensive because `product()` generates all combinations upfront. **Optimizations:** (1) Use generators instead: `for outcome in product(...): ` avoids storing all combinations. (2) Implement early stopping—prune branches that can't affect final rankings. (3) Use NumPy/Pandas for vectorized operations instead of Python loops. (4) Implement memoization to cache partial results. (5) Parallelize with `multiprocessing.Pool`. Start by switching to generator iteration; it should reduce memory and improve speed significantly."
+  },
+  {
+    "qid": 74974516,
+    "answer": "Use pandas `resample()` with aggregation rules:\n```python\ndf['DateTime'] = pd.to_datetime(df['DateTime'])\ndf.set_index('DateTime', inplace=True)\nresampled = df.resample('30min').agg({'Open': 'first', 'High': 'max', 'Low': 'min', 'Close': 'last'}).reset_index()\n```\nFor 1-minute to 30-minute conversion, resample() automatically groups by the interval. Adjust `'30min'` to `'15min'`, `'1h'`, etc. as needed."
+  },
+  {
+    "qid": 68606779,
+    "answer": "When running from CMD, the virtualenv isn't activated, so Python can't find packages. **Fix:** Use the full path to the virtualenv's Python: `C:\\path\\to\\venv\\Scripts\\python.exe script.py` instead of just `python script.py`. Or use `conda run -n env_name python script.py` if using Anaconda. The issue is that CMD uses system Python path; the virtualenv only activates in the shell when you `source activate`."
+  },
+  {
+    "qid": 79920096,
+    "answer": "The 404 likely occurs because the redirect happens after the Python script completes, but the browser may cache or mishandle the navigation. **Check:** (1) Verify `index.html` exists in the web root. (2) Use absolute paths: `header('Location: /index.html');` instead of relative. (3) Add `exit;` after the header to stop execution. (4) Log errors: capture stderr from `system()` to debug Python execution. If the script fails, `header()` might not redirect properly."
+  },
+  {
+    "qid": 79648091,
+    "answer": "You can't stop a thread forcibly from outside in Python. **Fix:** Use `threading.Event()` as a flag:\n```python\nclass Thread:\n  def __init__(self, callback, *args):\n    self.stop_event = threading.Event()\n    self.thread = threading.Thread(target=self._run, args=(callback, args))\n    self.thread.start()\n  def _run(self, callback, args):\n    while not self.stop_event.is_set():\n      callback(*args)\n  def stop(self):\n    self.stop_event.set()\n```\nThe callback must check `self.stop_event` periodically or use sleep intervals."
+  },
+  {
+    "qid": 68203921,
+    "answer": "Use `cumsum()` to group sentences:\n```python\ndf['group'] = (df['word'].str.startswith('>>')).cumsum()\ndf['sentence'] = df.groupby('group')['word'].transform(lambda x: ' '.join(x))\ndf_result = df.groupby('group')[['start_time', 'end_time', 'sentence']].agg({'start_time': 'first', 'end_time': 'last', 'sentence': 'first'}).reset_index(drop=True)\ndf_result.columns = ['start_time', 'end_time', 'word']\n```\nThis groups all rows starting with '>>' and combines words until the next '>>'."
+  },
+  {
+    "qid": 69792712,
+    "answer": "Use regex split with lookahead:\n```python\nimport re\nresult = re.split(r'\\. (?=[A-Z])', text)\n```\nThis splits on `. ` (period followed by space) only when followed by a capital letter (lookahead `(?=[A-Z])`). If your string has periods without spaces, adjust to `r'\\.(?=[A-Z])'`."
+  },
+  {
+    "qid": 79549737,
+    "answer": "Use `connect_args` with the appropriate driver. For PyMySQL:\n```python\nfrom sqlalchemy import create_engine\nengine = create_engine(\n  'mysql+pymysql://user:pass@localhost:32913/test',\n  connect_args={'ssl': {'ssl': False}, 'allow_public_key_retrieval': True}\n)\n```\nFor mysql-connector-python:\n```python\nengine = create_engine(\n  'mysql+mysqlconnector://user:pass@localhost:32913/test',\n  connect_args={'allow_public_key_retrieval': True, 'use_pure': True}\n)\n```"
+  },
+  {
+    "qid": 68203313,
+    "answer": "Calculate the differential and find the max:\n```python\ndf['diff'] = df['Price2'] - df['Price']\nmax_idx = df['diff'].idxmax()\nresult_row = df.iloc[max_idx]\nprint(result_row['Ticker'])\nprint(result_row)  # Access all columns of the row\n```\nStore `result_row` in a variable to access specific columns later: `result_row['Volume']`, etc."
+  },
+  {
+    "qid": 70179237,
+    "answer": "Your recursion never advances x/y; it infinitely loops. **Fix:** Increment coordinates in recursive calls:\n```python\ndef path(given_map, x, y):\n  if x == len(given_map) - 1 and y == len(given_map) - 1:\n    return 1\n  if x >= len(given_map) or y >= len(given_map):\n    return 0\n  step = given_map[x][y]\n  count = 0\n  if x + step < len(given_map):\n    count += path(given_map, x + step, y)\n  if y + step < len(given_map):\n    count += path(given_map, x, y + step)\n  return count\n```\nAlso add memoization to avoid recalculating subproblems."
+  },
+  {
+    "qid": 77741470,
+    "answer": "When Java runs Python via `Runtime.exec()`, the virtualenv isn't activated. **Fix:** Use the full path to the virtualenv's Python executable:\n```java\nString pythonPath = \"C:\\\\Users\\\\KAVI\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python310\\\\venv\\\\Scripts\\\\python.exe\";\nString command = pythonPath + \" \" + pythonScriptPath;\n```\nOr ensure the package is installed in the base Python, not just in Anaconda. Check that numpy/pychrono are in the venv's `site-packages`."
+  },
+  {
+    "qid": 79323215,
+    "answer": "Use `pl.concat_str()` for string concatenation:\n```python\nso_df = so_df.with_columns(\n  labels_value=pl.concat_str(\n    pl.lit('('), pl.col('Total'), pl.lit(') '), pl.col('percentage'), pl.lit('%')\n  )\n)\n```\nOr use f-string syntax with `pl.format()`:\n```python\nso_df.with_columns(\n  labels_value=pl.format('({}) {}%', pl.col('Total'), pl.col('percentage'))\n)\n```"
+  },
+  {
+    "qid": 69008305,
+    "answer": "In MDApp's `__init__`, `self.theme_cls` is None until after `super().__init__()`. **Fix:** Move theme configuration to the `build()` method or after super():\n```python\nclass sovellus(MDApp):\n  def build(self):\n    self.theme_cls.theme_style = \"Dark\"\n    self.theme_cls.primary_palette = \"BlueGray\"\n    sm = ScreenManager()\n    sm.add_widget(menu(name='menu'))\n    return sm\n```\nOr call super() first in __init__ before accessing theme_cls."
+  },
+  {
+    "qid": 70178922,
+    "answer": "Can't use `return` in the main loop; use `continue` or `break`:\n```python\nwhile True:\n  x = str(input(\"Are you using Pounds or Kg? (P/K): \"))\n  if x in ['P', 'p', 'K', 'k']:\n    h = float(input(\"Key in your weight: \"))\n    break  # Exit loop if valid input\n  else:\n    print(\"Invalid input, try again\")\n    continue  # Skip to next iteration\n```\n`continue` repeats the loop; `break` exits it. `return` is only valid inside functions."
+  },
+  {
+    "qid": 73189686,
+    "answer": "Your pattern needs clearer logic. Based on the output, alternate `*` and `$` across expanding rows:\n```python\nrows = 5\nfor i in range(1, rows + 1):\n  for j in range(i):\n    if j % 2 == 0:\n      print('*', end=' ')\n    else:\n      print('$', end=' ')\n  print()\nfor i in range(rows - 1, 0, -1):\n  for j in range(i):\n    if j % 2 == 0:\n      print('*', end=' ')\n    else:\n      print('$', end=' ')\n  print()\n```\nAdjust the character alternation pattern to match your exact desired output."
+  }
+]

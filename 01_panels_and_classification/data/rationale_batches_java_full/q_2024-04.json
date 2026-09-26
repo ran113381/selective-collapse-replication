@@ -1,0 +1,1544 @@
+[
+ {
+  "question_id": 78253438,
+  "ym": "2024-04",
+  "creation_date": 1711939570,
+  "title": "Project Reactor Mono.just inside a flatMap",
+  "tags": [
+   "java",
+   "spring-webflux",
+   "project-reactor"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "trying to search some information regarding the usage of this but not yet found a definitive answer to this. the usage of flatMap on blocking operations (non reactive). when some operations like outboundCalls is reactive, we can use a flatMap right away to make it async and non blocking. [CODE] But the issue came when the [code] is a non reactive one. [CODE] vs [CODE] Is there really any gain on wrapping with Mono.just inside a flatMap? or is it just gonna create some overhead?"
+ },
+ {
+  "question_id": 78253473,
+  "ym": "2024-04",
+  "creation_date": 1711940386,
+  "title": "Forcefully subclass a Java class with package-private constructor",
+  "tags": [
+   "java",
+   "oop",
+   "reflection",
+   "jvm"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I want to forcefully make a class in another library open to subclass. The class itself is public, but its only constructor is package-private. I have already explored generating a class with the bytecode to open the constructor and make the [code] call. In JASM (super cool), the class looks like this: [CODE] This class, [code] , extends [code] . Its public no-args constructor makes accessible the latter's package-private no-args constructor and follows with a [code] call. The equivalent Java may look something like this: [CODE] While the reflection works fine, the super call fails with an IllegalAccessException. I believe I may have hope yet--after all, it's possible to use reflection to create an instance of [code] . What am I missing from my strategy? Is it not possible to invoke such black magic after all?"
+ },
+ {
+  "question_id": 78253765,
+  "ym": "2024-04",
+  "creation_date": 1711948238,
+  "title": "How to import(or Add) custom external JAR Library to Java project in IntelliJ ultimate",
+  "tags": [
+   "java",
+   "intellij-idea",
+   "jar"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "First, English is not my first language, so there are might some wired syntax in my question. I want to follow this workflow for my programming skill. create custom Java library(JAR file) create another Java project and import custom Java library. My problem is disappearing jar file when I use gradle-build or run static main method anyway, I prepared some source. create custom Java library(JAR file) by Gradle docs Gradle docs add method for test like this : [CODE] after gradle build, created 'lib.jar' file in [code] . create another Java project and import custom Java library create very simple Java project using IntelliJ, so my project structure looks like this: [CODE] And I tried to import 'lib.jar' using [code] . So... this is result screenshot enter image description here It looks correct, and right. 'lib.jar' is imported and LibraryTest class can using Library's method 'add(...)'. But if I run LibraryTest.main method, then lib.jar is disappear and occur build errors [CODE] How can I resolve this problems...?? I tried to searching 'create java library', and I'm just expecting right result without import errors"
+ },
+ {
+  "question_id": 78253861,
+  "ym": "2024-04",
+  "creation_date": 1711950241,
+  "title": "Calling synchronized method in Project Reactor",
+  "tags": [
+   "java",
+   "spring-webflux",
+   "project-reactor",
+   "reactor-netty"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a Reactor chain that calls a synchronized method as shown below. Whenever an auth token expires, I need to send a request to server to get new token, and getting new token needs to be called only once as multiple request can be active at a time. Because of this, refreshToken() is synchronized. The thing is refreshToken is called from Netty NIO threads. Does this cause any issue? What is the Reactor way of calling a synchronized method? I couldn't find any reference to this in official documentation. [CODE]"
+ },
+ {
+  "question_id": 78253911,
+  "ym": "2024-04",
+  "creation_date": 1711951478,
+  "title": "Is it possible to upsert a Pojo via jOOQ&#39;s generated DAO?",
+  "tags": [
+   "java",
+   "jooq"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "The generated DAO objects by jOOQ have methods to insert or update a pojo object. But what if I want to upsert? (Insert if new, update if exists)"
+ },
+ {
+  "question_id": 78253926,
+  "ym": "2024-04",
+  "creation_date": 1711951710,
+  "title": "TreeMap, private void deleteEntry(Entry&lt;K,V&gt; p) replacement case",
+  "tags": [
+   "java",
+   "treemap"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "please look at this piece of code [CODE] Below is the full method code [CODE] so the question : why do we do the check as shown in the first block of code, if before that we do the check: [CODE] and therefore if the replacement is != null then the only possible case is that “p” is exactly black with one red replacement and after that we change the replacement to black in the method: [CODE] and we must call [CODE] just to do this: [CODE] I couldn’t figure this out myself, please help me understand this case"
+ },
+ {
+  "question_id": 78254387,
+  "ym": "2024-04",
+  "creation_date": 1711960064,
+  "title": "Dynamic Database Model / Entity in Spring Boot",
+  "tags": [
+   "java",
+   "database",
+   "spring-boot"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have a very very big database (around 20 million rows in total) that will grow as the application is still being used and none of those inserted rows will be deleted. By the current trend, it would be 30 million rows by next 3 years. As for splitting the rows, I think about splitting current table into 10 tables. [CODE] These tables has the very same structure. I would like to have this dynamic class that able to smartly pick on which table to get the data: [CODE] So by this one class, it can work for the 10 tables. Is this possible?"
+ },
+ {
+  "question_id": 78254408,
+  "ym": "2024-04",
+  "creation_date": 1711960364,
+  "title": "Why are the results different? What are the effects of &#39;println&#39;",
+  "tags": [
+   "java",
+   "out-of-memory",
+   "println"
+  ],
+  "score": -4,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "[CODE] [CODE] Why are the results different? Runs all the time. [code] enter image description here enter image description here"
+ },
+ {
+  "question_id": 78254424,
+  "ym": "2024-04",
+  "creation_date": 1711960526,
+  "title": "How to return a character from a string that contains letters and numbers",
+  "tags": [
+   "java"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I want to split a string using Java, but I can't work out the correct regex syntax. In this example, I want to split “K89” to return “K”. My code: [CODE]"
+ },
+ {
+  "question_id": 78254518,
+  "ym": "2024-04",
+  "creation_date": 1711961824,
+  "title": "Transformation .jar in .exe. As an executable file",
+  "tags": [
+   "java",
+   "intellij-idea",
+   "jar",
+   "exe"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "There is such a code that converts characters from lowercase to uppercase and vice versa. You need to make a file the .jar is executable. I tried to do this through Launch4j, but the file doesn't run, there aren't even any errors. Has anyone ever encountered such a thing? My guess is that the code does not match the executable file [CODE] I tried to do this through Launch4j, but the file doesn't run, there aren't even any errors."
+ },
+ {
+  "question_id": 78254784,
+  "ym": "2024-04",
+  "creation_date": 1711965625,
+  "title": "Failed to skip duplicated data in a sorted linked list in toString method",
+  "tags": [
+   "java",
+   "linked-list",
+   "singly-linked-list"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "First things first, I am not allowed to use the Java API for linked list, the Linked List and List Node codes are given by my teacher, so it may or may not be the same as the stuff you see in the API. Secondly, I will have to read from a file and input the contents of the file into the linked list. With those out of the way, I would like to skip duplicated data (Not deleting) and return it as a string with a method called toString. My thought process is this: I start from the head (current) and I check the data of each subsequent list node one by one (checker). If the data is the same, go to the next node, otherwise go to the data that has a different data and append it to the string. The code below is what I am trying to do. [CODE] The original toString method given by my teacher: [CODE] Assuming the text file (test.txt) is like this: (5 As, 5 Bs and 5 Cs) (1 letter for each line) a b c a b c a b c a b c a b c And thus the sorted linked list is this: a a a a a b b b b b c c c c c What I want to output is this: a b c But it always outputted the entire linked list without skipping duplicated data when using my modified toString method: a a a a a b b b b b c c c c c If I do not use a text file and insert the values into a Linked List directly, it works(Code below): [CODE] Output: a b c d I don't know what is causing it to not skip duplicated data if it is read from a text file in"
+ },
+ {
+  "question_id": 78254792,
+  "ym": "2024-04",
+  "creation_date": 1711965715,
+  "title": "BeanCreationException, How to troubleshoot?",
+  "tags": [
+   "java",
+   "spring-boot",
+   "microservices",
+   "javabeans"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Hello StackOverflow community, I'm encountering an issue with a [code] occurring within the [code] class in my Spring Boot application. I'm relatively new to implementing schedulers in my code, and I'm encountering an issue that I'm having trouble diagnosing. Specifically, I'm getting a NullPointerException, but I'm uncertain about its source. Here's the relevant code snippet: [CODE] this is the log error; [CODE] I am trying to implement a way to create a code with a scheduler. However, when I have implemented it, there is an error like that. I'm not too sure where I went wrong because I have tried several different scheduler methods and none of them have worked PS: its already solved, forget to put @EnableScheduling lol"
+ },
+ {
+  "question_id": 78254824,
+  "ym": "2024-04",
+  "creation_date": 1711966127,
+  "title": "cannot update value config server using actruator refresh",
+  "tags": [
+   "java",
+   "spring-boot",
+   "spring-boot-actuator",
+   "spring-cloud-config",
+   "spring-cloud-config-server"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "i have problem when i try to refresh my config server on git using actuator/refresh this is denpedencies i used in my config client [CODE] this is my application properties in my config client [CODE] and this is my controller to get cloud server using cloud config [CODE] and this is my application properties in the GIT \"transfer-prod.properties\" [CODE] when i try to change value maintenance on the transfer-prod.properties and then hit localhost:8081/actuator/refresh, the response only [CODE] what i expected is [ \"config.client.version\", \"maintenance\" ] does anyone know why? i need help thx"
+ },
+ {
+  "question_id": 78254924,
+  "ym": "2024-04",
+  "creation_date": 1711967406,
+  "title": "Spring MVC Controller not displaying view",
+  "tags": [
+   "java",
+   "spring-mvc",
+   "debugging",
+   "error-handling"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "So I worked on a spring boot app and I have been struggling to make my view and my controller connect. Is there something that I did wrong ? Main.java [CODE] HomeControler.java [CODE] So it should return my view index.jsp but I keep getting the error : \"Whitelabel Error Page\"."
+ },
+ {
+  "question_id": 78255097,
+  "ym": "2024-04",
+  "creation_date": 1711969533,
+  "title": "Outdated XML processor is present on the classpath",
+  "tags": [
+   "java",
+   "xml",
+   "classpath",
+   "dtd",
+   "xxe"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Getting below error: Enabling XXE protection failed. The attribute http://javax.xml.XMLConstants/property/accessExternalDTD is not supported by the TransformerFactory. This usually mean an outdated XML processor is present on the classpath (e.g. Xerces, Xalan). If you are not able to resolve the issue by fixing the classpath, the hazelcast.ignoreXxeProtectionFailures system property can be used to disable XML External Entity protections. We don't recommend disabling the XXE as such the XML processor configuration is unsecure!: java.lang.IllegalArgumentException: Not supported: http://javax.xml.XMLConstants/property/accessExternalDTD . Tried disabling the [code]"
+ },
+ {
+  "question_id": 78255123,
+  "ym": "2024-04",
+  "creation_date": 1711969925,
+  "title": "How to get an access token for FCM OAuth to send via Proxy which needs authentication?",
+  "tags": [
+   "java",
+   "firebase-cloud-messaging"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm able to get accesstoken from GoogleCredential class via proxy server,but my proxy server needs authentication details to be given.I'm getting error as \"Unable to tunnel through proxy. Proxy returns HTTP/1.1 407 Proxy Authentication Required\",as my proxy server requires authentication.I'm using google-api-client-1.23.0.jar,google-http-client-1.23.0.jar. My problem is how can I get access token via a proxy authentication? below is the code snippet [CODE]"
+ },
+ {
+  "question_id": 78255163,
+  "ym": "2024-04",
+  "creation_date": 1711970653,
+  "title": "Type Object cannot be safely cast to HashMap&lt;Object, Object&gt;",
+  "tags": [
+   "java"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I get this error and I'm confused to why and how I can fix it. \"Type Object cannot be safely cast to HashMap<Object, Object>\" at \"inputObject instanceof HashMap<Object, Object>\" [CODE] I was trying to read a HashMap<Object,Object> from a file. I was expecting this to do the work."
+ },
+ {
+  "question_id": 78255191,
+  "ym": "2024-04",
+  "creation_date": 1711971011,
+  "title": "Wrong time zone in Snowflake Java UDTF",
+  "tags": [
+   "java",
+   "timezone",
+   "snowflake-cloud-data-platform",
+   "udtf"
+  ],
+  "score": 0,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "In our Snowflake account, the time zone is set to America/New_York. There is a column in a table that is declared as [code] , so it does not store a time or time zone component. We pass values from that column into a Java UDTF, into a parameter declared as [code] . Let's assume that the [code] value is [code] . A [code] represents a point in time, so we expected that the [code] column would be mapped as [code] , i.e., the original date value, at midnight, in the Snowflake account time zone. Instead, we are getting [code] , which in New York is a different date. The Snowflake documentation says that the time zone setting is inherited from the database to the UDTF environment, so why is this happening? Why is a [code] converted to a [code] using the UTC time zone and not the Snowflake time zone? To address some of the comments received here: we are using data types that are current, appropriate for our business, and supported according to Snowflake documentation : a Snowflake DATE column, which is appropriate because the time portion is not relevant to us, and which Snowflake maps to [code] when it passes the values to the UDTF. We are invoking a Java UDTF through a Snowflake function and therefore we have no control of how a Snowflake:DATE is passed in as a [code] . We thought about converting the DATE to a TIMESTAMP_LTZ, so that we control the addition of a time/zone, but the T"
+ },
+ {
+  "question_id": 78255346,
+  "ym": "2024-04",
+  "creation_date": 1711972866,
+  "title": "Java Quartz get nextFireTime from cron expression",
+  "tags": [
+   "java",
+   "quartz-scheduler"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to calculate next execution time for cronExpression using Java Quartz but always getting null for [code] property. Cron expression seems valid. and I'm using version 2.3.2 for [code] what I'm doing wrong ? [CODE]"
+ },
+ {
+  "question_id": 78255356,
+  "ym": "2024-04",
+  "creation_date": 1711973006,
+  "title": "The requested resource does not exist (VISA Create Card API, Google pay push provisioning)",
+  "tags": [
+   "java",
+   "google-pay",
+   "visa-api"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I've been trying to implement [code] for visa cards and I tried to use the API that they provide, surprisingly I get a 404 response saying that the requested resource doesn't exist, here's the details response : [CODE] I tried to test with helloworld endpoint and it work just fine with the same API_KEY and sharedSecret. I tried to use an invalid API_KEY and also same for the path and the sharedSecret but all of these cases give Token Validation Failed : [CODE] When all is valid it throws resource not found which I couldn't understand. Here's the code I used to send the request : [CODE]"
+ },
+ {
+  "question_id": 78255374,
+  "ym": "2024-04",
+  "creation_date": 1711973202,
+  "title": "Row locking is not working when using @Transactional for SQL Server database",
+  "tags": [
+   "java",
+   "sql-server",
+   "micronaut"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am creating a XML file and writing it in one folder with name [code] format. When multiple threads are executing the same process and creating the file in same second it is getting overridden with the later thread. [CODE] This method is defined as [code] and I am updating the database row in starting to take a row lock so that no other thread can start processing until first one will complete the processing for this. But this is not working. There is a limitation in the code due to the fileName as only one file can be process in one second but currently I can not change the file naming convention. ALso, I am looking for some workaround which can work on multiple JVM as I have already applied synchronized block but this will work for single jvm only so looking for database locking which can work on multiple jvm as well. I am using SQL Server as database and transactional in Micronaut framework. Do I miss any configuration in database or am I missing something in code?"
+ },
+ {
+  "question_id": 78255441,
+  "ym": "2024-04",
+  "creation_date": 1711974096,
+  "title": "How to mock HashMap in JUnit test in Spring Boot (Throws nullpointerexception)",
+  "tags": [
+   "java",
+   "spring-boot",
+   "junit"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I have a problem to write JUnit test for the method in my Spring Boot example shown below. I cannot handle with the mock implementation in HashMap in JUnit test as it throws null pointer execption in [code] Here is the code snippet shown below [CODE] Here is the JUnit test shown below [CODE] Here is the error in this line ( [code] ) [CODE] How can I fix the issue ? Revised Part [CODE] This part throws the error shown below [CODE]"
+ },
+ {
+  "question_id": 78255658,
+  "ym": "2024-04",
+  "creation_date": 1711976729,
+  "title": "Inconsistent Game Speed and Meteor Falling Rate after Restarting",
+  "tags": [
+   "java",
+   "swing",
+   "animation",
+   "game-development"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "After restarting my game using a button, I'm encountering inconsistent game speed and meteor falling rates compared to the initial game launch. Initially, the game runs smoothly with quick meteor falls and fighter jet movement. However, upon restarting the game, the meteors seem to fall slower, and the fighter jet moves at a reduced speed. I suspect this inconsistency might be due to how I'm handling the game loop or thread usage. Any help on resolving this issue would be greatly appreciated! I'm going to show Game.java, where the game loop and reset functionality are implemented. [CODE]"
+ },
+ {
+  "question_id": 78255706,
+  "ym": "2024-04",
+  "creation_date": 1711977296,
+  "title": "Avoid Java debugger extension in VS code directly using classes from other .java files?",
+  "tags": [
+   "java",
+   "vscode-debugger"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I just want my .java file to use classes defined in this file or have access to .class files in the same folder. However, the Java debugger can run a program by using classes in other .java files, even in other folders, which really confuses me. What I learned in the textbook is that a .java file can use a class in a .class file in the same folder or use import or package statements to introduce other classes. I completed the exercises in the textbook without using the Java extension and just installed the Java debugger when I started learning the algorithm part. so I met a problem: when copying a class from a .java file, pasting it into a new one, and modifying it, this new class can't be used in the new file when I launch this file by using the run and debug function. I looked up their troubleshooting doc , it says \"If there are multiple classes with the same name in the current workspace, the debugger uses the one inside the project specified by [code] .\". So even though I define this class in the new file, the original one is invoked. How to modify it so that it can just use classes the way I expected? Meanwhile, The new file can be executed successfully when I use the terminal command line [code] . For example, I have a file: OldFile.java file under /Users/Liam/Documents/Java/src/chapter1 [CODE] and another file: NewFile.java file under /Users/Liam/Documents/Java/src/chapt"
+ },
+ {
+  "question_id": 78255744,
+  "ym": "2024-04",
+  "creation_date": 1711977957,
+  "title": "Why setting &quot;setChunkedStreamingMode&quot; throws Socket Exception?",
+  "tags": [
+   "java",
+   "android",
+   "kotlin",
+   "upload"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to upload a file to a server using the HttpUrlConnection. AFAIU, Passing a buffer size to [code] , avoids memory exhaustion while transferring large files through HttpUrlConnection. Source of my inference Below I have provided the shortened version of my code that works while the [code] is commented. But uncommenting [code] , causes \"Socket Exception. Broken pipe\" I'm not sure if I'm using it correct. Can anyone help me in suggesting how to use the [code] Code: [CODE] Exception thrown on uncommenting the [code] [CODE]"
+ },
+ {
+  "question_id": 78255772,
+  "ym": "2024-04",
+  "creation_date": 1711978283,
+  "title": "Minecraft Java Bukkit",
+  "tags": [
+   "java",
+   "minecraft",
+   "bukkit"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I want to make it so that my bukkit-paper plugin for 1.20.1 works, where you can mine an end portal frame with silk-touch and it mines, and you get the item: [CODE] Expected: Block destroys and block gets dropped when mined with silk touch Result: Doesn't mine"
+ },
+ {
+  "question_id": 78255869,
+  "ym": "2024-04",
+  "creation_date": 1711979605,
+  "title": "Redundand queries to the `pg_catalog.pg_type` table",
+  "tags": [
+   "java",
+   "postgresql",
+   "jdbc",
+   "clojure"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm using Next.JDBC with the official Postgres driver and HickaryCP pool. Every time I query something that involves JSONb, I see some extra queries in the console, like: [CODE] They return: [CODE] Is there is a way to tweak the driver, pool, or connection settings to avoid spamming these queries all the time?"
+ },
+ {
+  "question_id": 78256037,
+  "ym": "2024-04",
+  "creation_date": 1711981865,
+  "title": "Is there something wrong with the java or xml code",
+  "tags": [
+   "java",
+   "android",
+   "xml"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "This is the java code: [CODE] and this is the xml code: [CODE] It seems like I'm meant to add something to the xml file, but when I added the attribute 'android:id=\"main\"', it still didn't work.I heard that the filename of the xml file could also be an issue, but the name of the xml layout file is activity_main.xml. I'm still a beginner to android programming so I don't understand the reason for this error"
+ },
+ {
+  "question_id": 78256040,
+  "ym": "2024-04",
+  "creation_date": 1711981893,
+  "title": "Pentaho Data Integration (PDI) Jobs Failing After Upgrading to OpenJDK 11 on CentOS VM",
+  "tags": [
+   "java",
+   "pentaho",
+   "kettle",
+   "pentaho-spoon",
+   "pentaho-data-integration"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I recently upgraded my Java version from 8 to 11 (openjdk 11.0.22 2024-01-16 LTS ) on a CentOS virtual machine where I run Pentaho Data Integration (PDI) jobs. According to documentation, PDI 9.3 should be compatible with OpenJDK 11. However, after the upgrade, my PDI jobs started failing with the following error: [CODE] First question is why Spoon even points to the libraries that do not exist in Java 11 if they claim to support this version? Workaround: I had to comment these lines in the [code] file to make it work: It works now, but it takes around 7 minutes to start an ETL job, and then pauses several times in between with the log entries like this: [CODE] Any recommendations on how to handle this better?"
+ },
+ {
+  "question_id": 78256047,
+  "ym": "2024-04",
+  "creation_date": 1711981983,
+  "title": "Selenium cannot find element despite scrolling into view",
+  "tags": [
+   "java",
+   "selenium-webdriver",
+   "selenium-chromedriver",
+   "browser-automation"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to scrape a few things from the website (url in code). I am able to scrape the brand name and the SDR but it seems like anything that's below the SDR, I cannot seem to scrape. I am only testing this on the first result, once i manage to figure it out I will make it dynamic. Hopefully one needs to just have selenium in their project and the chrome deriver and they can then copy/paste this code. The below code gives the following error: [CODE] Code: [CODE] But switching to replacing [CODE] to [CODE] Gives the following output: [CODE] So i'm so puzzled as to why energyRating is missing and not giving a NoSuchElementException"
+ },
+ {
+  "question_id": 78256189,
+  "ym": "2024-04",
+  "creation_date": 1711983673,
+  "title": "Spring boot Java REST API calling via Javascript - No &#39;Access-Control-Allow-Origin&#39;",
+  "tags": [
+   "javascript",
+   "java",
+   "html",
+   "spring-boot"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have successfully created few REST APIs with Spring boot which are working fine on postman and Visual Code extension Thunder Client . But when I try to call APIs from HTML via JavaScript is throws errors. Here is the HTML code [CODE] I have spent a lot of for proper solution but no luck. I also read No 'Access-Control-Allow-Origin' header is present on the requested resource—when trying to get data from a REST API but here no proper implementation shared."
+ },
+ {
+  "question_id": 78256243,
+  "ym": "2024-04",
+  "creation_date": 1711984262,
+  "title": "com.stripe.exception.RateLimitException overcome",
+  "tags": [
+   "java",
+   "stripe-payments"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I write some custom logic for update subscription in my project but at some point have began to receive error: [CODE] How to troubleshoot the situation? How can I know what kind and how many http requests Stripe Java SDK sends to server?"
+ },
+ {
+  "question_id": 78256257,
+  "ym": "2024-04",
+  "creation_date": 1711984408,
+  "title": "Cannot connect Spring boot with docker in wsl2",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "docker",
+   "windows-subsystem-for-linux"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have installed docker in wsl2 windows 11 and started it. When in run my spring boot project i have an error : [CODE] my docker file [CODE] my application properties [CODE] How can i fix connection failed to my database running in wsl2 ubuntu to my spring boot application runing to windows 11"
+ },
+ {
+  "question_id": 78256340,
+  "ym": "2024-04",
+  "creation_date": 1711985443,
+  "title": "how to sort input from java scanner?",
+  "tags": [
+   "java",
+   "java.util.scanner"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am working on a simple project in Java which need to take in a string through a Scanner object and then sort out the inputs which can be integers. These then need to be fed in pairs to run the program (which needs 2 input parameters). An input could be: [code] which then needs to result in [code] and q for quit. The rest needs to be sorted away and is not used. How can I do this?"
+ },
+ {
+  "question_id": 78256388,
+  "ym": "2024-04",
+  "creation_date": 1711985955,
+  "title": "user defined array object and want to create a default constructor and parameterized constructor in Java",
+  "tags": [
+   "java"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Hi I'm very new to Object Oriented Programming and just starting to learn Java. I have a user defined array object and I want to initialize it using default constructor and parameterized constructor but I don't know how to do it. I was wondering if I could get some help. [CODE] Thank you so much for you time. So far for default constructor i've tried the following but i don't know if this is correct [CODE] as for parameterized constructor i've put Obj2[] objarr as parameter and inside the body i wrote this.objarr = objarr; but it's getting an error."
+ },
+ {
+  "question_id": 78256402,
+  "ym": "2024-04",
+  "creation_date": 1711986152,
+  "title": "How to dynamically filter properties by Jackson",
+  "tags": [
+   "java",
+   "json",
+   "jackson"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Let's assume there is a class like the following: [CODE] It's obvious that the Employee object is NOT POJO, some properties are not specified or set to null are totally different . This is popular design in ORM Unspecified: The value of the property is unknown Null: The value property is known, it has no data. For example, since hibernate3, it is used by lazy scalar properties. This is actually a way to make objects dynamic while retaining the advantages of strongly-typed language. Clearly, the default Jackson cannot serialize/deserialize this object, and Jackson's behavior needs to be overridden, unspecified properties must be skipped (like the logic of [code] ) . Properties that are not specified need to be ignored by Jackson, which is highly similar to the requirement of @JsonFilter , with the only difference being that the filtering rules are not fixed but independent for each object. I tried to solve this problem by registering custom Serializer and Deserializer through a custom Jackson Module. However, my custom read/write strategies are not as comprehensive as the standard Jackson behaviors, and inevitably break some advanced Jackson features such as @JsonAlias, @JsonView, inheritance, and polymorphism. Therefore, I need to implement dynamic object filtering without breaking any advanced Jackson features , as if each object had its own @JsonFilter . Is there an elegant w"
+ },
+ {
+  "question_id": 78256731,
+  "ym": "2024-04",
+  "creation_date": 1711990592,
+  "title": "Spring security permit all redirect to /login for any endpoint",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "spring-mvc",
+   "spring-security"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Below is the SecurityFilterChain bean created according to the new Spring Security 6 / Spring boot 3 documentation. Please let me know if this is expected or if something is wrong. code : [CODE] application.properties [CODE] every endpoint I know for example http://localhost:8081/h2 or http://localhost:8081/register always redirects me to http://localhost:8081/login with a spring login and password form security what should I do and yet I applied permitall on /h2, /register/**, ..."
+ },
+ {
+  "question_id": 78256737,
+  "ym": "2024-04",
+  "creation_date": 1711990613,
+  "title": "How to make the Java JAR file of extra_module of OpenCv and merge it with base OpenCv module",
+  "tags": [
+   "java",
+   "opencv",
+   "face"
+  ],
+  "score": -2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "(pls tell me , i have project due in 2weeks - which needs this face classes in my project.) So i was trying to add JAVA face_module from opencv_contrib , using cmake & visual studio - did everything to add the extra modules path . i added proper configure and generated it . But there is no JAR file it that new directory. I have tried to change the cmakelist.txt to java , but i dont know what do you mean by Compiling - means where do i have to compile it. (i have read all other question - but i dont know how to do it ,please provide understandable steps. I want anyone to provide me how to do it or tell me in step to do it - and i really dont know what to compile and where, please i need this quickly for my face_recognition project. (everything i see is for python , they are pip install) but i am using Java - with NetBeans IDE."
+ },
+ {
+  "question_id": 78256752,
+  "ym": "2024-04",
+  "creation_date": 1711990732,
+  "title": "NoSuchMethodError attempting to connect to Azure Service Bus Queue using Spring Boot",
+  "tags": [
+   "java",
+   "spring-boot",
+   "azureservicebus"
+  ],
+  "score": 3,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am developing a Spring Boot application that will consume from an Azure Service Bus queue. I have followed the instructions found in use-the-spring-cloud-azure-service-bus-starter but when I attempt to start the application I see the following in the below log. I have set the following properties in my application.properties file: [CODE] I am using Java 17, the most current versions of Spring Boot and Azure dependencies and I have performed: [CODE] successfully in my local environment. According the the document referenced above this is all I should need to do. Anyone have any thoughts on what I might be missing or what I am doing incorrectly? [CODE] I have tried setting the credentials as environment variables with the same exception being thrown. I expect a successful connection to the ASB queue and consumption of messages."
+ },
+ {
+  "question_id": 78256789,
+  "ym": "2024-04",
+  "creation_date": 1711991121,
+  "title": "CSS Card Project",
+  "tags": [
+   "java",
+   "html",
+   "css",
+   "flexbox",
+   "css-selectors"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "This is the css code: [CODE] The header, nav and footer elements, backgroun-color, isn't covering the 100%width of the page when not viewed in desktop view in chrome It just covers half of the view Let me show without desktop view This is without desktop view. And the one with desktop view is here: here with desktop view I am new to learning CSS, I am not really understanding what went wrong here? I tried adding the media quarry but that didn't work..? Can someone kind soul please take the time and point out what's wrong here?"
+ },
+ {
+  "question_id": 78256824,
+  "ym": "2024-04",
+  "creation_date": 1711991617,
+  "title": "Loading TWO existing .html file with android webview in android studio",
+  "tags": [
+   "java",
+   "android",
+   "html"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am new to Android Studio, I tried to load [code] using web view and it worked as expected but when I tried to load [code] it didn't load in the emulator I want to load [code] .I also want to load [code] which I put in the assets folder with a hyperlink in the index.html page In the current code the [code] loads perfectly fine but when clicking the hyperlink, it gives this error The web page at file:///android_asset/home.html could not be loaded because: net::ERR_FILE_NOT_FOUND' I checked the file location and it was the same, I tried to load [code] the same way as I did with [code] but none solved it I then replaced the [code] with a CSS file and it found the file and gave the result even though the html file in the same folder couldn't be found I will share my [code] and [code] here [CODE] [CODE] I do not have much experience with coding and English is not my main language, so please make the explanation simple"
+ },
+ {
+  "question_id": 78256831,
+  "ym": "2024-04",
+  "creation_date": 1711991703,
+  "title": "Image load error Webview Android (droid logo)",
+  "tags": [
+   "java",
+   "android",
+   "kotlin",
+   "webview",
+   "android-webview"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "In some devices when I try to load a image url in a WebView I get the following (error) image: Other devices load the image with no problems, how can I fix that?"
+ },
+ {
+  "question_id": 78256957,
+  "ym": "2024-04",
+  "creation_date": 1711993318,
+  "title": "How should I manage dependencies between multiple microservices (with maven)?",
+  "tags": [
+   "java",
+   "spring",
+   "maven",
+   "jpa"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to build a SpringBoot microservice-architecture for example a ShopSystem which has a dependency to a other microservice like \"Customer\". As the dependency-managementtool I'm using Maven and the customer creates a JPA-Repository, but now when I try to put the customer-dependency into the shopsystem pom.xml, the shopsystem tries to create another customer repository. So the shop-service won't start because there already exists a customer-repository. I want the customer-dependency in the shopsystem because I'm using the \"Customer.class\" in the shop as a return type of the CustomerService-Methods, for example to retrieve customerId's, the cart of the customer and so on. How should I handle the dependencies between those services or should I only return the customerId, which would be an Integer because of information-hiding, separation-of-concern... The services are connected via rest with OpenFeign if it's good to know for the problem and they are running in separate SpringBoot-Application processes. I've seen something with a parent.pom, but I'm not sure if that would solve my problem and for me that doesn't seem to be like a clean solution. I've tried to exclude the \"database\"-package in the customer.jar, because I only want one specific class out of the service and nothing else, but that didn't worked like I imagined. If this would have worked, is it a proper thing to"
+ },
+ {
+  "question_id": 78256969,
+  "ym": "2024-04",
+  "creation_date": 1711993537,
+  "title": "Starting a JAVA application on a network drive using another Java application with OpenJDK and JavaFX",
+  "tags": [
+   "java",
+   "javafx",
+   "runtime",
+   "exec",
+   "module-path"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to start a jar file on a network drive from another application. With Java 1.8 this works without any problems. When switching to OpenJDK plus JavaFX, the start of the program is delayed by 10-20 seconds. The problem is that it only works if JavaFX is also on the network drive. Then all modules have to be loaded via the network, which takes a lot of time. Via batch file it works with the local javaFX installation: [CODE] But in the startApplication.jar the following code doesn´t work: [CODE] It works with the following cmd line instead: [CODE] This works if JavaFX is installed on the network drive in the target folder. But it needs a lot of time. How does the cmd string have to be adjusted so that it also works with %JAVA_FX%?"
+ },
+ {
+  "question_id": 78257097,
+  "ym": "2024-04",
+  "creation_date": 1711995374,
+  "title": "Spring WebSocket upgrade failure. response 400 BAD_REQUEST",
+  "tags": [
+   "java",
+   "spring",
+   "spring-websocket",
+   "stomp",
+   "bad-request"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have an Spring app with Stomp WebSocket but when i try to connect to it using Postman or wscat i get an \"error : Unexpected server response : 400\" Here is configurating code i use : In WebSocketConfig [CODE] In SecurityConfiguration [CODE] All another endpoints like register or login works correctly I added a lot of logging in [code] and [code] filter but i can find any usefull information what cause a 400 response. Here is logs from server when i run ( same response for http:// and for ws:// ) [CODE] [CODE]"
+ },
+ {
+  "question_id": 78257248,
+  "ym": "2024-04",
+  "creation_date": 1711997695,
+  "title": "Configuring Micrometer to Automatically Create New Span on Async",
+  "tags": [
+   "java",
+   "spring-boot",
+   "asynchronous",
+   "micrometer",
+   "micrometer-tracing"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am trying to get Spring Boot 3.2 to work with trace/span ids in a similar fashion to the way Spring Cloud Sleuth works in Spring Boot 2. I have come up with the following configuration class: [CODE] This is working for [code] methods, but does not create new spans for new threads. I tried putting a [code] annotation on my [code] method, but this causes my method to not run asynchronously anymore. I also tried putting a manual new span in form my async executor [CODE] While the [code] does produce a new span in the log, the actual method is still producing the outside span id. What am I missing?"
+ },
+ {
+  "question_id": 78257252,
+  "ym": "2024-04",
+  "creation_date": 1711997766,
+  "title": "Running a Java Based Game inside Wordpress Post or Page",
+  "tags": [
+   "javascript",
+   "java",
+   "wordpress"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am using a puzzle generator app to create interactive word search and crossword puzzles. I am getting the following files: Files generated by the app How can I use those files to run the game inside a Wordpress post? Thank you! gd I already tried uploading the page directly as a static page, and it did not work. However, I am open to hearing all suggestions. I am more of a designer than a programmer."
+ },
+ {
+  "question_id": 78257259,
+  "ym": "2024-04",
+  "creation_date": 1711997817,
+  "title": "I can not stop the observer for livedata inside a fragment using removeObserver",
+  "tags": [
+   "java",
+   "android",
+   "android-livedata"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a Fragment which is a tab (among a few other tabs) in an activity. In a part of the fragment I want to [code] my [code] of [code] once. This is the code: [CODE] The observer is apparrently not removed with the above code. What am I doing wrong? I only know Java right now and I can not understand answers in Kotlin. Also here is my [code] [CODE] Strangely, when I use [code] instead of the [code] in the code, [code] works and the observer only runs once. Here is the DAO: [CODE]"
+ },
+ {
+  "question_id": 78257275,
+  "ym": "2024-04",
+  "creation_date": 1711998078,
+  "title": "How to parse date/time string into a date/time where &quot;local&quot; time can be extracted",
+  "tags": [
+   "java",
+   "datetime"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have a Java (11) application that can receive data that includes date/time values in the format: [code] example: [code] I need to be able to parse these strings into date/time objects and be able to work with and display the values in \"local\" time (e.g., US Central Time). I thought this would be fairly straightforward, but I've been trying lots of things that I thought would work, but do not. Using the sample above, I would expect a \"local\" (assuming US Central) date/time that represents: [code] . Note: I haven't thought yet of how to handle \"daylight\" versus \"standard\" time. Perhaps the [code] library takes care of this? I've tried using the [code] and [code] [code] methods, as well as a [code] with and without a \"zone\" specified. I can't get anything to do what I need. Here is the class with the different things I've tried: [CODE] Everything that I try just returns me a date/time object with the same time as from the source string. It has not been adjusted for the time zone difference. Can someone give me an idea what I'm doing wrong or missing?"
+ },
+ {
+  "question_id": 78257364,
+  "ym": "2024-04",
+  "creation_date": 1711999257,
+  "title": "Hibernate: How can I assign a default value to the enum in the embedded class",
+  "tags": [
+   "java",
+   "hibernate"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "[CODE] I am using this BaseEntity class in other Entity classes. I have learned how to give values for [code] and [code] fields. but I could not find how to give [code] value to [code] field by default. Can I do this with hibernate?"
+ },
+ {
+  "question_id": 78257428,
+  "ym": "2024-04",
+  "creation_date": 1712000204,
+  "title": "Jbutton should open a JList and then append JtextArea but nothing happens when I press it?",
+  "tags": [
+   "java",
+   "swing",
+   "jbutton",
+   "desktop-application",
+   "jlist"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "[CODE] [CODE] [CODE] So basically when I click on that Scene button my hope is that a JList will pop up in the textArea Panel and ask if the user wants to create a EXT. or INT. scene and then paste in the textArea named textDoc. However when I click on the scene button it doesn't actually do anything. Normally I can write on the textDoc but when I click the scene button I'm not able to do that either. Is JList waiting for an action that it's not getting? Please advise."
+ },
+ {
+  "question_id": 78257617,
+  "ym": "2024-04",
+  "creation_date": 1712002825,
+  "title": "I get either unauthorized or forbidden when trying to login with a user from the database using spring security",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "authentication",
+   "spring-security"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I am trying to learn spring security. I followed a tutorial on how to secure your application. Unfortunately some of the things he added were deprecated and I tried replacing the deprecated functions. The program works well with users that are created and saved in memory but when I tried adding users to the database and authenticate with them I encounter either [code] if I have the [code] in the filter chain or [code] if I deleted it. Here is my SecurityConfig class: [CODE] Login Method: [CODE] CustomizedUserDetialsService: [CODE] I can provide the register method too or any other class that you want but I don't want to make this question longer than it is. Last thing it would be great if anyone can suggest a beginner friendly source for learning spring security. Thank you!"
+ },
+ {
+  "question_id": 78257686,
+  "ym": "2024-04",
+  "creation_date": 1712003868,
+  "title": "Unable to save application/octet-stream (image file) to file using Java",
+  "tags": [
+   "java",
+   "pentaho",
+   "pdi",
+   "octet-stream"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am using a \"User-Modified Java Class\" step in Pentaho Data Integration (PDI) to take an octet-stream returned via Rest API and save it to disk. I have a working example that assumes the input is a blob (and not necessarily an octet-stream), but I haven't been able to figure out how to save the octet-stream as-is to disk while preserving the original file integrity. I am able to save the file to disk, however the filesize is approximately 1k smaller than the original and I receive a \"filetype not supported\" when attempting to open the file (with extension .jpg, same as the original). Here is the code that will save the file disk: [CODE] Note that the snippet: [code] retrieves the octet-stream as raw data (contents of the Body of the Rest API response) which is read into the PDI step. Both [CODE] and [CODE] produce the same results. I also tried writing directly to the output stream and [CODE] and [CODE] produce the same results as the previous method. At least they produce the same same size (13k) file in each case as well as the file being reported as \"unsupported file type\" by the image viewer. The image is of the octet-stream as saved to a text file in case it helps... octet-stream output as text file and the response header information... [CODE] My Java expertise is minimal, so any help is most appreciated. --Ezra"
+ },
+ {
+  "question_id": 78257752,
+  "ym": "2024-04",
+  "creation_date": 1712004816,
+  "title": "Spring boot: Bean and dynamic Qualifiers",
+  "tags": [
+   "java",
+   "spring-boot",
+   "qualifiers"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "Considering the following [code] snippet: [CODE] [CODE] I would like to configure spring to automatically wire endpoints from both [code] and [code] to the [code] . However, for the [code] endpoint, I want to retrieve data from the [code] using [code] cache as its backend, while for the [code] endpoint, I have to fetch data from [code] cache backend. If spring boot does not support this directly, what would be the best practice to achieve this? Can I use [code] for this purpose?"
+ },
+ {
+  "question_id": 78257855,
+  "ym": "2024-04",
+  "creation_date": 1712006271,
+  "title": "Any way to deploy NodeJS app that uses Java to Google App Engine?",
+  "tags": [
+   "java",
+   "node.js",
+   "google-app-engine"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "https://www.npmjs.com/package/xsd-schema-validator We're using this package, and it uses Java under the hood. Is there any way to deploy this app to App Engine? I'm assuming we'll have to switch from Standard to Flexible and write our own Dockerfile?"
+ },
+ {
+  "question_id": 78257869,
+  "ym": "2024-04",
+  "creation_date": 1712006493,
+  "title": "Message gets displayed as &#39;?&#39; in VS code",
+  "tags": [
+   "java",
+   "visual-studio-code",
+   "utf-8",
+   "output",
+   "display"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "VS code does not displays my messages in Tamil, Russian etc. other languages, How can I make it to support all the languages I wish to display? Suppose I want to display Press 2 for Hindi. How can I do it in Hindi language in VS code. All it shows in the output is this. enter image description here enter image description here Expected this as output: हिंदी के लिए 2 दबाएँ but all i got was \"?????????\""
+ },
+ {
+  "question_id": 78257955,
+  "ym": "2024-04",
+  "creation_date": 1712008034,
+  "title": "Browser Not sending cookie to backend and donest set them in the first place",
+  "tags": [
+   "java",
+   "angular",
+   "spring-boot",
+   "cookies"
+  ],
+  "score": -1,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "Hello everyone im trying to secure my spring boot application with HTTP only cookies, migrating from local storage and I faced some issue that even chatGPT couldn't solve :) to begin with, this is my CookieUtil class [CODE] I tried setting HttpOnly to false to see if the token get set in the browser and still same thing its not showing, I know its not supposed to show when I set to HTTP only and I know that setSecure is just for local development this is my login method [CODE] Im using keycloak as an indemnity manager and I'm getting the token fine as you can see in the pic below and this is request headers, you can see that set cookie is there, ( same thing in the browser when I login I get the set cookie header ) this is how it looks in the dev tools the problem right now in get employee By Keycloak from the accessToken [CODE] as you can see I'm trying to get the cookie accessToken to decode it and get the userId( the decoding part works fine btw) the reason this method is always failing because the cookies are always null means the browser is not sending them to the server when it comes to the front code this is my login [CODE] this is the sign part where the token is supposed to get added and this is the endpoint of getting the employee [CODE] as you can see im using withCredentials:true when it comes to cors I already have this in my controllers [CODE] I appreciate any hel"
+ },
+ {
+  "question_id": 78258016,
+  "ym": "2024-04",
+  "creation_date": 1712009017,
+  "title": "Java applet code has scale variable for sizing window not sure what it&#39;s for",
+  "tags": [
+   "java",
+   "applet"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am having a bit of difficulty understanding what the purpose of this code might be. I put an applet into a Java decompiler and this is the code. Specifically, the line where it is setting the viewCenter is confusing. I am not sure what the purpose of [code] might be. [CODE] Vector3 is a class representing a 3D vector. [CODE] edited to provide more details"
+ },
+ {
+  "question_id": 78258043,
+  "ym": "2024-04",
+  "creation_date": 1712009542,
+  "title": "Find minimum matching values for equation",
+  "tags": [
+   "java",
+   "algorithm"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have an array of integers arr say [1, 2, 3, 6, 67] I have an equation : [code] I can use the array values in this equation to replace x and y, by some array positions say arr[i], arr[j] i and j can be different or same. so it looks like this: [CODE] Now I have another array [code] The task is to find values for a and b such that [code] , where k is the index position of Zarr. once a and b are calculated I need to get the sum [code] and store in result, the condition is the sum [code] should be minimum. I have 1 more restriction, if the sum a+b is more than input variable [code] , then set result for that index to be -1; Example: [CODE] Result is [code] Explanation: [CODE] Here is my code, using brute force approach: [CODE] Constraints: [CODE] What is the correct approach to solve this, How can the time complexity be decreased?"
+ },
+ {
+  "question_id": 78258051,
+  "ym": "2024-04",
+  "creation_date": 1712009616,
+  "title": "How to change font of the existing PDTextField in pdfbox Java?",
+  "tags": [
+   "java",
+   "pdf",
+   "fonts",
+   "pdf-generation",
+   "pdfbox"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm working with a pdf template that has text forms in it. My programme needs to insert text into these forms. The problem arises because the insertion text is Czech. I know that I need to install a special font to work with Czech language: [CODE] Font is set to field this way: [CODE] This code works, for example, for templates created in LibreOffice. But for templates created in https://www.sejda.com/pdf-forms , it crashes with an encoding error Exception in thread \"main\" java.lang.IllegalArgumentException: U+011B ('ecaron') is not available in the font Helvetica, encoding: WinAnsiEncoding at org.apache.pdfbox.pdmodel.font.PDType1Font.encode(PDType1Font.java:410) at org.apache.pdfbox.pdmodel.font.PDFont.encode(PDFont.java:337) I can create new PDTextField in programm, set font for it and rectangular. Then program works correctly [CODE] I assume this behaviour is due to DefaultAppearance overlapping somewhere with the value set by the pdf editor, but I can't figure out where to look for that. Is my reasoning correct? What is the correct way to handle foreign languages in the pdfbox form body? Put the files on the disc. https://drive.google.com/drive/folders/14Ko_55T9wyYaC6rj7uoH5AUYcTOgN7JC?usp=sharing *_new_font - files created after [CODE] execution. I tried to debug default appearance changing and got that the default appearance of field is changed after setDefaultAppearance"
+ },
+ {
+  "question_id": 78258119,
+  "ym": "2024-04",
+  "creation_date": 1712010834,
+  "title": "@Remove a JsonProperty from a class file - Java",
+  "tags": [
+   "java",
+   "json",
+   "spring"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to implement a simple shopping cart system for a website. I am using a Spring framework and Rest API to do the backend for the website. The shopping cart must have the ability to be sterilized and desterilized from a file so that users can log off and back on and still retain their shopping cart items. In my case, the shopping cart is filled with Need objects that function similar to items put in the cart. At first I tried to implement my shopping cart this way: [CODE] Which gave the error: [code] This error was strange since the Need class has its on independent file saving functionality which works perfectly. I assumed that @jsonProperty must only allow for privative datatypes so I converted and stubbed out the code to use the privative datatype String to sterilize the data: [CODE] This gave the error: [code] This made no sense because I have eliminated the @JsonProperty \"needs\" and replaced it with \"needsArr\" I decided to stub out an implementation that only had two class varriables to see if that was it. This meathod if implemented would only store a string locally to represent my array of Needs and would have to be converted to an array every time an operation on the Needs were done: [CODE] This once again received the error: [code] I was so confused this this mystery problem with the needs variable that I tried just removing it entirely making the cart non-fun"
+ },
+ {
+  "question_id": 78258212,
+  "ym": "2024-04",
+  "creation_date": 1712012726,
+  "title": "What could be the best approach to implement TTL in a column in postgres/RDBMS?",
+  "tags": [
+   "java",
+   "postgresql",
+   "algorithm",
+   "design-patterns",
+   "ttl"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have a system which stores date of joining in postgres DB. There is also a award category code in the same table which looks like: NO_AWARD - when employee has spent less than 1 year How to implement a solution where remove the NO_AWARD code once any employee completes 1 year. Employees join throughout the year. One solution can be run a scheduled job which scans the table and nullify the category code column. What other options can be be considered? Thanks in advance."
+ },
+ {
+  "question_id": 78258470,
+  "ym": "2024-04",
+  "creation_date": 1712019315,
+  "title": "Hibernate OneToMany mapped values not being deleted on threaded actions",
+  "tags": [
+   "java",
+   "multithreading",
+   "hibernate",
+   "hibernate-onetomany"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have two @Entity types. One is Document, which contains 1..n pages from PDFs. The other is Tag, which adds context or description to Documents. For example, a Document containing a Bank of America statement might have these tags: BOA, STATEMENT. The Document @Entity holds Tags as follows: [CODE] My Spring Boot webapp uses Vaadin, JPA Repositories, and Hibernate. When I manually apply a Tag to a Document, or if I remove a Tag from a Document, I see entries arriving and departing from the generated document_tags table as expected. However, I have a separate app designed to run \"headless\" and perform expensive tasks on these documents, like OCR of the PDF pages. This \"server\" app has the same maven dependencies, except for Vaadin. When this \"server\" app runs threaded actions, it will load up a document via JpaRepository named query, adjust Tags, and then saveAndFlush. It can ADD a Tag or multiple Tags no problem, provided they are not already present in the Set. Clearing the Set and saving does not cause records to be removed from the table; trying to Save a new Tag in the Set causes an exception as follows: [code] So! I assume that some aspect of Hibernate or JPA management is not being passed into these worker threads, so it is therefore not cascading the deletes when I clear the Tags and then do a [code] However - How do I do this? What else is causing these [code] entries to"
+ },
+ {
+  "question_id": 78258537,
+  "ym": "2024-04",
+  "creation_date": 1712021217,
+  "title": "Undertow web server fails after restart with error &quot;UT000196: Session with id xyz already exists&quot;",
+  "tags": [
+   "java",
+   "undertow"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a Java API server running on undertow with a React/TS front-end. When the user is logged in, if I restart the web server, upon next incoming API request it fails when trying to get or create a http session with this error: \"UT000196: Session with id Bd7OOFzzr0HS6mRwGhaI0hifp7YbONJeU2PosKLd already exists\" This happens in [code] function. Any idea what causes this? I checked the code briefly on Github and looks like it is a normal hashmap with session identifiers, but I don't know why upon a restart, exact same session id is generated. P.S: My deps: [CODE]"
+ },
+ {
+  "question_id": 78258626,
+  "ym": "2024-04",
+  "creation_date": 1712023751,
+  "title": "How can I make a native query using two tables in SpringBoot?",
+  "tags": [
+   "java",
+   "spring-boot"
+  ],
+  "score": -1,
+  "answer_count": 3,
+  "is_answered": false,
+  "body_excerpt": "I'm learning Spring Boot and trying to make a custom query that uses two tables, which gives me problems. I was investigating, and because I understood I should use a DTO, but when I called it, it gave me the following error: [CODE] What am I doing wrong? These are my files ProducService.java [CODE] ProductRepository.java [CODE] ListProductsOrderOffer.java [CODE] ProductController.java [CODE] Also check and the error may be due to the type of data, that is, they are different from what they are in the database, so I leave you my table. Additionally, I verified that the query would not present problems, so I decided to simplify it."
+ },
+ {
+  "question_id": 78258671,
+  "ym": "2024-04",
+  "creation_date": 1712025241,
+  "title": "Hibernate OnetoOne Mapping Join Issue",
+  "tags": [
+   "java",
+   "spring-boot",
+   "hibernate",
+   "spring-data-jpa",
+   "orm"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have created two entities with unidirectional mapping [CODE] [CODE] I am making following 2 queries [CODE] for query 1 hibernate created with LEFT JOIN [CODE] for query 2 hibernate created below query with just JOIN [CODE] how to force hibernate to generate left join instead of just join in query 2 so i can get users who does not have accountStatus as null I am expecting hibernate to generate left join in both queries"
+ },
+ {
+  "question_id": 78258772,
+  "ym": "2024-04",
+  "creation_date": 1712027923,
+  "title": "Extract business information from publicly available G Maps search data but getting NullPointerException",
+  "tags": [
+   "java",
+   "android",
+   "google-chrome",
+   "web-scraping"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am using the given code for web scraping. Basically it is a web page scraping app in which the user searches for the target by providing specific data. A webview is used in this code. The listed error needs to be resolved for the code to work correctly. Can someone please tell me how to solve this? Error is: Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.StringBuilder java.lang.StringBuilder.append(java.lang.String)' on a null object reference at com.education.saifgroupgrabber.WebScraper.onCreate(WebScraper.java:225) LeadsExtractorActivity.Java [CODE] WebScraper.Java [CODE] Help for solving this error: Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.StringBuilder java.lang.StringBuilder.append(java.lang.String)' on a null object reference at com.education.saifgroupgrabber.WebScraper.onCreate(WebScraper.java:225)"
+ },
+ {
+  "question_id": 78258842,
+  "ym": "2024-04",
+  "creation_date": 1712029412,
+  "title": "Maven build creates a smaller jar when dependency is added locally with scope system and fails on startup",
+  "tags": [
+   "java",
+   "spring",
+   "maven"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a [code] [code] [code] project which I build on my STS version 4. I want to add one of the dependecies as local and I added it as: [CODE] But when I do a clean install, the output jar is almost 81,211KB. But if I change the dependecy as below, the jar that is generated is 137,807KB: [CODE] Also the jar smaller jar fails on startup with below error: [CODE]"
+ },
+ {
+  "question_id": 78258930,
+  "ym": "2024-04",
+  "creation_date": 1712031786,
+  "title": "Redis closing connection after request",
+  "tags": [
+   "java",
+   "spring",
+   "redis"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "So i'm using java with spring data redis 2.4.8 for caching, when i'm trying to get values from cache (i have a list of keys), in logs i see that redis always closing connection: [CODE] How to make connection keep alive ? Here is my config: [CODE] I found the KeepAlive setting in the socket options, but it didn't help. [code]"
+ },
+ {
+  "question_id": 78258951,
+  "ym": "2024-04",
+  "creation_date": 1712032147,
+  "title": "Fetch data from API that returns ResponseEntity&lt;Object&gt;",
+  "tags": [
+   "java",
+   "resttemplate"
+  ],
+  "score": -1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have a service that calls another Api through rest template and the Api returns ResponseEntity Object. I have tried few things but I am unable to fetch the required data. This is the code of the API which I am calling [CODE] Below is the utility Response handler class [CODE] This is the Entity class [CODE] The response of the Api looks like this [CODE] This is the code from my Service class and I have created an entity class called Survey.java to map the response from the Api [CODE] The above sysout prints fine until I print alist.get(0) but when I added getId() it throws below exception. [CODE] I have tried a few other approaches [CODE] [CODE] Any inputs as to how can I correctly fetch the details(id, name, ...) from the below response object. [CODE]"
+ },
+ {
+  "question_id": 78258988,
+  "ym": "2024-04",
+  "creation_date": 1712032809,
+  "title": "Cannot assign a many-to-many relationship in spring-jpa",
+  "tags": [
+   "java",
+   "spring",
+   "database",
+   "spring-data-jpa",
+   "many-to-many"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "There is a problem with Spring's many-to-many relationship behavior. I have 2 entities, Video.java and Tag.java. Video: [CODE] Tag: [CODE] Their corresponding DTO objects are VideoData.java: [CODE] TagData.java: [CODE] The body for post request looks like this: [CODE] However, when I send a post request, this exception pops up: [CODE] What am I doing wrong?"
+ },
+ {
+  "question_id": 78259104,
+  "ym": "2024-04",
+  "creation_date": 1712035517,
+  "title": "Unexpected error occurred in scheduled task caused by: org.hibernate.TransactionException",
+  "tags": [
+   "java",
+   "spring",
+   "hibernate"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "What might be a root cause of below error? I am using Spring, Hibernate, Postgresql. [CODE] I have a method, which takes profiles from db and updates them: [CODE] In spring xml context file: <task:scheduled ref=\"verifiedCashierService\" method=\"validateExpiredProfiles\" cron=\"0 0/5 * * * *\" />"
+ },
+ {
+  "question_id": 78259140,
+  "ym": "2024-04",
+  "creation_date": 1712036224,
+  "title": "SocketIO Java client not connecting",
+  "tags": [
+   "java",
+   "android",
+   "socket.io",
+   "python-socketio"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am attempting to create a simple connection between a python SocketIO server on repl.it and an Android Java app. When I attempt to connect to the socket nothing is happening. Client: [CODE] Server: [CODE] When I add socket.connect() or socket.open() under the socket initialization, it connects very briefly but the app crashes immediately. When I leave it out, nothing happens. I've also tried connecting with a python client and it works fine. The problem seems to be solely with the Android app."
+ },
+ {
+  "question_id": 78259174,
+  "ym": "2024-04",
+  "creation_date": 1712036758,
+  "title": "A malicious XSLT could be provided to trigger remote code execution - Sonar Issue",
+  "tags": [
+   "java",
+   "xml",
+   "xslt"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "TransformerFactory transformerFactory = TransformerFactory.newInstance(); transformerFactory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true); final InputStream prunerfileStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(\"<path to .xsl file which is in src/main/resources>\"); Transformer transformer = transformerFactory.newTransformer(new StreamSource(prunerfileStream)); At line 4, sonar is showing an issue [code]"
+ },
+ {
+  "question_id": 78259265,
+  "ym": "2024-04",
+  "creation_date": 1712038277,
+  "title": "scope.joinUtil is not working for nested StructuredTaskScope.ShutdownOnFailure",
+  "tags": [
+   "java",
+   "structured-concurrency",
+   "java-22"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "On Windows 11, Java 22, preview enabled, I am trying to use (JEP 453)'s joinUntil functionality to limit execution duration. However, I am not able to use it in a nested way. The execution is not stopping even though I used scope.joinUntil. Could you help me figure it out what is wrong with the code? I don't want to use it only in my main function, but also in my sub projects. Project code: github [CODE] Output: [CODE] As I am catching the TimeoutException, I have tried to shutdown the scope, but the problem still persists. [CODE]"
+ },
+ {
+  "question_id": 78259332,
+  "ym": "2024-04",
+  "creation_date": 1712039124,
+  "title": "The code prints 1 line with 5 stars and others empty",
+  "tags": [
+   "java"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "This code worked in for loop perfectly but when I tried the same thing in while loop it is not working as expected. When I input n as 5 it should print basic inverted star pattern but instead it prints 1 line with 5 stars and other lines empty. Please tell me what I am doing wrong. I am new with programming and its my day 6 so please try to be a little gentle. [CODE]"
+ },
+ {
+  "question_id": 78259573,
+  "ym": "2024-04",
+  "creation_date": 1712042313,
+  "title": "Firebase Admin SDK can&#39;t be used with FirebaseAuth",
+  "tags": [
+   "java",
+   "android",
+   "firebase-authentication",
+   "android-gradle-plugin"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "An issue i encountered with Firebase admin SDK and Firebase Authentication while trying to create an user managment system in my android app. So that user managment supposed to be active when admin account is logged in app. Otherwise when user is logged in user managment system supposed to be inactive. When i tried to implement Firebase Admin SDK with Firebase Authentication in my build.gradle file. [CODE] Firebase Authentication ovetwrites some libs and i unnable to get list of all users. If i remove dependency [code] ,i'll be unable to use [code] [CODE] But IDEA can't recognize admin SDK's method."
+ },
+ {
+  "question_id": 78259642,
+  "ym": "2024-04",
+  "creation_date": 1712043175,
+  "title": "Connecting java to smarterasp.net database",
+  "tags": [
+   "java",
+   "database"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have this code [CODE] and i always get \"Error1: com.microsoft.sqlserver.jdbc.SQLServerDriver\" what can i do to fix this i downloaded the jdbc jar files and put it into libs and added implementation to my build.gradle but still the same thing happens stack trace: [CODE]"
+ },
+ {
+  "question_id": 78259724,
+  "ym": "2024-04",
+  "creation_date": 1712044306,
+  "title": "Charging with Stripe using my own subscription model",
+  "tags": [
+   "java",
+   "stripe-payments",
+   "payment-gateway"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am building a tool which has it's own variable subscription model. The charges could be weekly, monthly, yearly or something in between depending on the services they choose. I am looking for a payment provider in which I can create a subscription which does not automatically charge the users, but only saves the user information so I can charge the customer when I want to using my own cron jobs. The price is also going to be variable. Is this possible with Stripe? If so, how can I approach this problem the best way? I've already looked through API docs, but only found Stripe's own subscription system. Even though it's very customizable, it doesn't meet my requirements as far as I could read through the docs."
+ },
+ {
+  "question_id": 78259744,
+  "ym": "2024-04",
+  "creation_date": 1712044524,
+  "title": "Radio Button text UI for some option not showing correct",
+  "tags": [
+   "java",
+   "android",
+   "kotlin",
+   "user-interface",
+   "multiscreen"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "We took a radio group in xml layout, and adding radio button to it via programmatically. But problem is for samsung device the UI of some radio button text is not showing in proper. Don't know what is issue cause for all other device its showing correct only. Below I have attached UI screen shot & Code for adding radio button to radio group. Any help would appreciate. //Samsung image result enter image description here //Code for Adding radio button to Radio group via programmatically [CODE] //This is xml layout [CODE]"
+ },
+ {
+  "question_id": 78259759,
+  "ym": "2024-04",
+  "creation_date": 1712044656,
+  "title": "How to modify the data in excel built into ppt",
+  "tags": [
+   "java",
+   "excel",
+   "apache-poi",
+   "powerpoint"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "enter image description here There is a built-in excel in my ppt template. Now I want to use poi to modify the data in excel. I have tried many methods but it still doesn't work. Please help me. [CODE] Exception [CODE] The effect I hope is to write the data into excel in ppt"
+ },
+ {
+  "question_id": 78259811,
+  "ym": "2024-04",
+  "creation_date": 1712045177,
+  "title": "Implementing clone() in a Generic Class with Cloneable Bound Leads to Unchecked Cast and Access Errors",
+  "tags": [
+   "java",
+   "generics",
+   "clone",
+   "deep-copy",
+   "unchecked-cast"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm working on extending a generic Node class to create a GenericNode class for a data structure exercise. The GenericNode class is generic, bounded above by the Cloneable interface, and implements Cloneable. I aim to implement a clone() method that clones the GenericNode's value, which is also of a generic type that extends Cloneable. However, I'm encountering two specific issues when trying to clone the value attribute and casting the result of super.clone(). Here's my current implementation of the GenericNode class: [CODE] Unchecked Cast Warning: I'm warned about the unchecked cast from Object to GenericNode after calling super.clone(). I understand this is due to type erasure with generics, but I'm seeking advice on how to handle or suppress this warning effectively in this scenario. Protected clone() Access: Attempting to clone the value (which is of generic type E) results in an error due to 'clone()' has protected access in 'java.lang.Object'. Given that E extends Cloneable, I thought I would be able to clone it directly, yet the direct call seems prohibited. This task requires the use of clone() as specified, and I'm restricted to using only the operations, classes, or interfaces already present in my project (hence, no external libraries or utilities). Question: How can I correctly implement the clone() method for this generic class to solve the mentioned issues, espec"
+ },
+ {
+  "question_id": 78260329,
+  "ym": "2024-04",
+  "creation_date": 1712050735,
+  "title": "Android keystore &quot;LSKF is not setup for the user&quot;",
+  "tags": [
+   "java",
+   "android",
+   "lockscreen",
+   "key-attestation"
+  ],
+  "score": 7,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I have a problem with some Android devices, where the key pair generation failed with \"java.security.ProviderException: Failed to generate key pair.\" caused by \"Failed to handle super encryption.\", \"Failed to super encrypt with LskfBound key.\", \"LSKF is not setup for the user.\" Resetting the lock screen pin/password didn't help. As far as I could analyse the error, LSKF is the lock screen knowledge factor, the pin/password used for unlocking the device lock screen. Full exception (from Samsung S21, Android 14): [CODE] I don't have direct access to the device and was not able to reproduce the same error on any test device. What I know about the device: strong biometrics are set (finger print) a string password is set (PASSWORD_COMPLEXITY_HIGH) The relevant key generation parameter: [CODE] The error occurs on the generation of RSA and EC keys. There are fallbacks for only SHA256 and time-based key authentication, but neither seems to work here. Does anybody have the same problems? I found some similar problem on the net but without any answer. Can anybody reproduce the problem? I tried to remove and set the lock screen factors for different device models from different manufactures. For some older devices you can set a finger print, remove the pin afterwards and keep the finger print data, but that didn't result in the expected error. I've added retry logic to the key generation "
+ },
+ {
+  "question_id": 78260530,
+  "ym": "2024-04",
+  "creation_date": 1712052720,
+  "title": "Spring Java project with 4000+ sources",
+  "tags": [
+   "java",
+   "spring",
+   "technical-debt"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am currently working as freelance on a Spring / AngularJS project. I never worked on a such project. It has 4000+ java sources, heading to 5000 by the end of the year. AngularJS project with also thousand of componants, is expected to be migrated to a more recent frontend framework. It's served by the Java webapp folder. I think I am alone to be seriously annoyed by project's size and lack of modularization. My questions : Is there any technical limitation to sources file count on a Spring Project ? (except that build time is long and it's difficult to be productive) Might the build (or the run), crash at some point ?"
+ },
+ {
+  "question_id": 78260565,
+  "ym": "2024-04",
+  "creation_date": 1712053104,
+  "title": "Do Java 17 value-based classes allocate instances in the heap?",
+  "tags": [
+   "java"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I’m looking for any trick to reduce pressure on the heap for simple dates, without time and time zone. I wrote a class that interpreted integers as dates using static methods, for Java 8. Now I’m moving that code to Java 17, and tried to use a value-based class for clarity, but it seems as instances are heap-allocated, even when the benchmark uses instances that do not escape the method scope (so, in theory, escape analysis should optimise allocation). By the ways, I followed all recomendations: no accessible constructor, value-based equals, hashCode and toString implementations, no synchronization, no serialization and a single primitive final instance field."
+ },
+ {
+  "question_id": 78260690,
+  "ym": "2024-04",
+  "creation_date": 1712054414,
+  "title": "How to get rid from @PathParam(&quot;...&quot;) in sub-resource methods in JAX-RS/RESTEasy documented with openApi?",
+  "tags": [
+   "java",
+   "jax-rs",
+   "quarkus",
+   "resteasy"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a following piece of code: [CODE] Are there any ways to get rid from @PathParam(\"parentIdentifier\") UUID parentIdentifier in subresource method? Thanks a lot in advance!"
+ },
+ {
+  "question_id": 78260711,
+  "ym": "2024-04",
+  "creation_date": 1712054743,
+  "title": "Ignite requires more on heap memory",
+  "tags": [
+   "java",
+   "caching",
+   "ignite"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm currently working on building Apache Ignite as a caching layer. My requirement is to load 10 million data to the server on startup. After caching 400,000 records, I'm encountering a \"GC overhead exceeded\" error. I've checked for memory leaks, and my code looks fine. Could this problem be related to my system's RAM (8GB)? I tried increasing the on-heap initial size by setting up these JAVA_OPTS. [code] After setting this up, I can process up to 800,000 records, but immediately after that, my IDE crashes. I had to restart the system. Server Config: [CODE] This is how I'm pushing data into my server using datastreamer: [CODE] DataStreamer: [CODE]"
+ },
+ {
+  "question_id": 78260731,
+  "ym": "2024-04",
+  "creation_date": 1712054991,
+  "title": "JNI Error when instrumenting with OpenTelemetry",
+  "tags": [
+   "java",
+   "maven",
+   "open-telemetry",
+   "javaagents"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am running this code: [CODE] While meaning to instrument the code in my project and retrieve some execution data (local vars, their values etc). But I am getting this error: [CODE] I am running the project with maven, Java 17, using IntelliJ, and trying to use OpenTelemetry as the java agent. Commands [code] and [code] both return 17. Attaching other agents (e.g. jacoco) seems to work. Whether or not I specify the target -jar makes no difference and returns the same error. Not sure how best to tackle this error next. Any advise will be appreciated."
+ },
+ {
+  "question_id": 78260769,
+  "ym": "2024-04",
+  "creation_date": 1712055400,
+  "title": "Digital Persona 4500 SDK Android Studio",
+  "tags": [
+   "java",
+   "android",
+   "digital-persona-sdk"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a digital persona 4500 for my android project. Apparently it does not work When I try to run and check for available readers. it says this: java.lang.UnsatisfiedLinkError: dlopen failed: library \"libdpuvc.so\" not found at java.lang.Runtime.loadLibrary0(Runtime.java:1082) at java.lang.Runtime.loadLibrary0(Runtime.java:1003) at java.lang.System.loadLibrary(System.java:1661) at com.digitalpersona.uareu.jni.Dpfpdd.(Dpfpdd.java:34) at com.digitalpersona.uareu.dpfpdd.ReaderCollectionImpl.(ReaderCollectionImpl.java:24) at java.lang.Class.newInstance(Native Method) at com.digitalpersona.uareu.UareUGlobal.GetReaderCollection(UareUGlobal.java:37) I'm missing the libdpuvc.so I looked for it in the SDK folder but apparently it does not come with it. I know you have to put it in the project but the native library is missing from SDK folder. Where can I get the libdpuvc file or maybe you can give it to me whoever has worked on digital persona 4500 on android studio, is that possible?"
+ },
+ {
+  "question_id": 78260882,
+  "ym": "2024-04",
+  "creation_date": 1712056461,
+  "title": "Java Json date parse",
+  "tags": [
+   "java",
+   "json",
+   "spring"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "not able to get out of this error [CODE] Im getting from API response where one of the fields are \"published_at\": \"2024-03-20T09:12:53.304420Z\", im trying to filter the response so that it give only data from 1. june 2022 till 1.april 2024. So far i tried several parse formats, and always similar error. [CODE]"
+ },
+ {
+  "question_id": 78261008,
+  "ym": "2024-04",
+  "creation_date": 1712057785,
+  "title": "Java SpringBoot @PathVariable on RestController",
+  "tags": [
+   "java",
+   "spring-boot",
+   "spring-mvc",
+   "swagger",
+   "spring-restcontroller"
+  ],
+  "score": 3,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I have the following @RestController: [CODE] but when I access Swagger, it doesn't show me the space to insert the pathVariable: If I try to execute I have the following exception: [CODE] same issue also from postman: If I remove the @PathVariable then on swagger I can see it: but still same error: [CODE] On another project, I have similar @RestController: [CODE] and on that one, there are no issue: any idea ?"
+ },
+ {
+  "question_id": 78261027,
+  "ym": "2024-04",
+  "creation_date": 1712057994,
+  "title": "Get data from APi and set in spinner using volley in android, java",
+  "tags": [
+   "java",
+   "android",
+   "android-volley"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "API Response: \"[{\"ROLEID\":3,\"ROLECODE\":\"BC\",\"ROLENAME\":\"Branch Checker\",\"ISACTIVE\":1},{\"ROLEID\":4,\"ROLECODE\":\"BM\",\"ROLENAME\":\"Branch Maker\",\"ISACTIVE\":1}]\" But getting error. and not giving proper response. [CODE] tried hard coding the API response. was able to get the response. While getting through network its not working."
+ },
+ {
+  "question_id": 78261219,
+  "ym": "2024-04",
+  "creation_date": 1712059969,
+  "title": "consumer is not invoked when publishing from another one",
+  "tags": [
+   "java",
+   "apache-kafka",
+   "spring-kafka",
+   "event-driven"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have an issue using kafka with spring boot, I have a spring boot microservice that is linked to kafka,this app works fine, I can produce and consume events with no problem excpet this cas : I need to produce an event via a consumer so another microservice consume it, this is the consumer that produce the event : [CODE] the producing logic works fine and I can see the event send to kafka. on the other hand, the other microservice should consume v1-push-notif : [CODE] the problem is that consumingPushNotificationLinkedToTask is not invoked even that v1-push-notif has events. here is the kafka configuration class (the same for the two microservices) : [CODE]"
+ },
+ {
+  "question_id": 78261315,
+  "ym": "2024-04",
+  "creation_date": 1712061064,
+  "title": "Creating my own custom thread pool executor",
+  "tags": [
+   "java",
+   "multithreading",
+   "concurrency",
+   "threadpool"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I ran into an issue here while creating my own custom thread pool executor. I am trying to implement the same without making use of any executor service library in order to prepare for a java interview. I am able to code below service. [CODE] Below is the output of the code above. [CODE] Well the problem here is that I am submitting 5 tasks to the executor , i can see the same in the taskQueue as well, but only 3/5 tasks are being executed as the threadpool size is kept 3. I want these 3 threads to run those 5 tasks in someway. I need help to understand what i am doing incorrectly and how to force the same 3 threads to execute all the provisioned tasks in the queue."
+ },
+ {
+  "question_id": 78261403,
+  "ym": "2024-04",
+  "creation_date": 1712061963,
+  "title": "Spring Boot: Fetching Data from Multiple Endpoints in Spring Boot Application",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "In controller i have productController endpoint: [CODE] and i get in postman: [CODE] and then i extract only the ingredients: [CODE] and the console out is [CODE] and in the drugController i have: [CODE] and in postman [CODE] And what i want to achive is that: I send the request to [code] then i get the igredients, get the list of them and each of them i send to [code] and collect the information about the substances. How to do it in Spring? EDIT: i wrote: [CODE] and i got: [CODE]"
+ },
+ {
+  "question_id": 78261417,
+  "ym": "2024-04",
+  "creation_date": 1712062104,
+  "title": "There are multiple ReferenceQueue in the jvm, the weak reference will enqueue which referenceQueue？",
+  "tags": [
+   "java",
+   "weak-references"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "1、The main thread constructs the WeakReference and puts it in the map 2、The daemon thread monitor the WeakReference that is about to be GC 3、 When I use weakHashMap, I find that the reclaimed object does not enqueue the queue in the WeakReference constructor。 I think ReferenceQueue also exists in weakhashMap, object should be expunge during the put() function. Question： Can multiple ReferenceQueue exist in the jvm？ the weak reference will enqueue which referenceQueue？ [CODE] ———————————————— Console Output： ………… 55回收了:java.lang.ref.WeakReference@3834d63f 56回收了:java.lang.ref.WeakReference@3ab39c39 57回收了:java.lang.ref.WeakReference@7cdbc5d3 HashMap.size ->100 —————————————— [CODE] ———————————————— Console Output： weakHashMap.size ->40 ——————————————"
+ },
+ {
+  "question_id": 78261461,
+  "ym": "2024-04",
+  "creation_date": 1712062578,
+  "title": "Find the json field dynamically when user send the field path?",
+  "tags": [
+   "java",
+   "json",
+   "spring",
+   "spring-boot",
+   "jpa"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm currently working on a spring boot application where I have find a way to meet the following requirement When user send a path to a field of a json I have to find that that field on the json and return that to the user When user send a path to a field of a json with data to update the json I have to update the json and store it in the db Sample of json I'm getting [CODE] sample user request for requirement 1 quiz/sport/q1/option/a = \"New York Bulls\" quiz/maths/q1/option/a = \"10\" depending on the json this can change response respectively should be - [CODE] [CODE] sample user requests for requirement 2 quiz/sport/q1/option/a = \"New York Bulls\" data to change - \"Washinton Bulls\" this should update the json as [CODE] There can multiple different type of json and therefore many different type of requests requesting data of those jsons technologies I'm Using java / Spring Boot / PostgreSql - string column to store json Is there any better way to do this using the technologies I mentioned ? My Current Approaches I can't use path variables or query parameters because depending on the json users requests path changes. So I'm using a post request to get the users request (getting the path of the json as a string) Convert the string json (Which is stored in the db) to a json node (JSONNode Class) and find the required field"
+ },
+ {
+  "question_id": 78261483,
+  "ym": "2024-04",
+  "creation_date": 1712062746,
+  "title": "Problem connecting to a mySql database in a java project",
+  "tags": [
+   "java",
+   "mysql",
+   "gradle",
+   "jdbc"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm encountering an issue while attempting to connect to my database created on HeidiSQL. Specifically, I'm receiving the following error message: java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost:3306/mydbname. Below, I've included the section of code causing the error and my Gradle file, which I use to manage dependencies. [CODE] build.gradle.kts [CODE] I've searched online for potential solutions and found suggestions such as including Class.forName(org.mariadb.jdbc.Driver) . However, not only is this no longer necessary, but it also triggers the error java.lang.ClassNotFoundException: org.mariadb.jdbc.Driver. I've also considered the possibility that Gradle might not be including the libraries correctly. However, the other libraries I'm using are functioning properly, so that doesn't seem to be the issue either. Also, when I run the build in the terminal, there are no errors indicating that the library couldn't be found on Maven. Could you please review the provided information and suggest any necessary corrections or solutions? Thank you."
+ },
+ {
+  "question_id": 78261535,
+  "ym": "2024-04",
+  "creation_date": 1712063331,
+  "title": "Getting right order of `declaredMemberProperties` in a `listOf&lt;Any&gt;`",
+  "tags": [
+   "java",
+   "android",
+   "kotlin",
+   "data-class"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Edit: The \"already answered answer\" doesn't get me the values of the data class object. I can only access the field name and the order id, but NOT the value (here \"0\", \"A\", \"H\", \"B\") My Android App works with multiple database tables. Here a two extreme simple examples about the structure: [CODE] They should be exportable (simple conversion from table headers and values to a CSV). The function here translates it perfectly fine, but sort the table cols alphabetical. I need the [code] in the same order as in the data classes. [CODE] The wished result should look like this: [CODE] But it returns to this: [CODE] I`m glad if someone can help me."
+ },
+ {
+  "question_id": 78261571,
+  "ym": "2024-04",
+  "creation_date": 1712063655,
+  "title": "Localize page title in Vaadin",
+  "tags": [
+   "java",
+   "vaadin",
+   "vaadin-flow"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "How can I localize page titles in Vaadin? I tried the following annotation but it didn't work: [CODE] The page title was not resolved but literally [code] instead of its value from the i18n message source. Is there an annotation based way or do I have to implement [code] ?"
+ }
+]

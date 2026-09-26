@@ -1,0 +1,82 @@
+[
+  {
+    "qid": 79781057,
+    "answer": "The `min_time()` and `max_time()` methods return collapsed DataCubes, not actual timestamps. To get actual dates, use the backend's describe_collection() API via the openEO backend directly, not through cube methods. Query the service with `list_collections()` and inspect the 'extent.temporal' field of the specific collection—this gives actual timestamps present, not just bounds. Alternatively, use `cube.describe_collection()` if your backend supports it. For getting all timestamps without downloading data, you need access to the collection metadata through the server's collection endpoints. Check your backend's REST API documentation at `https://api.copernicus.eu/` for collection metadata endpoints that expose actual time steps."
+  },
+  {
+    "qid": 74973935,
+    "answer": "PyCharm is using a different Python interpreter than the one where you installed customtkinter. Even though pip list shows it, you need to configure PyCharm to use the correct interpreter. Go to Settings > Project > Python Interpreter and select the same Python environment where customtkinter is installed. If using a virtual environment, add that venv. If it's not listed, click 'Add' and browse to the venv's python.exe. Alternatively, install customtkinter in PyCharm's project interpreter directly: open Settings > Python Interpreter, click the + icon, search for 'customtkinter', and install. After changing the interpreter, restart PyCharm."
+  },
+  {
+    "qid": 79935914,
+    "answer": "Yes, `Color(0)` is safe for empty flags—it's explicitly documented in Python's enum documentation and used in examples. For full flags, `Color(-1)` works correctly even with `STRICT` boundaries, as -1 represents all bits set. However, for maximum clarity and library intent, use `functools.reduce(operator.or_, Color)` for white (all flags ORed) and `functools.reduce(operator.and_, Color)` with an empty initial value for black. This is more explicit about using defined operations. Alternatively, `~Color(0)` also works. The `Color(-1)` idiom is safe for production, but reduce() or ~Color(0) are more obviously intentional."
+  },
+  {
+    "qid": 79809157,
+    "answer": "The PermissionError despite enabling full access suggests the file is likely open in another program or locked. Before writing: (1) Verify the file isn't open in another process—close it elsewhere; (2) Add `os.access(FilePath, os.W_OK)` check; (3) On Windows, remove read-only flag: `os.chmod(FilePath, 0o777)`. If still failing, the file may be locked by Windows search indexer or antivirus. Try using `shutil.move()` to create a temp file then replace the original. Wrap writes in try/except and add a short retry delay. Also check that your script has write permissions to the parent directory."
+  },
+  {
+    "qid": 79647636,
+    "answer": "To get the matrix product formula, create a symbolic summation over an index variable. Given two matrix formulas `f_a(n, k)`, the product formula is: `sp.Sum(f_a(n, i) * f_a(i, k), (i, 0, n))`. The `Sum()` constructor takes the expression, then a tuple of (symbol, start, end). For your example, `sym_b = sp.Sum(sp.binomial(n, i) * sp.binomial(i, k), (i, 0, n))` correctly represents the convolution. To generalize programmatically: define a function that takes two formula symbols and creates a Sum with a new summation index. Note: `doit()` evaluates the sum if possible, otherwise keeps it symbolic."
+  },
+  {
+    "qid": 79808417,
+    "answer": "Your Playwright code structure is correct but truncated. Key issues to check: (1) Ensure `url` is properly formatted—use `f'https://api.sofascore.com/api/v1/sport/football/scheduled-events/{today_iso}'` without .isoformat() if the endpoint requires YYYY-MM-DD format; (2) After `page.goto()`, wait for network idle: add `await page.goto(..., wait_until='networkidle')`; (3) The API likely requires the browser context established by visiting the main site first (which you do); (4) Check response status with `response = await page.goto()`; (5) Increase `timeout` if needed. Add error handling with try/except around fetch calls."
+  },
+  {
+    "qid": 79687351,
+    "answer": "Your custom focal loss gradient/hessian dimensions likely don't match xgboost's expectations. XGBoost expects grad and hess to be 1D arrays of shape (num_samples,) for binary/regression or properly flattened for multiclass. The issue: your grad/hess are computed per-class but not reshaped correctly. For multiclass focal loss, xgboost requires flattening the (num_samples, num_classes) arrays to 1D. Reshape before returning: `grad = grad.flatten()` and `hess = hess.flatten()`. Alternatively, xgboost's multiclass mode may require a different custom loss signature—check their documentation for multiclass custom objectives. Also verify `num_classes` parameter is passed correctly to xgboost.train()."
+  },
+  {
+    "qid": 79753597,
+    "answer": "The adapter registration happens after the connection is created. Register adapters *before* creating the connection: call `sqlite3.register_adapter(date, date_adapter)` before `sqlite3.connect()`. The order matters—adapters must be registered at module/global level before any database operations. Also ensure your adapter function returns a string, not None. Test with: `sqlite3.register_adapter(date, lambda d: d.isoformat())` as a minimal example. For converters, use `detect_types=sqlite3.PARSE_DECLTYPES` when creating connection. If deprecation warning persists, clear all implicit date handling by always using your custom adapter first, before importing date objects."
+  },
+  {
+    "qid": 79725763,
+    "answer": "Use Milvus pagination with offset-based iteration. Since your primary key is string, filter by querying in batches: `results = collection.query(expr='pk > \"last_id\"', limit=1000, output_fields=['*'])`. Store the last pk from each batch, use it in the next query's expr filter. Alternatively, use `collection.scan()` if available (newer Milvus)—it returns an iterator through all documents. For 3M records: divide into 1000-record chunks and export each. Code: `for i in range(0, 3000000, 1000): batch = collection.query(offset=i, limit=1000); export_batch(batch)`. Note: offset-based pagination may be slower than expr-based filtering for large datasets."
+  },
+  {
+    "qid": 79806406,
+    "answer": "The getmany() call likely times out without raising an exception instead of catching Kafka errors. Modify exception handling: aiokafka.errors.KafkaError and asyncio.TimeoutError need separate handling. Try: `except (aiokafka.errors.KafkaError, asyncio.TimeoutError) as e: print(f'Kafka error: {e}')`. When Kafka stops, getmany() may timeout after 10 seconds—check logs. Also verify Kafka broker is actually down by testing connectivity separately. Add logging before the try block to confirm execution reaches consume(). The issue may also be that exception is raised but not printed—ensure stderr isn't redirected or buffered."
+  },
+  {
+    "qid": 79724193,
+    "answer": "The tablefinder approach fails for unstructured newspaper layouts. Switch to text-based detection: use `page.extract_text_boxes()` instead of `find_tables()`. Text boxes approximate article regions better than table detection. Alternatively, use pdfplumber's `extract_words()` and cluster them spatially. For better results, try computer vision: use OpenCV with image processing (edges, contours) on the rendered image. Parameters to adjust: decrease `snap_y_tolerance` (0 is strict), increase `intersection_x_tolerance`. If articles have column separators, detect vertical lines with `page.find_edges()`. For complex layouts, hybrid approach combining text boxes + edge detection works best."
+  },
+  {
+    "qid": 79244083,
+    "answer": "Use `decimal.Decimal` for financial calculations and precision-critical code—it avoids binary floating-point rounding errors. Example: 0.1 + 0.1 + 0.1 != 0.3 with floats, but works exactly with Decimal. Use pytest.approx() for test tolerances on computed floats (acceptable margin for numerical algorithms). Decimal is overkill for approximate comparisons (where approx() suffices). Key distinction: Decimal prevents silent data corruption in money/accounting (cents compound), while approx() handles expected numerical error from algorithms. Rule: financial, tax, or exact-representation data → Decimal; scientific/ML outputs → approx(). Decimal also slows code measurably—use only where precision matters."
+  },
+  {
+    "qid": 71303878,
+    "answer": "Use itertools.batched() or grouper() to chunk images into groups of 4: `from itertools import batched; images = sorted(os.listdir(folder)); for group in batched(images, 4): im_group = [Image.open(os.path.join(folder, f)) for f in group]; concat_v(im_group).save(...)`. Your get_concat_v() function takes 4 images; adapt it to accept a list: `def concat_images(image_list): h = sum(im.height for im in image_list); w = max(im.width for im in image_list); dst = Image.new('RGB', (w, h)); y = 0; [dst.paste(im, (0, y := y+im.height)) or im for im in image_list]; return dst`. Loop with os.walk() if nested folders needed."
+  },
+  {
+    "qid": 79806945,
+    "answer": "Jupyter notebook is using a different Python kernel than where matplotlib was installed. Solutions: (1) In Jupyter cell, run `!pip install matplotlib` to install in the active kernel; (2) Check kernel Python: `import sys; print(sys.executable)` and verify pip is from same location; (3) If using conda, install matplotlib in the conda environment and activate it; (4) Restart Jupyter kernel (Kernel > Restart) after installing. Regarding ~atplotlib error: this was a typo in pip output before removal. After pip reinstall, verify with `import matplotlib; print(matplotlib.__file__)` to confirm it's installed in the right location that Jupyter uses."
+  },
+  {
+    "qid": 79479038,
+    "answer": "PyTorch now includes `torch.masked` module (v2.0+) with `masked_mean()`, `masked_sum()`, etc. Use: `result = torch.masked.masked_mean(x, mask)`—simpler and optimized. For older versions, your manual approach is correct. Alternatively, use torch.where(): `x_masked = torch.where(mask, x, torch.tensor(0.0))` then aggregate. For masked mean: `x_sum = (x * mask).sum(dim=1); count = mask.sum(dim=1); mean = x_sum / count`. PyTorch masked operations are preferred for clarity and performance. Check your PyTorch version with `torch.__version__`—if 2.0+, use torch.masked APIs directly."
+  },
+  {
+    "qid": 77919632,
+    "answer": "Use `torch.topk()`: `indices = torch.topk(x, k=n, largest=True)[1]` returns top-n indices. For your example: `torch.topk(torch.tensor([2, 1, 4, 1, 4, 2, 1, 1]), 4, largest=True)[1]` → tensor([2, 4, 0, 5]). If you need indices sorted in original order, sort the result: `torch.sort(indices)[0]`. For duplicate handling: topk returns first occurrence of ties; if you need all duplicates at the nth position, use `torch.where()` to find all values >= nth_largest. PyTorch doesn't have a built-in for this; post-process with masking instead."
+  },
+  {
+    "qid": 79902760,
+    "answer": "Host Jupyter notebooks with: (1) **Binder** (mybinder.org)—free, executable notebooks from GitHub, no install needed; (2) **Google Colab**—free, best for computation-heavy notebooks; (3) **JupyterHub**—self-hosted multi-user server; (4) **Voila**—convert notebooks to interactive dashboards; (5) **nbviewer**—view-only (not executable); (6) **GitHub**—renders notebooks directly (view-only). For execution without setup: **Binder** or **Colab** are easiest. For permanent hosting with control: deploy JupyterHub on a server (AWS, DigitalOcean). For business use: consider cloud platforms like Paperspace or RunwayML. Binder is recommended for public sharing."
+  },
+  {
+    "qid": 79900580,
+    "answer": "Build an enterprise chatbot using: (1) **RAG pipeline**: LangChain/LlamaIndex + embeddings (OpenAI/local) + vector DB (Pinecone/Chroma) for company data; (2) **LLM**: OpenAI API, Claude API, or local model (Llama); (3) **Inventory integration**: Query company database for stock levels; (4) **Reorder logic**: Add function to suggest quantities (e.g., EOQ formula); (5) **Frontend**: Streamlit/FastAPI + React. Workflow: company docs → embeddings → store in vector DB → user query → retrieve relevant docs → LLM generates answer + inventory lookup + reorder suggestion. Missing specifics: company data format, tech stack preference, budget, scale. Start with Streamlit + LangChain for prototype."
+  },
+  {
+    "qid": 79880732,
+    "answer": "The issue is likely shape validity or operation order. FreeCAD cuts/fuses depend on correct shape topology. Debug: (1) Verify each dovetail shape is valid: `Part.CheckShape(dovetail_shape)` before operations; (2) Apply fuses/cuts sequentially, not all at once—build incrementally; (3) Use `Part.Booleans.cut()` explicitly instead of relying on automatic ops; (4) Check if some boxes are colliding incorrectly—verify placement coordinates; (5) Use `doc.recompute()` between each operation. Common cause: cut geometry slightly misaligned with fuse geometry due to floating-point precision. Try increasing shape tolerance or validating that cut boxes are exactly positioned."
+  },
+  {
+    "qid": 79903103,
+    "answer": "PostToAts must be set *before* other PEG parameters. Reorder your code: set postToAts first, then offsets. Also: (1) Verify IBKRATS is correct exchange for PEG BEST; (2) Use `o.smartComboRoutingParams = []` if empty; (3) PostToAts=1 means route to ATS, 0=don't route. The error suggests the exchange/order type combo requires PostToAts set before other attributes are evaluated. Try this order: action, orderType, exchange, postToAts, *then* price/quantity/offsets. Ensure postToAts is int (1/0), not boolean. If still failing, check Interactive Brokers API version compatibility—10.44.01 may have different attribute handling. Consult latest API documentation for PEG BEST requirements."
+  }
+]

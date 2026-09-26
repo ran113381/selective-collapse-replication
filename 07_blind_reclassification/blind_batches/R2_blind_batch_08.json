@@ -1,0 +1,1227 @@
+[
+ {
+  "id": "P2346",
+  "title": "How to deploy ML trained model?",
+  "tags": [
+   "python",
+   "html",
+   "machine-learning",
+   "flask"
+  ],
+  "body": "I am working on a ML project Credit Card Fraud Detection . I have trained the model using Random Forest Classifier . The dataset used in this project is taken from Kaggle. It contains 31 features, the last feature is used to classify the transaction is fraud or not. Now I want to deploy the model using flask. For which I am following this tutorial. But instead of entering data into input fields, I want the user to upload a CSV file with a single record. So, what changes should be made in the code? [code] [CODE] [code] [CODE]"
+ },
+ {
+  "id": "P5623",
+  "title": "Cannot create already existing resource – when creating a ContainerApp in 2 steps (bootstrap + final) with system-assigned managed identity",
+  "tags": [
+   "python",
+   "azure-managed-identity",
+   "azure-container-apps",
+   "pulumi-python"
+  ],
+  "body": "Context I'm using Pulumi (Python) with [code] and [code] to deploy an Azure Container App with a system-assigned managed identity , where that identity must be a member of an existing Entra ID group (which already has [code] on an ACR and [code] on a Key Vault). Because the managed identity's [code] only exists after the Container App is created, and because the ACR registry config requires the identity to already have [code] before the app can pull the private image, I'm trying a three-step approach : Create the Container App with a system-assigned identity and a public bootstrap image (no ACR config). Add the identity's service principal to the existing Entra group. Update the Container App with the private image and [code] . I modelled steps 1 and 3 as two separate [code] Pulumi resources targeting the same Azure resource name, with [code] and [code] on the final resource. Problem [code] fails on the second [code] resource with: [CODE] This makes sense: Pulumi tries to create [code] as a new resource, but the Azure resource already exists (created by [code] ). The [code] resource never makes it into the state. Code [CODE] Error messages The [code] command failed with the following message: [CODE] Here is the detail of the stack after the error: [CODE] What I've considered Using a single [code] resource with [code] on a [code] — but I can't add the identity to the group befor"
+ },
+ {
+  "id": "P3561",
+  "title": "3d array operations in numpy",
+  "tags": [
+   "python",
+   "numpy"
+  ],
+  "body": "I have two numpy arrays (say A and B). A with shape - (20,5,5) and B - (20,). Array B has increasing int values ​​in range [0, 8] with some repeated numbers (but ascending). Array A: [CODE] Array B (some value are repeating): [CODE] I need to calculate a 3D array C that will have the same x and y shape (3, 5,5) as A, but the first dimension index should be values ​​from array B, but downsampled to 4 ( 0, 4, 8). I don't understand how can I do this with Numpy. [CODE] In this case C.shape should be (3,5,5) A[17,0,0] = 426, A[18,0,0] = 451, A[19,0,0] = 476 C[2,0,0] = np.mean([A[17,0,0],A[18,0,0],A[19,0,0]]) # ideally to apply low pass filtering (which is a sort of averaging) I tried to draw my question for clarity -"
+ },
+ {
+  "id": "P5153",
+  "title": "How to parse audio.cdindex",
+  "tags": [
+   "python",
+   "xml",
+   "dtd"
+  ],
+  "body": "Some audio CDs have a file called audio.cdindex with artist, album and a list of the titles. I have a python tool to copy my CDs on the NAS and if I don't find the ID of a CD on musicbrainz or cddb I try to parse audio.cdindex to name the files correctly. Fortunately the file is xml, so xml.etree.ElementTree usually does a good job. But now I have a CD that references http://www.musicbrainz.org/dtd/CDInfo.dtd as dtd and this file has disappeared. Usually a missing dtd is ignored by the python lib, but on this CD the tracks reference an entity [code] and so the parsing fails. I tried to replace the dtd with a copy of http://www.w3.org/TR/xhtml1/DTD/xhtml-lat1.ent where the entity is defined, but it seems this dtd is never apllied. Here is the audio.cdindex I am using: [CODE] The python code Iam using is this one: [CODE]"
+ },
+ {
+  "id": "P3791",
+  "title": "How to fill column with condition in polars",
+  "tags": [
+   "python",
+   "python-polars"
+  ],
+  "body": "I would like to add new column using other column value with condition In pandas, I do this like below [CODE] The result is a b c 1 3 1 2 4 4 Could you teach me how to do this with polars?"
+ },
+ {
+  "id": "P4378",
+  "title": "incompatible datatypes when plotting a bar chart",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "matplotlib",
+   "statsmodels"
+  ],
+  "body": "I'm using ARIMA to predict the amount (Amt) for next 5 days of a dataset. The bar chart needs to show a concatenation of the amounts for each time value, and then the future prediction. An example of the dataframe, its much larger than this: [CODE] The code below gives me the following error when I try and plot the model: [CODE] Code: [CODE]"
+ },
+ {
+  "id": "P3065",
+  "title": "How can I efficiently factor out similar contexts from multiple views in Django?",
+  "tags": [
+   "python",
+   "django"
+  ],
+  "body": "Suppose we have two or more views, where each view templates extends from base.html , and inside the base.html file are context variables [code] and [code] : File base.html [CODE] Then we would have to add the above-mentioned contexts to our views as follow: File views.py [CODE] How do we write an efficient code so that our views will look like as follows, i.e. the common contexts [code] and [code] are factored out somewhere else yet will still be displayed in the base.html? Desired views.py [CODE] Understandably, function-based views and class-based views may function differently so there may be different solutions to each of them."
+ },
+ {
+  "id": "P0814",
+  "title": "Tkinter - Column grouping in Treeview",
+  "tags": [
+   "python",
+   "tkinter",
+   "treeview"
+  ],
+  "body": "I have a table built from multiple [code] widgets and laid out with the [code] method. I can group several columns in the header using [code] and [code] to organize the information in a certain way. I can easily replicate most of it with a [code] widget, but I don't know how to organize the header the same way as before. Is it possible to do so? This picture shows both tables. In blue the header that I would like to replicate in the second table. Code that displays both tables: [CODE] I am using Python 3.13.7, though that is probably not relevant."
+ },
+ {
+  "id": "P0430",
+  "title": "PyCharm type hinting for generic type concludes property instead of property&#39;s return type",
+  "tags": [
+   "python",
+   "pycharm",
+   "python-typing",
+   "pep-695"
+  ],
+  "body": "I have a problem with type hints recognition in Pycharm. Following simplified example constructed to show my issue: [CODE] The variable [code] is not recognized as having type [code] (which is returned by the property). Instead it is recognized as having type [code] . Any suggestion whether I do something wrong, or need a workaround, possibly because of known(?) PyCharm limitation in PEP 695 handling? I use Python 3.12. Note this is not exactly same case as with TypeVar. If I use TypeVar construction, then Pycharm makes an [code] from [code] and then thus stops complaining about the type being a property instead of what it really \"returns\"."
+ },
+ {
+  "id": "P2826",
+  "title": "GridDB Cloud Python client: How to handle connection timeout and auto-reconnect?",
+  "tags": [
+   "python",
+   "timeout",
+   "cloud",
+   "database-connection",
+   "griddb"
+  ],
+  "body": "I’m using GridDB Cloud with the official Python client to insert real-time IoT data into a time-series container. The script runs continuously, but after a few hours I get a connection timeout and inserts stop working. Code example: [CODE] Error message: [CODE] What I want to know: How can I automatically reconnect to GridDB when this exception happens? Do I need to call [code] and [code] again after a timeout? Is this the correct approach? [CODE] Environment: GridDB Cloud (Free Tier) Python 3.x on Ubuntu 22.04 [code] client"
+ },
+ {
+  "id": "P5646",
+  "title": "Why grouping on columns (axis=1) is ineffective or at least faulty?",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "My input is a pandas DataFrame : [CODE] [CODE] I'm not asking too much to the [code] method, I only expect this standard aggregation : [CODE] But my code below gives a nonsense error : [CODE] ValueError : Length of values (2) does not match length of index (4) To be honest, this is absolutely counterintuitive based on how we're used to apply [code] . Can you please explain the logic behind ?"
+ },
+ {
+  "id": "P2538",
+  "title": "Pymodbus, TypeError ⸺ too many positional arguments",
+  "tags": [
+   "python",
+   "python-3.x",
+   "typeerror",
+   "modbus",
+   "positional-argument"
+  ],
+  "body": "Hardware and Background Story Python3 using VS-Code as my IDE Linux Mint 21.3 (Cinnamon) Attempting serial communication to query a PZEM-004T (v3) AC power module (\"slave\"), which uses RS-485 (Modbus) comms via a Prolific® PL2303 TTL-to-USB converter I confirmed the device address = 0x01, by using Docklight® (run separately on Windows platform) I began with Python code provided on Github as my starting point. But, as that Code was provided, it gave multiple errors associated with the \"preamble\". I replaced the preamble / setup of that Github-provided Code, which was originally [CODE] with the first 11 lines of code shown below . All else remains the same. My modified code will now start to run, but throws an error message (quoted after my faulty code) {Faulty} Code [CODE] Error Thrown [CODE] Can anybody throw some light on this problem? I also posted a comment at the source of the Github code, but I am not expecting any results there. Update, 2025-02-04 Following comment from Brits , I changed the \"preamble\" of my code to [CODE] and now the error message being thrown is: [CODE] Update, 2025-02-05, after comment by Brits I have been using Python3 on my Linux MINT (v21.3) platform. Here, Python3 was installed using the Synaptic Package Manager (hereafter, SPM....i.e., official \"system version\" proffered by MINT) It seems that the ONLY version of Pymodbus available in the so-calle"
+ },
+ {
+  "id": "P0126",
+  "title": "Check if a user has a role in a completely different server",
+  "tags": [
+   "python",
+   "python-3.x",
+   "discord",
+   "discord.py"
+  ],
+  "body": "Say if someone used a command in a random server with the same bot, it would detect if that user has a specific role in a different server they are in. Could anyone tell me how/if this is possible?"
+ },
+ {
+  "id": "P3672",
+  "title": "How can I apply BeautifulSoup on a part of a HTML tag collected in a CSV?",
+  "tags": [
+   "python",
+   "pandas",
+   "beautifulsoup"
+  ],
+  "body": "I have a CSV where one column has strings with a full HTML table on each row. I want to navigate those tables and extract the TDs corresponding to some definite THs. BeautifulSoup, obviously, raises an error saying it can't read strings, only HTML. What should I do? Is Beautiful Soup really the best way?"
+ },
+ {
+  "id": "P4632",
+  "title": "ModuleNotFoundError: No module named &#39;certifi.core&#39;",
+  "tags": [
+   "python",
+   "speech-recognition",
+   "pyttsx3"
+  ],
+  "body": "I am making an personal assistant named Kyle using SpeechRecognition and pyttsx3. I was trying to convert my python file to an executable using pyinstaller. I type in: [CODE] Everything goes smoothly, but when I open the .exe file this error appears: [CODE] See error here I really hope someone can help! Thanks in advance! :)"
+ },
+ {
+  "id": "P2365",
+  "title": "Trained LSTM model receiving 0.00 on accuracy score",
+  "tags": [
+   "python",
+   "tensorflow",
+   "machine-learning",
+   "training-data"
+  ],
+  "body": "I wrote a model in order to classify text as \"hate speech\" or \"not hate speech\" as a fun side project, however, when my model was done training it scored 0.00 on accuracy which I can't seem to think of an explanation for. I had around 15,000 examples of non toxic language and 15,000 examples of toxic language. Not a massive dataset but I thought enough for a model that has a fair degree of effectiveness. Regardless here is my code that I used to train my model (for reference my [code] NDArray has 30,000 entries with the first 15,000 being 1s and the last 15,000 being 0s as to line up with my array of samples.) [CODE] Any advice or help would be appreciated thank you"
+ },
+ {
+  "id": "P5264",
+  "title": "Why does MatPlotLib shows loglog plots not like it is planned?",
+  "tags": [
+   "python",
+   "matplotlib"
+  ],
+  "body": "My goal is to save an image like this But when my code is running it saves it like this The code I am using [CODE] This problem may be solved if I do anything on any subplot first (like move it or zoom in), then I press the \"Home\" button. Also I tried adding [code] , so it probably could \"redraw\" plots properly, but that did not help either. This task is a part of automatic data processing, where it might be from 12 to whatever amount of this plots. Update Big thanks to @fdireito, the problem was found in [code] . To solve this problem you can either delete this lines or add [code] and it will work properly"
+ },
+ {
+  "id": "P5057",
+  "title": "Prevent React Component From Calling API Endpoint Twice",
+  "tags": [
+   "python",
+   "reactjs",
+   "django-rest-framework",
+   "api-design"
+  ],
+  "body": "I have a POST endpoint that creates an instance on the database once the user creates an account, the rows are filled with information like day of the week, date, user_id, etc. [CODE] Here is the React section of my code [CODE] The code logic is working as I intended, but because of the double rendering problem of react, my component is being called two times, and that is leading to creating two instances on the database for the same user. In other words, once the user is redirected to the Home component after creating an account I see two response messages from the API call. After some research and testing, I know that if I remove the [code] tag my problem goes away, but I don't know the long-term implications of doing that. (Im kind new to react) So my question is: should I remove the [code] tag or should I add a feature that limits to one the number of times that my endpoint will be called?"
+ },
+ {
+  "id": "P4792",
+  "title": "exclude field from a nested serializer",
+  "tags": [
+   "python",
+   "django",
+   "django-rest-framework",
+   "django-serializer"
+  ],
+  "body": "to get the information of a user I use a serializer with nested serializers but I have a problem which is that I do not know how to exclude certain fields that are not necessary in this case the user's password, is there any way to exclude that field? here is the code of the endpoint and the serializers endpoint [CODE] team member serializer [CODE] user serializer [CODE] response [CODE] I want to remove the password field in the user object"
+ },
+ {
+  "id": "P2094",
+  "title": "LinkedIn API: Error 400 &quot;Organization permissions must be used when using organization as author",
+  "tags": [
+   "python",
+   "post",
+   "linkedin-api"
+  ],
+  "body": "I'm using the LinkedIn API to post a poll on my LinkedIn page, but I keep getting the following error: Failed to post poll. Response: 400 {\"message\":\"Organization permissions must be used when using organization as author\",\"status\":400} I believe the issue is related to missing permissions. I understand that I might need the [code] permission, but I don't know how to enable it. When setting up my app, I granted all available permissions, but I don't see an option to add or enable [code] specifically. code: [CODE] Does anyone know how to resolve this issue or configure the app to use the necessary permissions for posting? Any help would be greatly appreciated!"
+ },
+ {
+  "id": "P0968",
+  "title": "How to get different paths with same start and same end in a digraph(directed graph)?",
+  "tags": [
+   "python",
+   "networkx",
+   "digraphs"
+  ],
+  "body": "giving a digraph like this: [CODE] It`s easy to see there are 3 circle-like in graph. [CODE] It`s just what I want.Sometimes the digraph has 300 nodes and more, so need a effective algorithm."
+ },
+ {
+  "id": "P5201",
+  "title": "Raise TimeoutException(message, screen, stacktrace)",
+  "tags": [
+   "python",
+   "selenium",
+   "selenium-webdriver"
+  ],
+  "body": "I new to python and selenium in general and i was trying to do a project based on it. code example: [CODE] When I was trying to run the code it gave me a error: [CODE] I have tried fixing it by looking at youtube, but I am stuck and don't know what could it be."
+ },
+ {
+  "id": "P1669",
+  "title": "To store bootstrap folder terraform state to S3 backend with migration approach",
+  "tags": [
+   "python",
+   "amazon-s3",
+   "terraform",
+   "terraform-state",
+   "aws-automation"
+  ],
+  "body": "I have been working on a project to automate the AWS infrastructure with Terraform. Initially, I created two folders (bootstrap and live). Below is the Bootstrap folder structure. enter image description here We know we need to create a backend configuration file to store Terraform state in an S3 bucket. But the backend config does not support variable interpolation, so we have to hard-code values in the backend. In addition to this, there is also a chicken-and-egg problem (the S3 backend and DynamoDB have to be created before using them). To resolve these issues, Terragrunt is a good option. But we can also create a Python script to automatically generate the backend configuration file and run the migrate command to store the Terraform state in the S3 backend. The approach is - terraform init (manual): to initialize all the modules, including S3 and DynamoDB. - terraform validate (manual): to validate the syntax of all modules - terraform plan -var-file dev.tfvars (manual) - And then run the Python script to apply the modules and extract outputs from the outputs.tf file + generate a backend file + migrate state to S3. Is it also not a good approach to resolve these issues instead of using Terragrunt (especially in the bootstrap folder) to initialize the modules, such as iam_policy, iam_role, dynamoDb, S3, and kms?"
+ },
+ {
+  "id": "P0356",
+  "title": "What does the third line in this code mean in Python?",
+  "tags": [
+   "python",
+   "list"
+  ],
+  "body": "[CODE]"
+ },
+ {
+  "id": "P1421",
+  "title": "Create Action Button in Open edx Admin panel using tutor plugins",
+  "tags": [
+   "python",
+   "django",
+   "django-admin",
+   "openedx",
+   "cookiecutter"
+  ],
+  "body": "I created and enabled a tutor plugin successfully using this command cookiecutter https://github.com/overhangio/cookiecutter-tutor-plugin.git How would I use this plugin to implement Admin Action Button : I have a folder adminUser with 2 files init .py (from . import admin) and admin.py see content below: [CODE] I added the lines below to the plugin.py : [CODE] Added patches/openedx-lms-env with [code] Added [code] in ./MANIFEST.in In pyproject.toml Added [code] under [code] Updated [code] under [code] Yet the Action Button is not visible. Please what am I doing wrong?"
+ },
+ {
+  "id": "P3652",
+  "title": "how to install Cloupy on Mac within a Conda envirnoment",
+  "tags": [
+   "python",
+   "installation",
+   "pip",
+   "conda",
+   "spyder"
+  ],
+  "body": "I would like to install Cloupy on MacBook within a Conda Environment. It gives only instructions with pip3 for Linux system. What I tried to do is [CODE] and [CODE] or [CODE] but I get the following error [CODE] Maybe it is because it is not correct to use pip within a condo environment, but I don't know what else to do. I use this environment for Spyder."
+ },
+ {
+  "id": "P1198",
+  "title": "How can I return the subarrays in my max k-subarray sum code?",
+  "tags": [
+   "python",
+   "algorithm"
+  ],
+  "body": "Consider an array A of integers of length n. The k-max subarray sum asks us to find up to k (contiguous) non overlapping subarrays of A with maximum sum. If A is all negative then this sum will be 0. If A = [-1, 2, -1, 2, -1, 2, 2] for example, then the two subarrays could be [2, -1, 2] and [2, 2] with total sum 7. The following code is my extension of Kadane's algorithm and runs in O(nk) time, which might be optimal. [CODE] We can test it with: [CODE] I can't work out how to return the subarrays that are being used to form the final sum. In the first case I would like to output [code] and in the second case [code] to show the subarrays as interval pairs in the original array. I realise that this should be doable by storing something after: [CODE] but I can't work out how to do it correctly. How can my code be modified to do that?"
+ },
+ {
+  "id": "P5792",
+  "title": "How can I rotate x axis labels so they are diagonal and not horizontal on Plotly?",
+  "tags": [
+   "python",
+   "plotly"
+  ],
+  "body": "I am making a bar graph on plotly but the x axis labels are converted into vertical orientation by default. I would be interested in rotating them for increased readability. [CODE] My code makes this: But the vertical names on the x-axis. I would like to make horizontal. I tried doing: [CODE] But I get an error that says: [CODE]"
+ },
+ {
+  "id": "P0925",
+  "title": "PathLib How to extract 2nd before last item in the path?",
+  "tags": [
+   "python",
+   "path",
+   "pathlib"
+  ],
+  "body": "Example: [CODE] I would like this function to return [code] . (2nd before last item in the path) I believe that [code] is the equivalent but everything in my code is using Pathlib. Please help!"
+ },
+ {
+  "id": "P0896",
+  "title": "Elasticsearch reindex with ELSER pipeline succeeds but only generates embeddings for fraction of documents - no failures reported",
+  "tags": [
+   "python",
+   "elasticsearch",
+   "indexing",
+   "pipeline"
+  ],
+  "body": "I'm reindexing documents with an ELSER inference pipeline to generate embeddings, but only a fraction of documents (usually around half) end up with embeddings despite the reindex completing successfully with no failures. Setup: Elasticsearch with ELSER model deployed and running Source index: ~1000 documents Destination index with [code] mapping for embeddings Pipeline: [code] Reindex Request: [CODE] Task Status (Completed Successfully): [CODE] Problem: Despite successful completion, only 450 out of 977 documents have embeddings: [CODE] Pipeline Configuration: [CODE] What I've Tried: Running [code] with pipeline - same result Checking for failures in task response - none reported Verifying source documents have [code] and [code] fields - they do Testing pipeline simulation - works correctly Running reindex multiple times - consistently ~46% success rate Questions: Why would reindex report success but not apply the pipeline to all documents? How can I debug which documents are failing to get embeddings when no failures are reported? Is there a way to force the pipeline to process all documents or identify which ones were skipped? The task description doesn't show the pipeline name (should show [code] ), which makes me suspect the pipeline isn't being applied, but the API accepts the parameter without error."
+ },
+ {
+  "id": "P0255",
+  "title": "Is it possible to change - for example the logo or text - on the FastMCP auth pop up page",
+  "tags": [
+   "python",
+   "model-context-protocol"
+  ],
+  "body": "I'm currently working on a test MCP server using FastMCP that has auth set up. I was wondering if the auth popup that occurs when you connect to the MCP server could be edited? For example, changing the FastMCP logo to something else or adding additional text in the pop up? Checked the FastMCP auth documentation but didn't find much."
+ },
+ {
+  "id": "P4344",
+  "title": "Is there a way to shorten this code to two lines maybe three?",
+  "tags": [
+   "python",
+   "string"
+  ],
+  "body": "I am still figuring out how to manipulate strings in python. Currently I need to use 4 lines to go from [CODE] to [CODE] This is the code I'm using. Works great, but would love to make it more elegant and pythonic. [CODE] I can't just strip/ replace the characters \"(),\" with \"\" because some monster names have those characters in their titles, eg: 'Beholder (blah blah)' or 'Dragon, Green'. The names ALL come from a db and have this markup around their 'Monster Name' name tag. So if I try the replacement method it messes up the titles and I can't use them as string variables in my code."
+ },
+ {
+  "id": "P4236",
+  "title": "How can I keep distincts data points with similar X value?",
+  "tags": [
+   "python",
+   "altair"
+  ],
+  "body": "I have a dataframe with 4 rows, two of which having the same value for the \"a\" field. I'd like to have a bar chart with 4 bars, one for each row. Trying with Altair [CODE] This will result in a 3-bar chart, the values for 'B' having been added (20+15=35) What I was expecting is a 4-bar chart, like I get with: [CODE] If each value must be unique, I guess I could use the index of the dataframe, but I have not found any way to get the labels from the 'a' column. [CODE] As expected, it brings the right values, but non the wanted labels: So it's possible to fake a column with unique values and trim the added part to get the proper labels back, but it seems not very pythonic to me. [CODE] What would be the proper way to solve this?"
+ },
+ {
+  "id": "P3552",
+  "title": "Django TestCase check ValidationError with assertRaises in is throwing ValidationError",
+  "tags": [
+   "python",
+   "django",
+   "django-tests",
+   "validationerror"
+  ],
+  "body": "I have a model where i have overridden save function something like: [CODE] and the function i am testing is like [CODE] [CODE] I'm new to Django and unable to figure out what's wrong with this"
+ },
+ {
+  "id": "P3447",
+  "title": "Python Tkinter How To Use Button For Consol Entry (Input())?",
+  "tags": [
+   "python",
+   "tkinter"
+  ],
+  "body": "I am trying to set the button spade2's text to the user's input in the main loop but it doesn't seem to work. Any Ideas? Thanks. I am quite new to Tkinter. [CODE] When I try to set the text of the button to the user input it gives me this: [CODE] But when I manually type the input everything works."
+ },
+ {
+  "id": "P4494",
+  "title": "Scraping encoded data from Oddsportal",
+  "tags": [
+   "python",
+   "json",
+   "decode"
+  ],
+  "body": "Oddsportal.com provides odds data from several betting sites. I've been scraping the data for years but they have recently encoded their data and I haven't found a way to decode it. Example: https://www.oddsportal.com/football/england/premier-league/liverpool-manchester-city-82qTWLi3/#1X2;2 The odds data is automatically updated and the data is retrieved from: https://www.oddsportal.com/feed/match-event/1-1-82qTWLi3-1-2-yj30c.dat (the XXX in yjXXX.dat may sometimes change) The read data should be in json format. The following Python script reads the data (some headers might not be mandatory): [CODE] Output: [CODE] Any ideas how to decode the data?"
+ },
+ {
+  "id": "P3950",
+  "title": "Creating and Use a PyTorch DataLoader",
+  "tags": [
+   "python",
+   "pytorch"
+  ],
+  "body": "I am trying to create a PyTorch Dataset and DataLoader object using a sample data. This is the tab seperated dataset: [CODE] This is the code to create the Dataset above and DataLoader object: [CODE] The code is simply saved with the filename \" demo.py \". The code should succesfully execute once the command ' python demo.py ' is executed on a command prompt screen. I use Anaconda Prompt which has Torch (v 1.10) installed. I have tried numerous methods to get the above working, but I only get an error which says: [CODE] I am not able to see which part of the index is wrong, as I don't feel there seem to be anything wrong with the indexing. Can someone please help me ?"
+ },
+ {
+  "id": "P1151",
+  "title": "How come this connect 4 does not work? (Python Widget)",
+  "tags": [
+   "python"
+  ],
+  "body": "First of all, I am stuck on how to add the winner in. Second of all Instead of the X or O going over the block, they replace the block instead. Can someone help me please and tell me if they are any more flaws? [CODE]"
+ },
+ {
+  "id": "P3116",
+  "title": "Pycharm backend issue",
+  "tags": [
+   "python",
+   "matplotlib",
+   "pycharm",
+   "backend",
+   "stellargraph"
+  ],
+  "body": "I see that this is a common issue but I have yet to see a fix for it. I am using the latest pycharm community, and i am running a script from the python console, but any time I try to load matplotlib or stellargraph in particular, I get the following: [CODE] Has anyone found a fix for this? Is it a setting in the interpreter or the console itself? I checked that i have ipython as well. Please help! Thanks in advance."
+ },
+ {
+  "id": "P4031",
+  "title": "Deta.space does not return login token even login successful by command &quot;deta login&quot;",
+  "tags": [
+   "python",
+   "terminal"
+  ],
+  "body": "enter image description here As you can see, my project is already there and I can't do anything as I can't go on. I am completely new and using Mac Mini M1 with macOS Version 13.4 (22F66). I try countless time with different browsers but get the same result. I want to create my python app on deta space."
+ },
+ {
+  "id": "P3185",
+  "title": "How can I create a column that is the result of replacing values in two or more other columns?",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "Consider the dataframe [code] : [CODE] I would like to map the values of the [code] and [code] to the values in the respective dictionaries: [CODE] And store the mappings in a common column because I know that per row, only the value of one column will be mapped. The end result would be: [CODE] I can only do this in a messy and lengthy way and was hoping there is clean maybe idiomatic way of doing this. How would you advise doing it?"
+ },
+ {
+  "id": "P2571",
+  "title": "Conflict pyinstaller vs pathlib --&gt; removing pathlib causes deletion of anaconda navigator",
+  "tags": [
+   "python",
+   "anaconda",
+   "pyinstaller",
+   "pathlib"
+  ],
+  "body": "I get the following error message when using the pyinstaller to convert python file to .exe: The 'pathlib' package is an obsolete backport of a standard library package and is incompatible with PyInstaller. Please remove this package using conda remove then try again. My python version is currently 3.10.9 Pyinstaller version 5.11.0 When I follow the advice to remove pathlib, pyinstaller works perfectly but my anaconda navigator gets deleted. I always have to re-install it, but then again pyinstaller is not working, because pathlib gets newly installed. Does someone faces the same issue and has a solution? Edit: I don't need the anaconda navigator for the pyinstaller application itself, but would like to keep the navigator since I use it to open programs like VS Code, Jupyter etc and its not very convenient that it gets deleted just because of the conflict between pathlib and pyinstaller."
+ },
+ {
+  "id": "P4772",
+  "title": "Will file logging race conditions in multi-process Flask app crash the Python script?",
+  "tags": [
+   "python",
+   "flask",
+   "logging",
+   "gunicorn",
+   "race-condition"
+  ],
+  "body": "I have a Flask application running on Gunicorn with 2 workers and 2 threads each (4 concurrent execution contexts). My custom logging function writes to a file without any process-level locking: [CODE] Will this cause race conditions, log corruption, throw exceptions or stop my Python script? Current Setup: Gunicorn: 2 workers, 2 threads each (--workers 2 --threads 2) Processes: 2 separate Python processes (workers) + 2 threads each Logging: Simple file append in each request What I've researched: Python's built-in logging module is thread-safe but not process-safe Multiple processes writing to the same file can cause interleaved content File operations in append mode generally don't throw concurrent write errors on Linux My specific questions: Will concurrent file writes from multiple processes throw exceptions that crash my script, or just cause messy logs? What's the worst-case scenario, will my Flask app continue serving requests even with corrupted logs?"
+ },
+ {
+  "id": "P5720",
+  "title": "Splitting a data set for CNN",
+  "tags": [
+   "python",
+   "arrays",
+   "tensorflow",
+   "conv-neural-network"
+  ],
+  "body": "Suppose, I have a tensor [code] as follows: [CODE] In each 2D arry inside the tensor, 1st eight columns are features, and the rest three columns are one-hot-encoded labels. Suppose, I want to feed this tensor into a CNN. For that, I need to do two things: (1) split the [code] into [code] , [code] , and [code] (2) split each of the above three into [code] and [code] . Now, my question is, which one of the above steps should I do first and which one should I do second in order for being least expensive? Explain why. If I do #2 first, how can the feature and labels data maintain their correspondence? Cross-posted: SoftwareEngineering"
+ },
+ {
+  "id": "P3217",
+  "title": "Change style of error line (cap size and dash) in plotly",
+  "tags": [
+   "python",
+   "plotly"
+  ],
+  "body": "I using plotly express to plot a scatter with error lines for the y-axis. Here's a MWE: [CODE] I want to change the style of the error line. First, I want to delete the cap, as here . Second, I would like to make a dashed line instead of the solid line. I looked through the Plotly documentation , but I don't see a straightforward way to do this. By adjusting the marker you cannot change the line apparently. Thanks for any help or idea."
+ },
+ {
+  "id": "P4238",
+  "title": "search two lists and fill with None for each pair in correct order",
+  "tags": [
+   "python",
+   "python-3.x",
+   "list",
+   "dictionary"
+  ],
+  "body": "This is a continuation from this . Right now, the result is: [CODE] I want, if a key is not found, to insert a [code] in the results. So, I want: [CODE] If I try: [CODE] just to append [code] , we receive [code] for each one element of the pairs: [CODE] I want to receive [code] in the correct position for each pair not each element in the pair."
+ },
+ {
+  "id": "P2288",
+  "title": "DNEG xStudio Build unable to install packages",
+  "tags": [
+   "python",
+   "chocolatey"
+  ],
+  "body": "I'm currently trying to install DNEG's xStudio video review tool on Windows. However, at step 4 here , I'm getting the following error: [CODE] It looks like it may be a python error. This is running in the administrative shell. How would I resolve these three packages?"
+ },
+ {
+  "id": "P0641",
+  "title": "convert list of list to dictionary with some key pattern",
+  "tags": [
+   "python"
+  ],
+  "body": "I am looking to convert a list of lists which contains some details in the below format into a dictionary. [CODE] I want it to be in the below format. [CODE]"
+ },
+ {
+  "id": "P0383",
+  "title": "Python: Deduct values from DataFrame based on cumulative sum",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "I have a DataFrame 1 [CODE] and DataFrame 2 [CODE] Name in dataframe2 is unique. Using amount_paid column in df2. start deducting value in ascending order and stop once amount_paid in df2 is completely utilized. If there is a extra amount in add in a new column amount_extra expected output: [CODE] What we have tried (using this code ): [CODE] Output: [CODE] Need help on getting the amount_extra data."
+ },
+ {
+  "id": "P5099",
+  "title": "Solving Constraints with Closed World Assumption in Z3 Solver",
+  "tags": [
+   "python",
+   "z3",
+   "solver",
+   "smt",
+   "z3py"
+  ],
+  "body": "I am working on a constraint satisfaction problem using the Z3 Solver in Python, where I need to solve a constraint of the form: [CODE] Given a set of facts, such as: [CODE] I want to apply the closed world assumption, meaning if something is not known to be true, it should be considered false, to find the only possible solution that satisfies both the given facts and the constraint. My goal is to do this without introducing extra information or assumptions beyond what's strictly provided. I'm currently unsure how to implement the closed world assumption effectively in Z3 to limit the solution space accordingly. Is there a way to instruct Z3 to operate under the closed world assumption directly, or would I need to model this assumption explicitly in my constraints? Any pointers or examples of how to achieve this with Z3 would be greatly appreciated. Initially, I attempted to manually specify everything not stated as True as False, but this approach proved to be too exhaustive and impractical for my purpose. It significantly increases the complexity and size of the problem without effectively leveraging Z3's capabilities."
+ },
+ {
+  "id": "P0086",
+  "title": "my site is showing me integrity error something regarding POST",
+  "tags": [
+   "python",
+   "django",
+   "django-models",
+   "django-views"
+  ],
+  "body": "enter image description here [[ enter image description here ]( https://i.sstatic.net/aICfo.png )]( https://i.sstatic.net/5Kday.png ) enter image description here i am facing this error and i am currently new to django and don't know how to overcome it i have pasted the error page and the page of my contact form i wanted to save the information that i get by filling the form to be saved in my data base/admin"
+ },
+ {
+  "id": "P2577",
+  "title": "How to pass self into a decorated method?",
+  "tags": [
+   "python",
+   "private",
+   "python-decorators",
+   "public"
+  ],
+  "body": "I'm trying to implement privacy modifiers into python using decorators. My problem is that whenever I decorate a method that has self as an argument, when the method is called using dot notation, it doesn't pass self in automatically. Public decorator class: [CODE] Example code: [CODE] How do I pass self into [code] ? I tried regularly passing in self: [CODE] which works but I would much rather not have to do that every time I need to call a method."
+ },
+ {
+  "id": "P4325",
+  "title": "processing hundreds of csv files one row at a time for embedding, upload to pinecone using OpenAI embeddings",
+  "tags": [
+   "python",
+   "multithreading",
+   "multiprocessing",
+   "langchain",
+   "pinecone"
+  ],
+  "body": "This is my current code which works for a while and then throws an error of \"can't start a new thread.\" Tried both threading and multi-processing and both cause this error eventually. [CODE] Here is the stack trace of the error: [CODE]"
+ },
+ {
+  "id": "P4151",
+  "title": "Extracting lines from two files where there is a match of value in specific columns",
+  "tags": [
+   "python",
+   "awk"
+  ],
+  "body": "I have two tab-separated files (with thousand of lines each): File1: [CODE] File2: [CODE] I would like to do the following: If element in column 1 of File1 exist in column 5 of File2, print output File3 with the two matching lines combined (tab-separated), ignoring lines with no matches: File3: [CODE] I have tried the following, but it only extracts the line from File2: [CODE] Awk or python code would be useful. Thank you."
+ },
+ {
+  "id": "P4294",
+  "title": "&#39;instaloader&#39; is not recognized as an internal or external command, operable program or batch file",
+  "tags": [
+   "python",
+   "instaloader"
+  ],
+  "body": "'instaloader' is not recognized as an internal or external command, operable program or batch file. pip install instaloader instaloader --help error: 'instaloader' is not recognized as an internal or external command, operable program or batch file. earlier it was working but now i'm getting this error"
+ },
+ {
+  "id": "P3974",
+  "title": "Add character to value in Pandas Dataframe column if value is specific length",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "numpy"
+  ],
+  "body": "I am trying to reformat the values in a dataframe column for a person's height from, for example, 5'8\" to 5 Feet 8 Inches and I figure that I can at least replace the apostrophe and double quotes first with \" Feet\" and \" \"Inches\". So, I have this that works fine for that replacement: [code] The problem I am having is that the formatting also needs to be \"... 0x Inches\", for example \"5 Feet 08 Inches\". I figure I can do it based on the length of the value but I can't figure out how to write that. If I'm doing my math right the block diagram of an if somewhere in this would be: [code] I would be happy to try a few different options, here is what I have tried with the results. [CODE] [CODE] [CODE] Thank you!"
+ },
+ {
+  "id": "P0929",
+  "title": "How to get only texts of tags that contain a certain string by using beautifulsoup?",
+  "tags": [
+   "python",
+   "web-scraping",
+   "beautifulsoup"
+  ],
+  "body": "Situation Given is an unordered list with some list elements that contain the [code] \"is\" - I only want to get these texts: [CODE] My approach [CODE] Results facts: [CODE] facts_with_is1 (after filter None value of facts_with_is ): [CODE] facts_with_is2: [CODE] How can I get the expected result (fact_with_is2) with a simpler approach?"
+ },
+ {
+  "id": "P4482",
+  "title": "ElementTree.find() seems to miss recently appended elements",
+  "tags": [
+   "python",
+   "elementtree"
+  ],
+  "body": "I can't wrap my head around this one. Why is find() not finding the appended element when it can find the exact same element when it is loaded from an XML string? The following function creates an element and adds subelements to it. [CODE] When I call that and then tries to find() it, it does not find it, so another element is appended: [CODE] I wrote a test (below) for the same thing when I read the thing from a string. Now find() works as expected. [CODE] What is going on? What am I missing? Has it to do with namespaces somehow?"
+ },
+ {
+  "id": "P2072",
+  "title": "How can I take multiple values from a single command?",
+  "tags": [
+   "python",
+   "discord.py"
+  ],
+  "body": "I am making a discord bot that returns the image of a card when searched for with a bot command. I was able to make a command to get a single card, but I would like to be able to search for multiple cards with one command. How can I do this? Here is my code for the single search: [CODE]"
+ },
+ {
+  "id": "P1983",
+  "title": "when using python sockets, is there any way for the client to receive data without sending any?",
+  "tags": [
+   "python",
+   "sockets",
+   "multiplayer"
+  ],
+  "body": "So I'm currently building a multiplayer python game with sockets, but I ran into some issues when putting the game on a global server (is that the right term?) basically, once every loop, my game would run something like [CODE] and then the reply would return a list of every players coordinates, and the client would set its own local list to the response however, when I use a global server, the client cant send and receive information as fast, and as a result, the game becomes super chunky. The players basically teleport around the screen. When running the server on a local network, this doesn't seem to be a problem. I was wondering if anyone knows a way for the server to just directly send information to the client, without the client having to ask every frame?"
+ },
+ {
+  "id": "P1585",
+  "title": "PySide2 setStyle not applying to QTabBar",
+  "tags": [
+   "python",
+   "pyside",
+   "pyside2"
+  ],
+  "body": "For some reason when I apply run [code] to a parent widget or to the QApplication instance, [code] no longer works on [code] . Here's a reproduction: [CODE] If you run the code above, \"Is the custom style\" reports [code] If you comment out or remove [code] and re-run it, \"Is the custom style\" reports [code] . According to Qt's QStyle documentation : [code] When setStyleSheet is called, on either [code] or [code] , [code] is replaced with [code] . The intended class, [code] , gets completely unset. How can I fix this so that \"Is the custom style\" reports True, even if a parent widget changes its style sheet? Note: Tested with PySide2-5.15.2.1 on both CentOS 7 and Windows 10"
+ },
+ {
+  "id": "P2618",
+  "title": "Add two arrays with incompatible dimensions that can&#39;t be broadcast",
+  "tags": [
+   "python",
+   "numpy"
+  ],
+  "body": "This seems like it should be a simple operation, but for the life of me I can't figure it out. I have two arrays of incompatible shape that can't be broadcast together. [CODE] I would like to add the two arrays along the first dimension, so that the result is an array with shape: [CODE] In other words: [CODE] Can I do this vectorised, without resorting to looping?"
+ },
+ {
+  "id": "P1852",
+  "title": "How to find children of each node using git log",
+  "tags": [
+   "python",
+   "git"
+  ],
+  "body": "I am currently working on GitGarden , a CLI tool that draws your repos as plants. I want the branching/forking of Github repos to be mimicked in my program, like how trees branch off in real life. To do that, I need to identify whether each node is a split (branching off) or a merge (coming back to the main trunk). I have successfully flagged merges in my tested repos, but not splits. How can I do this? Here I get the git commits for the repo using git log: [CODE] Here I get each node's children: [CODE] And here I print the according values in my rendering of a tree: [CODE] The rest of the tree is printed using \"|\", but I don't think it is relevant here."
+ },
+ {
+  "id": "P1748",
+  "title": "Networkx - update subgraph attributes in for loop",
+  "tags": [
+   "python",
+   "for-loop",
+   "networkx"
+  ],
+  "body": "I have a set of subgraphs, each containing a subset of a larger graph, [code] . Each node in these subgraphs has a list of values. I'm hoping to update the [code] attribute of each subgraph to the mean value of its list of values. [CODE] However, when I try to reference the [code] after the for loop, all I get is nan: [CODE] Why is this? I have tried this (within for loop): [CODE] and behavior still exists. Also, I have looked at this question , among others."
+ },
+ {
+  "id": "P5317",
+  "title": "How would I combine two pandas dataframe based on a if one column contains another value",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "so I have two dataframes: [CODE] [CODE] I need to combine two df's based on df1.Location & df2.Location_City as well as df1.Project_Code and df2.Project_Code. The issue I have with joining is that project codes and locations repeat and the only way to distinguish itself is by joining both the location and project code. The other issue I have is that with the Location from df1 and Location_City from df2, they have additional characters(in this case the state) I was wondering if there is a way to merge the location and location_city in a why where they are read so that location is matched with the location city if it contains a value from location city. Basically how would I get something like New York, NY to be read as New York"
+ },
+ {
+  "id": "P4699",
+  "title": "LLM caused VS Code to be suddenly closed",
+  "tags": [
+   "python",
+   "large-language-model"
+  ],
+  "body": "I installed and run gemma3 with Python, and I was using VS Code editor. I programmed it to receive output in structured format, and when I asked the LLM to generate two class instances, it successfully did that. But when I asked it to generate 30 instances, the execution time took 5 minutes and after that VS code was suddenly closed, the computer got stuck and notification appeaared that device reached out of space limit although I have more than 600 GB free space. I had run the program in separate Linux terminal, not in VS Code's. The parameters of my computer: 16 GB RAM, 600 GB dedicated memory (OS is dual-booted) Intel core i7 9th gen and the OS is Fedora 41 Why may this problem happen? How can I fix this issue?"
+ },
+ {
+  "id": "P1805",
+  "title": "Get python object using its data",
+  "tags": [
+   "python",
+   "python-3.x",
+   "class"
+  ],
+  "body": "I have written this class to create a tree in python: [CODE] The data input available requires me to build this tree from the middle in random steps so that there is no way to have the root beforehand. The nodes may not even connect to other nodes at first. Is there a way to make the last line work? To get the object using its name? [CODE] Expected response is \"B_cell\" but I get an empty string."
+ },
+ {
+  "id": "P1323",
+  "title": "Matplotlib doesn&#39;t plot correct graph and its scales",
+  "tags": [
+   "python",
+   "html",
+   "pyscript"
+  ],
+  "body": "I heard about pyscript a few weeks about And i learned basic things I want the user to enter the data in input elements and title xaxis and yaxis And to select the type bar line or pie etc Here's the code [CODE] And the button [CODE] The input elements [CODE] [CODE] [CODE] Output enter image description here But when i run this python code on pydriod It returns correct graph enter image description here"
+ },
+ {
+  "id": "P3541",
+  "title": "Alternative ways of counting lines in a file",
+  "tags": [
+   "python",
+   "for-loop",
+   "enumerate"
+  ],
+  "body": "I am trying to print the line number and character number when finding the index of a word. Can someone suggest an alternative way to enumerate lines without using enumerate in a for loop? [CODE] The code is working, but I'm interested in other ways to print line numbers because I would like to avoid enumerate()."
+ },
+ {
+  "id": "P5347",
+  "title": "Multimodal embedding requires video first, then image - why?",
+  "tags": [
+   "python",
+   "pytorch",
+   "huggingface-transformers",
+   "embedding",
+   "multimodal"
+  ],
+  "body": "I am working with OmniEmbed model ( https://huggingface.co/Tevatron/OmniEmbed-v0.1 ), which is built on Qwen2.5 7B. My goal is to get a multimodal embedding for images and videos. I have the following code, which is basically the example code from the model card: [CODE] I now want to compute embeddings for both a video input and and image input. Thus, if I now call: [CODE] everything works fine and I get an embedding for both video and image. If I start a fresh python session and execute first the encoding for the image and then for the video, I get an NA embedding for the image. How does that make sense? Why does starting with the video make the image example work?"
+ },
+ {
+  "id": "P0369",
+  "title": "Python Flask Migrate is not ignoring existing tables in database outside my models",
+  "tags": [
+   "python",
+   "flask",
+   "alembic"
+  ],
+  "body": "Following this link: https://alembic.sqlalchemy.org/en/latest/cookbook.html#don-t-generate-any-drop-table-directives-with-autogenerate I wanted flask db migrate to ignore existing tables outside of the context of my application, i thought all i needed to do was add the function from the link and set it in the context. This is my env.py file, but flask migrate is still erroring because my \"testing\" table exists in my database, but not in my models: [CODE] And this is the script that runs the migration: [CODE] And this is the error: [CODE]"
+ },
+ {
+  "id": "P0893",
+  "title": "How to fix Pycharm code inspection giving false positives with qtpy?",
+  "tags": [
+   "python",
+   "qt",
+   "pycharm",
+   "qtpy"
+  ],
+  "body": "I'm using qtpy (wrapping PyQt6) and Pycharm (plugin within Intellij), but the IDE is constantly showing me warnings about \"Unresolved attribute reference\" for Qt objects. This is adding noise and obfuscates real bugs (like the one highlighted in red below). Is there a fix for this?"
+ },
+ {
+  "id": "P2614",
+  "title": "Cython unable to properly access data from file containing shared data in python",
+  "tags": [
+   "python",
+   "numpy",
+   "class",
+   "cython"
+  ],
+  "body": "I have two Cython functions that access data from a shared class in python both functions use the same method to gather the data from the class but only one works. Function 1 (gathers data without any problems) [CODE] Function 2 (WeightVals.Weights returns a [] even though no modifications to the list have been made) [CODE] I've tried allocating weights just to the \"back_propagate\" function and edited the imports [CODE] I expected WeightVals to have the value of whatever the weights are but it returns an empty list."
+ },
+ {
+  "id": "P3461",
+  "title": "How to print the S3 key name in python",
+  "tags": [
+   "python",
+   "json",
+   "amazon-s3",
+   "aws-lambda",
+   "python-3.8"
+  ],
+  "body": "I have added S3 trigger for all puts of new objects and invoke AWS Lambda. My Lambda is written in Python 3.8 to parse through the key object and file and fetch the filename. [CODE] Once I upload mys3bucket/jsonfiles/2021/05/31/file.json My code prints jsonfiles/2021/05/31/file.json , what I would like to print instead is. [CODE] What should my code look like?"
+ },
+ {
+  "id": "P5655",
+  "title": "Discord.ext.menus is not able to be imported because of an &quot;Unknown location&quot;",
+  "tags": [
+   "python",
+   "discord.py"
+  ],
+  "body": "When importing the python lib discord-ext-menus, found at: https://github.com/Rapptz/discord-ext-menus , I get given an error of [CODE] I have tried reinstalling the library multiple times - but nothing has happened."
+ },
+ {
+  "id": "P1820",
+  "title": "Use case of python decimal module VS float comparison",
+  "tags": [
+   "python",
+   "python-decimal"
+  ],
+  "body": "Recently I got to know the [code] python module. While I got to understand how to work with this, I still have a question that persists: What is/are the main case(s) where coders should use [code] for float comparison? For example, at the past I have already performed some automatic tests for installable packages. At this ones, I always performed the comparison among floats with [code] or by comparing the absolute difference with an epsilon value. Maybe my experience is still not enough to see which cases the [code] module is better. Could anyone provide some insights to me?"
+ },
+ {
+  "id": "P2256",
+  "title": "Bitwise invert a string and send it to a socket",
+  "tags": [
+   "python",
+   "sockets",
+   "tcp"
+  ],
+  "body": "how would I invert the bits for a given alphanumeric string and pass it to a socket function? [CODE] Such that the TCP packets data is: [code] ?"
+ },
+ {
+  "id": "P3865",
+  "title": "Issue with webcam - blurry background (MacOS)",
+  "tags": [
+   "python",
+   "macos",
+   "camera",
+   "webcam",
+   "blurry"
+  ],
+  "body": "I am running the below simple Python code (Python 3.11.7 with OpenCV 4.8.0) on my Mac (M2) so I can capture and display images from my camera Logitech C925e. [CODE] The issue is that the images show a blurry background. Using the Logitech app (Logitune.app) I disabled autofocus to no avail. Also tried capture.set(cv.CAP_PROP_AUTOFOCUS, 0) with no luck either. I think that the problem is OpenCV as I did the following test: I used the camera with 4 apps at the same time: Teams, FaceTime, Logitune (image preview option) and my code. They all show the same image but my code is the only one showing a blurry background. See the image attached. ( https://i.sstatic.net/AlQd6G8J.png )"
+ },
+ {
+  "id": "P5209",
+  "title": "pycuda._driver.Error: cuInit failed: unknown error",
+  "tags": [
+   "python",
+   "cuda",
+   "nvidia",
+   "pycuda"
+  ],
+  "body": "I have a problem with pycuda. I used it for a python script i develop. I know this script work because i use it on other server. But on a specific server i got a problem : [CODE] It should not fail at the import, and the unknown error didn't realy help me on the issue... Here's what I've already done : I have the right version of Nvidia driver : (sudo apt install nvidia-driver-580-server) [CODE] I also try to install pycuda to 2 diferent way : [CODE] Or that whay : ( I try cuda 13-0 and 13-1) [CODE] In both cases, compiling pycuda via pip works very well. I've tried uninstalling and reinstalling several times, and each time I get the same error. I've managed to fix this problem in the past (completely randomly), but I can't get it to work again. Do you have any suggestions for fixing this type of problem?"
+ },
+ {
+  "id": "P2912",
+  "title": "Can when changing song position qdbus6/bluez does not update position metadata",
+  "tags": [
+   "python",
+   "linux",
+   "audio",
+   "bluez",
+   "qdbus"
+  ],
+  "body": "when skipping backwards or changing the playback position of a song qdbus6 or bluez is not refreshing if I rewind or scan in any direction I do not get a proper reading in the \"Position\" value instead it continues counting in milliseconds until it the song ends on the source device [CODE] I have tried manually issuing various control commands to see if there is something that can do it but I don't have the \"Update\" command so I am having trouble figuring out what is going on. this is what it does when I adjust the position on the playback device and it goes past the playback range instead of of resetting when adjusted. [CODE] the code for the entire app I am having is here [CODE] I noticed there were various another questions here about this issue but I did not see an answer on any of them. Note since posting i changed and added various things but the problem remains. you can see in the code that I was trying to troubleshoot with chatgpt, my apologies if that is a problem."
+ },
+ {
+  "id": "P1240",
+  "title": "Kivy drag n drop area is too big",
+  "tags": [
+   "python",
+   "kivy"
+  ],
+  "body": "Reposting this with example code from geeksforgeeks. I am testing a simple drag and drop function in Kivy with the Drag Behavior module: https://kivy.org/doc/stable/api-kivy.uix.behaviors.drag.html However, I can't seem to work out how to make the draggable area small. I've tried playing around with the numbers on the drag_rectangle parameters, but the draggable area either doesn't get smaller or just completely disappears for some reason (meaning I can't drag the square). For reference, this is the issue: If you run the code in this geeksforgeeks sample the same problem happens so I think it has to something to do with the module itself: https://www.geeksforgeeks.org/how-to-add-drag-behavior-in-kivy-widget/"
+ },
+ {
+  "id": "P0059",
+  "title": "Python create two three variable list to image",
+  "tags": [
+   "python",
+   "arrays",
+   "numpy",
+   "image-processing",
+   "multidimensional-array"
+  ],
+  "body": "I'm collecting data: [CODE] When the number of chan reaches [code] values I wanted to create the [code] image of size where [code] and [code] (12*12 gives 144) and subsequent chan values ​​are written in the order shown by the arrows in the image: The problem looks simple for someone who works with arrays in python. I'll be very grateful for your help."
+ },
+ {
+  "id": "P1286",
+  "title": "VerifyEmailError not defined after installing verify_email library (Python 3.11.5)",
+  "tags": [
+   "python",
+   "error-handling",
+   "email-validation"
+  ],
+  "body": "I am using Python 3.11.5 and installed the verify_email library to validate email addresses. However, when I attempt to catch the VerifyEmailError exception using a try-except block, I receive the following error: [CODE] I have tried uninstalling and reinstalling the verify_email library multiple times, but the issue persists."
+ },
+ {
+  "id": "P3600",
+  "title": "Is there a substitute for ttkbootstrap.Style()?",
+  "tags": [
+   "python",
+   "tkinter",
+   "tkcalendar",
+   "ttkbootstrap"
+  ],
+  "body": "So recently I had refrain from using ttkbootstrap because it was cashing with my tkcalendar. But if I do stop using ttkbootstrap, my windows cannot have themes, which is one of the features of my app. So I was wondering if there was an alternative to ttkbootstrap.Style(), because I would like for my windows to still have themes without making problems with tkCalendar. The only part in my code that I need to change is this: [CODE] Because I need a substitute for Style. Or, alternatively, I could find a way to make it so tkCalendar and ttkbootstrap don't have problems. This is the current fix I am using: [CODE]"
+ },
+ {
+  "id": "P5563",
+  "title": "How do I get it so when I double click a py file it opens up Idle to edit without a console window temporarily coming up?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "python-idle"
+  ],
+  "body": "I've been trying to search stack overflow and Reddit to find out how to do it as I did it years ago, where if I double-clicked on a py file, it would open in idle without a console window temporarily opening up and closing. I tried to follow the steps in this video, but the registry seems to have changed so can't. https://www.youtube.com/watch?v=l370kEUhXko&ab_channel=JaradPython any advice on how to do this? I seem to have lost the \"edit with idle\" option on the right-click menu as well once I changed it to open with idle.bat. Not sure how this affects everything. I am using the latest Python 3.11.4 Thank you"
+ },
+ {
+  "id": "P4296",
+  "title": "pandas groupby apply: returning a dataframe with groupby items as index",
+  "tags": [
+   "python",
+   "python-3.x",
+   "pandas"
+  ],
+  "body": "Consider the following cases: [CODE] I try to rank 'value_1' and 'value_2' within each group and return a new column as their ratio along with the column 'code' (both 'date' and 'code' together are the primary key) [CODE] so we get a multi-index dataframe. reset_index() and drop column 'level_1' yields [CODE] Consider another method: [CODE] The results are different and I don't know why. Also in method one groupby.apply returns a multi-index dataframe, but in method two it returns a dataframe with raw structure. I'm curious what leads to these different return types."
+ },
+ {
+  "id": "P4121",
+  "title": "Fill NA in pandas series with matching value from another pandas series",
+  "tags": [
+   "python",
+   "pandas",
+   "series",
+   "fillna"
+  ],
+  "body": "I have a pandas series like this: I want to fill NA in matchess with \"Lock\" value from standard series. I tried pd.merge and combine_first but it won't reserve the order of matchess. How to fill NA in matchess with the values from standard series while reserving the order of matchess series?"
+ },
+ {
+  "id": "P4657",
+  "title": "Pandas creating a new table and convert it to wide format",
+  "tags": [
+   "python",
+   "pandas",
+   "pivot"
+  ],
+  "body": "I have this data frame. [CODE] I am trying to create a new column where it adds the number of same types corresponding to its generation number, and reshape the data into wide format. looking like; [CODE] I have sliced columns from the original data frame: [CODE] and I was trying to create a new column to count but this did not work. [CODE] is there a more efficient way of reshaping the data?"
+ },
+ {
+  "id": "P1871",
+  "title": "How to take a Pandas series and split it so it gives me the full name",
+  "tags": [
+   "python",
+   "dataframe"
+  ],
+  "body": "[CODE] I have this series above and I want to split each row so that it lists everything like; Atlanta GA: Hartsfield-Jackson Atlanta International. This would be one column in a data frame. Essentially just want to remove the 'name:' at the beginning of each row and then split it so I have the form that I want. I have tried [CODE] But my output comes out to [CODE]"
+ },
+ {
+  "id": "P1712",
+  "title": "AttributeError: module &#39;community&#39; has no attribute &#39;best_partition&#39;",
+  "tags": [
+   "python",
+   "graph",
+   "networkx"
+  ],
+  "body": "I try to run this code: [CODE] but the error remains the same. I have tried all options given by AttributeError: module 'networkx.algorithms.community' has no attribute 'best_partition' but it doesn't work. Also, I'm working in Google Colab and I have installed cdlib."
+ },
+ {
+  "id": "P5517",
+  "title": "Tkinter Label Class not placing label on window",
+  "tags": [
+   "python",
+   "tkinter"
+  ],
+  "body": "I am trying to create a class to put tkinter headings onto a window, however for some reason it will not place them. I have tried to move the .place around and out of the class and it doesn't seem to work. I would prefer using place as it is the method I am most comfortable with. The class and window are in different files and the class is imported. Below is the class [CODE] Below is the code for the window [CODE]"
+ },
+ {
+  "id": "P1347",
+  "title": "Unable to connect to the SYBASE Database in Docker when triggered through FASTAPI",
+  "tags": [
+   "python",
+   "docker",
+   "fastapi",
+   "uvicorn",
+   "sybase-asa"
+  ],
+  "body": "I am unable to connect to my database inside Docker when I try to trigger an SQL query through an API call. When I do it without Docker, it works. Details: When I start the uvicorn server directly with the following command: [CODE] My uvicorn server starts, and is accessible at [code] . It has an endpoint [code] , which when called, executes an SQL select query and the endpoint returns the data as a JSON -> this works fine Now, I run a docker container, which has a kafka service and the same uvicorn server running simultaneously. The docker commands are as follows: [CODE] (I map port 5001 to access the API externally through the browser at localhost) Both the kafka messages and the API trigger some SQL query. The SQL query works when triggered via kafka message within docker (it returns data, which means that the app is able to connect to the database within the docker container), but when triggered through the API, it is not able to connect to the database -> this doesn't work In the latter case, I start the uvicorn server directly in python like this (if that makes a difference at all): [CODE] I checked through the logs and it seems this line gets stuck indefinitely (it doesn't give any error): [CODE] I can provide additional information if required, but can anyone provide me a clue as to why my API, when triggered within the docker container, might not be able to interact wi"
+ },
+ {
+  "id": "P1177",
+  "title": "Get email of the current logged in user in Django and filter with it to get specific statistics",
+  "tags": [
+   "python",
+   "django",
+   "django-models",
+   "django-views",
+   "django-request"
+  ],
+  "body": "When a doctor is logged in with his email and password, his dashboard shows him some statistics: the number of his patients, the number of his appointments (including past and future appointments) I need to filter by the doctor's email (to get the appointments/patients of that specific doctor), but I couldn't get a result of any of the three filters. I tried with [code] and [code] I didn't get anything. Here's my code : views.py: [CODE] models.py: [CODE] Thank you for your help !"
+ },
+ {
+  "id": "P2187",
+  "title": "How to change Label according to user input in tkinter app?",
+  "tags": [
+   "python",
+   "tkinter"
+  ],
+  "body": "I am creating a planning app and I want it to be personalized by having a title that says [Name]'s Planner. The user can enter their name into a text entry widget, press Submit , and then it will be displayed in the label. My application also has multiple pages, so the text entry will be on the start page and the label will be on the home page. I have named the text entry widget [code] and have created a function that takes the data from [code] and displays it in the label [code] , however, I am getting an error message when I try to call the function by clicking the Submit button which says [code] . I am confused as I believe I have already defined [code] by saying it equals the text entry widget. [CODE]"
+ },
+ {
+  "id": "P3154",
+  "title": "Is it possible to add a value into a list if it meets certain criteria?",
+  "tags": [
+   "python",
+   "python-3.x"
+  ],
+  "body": "Is it possible to make a code that shows you the position you are in after entering your score and name? [CODE] The problem with my current code is I am unable to find the exact position the number can go into, thus when doing [code] I am only able to bring it to the back of the code. If I were to use index, they will give me a value error if my score is not in the list [code] . Expected Result: [CODE] Essentially the program will check your score with the scores in [code] , and if your score is [code] , you will end up in position 4, and the scores after that will have to shift down by 1, with [code] out of the score board."
+ },
+ {
+  "id": "P2476",
+  "title": "Training tff metrics on federated training data of clients",
+  "tags": [
+   "python",
+   "tensorflow",
+   "tensorflow-federated"
+  ],
+  "body": "I am following this tutorial . Here I perform training on federated train data: [CODE] and then evaluate the testing set. How can I get the tff training (accuracy/loss) metrics in custom code of federated learning? Earlier, I was using: [CODE] and then I was able to print tff metrics: [CODE] But I don't understant how I can show tff metrics in my custom tensorflow federated training process."
+ },
+ {
+  "id": "P5885",
+  "title": "msvcp140.dll conflict with SciPy",
+  "tags": [
+   "python",
+   "dll",
+   "scipy"
+  ],
+  "body": "I'm using a python program that uses SciPy and a custom library written in C++. That custom library is compiled in Visual Studio 2022 on a Windows 11 machine and uses msvcp140.dll. When I try to execute the python program, I get a null pointer exception in my custom library when trying to aquire a lock on a mutex. The mutex itself does exist and is valid. I noticed that SciPy ships with it's own MSVCP140.dll. When I delete/rename this dll, my system MSVCP140.dll is loaded and the program works just fine. It also works if I load the dll manually in the python script before doing anything else with: [CODE] The Version of the msvcp140.dll in SciPy is 14.00.24210.0 and my version is 14.42.34438.0. Is there a better solution, or am I stuck with this?"
+ },
+ {
+  "id": "P2334",
+  "title": "Delete a variable in pulp",
+  "tags": [
+   "python",
+   "optimization",
+   "pulp"
+  ],
+  "body": "I have a optimize problem: there are 3 binary variable x, y, z. The objective func is: x + y + z max The constraint is: 2x + 3y - 4z <= 5 I want to fix a random variable = 1 (or 0). In this problem i fix x = 1. Now I don't know how to change the constraint base on that variable automatically, it like x is not variable anymore or it will be deleted, the solver just solve y and z. The reason why i need to do it automatically is in my real problem it can be have 100+ variable. Please help me, Thank you! (I am using pulp, if you know library can do it, please recommend for me) i try to convert the constraint to string, change them base on the fixed variable then convert again, but it seem not true."
+ },
+ {
+  "id": "P2242",
+  "title": "Web-scraping JSON loaded site in python",
+  "tags": [
+   "python",
+   "json",
+   "web-scraping"
+  ],
+  "body": "I'm trying to scrape a supermarket site. They site loads the items and relevant info using JSON. I can do it perfectly if I manually fetch the URL to the JSON GET using the network tab in the dev options in chrome. Two problems: every time I change the page/load more items, there is a new and different \"endpoint\"/JSON to the items and I couldn't find a way to cycle through those urls. If I use just the site URL (not the JSON one I get from the network tab), which I can cycle through, I can't get the information since it uses JSON to load the data. This works: [CODE] but since it is only the first JSON, it only loads the items from the first page. So I can also find the data like this: [CODE] I didn't continue using this last option because the data was unusable if I get it like that. With this last one I also tried to make it close to a JSON data format (thats why I removed 8 and 9 from the str) but it still doesn't work. So I think my best option is to use the first code, but I don't know how I can automatically get the JSON link (the one I get from the network tab in the dev options) for every page when I cycle. Thanks!"
+ },
+ {
+  "id": "P2646",
+  "title": "Having issues with openpyxl library of Python, when formating cell as number",
+  "tags": [
+   "python",
+   "openpyxl"
+  ],
+  "body": "When formating a cell as a number using openpyxl, there is a shift of rows in the file [CODE] See the 3 blank rows on Excel, data was shifted instead of being formated as number. I am using several XML files to export data to am Excel file XML file content: [CODE] This code acces to several XML files to generate data in Excel WorkSheet Adding code: [CODE] Not formated Formated as number"
+ },
+ {
+  "id": "P3270",
+  "title": "Feature Importance with ColumnTransform and OneHotEncoder in RandomForestClassifier",
+  "tags": [
+   "python",
+   "scikit-learn",
+   "pipeline",
+   "random-forest"
+  ],
+  "body": "Apologies for bothering you, but I haven't been able to find a definitive answer after searching the site. I'm building a RandomForestClassifier on some clinical data where the target variable (outcome) is binary (0 or 1). I'm using Python and scikit-learn to implement this. The dataset consists of both categorical and numeric variables, and I'm working with a pipeline for preprocessing. [CODE] After obtaining a model called final_model, when I try to extract the feature importances using final_model.feature_importances_, I get an array of 116 values, which corresponds to the number of variables in my dataset. Question : Since I used OneHotEncoder for the categorical variables, shouldn’t I expect more than 116 values in the array? I believe the answer lies in how ColumnTransformer handles the transformations, but I’m a bit confused at this point. Any clarification would be greatly appreciated! Thank you!"
+ },
+ {
+  "id": "P1728",
+  "title": "scrape article from a website that requires credential with scrapy",
+  "tags": [
+   "python",
+   "pandas",
+   "web-scraping",
+   "scrapy"
+  ],
+  "body": "I need to scrape article from a website that requires a credential. I try to follow the instruction from https://python.gotrained.com/scrapy-formrequest-logging-in/ and my final code is below [CODE] when I run the code, I did not find any error but the script did not get into the website and scrape the articles. The log I got when I run the code is below: [CODE] How can I get scrape the articles from the website? Thanks in advance"
+ },
+ {
+  "id": "P1688",
+  "title": "MCP Inspector Throw File Not Found",
+  "tags": [
+   "python",
+   "model-context-protocol"
+  ],
+  "body": "I am spinning up an MCP Inspector, but it doesn't work. The terminal was stuck with looping the message [CODE] Checking the notifications in MCP Inspector. I saw the error message: File not found: C:\\Users\\Documents\\HF MCP Course\\cli_project.mcp_server.py But instead the [code] command in the inspector is with the argument [code] . Suspect that the dot was added somewhere. Have to workaround by adding [code] with a dot as a wrapper. Anyone know the problem?"
+ },
+ {
+  "id": "P0840",
+  "title": "How do I crawl sites that I can&#39;t access when I crawl Python?",
+  "tags": [
+   "python",
+   "web-crawler"
+  ],
+  "body": "[CODE] If you connect with Chrome, you can connect well, but you can't connect with Python. How can I do?"
+ },
+ {
+  "id": "P4009",
+  "title": "Find the last (rightmost) non-null value on each row",
+  "tags": [
+   "python",
+   "dataframe",
+   "python-polars",
+   "coalesce"
+  ],
+  "body": "I have the following polars dataframe [CODE] [CODE] I need to fill null values in column [code] with the closest non-null value from the columns to the left (not considering [code] column) and create a new column based on those values. The desired output should be the following [CODE] [CODE] I tried different approaches but didn't have any success. Is there a way to achieve this behaviour within polars?"
+ },
+ {
+  "id": "P5596",
+  "title": "How to get slice of list which is in a pandas series",
+  "tags": [
+   "python",
+   "pandas",
+   "series"
+  ],
+  "body": "[CODE] Here is numbers: (Without using .split, it would be a fraction like 1/1 or 1/4) I want to now create a new column which gives us the percentage of the fraction (100% for 1/1, 50% for 1/2, 25% for 1/4, e.t.c) For that, I did this: [CODE] But then I realized that [code] was [1,1] instead of a series, so I am confused how to go forward with this."
+ },
+ {
+  "id": "P1514",
+  "title": "Kivy Camera rotated 90 degrees",
+  "tags": [
+   "python",
+   "android",
+   "kivy",
+   "android-camera",
+   "kivymd"
+  ],
+  "body": "I've used Camera from kivy library and on Windows it appears correctly, but when I try it on the Android platform it seems to be rotated for 90 degrees. I have tried method with canvas rotation Push and PopMatrix [CODE] from Kivy Camera display is rotated -90 degrees but it didn't help. I use python declarative style for my code [CODE] Is there any way to fix it?"
+ },
+ {
+  "id": "P1813",
+  "title": "Unable to access oracledb package using python in ODI14c Marketplace",
+  "tags": [
+   "python",
+   "python-3.x",
+   "oracle-database",
+   "python-oracledb"
+  ],
+  "body": "I am facing issue in ODI14c Marketplace, while connecting to Oracle database using Python script. Error is, 'ObjectNotFound'. when i go and see, i can find oracledb package at location python3.8. oracledb package installed Error while accessing oracledb package/library from Python Does anybody face similar issue."
+ },
+ {
+  "id": "P2201",
+  "title": "Multiple QHBoxLayouts don&#39;t line up when using weights",
+  "tags": [
+   "python",
+   "qgis",
+   "qboxlayout"
+  ],
+  "body": "I created my own custom [code] with the following layout (Python 3.12.12 in QGIS): [CODE] This looks like this: I want \"Option 1B\" to be in the same column as \"Option 3B\", so I added weights/\"stretches\": [CODE] However, as you can see, they aren't lined up perfectly for some reason, there's an offset of 2 pixels in the second column. If I add another [code] with also two elements, then that one lines up perfectly with [code] but the second element is also offset to [code] . Using [code] instead of the weights removes pretty much all spacing ( [code] is positioned directly to the right of [code] ) and I don't want to use anything with a fixed pixel width like [code] because I want the dialog to set its own width (and height), depending on the font size (-> user's settings). What is causing this offset and how do I make it line up properly (I do not want to use a [code] !)?"
+ },
+ {
+  "id": "P1299",
+  "title": "Why do I get the error, &quot;pygame.error: Couldn&#39;t read first 12 bytes of audio data&quot; when I drop a mp3 file on to the window?",
+  "tags": [
+   "python",
+   "pygame"
+  ],
+  "body": "So, I have been creating a Music Player, and I'm in the process of it. I'm a beginner at pygame. I keep getting the error: \"pygame.error: Couldn't read first 12 bytes of audio data.\" when I drop an mp3 file onto my window. Here is my code: [CODE] EDIT: Someone, please explain why this error is happening. This is the complete error message: [CODE] The file I dropped on my pygame window was a regular mp3 file."
+ },
+ {
+  "id": "P2548",
+  "title": "Writing a classification model as a function",
+  "tags": [
+   "python",
+   "scikit-learn",
+   "classification",
+   "xgboost"
+  ],
+  "body": "Given a dataframe [code] that looks like this: [CODE] I wrote the following model: [CODE] I want to write it as a function, though, that takes the dataframe and [code] as an input and returns the predicted rating. What I did was naively copy-pasting the code above into a function: [CODE] But that even returned me an error on the [code] line because “I got multiple values for argument test_size”, even if I copied it 1-to-1 from above. I just want to input for example [code] and get the predicted rating, is that possible? Edit: this is what I did: [CODE] And the error when inputing, for example [code] : [CODE] I know it is because [code] is of numeric type when I print it, but I tried writing it as [code] and I still get the error. Edit: new code and mock data to play around with: [CODE]"
+ },
+ {
+  "id": "P2234",
+  "title": "Replace repeated characters with the number of times repeated",
+  "tags": [
+   "python",
+   "string"
+  ],
+  "body": "I want to replace repeated characters in a string with the number of times repeated and the character itself: e.g. [CODE] becomes [CODE] It will only apply to b and o. Every solution I have come up with hasn't worked and seems very complicated compared to the task and ends up not working, is there any quick way to do this?"
+ },
+ {
+  "id": "P2436",
+  "title": "Saving a website screenshot with pyqt6 / QtWebEngineView is always empty",
+  "tags": [
+   "python",
+   "web-scraping",
+   "pyqt",
+   "pyqt6"
+  ],
+  "body": "I'm trying to save a screenshot of a website with QtWebEngineView, but the resulting image always ends up being empty. [CODE] I've tried variations of the code where the QTWebEngineView is rendered in an application window and that part works. The [code] also ensures the website is loaded before proceeding to paint. Yet somehow the rendered image is always a full white png instead of the website. Edit: Voting to reopen because the solution in the \"duplicate\" does not seem to resolve this case."
+ },
+ {
+  "id": "P0952",
+  "title": "Explode multiple list columns pairs to more rows in Pandas",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "Given a dataset as follows: [CODE] [code] in the format of list of dict: [CODE] The elements from [code] have correspondent Part-of-speech tagging (POS tagging) in [code] column. I hope to convert dataframe to the following format: [CODE] How could I acheive that in Pandas? Thanks."
+ },
+ {
+  "id": "P2244",
+  "title": "How to filter a dictionary when the value of the dictionary is a list",
+  "tags": [
+   "python",
+   "list",
+   "dictionary"
+  ],
+  "body": "I'm new to Python and I hope you can help me. I have a dictionary with the following structure: [CODE] I wonder if it's possible to filter by brand and by type."
+ },
+ {
+  "id": "P4058",
+  "title": "All columns to uppercase in a DataFrame?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "dataframe",
+   "python-polars"
+  ],
+  "body": "Suppose there are hundreds of columns in a DataFrame. Some of the column names are in lower and some are in upper case. Now, I want to convert all the columns to upper case. [CODE] What I tried: [CODE] It worked, but is there any other way preferably without a for loop?"
+ },
+ {
+  "id": "P1862",
+  "title": "authlib for linkedin and fastapi",
+  "tags": [
+   "python",
+   "linkedin-api",
+   "authlib"
+  ],
+  "body": "I am trying to create a login using linkedIn and authlib, but I'm running into errors when I try and receive my token. I am able to redirect to the linked in authentication and then redirect to my callback. But im having issues with the authorized_access_token(request). Can someone help check if my implementation is correct? This is the error im recieving: {\"error\":\"invalid_request: A required parameter \"client_secret\" is missing\"} [CODE] I have tried changing the registration configurations and that doesnt seem to help. I believe my implementation is correct, but I am still getting errors"
+ },
+ {
+  "id": "P3726",
+  "title": "how to remove duplicate entries from json file using python?",
+  "tags": [
+   "python",
+   "json",
+   "python-3.x"
+  ],
+  "body": "How to remove duplicate entries from a JSON file using python? I have a JSON file that looks like this: appreciate some one can help to provide a solution for fixing it [CODE] I would like to remove duplicate entries from the list and expected result should be looks like this: Appreciate you can help to provide a solution for fixing it [CODE]"
+ },
+ {
+  "id": "P4376",
+  "title": "Getting &quot;Container not found&quot; error when trying to modify GridDB container column definitions at runtime",
+  "tags": [
+   "python",
+   "grid",
+   "griddb"
+  ],
+  "body": "I need to add columns to an existing [code] container in my Python application, but getting a [code] error when trying to modify the [code] after container creation. [CODE] I need to asked three specific questions Why does [code] with modified [code] throw [code] ? Is there a different API method for adding columns to existing containers? Do I need to drop and recreate the container, or can I modify schema in-place?"
+ },
+ {
+  "id": "P2653",
+  "title": "Packaging with pyproject.toml that will include other multi level directories",
+  "tags": [
+   "python",
+   "setuptools",
+   "python-packaging",
+   "pyproject.toml"
+  ],
+  "body": "I have spent two full days trying to figure this out with no success. I have a python project that I want to package. That is the easy part. The part I can't figure out is how to copy other multilevel folders into the package. I am trying to get the myproj as a package with the dosomething.py but also have the algorithms and configs folders in there entirety (folder structure and all files included). Project structure: [CODE] Contents of pyproject.toml: [CODE] After doing a pip install in a new conda env, I am looking for the following: [CODE] I have tried MANIFEST.in, I have tried everything on this page: https://setuptools.pypa.io/en/latest/userguide/datafiles.html I figure this would be trivial to copy folders and files in the entirety into a package folder but I am stumped. Any help would be greatly appreciated!"
+ }
+]

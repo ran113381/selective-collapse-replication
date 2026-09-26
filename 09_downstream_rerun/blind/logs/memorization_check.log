@@ -1,0 +1,28 @@
+N=300  pre=90  post=210  months 2021-06..2026-05
+
+=== pre -> post shift on the SAME 300 questions ===
+  classifier (Sonnet 4.6) : 2.656 -> 1.895   diff -0.760  [-1.052, -0.469]
+  human mean (A,B)        : 2.811 -> 2.198   diff -0.613  [-0.852, -0.375]
+  human binary GEN        : 0.722 -> 0.452   diff -0.270  [-0.385, -0.155]
+
+=== classifier minus human, by period (memorisation => gap shrinks post) ===
+  gap pre -0.156  post -0.302   change -0.147  [-0.382, +0.088]   Welch p=0.222
+
+=== paired view: does the classifier's shift exceed the humans' on the same items? ===
+  classifier shift -0.760  vs human shift -0.613   excess -0.147  [-0.382, +0.088]
+  => classifier explains 124% of the human shift
+
+=== by year (classifier vs human means) ===
+     model       human      
+      mean count  mean count
+yr                          
+2021  2.69    35  2.89    35
+2022  2.62    60  2.77    60
+2023  1.83    60  2.12    60
+2024  2.05    60  2.42    60
+2025  1.78    60  2.08    60
+2026  1.84    25  2.02    25
+
+written: memorization_check.json
+
+--- stderr ---

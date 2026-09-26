@@ -1,0 +1,82 @@
+[
+  {
+    "qid": 77208860,
+    "answer": "The delays come from gspread API calls. Each `ws.find()` and `ws.row_values()` triggers network requests. To optimize: (1) Fetch the entire worksheet once with `get_all_values()`, then search in-memory. (2) Use batch operations where possible. Example:\n\n```python\nall_values = ws.get_all_values()\n# Find table location in memory\nfor row_idx, row in enumerate(all_values):\n    for col_idx, cell in enumerate(row):\n        if cell == hoja_key:\n            table_start_row = row_idx + 1\n            break\n```\n\nThis eliminates multiple API calls and is significantly faster."
+  },
+  {
+    "qid": 78938691,
+    "answer": "Heroku's Ubuntu image lacks OpenSSL required by ODBC Driver 17. Add these buildpacks to your Heroku app config:\n\n```bash\nheroku buildpacks:add --index 1 https://github.com/heroku/heroku-buildpack-apt\n```\n\nCreate an `Aptfile` in your repo root:\n```\nunixodbc\nunixodbc-dev\nfreetds-dev\n```\n\nThen add `apt-buildpack` before Python buildpack. Alternatively, use msodbcsql18 which has fewer dependencies, or consider using SQLAlchemy with the URI method: `mssql+pyodbc://user:pw@server/db?driver=ODBC+Driver+18+for+SQL+Server`"
+  },
+  {
+    "qid": 67783391,
+    "answer": "Plotly's scatter plot removes duplicate X values by default. To display multiple points for the same domain:\n\n1. Add a small jitter to X axis positions:\n```python\nimport numpy as np\nrent_serp['displayLink_jitter'] = rent_serp['displayLink'].astype('category').cat.codes + np.random.normal(0, 0.02, len(rent_serp))\nfig = px.scatter(rent_serp, x='displayLink_jitter', y='rank', ...)\n```\n\n2. Or add a row index to create pseudo-unique X values, then relabel the axis with domain names only. The jitter approach preserves categorical ordering while showing all duplicates."
+  },
+  {
+    "qid": 78253436,
+    "answer": "Use pandas groupby with rolling window and forward/backward fill:\n\n```python\nimport pandas as pd\n\ndf.set_index(['meter', 'date', 'time'], inplace=True)\nfor meter in df.index.get_level_values('meter').unique():\n    meter_data = df.loc[meter]\n    for time_slot in meter_data.index.get_level_values('time').unique():\n        # Get same time from previous 2 days\n        mask = (meter_data.index.get_level_values('time') == time_slot)\n        values = meter_data.loc[mask].values\n        meter_data.loc[mask] = meter_data.loc[mask].fillna(values.mean())\n```\n\nAlternatively, use `.interpolate(method='time')` after proper reindexing, or leverage `fillna()` with a grouped mean calculation considering the 2-day window constraint."
+  },
+  {
+    "qid": 79477559,
+    "answer": "Your nested comprehension checks every Y for every X. Fix the logic:\n\n```python\nL1 = [\"apple\", \"banana\", \"cherry\", \"date\"]\nL2 = [\"bananaana\", \"datedate\"]\n\n# Check if x appears IN any string in L2\nresult = [x for x in L1 if not any(x in y for y in L2)]\nprint(result)  # ['apple', 'cherry']\n```\n\nThe issue: `[x for x in L1 for y in L2 if x not in y]` repeats x for each non-matching y. Use `any()` to check once per element. Your original got `['apple', 'apple', ...]` because it loops through both lists and prints x multiple times."
+  },
+  {
+    "qid": 72074586,
+    "answer": "Key differences:\n\n**Comma**: Automatically adds space separator, converts arguments to strings, uses str() method internally.\n```python\nprint(\"Hello\", username)  # Space auto-added\n```\n\n**Plus**: Requires manual space, concatenates strings directly (fails if username isn't string).\n```python\nprint(\"Hello \" + username)  # Must add space manually\n```\n\nComma is preferred because: (1) handles non-string types automatically, (2) cleaner syntax, (3) multiple arguments easily, (4) avoids type errors. Plus operator requires explicit string conversion: `\"Hello \" + str(username)`"
+  },
+  {
+    "qid": 79835227,
+    "answer": "Trimesh can load STL and identify geometry, but creating algorithmic hinges is complex. Basic approach:\n\n1. **Load mesh**: `mesh = trimesh.load('model.stl')`\n2. **Identify cut plane**: Let user select 2D points on mesh\n3. **Slice mesh**: Use `trimesh.intersections.mesh_plane()` to cut at plane\n4. **Create hinges**: Generate cylinder/hinge geometry between cut surfaces\n\nFor production: Use trimesh for mesh ops, but add custom hinge generation (cylinders, pins, or flexure geometry). Three.js handles 3D visualization. Missing info: hinge mechanism details (cylinder pins, living hinges, ball joints). Start with trimesh slicing, then build hinge mesh geometry separately."
+  },
+  {
+    "qid": 79324608,
+    "answer": "The issue is packet composition order. IPv6 extension headers must be attached differently:\n\n```python\nfrom scapy.all import IPv6, IPv6ExtHdrHopByHop, send\n\nhdr = IPv6ExtHdrHopByHop(options=[(\"Router Alert\", b'\\x01\\x00')])\nip6 = IPv6(src=\"xxxx::xxxx\", dst=\"yyyy::yyyy\") / hdr / Raw(b'payload')\nsend(ip6)\n```\n\nOr build packet properly:\n```python\npkt = IPv6(src=\"xxxx::xxxx\", dst=\"yyyy::yyyy\")\npkt /= IPv6ExtHdrHopByHop(options=[(\"Router Alert\", b'\\x01\\x00')])\npkt /= Raw(b'data')\nsend(pkt)\n```\n\nThe error occurs because the HopByHop header couldn't compute its length field due to improper nesting. Ensure IPv6 is the outermost layer."
+  },
+  {
+    "qid": 78255709,
+    "answer": "The df=10 parameter is for the **t-distribution being tested**, not chi-square df. Here's the logic:\n\n- `stats.t.ppf(quantiles, 10)` generates quantiles for Student's t with 10 degrees of freedom\n- These quantiles define bins for your data histogram\n- Chi-square df = number_of_bins - 1 (constraint for frequency sums)\n\nIn this example: 8 quantiles create 7 bins, so chi-square df should be 6, not 10.\n\n```python\ndf_chisquare = len(quantiles) - 2  # Subtract 2 (infinity boundaries)\nch, pval = stats.chisquare(freqcount, tprob*n_sample, ddof=1)\n```\n\nChoose df based on your distribution shape, not arbitrarily."
+  },
+  {
+    "qid": 79042388,
+    "answer": "The issue is that navigation returns to page 1 instead of staying on page 2. Common causes:\n\n1. **Page refreshes**: Session lost between operations\n2. **URL doesn't update**: Verify `driver.current_url` after navigation\n3. **Dynamic pagination**: Page 2 might be loaded via JavaScript, not URL change\n\nFix:\n```python\n# After clicking to page 2\ndriver.get('https://url.com/?page=2')  # Use direct URL\nWebDriverWait(driver, 10).until(EC.presence_of_all_elements_located((By.CLASS_NAME, \"item\")))\n\n# Scrape data\nitems = driver.find_elements(By.CLASS_NAME, \"item\")\n\n# Stay on page 2 - don't navigate back, just click next item\n```\n\nPrevent implicit page returns by storing page 2's URL and only navigating explicitly. Use explicit waits to ensure elements load."
+  },
+  {
+    "qid": 74270758,
+    "answer": "Use a category mapping function with explode:\n\n```python\nimport pandas as pd\n\ncategory_map = {\n    'Body': 'Body',\n    'TSS200': 'TSS', 'TSS1500': 'TSS',\n    '3\\'UTR': 'UTR', '5\\'UTR': 'UTR', '1stExon': 'Other'\n}\n\ndf['regions_expanded'] = df['regions'].str.split(';').apply(\n    lambda x: [category_map.get(cat, 'Other') for cat in x]\n).explode()\n\nresult = pd.get_dummies(df['regions_expanded']).groupby(level=0).max()\n```\n\nAlternatively, use a regex pattern to identify category prefixes:\n```python\ndef categorize(val):\n    if 'UTR' in val: return 'UTR'\n    if 'TSS' in val: return 'TSS'\n    if 'Body' in val: return 'Body'\n    return 'Other'\n```"
+  },
+  {
+    "qid": 69792699,
+    "answer": "Split by comma, rearrange, remove zeros:\n\n```python\npipol = [\"2,20000,9000,...\", ...]\n\nresult = []\nfor s in pipol:\n    parts = s.split(',')\n    # Move 1st to 3rd: [a, b, c, ...] -> [b, c, a, ...]\n    # Remove leading zeros from 2nd and 3rd\n    new_parts = [\n        parts[1].lstrip('0') or '0',\n        parts[2].lstrip('0') or '0',\n        parts[0]\n    ]\n    result.append(' '.join(new_parts))\n```\n\nOr as one-liner:\n```python\nresult = [' '.join([parts[1].lstrip('0') or '0', \n                     parts[2].lstrip('0') or '0', \n                     parts[0]]) \n          for parts in [s.split(',') for s in pipol]]\n```"
+  },
+  {
+    "qid": 76379108,
+    "answer": "Python can't find `multiprocessingTests` module because it's not in the Python path when running from that directory. Solutions:\n\n1. **Add parent to sys.path**:\n```python\nimport sys\nsys.path.insert(0, 'M:/projects/python/flask apps/openRoutService/apps/app5')\nfrom multiprocessingTests.PoolExexOnPoolExecConcept.ProofOfConcept_1 import ProofOfConcept_1\n```\n\n2. **Create __init__.py**: Ensure all parent directories contain `__init__.py` files.\n\n3. **Run from correct directory**:\n```bash\ncd M:/projects/python/flask apps/openRoutService/apps/app5\npython -m multiprocessingTests.PoolExexOnPoolExecConcept.start\n```\n\n4. **Set PYTHONPATH** in environment before running Python."
+  },
+  {
+    "qid": 78821193,
+    "answer": "Your nested loop exhaustively searches the 24-bit space (256×256 possibilities per MSB). Lattice attacks on LCG typically exploit known outputs and linear algebra, but your problem structure suggests exhaustive search may be unavoidable given that only MSBs are known.\n\nOptimizations:\n1. Use precomputed multiplication tables (you're already doing this)\n2. Early termination: break inner loops when delta exceeds threshold\n3. Parallel processing: distribute MSB values across CPU cores\n4. Bitwise operations instead of modulo where possible\n\nThe core issue: with only first byte known per state, you lose information. If you could recover more bits from additional constraints, lattice reduction (LLL algorithm) would help, but it's not directly applicable here."
+  },
+  {
+    "qid": 70547669,
+    "answer": "The issue: `if not q.empty()` doesn't guarantee data will be in queue when `q.get()` is called—race condition in multiprocessing. Solution:\n\n```python\ndef func2(q):\n    while True:\n        try:\n            i = q.get(block=True, timeout=1)\n            print('Get %s from queue.' % i)\n        except queue.Empty:\n            print('Queue empty')\n            break\n```\n\nRemove the `if not q.empty()` check. Let `q.get(timeout=1)` handle the timeout—it raises `queue.Empty` when timeout expires. This eliminates the TOCTOU (time-of-check-time-of-use) bug. The timeout parameter works correctly here; the pre-check made it unreliable."
+  },
+  {
+    "qid": 71303881,
+    "answer": "The `in` operator for lists is implemented in C (for CPython) as a linear search iterating through elements:\n\n```c\n// Simplified C pseudocode\nfor (i = 0; i < list_length; i++) {\n    if (list[i] == target) return true;\n}\nreturn false;\n```\n\nIn Python, it calls `__contains__()` method or iterates using `__iter__()`, comparing each element with `==` operator. Time complexity: O(n) because no index exists.\n\nFor faster membership testing (O(1) average), use sets instead of lists:\n```python\nmy_set = {1, 2, 3}\nif x in my_set:  # O(1)\n```"
+  },
+  {
+    "qid": 76379366,
+    "answer": "Yes, use `interaction.response.send_modal()` after button click:\n\n```python\nfrom discord.ui import Modal, TextInput\nfrom discord import TextInputStyle\n\nclass ReportModal(Modal, title=\"Report Issue\"):\n    reason = TextInput(label=\"Reason\", placeholder=\"Describe the issue...\")\n    \n    async def on_submit(self, interaction):\n        await interaction.response.send_message(f\"Report: {self.reason}\")\n\nclass Report(discord.ui.View):\n    @discord.ui.button(label=\"Report\", style=discord.ButtonStyle.red)\n    async def report(self, interaction: discord.Interaction, button: discord.ui.Button):\n        await interaction.response.send_modal(ReportModal())\n```\n\nThe modal appears after clicking the button. Use `interaction.response.send_modal()`, not `.defer()`."
+  },
+  {
+    "qid": 77918290,
+    "answer": "Use `typing.get_origin()` to check for `Annotated`:\n\n```python\nfrom dataclasses import dataclass, fields\nfrom typing import Annotated, get_origin, get_args\n\n@dataclass\nclass Foo:\n    x: Annotated[int, 'x']\n\nfield_type = fields(Foo)[0].type\nprint(get_origin(field_type) is Annotated)  # True\nprint(get_args(field_type))  # (int, 'x')\n```\n\n`isinstance()` fails because `Annotated` is a special form, not a regular class. `get_origin()` extracts the generic origin (Annotated), while `get_args()` retrieves the type and metadata. This is the proper way to introspect generic/annotated types in Python 3.9+."
+  },
+  {
+    "qid": 79549124,
+    "answer": "Character encoding mismatch between Django and PostgreSQL. Fixes:\n\n1. **Ensure PostgreSQL uses UTF-8**:\n```sql\nSELECT datname, encoding FROM pg_database WHERE datname='myDB';\n-- If not UTF-8, recreate database with: CREATE DATABASE mydb ENCODING 'UTF8';\n```\n\n2. **Django settings.py**:\n```python\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'OPTIONS': {'client_encoding': 'UTF8'},\n    }\n}\n```\n\n3. **Check Docker PostgreSQL initialization**:\n```dockerfile\nENV POSTGRES_INITDB_ARGS=\"-E UTF8 --locale=C\"\n```\n\nThe error byte 0xf3 indicates non-UTF-8 data. Verify both database and connection encoding match."
+  },
+  {
+    "qid": 67781317,
+    "answer": "Can't use `async __init__`. Use a factory class method instead:\n\n```python\nclass GetImage:\n    def __init__(self):\n        self.image_sim = None\n    \n    @classmethod\n    async def create(cls):\n        self = cls()\n        await asyncio.sleep(0.5)  # Simulate async init\n        self.image_sim = \"image\"\n        return self\n\nasync def my_func1():\n    image = await GetImage.create()  # Properly initialized\n    print(image.image_sim)\n\nasync def main():\n    func1 = asyncio.create_task(my_func1())\n    await func1\n\nasyncio.run(main())\n```\n\nAlternatively, use `asyncio.to_thread()` to offload blocking operations without making `__init__` async."
+  }
+]

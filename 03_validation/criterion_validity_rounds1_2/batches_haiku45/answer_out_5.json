@@ -1,0 +1,82 @@
+[
+  {
+    "qid": 79244250,
+    "answer": "The issue involves conflating TypeVarTuple (variadic *args-like parameters) with ParamSpec (variadic **kwargs-like callables). You can't convert between them. For `DecoratorNb`, the `*Ts` in the `Callable` signature is correct — it already expands tuple types to function parameters. The problem is accessing the unpacked values inside `__init__`. Use `*types: type[*Ts]` as you have, but for the return annotation, Callable expects bare type variables, not instances. Use `Callable[[C, *Ts], None]` unchanged. TypeVarTuple unpacking in Callable is the language feature you need (Python 3.11+). To avoid `T` becoming `object` in `DecoratorNa`, use a single TypeVar constrained to tuple types or accept you'll lose specificity with variadic *args."
+  },
+  {
+    "qid": 79478562,
+    "answer": "Polars requires explicit column specification. Use `pl.DataFrame(numbers, schema=['col1', 'col2'])` or use the orient parameter: `pl.DataFrame(numbers, orient='row')` then `.transpose()`. Alternatively, unzip first: `df = pl.DataFrame({'col1': [r[0] for r in numbers], 'col2': [r[1] for r in numbers]})`. For your data structure, the most direct approach is `pl.DataFrame(numbers, schema=['id', 'value'], orient='row')`."
+  },
+  {
+    "qid": 78820057,
+    "answer": "Your current attempt finds global cummax/cummin, but you need window-specific max before that row, then min within values below that max. Use a custom function: `df['a_max'] = df['a'].cummax(); df['a_min'] = df.apply(lambda i: df.loc[:i.name, 'a'][df.loc[:i.name, 'a'] < df.loc[i.name, 'a_max']].min() if any(df.loc[:i.name, 'a'] < df.loc[i.name, 'a_max']) else np.nan, axis=1)`. This iterates each row, finds values below the cummax, and returns their min. For performance with large data, consider a Cython or numba solution."
+  },
+  {
+    "qid": 79478793,
+    "answer": "The issue: `st.chat_input()` accepts a placeholder string, but `st.session_state` changes don't propagate to the placeholder retroactively — widgets are created before session state updates in the same run. Store the prompt after input: `prompt_input = st.chat_input('Enter prompt'); if prompt_input: st.session_state.last_prompt = prompt_input`. On the next app rerun, use `st.session_state.get('last_prompt', 'default')` as the placeholder. Streamlit reruns the script top-to-bottom each time, so this ensures the placeholder updates on subsequent interactions."
+  },
+  {
+    "qid": 79044322,
+    "answer": "Use `groupby` with filtering: `df.groupby(level=0).filter(lambda x: set(x.index.get_level_values(1)) == {1, 2})`. This groups by the first index level, then keeps only groups where the second level contains both 1 and 2. Alternatively: `df.groupby(level=0).filter(lambda x: len(x.index.get_level_values(1).unique()) == 2 and 1 in x.index.get_level_values(1) and 2 in x.index.get_level_values(1))`. The first approach is cleaner if you only need exactly {1, 2}."
+  },
+  {
+    "qid": 78562854,
+    "answer": "TA-Lib's conda package has limited wheel availability for Python 3.11+. Solutions: (1) Downgrade to Python 3.9 or 3.10: `conda install python=3.10`. (2) Use conda-forge: `conda install -c conda-forge ta-lib`. (3) Install from source: `pip install ta-lib` (requires pre-built wheel). (4) Use alternative library: `pip install talib-alt` or `pip install pandas-ta`. The pinned `python 3.11.*` constraint is the blocker — TA-Lib wheels for 3.11 are scarce. Try conda-forge first."
+  },
+  {
+    "qid": 79920353,
+    "answer": "No unified tool exists for this specific pipeline, but the pattern is standard three-layer validation: Python type hints via Pydantic/dataclass `__post_init__`, JSON Schema `additionalProperties: false` for YAML->dict conversion, and runtime checks in Python post-parse. Use Pydantic `TypeAdapter` to validate YAML-parsed dicts: `TypeAdapter(YourModel).validate_python(yaml.safe_load(yaml_str))`. For schema compatibility verification pre-runtime, generate JSON Schema from Pydantic and use `jsonschema.Draft7Validator`. This catches structural mismatches early without writing duplicate validation logic."
+  },
+  {
+    "qid": 79862631,
+    "answer": "The error indicates DWT3D is using eager tensor operations inside a `@tf.function`-decorated call, which breaks graph execution. Inside `DWTLayer.call()`, TensorFlow needs graph-compatible code. Likely issue: DWT3D uses Python control flow or returns intermediate tensors. Try: ensure DWT3D is graph-compatible or disable eager in the layer: `@tf.function(experimental_relax_shapes=True)` on DWTLayer.call(). Alternatively, set `run_eagerly=True` in model.compile(): `model.compile(optimizer='adam', loss='mse', run_eagerly=True)`. If DWT3D isn't TF-native, wrap it: check if TFDWT supports Keras layer interface or use a custom wrapper with `@tf.function`."
+  },
+  {
+    "qid": 79685420,
+    "answer": "The oracledb package exists but isn't in ODI14c's Python path. In ODI, add the package location to PYTHONPATH in the ODI Agent or Scenario editor before execution. Alternatively, install oracledb in ODI's Python: use the ODI Technology/Python package installer, or add it to the `site-packages` directory where ODI's Python (3.8) points. Check ODI logs for the Python executable path, then run `<python_path>/pip install oracledb` directly. Ensure your ODI agent has permission to access the installed package location."
+  },
+  {
+    "qid": 79241329,
+    "answer": "`await task` and `task.result()` differ after context-manager exit. Inside the `async with`, `await task` works. Outside (after context-manager closes), `task.result()` retrieves the already-computed value without re-awaiting. **Preferred: `await task`** — it's idiomatic, handles exceptions uniformly in async context, and clearly shows asynchronous semantics. `task.result()` is a fallback for non-async contexts. Both work post-completion, but `await` is cleaner and explicitly designed for async tasks. TaskGroup auto-awaits on exit, so `task.result()` after exit is redundant."
+  },
+  {
+    "qid": 79650615,
+    "answer": "For mapping overlay indices to arr indices, use `np.concatenate`: `arr_ixs = np.concatenate([subixs[i] for i in np.where(msk)[0]])`. To expand values: `new_value = [44, 48, 47]; expanded = np.concatenate([np.full(len(subixs[i]), new_value[j]) for j, i in enumerate(np.where(msk)[0])])`. Wrap subixs in object arrays to handle ragged indices: `subixs_obj = np.array([np.array(s) for s in subixs], dtype=object)`. This avoids list comprehensions and performs vectorized operations for efficiency."
+  },
+  {
+    "qid": 79882503,
+    "answer": "Start with transfer learning using pre-trained models for speed: use `torch.torchvision.models` (ResNet, EfficientNet) or `tensorflow.keras.applications` with PyTorch/TensorFlow. Install: `pip install torch torchvision` or TensorFlow. Minimal example: load a pre-trained ResNet, freeze all but final layer, fine-tune on your categories. For a quick proof-of-concept, use `torchvision.models.resnet50(pretrained=True)` and retrain the last fully-connected layer. Alternatively, use AutoML tools like AutoKeras or H2O for zero-configuration classification. Given your gaming laptop GPU, PyTorch with CUDA support is fastest."
+  },
+  {
+    "qid": 79242541,
+    "answer": "Use `cumcount()` with `by` groupby: `df.with_columns(pl.lit(1).cum_count().over(['col1', 'col2']).alias('group_id'))`. This assigns sequential IDs within each group. Alternatively, use `group_by().agg()` with row_number: `df.with_columns(pl.int_range(1, pl.len()+1).over(['col1', 'col2']).alias('group_id'))`. For distinct group IDs (like R's .GRP), use: `df.with_columns(pl.int_range(pl.len()).over(['col1', 'col2']).add(1).alias('group_id'))` or map group combinations to IDs explicitly via factorize."
+  },
+  {
+    "qid": 79838462,
+    "answer": "Service accounts cannot add attendees without Domain-Wide Delegation (DWD) because attendees receive invitations, which requires domain authority. To enable DWD: (1) In Google Cloud Console, go Admin SDK > Enable. (2) In OAuth Consent Screen, add Calendar API scope. (3) Create a JSON key for your service account. (4) In Google Workspace Admin, go Security > API Controls > Domain-wide Delegation, add the service account's Client ID with Calendar scope. (5) Update your code to impersonate a domain user: `credentials.with_subject('user@yourdomain.com')`. Note: this requires a Google Workspace account; Gmail-only accounts cannot use DWD."
+  },
+  {
+    "qid": 79781221,
+    "answer": "Python's type system doesn't support `Union[*Ts]` unpacking directly. You're limited to explicit overloads or nested unions. Use `@overload` for up to 3-4 cases, then a catch-all: `def func[*Ts](types: tuple[type[*Ts]]) -> Any`. For runtime flexibility, accept `tuple` generically and return union of extracted types: `from typing import get_args; return Union[get_args(types)]` (though this isn't type-checkable statically). PEP 646 (TypeVarTuple) doesn't yet support variadic returns. File a feature request or use pydantic's `Union[...]` builders for runtime dispatch."
+  },
+  {
+    "qid": 79936934,
+    "answer": "Use string multiplication and `center()/rjust()/ljust()` to avoid repetition: `border = '*' * 50; print(border); print(company_name.title().center(50)); print(border)`. Or build a function: `def box(width=50): return '*' * width`. Then: `print(box()); print(company_name.title().center(50)); print(box())`. For more complex layouts, use `textwrap.dedent()` or format strings. This DRY approach scales better than manually repeating `'*' * 50` throughout."
+  },
+  {
+    "qid": 79404607,
+    "answer": "Treeview indentation is automatic; your children ARE indenting but column `#0` width is too narrow. Increase it: `filterTree.column('#0', width=150, stretch=TRUE)` (or higher). The column width controls visible indentation — children are offset, but if width is 40, the indent space is clipped. Verify by widening `#0`. Remove the manual `' ' + record` padding once you widen the column. The indentation level is determined by parent/child IDs; the issue is pure display, not logic."
+  },
+  {
+    "qid": 76593621,
+    "answer": "FastAPI's dependency doesn't auto-rollback; it only closes. For automatic rollback on exception, wrap the session: `def get_db(): db = SessionLocal(); try: yield db; db.commit() except: db.rollback(); raise finally: db.close()`. This mirrors SQLAlchemy's context manager. Regarding mixed sessions in dependencies: APIRouter-level dependencies create a session for all routes; pass explicit session deps to override per-route. SQLAlchemy merges instances by identity, so using separate sessions prevents conflicts. Use scoped_session if you need thread-local reuse."
+  },
+  {
+    "qid": 79899534,
+    "answer": "Your code implements **priority layering**: higher-level configs override lower levels, and unspecified keys inherit from lower levels. This is correct for cascading defaults. If you want ONLY explicitly-set values in base_config to apply (ignoring inheritance), don't use dict unpacking: `final_config = default_settings.copy(); final_config.update(format_config); final_config.update(base_config)` preserves inheritance. For explicit-only behavior: `final_config = {**default_settings, **format_config}; final_config = {k: base_config[k] for k in base_config}`. Choose based on intent: inheritance is standard; explicit-only is unusual and requires documenting."
+  },
+  {
+    "qid": 79477693,
+    "answer": "LibreOffice Calc stores column breaks differently than row breaks; they persist independently. Before applying new column breaks, explicitly clear all: loop through all columns and set `IsStartOfNewPage = False` for each. Alternatively, use the sheet's page break reset API (if available). The issue is that setting `IsStartOfNewPage = True` appends rather than replaces. After clearing, apply new breaks. If clearing doesn't work, try accessing breaks via `sheet.getSheetPageBreaks()` or using Calc's menu->Format->Print Ranges to verify the breaks aren't stored separately."
+  }
+]

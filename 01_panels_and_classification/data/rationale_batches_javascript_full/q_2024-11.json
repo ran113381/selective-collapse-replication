@@ -1,0 +1,1556 @@
+[
+ {
+  "question_id": 79146794,
+  "ym": "2024-11",
+  "creation_date": 1730428715,
+  "title": "CORS error on Azure Storage calls from Javascript to commit chunked uploads",
+  "tags": [
+   "javascript",
+   "python",
+   "cors",
+   "azure-blob-storage"
+  ],
+  "score": -1,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I want users to upload a huge file directly into Azure Storage. I have a Flask Python web app but I do not want the file to be uploaded into my web server due to size constraints. When the user has selected the file they want to upload and clicks the upload button, the following happens: An API is called that generates a SAS URL and a blob name to assign to the file to be uploaded. The code that generates both is: [CODE] The file is then uploaded in chunks via Javascript: [CODE] It works up to this point. However, the next step is to tell Azure to put the chunks together, still via Javascript: [CODE] I always get a CORS error at this point: Access to fetch at 'https://xxx.blob.core.windows.net/container/e07d13fa-bcd6-45cf-9eea-3295e17dc567?se=2024-11-01T04%2A18%3B30Q&sp=rcw&sv=2024-11-04&sr=b&sig=Cudr...&comp=commitBlockList' from origin 'http://localhost:4449' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled. I know I have properly set the CORS in Azure Storage because the upload part works. Under Blob Service tab, I have added my localhost origin, with allowed methods GET, POST, OPTIONS, and PUT. I have tried regenerating another SAS U"
+ },
+ {
+  "question_id": 79146800,
+  "ym": "2024-11",
+  "creation_date": 1730429098,
+  "title": "Show only elements with a specific id (determened in the url)",
+  "tags": [
+   "javascript",
+   "html",
+   "window.location"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I've been working on a coding project and I have been trying to have multiple \"pages\" in one html file (e.g. awsomesauce.com/page.html#videos and showing only the videos section) while having the same navbar and so far javascript has let me down. Any ideas? [CODE]"
+ },
+ {
+  "question_id": 79146846,
+  "ym": "2024-11",
+  "creation_date": 1730431440,
+  "title": "fabricjs: how to use loadSVGFromURL with react useEffect?",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "next.js",
+   "fabricjs"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I tried to render a SVG onto my canvas using useEffect, like this: [CODE] However there is nothing being rendered on the canvas, I found no similar projects online and don't know the correct practice in loading SVG with react. What am I doing wrong?"
+ },
+ {
+  "question_id": 79146908,
+  "ym": "2024-11",
+  "creation_date": 1730433814,
+  "title": "how to change array of object based on condition using javascript",
+  "tags": [
+   "javascript",
+   "arrays",
+   "loops",
+   "object"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I would like to know how to shift based on field that contains numeric string and normal string. so, if numeric string value then shift to end of array, rest remain same [CODE] [CODE]"
+ },
+ {
+  "question_id": 79146911,
+  "ym": "2024-11",
+  "creation_date": 1730433955,
+  "title": "javascript fetch() can hang when PHP function fails to pass echo&#39;d values back to the &quot;.then&quot;",
+  "tags": [
+   "javascript",
+   "php",
+   "fetch-api"
+  ],
+  "score": 3,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "My bespoke javascript website needs to retrieve the contents of a remote json file (by name) from our server. If the file isn't found, we need to delay 5 seconds and then retry. If the file is not found after 5 minutes we throw an error. This logic is needed to \"catch\" a json file that's being created asynchronously in the same directory by another (PHP) script. To do this, I wrote a php script to do the polling and a javascript client function to access it. This combination runs as expected when a fetch() is executed in the Chrome debugger console. The content of the json file is returned without error where it can be processed. If the named file isn't present then the check_file2.php script repeatedly looks for it until the time expires. If the file is found during that period its contents are returned. When run by pasting the example below into the debugger console THIS ALL WORKS AS EXPECTED. Now the fun. When this exact same function reference is made from within a running website script it never returns to either of the success/error handlers. After a series of diagnostics I determined that the \"echo\" statement in check_file2.php executes but the echoed value never appears in the fetch(). I suspected that there was something amuck with my headers, but see nothing out of kilter. What circumstances can cause \"echo\" not to return its args to the caller? [CODE] Here's how it's"
+ },
+ {
+  "question_id": 79146913,
+  "ym": "2024-11",
+  "creation_date": 1730434021,
+  "title": "How to Select a Dynamically Generated Dropdown Item in an Odoo12 Tour Test Using JavaScript?",
+  "tags": [
+   "javascript",
+   "testing",
+   "css-selectors",
+   "odoo",
+   "odoo-12"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I've been working on a custom Odoo12 tour test, and I’m running into an issue with selecting items from a dynamically-generated dropdown. Here’s a breakdown of the steps I'm trying to implement: In a form, the tour clicks on a line called \"Add a product.\" This opens a new modal with another form. In this other form, a product ID or a related identifier is entered in the product name box. This triggers a dropdown with matching product suggestions based on the entered query. The idea is to click on the first product in the dropdown (it’s the only match based on the input provided). Finally, the tour clicks \"Save\" on this second modal. The problem comes with the Step 3: the dropdown items seem to have dynamically changing IDs (e.g., #o_field_input_170, #o_field_input_167, etc.), so I can’t target a specific ID. Here’s what I’ve tried to solve it: Using Key Events: I thought about triggering a key event, but it seems to fire too quickly, not allowing the dropdown to load first. So I also tried to set a setTimeout, adding a delay, but the tour’s next steps don’t wait for the timeout to finish. extra-triggers and waitFor: I’ve experimented with extra-triggers and waitFor, but none of these approaches seem to work in this case (maybe I'm just doing it wrong). Here's the code example with the Key event: [CODE] The CSS selector of the dropdown is the following: [code] HTML Inspection of"
+ },
+ {
+  "question_id": 79146949,
+  "ym": "2024-11",
+  "creation_date": 1730435871,
+  "title": "Determine if popstate event handler was trigger programmatically?",
+  "tags": [
+   "javascript",
+   "reactjs"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm calling [code] and [code] , but I want to have a [code] handler just for events triggered by the browser. In other words, I'd like to ignore [code] s triggered programmatically. Is this possible? The only possible solutions I can think of involve keeping track of all the history states in my webapp, then every time I call [code] , I'd know what state would be in [code] , so I know what to ignore. However, I can think of edge cases where this might not work: if a lot of navigations happen before [code] runs, which is unlikely but possible. Is there a better way? Context: Currently, my webapp updates app state on [code] , but this is noticeably laggy on slower devices. E.g. user clicks an in-app \"back\" button -> trigger [code] -> [code] handler -> update app state -> rerender. Instead, I want to change it to: user clicks an in-app \"back\" button -> update app state -> rerender -> trigger [code] . I still need the [code] handler for browser backs. If the user navigates multiple times very quickly, then the [code] handler would behave weirdly, which I want to want to avoid."
+ },
+ {
+  "question_id": 79146955,
+  "ym": "2024-11",
+  "creation_date": 1730436139,
+  "title": "How can I prevent a webpage from displaying a bookmarklet&#39;s javascript text in the URL bar after running it?",
+  "tags": [
+   "javascript",
+   "firefox",
+   "bookmarklet"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a bookmarklet written in the form [code] that I run from Firefox. It acts on the webpage as intended, but running it replaces the website's URL in the URL bar with the text of the bookmarklet. Searching around for solutions it seemed as though [code] or [code] should do the trick(?), but I can't figure out how to implement them correctly. I've tried adding [code] as the last line inside the bookmarklet's function(){}, but still the javascript text shows up in the URL bar instead of the URL specified by replaceState() after running. Duplicating or refreshing the window afterwards confirms that search queries in the original URL have been removed, so replaceState() is apparently working, but the text of the URL bar still isn't being updated to match it. EDIT: From the comments to this question I've realized the problem wasn't linked to running the bookmarklet per se. It happens only when calling a bookmarklet directly from the URL bar by keyword, with the obvious workaround of not calling it that way. I am still curious, though, if there is any way to invoke a bookmarklet by keyword without replacing the URL bar with its javascript after it runs? From the link in the comments I can see that, for good security reasons, there is no way to freely overwrite the URL bar text with whatever you'd like, but is there any way to force the text in the URL bar to 'refresh' itself to t"
+ },
+ {
+  "question_id": 79147019,
+  "ym": "2024-11",
+  "creation_date": 1730438516,
+  "title": "Flask session variable not persisting between Ajax requests",
+  "tags": [
+   "javascript",
+   "python",
+   "ajax",
+   "flask",
+   "session-variables"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "In my Flask app, I'm trying to display the progress of a backend task to the client. The client sends an initial request which begins the task. The task contains a loop, and as it iterates, it updates a session variable which contains the completion percentage. The client then regularly sends additional requests to retrieve the value of the session variable so it can be displayed. The problem is that whenever the session variable is retrieved, it only contains its initial value of 0%. If I replace the session variable with a global variable, it works fine, but the app needs to support multiple simultaneous users, so I can't use a global variable. My understanding is that session variables are meant for this exact purpose, to persist between requests within the same session, but I must be missing something, because it's not doing so here. Here's a simplified version of my Flask code: [CODE] And my frontend JS: [CODE] I've checked similar questions, and their solutions don't work. The session variable does not exceed the size limitations, and the key is being set every time rather than having its value changed in place, so it doesn't need to be marked as modified. Update: I did some more testing, and occasionally, the very last request for the percentage value will return 100. Additionally, setting the session variable to a completely different number at the start of [code] , bef"
+ },
+ {
+  "question_id": 79147107,
+  "ym": "2024-11",
+  "creation_date": 1730442060,
+  "title": "I&#39;m not getting the full data sent to the server via axios",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "node.js",
+   "axios",
+   "mern"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I want to send a student data to the backend server via axios.post, but im not getting the full object in my server route Here's the 'student' object: [CODE] The 'save' button OnClick handler [CODE] The route handler (some i deleted intentionally, im using multer ) [CODE] the console.log(req.body) shows some but now all the data in my object [CODE] For some reason there is no parent field in the object. The weird thing is if I change the entry order of the field, parents first and then personal, the personal field in the object is nowhere to be found. I need to have access to the whole student object inside my student route. What should I do. Here's the Onchange handler of my form that set the student State: [CODE] } //end of HandleChangeFormInputs"
+ },
+ {
+  "question_id": 79147164,
+  "ym": "2024-11",
+  "creation_date": 1730443842,
+  "title": "How to reference an module&#39;s type from application which uses this module?",
+  "tags": [
+   "javascript",
+   "typescript",
+   "node-modules",
+   "prisma"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm currently developing on monorepo, implementing internal module which has additional features base on nestjs-prisma project structure is as following [CODE] Since I'm using Prisma , [code] & [code] type will defer across all service , cuz its type is defined by how developer designs the prisma schema. The problem I'm facing is that I can't reference the type properly after interna module build.. (actually I can't guarantee whether this problem is reference problem or not..) My implementation is the following code, previously it worked well but after changes it started not to reference well. [CODE] It throwed [code] but I just to proceed I just comment [code] in this case. And In service workspace, whenever I try to access type like below, compiler just thinks type as \"any\".. any advise in this?? [CODE]"
+ },
+ {
+  "question_id": 79147166,
+  "ym": "2024-11",
+  "creation_date": 1730443962,
+  "title": "Upload multiple file objects to API as 2d array of files",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "django",
+   "django-rest-framework",
+   "file-upload"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am trying to build an API using django which support file uploads as an array of array. An example of what I am trying to achieve is, [CODE] I dont want to use base64 encoded files for this since the files can be sometimes large, so I dont want to increase the overheads using base64. **how can I achieve this API call in the most efficient way and what would be most appropriate structure to call this API and help with some javascript frontend code do it. ** I tried to move this to a FormData where I can acheive the a above upload like below but I am not able to call the API from the frontend, it doesnt work probably because I am writing wrong code. [CODE] For my backend I am using django(rest framework), here is the relevant part of the serializer if required [CODE]"
+ },
+ {
+  "question_id": 79147341,
+  "ym": "2024-11",
+  "creation_date": 1730449427,
+  "title": "in node.js ESM I want to stub an exported module thats the default",
+  "tags": [
+   "javascript",
+   "node.js",
+   "unit-testing",
+   "es6-modules",
+   "sinon"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have a very simple auth middleware with an [code] anonymous function: [CODE] I want to stub this in my unit tests to just continue with [code] . [CODE] But these are not working. I am getting [code] or [code] when I try with [code]"
+ },
+ {
+  "question_id": 79147429,
+  "ym": "2024-11",
+  "creation_date": 1730451649,
+  "title": "C# API Controller Returns 400, but fetch in JavaScript hows 422 Status Code - Why?",
+  "tags": [
+   "javascript",
+   "asp.net-core-webapi",
+   "fetch-api",
+   "http-status-codes"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm testing my C# API endpoint and encountering a discrepancy between the status code I return in my controller and what I receive by using fetch. I have configured my C# controller to return a 400 Bad Request if a parameter value does not match the expected format. However, when I make a request with invalid parameters using fetch, response.status shows 422 Unprocessable Entity instead of 400. Here's the relevant code: In my C# API, I'm checking if the category parameter is valid. If it's not, I set up a ProblemDetails response with a 400 status code. When I fill in a false parameter, it does return the 400. [CODE] Whilst testing, I'm using fetch-api to make the requests. This code snippet shows how I'm sending the request and logging the response status. [CODE] Why does the response.status in JavaScript show 422 instead of 400? Is this an issue with how UnprocessableEntity works in C# when setting a custom Status code, or could it be something specific to the fetch implementation in JS?"
+ },
+ {
+  "question_id": 79147466,
+  "ym": "2024-11",
+  "creation_date": 1730452576,
+  "title": "Nodemailer Works in Development but Fails in Production – How Can I Fix This?",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "node.js",
+   "express",
+   "nodemailer"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm using Nodemailer in my Node.js app with Gmail's SMTP to send emails. It works fine in my development environment, but in production, emails aren’t being sent. I’ve set up my environment variables and confirmed they are loaded correctly. Here’s the code: [CODE]"
+ },
+ {
+  "question_id": 79147535,
+  "ym": "2024-11",
+  "creation_date": 1730454163,
+  "title": "RGraph filledAccumulative line chart tooltips not showing",
+  "tags": [
+   "javascript",
+   "rgraph"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to get tooltips to work on my RGraph that is using [code] - I can get tooltips to come out if I just pass in [code] (but that only works with the lower values), but when I pass in [code] then I get nothing. Can anyone tell me why the following isn't working? [CODE] Can anyone tell me why the following isn't working? (The full runtime code can be seen below, or on jsfiddle ): [CODE] [CODE] [CODE]"
+ },
+ {
+  "question_id": 79147598,
+  "ym": "2024-11",
+  "creation_date": 1730455575,
+  "title": "How to Programmatically Set a Date in a Date Picker that Blocks Input and Paste Actions?",
+  "tags": [
+   "javascript",
+   "puppeteer"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to automate setting a date in an HTML date picker input field using Puppeteer, but I've encountered a problem: the date picker does not allow me to type in special characters, nor does it allow me to paste a date directly into the field. Here’s the structure of the date picker input field: [CODE] I've tried several approaches: Setting the value attribute directly via JavaScript. Using Puppeteer to type the date, character by character. Dispatching custom events to simulate user input. None of these approaches reflect any change in the input field, likely due to internal validation or JavaScript in the date picker library itself (it appears to be using datepicker2). My Question: How can I programmatically set a date in this date picker input field? Is there a workaround in Puppeteer to simulate date selection or bypass these restrictions? Any insights or suggestions on how to overcome this issue would be greatly appreciated. Thanks in advance! What did you try and what were you expecting? I tried several methods to set the date programmatically: Setting the value attribute directly: I used JavaScript in Puppeteer to set [code] , expecting this to update the field with the correct date. However, the input didn’t change visibly on the page, likely because of restrictions in the date picker library. Typing each character with Puppeteer’s page.type method: I attempted to "
+ },
+ {
+  "question_id": 79147697,
+  "ym": "2024-11",
+  "creation_date": 1730457592,
+  "title": "Optimizing Form Rendering with Multiple Tabs and Dynamic Form Items",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "react-hook-form"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I want to structure a form effectively. My goal is to create a page with five tabs, each containing 10 unique form items with different types, such as text, number, and select fields. I've built the structure by setting up a Tab and TabContent area, displaying the corresponding TabContent based on the active tab. Each tab's 10 form items are defined in constants as objects with types, allowing the form component to render the appropriate form item based on the type. The layout displays correctly, but the rendering speed is slow. How can I improve the performance? Below is a partial code example showing the relevant sections. I'd greatly appreciate any suggestions for optimization. [CODE]"
+ },
+ {
+  "question_id": 79147746,
+  "ym": "2024-11",
+  "creation_date": 1730458278,
+  "title": "D3: Position marker does not follow graph when zooming and panning",
+  "tags": [
+   "javascript",
+   "d3.js"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a D3.js graph with a vertical red line that marks the value of variable [code] . The value of [code] is determined by a range slider on the page. The problem is that when the graph is panned/zoomed, the vertical line does not move together with the graph's scales and content. I've tried various approaches, but to no avail. How can I get the vertical line to keep its position relative to the graph content, and still update its horizontal position based on the value of [code] ? [CODE] You may also notice that interacting with the page controls resets the zoom level. I should mention that this is not intentional. It's a separate issue that I will probably need to ask a separate question about. But if anyone reading knows how to fix this, I welcome your feedback."
+ },
+ {
+  "question_id": 79147875,
+  "ym": "2024-11",
+  "creation_date": 1730461321,
+  "title": "How to get the log and result of websocket async_to_sync calling",
+  "tags": [
+   "javascript",
+   "python",
+   "django",
+   "websocket"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have websocket and simply send the mesasges to [code] [CODE] It seems works well and messages goes to client browser, however I want to know if it works well or not from server. Is it possible or can I get the number of clients connected to channel? My consumers.py makes channels [CODE]"
+ },
+ {
+  "question_id": 79147904,
+  "ym": "2024-11",
+  "creation_date": 1730462056,
+  "title": "Chrome extension: Approach to persist prepended query parameter across the same domain?",
+  "tags": [
+   "javascript",
+   "google-chrome-extension"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have extension which prepends certain query parameters to a URL after toggling an input box. But, it drops off when navigating to another page on the same domain. My goal – I want to persist the query parameter [code] across the same domain. For example: [CODE] Heres what I have so far: [code] – Heres the Input I interact with to run JS script that adds the query parameter: [CODE] [code] – Heres the script that prepends query parameter [CODE] Current thoughts I am thinking to store the domain in localstorage when I first run [code] Use something like [code] to watch for url changes on [code] within the background script because the pop.up is closed at this point whilst navigating different pages Use an if condition to check if the stored domain matches the current domain. If so then run [code] Any thoughts?"
+ },
+ {
+  "question_id": 79148154,
+  "ym": "2024-11",
+  "creation_date": 1730467699,
+  "title": "How to rotate the header except the two first columns?",
+  "tags": [
+   "javascript",
+   "html",
+   "css",
+   "r",
+   "dt"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I followed some questions R datatable rotate header not aligning , but I am not sure how I can add parameter [code] to the [code] . I do have some columns no need to rotate 180 degree. [CODE]"
+ },
+ {
+  "question_id": 79148166,
+  "ym": "2024-11",
+  "creation_date": 1730468016,
+  "title": "Next.js Middleware and Cookie Issue: Logout Not Clearing Cookie Consistently",
+  "tags": [
+   "javascript",
+   "next.js",
+   "cookies",
+   "jwt",
+   "middleware"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Problem Statement I'm working on a Next.js app where I need to manage user authentication with cookies. I have set up [code] , [code] , and [code] files for handling JWT tokens and securing routes. However, I'm facing an issue where logging out does not always clear the cookie, and it seems inconsistent in detecting or removing the cookie in certain cases. The logout works seamlessly in localhost, but in Vercel deployment it doesn't work. Code Setup Here's my code for each relevant file: Login Route ( [code] ) This endpoint creates and sets a JWT token in the cookies when the user logs in. [CODE] Logout Route ( [code] ) This endpoint is supposed to clear the JWT token from cookies. [CODE] Middleware ( [code] ) This file is responsible for verifying the JWT token for protected routes and redirecting accordingly. [CODE] Issue Despite setting [code] to clear the cookie in [code] and attempting to handle it in middleware, I sometimes notice: The cookie doesn’t seem to be cleared immediately, leading to inconsistent behavior. Protected routes don't always redirect correctly after logging out, which suggests that the cookie might still exist momentarily. What I’ve Tried Verified the [code] in the cookie deletion matches the one used during setting. Used both [code] with an empty value and [code] to delete the cookie. Adjusted middleware to handle token verification errors and clear c"
+ },
+ {
+  "question_id": 79148227,
+  "ym": "2024-11",
+  "creation_date": 1730468955,
+  "title": "Can React props be used in CSS?",
+  "tags": [
+   "javascript",
+   "css",
+   "reactjs"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a [code] , set to the [code] of my react-app. I have a component that uses a part of the grid that I want to repeat itself two more times side by side. How do I used props for the CSS property, [code] , so I can change the position of other two within the grid, slightly modifying the reusable component? I tried using props the usual way but this only affects the html and am confused on how to change a [code] property for a reusable component. Here is the code: [CODE] [CODE] [CODE] The layout is working as expected, I just want to change the CSS property [code] to a newer position. Do you know the syntax for modifying a specific CSS property when styling with react props?"
+ },
+ {
+  "question_id": 79148373,
+  "ym": "2024-11",
+  "creation_date": 1730471551,
+  "title": "How to achieve smooth frame rate independent animations",
+  "tags": [
+   "javascript",
+   "animation",
+   "game-physics",
+   "frame-rate",
+   "requestanimationframe"
+  ],
+  "score": 5,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I have the following animation/movement that's a simple physics attraction model: [CODE] I would like to make it smooth and frame rate independent . This is what I want to achieve: The animation duration should be approximately the same regardless of the device refresh rate whether it's [code] , [code] or [code] or higher. Small fluctuations in milliseconds are acceptable. The animation should be smooth on all devices with [code] refresh rate or higher. The animation behavior should remain the same while achieving point 1-2 above. How do I go about solving this? What I've tried I've tried implementing the by many devs praised technique in the Fix Your Timestep! article, which decouples the update process and rendering. This is supposed to make the animation smooth regardless of the device refresh rate: [CODE] [CODE] [CODE] ...however, devs claim that the animation runs smoothly on devices with [code] refresh rate but that the animation is stuttering/is choppy on devices with [code] refresh rates and up. So I tried to plot the animation curve on different refresh rates to see if there's something obvious that I'm doing wrong, but judging from the graphs, it seems like the animation should be smooth regardless of refresh rate? [CODE] [CODE] [CODE] I'm probably doing something wrong so any help is appreciated! Please note that alternative approaches to the fixed time step with ren"
+ },
+ {
+  "question_id": 79148473,
+  "ym": "2024-11",
+  "creation_date": 1730473375,
+  "title": "How to check for a quick flat-hand touch of a touch-screen (Smartphone)",
+  "tags": [
+   "javascript",
+   "android",
+   "jquery",
+   "touch",
+   "smartphone"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "For my desktop browser I created a Javascript/Jquery program with lots of information and music files as well. I made it so, that when I press the spacebar, the sound stops or resumes. To my knowledge this is the general way most programs handle sound or video. I needed this toggle, so that when somebody comes in, or there is a phone call, I can quickly and easily pause the music. Recently I ported this program to run on Smartphones, and here I wonder what I can use as alternative for the spacebar. Swiping in any direction is no option, because that already handles other things. Haven’t found a consensus how this (toggling the sound) is handled, could of course program a button to do that, but my idea is that on touchscreens there are ‘better’ options, so I came up with the idea to pause (and restart) the sound by a quick touch with my whole hand flat on the screen. Have used touch events for 1 and 2 fingers, but haven’t come across a (say around 90%) complete screencovering touch. Does something like that exist ? Don’t need a complete piece of code, just an idea on how to implement this or whether there are 'ready-made' alternatives. Thanks in advance !"
+ },
+ {
+  "question_id": 79148529,
+  "ym": "2024-11",
+  "creation_date": 1730474277,
+  "title": "How to get pixel position in non-geographical Leaflet map?",
+  "tags": [
+   "javascript",
+   "leaflet",
+   "gis"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a problem, getting pixel coordinates in Leaflet. Any help would be greatly appreciated! What I want to achieve: I want to display an image using leaflet (no tiles - just a image, non-geographical map) and the user should have the option to click on the image, set a marker and I need the pixel position of that marker. For testing purposes, I've created a JSFiddle , that uses this image . Displaying the image and setting the marker is not a problem. There are plenty of tutorials out there for that. But getting that pixel position is - at least for me - somehow impossible. I've read every post / article / ... about the different methods provided by Leaflet, but still no success. What I achieved so far: In an image editing program I can see, that the top of this tower on the image has roughly these pixel coordinates: x=1350, y=625. Image showing the pixel position of the top of the tower: So when the user clicks on the top of the tower, I get the LatLng of this point and I can set the marker. When the user does not change the zoom level, my code is actually working. Clicking on the top of the tower, I get pixel coordinates, that are correct (see the blue marker on the image, showing where i clicked, and the pixels calculated displayed on the console): Image showing the correct calculated position, if the user didn't zoom: My problem: But when the user starts zooming, the cal"
+ },
+ {
+  "question_id": 79148559,
+  "ym": "2024-11",
+  "creation_date": 1730474909,
+  "title": "Can&#39;t figure out how to configure Chakra-UI",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "chakra-ui"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have this to templates main.jsx and app.jsx [CODE] and app.jsx [CODE] I'm trying to configure and use Chakra-UI but that button won't be added there with everything that I tried I also tried this in main.js [CODE] The error for the first type of main.jsx is [CODE] And for the second type [CODE] Please help me with some ideas..."
+ },
+ {
+  "question_id": 79148651,
+  "ym": "2024-11",
+  "creation_date": 1730476389,
+  "title": "trace cookie creation in browser devtools",
+  "tags": [
+   "javascript",
+   "angular",
+   "cookies",
+   "google-chrome-devtools",
+   "firefox-developer-tools"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to understand a website's login process After I login, it creates a cookie but I can't find out which code is creating this cookie I used firefox devTools and I can see that after posting data to login page the next request contains that specific cookie but none of the previous request's responses have any header to create that cookie I searched for document.cookie in every js file, and set breakpoint on every line but none of them triggered for that cookie creation I injected this code in console before login, but still no luck [CODE] The website is written with angular I guess (ng-version=\"17.0.8\") Is there any other way to create cookies? I'm a web developer myself and I've always thought that it's only possible to create cookie through js and http response headers P.S: I was googling around and saw some posts about firebug and the ability to create breakpoint on cookie creation but it seems it's replaced by firefox dev edition and this one doesn't have that ability"
+ },
+ {
+  "question_id": 79148690,
+  "ym": "2024-11",
+  "creation_date": 1730476952,
+  "title": "JavaScript Fullscreen: fullscreenEnabled is always false and fullscreenElement is not the element requested on",
+  "tags": [
+   "javascript",
+   "lit"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "There is a [Lit] WebComponent that I call [code] on ( [code] ). It's a toggle, so when the same action is clicked again I check for [code] , since [code] is the element that requested fullscreen. However, [code] is actually the next highest ancestor WebComponent, not even any of the native HTML ancestors between these two WebComponents. So I decided to use [code] , just to see if it was and toggle fullscreen off. Turns out, [code] is always [code] . For now my workaround, because [code] is either that ancestor or [code] , I am just checking [code] . This is kinda kludgy, IMO, but works. Why is [code] always [code] and [code] not [code] when I called [code] to invoke fullscreen?"
+ },
+ {
+  "question_id": 79148818,
+  "ym": "2024-11",
+  "creation_date": 1730479679,
+  "title": "TypeError (is not iterable) when adding SVG to FabricJS canvas",
+  "tags": [
+   "javascript",
+   "svg",
+   "canvas",
+   "fabricjs"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have a fabricjs canvas, and I'm trying to add an SVG to it. But whatever I do, I get problems. It keeps saying: \"Uncaught (in promise) TypeError: t is not iterable\" . [CODE] Hopefully someone can help me out"
+ },
+ {
+  "question_id": 79148866,
+  "ym": "2024-11",
+  "creation_date": 1730480867,
+  "title": "compileSdkVersion is not specified during configuration of project &#39;expo-camera&#39;",
+  "tags": [
+   "javascript",
+   "react-native",
+   "build.gradle",
+   "expo-camera"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "When building my expo react-native app I get the build error: Where: Script '/DELIBERATELY_HIDDEN/node_modules/expo-modules-autolinking/scripts/android/autolinking_implementation.gradle' line: 377 What went wrong: A problem occurred evaluating project ':expo'. A problem occurred configuring project ':expo-camera'. Failed to notify project evaluation listener. > com.android.builder.errors.EvalIssueException: compileSdkVersion is not specified. Please add it to build.gradle > Could not get unknown property 'release' for SoftwareComponent container of type org.gradle.api.internal.component.DefaultSoftwareComponentContainer. I've tried every answer in every related post but it hasn't helped. I've looked at my android project level, android app level and expo-camera node_modules level build.gradle file's, but they all specify a compileSdkVersion! I don't want to change anything in node_modules as it will be wiped every time I have to reinstall them. It used to build just fine using expo-camera version 14.1.3, react 18.2.0, react native 0.73.6 & expo 50.0.0 and I haven't changed those versions. Incidentally, I also get the following in my problems tab in VS Code, but similar errors have happened with other modules, before, without causing build errors: [CODE] Here are my build.gradle file's: Project level: [CODE] App level: [CODE] expo-camera node_modules level: [CODE] My app.json: ["
+ },
+ {
+  "question_id": 79149132,
+  "ym": "2024-11",
+  "creation_date": 1730487533,
+  "title": "Open URL Intent removes colons from URL Link",
+  "tags": [
+   "javascript",
+   "android-intent",
+   "webintents"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am trying to implement a bluetooth printer functionality directly from browser. The app has an intent option that can be used to print from browser \"bprint://\" When I call the function window.open(\"bprint://\" + \"https://www.example.com\",'_blank') It actually tries to open bprint://https//www.example.com which then breaks the functionality because of the removed colon after https. I also tried creating a link and set its href attribute, which has the same result. Is there any way to open this URL intent maintaning the original url?"
+ },
+ {
+  "question_id": 79149217,
+  "ym": "2024-11",
+  "creation_date": 1730489825,
+  "title": "Cloud function V2 deployment",
+  "tags": [
+   "javascript",
+   "firebase",
+   "google-cloud-functions"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Billing error while deploying cloud functions onDocumentCreated trigger with v2 api for cloud functions. I tried to deploy the below function, got this error:\" Write access to project 'xxxxx' was denied: please check billing account associated and retry \"**. Not sure why it does not let me when I can easily upload V1 functions. [CODE]"
+ },
+ {
+  "question_id": 79149290,
+  "ym": "2024-11",
+  "creation_date": 1730491577,
+  "title": "FullCalendar with Fiscal Calendar",
+  "tags": [
+   "javascript",
+   "fullcalendar"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm using FullCalendar for React. Instead of a regular calendar year, I would like to use a fiscal calendar. For instance, the current fiscal year (FY25) should begin on Sep 29, 2024 and end on Sep 27, 2025. The fiscal month of October should display 9/29 through 11/2. The current fiscal week should be 5. Is there a way to change the underlying calendar object in this way? I have read the responses to How to set full calendar to a specific start date when it's initialized for the 1st time? and they do not answer my question. That question is regarding setting the initial, default date when the calendar is initialized. The question I have is how to redefine the calendar itself. How to redefine a year. In a fiscal year, the start and end date are different from the calendar year. The start and end date of each month is different. The numbers of the weeks are different."
+ },
+ {
+  "question_id": 79149333,
+  "ym": "2024-11",
+  "creation_date": 1730492705,
+  "title": "Audio playing onload and not onclick (involves webpack)",
+  "tags": [
+   "javascript",
+   "html",
+   "webpack",
+   "web-applications",
+   "html5-audio"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm making a note sequencer web application and I am currently trying to implement the function of playing a note on pressing a button corresponding to the note. I am currently using a test sound to understand how playing audio works as this is my first time dealing with audio in HTML. I am also using webpack, and my problem at first was getting webpack to recognize the mp3 file, but I quickly solved that by using [code] . Now my problem lies in the fact that the test audio I am using does not play on the click of a button, but does play perfectly fine onload of the site. There are no errors given to me by the console. Here is [code] : (note: this may be poorly written for the meantime of me understanding this issue) [CODE] I want to make [code] play on clicking [code] , and NOT onload of the site. Here is [code] : [CODE] I attempted some of the solutions in this forum but to no avail. I do believe this could be a problem with the way I've written my program, considering I have to also ensure everything works well with webpack. I have tried different syntaxes and creating separate functions to play the audio, but all of it just ended up playing the audio on load again. Can anyone help out here?"
+ },
+ {
+  "question_id": 79149480,
+  "ym": "2024-11",
+  "creation_date": 1730497102,
+  "title": "javascript library is not loaded into an angular typescript project",
+  "tags": [
+   "javascript",
+   "typescript",
+   "ecmascript-6",
+   "es6-modules"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "We are trying to build a javascript library (dwbn-event-webcomponents), that can be imported into a typescript project (angular 17) and also used standalone. It was installed via npm from git url. In the angular project however, we get the following error: [CODE] The [code] of dwbn-event-webcomponents looks like this: [CODE] The files are all in the defined location and we have generated the typescript type definition file via [code] . How can we resolve this error and make the library usable in a typescript project?"
+ },
+ {
+  "question_id": 79149500,
+  "ym": "2024-11",
+  "creation_date": 1730497863,
+  "title": "Why does OpenAI GPT always return the same response when I ask for &quot;random&quot; outputs?",
+  "tags": [
+   "javascript",
+   "random",
+   "openai-api",
+   "gpt-4o-mini"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm using the gpt-4o-mini model for random outputs, but it keeps giving me the same results for similar prompts. For example, if I ask it for a \"random number from 1 to 10,\" it almost always responds with 7. If I adjust the range to \"10 to 20,\" the response is usually 14 or 15. This happens consistently, even when I try other models like gpt-4, gpt-4o, and o1-mini. Here’s my code: [CODE] I've experimented with different temperature values, including lower and zero, but it doesn’t seem to affect the randomness. The issue isn’t limited to number, if I ask for a \"random tree,\" the model almost always responds with \"oak\" or \"maple.\" Can I increase the randomness of GPT responses for more unique results? I’d like to keep the requests as short and cost-effective as possible, ideally just one or two messages. Or is there a GPT model that provides more variability or true randomness in its responses?"
+ },
+ {
+  "question_id": 79149517,
+  "ym": "2024-11",
+  "creation_date": 1730498384,
+  "title": "Does the Outlet rerender with the parent component in React JS?",
+  "tags": [
+   "javascript",
+   "reactjs"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have useWindowSize hook that triggers each time when the window is resized so the MainWrapper component rerenders many times. But the Outlet element is not rerendered. Is that allright? Are there any documentation links to that? [CODE]"
+ },
+ {
+  "question_id": 79149660,
+  "ym": "2024-11",
+  "creation_date": 1730503826,
+  "title": "Changes to js file not picked up for Blazor server app",
+  "tags": [
+   "javascript",
+   "visual-studio",
+   "blazor",
+   "blazor-server-side"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I just noticed a strange behavior in Visual Studio 22 ver 17.11.5. If I add a function to .js file, add a call to the function on a razor page and hit F5, I get an exception that the method cannot be found. This used to work just fine. If I hit F12 and check the js file, it sure enough does not contain the newly added function. If I add a new .js file and add it to _Layout.cshtml it works for a little bit. That is, I can add new functions and they are picked up, but at some random point, changes to this new file also stops being picked up. Anyone else seeing this?"
+ },
+ {
+  "question_id": 79149720,
+  "ym": "2024-11",
+  "creation_date": 1730506534,
+  "title": "How to position two child elements within a container where the first one would be centrally positioned and the other one on a side",
+  "tags": [
+   "javascript",
+   "html",
+   "css",
+   "reactjs",
+   "next.js"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I have a button component (in React) that I want to make so that it would position its content centrally while allowing the specification of left or right icons . The content must be positioned in the center relating to the parent and respect each icon (optionally) if provided. The problem I'm facing is that I'm not sure what's the best way to make sure that the content can overlap on the next line when it reaches the icon. Below are a couple of images of what I'm trying to achieve I was trying to use absolute positioning for both elements with transform: translateX to adjust the position of the content, but it doesn't work in case if the content take the full space or longer than expected. Also, was trying to use flexbox, but it doesn't allow to align single element in relation to parent without taking into account the icons. Setting a padding on left or right side (depending on the icon's width) doesn't seem to work either as it shifts the content and breaks the central alignment Would much appreciate any advice or direction which I can try to make it work. Trying to avoid going with any \"hacky\" Javascript based solution where I would have to calculate each container 🙏"
+ },
+ {
+  "question_id": 79149727,
+  "ym": "2024-11",
+  "creation_date": 1730506902,
+  "title": "Adding reveal.js presentations to an existing site?",
+  "tags": [
+   "javascript",
+   "html",
+   "hosting",
+   "reveal.js"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have several reveal.js presentations, and I want to host them online so that I can access them from anywhere, rather than just on my laptop. I also host a blog site using the static engine Hugo, which serves up html pages. Hugo has the concept of \"pages\": currently one page contains the blog posts, another one has a little bit about me, and another lists all the blog tags. It would be easy to add a page called \"presentations\". My presentations include text, mathematics with MathJax, and various interactive diagrams included as iframes. It would be very nice to include everything in a single html file, with reveal.js material from a CDN such as [CODE] I also have a few local files, such as my own theme. I don't know whether the files above include plugins (for mathematics, menus, highlighting) or whether they have to included as well. I appreciate that questions similar to this have been asked before, but most seem to be several years old, or involve github, which I'd rather avoid, since every time I attempt to use it I get caught up in an almighty tangle and confusion. Anyway, I don't need version control or sharing, just an online presence. Anyway, I'd be happy of any advice!"
+ },
+ {
+  "question_id": 79149996,
+  "ym": "2024-11",
+  "creation_date": 1730523132,
+  "title": "Can javascript have race condition?",
+  "tags": [
+   "javascript",
+   "node.js",
+   "mutex",
+   "race-condition",
+   "single-threaded"
+  ],
+  "score": 4,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "For the following code in javascript I want to know if there are concurrent api requests to increment count is there any possibility of a race condition considering the fact that javascript is single threaded. [CODE] From what I understand there shouldn't be any as once the execution resumes after await someAsyncFunction() count++ being synchronous should be executed in one stretch for a request before the execution resumes the increment for other requests. Let me know if I am wrong to understand this."
+ },
+ {
+  "question_id": 79150082,
+  "ym": "2024-11",
+  "creation_date": 1730528656,
+  "title": "Why does partial returns duplicate partial view on error",
+  "tags": [
+   "javascript",
+   "c#",
+   "asp.net-mvc"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have a .net MVC project that renders a partial view. The button should append a a partial using jQuery which is working, but the issue happens when i send the form. Code for appending the HTML: [CODE] Partial parent: [CODE] Partial Child [CODE] Create controller: [CODE] I also check the model if the data gets duplicated but it's not. I also check the http request sent on the browser; it's correct except for the response. It renders the duplicate. Browser request: Browser response:"
+ },
+ {
+  "question_id": 79150114,
+  "ym": "2024-11",
+  "creation_date": 1730530393,
+  "title": "Approach for handling `discriminatedUnion` with `superRefine` with Zod",
+  "tags": [
+   "javascript",
+   "typescript",
+   "zod"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Dynamic Validation Schema Base Schema : Create a base schema that contains common fields. Dynamic Validations : Code : Implement dynamic validations based on the [code] field. Flag : Use a flag passed as a parameter to determine if additional validations should be applied. Shared complex validations : Use [code] in the base schema to maintain shared validation logic across all schemas. Code example [CODE] Problem [code] it cannot be applied to the base schema if you plan to use schema methods like merge afterward. This limitation arises because [code] returns a [code] , which prevents further modifications to the schema. so, how to apply common complex validations( [code] or [code] ) in the base schema but also running dynamic validations depending schema fields or external data? Aditional notes I reviewed this question but I didn't see anything to use with this specific case"
+ },
+ {
+  "question_id": 79150197,
+  "ym": "2024-11",
+  "creation_date": 1730534135,
+  "title": "Date is mostly one day off and inconsistent",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "node.js",
+   "next.js",
+   "dayjs"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "So, in summary, I want my dates to work in uniform. Since we are dealing with just dates and not time, how exactly can I achieve this? I have tried many ways already. In the frontend, I am using React calendar for date UI and dayjs for date formating. In backend, I am using dayjs for formating as well. I built a web app where users can create trips. These trips heavily relies on date for operations such as trip starts and end dates, payment due dates, booking deadline dates, etc. Let me use trip start and end date for example. All I want is that when user A creates a trip and set the start and end date to be September 1 - September 10 and publish the trip. No matter where the person who wants to book the trip is located, he or she should see the same date that the owner of the trip set for the start and end. What I have now is frustrating. A very good example is this: I setup a trip with the following dates: start date: September 1, 2025 end date: September 10, 2025 On the booking page, I am seeing August 31, 2025. I read that I should treat everything as UTC and save my dates as UTC in the database. I have done that or let me say, I think that I have done that. Here are the codes that I have. In the frontend which is built with Nextjs, I am using React calendar. So, I created a component to handle this. [CODE] In one of the components where I used the date component, I handled"
+ },
+ {
+  "question_id": 79150228,
+  "ym": "2024-11",
+  "creation_date": 1730535201,
+  "title": "why does it output this to me in the console: Uncaught SyntaxError: Unexpected end of input",
+  "tags": [
+   "javascript",
+   "html"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "when I try to play a video using the button, I get the error Uncaught SyntaxError: Unexpected end of input I can't figure out what the reason might be because I'm still new to JavaScript here's my JS code : [CODE] Here my HTML: [CODE] I want to make the video play in mp4 by clicking the buttons from the list, but the error is Uncaught SyntaxError: Unexpected end of input please help me solve this problem I also can't figure out which line this error occurs on because the line of code is not specified in the error [CODE] and I tried to solve this problem by placing: \" ; \" but it didn't help. I also tried to move '\"playVideo(\"'+$(this).text() +'\")\"'; to var but it didn't help either. in general, I do not know how to solve this problem please help me to solve this problem here's what it looks like in VS code: Click Here"
+ },
+ {
+  "question_id": 79150231,
+  "ym": "2024-11",
+  "creation_date": 1730535238,
+  "title": "displaying subcommands in help embed",
+  "tags": [
+   "javascript",
+   "discord.js"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "whatever i try i cannot get to display the subcommand. it just displays this Commands in Fun /fun: Fun commands to play with! Today at 13:07 example fun.js i have tried searching the internet, asking chapgtp and what not. Tried going through the docs but still nothing. i have tried updating both files to make it work, no error whatsoever, its just that the help.js isnt able to call or even see the subcommand. this is the output I get every time https://prnt.sc/weeO16P8DIDE [CODE] #help.js [CODE]"
+ },
+ {
+  "question_id": 79150301,
+  "ym": "2024-11",
+  "creation_date": 1730537987,
+  "title": "Referencing another function and weird booleans in javascript for rpgmaker MZ",
+  "tags": [
+   "javascript",
+   "boolean"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm learning Javascript by using it in the context I want it for, rpg maker MZ, to slightly override it's error handling. It would essentially tell the engine to more or less skip playing the missing audio file, and to display a custom error message. I'm having two issues. I think I'm potentially referencing the original function incorrectly because it doesn't appear to be functioning entirely. It's functioning enough to know that the file is missing, but it no longer seems to be recognizing the file is there even when it's put back into place. I'm having an issue with a boolean returning true, when I want it returning false be default. I've managed to get pretty far with it using google, documentation, and combing through other plugins to see how they work, but on this I'm stuck. I'm not exactly sure what it is I'm missing. Here is what I have for the plugin so far. [CODE] -Trying to reference problem- AudioManager._OGPlaySe = AudioManager.playSe; is supposed to reference the pre-existing function so that I can override, but still use the original function to play sound, in this case a sound effect. The only other way I've tried to write it is const AudioManager._OGPlaySe = AudioManager.playSe; which resulted in a \"Missing initializer in const declaration\" error that I wasn't able to figure a way around either, since it looks initialized to me, or at least that it should? -Fli"
+ },
+ {
+  "question_id": 79150416,
+  "ym": "2024-11",
+  "creation_date": 1730541959,
+  "title": "Problem regarding arranging divs in a row",
+  "tags": [
+   "javascript",
+   "html",
+   "css"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to arrange a set of divs that look like this: [CODE] inside of a larger div (.productionList) but no matter what i try they each get their own line: [img] [progress] [img] [progress] ... although i want it to look like this: [---img--][---img--][---img--][---img--][---img--][---img--]... [progress][progress][progress][progress][progress][progress]... (wrap once it reaches end of container) [---img--][---img--] [progress][progress] This is what my css code looks like: [CODE] any idea what's going on or how to fix this? for reproduction [CODE] JS code for reproduction: [CODE]"
+ },
+ {
+  "question_id": 79150426,
+  "ym": "2024-11",
+  "creation_date": 1730542279,
+  "title": "DOMPurify (in ckeditor5 context) - how to keep (sub)strong tags included in a deleted(unwanted) span tag?",
+  "tags": [
+   "javascript",
+   "ckeditor5",
+   "dompurify"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I use DOMPurify library ( https://github.com/cure53/DOMPurify ) to clean up html code copied from google docs. I would like to remove the span tags from the copied text but keep the text inside the tags as well as any strong tags included in the deleted span tags. I manage to remove the span tags while keeping the text inside the tags but any strong tags are also removed. Example [CODE] Output [CODE] Expected output [CODE] I also tried with this kind of hook [CODE] But the output is the same, [code] tags inside [code] are also deleted. Can you please help me to keep (sub) [code] tags after “sanitize”? Many thanks"
+ },
+ {
+  "question_id": 79150501,
+  "ym": "2024-11",
+  "creation_date": 1730545145,
+  "title": "WebSocket video streaming automatically adjusts quality based on the user&#39;s network status",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "websocket",
+   "video-streaming"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have three sources for my WebSocket video streaming, and I'm using JMuxer to display the video in the client's web browser. I need to implement automatic quality adjustment based on network status. For example, if the current stream is at 1080p but the client's network slows down, it should automatically switch to the 720p source. The available streaming endpoints are: /video?quality=360p /video?quality=720p /video?quality=1080p I'm aware of the Network Information API , but I want a solution that directly adapts the video quality based on the client's ability to handle the current data stream."
+ },
+ {
+  "question_id": 79150539,
+  "ym": "2024-11",
+  "creation_date": 1730546644,
+  "title": "GET http://localhost:3000/node_modules/mathjs net::ERR_ABORTED 404 (Not Found)",
+  "tags": [
+   "javascript"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I tried to link mathjs to my script but got this error: [CODE] I use local node server Server code: [CODE] My project strucutre: Project structure I tried to correct path, but this didn't help (path was correct?) [code]"
+ },
+ {
+  "question_id": 79150541,
+  "ym": "2024-11",
+  "creation_date": 1730546714,
+  "title": "How to Integrate MS-Clarity in AMP Pages in 2024?",
+  "tags": [
+   "javascript",
+   "amp-html",
+   "ms-clarity"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have developed a website entirely using Accelerated Mobile Pages (AMP). I recently discovered Microsoft Clarity, but their installation instructions do not cover AMP, even for manual installation. I tried integrating the JavaScript code provided for manual installation by simply pasting it into the element as recommended by the manual instructions for regular HTML code. It appears to work in the Clarity interface, but several severe errors are reported by AMP validation tools, including Google Search Console. As a result, my pages are not being served by the AMP cache provided by Google's proxy-based content delivery network (CDN). Has anyone else encountered this issue and found a workaround to implement Clarity on AMP without errors?"
+ },
+ {
+  "question_id": 79150605,
+  "ym": "2024-11",
+  "creation_date": 1730548575,
+  "title": "Impossible to debug javascript freeze with devTools",
+  "tags": [
+   "javascript",
+   "google-chrome-devtools"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Using devTools and adding logs everywhere didn't help me debug a particular page. I am working on a web component framework, and without going into the details or the way things work, I have my Chrome-based browser freezing during around 30 sec to 1 minute when I perform a particular action, and I can't find any way to see where it is stuck. The same action in Firefox is immediate and has no consequence. I have put a debugger just before the crash happens but it didn't help. Do anyone know a better way or wanna have a look ? https://cp.bbn.io/computed.php Just click the checkbox (it should change the number of the last entry of the list - called Chiara - at the bottom of the scroll). Thanks! EDIT: Can anyone confirm they have the same bug please?"
+ },
+ {
+  "question_id": 79150630,
+  "ym": "2024-11",
+  "creation_date": 1730549543,
+  "title": "How to get what the user entered in a Form and change it before sending?",
+  "tags": [
+   "javascript"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "How to get what the user entered in a Form and change it before sending? I have an input field, when the user submits the data I have to validate it and if there is anything to change, I tried many options but couldn't find what I need. For example, user write something, I need to compare it with JS variable, and change it in sending. Create Contact Form with two fields and button. [CODE] and: [CODE] Here I output the variable, the first time just to know the value, the second time if it is not equal to 6. But alert shows \"null\" twice(if snippet above form) or four times \"[object HTMLInputElement]\" if snippet below the form. And in console I have this error: Failed to load resource: too many HTTP redirects: http://1.gravatar.com/avatar/459d16a800ceb49fe2871a22c7041252?s=52&d=mm&r=g"
+ },
+ {
+  "question_id": 79150643,
+  "ym": "2024-11",
+  "creation_date": 1730549856,
+  "title": "Validating a Shopify Webhook",
+  "tags": [
+   "javascript",
+   "node.js",
+   "cryptography",
+   "shopify"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "In Shopify, webhooks can be created for certain events that take place in the admin such as updating a product and they provide a note that says: Your webhooks will be signed with 6574fb9832abafa73b29d30f6f200264b063669592b993b23369a2793a3db8e6 According to the Shopify docs for validating a webhook , it gives the following example: [CODE] If we don't want to use Shopify's library for this, and instead use a Netlify serverless function, [code] can be imported, and the request contains an [code] header which has the following format. [CODE] [CODE] How can we validate the webhook given the [code] and [code] ? This is the current implementation I am using and although it does work I am not sure if this is secure enough for a production grade application and whether or not the crypto.timingSafeEqual adds any realistic security. [CODE]"
+ },
+ {
+  "question_id": 79150674,
+  "ym": "2024-11",
+  "creation_date": 1730550839,
+  "title": "Javascript - How to add a select option value without duplicating an existing value?",
+  "tags": [
+   "javascript",
+   "html",
+   "dom",
+   "html-select"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm using an text input bar to add values to a select options without using a value that already exists. I created a for loop, which test if the text in the input bar matches any value in the select options. It stops at two options of the same value but I'm trying to stop all duplication. How can I fix this? https://jsfiddle.net/xb82n1d9/ [CODE] [CODE]"
+ },
+ {
+  "question_id": 79150675,
+  "ym": "2024-11",
+  "creation_date": 1730550890,
+  "title": "Alpine.js x-data not reactive",
+  "tags": [
+   "javascript",
+   "axios",
+   "alpine.js"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm using Alpine.js to render a list of videos from an API. After making the API call, the response data populates my videos array successfully, but the page doesn’t update to show the new data. Here's a breakdown of what’s happening: I'm making an Axios API request and pushing the resulting videos to the videos array. I’ve confirmed via console log that videos is populated with the correct data. Despite this, the template does not render the updated array. Thank you! [CODE] [CODE] Using [code] after updating videos to ensure Alpine.js updates. Manually triggering Alpine.js reactivity. Directly manipulating the DOM as a temporary workaround (not ideal). None of these approaches resolved the issue. I'd appreciate any insight into why Alpine.js might not be re-rendering the updated data or any alternative solutions."
+ },
+ {
+  "question_id": 79150709,
+  "ym": "2024-11",
+  "creation_date": 1730552255,
+  "title": "Accessing User-Agent from Next.js Route Handler?",
+  "tags": [
+   "javascript",
+   "typescript",
+   "next.js",
+   "nextjs-api-router"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to access a request's User-Agent header from a route handler I have on my next.js project. Here is an example: [CODE] The [code] function returns this: [CODE] The above code is using the userAgent function , which I know is designed for middleware, but for some reason middleware doesn't seem to have an effect on Route Handlers. I've also tried: the headers function Using req.headers.get(\"User-Agent\") and all of the approaches return a [code] /empty string value. I know the request doesn't send a null user-agent because if I send a request to the same hosted project on Vercel and open up the Logs, the request shows a valid User-Agent column."
+ },
+ {
+  "question_id": 79150846,
+  "ym": "2024-11",
+  "creation_date": 1730556898,
+  "title": "Deactivate externally integrated Javascript file with Javascript",
+  "tags": [
+   "javascript",
+   "html",
+   "jquery",
+   "css"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have included the following in my header code (Google AdSense). Now I am looking for a way to deactivate this line via Javascript: [CODE] Using CSS (Display:None) does not work because this code will be executed anyway. I want to deactivate this line using an external JS (so that it is no longer executed) if this is defined in this external JS. Thanks."
+ },
+ {
+  "question_id": 79150948,
+  "ym": "2024-11",
+  "creation_date": 1730560242,
+  "title": "How can I position a object in the centre of screen with respect to viewport in css?",
+  "tags": [
+   "javascript",
+   "html",
+   "css"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "This is a code of a game, in this I am not able to position the character in centre of the screen (which is visible) dynamically. When the size of the screen or window changes then the character gets displaced to different positions, I want that it should remain in centre, whatever the size, html code [CODE] css code [CODE] What I tried, I used viewport height and width to centre the character but does not work. you can check it out here link => I want that irrespective of the screen size the character should always be in centre As a student I am not able to figure out the problem, please help me!!!"
+ },
+ {
+  "question_id": 79151147,
+  "ym": "2024-11",
+  "creation_date": 1730566971,
+  "title": "Why doesn&#39;t the statement after await continue to execute after promise resolves?",
+  "tags": [
+   "javascript",
+   "node.js",
+   "typescript",
+   "async-await",
+   "lua"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I want to implement an asynchronous task scheduling. This is my code: [CODE] This code behaves differently in the TypeScriptToLua environment and in the node.js environment, which confuses me. TypeScriptToLua nodejs tick: 0 tick: 0 tick: 1 tick: 1 tick: 2 tick: 2 start task1 start task1 execute: 0 execute: 0 tick: 3 tick: 3 tick: 4 tick: 4 execute: 1 tick: 5 tick: 5 tick: 6 tick: 6 tick: 7 execute: 2 tick: 8 tick: 7 tick: 9 tick: 8 execute: 1 tick: 9 I can understand the process of TypeScriptToLua, which is equivalent to resuming the coroutine after resolve and immediately executing the code after await. But I don't understand NodeJs. Why does it continue to execute after the loop ends, and only execute once?"
+ },
+ {
+  "question_id": 79151235,
+  "ym": "2024-11",
+  "creation_date": 1730569031,
+  "title": "How do I calculate the color RGB code in a color picker?",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "colors",
+   "jsx",
+   "color-picker"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to make a reusable color color picker component in react, I want to calculate the RGB color code using the mouse coordinates on a 256 by 256 div, the div has a white background color and it has two css gradients, in it the first one is black from the bottom and transparent to the top, the second is blue to the right and transparent to the left, I'm currently assuming that blue is being picked I want to make it dynamic later, in my [code] function I assume that the blue channel is [code] please correct me if i'm wrong, but I don't know how to calculate the red and green channel. [CODE] JSX [CODE] I tried to calculate red and green channel using [code] but it doesn't seem to be right because I took a screenshot of it and I picked the picked color in and it doesn't match the calculated color in the red and green channel, but it does match the blue channel. [CODE] CSS [CODE] if you put this picture in another color picker and pick the color in the circle it would be [code] which is different than the color shown"
+ },
+ {
+  "question_id": 79151239,
+  "ym": "2024-11",
+  "creation_date": 1730569092,
+  "title": "Unable to retrieve publicUrl from supabase api even with no RLS enabled",
+  "tags": [
+   "javascript",
+   "node.js",
+   "express",
+   "supabase-js"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am learning to use Supabase storage to store files (images) and retrieve the public url and store them in my database to save space. but the issue is that I am able to upload it to supabase but when variable that stored the retrieved publicUrl is undefined. Not sure what I did wrong or if I have to configure the supabase policy. So far browsing through the internet I haven't seen anyone else experience the same problem as me. I hope to get some input on this. Here's my snippet of code [CODE] I tried ChatGPT, changing my API keys around, don't understand much RLS yet but tried to remove all RLS and auth access restriction as much as I know, tried messing with the data.path and hardcodes the path to get the public url but nothing works."
+ },
+ {
+  "question_id": 79151380,
+  "ym": "2024-11",
+  "creation_date": 1730572959,
+  "title": "Error in Prisma: Unknown argument project_code in prisma.etl_users_project.create() invocation, How to resolve this issue",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "postman",
+   "prisma",
+   "prisma-binding"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I’m encountering an error while testing my API in Postman. The error occurs when I try to create a new record in the etl_users_project table using Prisma. Here is the code snippet and the error message: [CODE] What I’ve Tried: Verified that project_code is correctly defined in the Prisma schema. Checked the relationships and connections in the schema. Ensured that the Prisma Client is up to date. Schema Snippet: Here is the relevant part of my Prisma schema: Schema Prisma: [CODE] Why am I getting this error, and how can I resolve it? Any help would be greatly appreciated My React Js Backend Code : [CODE]"
+ },
+ {
+  "question_id": 79151439,
+  "ym": "2024-11",
+  "creation_date": 1730575114,
+  "title": "Back and Forward buttons not behaving as expected. the buttons cycle correctly but when using only buttons places text at the end. using keyboard ok",
+  "tags": [
+   "javascript",
+   "html",
+   "dom",
+   "text"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "This codes behavior is unexpected when you use only the buttons to place chars from the carrot location. It always places the char at the end of the string. If i use the buttons and place the char with the keyboard it does work as expected. Why does this happen and any help with a solution is greatly appreciated. [CODE] [CODE] Thanks for your time in advance!"
+ },
+ {
+  "question_id": 79151611,
+  "ym": "2024-11",
+  "creation_date": 1730582905,
+  "title": "Coloring Sankeyplot links based on source nodes - issue with (sankeyNetwork::colourScale)",
+  "tags": [
+   "javascript",
+   "r",
+   "sankey-diagram",
+   "networkd3"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to assign colors to links within a Sankey diagram command in Rstudio. Specifically, I would like the links to be colored by their source node group (SOF_Data$Species_Binomial). The links and nodes already display properly, but when the command to color links is included (sankeyNetwork::colourScale), the diagram displays blank. Additionally, the command to color nodes (sankeyNetwork::NodeGroup) displays as the default blue, regardless of the color input from nodes_SOF_Data$color. Starting data frame, node list creation: [CODE] Links creation: [CODE] Sankey graph code: [CODE] I've tried imbedding a color hex code column in the links_PaperData column and calling directly from that, although it doesn't seem to fix the issue."
+ },
+ {
+  "question_id": 79151783,
+  "ym": "2024-11",
+  "creation_date": 1730590893,
+  "title": "XSRF-TOKEN won&#39;t change a second time",
+  "tags": [
+   "javascript",
+   "ajax",
+   "laravel"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm creating a single page form that won't reload the page after submitting the form. I'm currently at the stage where I first get messages like I filled something in incorrectly (that's ok), but then when I click the button again, I get err 419. I noticed, in Applications DevTool, that the first time both XSRF-TOKEN and laravel_session change, but the next time I submit the form, only laravel_session changes.How to prevent it and how to fix it? Thank you Step by Step: I come to the page, of course I have a new laravel_sesion + XSRF token I click on the form - a new laravel_session + XSRF token is then generated I click on the form again - only laravel_session is generated [CODE] Update: I tried updating, but now what happens is: Both are updated correctly once (XSRF + laravel_session) XSRF is updated once but then laravel_session twice (which is already wrong - ERR 419) [CODE]"
+ },
+ {
+  "question_id": 79151828,
+  "ym": "2024-11",
+  "creation_date": 1730593608,
+  "title": "ESlint doesn&#39;t allow to build nextjs 15 app because of unused error variable in a try catch",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "next.js",
+   "async-await"
+  ],
+  "score": 0,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I'm learning nextJS 15 and I'm making an app using the pokeAPI but when I run [code] eslint gives me the following message: Error: 'error' is defined but never used. @typescript-eslint/no-unused-vars The following code is the one producing the error: [CODE] Is there a way to ignore that unused variable specifically? Here's the .eslintrc.json: [CODE] I tried the no-unused-vars rule but it didn't work"
+ },
+ {
+  "question_id": 79151839,
+  "ym": "2024-11",
+  "creation_date": 1730594329,
+  "title": "date-fns function returns incorrect response for isSameDay; So does javascript comparison",
+  "tags": [
+   "javascript",
+   "date-fns"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I have been using the date-fns function \" isSameDay \" to test if two actions take place on the same day. The function is given two standard javascript date objects. We recently found a bug where the isSameDay function returns false if the two dates are the same, but one of the two date objects has a time after 7pm. [CODE] To make it confusing, the function returns true when run locally, but false on the server. I believe that this has something to do with the time zone difference between me locally and the server. My expectation was that the date-fns functions would not be affected by being run in a different time zone as the date-time objects it is being given are all UTC. When I first started looking at this, I took the two date-time objects and ran getFullYear, getMonth, and getDate and then compared those two items and got a false again when one date-time object was after 7pm - same as with the date-fns function. There are options in the isSameDay function that may be able to handle the issue at hand, but the documentation doesn't explain it well enough. What I have had to do as a work around is to create two strings for the two dates in question after forcing those dates to be central time zone and then compare the strings. Can anyone explain if/how options can be used so that the isSameDay function works correctly?"
+ },
+ {
+  "question_id": 79152143,
+  "ym": "2024-11",
+  "creation_date": 1730614183,
+  "title": "trpc Server-Side Rendering after fetching the data /api",
+  "tags": [
+   "javascript",
+   "node.js",
+   "typescript",
+   "fastify",
+   "trpc"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "Hello there I'm using trpc and fastify and i have created an api end point to fetch data from prismic cms now I'm confused how to use this fetched data on my pages since I want to render my pages server side with pug template engine, when i go to /api/home I can see the data without issues, but I'm not sure how to extend my setup with trpc to allow my pages to use those fetched data lib/trpc/index.ts [CODE] lib/fastify/index.ts [CODE] routes/home/index.ts [CODE] server.ts [CODE] index.ts [CODE]"
+ },
+ {
+  "question_id": 79152175,
+  "ym": "2024-11",
+  "creation_date": 1730615801,
+  "title": "Filter text in a table with merged cells with &quot;rowspan&quot; or &quot;colspan&quot;",
+  "tags": [
+   "javascript",
+   "html",
+   "html-table"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have an HTML code, and I want the [code] function to filter the myTable table after typing something in the searchInput. For example, if I type \"Rafael,\" the relevant row should be fully displayed with all its merged cells, and the rest that do not contain this word should be hidden. My code: [CODE] [CODE] However, when I type \"Rafael\", it filters, but shows: Building Floor Name Rafael But I want to show: Building Floor Name Building 1 Floor 2 Rafael"
+ },
+ {
+  "question_id": 79152195,
+  "ym": "2024-11",
+  "creation_date": 1730616956,
+  "title": "How can I automate the ChatGPT website with new security updates?",
+  "tags": [
+   "javascript"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Consider: ChatGPT used to be fairly easy to automate via an extension on the page (which is allowed according to what an OpenAI customer representative told me via chat), you used to just call the backend API/conversation end point, as you can see above, with the same payload that it's being shown initially with a body describing the new message ID, parent message ID, etc., and it worked. Several extensions on the Chrome store did this. Now they have a few extra steps, significantly: [CODE] Which submits as the body the parameter \"p\" which appears to be some kind of key that must have been gotten or derived somehow from a previous request, but I'm not sure what. Which then returns an object with a list of a few different kinds of keys (too big to copy here), which appear to somehow be used in this next request: There are several keys that are included as new headers which appear to be partially based on the earlier payload. The problem is that I'm struggling to figure how how those tokens are derived from the earlier payload. It's somewhere in the minimized code on the page but it's too complicated to navigate and figure out on my own. Plus I think there are several other requests that it's getting information from but it's too hard to figure out exactly what is done to get those token values. When I try making the request to conversation with new message IDs, etc. like I used "
+ },
+ {
+  "question_id": 79152211,
+  "ym": "2024-11",
+  "creation_date": 1730617490,
+  "title": "How to post both text and image to backend with Node.JS PUG",
+  "tags": [
+   "javascript",
+   "node.js",
+   "express",
+   "pug",
+   "multer"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have the following PUG template: [CODE] And the server endpoint using [code] : [CODE] I can use either [code] or [code] . The concern here is the inline script in the PUG template. How can I send BOTH the text message and upload file in the same post request?"
+ },
+ {
+  "question_id": 79152221,
+  "ym": "2024-11",
+  "creation_date": 1730618002,
+  "title": "Managing checkbox states in a JavaScript array without impacting other checkboxes",
+  "tags": [
+   "javascript",
+   "html",
+   "css",
+   "loops",
+   "checkbox"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have multiple checkboxes, and each checkbox is assigned either value=\"0\" or value=\"1\". I want to check each checkbox; if a checkbox has value=\"0\", the text color of that checkbox should change to red. When I run the function, all the checkboxes have their text color changed to red. Even if I change [code] to [code] , the result does not change. Please tell me the reason and how to fix it. I have written the following code: [CODE] [CODE] [CODE]"
+ },
+ {
+  "question_id": 79152296,
+  "ym": "2024-11",
+  "creation_date": 1730621415,
+  "title": "How to add automatic page numeration when a table spans over several pages",
+  "tags": [
+   "javascript",
+   "google-apps-script",
+   "pdf",
+   "web-applications",
+   "pagination"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have an HTML in Google App Scripts web app that contains a table that might span over several pages, and I want to add page numeration at the bottom right of each page, something like \"Page 3/4\". The page numeration should include the current page and the total amount of pages. This is a simple test code that reproduces the issue. Script: [CODE] test.html: [CODE] This code produces a \"0\" at the bottom right at the end of each page, instead of the expected page numeration (i.e. 1, 2, 3, etc...). How can I add automatic page numeration in this process of PDF generation from an html template?"
+ },
+ {
+  "question_id": 79152414,
+  "ym": "2024-11",
+  "creation_date": 1730626481,
+  "title": "when i try get value cell current selection row give me previous value of cell",
+  "tags": [
+   "javascript",
+   "oracle-apex"
+  ],
+  "score": 1,
+  "answer_count": 3,
+  "is_answered": false,
+  "body_excerpt": "i created InterActive Datagrid and it's colum currencyId create dynamicAction event execute JavaScript query and set this code [CODE] i want to get the current value after changed the problem : this code give me previous value before change"
+ },
+ {
+  "question_id": 79152573,
+  "ym": "2024-11",
+  "creation_date": 1730632563,
+  "title": "Calling markdownit() for a dynamically loaded div",
+  "tags": [
+   "javascript",
+   "html",
+   "markdown"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "[CODE] This is an example of how to call markdownit() for a specific div after the page loads. On my page, div tags are loaded dynamically after certain user actions. How do I call markdownit() for an emerging div with the id=\"markdown\" attribute?"
+ },
+ {
+  "question_id": 79152607,
+  "ym": "2024-11",
+  "creation_date": 1730633286,
+  "title": "requests on django api by javascript with CORS error",
+  "tags": [
+   "javascript",
+   "python",
+   "django",
+   "django-rest-framework",
+   "svelte"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have a web application for many years that uses Django and Django Rest Framework. The API is used by a python application and it works correctly: [CODE] I discovered Svelte and I wanted to work with this API but impossible: [CODE] I read that you need to install django-cors-headers. but now I have this error: [CODE] my Python version is 3.10.12, Django is 5.1.2 and Rest Framework is 3.12.4 and I installed the Cors Unlocked add-on under firefox. does anyone have an explanation? why with python I have access to my api and not with javascript? thank you for your help."
+ },
+ {
+  "question_id": 79152671,
+  "ym": "2024-11",
+  "creation_date": 1730635842,
+  "title": "How to remove the leading/trailing spaces within $...$ in JavaScript?",
+  "tags": [
+   "javascript",
+   "regex",
+   "typescript"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "This doesn't work and will give [code] (expected: [code] ): [CODE] On the other hand, [CODE] returns [code] correctly."
+ },
+ {
+  "question_id": 79152708,
+  "ym": "2024-11",
+  "creation_date": 1730637135,
+  "title": "How can I dynamically change the background color of a div based on scroll position in JavaScript?",
+  "tags": [
+   "javascript"
+  ],
+  "score": 1,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to make a webpage where a div element changes its background color as the user scrolls down the page. I want the color to transition smoothly between different shades as the scroll progresses. I've tried using window.onscroll, but I'm struggling to get the right values to make the color change look smooth. Could anyone show me how to achieve this effect using vanilla JavaScript? Thanks in advance! I attempted using window.onscroll to detect the scroll position and then change the backgroundColor of the div. I tried calculating a color value based on window.scrollY but found the colors were changing too abruptly. Here’s a snippet of what I’ve got so far: [CODE] What I Expected: \"I was hoping for a smooth transition where the background color would gradually change as I scroll down the page. Right now, it’s either changing too quickly or jumping to values I didn’t intend. I’m also open to using different color transitions if there’s a better approach to achieve a fluid, natural effect.\""
+ },
+ {
+  "question_id": 79152738,
+  "ym": "2024-11",
+  "creation_date": 1730638389,
+  "title": "Angular Interceptor Implementation",
+  "tags": [
+   "javascript",
+   "angular",
+   "typescript",
+   "http",
+   "interceptor"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "so I am trying to implement an interceptor for my little app which is standalone: true, and all I want this interceptor to do is check that if the response from the server comes back with error 401 to log user so for that I wrote code with some console.logs to track it [code] [CODE] my app.config.server.ts looks like that [CODE] app.config.ts [CODE] main.server.ts [CODE] main.ts [CODE] but problem is that I can't even see this console.logs which I have in interceptor like interception is not even being called I tried code above but its not working. (standalone: true)"
+ },
+ {
+  "question_id": 79152790,
+  "ym": "2024-11",
+  "creation_date": 1730639604,
+  "title": "TypeError: Cannot read properties of null (reading &#39;image&#39;)",
+  "tags": [
+   "javascript",
+   "local-storage"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am making an e-commerce website & I have no idea why I am getting this type error. I am trying to retrieve items from the cart that I stored in the local Storage but the items are coming back null . I've built this app multiple times for practice & I never had this problem in the past so I'm a little confused. CartScreen.js [CODE] I know the problem is coming from the cartItems variable but when I console.log() it I get this: As you can see it says there are 5 items in the cart but they are all null, Which is strange because yesterday they weren't, now all of a sudden they are null. Here is my localStorage.js : [CODE] Does anyone know what's going on here? A little help would appreciated"
+ },
+ {
+  "question_id": 79152797,
+  "ym": "2024-11",
+  "creation_date": 1730640084,
+  "title": "Create custom array object type with additonal functions and class declaration?",
+  "tags": [
+   "javascript",
+   "arrays"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Iam struggling with creating an custom array object type with additional functions, and a class construtor: The custom array object should have the following content: [CODE] I would like to work on such an array with custom functions, like: [CODE] Because I read in data from JSON file I would like to create those custom array objects with a class constructor like: [CODE] How could this be achieved? As Iam kind of a newbie do I need typescript for this?"
+ },
+ {
+  "question_id": 79152873,
+  "ym": "2024-11",
+  "creation_date": 1730642361,
+  "title": "Status Code 403: Spotify API, Requesting User&#39;s Top Genre and Top Artist",
+  "tags": [
+   "javascript",
+   "html"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am working on a HTML, and CSS web app that uses the Spotify API. Login works great, the only problem that I have is that if I don't add the account I'm trying to login to the user dashboard, it doesn't work and shows an error code of \"Failed to load resource: the server responded with a status of 403 ()\" and \"results.html?code=AQ…WKGIbYgl3eGcTtIF:89 Error fetching artist data: Check settings on developer.spotify.com/dashboard, the user may not be registered.\" index.html [CODE] results.html [CODE] Initially, I thought it was the scope parameters because it was set to user-read-private, I added the ones I think I needed ('user-read-private user-read-email user-read-playback-state user-modify-playback-state user-read-recently-played user-top-read') and it still didn't work out for me. So, I'm quite stuck as someone newer to this."
+ },
+ {
+  "question_id": 79152876,
+  "ym": "2024-11",
+  "creation_date": 1730642420,
+  "title": "I am trying to implement google signin and i am passing IdToken to backend and get: Firebase ID token has incorrect &quot;aud&quot; (audience) claim",
+  "tags": [
+   "javascript",
+   "firebase",
+   "react-native",
+   "firebase-authentication",
+   "google-signin"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Firebase ID token has incorrect \"aud\" (audience) claim. Expected \"test-f2978\" but got \"583659997900-tiqii1rc4mjsle349h42nq117h36fvbb.apps.googleusercontent.com\". Make sure the ID token comes from the same Firebase project as the service account used to authenticate this SDK. See https://firebase.google.com/docs/auth/admin/verify-id-tokens for details on how to retrieve an ID token. FrontEnd Code :- [CODE] Heres the frontend code the IdToken generated in frontend is passed to a fucntion it handles the response from backend and it gets the token from backend . Backend Code:- [CODE]"
+ },
+ {
+  "question_id": 79152878,
+  "ym": "2024-11",
+  "creation_date": 1730642586,
+  "title": "react redraw only updated array object when property changes using array.map",
+  "tags": [
+   "javascript",
+   "reactjs",
+   "arrays"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I would have guessed that this question is a dupe, but I searched and I can't find it... Full source for this q is here: https://github.com/micahg/arraytest . Using react, I'm mapping an array of objects (stored with [code] ) to a component for display. I'd like react to only render objects in the array with changed properties - but anything I've tried either renders every member or none. The (simplified) component: [CODE] I'm looking for the way to update the array so that react knows not to redraw the second element. What i notice in the react developer tools flamegraph is that the first [code] rerenders because \"Props changed\" (makes sense) but the second rerenders because \"The parent component rerendered\". So far the best I can do is just [code] in [code] to avoid executing the second [code] code... but is there a way to get react to redrawing that second child entirely? Thanks in advance,"
+ },
+ {
+  "question_id": 79152956,
+  "ym": "2024-11",
+  "creation_date": 1730645191,
+  "title": "CORS Error in connecting Babylon.js and Colyseus server",
+  "tags": [
+   "javascript",
+   "cors",
+   "babylonjs",
+   "colyseus"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "error screenshot I am getting a CORS error when I'm trying to connect to colyseus server. I have provided code pls check what is the issue. Server file - index.js [CODE] This is the server's index file , here too i added cors settings Client file - colyseusclient.js [CODE] i tried adding all cors in request and response what i could"
+ },
+ {
+  "question_id": 79153019,
+  "ym": "2024-11",
+  "creation_date": 1730646908,
+  "title": "Can Cypress run inside web worker?",
+  "tags": [
+   "javascript",
+   "next.js",
+   "cypress",
+   "node-modules",
+   "webwork"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I want to run a Cypress test case within a web worker to avoid relying on API, which would reduce deployment costs in a serverless environment. My main challenge is figuring out how to import Cypress modules and make its commands available in the web worker context. Below is the test case I’m aiming to run. [CODE] I tried this but it didn't work. [CODE]"
+ },
+ {
+  "question_id": 79153024,
+  "ym": "2024-11",
+  "creation_date": 1730647034,
+  "title": "Authorize script for file not user",
+  "tags": [
+   "javascript",
+   "google-apps-script",
+   "deployment",
+   "authorization"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "PLATFORM: Google Sheets GIVEN: Input spreadsheet and Data spreadsheet ISSUE: Script will not edit Data sheet because user is only authorized for Input sheet. DESIRED OUTCOME: User can click button to run macro to edit Data sheet without being authorized to view or edit Data sheet. I'm trying to google and search here, but I'm not sure how to find what I need. I keep getting simple 'authorize script' tutorials. I imagine this is something with Deploy or script authorization that I'm not used to. I have a Data sheet with 60 columns and a user that should be able to see and edit 20 of those columns, but not all 60. I built an importrange to pull in some of the columns to view and a script (in the Input sheet) to send user inputs back to edit the data sheet (click-button). This works for me as I'm authorized in both sheets, but does not work for the end user as they are authorized only for the Input sheet. How can I authorize the script but not the user to do that editing?"
+ },
+ {
+  "question_id": 79153049,
+  "ym": "2024-11",
+  "creation_date": 1730647837,
+  "title": "Blackjack game: 1st and 2nd cards are displyed twice when i ask for a new card",
+  "tags": [
+   "javascript",
+   "for-loop"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm newbie and this is my 1st question on stackoverflow. Please help me. When I click on \"Start game\" button I got two cards (i.e.: Cards: 6 7) and this is Ok. But when I click on \"New card\" button, the 1st and 2nd card are displayed another time with the 3rd card (i.e. 6 7 6 7 11). Thanks for your help. [CODE] I want that when I click on \"New card\" I got only the 3rd card displayed next to the 1st and 2nd card."
+ },
+ {
+  "question_id": 79153165,
+  "ym": "2024-11",
+  "creation_date": 1730651441,
+  "title": "Responsive navigation bar with dropdown buttons",
+  "tags": [
+   "javascript",
+   "html",
+   "css",
+   "responsive-design",
+   "dropdown"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "The problem: in responsive view, dropdown button does not move to the visible navigation bar from the menu icon when any of its dropdown content is clicked. In more detail: In responsive view (screen width under 730px), the navigation bar becomes a menu icon, and I want any [code] or dropdown [code] to move to the visible navigation bar when any dropdown item is clicked. The code is at https://codepen.io/Balazs-Keisz/pen/KKOmgQX Here's the JavaScript handling the navigation bar: [CODE]"
+ },
+ {
+  "question_id": 79153306,
+  "ym": "2024-11",
+  "creation_date": 1730655984,
+  "title": "How to &quot;run code through Rollup first, then pass it to Babel&quot;?",
+  "tags": [
+   "javascript",
+   "babeljs",
+   "rollupjs",
+   "gulp-babel",
+   "rollup-plugin-babel"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "To quote the top of the readme for [code] : If you're using Babel to transpile your ES6/7 code and Rollup to generate a standalone bundle, you have a couple of options: run the code through Babel first, being careful to exclude the module transformer, or run the code through Rollup first, and then pass it to Babel. By default, using the recommended option [code] , [code] appears to be running Babel during the build process, as each file is read. I would like to implement the second option, let Rollup bundle the files, then pass the bundle to Babel for transpilation. But I don't see a way to do it. It occurs to me that I could write a Rollup plugin that runs Babel in a [code] hook. But: How do I prevent Babel from running during the build? How do I run Babel from inside that hook function? The plugin readme makes it sound so simple, but it never describes how to implement it. How can I accomplish this? This is my first automated javascript build, and I'm just getting to know these various tools and processes. My current setup is Gulp/Rollup/Babel+Terser. I can do it in Gulp but it forces me to use intermediate files instead of a stream, as explained here . Obviously I'd prefer to avoid intermediate files, so it would be better to resolve this in Rollup/Babel. If not, I could either: Use a bundler other than Rollup, or Use a task manager other than Gulp Final Result: @Timur's lin"
+ },
+ {
+  "question_id": 79153309,
+  "ym": "2024-11",
+  "creation_date": 1730656042,
+  "title": "Cloud Function deploy error in Flutter (JavaScript)",
+  "tags": [
+   "javascript",
+   "firebase",
+   "google-cloud-firestore",
+   "firebase-authentication",
+   "google-cloud-functions"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I want to send a welcome email to the user when logging in to Google using Cloud Functions in Flutter Web, and save the user information to FireStore. I want to create a separate admin and project in the future to manage it directly. Currently, Google login is possible, but Cloud Function deployment is not possible. Below is the Cloud Function code written in JS. Please let me know what the problem is. [CODE] Below is the error message [CODE] And I would also appreciate it if you could let me know if coding cloud functions in Python would result in fewer errors."
+ },
+ {
+  "question_id": 79153316,
+  "ym": "2024-11",
+  "creation_date": 1730656301,
+  "title": "(Un)zooming a canvas is not precise",
+  "tags": [
+   "javascript",
+   "canvas",
+   "html5-canvas",
+   "zooming"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "When I zoom a canvas, usually multiple times, then unzoom the same number of times, the canvas doesn't unzoom the same. Below are the results of 1 zoom in and 1 out. You see the image never goes back to exactly the original size. This shows what the problem is. I do not think it's a bug, just unexpected behavior. [CODE] Here's my zoom function: [CODE]"
+ },
+ {
+  "question_id": 79153364,
+  "ym": "2024-11",
+  "creation_date": 1730657984,
+  "title": "Not showing the products initially",
+  "tags": [
+   "javascript",
+   "html",
+   "css"
+  ],
+  "score": -1,
+  "answer_count": 3,
+  "is_answered": false,
+  "body_excerpt": "I have HTML, CSS, and JavaScript files, and I am trying to create a product browser. There are three categories of products - Electronics, Clothing, Books - and I want to create a wishlist where the user can add their products. The problem is that when I run the HTML file, the products are not showing. However, when I click the button on any category, I'm showing the product category but I want to show initial three products. HTML code: [CODE] JAVASCRIPT code: [CODE] Initial Output: and when I click any product button:"
+ },
+ {
+  "question_id": 79153484,
+  "ym": "2024-11",
+  "creation_date": 1730662379,
+  "title": "Why do only some operations effect the origional array?",
+  "tags": [
+   "javascript",
+   "arrays"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I do understand there are other ways of doing this, so I don't need a different solution, I just want to understand why this happens! While working on something else I came across an issue addressing arrays from a function which I don't understand, so I made a simple version to look at the issue. [CODE] As you can see the funciton takes two arguments, the name of the array and the index of an element to be removed. (Yes, I do know [code] will achieve the same result) puts the elements that should remain in the origional array into a temp array, clears the origional array, then attempts to populate the origional array with the values from the temp array: And here is the problem I don't understand. [code] does clear the array (both arr withing function and origioanlArray but [code] ONLY populates arr within the function! origionalArray is uneffected why is one line effecting the origionalArray and another not? It obviously isn't a scope issue and using splice alone in the fuction instead does work, and that is probably why I am confused. [CODE] I do have ways around the problem as I said, but I was expecting origionalArray to be populated and don't undestandy why it isn't occurring."
+ },
+ {
+  "question_id": 79153557,
+  "ym": "2024-11",
+  "creation_date": 1730664495,
+  "title": "Articulate 360 Storyline Text Variables Javascript Execution",
+  "tags": [
+   "javascript",
+   "articulate-storyline"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am creating a storyline 360 slide trigger that executes Javascript when the timeline starts. The code is supposed to take created project text variables in storyline and replace their default values with specific messages based on what the slide number is. In preview, the console provides the following message: bootstrapper.min.js:2 actionator::exeJavaScript - Script1 is not defined Here is the code placed into the Execute Javascript trigger: [CODE]"
+ },
+ {
+  "question_id": 79153561,
+  "ym": "2024-11",
+  "creation_date": 1730664575,
+  "title": "Cookies not being set in browser",
+  "tags": [
+   "javascript",
+   "express",
+   "localhost"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm making a simple express.js aplication, it has a login form that sends a request, and if authenticated redirects to a page in the frontend and attaches a JWT token to the website's cookies. The JWT token is being generated, the user is being redirected, but no token is being set. Here's the server.js: [CODE] Here's the login route: [CODE] Finaly, the request in the front end [CODE] I've used postman to test the route, it's working perfectly. In the frontend it's parcially working, i'm being redirected as expected to the correct pages, but no cookies are present (tested it by inspecting the page, and using console.log(), both showed a page with no cookies.)"
+ }
+]

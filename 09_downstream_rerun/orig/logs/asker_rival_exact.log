@@ -1,0 +1,34 @@
+=== resolution ===
+  5877/6000 = 98.0%   chi2 by bin p=0.786, by period p=0.605
+  usable 5877   pre 1760 / post 4117   months 2021-06..2026-05
+
+=== P1: did the novice share fall? ===
+  accounts <1y old at posting: 53.9% -> 35.5%
+  median account age: 262d -> 1010d   Mann-Whitney p=1.4e-60   => P1 HOLDS
+
+=== P2 (pre-event only): do novices ask more substitutable questions? ===
+  novice      mean s = 2.680  (N=948)
+  established mean s = 2.776  (N=812)
+  difference = -0.0955  SE 0.0489  95% CI [-0.1913, +0.0003]  p=0.0325
+  the rival needs this POSITIVE and large => P2 FAILS
+
+=== shift-share decomposition of the fall in mean s ===
+  mean s: novice 2.680->2.290   established 2.776->2.397
+  TOTAL   -0.3649
+  WITHIN  -0.3836  (105.1%)
+  BETWEEN +0.0186  ( -5.1%)   <- the rival's share
+
+=== bounding the rival ===
+  to carry the whole fall on asker mix, novices would have to score +1.98 higher on a 0-4 scale
+  point estimate                         -> between = +0.01757 =  -4.8% of the total
+  95% CI bound most favourable to it     -> between = -0.00006 =  +0.0% of the total
+
+=== dose-response (PPML, month-clustered) ===
+  baseline, plain month FE                       gamma=-0.3685 (SE 0.0547)  p=1.64e-11
+  novice-by-month FE (absorbs the rival's shock) gamma=-0.3873 (SE 0.0620)  p=4.23e-10
+  established askers only                        gamma=-0.4017 (SE 0.0623)  p=1.14e-10
+  novice askers only                             gamma=-0.3721 (SE 0.0672)  p=3.05e-08
+
+written: E:\智能体论文\P9b_IPM_20260919\工作文档\R2_downstream\orig\02_estimation\asker_rival_exact.json
+
+--- stderr ---

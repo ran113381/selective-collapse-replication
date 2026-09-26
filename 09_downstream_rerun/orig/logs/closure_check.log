@@ -1,0 +1,80 @@
+
+merged rows=6000  rows missing meta=5537
+
+=== (a) closure rate by substitutability bin x period ===
+ s  post     mean  count
+ 0     0 0.000000      8
+ 0     1 0.176471     17
+ 1     0 0.047794    272
+ 1     1 0.049407   1012
+ 2     0 0.048223    394
+ 2     1 0.053556   1195
+ 3     0 0.075643    661
+ 3     1 0.073257   1406
+ 4     0 0.159140    465
+ 4     1 0.152632    570
+
+=== (a2) closure rate by bin x year-window (pre / y1(2022-12..2023-11) / y2(2023-12..2024-11) / y3+(2024-12..)) ===
+ s        ybucket     mean  count
+ 0            pre 0.000000      8
+ 0        y1_2023 1.000000      1
+ 0        y2_2024 0.000000      7
+ 0 y3plus_2025-26 0.222222      9
+ 1            pre 0.047794    272
+ 1        y1_2023 0.039062    256
+ 1        y2_2024 0.039275    331
+ 1 y3plus_2025-26 0.063529    425
+ 2            pre 0.048223    394
+ 2        y1_2023 0.039088    307
+ 2        y2_2024 0.048193    332
+ 2 y3plus_2025-26 0.064748    556
+ 3            pre 0.075643    661
+ 3        y1_2023 0.037946    448
+ 3        y2_2024 0.082667    375
+ 3 y3plus_2025-26 0.094340    583
+ 4            pre 0.159140    465
+ 4        y1_2023 0.117021    188
+ 4        y2_2024 0.174194    155
+ 4 y3plus_2025-26 0.167401    227
+
+=== (c) closure rate pre-2024 vs 2024+ (Staging Ground split), by bin ===
+ s period2024     mean  count
+ 0      2024+ 0.125000     16
+ 0    pre2024 0.111111      9
+ 1      2024+ 0.055096    726
+ 1    pre2024 0.041219    558
+ 2      2024+ 0.059908    868
+ 2    pre2024 0.042996    721
+ 3      2024+ 0.092176    933
+ 3    pre2024 0.059083   1134
+ 4      2024+ 0.173669    357
+ 4    pre2024 0.146018    678
+
+=== differential closure logit: closed ~ s*post ===
+==============================================================================
+                 coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept     -3.9824      0.314    -12.699      0.000      -4.597      -3.368
+s              0.5523      0.096      5.760      0.000       0.364       0.740
+post           0.4383      0.359      1.220      0.222      -0.266       1.142
+s:post        -0.1548      0.114     -1.361      0.173      -0.378       0.068
+==============================================================================
+
+[note] dropping 25 s=0 rows to match manuscript spec (s in 1..4) before regression
+
+=== (b) dose-response re-estimated excluding closed questions (month size now free) ===
+  bin-months with zero count after exclusion: 0 (dropped from log spec)
+  OLS log-count (closed excluded): γ=-0.4120 (SE 0.0714) p=7.947e-09  s4-vs-s1=-70.9%
+  Poisson/PPML (closed excluded, zeros included): γ=-0.3623 (SE 0.0644) p=1.868e-08
+
+  [reference] OLS log-count (closed INCLUDED, same merged sample): γ=-0.4156 (SE 0.0673) p=6.691e-10
+
+=== (c) dose-response excluding closed, split pre-2024 / 2024+ ===
+  pre-2024 post-period only    γ=-0.3024 (SE 0.1015) p=0.002883  n_post_months=13
+  2024+ post-period only       γ=-0.4612 (SE 0.0716) p=1.207e-10  n_post_months=29
+
+overall closure rate in sample: 7.7%
+
+written: E:\智能体论文\P9b_IPM_20260919\工作文档\R2_downstream\orig\02_estimation\closure_check.json
+
+--- stderr ---

@@ -1,0 +1,21 @@
+=== A. length-conditioned tracers in the receiving bins ===
+  'long' = above the PRE-period median length of that bin (fixed cut)
+  s1 long  dup≤90d  : pre 0.015 (N=135)  post 0.013 (N=595)  diff -0.001 [-0.024, +0.021]
+  s1 long  answers  : pre 0.874 (N=135)  post 0.763 (N=595)  diff -0.111 [-0.282, +0.060]
+      reference, long-s4 pre: dup 0.104  answers 1.494  (N=231)
+  s2 long  dup≤90d  : pre 0.036 (N=196)  post 0.028 (N=717)  diff -0.008 [-0.036, +0.021]
+  s2 long  answers  : pre 0.964 (N=196)  post 0.886 (N=717)  diff -0.079 [-0.189, +0.032]
+      reference, long-s4 pre: dup 0.104  answers 1.494  (N=231)
+
+=== B. does length itself predict the tracers, within bin, pre-period? ===
+  (if length has little tracer effect, S17's attenuation worry is small)
+  dup           ~ log(length) | bin FE :  -0.0461 (SE 0.0113, p=0.000)
+  answer_count  ~ log(length) | bin FE :  -0.0558 (SE 0.0412, p=0.175)
+
+=== C. tracer gradient with length controlled (post only) ===
+  dup          : s slope +0.0217 -> with length +0.0201
+  answer_count : s slope +0.2424 -> with length +0.2333
+
+written: s17_length_conditioned.json
+
+--- stderr ---

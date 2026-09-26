@@ -1,0 +1,1583 @@
+[
+ {
+  "question_id": 79779608,
+  "ym": "2025-10",
+  "creation_date": 1759283955,
+  "title": "Jackson (de)serialization with redisTemplate",
+  "tags": [
+   "java",
+   "redis",
+   "jackson",
+   "hashset",
+   "jackson-databind"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "A user has roles, and the serialized version that is stored in Redis is: [CODE] Now the problem is getting this value as a deserialized POJO, which results in the following error: [CODE] The user class or entity, in this case, has a relation with the role entity: [CODE] The Redis template looks like this: [CODE]"
+ },
+ {
+  "question_id": 79779626,
+  "ym": "2025-10",
+  "creation_date": 1759287171,
+  "title": "Kafka Streams main consumer fetch rate stays low after GlobalKTable (RocksDB) restore",
+  "tags": [
+   "java",
+   "apache-kafka",
+   "apache-kafka-streams",
+   "rocksdb"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I’m running a Kafka Streams application (tested with versions 3.9.1 and 4.1.0) that uses a GlobalKTable backed by RocksDB. There are multiple instances of the application, each with 4 stream threads. The application applies only very basic transformations to incoming messages (no joins or other stateful operations). The GlobalKTable is a simple mapping from ID → value that is used to enrich the stream. The sst files are lost after restart, so global stream threads reads the full topic. During startup, the GlobalKTable restore runs as expected. After the restore is complete, the main stream consumer fetch rate stays relatively low (~140k msgs/s across all consumers) and the CPU utilization stays at 70%s. If I re-produce all data to the underlying topic for the GlobalKTable, the consumers start fetching at a much higher rate (~200k msgs/s) and the CPU utilization increases to 90s until the lag is processed. The GlobalKTable holds about 500 MB of data, and the underlying topic is configured as compact. I set the RocksDB block cache size to roughly the dataset size so most data should be cached in memory. The cache hit ratio is close to 1 most of the time. I tried prepopulating the RocksDB block cache by iterating over the global store in setGlobalStateRestoreListener. I verified via RocksDB metrics that the block cache size increased to near capacity, but the low consumer fetch ra"
+ },
+ {
+  "question_id": 79779706,
+  "ym": "2025-10",
+  "creation_date": 1759299549,
+  "title": "How to use Qmatic SDK connectors (e.g., BranchConnector) in a Spring Boot application?",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "spring-mvc",
+   "ejb"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "The Qmatic SDK documentation mentions that we can use their connectors (for example, BranchConnector) to retrieve data from the Qmatic system instead of calling the REST API directly. However, the documentation is not very clear on how to actually use or configure these connectors within a Spring MVC / Spring Boot application. any idea how to implement it? used their qmatic-common-api.jar file to implement it, but it always throw BeanNotFoundException"
+ },
+ {
+  "question_id": 79779722,
+  "ym": "2025-10",
+  "creation_date": 1759301289,
+  "title": "Getting (java.sql.SQLRecoverableException: IO Error: Socket read interrupted, Authentication lapse 0 ms.) when using Kafka sink with Apache Flink",
+  "tags": [
+   "java",
+   "oracle-database",
+   "apache-flink"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am currently running a small application that periodically polls data from my DB and then puts it in a Kafka topic. While running the application code independently, when I comment my Kafka sink, the application runs correctly: [CODE] But running both the sink and the source together gives the exception: [CODE] Here is the application code: [CODE] Source function class: [CODE] Is it possible that a background thread is interfering with the DB connection here?"
+ },
+ {
+  "question_id": 79779759,
+  "ym": "2025-10",
+  "creation_date": 1759304658,
+  "title": "How to terminate partition yet succeed on the job?",
+  "tags": [
+   "java",
+   "jakarta-ee",
+   "jsr352",
+   "java-batch"
+  ],
+  "score": 2,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I have a Jakarta Batch application that runs jobs with partitions. Under some conditions the processor signals there is nothing else to be done by throwing an exception. As this exception shall neither fail the job nor fail the transaction on the current chunk I added this exception to the skippable exceptions . While this has the effect of allowing the job to continue, there are two effects I do not like: all the remaining items are still processed although no more work can be performed. Hence I want the partition to terminate but allow other partitions to still run. The job as a whole is marked as FAILED. In this one case preempting the work is ok for the application thus I'd like the job to be marked as SUCCESS. After all preempted partitions do not need to be investigated by an operator. The step/job still needs to be able to fail when encountering other problems (=other exceptions) How can I implement the desired behaviour? Update: I tried different scenarios, none of which really brought me to my intended solution: Do nothing (just a normal partitioned step) All items are processed and written (no early exit) Throw Exception The partition breaks the read/process/write loop, the chunk gets rolled back and the step fails. Unless the exception was thrown on a chunks first item I loose the previous items. Throw skippable Exception The partition continues the read/process/writ"
+ },
+ {
+  "question_id": 79779760,
+  "ym": "2025-10",
+  "creation_date": 1759304956,
+  "title": "Throwing result size exceptions for UPDATE or DELETE statements using jOOQ",
+  "tags": [
+   "java",
+   "jooq"
+  ],
+  "score": 5,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm using jOOQ to rewrite a JPA based service, for the usual reasons. One of the things I'm revisiting is the way we used to catch \"the user passed a resource ID that (doesn't exist/they don't have permission to access/whatever) to the resource's DELETE method, so we have to return 404\". In basic SQL, you're able to just [code] , and the database server will reply with the number of rows deleted. If equal to 1, great, commit. If equal to 0, rollback and throw HTTP 404. If greater than 1, rollback and panic because we probably forgot to set up a primary key somewhere somehow. Compared to the JPA way of things, this spares me a database round trip, which probably involved way too many selected columns, as JPA likes to fetch an entity so it can be passed to a thing that will then delete it. With jOOQ, I'm doing [CODE] and then examine [code] and proceed from there. However, the SELECT APIs have this neat [code] method that encapsulates this behavior nicely, and is probably intended exactly for the case where you want to interact with a row identified uniquely, through the primary key or some other unique combination of columns. Great! How can I use this with DELETE (and UPDATE, while I'm at it)? Or do I need to keep looking at my [code] value and maybe write a wrapper function? It would be a simple one to be sure, but I wonder if I missed something in jOOQ that does this already. "
+ },
+ {
+  "question_id": 79779822,
+  "ym": "2025-10",
+  "creation_date": 1759308661,
+  "title": "Apache JMeter testing multiple HTTP requests concurrently with only one query parameter different in requests",
+  "tags": [
+   "java",
+   "testing",
+   "jmeter",
+   "jmeter-5.0"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I have a question related to Apache JMeter testing. I want to send multiple HTTP requests to a single GET endpoint simultanesously (concurrently), that has multiple query parameters, one of them is [code] . I want to make 30 requests concurrently, all the same, except the parameter [code] would be different in each request. I am using plugin \"Parallel Controller & Sampler\". What is the most efficient way to do this ? Is it to create 30 HTTP requests separately like this ? Or is there a more efficient way to do this ?"
+ },
+ {
+  "question_id": 79779865,
+  "ym": "2025-10",
+  "creation_date": 1759310930,
+  "title": "Turning off JFR events with startup args",
+  "tags": [
+   "java",
+   "arguments",
+   "jfr"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Im trying to understand if it is possible to turn off certain JFR events for sanitizing reasons using startup args. I know it is possible to scrub the file after downloading it, and that works just fine but i would prefer to just have startup args to do that instead. I cant seem to find any good resources about how to use these args. I've found this SO thread, which says it is possible, atleast in JDK 17 SO thread to do just this, however it seems to me that those suggested args have no effect whatsoever to my JFR recordings. suggested args: [CODE] possible problems with my project: In my project, im currently using JDK 25, is this a version problem? Is there a problem with the syntax im using in docker-entrypoint? Im not entirely sure how to pass the additional jdk. args with the XX:StartFlightRecording my args: [CODE]"
+ },
+ {
+  "question_id": 79780060,
+  "ym": "2025-10",
+  "creation_date": 1759322714,
+  "title": "Deserialize a JSON property to a string/numeric/boolean type with Jackson",
+  "tags": [
+   "java",
+   "json",
+   "jackson"
+  ],
+  "score": 1,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "Given this JSON [CODE] I'm trying to use Jackson to deserialize this to an instance of [CODE] (In reality, the JSON and Java record have other properties, but I've omitted them because they're not relevant to the question) The [code] JSON property will always be one of the following: string number boolean null So if the JSON property is not null the runtime-type of the corresponding Java object property should be one of String A subclass of Number (Integer, Double, etc) Boolean My attempt at writing a Jackson deserializer is below. I'm using a Jackson release candidate version, specifically v3.0.0-rc9. [CODE] Although this works, the code is pretty unpleasant. I suspect there must be a more concise/elegant way to achieve the same result?"
+ },
+ {
+  "question_id": 79780070,
+  "ym": "2025-10",
+  "creation_date": 1759323008,
+  "title": "Handling Java inter-projects dependencies in multi-root workspace",
+  "tags": [
+   "java",
+   "visual-studio-code",
+   "classpath",
+   "theia-ide"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm testing Theia as an Eclipse replacement IDE for my Java projects and am trying to replicate the familiar project structure: a workspace directory containing a folder per project, each project depends on external jars and other projects. E.g. [code] depends on [code] (copied into the [code] subdirectory) [code] depends on [code] and on [code] Even though Theia is not a fork of VSCode , its structure is heavily influenced by it (for extensions compatibility I guess?) but I was unable to find anything for VSCode too. I have been able to create my two Java projects, each with [code] (and also [code] , which I put to the same content): [code] : [CODE] [code] : [CODE] (note the added [code] in prjB). Yet, I cannot have intellisense detecting the classpath correctly in prjB: classes from external jars are properly identified, but the ones from prjA still show with red waves with [code] . I tried adding [code] as an additionnal [code] (through a link because it won't let me add a source folder not in its root), but it compiles prjA's classes into [code] , which I obviously don't want (but the \"import cannot be resolved\" errors disappear though). So, how should I approach Java projects dependencies in a multi-root workspace? (Preferably for Theia, but curious about VSCode as well)."
+ },
+ {
+  "question_id": 79780075,
+  "ym": "2025-10",
+  "creation_date": 1759323233,
+  "title": "How to log information indicating that the camel JpaComponent started",
+  "tags": [
+   "java",
+   "spring",
+   "jpa",
+   "logging",
+   "apache-camel"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am using a camel route defined in xml. The route starts from this step: [CODE] What this step does is fetch all entities from table APP map them one by one emitt them one by one to the next step of the route :\"routestep2-entry\" after all entities will be processed log a message: \"✅ Finished processing\" process waits [code] and then repeats again I would lso like to add a message : [CODE] which will be logged on the start of the route, either before the SELECT is being done, or just after the SELECT. So the whole output will be like: [CODE] I cannot add [code] before the [code] . And if I add the [code] just after [code] then this log will be outputed n times instead of only once. How can I log a message indicating that the [code] has started?"
+ },
+ {
+  "question_id": 79780544,
+  "ym": "2025-10",
+  "creation_date": 1759362546,
+  "title": "Recycler view does not update until scrolled when using DiffUtil and submitList() with a reversed Array List",
+  "tags": [
+   "java",
+   "android",
+   "android-recyclerview",
+   "listadapter",
+   "android-diffutils"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have an array list of log entries, which consists of an a time and date with a description. I want the user to be able to reverse the direction from oldest to newest and back again. I am using Collections.reverse and that works fine, however when I call adapter.submitList() with the reversed list, the recycler does not update until i start scrolling, even then it is jumbled. If I call notifyDataSetChanged() afterwards, it works but that seems like it defeats the purpose of using DiffUtil. Additionally, I have run into an issue where after deleting all the logs, but then adding a new log (\"logs deleted\") and calling submitList() again, the only entry is whatever was first in the list before I cleared everything, instead of what i added. I have the DiffUtil callback created when the ListAdapter is and I have areItemsTheSame and areContentsTheSame setup. All other situations work, adding, removing, updating, its primarily just the reversing that is not working. Here is a simple version of what I am seeing, in the real app I am using view models but the result is the same. [CODE]"
+ },
+ {
+  "question_id": 79780754,
+  "ym": "2025-10",
+  "creation_date": 1759396227,
+  "title": "How to do dynamic projection including related rows in jOOQ",
+  "tags": [
+   "java",
+   "jooq"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Context: I'm building an HTTP API wrapping a normalized database schema. The database access layer is using jOOQ. For most queries, I have no issues. The problem begins with this type of read access: [CODE] where foo, bar and baz are resource types in the model, each represented by a table. Foo might-have Baz, and Foo has-many Bar, so this is what a Foo resource can look like when everything is included: [CODE] The user might also set the [code] parameter to something else or omit it entirely in which case the [code] and [code] fields would be omitted from the Foo resource representation. If the relationships are requested, but there are no matching rows, the expectation is that the fields are present in the response but with a null or empty array value. Wrangling Jackson so it does this correctly is a bit of a pain but doable. Think GraphQL level of control over the representation (obviously not as much), but for various reasons, not using GraphQL. Now to build the jOOQ query: [CODE] where Foo is a Java record [code] . It has to be that dynamic; some resource types have 5 or 6 of these optional relationships, sometimes across multi-level joins. I have defined the Baz and Bars projections like this: [CODE] and miraculously, it works!... when using the full projection ( [code] ). When one or more of the relationships is not followed, I get a runtime ClassCastException as jOOQ do"
+ },
+ {
+  "question_id": 79780816,
+  "ym": "2025-10",
+  "creation_date": 1759400797,
+  "title": "Trying to get authenticated user ID in Spring; Property or field &#39;id&#39; cannot be found on object of type User",
+  "tags": [
+   "java",
+   "spring",
+   "authentication",
+   "spring-security",
+   "userid"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am trying to get the authenticated user ID. I want to access the user ID in the global layout. [code] : [CODE] And in main section of the listing detail page: [code] : [CODE] Because there is no ID field in the default User class, I have made a [code] class instead. [CODE] Here is the service that uses these details. [CODE] Current security configuration: [CODE] The problem is that I get this error regardless: Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property or field 'id' cannot be found on object of type 'org.springframework.security.core.userdetails.User' - maybe not public or not valid? EDIT: [code] : [CODE]"
+ },
+ {
+  "question_id": 79781322,
+  "ym": "2025-10",
+  "creation_date": 1759442577,
+  "title": "Configure IntelliJ to generate Java 25+ code using IO rather than System.out/System.in",
+  "tags": [
+   "java",
+   "intellij-idea",
+   "console",
+   "console-application",
+   "println"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Java 25 gained the convenience class [code] for simpler access to the console, with [code] , [code] , & [code] methods. See JEP 512: Compact Source Files and Instance Main Methods for details. In my Java 25 projects, IntelliJ IDEA 2025.3 EAP continues suggesting & generating code using [code] / [code] rather than [code] . Is there some way to get IntelliJ to use [code] ? I know IntelliJ provides a Live Template [code] for [code] and [code] for [code] , expanding them into the [code] methods. See the company blog post . My question refers to code suggested or generated by the IDE."
+ },
+ {
+  "question_id": 79781353,
+  "ym": "2025-10",
+  "creation_date": 1759446899,
+  "title": "How can I best fix this JComboBox bug on macOS that wasn&#39;t fixed until Java 20?",
+  "tags": [
+   "java",
+   "macos",
+   "swing",
+   "java-17"
+  ],
+  "score": 3,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Rendering a JComboBox after calling setEditable(true) on macOS looks bad. I really like 99.9% of AquaLookAndFeel so I won't be switching to MetalLookAndFeel . Making the app require Java 20 is not going to happen either. I prefer to work around the problem. I would love it if I can make it look like it does when using Java 20 or newer. On macOS, the JTextField that is displayed is not vertically aligned well with the JButton that you click to display the model. I've been struggling with an llm and am hoping someone might remember what I should do. My fiddling with borders and painting have so far been less than helpful. I'd checkout the Java 20 openjdk and implement the fix in my code but that doesn't sound easy. The MCV example below, alignment-wise, renders well as pictured on Windows (2nd picture MetalLookAndFeel) and Linux (3rd picture MetalLookAndFeel) but not macOS (1st picture AquaLookAndFeel). It appears as though the height of the [code] (plus borders) is just a bit less than the [code] and it appears as though the border for the [code] is slightly narrower than the border for the [code] . Of course, it's also hanging below the [code] . [CODE]"
+ },
+ {
+  "question_id": 79781409,
+  "ym": "2025-10",
+  "creation_date": 1759458353,
+  "title": "IndexOutOfBoundsException when scrolling to end of RecyclerView",
+  "tags": [
+   "java",
+   "android",
+   "android-recyclerview",
+   "searchview"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I'm new to Android development and have tried to implement a SearchView alongside a RecyclerView to display and filter restaurants. However, when I scroll down to the bottom of the listed restaurants, the app crashes with the exception [CODE] My SearchAdapter class: [CODE] My Search activity [CODE] Please let me know what the issue is! Any help would be much appreciated."
+ },
+ {
+  "question_id": 79781541,
+  "ym": "2025-10",
+  "creation_date": 1759477589,
+  "title": "Keycloak custom LDAP storage provider - registered but not identified as LDAP provider",
+  "tags": [
+   "java",
+   "ldap",
+   "keycloak"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am having an issue with the extension I have developed for the [code] and [code] classes. Specifically, my provider is being registered but is not being identified as an LDAP provider. This means that the view does not display the labels properly and even the Mappers tab of the provider is missing. I am using [code] quarkus distribution 26.3.1. Here is a screenshot of this: And this is my source code: [CODE] Could you please explain why my provider is not being recognised as an LDAP provider and how to fix this to be registered properly? Thank you."
+ },
+ {
+  "question_id": 79781642,
+  "ym": "2025-10",
+  "creation_date": 1759485760,
+  "title": "Cannot add address settings via Artemis Core API",
+  "tags": [
+   "java",
+   "activemq-artemis"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "In my work project I need to create an app to configure Artemis queues. I need to dynamically create queues and modify their parameters. I found some parameters I need to pass: [code] of queue and [code] and [code] of queue's address. I wrote the following code: [CODE] My problem is that I don't receive reply message of adding settings. I'm not familiar with Artemis Core API, so maybe I use something wrong? Or maybe it's impossible to receive a reply for this type of messages in general?"
+ },
+ {
+  "question_id": 79781687,
+  "ym": "2025-10",
+  "creation_date": 1759488506,
+  "title": "I can&#39;t find io.modelcontextprotocol.sdk",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "spring-mvc",
+   "model-context-protocol"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a task to implement a streaming HTTP MCP server in Spring Boot. I injected the dependencies as follows: [CODE] However, when I try to configure the MCP server, my imports look like: [CODE] However, I cannot find the McpServer class for configuration. In the documentation ( MCP Server WebMVC ), it shows using the McpServer class, but I can't find it in my project."
+ },
+ {
+  "question_id": 79781962,
+  "ym": "2025-10",
+  "creation_date": 1759507755,
+  "title": "Any way to check a cast to a generic?",
+  "tags": [
+   "java",
+   "spring-boot",
+   "generics",
+   "jwt",
+   "jwe"
+  ],
+  "score": 3,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am working on a Spring Boot application and there I use JWE - tokens. When generating these tokens I serialize a given DTO. As an example, the generation of an AccessToken looks like this: [CODE] while the AccessTokenDto itself looks like this: [CODE] When I later want to get from a already, successfully parsed Jwe, I use these three methods: [CODE] I know this code works and I also know that there shouldn't be a problem since the \"dtoClassName\" claim is allays set correctly when generating a token. (As long as I code the method to generate the tokens right.) But IntelliJ gives a warning about an unchecked cast, which I would like to get rid of. How do I safely cast to the generic in the first line of this method? [CODE] My attempts for a solution/workaround: I experimented a bit with Optionals [CODE] to work around the problem, but that did not go well since I wanted to be able to access the methods of the DTO, and that was not possible. Then I searched for ways to check the cast and found the [code] method, but I could not get it to work. I also tried ways of using [code] , but that led to nothing. I read somewhere that such a scenario can not be checked because it is a compile time issue, not a runtime issue, but I am not sure."
+ },
+ {
+  "question_id": 79782033,
+  "ym": "2025-10",
+  "creation_date": 1759513562,
+  "title": "MyIntListImpl is not abstract and does not override abstract method getItem() in IMyDummyList",
+  "tags": [
+   "java",
+   "inheritance",
+   "polymorphism"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I don't understand why my class that extends an abstract class (which implements an interface) does not override the interface's single method. I get this error when I try to compile: MyIntListImpl is not abstract and does not override abstract method getItem() in IMyDummyList In some cases, IDEA shows messages of the form \"method [code] clashes with 'getItems()' in 'IMyDummyList'; incompatible return type\". My code: [CODE] [CODE] [CODE] [CODE] [CODE] [CODE] [CODE] [CODE] [CODE] I need [code] to extend [code] . Other classes already extend [code] ."
+ },
+ {
+  "question_id": 79782049,
+  "ym": "2025-10",
+  "creation_date": 1759514695,
+  "title": "Build failed on :app:mergeDebugResources — InvalidPathException with &#39;:&#39; on Windows",
+  "tags": [
+   "java",
+   "android",
+   "xml",
+   "build",
+   "build.gradle"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "After updating the project, the build on Windows fails on the [code] task: [CODE] What I've tried: Cleared the Gradle cache ( [code] ) Removed libraries one by one Changed Gradle and AGP versions Rolled back commits Nothing helps. It looks like there's a path issue in Windows; the [code] in the folder name is interfering with the build. I don't understand where this character is coming from or how to remove it. Versions: OS: Windows 11 Gradle: 8.5 Android Gradle Plugin: 8.2.2 Java: 17 Question: Has anyone encountered the [code] on Windows when building an Android project? How can I resolve this issue and get [code] working? UPD: Maybe the [code] configuration is relevant — here’s my current setup: [CODE]"
+ },
+ {
+  "question_id": 79782096,
+  "ym": "2025-10",
+  "creation_date": 1759519145,
+  "title": "AWS SDK SNS not found in Gradle build",
+  "tags": [
+   "java",
+   "spring-boot",
+   "gradle",
+   "aws-sdk"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have an older code base that I've upgraded slightly to Java 11 and Gradle 5.6. It does not complain about : [CODE] but throws an error when I add one or both or either of these: [CODE] Error: Execution failed for task ':compileJava'. [CODE] Attached is the complete gradle.build [CODE]"
+ },
+ {
+  "question_id": 79782134,
+  "ym": "2025-10",
+  "creation_date": 1759522354,
+  "title": "How to make an overlay animation in a StackPane with JavaFX",
+  "tags": [
+   "java",
+   "animation",
+   "javafx",
+   "css-animations"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have three StackPane elements, each containing its corresponding ImageView for an Icon and an overlay VBox . The intended animation is to make the overlay appear from the top to the bottom of the container (or vice versa) when the mouse hovers over it, and then hide again when the mouse leaves. However, I faced two issues. The [code] does not set the height to zero for the overlay, since the parent (StackPane) assigns its children the default height, which is 100% of its own height. So that is why I had to use [code] instead. The animation does not move as smoothly as I had expected. I used KeyFrame to make the following animation. 0 -> container's height when the mouse hovered and container's height -> 0 when the mouse exits. But there is no animation, and the overlay appears directly without any animation. Code [CODE] I would like to know how to make such animation using StackPane or any layout for that matter"
+ },
+ {
+  "question_id": 79782578,
+  "ym": "2025-10",
+  "creation_date": 1759597362,
+  "title": "Spring Boot. Error starting ApplicationContext",
+  "tags": [
+   "java",
+   "spring-boot",
+   "hibernate",
+   "spring-mvc",
+   "spring-data-jpa"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I've faced with the following error while starting my spring boot application: [CODE] I've read a lot of articles and found information that I should manually configure 'entityManagerFactory' and it helped me with my initial problem: [CODE] But I have to say that my Entity classes are written incorrectly. Apparently, there are problems in oneToMany and other connections. So, that is my entity class [CODE] pom.xml: [CODE] Main class: [CODE] Configuration class, which helped me make an advance [CODE] Just repository: [CODE] EDITED My config now: [CODE] Error: [CODE]"
+ },
+ {
+  "question_id": 79782621,
+  "ym": "2025-10",
+  "creation_date": 1759605007,
+  "title": "Apache Camel 4 Timeout Parameters passed on the URI and timeout is not enforced",
+  "tags": [
+   "java",
+   "apache-camel",
+   "quarkus"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am doing this on a Quarkus app using Camel 4: [CODE] When i test the http call the timeout i set on the parameters is not enforced. After doing some digging on the monitoring tools i noticed that the timeout parameters are part of the URI of the call. How can i fix this in order for Apache Camel to interpet the parameter as HTTPClient configuration and not URI."
+ },
+ {
+  "question_id": 79782860,
+  "ym": "2025-10",
+  "creation_date": 1759651144,
+  "title": "How to configure Gradle to pickup ArchUnit tests via @Tag annotation?",
+  "tags": [
+   "java",
+   "gradle",
+   "junit5",
+   "archunit"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "When I tried to integrate ArchUnit into our setup, I noticed that ArchUnit tests were not being picked up by Gradle. Our Gradle config contains several testing tasks to separate UnitTests, IntegrationTests, and AcceptanceTests. Those tasks only pick up tagged classes: [CODE] It appears that ArchUnit tests are not being picked up despite being tagged correctly. [CODE] When I invert the includeTags to excludeTags the ArchUnit tests are being picked up. [CODE] How can I configure Gradle/ArchUnit to preserve the [code] notion?"
+ },
+ {
+  "question_id": 79782956,
+  "ym": "2025-10",
+  "creation_date": 1759664241,
+  "title": "Instant animation with KeyValue when using the overlay parent height as the target value",
+  "tags": [
+   "java",
+   "animation",
+   "javafx",
+   "key-value"
+  ],
+  "score": 4,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I previously posted a question about why the overlay animation in the StackPane container occurs instantly when using KeyFrame . @Slaw pointed out the root of the issue in a comment : You're using on-finished handlers of [code] . Those are executed once at the end of the frame's duration. They do not cause the value to change incrementally over time. And to solve it: For that, pass a [code] when creating the [code] He also suggested reading his answer to a previously posted question , explaining how similar animations should be handled. Solution Following @slaw, answer: the [code] class handles the [code] and [code] animations, respectively, using ParallelTransition , for both sliding the overlay down and fading the label in. [code] [code] handles both events [code] [code] Problem The [code] returns a Timeline for transitioning the overlay. When the Keyframe's to value is hardcoded (200, for example), the animation occurs smoothly and the max height updates gradually. However, the issue is that when resizing the window, the overlay will not fill all its container since its [code] has grown and the value is hardcoded. For that, I set the value to [code] . The overlay does fill its container now, but no animation is occurring Code [CODE] Results This is how the instant animation look like. And this is how the animation is supposed to look like, but since the to value is 200, it w"
+ },
+ {
+  "question_id": 79782967,
+  "ym": "2025-10",
+  "creation_date": 1759665931,
+  "title": "How to deal with Simple Java Mail exception 451-Mails per session limit exceeded",
+  "tags": [
+   "java",
+   "jakarta-mail",
+   "simple-java-mail"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I get an exception on sending mails using Simple Java Mail: [CODE] What is the best strategy to deal with that? My current approach is [CODE] I am not sure if that's a good way to do it."
+ },
+ {
+  "question_id": 79783346,
+  "ym": "2025-10",
+  "creation_date": 1759721922,
+  "title": "Does a Java app always require com.apple.security.cs.allow-jit to run in App Sandbox (Mac)?",
+  "tags": [
+   "java",
+   "macos",
+   "jpackage"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm working on a Java-based Mac app that embeds JVM runtime inside (e.g. libjvm.dylib). It seems to me that libjvm.dylib requires JIT. Without the entitlement, the app would crash at the start at the [code] method invocation. Here's the crash report: [CODE] I also tried building a JDK with no JIT (i.e. the variant [code] ), but the app still crashes. I have one specific question: Does this mean a Java-based Mac app will always require the [code] entitlement to run in App Sandbox?"
+ },
+ {
+  "question_id": 79783378,
+  "ym": "2025-10",
+  "creation_date": 1759729350,
+  "title": "Square not rendered in OpenGL",
+  "tags": [
+   "java",
+   "gradle",
+   "opengl",
+   "glsl",
+   "lwjgl"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to program a simple game in java using lwjgl and OpenGL but I'm not able to render a square to the window. Can someone help? The render function in render class is called evert frame and the init function in render class is called only once at the beginnig. Error message [CODE] Render class [CODE] Shader class [CODE] Vertex Shader [CODE] Fragment Shader [CODE] Window [CODE] Game Loop input, update, render, and cleanup methonds are called in a while loop every frame. [CODE]"
+ },
+ {
+  "question_id": 79783396,
+  "ym": "2025-10",
+  "creation_date": 1759731027,
+  "title": "Split Package problem in hbase-client module in apache hbase",
+  "tags": [
+   "java",
+   "hbase",
+   "java-module",
+   "java-platform-module-system",
+   "hbase-client"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am working on creating module-info.java file for hbase-client module in apache hbase project. Now, hbase-client has direct incoming dependency on hbase-common module. In apache hbase project, most of the packages are split across all modules.This is standard split package problem while migrating existing code to JPMS. I want some workaround of this split package problem as i cannot re-structure the packages of hbase. I've gone through some workaround but that's for like when we have two incoming dependencies which contains the same package. In that case we can create single modular jar but that can't be useful for hbase because that will result in single modular jar for hbase and that defies the motive of this project. This is my module-info.java file for hbase-client [CODE] I am getting this error while compiling it [CODE] It's like big UnNamed Module(HBase) is reading same package from hbase.client and hbase.common."
+ },
+ {
+  "question_id": 79783467,
+  "ym": "2025-10",
+  "creation_date": 1759739020,
+  "title": "wiremock AutoConfigureWireMock HttpHostConnectException: Connection refused",
+  "tags": [
+   "java",
+   "spring-boot",
+   "junit",
+   "spring-test",
+   "wiremock"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "[CODE] I received this: [CODE] i used [code] and [code]"
+ },
+ {
+  "question_id": 79783499,
+  "ym": "2025-10",
+  "creation_date": 1759741709,
+  "title": "SonarQube provides an error message for Optional with value marked as Nullable (JSpecify)",
+  "tags": [
+   "java",
+   "sonarlint"
+  ],
+  "score": 4,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "We have migrated our null-check annotations from javax.annotation to org.jspecify.annotations and got a new message from SonarQube in different locations of our code. Here is an example of code that now brings an error message: [CODE] The Sonar message is: A \"NullPointerException\" could be thrown; \"ofNullable()\" can return null. (rule java:S2259) May be I'm wrong, but Optional.ofNullable can't return null. Is it a bug of Sonar or I completely missunderstand Optional? P.S. If I switch back to javax.annotation.Nullable, I get no such message from SonarQube Thanks to k314159 . It's a bug of SonarQube. Discussion is closed. I hope the great SonarQube team will fix this bug as soon as possible."
+ },
+ {
+  "question_id": 79783703,
+  "ym": "2025-10",
+  "creation_date": 1759754633,
+  "title": "Getting message Id from MS Graph API sendMail()",
+  "tags": [
+   "java",
+   "email",
+   "outlook",
+   "microsoft-graph-api"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Previously, I was successfully sending emails with this code. [CODE] But I wanted a reliable message id. The official documentation says You can use immutable IDs to find a message in the Sent Items folder after it has been sent, using the following steps: Create a draft message using the [code] header and save the id property of the message in the response. Send the message using the ID from the previous step. Get the message using the ID from the first step. This is the copy in Sent Items. So now I have this code, which is missing only the [code] part: [CODE] This sends correctly, but without the [code] it blows up on the line [code] with [CODE] Again following official docs on how to set headers , I'm doing this: [CODE] However, this gives the below exception. [CODE] If I include the \"X\", it goes back to being unable to find the email again. So what am I doing wrong?"
+ },
+ {
+  "question_id": 79783812,
+  "ym": "2025-10",
+  "creation_date": 1759761560,
+  "title": "Troubleshooting Flyway dep upgrade 8.5.13 -&gt; 11.3.4 (Spring)",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "maven",
+   "flyway"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I get this CI/CD error after I updated the POM file to a newer version: [CODE] It seems the error is stemming from the flyway class below: [CODE] Any idea of how to update the class to get it to compile? The only other problem I can think is there is a problem with the class path."
+ },
+ {
+  "question_id": 79783878,
+  "ym": "2025-10",
+  "creation_date": 1759767473,
+  "title": "Back button callback not re-triggered after fragment recreation (rotation)",
+  "tags": [
+   "java",
+   "android",
+   "navigation",
+   "lifecycle",
+   "back"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Context I'm trying to intercept the default behavior of the back button to be able to add confirmation messages (\"Are you sure you want to exit? [Save And Exit] [Cancel] [Exit]\") on multiple life cycles ( [code] and its [code] ). I'm setting a callback on an [code] . When there is nothing in the back stack and the app would close, a dialog pops up to confirm that you want to logout. There is also a callback in the [code] which is inside of this [code] . That callback makes sure that if there are unapplied changes to the profile you apply them or cancel. More information I'm using [code] I'm using [code] . I'm using [code] and [code] . The callback of the activity is in the [code] method. The callback of the fragment is in the [code] method. Problem The main problem is that when going in the [code] , make a change (so the dialogue actually gets shown), rotate the device (causing a destroy and re-create) , and then press back, it just performs the default behavior of the back pressed: it goes back to the previous fragment (which is the user home). It's as if the callback isn't added again. When I don't rotate the device it does work as expected. Furthermore, after pressing back once inside the [code] then going in the [code] and pressing back, it does the [code] 's back pressed callback. It also actually breaks the [code] button of the [code] ; it no longer does anything. It's go"
+ },
+ {
+  "question_id": 79783957,
+  "ym": "2025-10",
+  "creation_date": 1759774340,
+  "title": "Structured output with full response content and additional metadata",
+  "tags": [
+   "java",
+   "azure-openai",
+   "spring-ai",
+   "gpt-4o"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I want to create a structured output from an agent call that contains the full response content, as well as additional metadata. For example, I am making a call to find the differences between two strings: [CODE] MappedResponse : [CODE] I expected the [code] to contain the same response as a call without the entity mapping: [CODE] But that does not happen, instead I get a shortened version of that response mapped into [code] . So the question is, how do I map the full agent response into [code] while still being able to map additional fields such as [code] ?"
+ },
+ {
+  "question_id": 79784030,
+  "ym": "2025-10",
+  "creation_date": 1759780498,
+  "title": "How do I get the pixels in an Image object that contribute to the pixel in the ImageView object at a particular location in the imageview object",
+  "tags": [
+   "java",
+   "javafx"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Please how do I get the pixels in the Image object that contribute to the pixel in the ImageView object at a particular location in the ImageView object. Smooth is true and preserveRatio is false. I am writing a programming in javafx that will be able to crop an imageview object. The crop region will be the area that intersects a rectangle. I don't want to directly map each location in the imageview to the equivalent location in the image object because javafx uses bilinear interpolation to display an image object in an imageview. Mapping pixel to pixel creates a blurred image when enlarged. [CODE] The code above is from ChatGPT but it doesn't work. It doesn't give the pixels at the specified location or region"
+ },
+ {
+  "question_id": 79784223,
+  "ym": "2025-10",
+  "creation_date": 1759813921,
+  "title": "springboot integration Kafka @RetryableTopic is not effective",
+  "tags": [
+   "java",
+   "spring-boot",
+   "apache-kafka",
+   "spring-kafka"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "describe springboot integration Kafka @RetryableTopic is not effective,I cannot control retry count; it is retrying continuously.There are two types of error logs continuously printed in the console: one is 'Unable to deliver to retry queue',and the other is 'Send exception not in transaction'. Because I want to send transactional messages, I have configured the ProducerConfig.TRANSACTIONAL_ID_CONFIG in the ProducerFactory and KafkaTemplate, and I have also added the @Transactional annotation on the message consumer side. version JDK1.8 spring-boot-starter-parent:2.7.17 spring-kafka:2.9.13 broker:kafka_2.12-3.6.1 code https://github.com/LimerenceAmumu/Kafka-study consumer [CODE] config [CODE] errorLogs: [CODE]"
+ },
+ {
+  "question_id": 79784562,
+  "ym": "2025-10",
+  "creation_date": 1759841741,
+  "title": "JAX-RS REST API returns 200 OK immediately, but JSON body arrives delayed only on my computer",
+  "tags": [
+   "java",
+   "rest",
+   "postman",
+   "jax-rs",
+   "multipart"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a JAX-RS REST API that gets live images from a camera. The camera returns a multipart response (XML + JPEG), which I parse in the service and then return as JSON in the response. Problem: When I send a request from my local computer using Postman, I immediately get 200 OK with minimal content (for example, 1), but after a short delay the full JSON data appears. When I send the same request from other computers, the response arrives all at once, without delay. The controller looks like this: [CODE] Question: Why does the JSON appear delayed only on my computer, while I tested 3–4 other computers and it works fine there? Could this be related to HTTP buffering or network issues? How can I ensure that the response is returned only after the full JSON is ready? What I tried: I read the camera's multipart HTTP response fully into a byte array before parsing. I parsed the XML and JPEG parts, saved the data to the database, and then built the Response object synchronously. I tested the API from multiple computers using Postman: On my local machine, I immediately got 200 OK with minimal content (like \"1\"), then after a short delay the full JSON appeared."
+ },
+ {
+  "question_id": 79784582,
+  "ym": "2025-10",
+  "creation_date": 1759842946,
+  "title": "What is the proper way of closing SSE connections when doing a graceful shutdown in Spring?",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "kotlin"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a small service that handles SSE connections: [CODE] I have a [code] method that completes all [code] s but I've noticed that the hot code replace is not working properly since I added SSE to my project. [CODE] I checked the logs and what happens is that when I initiate the shutdown it hangs for 30 seconds, then it calls my [code] method which can't run properly since the underlying connection was terminated elsewhere. I checked the Spring docs and there is little to no info on how to use SSE properly. What am I doing wrong? How can I properly terminate the SSE connections?"
+ },
+ {
+  "question_id": 79784637,
+  "ym": "2025-10",
+  "creation_date": 1759846174,
+  "title": "How to create a Twitter bot in Spring Boot using twitter-api-java-sdk - OAuth error on posting tweets",
+  "tags": [
+   "java",
+   "spring-boot",
+   "twitter",
+   "twitter-api-v2",
+   "twitter-api-v1"
+  ],
+  "score": -3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I’m building a Twitter bot using Spring Boot and the official Twitter Java SDK (twitter-api-java-sdk), version 2.0.3. Dependency: [CODE] Code [CODE] When I try to post a tweet, I get this exception: [CODE]"
+ },
+ {
+  "question_id": 79784757,
+  "ym": "2025-10",
+  "creation_date": 1759854730,
+  "title": "Receiving &quot;Connection prematurely closed BEFORE response&quot; after JDK upgrade to 21 and spring-cloud-zulu to spring-cloud-gateway",
+  "tags": [
+   "java",
+   "spring-boot",
+   "spring-cloud-gateway",
+   "spring-cloud-netflix"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "After upgrading Spring Boot gateway application Java version from JDK11 to JDK21 and changing the dependency of the gateway from [code] to [code] (spring cloud version: [code] ) there started coming errors when many requests are made to the gateway and the request processing time is big. These errors are: PrematureCloseException: Connection prematurely closed BEFORE response [code] PrematureCloseException: Connection prematurely closed DURING response. What are the possible reasons for this? And possible solutions?"
+ },
+ {
+  "question_id": 79785033,
+  "ym": "2025-10",
+  "creation_date": 1759887073,
+  "title": "How to select the validation pop-up messages displayed by the browser when a user enters incorrect data",
+  "tags": [
+   "java",
+   "selenium-webdriver",
+   "testing",
+   "automation",
+   "javascriptexecutor"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Is there a way to select the validation pop-up messages generated by the browser when a user inputs an incorrect format, such as an invalid email address?. I am writing a test case to verify whether the browser's validation message disappears once the user corrects the email format to the correct one. [CODE]"
+ },
+ {
+  "question_id": 79785110,
+  "ym": "2025-10",
+  "creation_date": 1759902736,
+  "title": "Custom postgres dialect isn&#39;t being picked up by spring",
+  "tags": [
+   "java",
+   "spring",
+   "postgresql",
+   "hibernate",
+   "dialect"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have a Spring project with a PostgreSQL database. I'm trying to add a custom dialect, but I've noticed that Spring is not loading it. My dialect: [CODE] and this is how I use it in the properties file: [CODE] at startup I don't see the log [code] , any idea what might be the issue? I've tried also to call it like this: [CODE] This didn't work either. I tried recompiling and force cache cleaning via the command [code] , but still no luck!"
+ },
+ {
+  "question_id": 79785152,
+  "ym": "2025-10",
+  "creation_date": 1759906542,
+  "title": "Eclipse Remote debugging issue",
+  "tags": [
+   "java",
+   "eclipse",
+   "debugging",
+   "jboss",
+   "remote-debugging"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am using Eclipse 2025-09. When attaching the remote debugger to Module B, my entire JBoss server gets suspended, even though I have set all breakpoint settings to suspend only the thread. I work on multiple modules, where Module A calls Module B. When I attach the debugger to Module B, all JBoss threads get suspended, including those running Module A’s code. I have tried all the debugger settings available on Google but couldn’t find anything beyond the breakpoint property to suspend only the thread. Although I tried that option, it did not change the situation."
+ },
+ {
+  "question_id": 79785244,
+  "ym": "2025-10",
+  "creation_date": 1759912967,
+  "title": "Set placeholder in a String &quot;equals&quot; check",
+  "tags": [
+   "java",
+   "string",
+   "equals"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I've got two lists in my Java app: The first contains commands, the second the according valid replies, which I compare to the actual replies: [CODE] The \"X\" in the last reply can be any number. Probably <100 but I don't know it in advance (it's sent by an external program that I don't control). I currently also don't care what number it is. What I want to do: Check the validity of the last reply but ignore the number. I'm aware that I can just do something like this: [CODE] This however requires the extra \"ugly\" check of [code] . Is there any kind of placeholder (e.g.\"{{X}}\") that I can use to ignore that part? I know of regex of course but I've got pretty much no experience with it. I found this answer that uses [code] to search for two placeholder texts in a String and I know that [code] matches any number, so I could combine these to match the last reply but that would still require the extra [code] . This becomes more complicated because almost every reply contains at least one special character, like a comma, colon, plus sign or quotation mark (I know that regex uses at least [code] ). How do I use the same \"clean\" check for every reply, including the last one? Is this even possible with just basic Java 8?"
+ },
+ {
+  "question_id": 79785401,
+  "ym": "2025-10",
+  "creation_date": 1759922659,
+  "title": "How do I use createNativeQuery in Hibernate 7 now the simple single parameter version is deprecated?",
+  "tags": [
+   "java",
+   "hibernate",
+   "deprecated"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a large project sitting on top of a large database with multiple tables. Data gets inserted, updated, queried (including joins) and deleted. Up to and including Hibernate 6, I've been using [code] for some of these operations, particularly when the returned results are complex (e.g. [code] ) Up until now, I could do that just by calling [code] , set the parameters, execute and then read the results using [code] and [code] , [code] etc. Now, apparently, I have to supply a class - yet I'm not actually wanting to create a new table, this is a set of fields from different tables! How on earth do I do what I'm trying to do? This is a simple example - the real queries are far more complex, and there are lots of them... All the examples I find online are either for ridiculously simple single table cases (e.g. [code] ) or date back years to when just [code] was still allowed. (Additionally, I'd like to know what class I should be using when the query doesn't actually return anything anyway, e.g. a [code] or [code] ) Thanks for any pointers!"
+ },
+ {
+  "question_id": 79785426,
+  "ym": "2025-10",
+  "creation_date": 1759924730,
+  "title": "Obtaining a concrete implementation of RepositorySystem",
+  "tags": [
+   "java",
+   "maven-3"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "From Maven Resolver javadocs : Note that obtaining a concrete implementation of this interface (e.g. via dependency injection, service locator, etc.) is dependent on the application and its specific needs, please consult the online documentation for examples and directions on booting the system. How do I obtain an instance of [code] ? Where's that \"online documentation\" mentioned, which I assume to be an official part of the Maven Resolver product? Googling it does not reveal anything. I'm not writing a Maven plugin so even if I could use Maven's own DI, stock examples won't work. I'm also interested in using the latest version of Aether and not rely on deprecated code , so e.g. [code] should not be considered."
+ },
+ {
+  "question_id": 79785489,
+  "ym": "2025-10",
+  "creation_date": 1759928794,
+  "title": "How to skip unsupported syntax/commercial features with JOOQ parser?",
+  "tags": [
+   "java",
+   "jooq"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am using JOOQ SQL parser to process some CREATE TABLE statements on DDL files, which I cannot modify myself. These files contain various statements, such as CREATE FUNCTION, which I don't need. I tried using an H2 database to execute said DDL files and then get the information via [code] / information schema, but some of these DDL files use unsupported syntax for H2. I am currently using the parser like this: [CODE] I understand that [code] parsing is a commercial feature, which is why I set [code] to true, but [code] still throws an error, saying it cannot parse fn_1: [CODE] I would like to ask if there is a way to use the parser to extract only [code] statements, ignoring everything else. I read the [code] documentation here , which mentions skipping unsupported content via comments, but I would need a different mechanism for skipping unsupported content, because as said, I cannot modify these DDL files. Thanks in advance"
+ },
+ {
+  "question_id": 79785983,
+  "ym": "2025-10",
+  "creation_date": 1759976026,
+  "title": "Java Class.getResourceAsStream on bootstrap class not finding resource",
+  "tags": [
+   "java",
+   "classloader"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have the following code: [CODE] in [code] . When I compile and run this as [code] , the code prints [code] . However the documentation for [code] (for Java 21) clearly states If this [code] object was loaded by the bootstrap class loader, the method delegates to [code] . As far as I understand, the system loader will load classes in the current directory. And indeed, calling [code] correctly returns a stream. So why does calling [code] not work? On Java 8, but not Java 21, calling [code] does actually return a stream. [code] , however, still returns [code] ."
+ },
+ {
+  "question_id": 79786061,
+  "ym": "2025-10",
+  "creation_date": 1759989010,
+  "title": "Is there a bug in the method below (Data Structures &amp; Algorithms by Robert Lafore)",
+  "tags": [
+   "java",
+   "arrays",
+   "data-structures",
+   "bubble-sort"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "The method below has been taken from the book Data Structures & Algorithms by Robert Lafore . This method is used to bubble sort a given array. [code] is the number of elements in the array. In my opinion, there is a bug in this method, so instead of [code] it should be [code] . Please help clarify. [CODE] [CODE] I tried to run the method, but I think it is wrong."
+ },
+ {
+  "question_id": 79786101,
+  "ym": "2025-10",
+  "creation_date": 1759992008,
+  "title": "Weird behavior when a java application perform name resolution in windows server",
+  "tags": [
+   "java",
+   "windows",
+   "dns"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm troubleshooting a java web application that is running on windows 2025 machine joined to an AD. Using the host file in serverA, i try to re-direct the http traffic meant for serverB to itself(serverA) like so: [CODE] there is no entry for serverA in the host file since it is already relying on the dns server. However i found out that the application has identified itself as serverB instead of serverA in the app logs and in the app configuration itself. why the beahvior is like this? Why the app assume itself as serverB when it should know itself as serverA? is this an universal name resolution logic or only specific to this java app? What is more baffling is that it is as if the app somehow performed a reverse lookup where it lookup by ip first instead of name"
+ },
+ {
+  "question_id": 79786174,
+  "ym": "2025-10",
+  "creation_date": 1759997765,
+  "title": "ONNX Runtime Helsinki-NLP in Java",
+  "tags": [
+   "java",
+   "nlp",
+   "huggingface",
+   "onnx"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "has anyone managed to translate something using Helsinki-NLP and ONNX Runtime in Java? Using a Python script, I generated these files: [CODE] Then I try to run it in Java like this: [CODE] But the problem is that there is no tokenizer.json, and the tokenizer tries to download it from Hugging Face, which results in a 404 — I don’t know how to create tokenizer.json. Or maybe there is some other simpler way to use this model in Java?"
+ },
+ {
+  "question_id": 79786204,
+  "ym": "2025-10",
+  "creation_date": 1760000314,
+  "title": "Android Text Prediction for the keyboard in TextField libgdx",
+  "tags": [
+   "java",
+   "libgdx"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "If I use a TextField or TextArea, the default keyboard is a number and letter keyboard, but I want to use a hint keyboard. I know that by changing the filter, I can only access the number pad, but I can't find a way to access the hint pad. [CODE] for example, this code works, but it seems to be calling a native Android input field on top of the screen, and clicking on it brings up the keyboard I need, but I want my TextField or TextArea to work this way [CODE] I'm using this code now, which calls up a numeric keyboard instead of prompts"
+ },
+ {
+  "question_id": 79786253,
+  "ym": "2025-10",
+  "creation_date": 1760003409,
+  "title": "Writing PACT tests using cucumber framework in Java",
+  "tags": [
+   "java",
+   "cucumber",
+   "cucumber-java",
+   "pact"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "So far I have seen that PACT (contract) tests can be written using JUnit in Java. Is there any way it can also be written using cucumber framework in Java? Writing Java PACT tests using cucumber in Java? Or it cannot be written in Cucumber at all?"
+ },
+ {
+  "question_id": 79786299,
+  "ym": "2025-10",
+  "creation_date": 1760006054,
+  "title": "jOOQ removes SQL inside ignore comments during execution",
+  "tags": [
+   "java",
+   "sql",
+   "jooq",
+   "sql-parser"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm using jOOQ with PostgreSQL and want to execute a query with an EXPLAIN (ANALYZE, FORMAT JSON) prefix. I set the parser settings to ignore comments: [CODE] Then I delimit the EXPLAIN clause like this: [CODE] Issue: jOOQ now ignores the EXPLAIN clause during parsing as expected, but it also removes it from the executed SQL. So, the executed query no longer contains EXPLAIN (ANALYZE, FORMAT JSON) and fails to produce the plan. I'm using: jOOQ version: 3.19.6 PostgreSQL 14 JDBC (not via DSL fetch) Java 11 Database source dialect: Oracle Destination dialect: PostgreSQL Question: Is there a way to make jOOQ ignore a part of SQL during parsing but keep it in the actual execution ?"
+ },
+ {
+  "question_id": 79786308,
+  "ym": "2025-10",
+  "creation_date": 1760007071,
+  "title": "Angular + Spring Boot: file download blocks until fully received (needs “save as” first, then stream in background)",
+  "tags": [
+   "java",
+   "angular",
+   "spring"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have an Angular frontend calling a Spring Boot endpoint that returns a CSV (with JWT auth). The download currently does not start immediately: the browser finishes downloading the whole file in the background, the UI feels blocked until file gets downladed (without “Save As…” dialog pops up). I need the opposite flow: prompt the user first to pick the location/name, then stream the bytes to disk in the background while the user can keep using the app. Backend (Spring) [CODE] Frontend (Angular) JWT is added by an HTTP interceptor (Bearer token) [CODE] What I tried: Keeping the current HttpClient + FileSaver approach. But it always needs the full Blob before saving. Using an link, but I have auth problem; also still tends to download first when using XHR/Blob."
+ },
+ {
+  "question_id": 79786379,
+  "ym": "2025-10",
+  "creation_date": 1760011510,
+  "title": "After migrating to Hibernate6 &quot;LazyTableGroup cannot be cast to class PluralTableGroup&quot; exception",
+  "tags": [
+   "java",
+   "hibernate",
+   "migration",
+   "hibernate-6.x"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am migrating a project from Spring Boot 2.7.18 to Spring Boot 3, and this causes a Hibernate upgrade as well from Hibernate 5.6 to Hibernate 6.1.7. I had a rather complicated criteria query. After the migration the execution of that query results in the following exception: class org.hibernate.sql.ast.tree.from.LazyTableGroup cannot be cast to class org.hibernate.sql.ast.tree.from.PluralTableGroup (org.hibernate.sql.ast.tree.from.LazyTableGroup and org.hibernate.sql.ast.tree.from.PluralTableGroup are in unnamed module of loader 'app') [CODE] For the migration I used openrewrite and manual corrections. I read the Hibernate 6 upgrade guide also ( https://github.com/hibernate/hibernate-orm/blob/6.0/migration-guide.adoc ). Also I inserted a trivial criteria query ( select everything from a table ) into the code just before the exception-throwing part and found that that works without problem. Googling for \"PluralTableGroup\" or \"LazyTableGroup\" didn't help me either. I would be really appreciate any help or hint regarding this!"
+ },
+ {
+  "question_id": 79786479,
+  "ym": "2025-10",
+  "creation_date": 1760016877,
+  "title": "Piping an Akka Flow via Java Streams",
+  "tags": [
+   "java",
+   "akka",
+   "akka-stream"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have an Akka [code] . My goal is to feed the ByteStrings to an external library and send its result downstream. The external library, however, consumes and outputs Java Streams. I do not want to use [code] , because the Stream is potentially huge. I want to pipe the Akka Flow to Java Streams, hoping to reduce the memory footprint. Input: [CODE] This is my first attempt: [CODE] Unfortunately, this does not work. In a test, I only receive a chunk of the input data. I think the [code] terminates, while [code] has still more data to write. I might need to utilize [code] somehow. My second attempt looks like this: [CODE] This appears to work better; I receive more data than I did with the first attempt. But still not everything. Also, does this not \"devolve\" into a solution where I would basically store the entire stream to memory first, just as I would do calling [code] , which I would very much want to avoid (footprint concerns)? How can I sync reading and writing to the streams? Is there not a more elegant way of achieving this?"
+ },
+ {
+  "question_id": 79786529,
+  "ym": "2025-10",
+  "creation_date": 1760019646,
+  "title": "Remove signature and add picture of signature instead",
+  "tags": [
+   "java",
+   "pdf",
+   "pdfbox"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I need to remove digital signatures from a PDF, but \"print\" the signature to the content beforehand (like print to \"Microsoft PDF Printer\" - print all Metadata and Signatures). In the resulting PDF, the signature is part of the content as a picture. Programmatically, my first attempt was to use PDFBox 2.0. Add a PDAnnotationRubberStamp with the information from the PDAnnotationWidget/PDAnnotation: [CODE] This is working fine. But I need to get rid of the stamp as well and use a picture or something similar as the stamp is removed during processing in the Editorial System. How can I \"transform/convert\" the signature/RubberStamp to a picture and add to the PDF content?"
+ },
+ {
+  "question_id": 79786563,
+  "ym": "2025-10",
+  "creation_date": 1760021650,
+  "title": "Spring Data Cassandra returns only 2 rows while there are 148",
+  "tags": [
+   "java",
+   "spring-boot",
+   "cassandra",
+   "spring-data-cassandra",
+   "scylla"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "The query in ScyllaDB when run in console in IntelliJ returns 148 rows. [CODE] But when I run it in Spring application, it returns only 2 rows. [CODE] Table definition: [CODE] ChatGPT says that it's because of paging feature in ScyllaDB. Versions: Spring Boot: 3.5.6 Spring Data Cassandra: 4.5.4 Scylla Driver Mapping: 3.11.5.8 ScyllaDB Java Driver Core: 4.18.0.2 In IntellIJ IDEA driver version is 4.12.0.2. Why does it return only 2 rows and what to do to return all rows?"
+ },
+ {
+  "question_id": 79786627,
+  "ym": "2025-10",
+  "creation_date": 1760025841,
+  "title": "Why in Eclipse Java in the Maven Dependencies section some dependencies can be expanded and others not?",
+  "tags": [
+   "java",
+   "eclipse",
+   "maven",
+   "maven-3",
+   "m2eclipse"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "For [code] 2025-09 Exists a simple module project based with [code] and [code] . This project works with dependencies. I have the following situation with the [code] section as follows: Among the dependencies shown: Some are 3rd party (as AspectJ and JUnit) Others are my own projects For each own project through a Terminal was executed the [code] command. Therefore is possible refer them as dependencies to reuse their types (interfaces, classes, etc). The project compiles and works normal without any problem The reason of this post, for each of my own dependency project selected and highlight in blue, observe that: For the first: it can be expanded and is possible see the content (it has a jar icon too) For the second: it can not be expanded (it has a directory icon) Why this difference? or in other words: Question Why in Eclipse Java in the Maven Dependencies section some dependencies can be expanded and others not? Note All the projects are in the same Workspace and installed ( [code] ) in the same repository. Extra Question Is possible do some configuration to change all the dependencies from the \"second\" case (as directory icon) to the \"first\" case (as jar icon )?"
+ },
+ {
+  "question_id": 79786675,
+  "ym": "2025-10",
+  "creation_date": 1760029530,
+  "title": "Android project using untiy-classes.jar (generated by Unity) with some classes that can&#39;t be resolved",
+  "tags": [
+   "java",
+   "android",
+   "unity-game-engine",
+   "jar"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I work on a small android project that uses the [code] generated by Unity. Some (not all) of the files/classes in the [code] can't be resolved when compiling the android project and I don't understand why. I've unzipped the [code] files, it contains these files : I ran the [code] utility on some of these files, they are generated with java 17, and they all have a strange warning \" [code] \" that I don't understand because each [code] file actually contains the definition of the class [code] , as shown by the same utility [code] output. See example below with class \"IUnityPlayerLifecycleEvents\". When I try to compile my android project, I get this kind of [code] errors : When I open the project on Android Studio (Narwhal), I can see that some of the classes defined in the unity-classes.jar are recognized, and some are not. Here is an example screenshot of a kotlin file in Android Studio. When I try to autocomplete com.unity3d.player on Android Studio, I can see the list of classes in unity-classes.jar that are recognized, see screenshot below. Something else I don't understand, when displaying one of the recognised [code] classes in Android Studio (via right click and \" [code] \"), it says it's java 8 bytecode . But when unzipping my self the [code] files and opening the same file/class in Android Studio, it says it is java 17 bytecode (consistent with javap utility output previou"
+ },
+ {
+  "question_id": 79786700,
+  "ym": "2025-10",
+  "creation_date": 1760031073,
+  "title": "Parsing UTF-8 XML using DefaultHandler: when / how does it become UTF-16 in Java?",
+  "tags": [
+   "java",
+   "utf-8",
+   "character-encoding",
+   "utf-16",
+   "saxparser"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have a Java program that was working perfectly in Corretto 17, but is now having character set encoding issues in Corretto 25. I am reading a UTF-8 encoded XML from an external API . The code is quite simple: I form an [code] and I have a class that extends [code] : [CODE] My understanding is that Java uses UTF-16 for all [code] s, but also it assumes some inputs (e.g. XML) will be in UTF-8, for instance the [code] class used by [code] . I'm assuming this UTF-8 assumption is why explicitly setting the charset / encoding in the code above makes no difference. Is this correct? The issue I'm having is I don't understand when / how the UTF-8 I read in is converted to UTF-16. For instance, in my extension of [code] , [code] seems to return a UTF-8 encoded [code] , but [code] works perfectly: [CODE] Outputs (when I print the values to [code] ): [CODE] I suppose I have to explicitly convert the value returned by [code] from UTF-8 to UTF-16, is that correct? But, if so, why are numeric values being parsed correctly? And, I currently assume the [code] and [code] parameters are provided in UTF-16, is that correct? I'm just confused in general / don't have the right mental model of what the SAXParser + DefaultHandler are doing encoding-wise, because I don't understand how most of my code is working if the encoding is wrong everywhere."
+ },
+ {
+  "question_id": 79786852,
+  "ym": "2025-10",
+  "creation_date": 1760044124,
+  "title": "Grid rendering problems",
+  "tags": [
+   "java",
+   "render",
+   "raster"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am trying to simply render a grid with some test colors to a 1920x1080 screen to see if it works. However, it's looking terrible and it's laden with graphical errors. The grid should just look sort of like a gradient from black to blue from the left side to the right side. However, this is how it's looking right now. Though it's pretty, cool, it's not intended. I don't know how to fix it, so I have been messing with the numbers in my code for forever, but it still doesn't work. I don't know if it's the code I have most recently made or the method for making the rectangle. My basic thought process was: set the starting index, draw a row, go to new line, repeat steps 2-3. So, can anyone help fix my terrible code? Here's some code, but if there's not enough context, the files are here. There's so much code for this that I don't know if this is enough to figure out the problem. The points of interest are in the CustomPanel file. [CODE]"
+ },
+ {
+  "question_id": 79787056,
+  "ym": "2025-10",
+  "creation_date": 1760078486,
+  "title": "Spring Security: AccessDeniedException with redirecting to the login page without OAuth 2 authentication",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "spring-security",
+   "oauth-2.0"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I follow the book Pro Spring Security 6 and try to make a simple OAuth 2 authentication. My configuration: [CODE] My application.properties: [CODE] The endpoints / and /welcome are working fine and everyone can access them. But when trying to access the other secured endpoint I get this error: [CODE] Then I'm redirected to the login page where there is no OAuth 2 authentication method. Just username and password. My controller [CODE] I tried to change the version of Spring Boot by switching the newest version 3.5.6 with the version from the book 3.1.3 but it didn't help. I also tried to access the secured endpoint from the incognito mode."
+ },
+ {
+  "question_id": 79787167,
+  "ym": "2025-10",
+  "creation_date": 1760087211,
+  "title": "How do i connect a java app to connect to a DBISAM database (CRUD functionalities)",
+  "tags": [
+   "java",
+   "dbisam"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am trying to create a Java application that connects to a DBISAM database. My goal is to perform standard CRUD operations (Create, Read, Update, Delete). I have tried the following approaches: ZappySys DSN / JDBC Bridge ODBC connection using Easysoft drivers Various JDBC bridge connectors provided by ZappySys However, none of these approaches worked. I was unable to: Establish a connection to the DBISAM database Create a database programmatically Execute SQL queries Here is an example of what I tried with ZappySys JDBC Bridge: [CODE]"
+ },
+ {
+  "question_id": 79787345,
+  "ym": "2025-10",
+  "creation_date": 1760099528,
+  "title": "Thymeleaf TemplateInputException when injecting dynamic fragment via ${content} in layout.html (Spring Boot 3.5.6)",
+  "tags": [
+   "java",
+   "spring-boot",
+   "spring-mvc",
+   "thymeleaf"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm using Spring Boot 3.5.6 with Thymeleaf 3.1.3, and I'm trying to implement a dynamic layout system where I inject a fragment into layout.html using a model attribute. Controller: [CODE] layout.html: [CODE] home.html: [CODE] All templates are located in src/main/resources/templates. When I run the app and access /home, I'm experiencing the following error: [CODE] I vexed up trying all ways but didn't go through and hitting the same wall, really appreciate your help if someone would help! [CODE]"
+ },
+ {
+  "question_id": 79787352,
+  "ym": "2025-10",
+  "creation_date": 1760099897,
+  "title": "Issue with selecting element from dropdown list",
+  "tags": [
+   "java",
+   "selenium-webdriver",
+   "dropdown"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to test a travel website. When I enter the city code, the correct airport should be picked from the list. However, it enters the city code and does not proceed to pick up the city from the list. [CODE]"
+ },
+ {
+  "question_id": 79787515,
+  "ym": "2025-10",
+  "creation_date": 1760112066,
+  "title": "new verison of chromedriver returns org.openqa.selenium.SessionNotCreatedException: Could not start a new session",
+  "tags": [
+   "java",
+   "google-chrome",
+   "selenium-webdriver",
+   "selenium-chromedriver"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I moved the application to a new server and now the following error occurs every time you use selenium [code] [code] [CODE] UPDATE: I have now added these options and it has led to another error. chromeOptions.addArguments(\"--incognito\") chromeOptions.addArguments(\"--user-data-dir=/tmp/profiles\") [CODE] UPDATE 2: It's happens again))"
+ },
+ {
+  "question_id": 79787628,
+  "ym": "2025-10",
+  "creation_date": 1760121871,
+  "title": "javax.sql.rowset.serial.SerialClob cannot be cast to oracle.sql.CLOB while using preparedStatement.setClob",
+  "tags": [
+   "java",
+   "oracle-database",
+   "jdbc",
+   "ojdbc"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to insert a [code] to an Oracle DB table with a clob column and it fails with the following exception [CODE] Oracle version is 21c, ojdbc8 jar java 8.(jdk 8 202). Here is the code in question [CODE] Previously the code I'm trying to change was using old now-deprecated [code] classes, but it was written to support legacy Oracle 10g. I was hoping to get rid of those by using standard java.sql JDBC classes. Upon researching this, I found the following https://support.oracle.com/knowledge/Middleware/2024807_1.html which seems to be my issue, but unfortunately I don't have access to my Oracle support so couldn't find the solution Java.lang.ClassCastException: Javax.sql.rowset.serial.SerialClob Cannot Be Cast To Oracle.sql.CLOB Is Reported While Passing A SerialClob Object As Parameter In The setClob Method Of A Statement (Doc ID 2024807.1) Last updated on FEBRUARY 20, 2025 Applies to: JDBC - Version 11.2.0.4.0 and later Information in this document applies to any platform. Symptoms When attempting to insert a Clob into the database using the next code and JDBC 11.2.0.4: I was able to avoid [code] entirely by using [code] by using this code [CODE] but I was wondering if anyone has idea why [code] fails with the exception in the first place. Any ideas?"
+ },
+ {
+  "question_id": 79787641,
+  "ym": "2025-10",
+  "creation_date": 1760124446,
+  "title": "Error when trying to generate Allure reports",
+  "tags": [
+   "java",
+   "maven",
+   "selenium-webdriver"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am working on an automation with Selenium, Java, Maven, Junit. I want to use Alleru reports but when I try to run the mvn allure:server command, it generates the following error. mvn allure:serve [INFO] Scanning for projects... [WARNING] The POM for io.qameta.allure:allure-maven:jar:2.27.0 is missing, no dependency information available [WARNING] Failed to retrieve plugin descriptor for io.qameta.allure:allure-maven:2.27.0: Plugin io.qameta.allure:allure-maven:2.27.0 or one of its dependencies could not be resolved: io.qameta.allure:allure-maven:jar:2.27.0 was not found in https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced [WARNING] The POM for io.qameta.allure:allure-maven:jar:2.27.0 is missing, no dependency information available [INFO] ------------------------------------------------------------------------ [INFO] BUILD FAILURE [INFO] ------------------------------------------------------------------------ [INFO] Total time: 0.457 s [INFO] Finished at: 2025-10-10T14:06:02-05:00 [INFO] ------------------------------------------------------------------------ [ERROR] Plugin io.qameta.allure:allure-maven:2.27.0 or one of its dependencies could not be resolved: io.qameta.allure:allure-maven:jar:2.27.0 was not found"
+ },
+ {
+  "question_id": 79787723,
+  "ym": "2025-10",
+  "creation_date": 1760136008,
+  "title": "Why does relativizing a java.net.URI with &quot;/&quot; as its path against one with &quot;&quot; as its path yield the empty string?",
+  "tags": [
+   "java",
+   "uri"
+  ],
+  "score": 3,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Consider: [CODE] (The quotations are taken from the javadoc for [code] .) I'm not sure how \"removing\" \"\" from \"the beginning\" of \" [code] \" yields the empty string. Shouldn't this operation yield \" [code] \"? Is this a bug?"
+ },
+ {
+  "question_id": 79787770,
+  "ym": "2025-10",
+  "creation_date": 1760147573,
+  "title": "Adding new ReactActivity to run another js bundle",
+  "tags": [
+   "java",
+   "android",
+   "react-native",
+   "kotlin",
+   "react-android"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to make my React Native Android app to have another Activity, beside MainActivity, be able to run another js bundle. I managed to achieve that with this implementation: [CODE] with class [code] : [CODE] The above code runs but only on old architecture. On new architecture, the new bundle is loaded but the app throw a runtime error: [CODE] Therefore, I switch to ReactActivity, just like MainActivity: [CODE] This implementation throws another runtime error: [CODE] I tried many ways but the result is still the same. However, if I change the component name from \"MiniApp\" to the name of the main app, the new activity stop throwing crashes since the default bundle is used. This make me think the overridden method [code] in the subclass of [code] did not take affect. I check the class [code] and see this: [CODE] ChatGPT suggests that the [code] is created at super class initiation, making whatever I override at my subclass not work. Has anyone tried doing such thing before? Please share if you know something! PS: It looks like [code] is required in new arch. I ran into an error saying such thing when using Activity or AppCompatActivity, but I forgot to capture the stacktrace."
+ },
+ {
+  "question_id": 79787923,
+  "ym": "2025-10",
+  "creation_date": 1760173481,
+  "title": "Spring Boot 3 + Spring Security 6: 403 Forbidden when sending POST from Postman (stateless API)",
+  "tags": [
+   "java",
+   "spring-boot",
+   "post",
+   "spring-security",
+   "http-status-code-403"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I’m testing a POST endpoint of a stateless API (no sessions/forms) and Postman returns 403 Forbidden. I suspect CSRF, but I’m not sure how to configure it correctly in Security 6 for a stateless REST API. MRE (minimal code) [CODE] [CODE] [CODE] Expected: POST should return 200 OK with the JSON. What I tried: [CODE] on [code] , still getting 403."
+ },
+ {
+  "question_id": 79787968,
+  "ym": "2025-10",
+  "creation_date": 1760180759,
+  "title": "Provides transitive vulnerable dependency maven:ch.qos.logback:logback-core:1.5.18 CVE-2025-11226 6.9 Conditional processing of logback.xml",
+  "tags": [
+   "java",
+   "spring-boot",
+   "maven",
+   "intellij-idea",
+   "pom.xml"
+  ],
+  "score": -4,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "After reinstalling IntelliJ IDEA ULTIMATE (Now : 2025.2.3) I've got this warning message : [CODE] And it's related to this part of my pom.xml file : [CODE] I had an older version and Everything was Good til I Installed the latest version. Any Idea? Thank you."
+ },
+ {
+  "question_id": 79788033,
+  "ym": "2025-10",
+  "creation_date": 1760188393,
+  "title": "IntelliJ IDEA: breakpoints don’t trigger when I run mvn spring-boot:run (Spring Boot 3, Java 17)",
+  "tags": [
+   "java",
+   "spring-boot",
+   "maven",
+   "debugging",
+   "intellij-idea"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "When I start the app with [code] , my breakpoints don’t hit. I’m trying to debug a simple REST endpoint annotated with [code] . Minimal Reproducible Example: [CODE] Expected Behavior The breakpoint should hit when calling [code] . What I tried Running from IntelliJ with the app’s Run button (works sometimes, but not with the Maven goal). Adding [code] to the goal. Using “Attach to Process”, but I don’t see a JDWP port."
+ },
+ {
+  "question_id": 79788043,
+  "ym": "2025-10",
+  "creation_date": 1760189963,
+  "title": "Jpa - Join table that contains 2 PK but only one of this two is used",
+  "tags": [
+   "java",
+   "spring-boot",
+   "jpa"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm running a Spring Boot app. I have these two tables in my database. I fill an example of data that contains these tables. Table [code] Here column [code] is a PK and column [code] is a FK from table [code] with a reference of column [code] id name state_id 33 John Doe 1 Table [code] Here, columns [code] and [code] are both primary keys of the table id century label 1 21 1 I want to model these two tables as JPA entities, so I did it like that : StatePK.java : [CODE] State.java : [CODE] User.java : [CODE] But when I compile with Maven, it's ok, but when I start my app, I have this error : Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: An association that targets entity 'fr..infrastructure.provider.jpa.model.State' from entity 'fr.infrastructure.provider.jpa.model.User' has 1 '@JoinColumn's but the primary key has 2 columns\" Can someone help me with that issue, please?"
+ },
+ {
+  "question_id": 79788082,
+  "ym": "2025-10",
+  "creation_date": 1760193851,
+  "title": "When should I use name resolution vs. RegisterNatives in JNI?",
+  "tags": [
+   "java",
+   "c",
+   "java-native-interface"
+  ],
+  "score": 6,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "In [code] , the JVM function corresponding to Java’s [code] is registered using RegisterNatives. In contrast, [code] calls a JVM function directly based on the naming convention. https://github.com/openjdk/jdk/blob/9b99bc8ef53ad20c4f1cb5d26cffc64b0deb79ad/src/java.base/share/native/libjava/System.c#L39-L59 [CODE] Both approaches are used, but what determines which one to use?"
+ },
+ {
+  "question_id": 79788136,
+  "ym": "2025-10",
+  "creation_date": 1760202194,
+  "title": "App built with Eclipse 4.37 Components, Run From Jar, gets &quot;Libraries for platform win32 cannot be loaded because of incompatible environment&quot; error",
+  "tags": [
+   "java",
+   "eclipse",
+   "swt"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am updating an app that uses the Eclipse components (SWT, JFace, etc) to use the Eclipse version 4.37 components. The old version didn't use Maven, the new version does. My problem is, while I can run and debug the app, I can't run it from the .jar that I'm building, which is how users will run the app. I run it from the jar file as follows: java --enable-native-access=ALL-UNNAMED -verbose:jni -jar {jar file path} This command gets this error message: \"Libraries for platform win32 cannot be loaded because of incompatible environment\" I am running on 64-bit Windows. When I debug the jar, it stops on breakpoints in my main method. But it terminates the moment I access the Display class. The app terminates. If I put the Display access in a try/catch, the catch is never executed. My pom.xml: [CODE] Note: The com.github.weisj is commented out, but I still see it in the jar. Maven must be picking it up as a transitive dependency. Do you have any suggestions for how I can troubleshoot?"
+ },
+ {
+  "question_id": 79788277,
+  "ym": "2025-10",
+  "creation_date": 1760222578,
+  "title": "Java and Java Swing - Can someone explain these Thread.sleep() interactions?",
+  "tags": [
+   "java",
+   "swing",
+   "sleep"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm working on my first personal project - making a simple game of blackjack with Java and Java Swing (just what my class is going over) and I want to make it so that when a card is drawn in succession by the program (as compared to when the player presses the hit button), there is a slight pause in between each card being drawn. Here is my method that uses [code] : [CODE] I'm not sure if I'm just using it wrong, but whenever I have it like this: [CODE] It works how I want it. I wanted to make it less 'copy and pasty' so I tried putting it in the hit method like this: [CODE] But now, the program but now, whenever I use the hit button, the icon of the card comes out after the pause rather than before which I don't like since it makes it feel laggy. Also, theres a bit of code later where I have a while loop that also uses my pause method: [CODE] } I thought that the program would draw a card, wait, and then draw another card but instead it does all of the card draws and you have to wait the combined wait time before the icons come up in the gui. Can someone help me understand Threads.sleep() better so that I can get it to work how I want? Or, is there a better way to get the little pauses?"
+ },
+ {
+  "question_id": 79788787,
+  "ym": "2025-10",
+  "creation_date": 1760302720,
+  "title": "Run application in background and restart automatically in case of exception or other failures",
+  "tags": [
+   "java",
+   "android"
+  ],
+  "score": -3,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I need my app to run in the background. The app process worked well for 40 hours while running in the background, then some ANR errors were thrown and my app stopped working when the last ANR error happened, but it was running on a separated thread. This app uses java.io.File. The Android device was not used during the 40 hours, only this app and WhatsApp were running. [CODE] [CODE] [CODE] [CODE]"
+ },
+ {
+  "question_id": 79788830,
+  "ym": "2025-10",
+  "creation_date": 1760308820,
+  "title": "Continuous profiling with async-profiler. Generate heatmap for several JFRs",
+  "tags": [
+   "java",
+   "heatmap",
+   "async-profiler"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "tl;dr : I'm trying to create a single daily heatmap by combining multiple hourly JFR files from async-profiler's continuous profiling feature. When I pass multiple files to [code] , the output only contains data from the last file provided. Is there a correct way to merge them into a single daily heatmap ? Long version: Does anyone use the new continuous profiling feature in async-profiler? I recently learned that you can generate a heatmap from a JFR file. I enabled profiling for my application with the following command: [CODE] this generates a series of files for every hour of my application's runtime, like so: profile-20251010-180649.jfr profile-20251010-190649.jfr profile-20251010-200649.jfr .... and so on ... I can convert a single file into a heatmap, which works fine, but the result is a heatmap for only one hour: [CODE] My goal is to generate a single heatmap from all the profile-*.jfr files for an entire day. the [code] output says it allows multiple input files: [CODE] However, when I tried to run it with multiple files: [CODE] Although the tool reports that it converted both input files, the resulting heatmap only contains data from the last file ( [code] ). Is this the expected behavior? I would also appreciate any advice on how to use this feature correctly in production."
+ },
+ {
+  "question_id": 79788936,
+  "ym": "2025-10",
+  "creation_date": 1760331812,
+  "title": "Build fails at :app:buildCMakeDebug[arm64-v8a] during SafeAreaContext codegen linking on Android (React Native 0.76.3)",
+  "tags": [
+   "java",
+   "android",
+   "react-native",
+   "gradle",
+   "react-native-cli"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "Task :app:buildCMakeDebug[arm64-v8a] FAILED [Incubating] Problems report is available at: file:///C:/Users/Harsh%20Hingu/Documents/shoppingsearch/android/build/reports/problems/problems-report.html Deprecated Gradle features were used in this build, making it incompatible with Gradle 10. You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins. For more on this, please refer to https://docs.gradle.org/9.1.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation. 52 actionable tasks: 42 executed, 10 up-to-date info 💡 Tip: Make sure that you have set up your development environment correctly, by running npx react-native doctor. To read more about doctor command visit: https://github.com/react-native-community/cli/blob/main/packages/cli-doctor/README.md#doctor FAILURE: Build failed with an exception. What went wrong: Execution failed for task ':app:buildCMakeDebug[arm64-v8a]'. com.android.ide.common.process.ProcessException: ninja: Entering directory `C:\\Users\\Harsh Hingu\\Documents\\shoppingsearch\\android\\app.cxx\\Debug\\611o1ib4\\arm64-v8a' [0/2] Re-checking globbed directories... [1/13] Building CXX object safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir/bb9dae1c13de02fd1c8aa79bf7336c02/renderer/components/safeareacontext/States.cpp.o [2/1"
+ },
+ {
+  "question_id": 79788993,
+  "ym": "2025-10",
+  "creation_date": 1760338213,
+  "title": "Spring EntityManager persist vs merge for manual cascading one to many relationship",
+  "tags": [
+   "java",
+   "hibernate",
+   "jpa",
+   "spring-data-jpa"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have Post and Comment entities with one to many relationship. [CODE] In the Post class i have not defined Cascade because i will do the cascading \"manually\" in the service class. here is my dao class [CODE] Here is my service class and where am facing difficulty [CODE] my questions what does the persist method return here ? the same object with id field added or completely new object ? since am not using cascading will the merge method fetch the comments from the db ? will there be any conflict if there is difference between the set of comments from the managed and detached objects. basically what i want is persist / merge the Post first then get the comments and persist/merge them too. something like this public Post savePost(Post post){ Post managedPost = postDao.save(post); //get the comment i don't know which to use post or managedPost Set comments = post/managedPost.getComments(); //loop each comment and persist it } tnks"
+ },
+ {
+  "question_id": 79789042,
+  "ym": "2025-10",
+  "creation_date": 1760342662,
+  "title": "@EmbeddedId and @MapsId used with foreign key partially appearing in primary key",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "jpa"
+  ],
+  "score": 6,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I'm running a Spring Boot app. I have these two tables in my database. I fill an example of data that contains these tables. Table [code] Here columns [code] and [code] are PKs, and column [code] is a FK from table [code] with a reference of column [code] and [code] is also a FK from table [code] . So the [code] column is a FK and a PK at the same time. id century name state_id 33 21 John Doe 1 Table [code] Here, columns [code] and [code] are both primary keys of the table id century label 1 21 cold I want to model these two tables as JPA entities, so I did it like this: StatePK.java: [CODE] State.java: [CODE] UserPK.java: [CODE] User.java: [CODE] When I launch the application, I have the following error: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is java.lang.IllegalStateException: PostInitCallback queue could not be processed...\\r\\n - PostInitCallbackEntry - EmbeddableMappingType(fr.xxx.User#{id})#finishInitialization How can I resolve this error?"
+ },
+ {
+  "question_id": 79789276,
+  "ym": "2025-10",
+  "creation_date": 1760358835,
+  "title": "GraalVM Native Image: Why Spring Native plugin does not add @JsonSubTypes implementations to reflect-config?",
+  "tags": [
+   "java",
+   "spring",
+   "spring-boot",
+   "graalvm"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I’m using Spring Boot 3.5.3 with GraalVM Native Image via [code] plugin. I also use Jackson for polymorphic deserialization using [code] . Example setup: [CODE] And a simple Spring REST controller: [CODE] When I build a native image via [code] , I see that subtypes [code] and [code] are not included in the [code] , whereas [code] and [code] are included. And If I try to call the [code] endpoint with this request body: [CODE] the following exception naturally occurs: Caused by: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot construct instance of com.example.model.Dog: cannot deserialize from Object value (no delegate- or property-based Creator): this appears to be a native image, in which case you may need to configure reflection for the class that is to be deserialized Question: Is it possible to set up the [code] plugin to automatically add [code] implementations to [code] ? Or should I really add manually each subtype to reflection-config.json (or via [code] )?"
+ },
+ {
+  "question_id": 79789490,
+  "ym": "2025-10",
+  "creation_date": 1760375009,
+  "title": "Hibernate (5.3.3.Final) + Redisson (3.17.7) in a SBT project isn&#39;t evicting the cache from redis based on configured TTL",
+  "tags": [
+   "java",
+   "hibernate",
+   "caching",
+   "redis",
+   "redisson"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am using a java-scala project and have configured the RedissonClient programmatically: [CODE] And configured this class in hibernate.cfg.xml: [CODE] This is my entity class: [CODE] Even after configuring this time_to_live property on a region, the cache entry is not getting removed from the redis cache. I verified this using RedisInsights GUI as well, there also corresponding to this \"Hash\" key TTL is set to No limit. When checked redisson MapCacheEvictionTask logs, there also I am getting below log statement for the region even after the time_to_live time has passed: \"loggerName\":\"org.redisson.eviction.MapCacheEvictionTask\",\"message\":\"0 elements evicted. Object name: EntityClass\" Essentially when TTL has passed, the call to DB should have been made which is not visible in logs and everytime it is getting picked from cache itself. Not eviction can cause redis server memory to increase indefinitely until removed or freed manually. Why this TTL property might not be getting applied in redisson?"
+ },
+ {
+  "question_id": 79789569,
+  "ym": "2025-10",
+  "creation_date": 1760381550,
+  "title": "Gradle Configuration Cache in Spring Boot bootBuildImage with multiple Images",
+  "tags": [
+   "java",
+   "spring-boot",
+   "gradle",
+   "continuous-delivery",
+   "spring-boot-gradle-plugin"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have a modulith that produces several applications in one multimodule Gradle Build (Gradle 9.1) These applications are all spring boot apps and they are deployed as docker images using the bootBuildImage task from the gradle spring boot plugin. We're using continuous delivery, so every build should produce docker images for all applications with the version of the image being just the build number (which is produced by the pipeline and is unique for every pipeline run) My grade configuration looks like this: [CODE] This all works fine, but it is not compatible with configuration cache. Gradle detects the env BUILD_DOCKER_TAG to change for every build and then invalidates configuration cache. This is painful for my team, as the configuration time in our project is comparatively large and the build logic rarely changes. Therefore, my question is: Is there a way to shift configuration of the image name from configuration time to build time, so that configuration cache stays intact? (I've tried providers, but what I've tried didn't do the trick, plus I could not really understand the documentation when describing the behaviour in regards to configuration cache) Things that will not work: Passing the image name as a build parameter: the build will produce multiple images that differ in name but have to have the same tag. optimizing or reviewing the project structure: The build is "
+ },
+ {
+  "question_id": 79789602,
+  "ym": "2025-10",
+  "creation_date": 1760385469,
+  "title": "Java 25 AOT with directory in classpath",
+  "tags": [
+   "java",
+   "java-aot"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I was trying to test Java 25 AOT on a Java application that I'm still working on and so it's not built into a jar file. My java class in file ~/workspace/demoj25/src/Demo.java: [CODE] I compiled the class using javac so that I have file ~/workspace/demoj25/src/Demo.class I executed this command from ~/workspace/demoj25 to create the AOT cache file: [CODE] And this gave me error: [CODE] Does this mean I have to use jars only in my classpath? Is there a workaround? I'd like to be able to make use of faster startup time that AOT cache provides during testing of my app without generating jar each time I make a change."
+ },
+ {
+  "question_id": 79789688,
+  "ym": "2025-10",
+  "creation_date": 1760395936,
+  "title": "How to make an interactive console version in Java for a simple linear regression model?",
+  "tags": [
+   "java",
+   "console",
+   "linear-regression",
+   "interactive"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I’m trying to create a simple model in Java that predicts marks based on study hours (using a basic linear regression formula). My goal is to make it interactive — where the user can enter the number of hours from the console and get a predicted mark as output. Here’s what I already tried: [CODE] It works correctly up to printing the predicted marks once. I expected it to behave like an interactive console, where after one prediction it again asks for input until I type 0 to exit. But right now, it only takes one input and ends immediately. How do I make it prompt for input again?"
+ },
+ {
+  "question_id": 79789813,
+  "ym": "2025-10",
+  "creation_date": 1760416723,
+  "title": "Make openapi-generator models package private",
+  "tags": [
+   "java",
+   "spring-boot",
+   "openapi-generator"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am writing a library which uses openapi-generator generated models and I don't want to expose these models to the consumers of my library. Is there a way to make my models package-private and compile them to the same package as my integration code? There probably is a better way of doing this using modules but that's not really an option for me. I have seen examples online with Mustache templates for altering the generated code but that does not seem like a good solution. Do I need to keep my own version of all of the generator template files just to change one keyword? Or is there a better way of doing this?"
+ },
+ {
+  "question_id": 79789816,
+  "ym": "2025-10",
+  "creation_date": 1760417515,
+  "title": "How can I cache a single object?",
+  "tags": [
+   "java",
+   "soft-references"
+  ],
+  "score": 1,
+  "answer_count": 4,
+  "is_answered": true,
+  "body_excerpt": "I have a class which initializes its internal data from a resource file and I want to give clients an opportunity to choose to use new instances or a cached instance. Here comes what it looks like. [CODE] And here comes what I'm adding for those clients want to use a cached instance. [CODE] My questions are, Is it property implemented as what I'm intending to do? Is the way using the [code] right?"
+ },
+ {
+  "question_id": 79789838,
+  "ym": "2025-10",
+  "creation_date": 1760419793,
+  "title": "CDS based Audit Logging in CAP",
+  "tags": [
+   "java",
+   "spring-annotations",
+   "audit",
+   "audit-logging",
+   "cap"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "We are trying to perform audit logging for the user details when changed using the annotation mentioned below. But when the patch call is triggered for the entity, the changes are not logged in the terminal console. The service is draft enabled here. Would like to understand if there are any other config needs to be maintained in the repo/service to get the audit logs displayed in the terminal. We referred to the incident sample service and ran in local, the log are displayed in the console. [CODE]"
+ },
+ {
+  "question_id": 79789906,
+  "ym": "2025-10",
+  "creation_date": 1760426126,
+  "title": "ExecutorService configuration with virtual threads",
+  "tags": [
+   "java",
+   "java-21",
+   "virtual-threads"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "In a service I have 2 executorServices for different tasks: get user transactions (50-100 threads, queue 300) get user family (10-50 threads, queue 100) It was easy to monitoring threads and adding resources and implement logic \"skip this task if queue is full\". How this should be migrated to java 21? Is this logic \"skip this task if queue is full\" still can be implemented? Example: [CODE] configs: [CODE]"
+ },
+ {
+  "question_id": 79789937,
+  "ym": "2025-10",
+  "creation_date": 1760428137,
+  "title": "Sse subscription method with a specific parameter is not logged",
+  "tags": [
+   "java",
+   "tomcat",
+   "cxf",
+   "slf4j"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have an application using Java 11, Spring, Apache CXF 3.4.2, Tomcat and slf4j. The method that serves as the endpoint for subscribing to server-sent events doesn't log any errors. They're visible in debugging, but nothing appears in the logs. All other methods log normally. SLF4J is fine, though. I explain that logging starts working fine if I remove the [code] method from its parameters, but I can't do anything else. [CODE] logback.xml [CODE] Tried changing the logging settings."
+ },
+ {
+  "question_id": 79789964,
+  "ym": "2025-10",
+  "creation_date": 1760430149,
+  "title": "RCP - Search option under Multichoice widget",
+  "tags": [
+   "java",
+   "widget",
+   "eclipse-rcp",
+   "rcp",
+   "nebula"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am using [code] in my application to work on multiple selections. However, I have nearly 70 multiple entries under the widget and it is difficult to search and select the required one. Is there any possibility of having a search box under the widget to make the selection process easy, or any existing widget that provides this kind of functionality?"
+ }
+]

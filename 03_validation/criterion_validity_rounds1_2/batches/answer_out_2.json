@@ -1,0 +1,62 @@
+[
+  {
+    "qid": 79883915,
+    "answer": "The checksum in ThreadedComment hyperlink extensions is a calculated value based on the hyperlink data. To reverse-engineer it, you need to examine the pattern: the checksum appears to be derived from the XML content of the hyperlink element (startIndex, length, and URL values). Since you have samples (3819201094 for one URL, 4040448680 for two URLs), try implementing a CRC-32 or similar hash algorithm on the concatenated hyperlink parameters. Convert the checksum values to hex to identify the algorithm. You may also check if it's a simple hash of the serialized hyperlink XML. Without official Microsoft documentation, reverse-engineering from multiple examples is your best approach. Consider calculating various hashes (CRC32, SHA1, MD5 truncated) on the hyperlink string and matching against known values to identify the pattern."
+  },
+  {
+    "qid": 79725843,
+    "answer": "Yes, L[c:d] is evaluated first, creating a temporary list, before assignment to L[a:b]. Python's documentation states all slice operations return a new list. The assignment L[a:b] = L[c:d] works as: (1) evaluate L[c:d] → creates temporary list, (2) evaluate L[a:b] as target, (3) replace items in L[a:b] with items from temporary list. This is the documented behavior. There is no special optimization to avoid the temporary list creation in the general case. The temporary list is then discarded after assignment. If you need in-place modification without creating intermediate lists, use a for-loop with explicit indexing in forward or reverse direction, depending on your use case."
+  },
+  {
+    "qid": 79688939,
+    "answer": "The error occurs on this line: `bullets=list`. You assigned the list *class* itself, not a list *instance*. Change it to `bullets=[]`. When you later call `bullets.append()`, Python tries to call the append descriptor on the list type object, which fails because append expects to operate on a list instance, not the type itself. This is why you get \"descriptor 'append' for 'list' objects doesn't apply to a 'type' object\". Simply initialize with `bullets = []` instead of `bullets = list` and the append calls will work correctly."
+  },
+  {
+    "qid": 79752526,
+    "answer": "Shallow copy (copy.copy()) of an iterator creates a new iterator object that shares the underlying sequence but maintains independent iteration state. In your case, copy.copy(my_iterator2) produces a separate enumerate object, so each call resets to the beginning of enumeration. However, both copies share the same underlying list reference. The enumerate index resets because each shallow-copied iterator has its own position counter. Deepcopy creates entirely independent copies with their own sequence references. The key difference: shallow copy's iterator object is independent but shares sequence data; iteration state (position) is separate per object, hence index resets while sequence position advances."
+  },
+  {
+    "qid": 79324668,
+    "answer": "Use numpy's diff() and comparison operators:\n```python\nimport numpy as np\n\narr = np.array([[1,1,1,2,2,2,3,3,3,4,4,5,5], ...])\n\n# Find differences along columns\ndiff = np.diff(arr, axis=1, prepend=0)\n\n# Mark positions where value strictly increases\nincreasing = diff > 0\n\n# Create output: keep value where increasing, zero elsewhere\nout = np.where(increasing, arr, 0)\n```\n\nThe prepend=0 ensures the first column is compared against 0, so initial 1s are marked as increasing. This is fully vectorized without explicit loops and handles all rows simultaneously."
+  },
+  {
+    "qid": 79548517,
+    "answer": "RedMon allows only one driver per virtual printer port, so you cannot simultaneously generate both TSPL and PDF from a single printer. Solutions: (1) Create a Python script that processes output twice—once for TSPL parsing and once for PDF generation via a PostScript processor; (2) Use two separate RedMon ports, each with different drivers (one for TSPL, one for PostScript/PDF), and print twice; (3) Generate TSPL in your application, then use a separate TSPL-to-PDF converter tool (e.g., GhostScript) to create PDF from the TSPL file; (4) Have your Python script capture the print data, save as TSPL, then programmatically convert to PDF using a library. Option 3 is most practical—generate TSPL, convert post-processing."
+  },
+  {
+    "qid": 79880560,
+    "answer": "The issue is that matplotlib's 3D projection uses a fixed aspect ratio. Try these approaches: (1) Set `fig.subplots_adjust(left=0, right=1, bottom=0, top=1)` as you did, but also add `fig.set_constrained_layout(True)` instead of tight_layout(); (2) Use `ax.set_box_aspect([1,1,1])` to force equal aspect; (3) Disable matplotlib's automatic margin by setting `ax.margins(0)`; (4) For Qt embedding, ensure the canvas size matches the widget size via `canvas.setMinimumSize()`. The projection matrix clipping plane isn't the issue—it's the aspect ratio constraint. Try combining constrained_layout with set_box_aspect and margins(0). If issues persist, check that your QHBoxLayout properly stretches the canvas widget."
+  },
+  {
+    "qid": 78937724,
+    "answer": "This is due to Python's small object caching optimization. When `print(id(k+k), id(k*2))` is on one line, both expressions are evaluated and the results are passed to print() before either is discarded. CPython may cache small temporary objects, so they get the same id(). When on separate lines, the first result's id is printed, the object is released, garbage collection occurs, and the second result gets a new object with a different id. This isn't guaranteed behavior—it depends on Python's memory manager and optimization. The key: objects of the same value created at different times have different identities (ids) unless one hasn't been garbage collected yet."
+  },
+  {
+    "qid": 79937273,
+    "answer": "Unfortunately, Telegram Bot API doesn't provide a way to keep the native \"Leave a comment\" button alongside custom inline keyboards—they're mutually exclusive. When you add inline_keyboard, the native button disappears. However, you can create a custom button that mimics the behavior: use `callback_query_handler` or create a URL button linking to `t.me/c/{channel_id}/{message_id}?comment=1` format. For linked discussion groups, the deep link format is typically `t.me/{discussion_group_username}/{message_id}`. Test with your specific group structure. Alternatively, use reply markup but without inline buttons—instead use reply buttons that link to the discussion. Check Telegram's latest API docs for thread/comment deep link formats, as they may have updated."
+  },
+  {
+    "qid": 79884564,
+    "answer": "The NotImplementedError suggests `predict_iter()` has an incomplete implementation in your PaddleOCR version. Check: (1) Verify you're using a compatible PaddleOCR version—install latest: `pip install paddleocr --upgrade`; (2) Ensure all language models are downloaded properly; (3) Use `ocr.ocr()` instead of `ocr.predict()`—many versions use `ocr()` as the main method; (4) Check if the version expects different parameters. The error traceback shows the issue originates in predict_iter(), which your installed version may not have fully implemented. Downgrade or upgrade to a stable release. If upgrading doesn't help, use the `ocr()` method directly, which is the standard interface in recent versions."
+  },
+  {
+    "qid": 79918389,
+    "answer": "Your pipeline structure looks sound for adding custom transformers. Ensure your `AddComboFeatures` and other transformers implement: (1) `fit()` and `transform()` methods that accept/return numpy arrays or DataFrames; (2) `get_feature_names_out()` returning new column names for ColumnTransformer compatibility. When combining with ColumnTransformer, specify which columns each transformer applies to. For the pipeline: use `Pipeline([('add_features', AddCensoredFeatures()), ('add_combos', AddComboFeatures()), ...])`. Verify ColumnTransformer's transformers return consistent shapes. Test fit/transform individually before pipeline integration. If feature names mismatch, ColumnTransformer may fail—ensure all get_feature_names_out() methods return consistent column lists."
+  },
+  {
+    "qid": 77209520,
+    "answer": "Yes, Polars joins work correctly regardless of row order in the join columns. Joins operate on key *values*, not row positions. When you join on 'col1' with different orderings (a1...c1 vs b1...c1...a1), Polars matches rows by key value, not position. Under the hood: Polars uses hash-join algorithms that hash the join key values to find matching rows, independent of their positions in the dataframe. Row order is irrelevant. Your slice(0, 1M).collect(streaming=True) will correctly select the first 1M rows of the joined result. The join integrity is maintained even with completely different row orderings across files."
+  },
+  {
+    "qid": 79782279,
+    "answer": "The issue is that MCPTools may not work in standard Agent run mode without AgentOS. MCPTools requires proper MCP server initialization that AgentOS handles automatically. In regular Agent.run() mode: (1) Ensure the MCP server URL is reachable and the transport is correct; (2) Debug: enable logging to see if tools are actually loaded; (3) Check if the model supports tool-calling for your version of OpenAI/Anthropic models; (4) Try wrapping MCPTools initialization differently or passing it via a different parameter. The incomplete code makes it hard to diagnose fully, but the root cause is likely that standard Agent mode doesn't initialize MCP tools the same way AgentOS does. Check the Agno documentation for the correct tool-passing syntax for non-AgentOS mode."
+  },
+  {
+    "qid": 79899066,
+    "answer": "Your CREATE TABLE statement is missing commas between column definitions. Change:\n```sql\nCREATE TABLE IF NOT EXISTS analysisResults(\n  subjectID INTEGER,\n  frameworkID INTEGER,\n  scoreInFramework INTEGER\n)\n```\n\nYour version had no commas, so SQLite parsed it as a single column named \"subjectID INTEGER frameworkID INTEGER scoreInFramework INTEGER\", which SQLite interpreted as just one column. SQL requires commas to separate column definitions. This is purely a syntax error—the column names used in other tables don't matter."
+  },
+  {
+    "qid": 79722748,
+    "answer": "Getting empty dataframes suggests the 'CALENDAR_NON_SETTLEMENT_DATES' field may not exist or requires specific formatting. Debugging steps: (1) Verify the exact field name in Bloomberg—it might be 'CALENDAR_NON_SETTLEMENT_DATES' or a variant; (2) Check if the country codes ('US', 'TU', 'JN', etc.) are valid Bloomberg calendar codes; (3) Try simpler Bloomberg data requests first (e.g., basic bdh() calls) to confirm xbbg connectivity works; (4) The date range might be wrong—try wider ranges; (5) Some indices might not have settlement calendar data available through this field. Use `blp.bds()` with correct parameters and validate field/country code validity against Bloomberg's field database."
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "qid": 79858654,
+    "answer": "The issue is your namespace parameter. When using Flask-SocketIO, the namespace must match what the client is listening on. Change your emit to use a fixed namespace like `/3x3/online` instead of `/3x3/online/{username}`. The username should be passed as part of the data payload, not the namespace path.\n\nSocketIO namespaces are static routes; you can't embed dynamic variables in them. If you need per-user channels, either:\n1. Emit to `/3x3/online` and filter on the client side based on username in the payload\n2. Use rooms: `socketio.emit('create', (session['username'], 1), room=username, namespace='/3x3/online')`\n\nMake sure your JavaScript client is also listening on the correct matching namespace."
+  },
+  {
+    "qid": 79651081,
+    "answer": "Your code is cut off, but the issue is clear: after the first `MultiLabelBinarizer`, you create `mlb2` but never complete the transformation for `LanguageAdmired`. Add this after creating `mlb2`:\n\n```python\nbinary_labels_lang = mlb2.fit_transform(df['LanguageAdmired'])\ndf_labels_lang = pd.DataFrame(binary_labels_lang, columns=['LanguageAdmired_' + c for c in mlb2.classes_])\ndf = pd.concat([df, df_labels_lang], axis=1)\n```\n\nThe pattern is identical to the Employment transformation. Also verify both columns are properly split with `.str.split(';')` and handle NaN values consistently before encoding."
+  },
+  {
+    "qid": 79724387,
+    "answer": "Pivot tables with standard `aggfunc` can't compute rolling 12-month sums. Use `groupby` with `rolling` instead:\n\n```python\ndf.set_index('date').groupby('payee')['value'].rolling('365D').sum()\n```\n\nOr for calendar months, resample after pivoting:\n\n```python\npivot = pd.pivot_table(df, values='value', index='date', columns='payee', aggfunc='sum')\npivot.resample('ME').rolling(window=12).sum()\n```\n\nIf you need 12-month rolling in the pivot structure, use `groupby` on payee + time-grouped data, then pivot the result. Pivot tables excel at simple aggregations; complex time-window logic is cleaner with groupby/resample."
+  },
+  {
+    "qid": 79782307,
+    "answer": "According to uv's documentation, `uvw` is an alias for `uv watch`. It runs a command and automatically re-executes it whenever source files change. This is similar to nodemon for Node.js.\n\nUsage: `uvw python script.py` will watch the current directory and rerun script.py whenever any .py files change. You can specify watch patterns with `--watch` to monitor specific paths or file types. This is convenient during development to automatically rebuild or restart your application."
+  },
+  {
+    "qid": 78253231,
+    "answer": "To run llama-cpp-python with GPU in Docker:\n\n1. Use NVIDIA CUDA base image: `FROM nvidia/cuda:12.x-runtime`\n2. Use `nvidia-docker run` instead of `docker run` to access GPU\n3. Install llama-cpp-python with GPU support:\n```bash\nCUDA_HOME=/usr/local/cuda pip install llama-cpp-python --no-cache-dir\n```\n4. Set environment in Dockerfile:\n```dockerfile\nENV LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH\nENV CUDA_VISIBLE_DEVICES=0\n```\n5. Mount the GPU: `nvidia-docker run --gpus all your-image`\n\nVerify with `nvidia-smi` inside the container. Ensure your host NVIDIA driver matches the CUDA version in the image."
+  },
+  {
+    "qid": 79044145,
+    "answer": "This is PEP 695 (Generic Type Syntax), available in Python 3.12+. The brackets define type parameters:\n\n- `T` = single type parameter (like `Generic[T]` in older syntax)\n- `*Ts` = variadic type parameters (multiple types)\n- `**P` = parameter specification variable (for function signatures)\n\nExample:\n```python\nclass Stack[T]:\n    def push(self, item: T) -> None: ...\n\ndef foo[T, *Ts](x: T, *args: *Ts) -> tuple[T, *Ts]: ...\n```\n\nThis replaces the need for `from typing import Generic, TypeVar`. The syntax is cleaner and the PEP explicitly defines how type checkers interpret these parameters."
+  },
+  {
+    "qid": 79406551,
+    "answer": "Your logic fails for mixed empty/non-empty values. Restructure to check each variable independently:\n\n```python\ncommand = [f\"{ffmpeg_path}\", \"-i\", videofile]\n\nif codesplit:\n    command.append(codesplit)\nif codec:\n    command.append(codec)\n\ncommand.append(outputfile)\n```\n\nThis builds the command dynamically, adding only non-empty values. Your original `if codesplit and codec` requires BOTH to be present, which fails when only one is set. The code now handles all combinations: both present, one present, or neither. Each conditional is independent, allowing flexible configurations."
+  },
+  {
+    "qid": 79919401,
+    "answer": "Your code has infinite recursion because the `while` loop calls `collatz()` recursively inside the function that's already being called, without a base case before the loop. The problem:\n\n```python\ndef collatz(number):\n    while number != 1:  # Loop never exits for recursion\n        number = collatz(number)  # Recursive call\n```\n\nThe correct approach moves the `while` loop outside:\n\n```python\ndef collatz(number):\n    if number % 2 == 0:\n        return number // 2\n    else:\n        return 3 * number + 1\n\nwhile number != 1:\n    number = collatz(number)\n```\n\nNow `collatz()` handles one step only, and the loop at the function call site controls iterations. Your version tries to recursively call through all steps without stack space."
+  },
+  {
+    "qid": 79936904,
+    "answer": "The issue is TOML parsing. Remove quotes around the duration value:\n\n```toml\n[tool.uv]\nexclude-newer = 7 days  # Not \"7 days\"\n```\n\nOr use ISO 8601 duration without quotes:\n```toml\nexclude-newer = P7D\n```\n\nThe error occurs because quoted strings like `\"7 days\"` are parsed as literal TOML strings, not duration literals. uv expects unquoted duration syntax for friendly formats (e.g., `7 days`, `1 week`) or ISO 8601 (`P7D`). RFC 3339 timestamps need proper formatting: `2024-03-01T00:00:00Z`. Check your uv version supports duration parsing in this context."
+  },
+  {
+    "qid": 79648735,
+    "answer": "With `TypedDict`, use `total=False` to make all fields optional, or use `NotRequired` for selective fields:\n\n```python\nfrom typing import NotRequired\n\nclass A(TypedDict):\n    name: str\n    value: int\n    bs: NotRequired[Optional[List[B]]]\n```\n\nOr make the entire dict optional:\n\n```python\nclass A(TypedDict, total=False):\n    name: str\n    value: int\n    bs: Optional[List[B]]\n```\n\nThe first approach marks only `bs` as optional while requiring `name` and `value`. In Pydantic v2 with `TypeAdapter`, `Optional[...]` marks the *value* as nullable, not the *field* itself. Use `NotRequired` to indicate the field can be missing from the dict."
+  },
+  {
+    "qid": 79780104,
+    "answer": "Android MediaPipe requires explicit timestamps because it doesn't read video metadata directly. The frame discrepancy occurs from FPS mismatches between Android and desktop processing.\n\nSolution: Calculate exact frame interval from the video:\n\n```python\nfps = video_capture.get(cv2.CAP_PROP_FPS)\nframe_interval_ms = 1000 / fps  # Convert to milliseconds\n```\n\nPass this to Android MediaPipe's timestamp parameter. If your OpenCV FPS reads as 29 but actual is 30, capture multiple frames, measure actual elapsed time, and use that interval instead. You may also need to:\n1. Ensure both systems use identical video preprocessing (color space, resolution)\n2. Account for frame dropping on either platform\n3. Use external sync (capture frame timestamps directly) rather than assuming regular intervals"
+  },
+  {
+    "qid": 78820768,
+    "answer": "Modify the JavaScript to loop until the element appears:\n\n```python\nmax_scrolls = 10\nscroll_count = 0\n\nwhile scroll_count < max_scrolls:\n    try:\n        element = context.driver.find_element(By.XPATH, element_xpath)\n        context.driver.execute_script(\"arguments[0].scrollIntoView();\", element)\n        break\n    except NoSuchElementException:\n        context.driver.execute_script(\n            \"arguments[0].scrollTop += arguments[0].clientHeight;\",\n            scrollable_section\n        )\n        scroll_count += 1\n        time.sleep(0.5)  # Wait for content to load\n```\n\nThis scrolls the container incrementally and checks for the element after each scroll. Once found, it brings it into view. Adjust `max_scrolls` and sleep duration based on content loading speed."
+  },
+  {
+    "qid": 79648218,
+    "answer": "For millions of nodes, pure Python multiprocessing is limited. Recommended approaches:\n\n1. **Use NetworkX or graph libraries**: They're optimized in C and handle large graphs better than pure Python dicts.\n2. **Partition the graph**: Split nodes across processes, each handling independent subtrees. Combine results carefully to avoid race conditions.\n3. **Memory-mapped files**: Store adjacency lists in a memory-mapped file; multiple processes read without duplication.\n4. **Use a database**: Store graph in SQLite/PostgreSQL; queries parallelize naturally.\n5. **Bidirectional BFS**: Reduces search space from one direction.\n\n```python\nfrom multiprocessing import Pool\n\ndef bfs_partition(start_nodes):\n    visited = set()\n    for node in start_nodes:\n        # Single-threaded BFS on partition\n    return visited\n\nwith Pool() as pool:\n    results = pool.map(bfs_partition, partitioned_nodes)\n```\n\nAvoid `multiprocessing.Queue` for large graphs; prefer shared memory or files."
+  },
+  {
+    "qid": 79899547,
+    "answer": "Use `.pipe()` with a custom function to flatten MultiIndex columns:\n\n```python\ndef flatten_columns(df):\n    df.columns = ['_'.join(map(str, col)) for col in df.columns]\n    return df\n\nresult = df.pipe(flatten_columns)\n```\n\nOr more concisely:\n\n```python\nresult = (df\n    .pipe(lambda d: d.assign(\n        columns=['_'.join(map(str, col)) for col in d.columns]\n    ))\n)\n```\n\n`.pipe()` passes the entire DataFrame to a function, making it chainable in a pipeline. The lambda approach works inline. `rename()` doesn't accept functions for MultiIndex flattening directly; `.pipe()` with a custom function is the idiomatic pandas approach for this transformation."
+  },
+  {
+    "qid": 79859269,
+    "answer": "The code snippet is incomplete (cuts off at imports), but the likely issue with Gemini and LangGraph tool handling: Gemini models require tool results to be explicitly formatted with `ToolMessage`. Ensure your tool node returns:\n\n```python\nfrom langchain_core.messages import ToolMessage\n\ndef tool_node(state):\n    # Process tool calls\n    return {\n        \"messages\": [\n            ToolMessage(\n                content=result,\n                tool_call_id=call_id\n            )\n        ]\n    }\n```\n\nAlso verify: tool result content must be a string, not a dict. If returning structured data, serialize to JSON. Gemini is stricter about message formatting than other models. Check your LangGraph `messages` state accumulation includes ToolMessage in the conversation flow."
+  },
+  {
+    "qid": 79478924,
+    "answer": "Override `get_serializer_class()` in your viewset based on permissions:\n\n```python\nclass UserSerializer(ModelSerializer):\n    class Meta:\n        model = User\n        fields = ['id', 'username', 'email', 'phone']\n\nclass UserViewSet(ViewSet):\n    def get_serializer_class(self):\n        user = self.request.user\n        if user.is_admin:\n            return FullUserSerializer  # All fields\n        elif user.is_moderator:\n            return ModeratorUserSerializer  # Exclude sensitive\n        elif user.pk == self.get_object().pk:\n            return OwnUserSerializer  # Include email for self\n        else:\n            return PublicUserSerializer  # Exclude email\n        return UserSerializer\n```\n\nAlternatively, filter fields dynamically in `to_representation()`. This approach ensures the serializer respects user permissions at query time. Define separate serializers for each permission level or use `SerializerMethodField` for conditional inclusion."
+  },
+  {
+    "qid": 79899633,
+    "answer": "Use the `mpmath` library for arbitrary-precision logarithms:\n\n```python\nfrom mpmath import mp, log\n\nmp.dps = 50  # 50 decimal places\nn = 4311231547115195\nresult = int(log(n))  # floor(ln(n))\n```\n\n`math.log` loses precision for large integers due to floating-point limits. `mpmath` supports arbitrary precision, ensuring exact results. For very large n, use:\n\n```python\nmp.dps = n.bit_length()  # Set precision high enough\n```\n\nThis avoids the `bit_length() * ln(2)` approximation and floating-point ambiguity. For bases other than e, pass `log(n, base)`."
+  },
+  {
+    "qid": 79755548,
+    "answer": "Tasks execute when awaited, not when created. Your misunderstanding: `create_task()` schedules the task but doesn't run it immediately. Python's event loop interleaves execution:\n\n1. `task1 = create_task(fetch_data(1))` → scheduled, not yet running\n2. `task2 = create_task(fetch_data(2))` → scheduled\n3. `await task2` → yields control; event loop runs *both* task1 and task2\n4. Task1 starts first (created first), prints \"Do something with 1\"\n5. Task1 hits `await sleep(1)`, yields\n6. Task2 runs, prints \"Do something with 2\"\n7. Task2 hits `await sleep(2)`, yields\n\nThe event loop schedules tasks in creation order when awaiting. Both tasks execute concurrently (interleaved), not strictly sequential. `await task2` doesn't skip task1; it waits for task2 while task1 runs in parallel."
+  },
+  {
+    "qid": 77401626,
+    "answer": "This is a long-standing GTK+3 bug with touch event handling on comboboxes. No clean workaround exists without modifying GTK itself. Options:\n\n1. **Replace ComboBox**: Use a custom widget (Button + PopupWindow with ListView) that handles touch natively.\n2. **Upgrade GTK**: If possible, move to GTK4, which has improved touch support.\n3. **Patch GTK**: Recompile GTK with touch fixes, but this requires deep GTK knowledge and testing.\n4. **Alternative UI**: Use a dropdown/selection via buttons or a custom scrollable list instead.\n\nThe bug exists because ComboBox was designed for mouse input; touch events are handled differently. A custom implementation gives you full control over touch semantics."
+  },
+  {
+    "qid": 79882231,
+    "answer": "The 2024 data is likely being read twice. Debug your file list:\n\n```python\nprint(\"Files found:\", filtered_files)\nprint(\"Count:\", len(filtered_files))\n```\n\nIf you see duplicates (same file twice), that's the issue. Also check:\n\n1. `glob.glob()` returns absolute paths; verify no duplicates\n2. The filtering regex isn't accidentally matching both years from the same file\n3. Your concat logic: use `ignore_index=True` to avoid index collisions\n\n```python\ndf_final = pd.concat(dfs, ignore_index=True)\n```\n\nIf counts are correct but sums are doubled, check if one year's df is appended twice in the loop. Add debugging in the loop: `print(f\"Read {year}: {df.shape[0]} rows\")` to verify each file loads once."
+  }
+]

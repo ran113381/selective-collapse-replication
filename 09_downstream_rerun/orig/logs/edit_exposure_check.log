@@ -1,0 +1,21 @@
+N=5930  pre=1791  post=4139
+
+=== A. edit incidence and timing ===
+  pre : edited 53.0%   median days-to-last-edit 0   edited within 30d 93.3%   after 1y 3.3%
+  post: edited 60.4%   median days-to-last-edit 0   edited within 30d 93.1%   after 1y 1.4%
+  late (>1y) edits: pre 1.7%  post 0.9%
+
+=== B. does edit status move the score, within period? ===
+  pre  edited   : unedited 2.805 (N=842)  edited 2.677 (N=949)  gap -0.129 [-0.222,-0.035]
+  pre  late_edit: unedited 2.736 (N=1760)  edited 2.806 (N=31)  gap +0.071 [-0.266,+0.407]
+  post edited   : unedited 2.424 (N=1639)  edited 2.337 (N=2500)  gap -0.087 [-0.149,-0.025]
+  post late_edit: unedited 2.368 (N=4103)  edited 2.806 (N=36)  gap +0.438 [+0.136,+0.740]
+  OLS s ~ edited*post : edited -0.129 (p=0.007)  edited:post +0.042 (p=0.464)
+
+=== C. counterfactual bound: how much of the mean-s fall could exposure explain? ===
+  edited   : edit-rate change 0.530->0.604, pre gap -0.129  => attributable +0.0095 of total -0.3654 (-2.6%)
+  late_edit: edit-rate change 0.017->0.009, pre gap +0.071  => attributable +0.0006 of total -0.3654 (-0.2%)
+
+written: edit_exposure_check.json
+
+--- stderr ---

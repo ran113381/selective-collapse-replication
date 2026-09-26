@@ -1,0 +1,33 @@
+[1] 月度 gamma_k 重建 vs 归档文件：59 个月匹配，最大差 = 1.57e-14  -> OK 一致
+[1'] 月聚类 SE 是否退化（抽查前 5 个月度系数）：True（前 5 个 SE=[np.float64(0.0), np.float64(0.0), np.float64(0.0), np.float64(0.0), np.float64(nan)]）
+
+[2] 前期三窗口回归（非退化聚类 SE）：
+  pre W1 2021-06..2021-11     6 月  beta=-0.3354  SE=0.0982  t=-3.42
+  pre W2 2021-12..2022-05     6 月  beta=-0.3430  SE=0.1139  t=-3.01
+  pre W3 2022-06..2022-10     5 月  beta=-0.3663  SE=0.0697  t=-5.26
+  月聚类 SE 是否退化（应为否）：False
+
+[3] 联合 Wald 检验  H0: beta_W1=beta_W2=beta_W3=0
+  W = 48.377, df = 3, p = 0.0000
+  结论：拒绝——前期存在联合显著的斜率变化
+  scale=0.0  (最远窗口偏离 = 0.0 个最小SE)  ncp=0.00  功效=0.050
+  scale=0.5  (最远窗口偏离 = 1.5 个最小SE)  ncp=2.75  功效=0.254
+  scale=1.0  (最远窗口偏离 = 3.0 个最小SE)  ncp=11.00  功效=0.804
+  scale=2.0  (最远窗口偏离 = 6.0 个最小SE)  ncp=44.00  功效=1.000
+  scale=4.0  (最远窗口偏离 = 12.0 个最小SE)  ncp=176.00  功效=1.000
+
+  默认备择下的功效 = 0.804
+  解读：功效尚可——'前期没查出联合显著'在这个备择规模下确有一定说服力
+
+[自检]
+  a) 1-cdf 与 sf 应等价：|0.0000000002 - 0.0000000002| = 4.72e-17 -> OK
+  b) 功效随备择规模单调不减：True  序列=[np.float64(0.05), np.float64(0.254), np.float64(0.804), np.float64(1.0), np.float64(1.0)]
+  c) scale=0 功效应≈alpha=0.05：得 0.0500 -> OK
+
+自检总结：全部通过
+
+写入 E:\智能体论文\P9b_IPM_20260919\工作文档\R2_downstream\orig\02_estimation\review_r1\p0_6_pretrends.json
+
+--- stderr ---
+D:\Lib\site-packages\statsmodels\regression\linear_model.py:1884: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(np.diag(self.cov_params()))

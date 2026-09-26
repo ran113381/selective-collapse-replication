@@ -1,0 +1,1259 @@
+[
+ {
+  "id": "P2177",
+  "title": "CS50P problem set 3 questtion not getting the proper result",
+  "tags": [
+   "python",
+   "cs50",
+   "fuel"
+  ],
+  "body": "Fuel gauges indicate, often with fractions, just how much fuel is in a tank. For instance 1/4 indicates that a tank is 25% full, 1/2 indicates that a tank is 50% full, and 3/4 indicates that a tank is 75% full. In a file called fuel.py, implement a program that prompts the user for a fraction, formatted as X/Y, wherein each of X and Y is an integer, and then outputs, as a percentage rounded to the nearest integer, how much fuel is in the tank. If, though, 1% or less remains, output E instead to indicate that the tank is essentially empty. And if 99% or more remains, output F instead to indicate that the tank is essentially full. If, though, X or Y is not an integer, X is greater than Y, or Y is 0, instead prompt the user again. (It is not necessary for Y to be 4.) Be sure to catch any exceptions like ValueError or ZeroDivisionError [CODE] My code [CODE]"
+ },
+ {
+  "id": "P3866",
+  "title": "How to play video file with audio with DearPyGUI (Python)?",
+  "tags": [
+   "python",
+   "audio",
+   "video",
+   "ffmpeg",
+   "dearpygui"
+  ],
+  "body": "I'm using DearPyGUI to make a simple media player that can play video file (mp4, etc.) together with it's audio. The pre-requisite is that DearPyGUI is a must, however video feature will not exist until v2.0, which is still far in the future. Currently, I can only render the frames using OpenCV library for Python, however, the problem is how can I play the audio as well as play it in sync with the output video frames? For context, I'm quite new to Python, and I don't know much about video and audio streaming, but I've thought of some approaches to this problem by looking through help posts online (However, I still have no idea how I can implement any of these seamlessly): OpenCV for video frames, and audio??? some libraries like ffmpeg-python or miniaudio to play sound... (How...?) Extract video frames and audio here and then use the raw data to play it (How...?) This example here is pretty close to what I want excluding the playing video and audio part, but I have no idea where to go from there. The video stream and the audio stream are instances of ffmpeg.nodes.FilterableStream, and they appear to hold addresses to somewhere. (No idea...) Another very close idea is using ffpyplayer I was able to get the video frame. However, the below code yields a blueish purple color tint to the video, and the frame rate is very slow compared to original (So close...) [CODE] I still need to"
+ },
+ {
+  "id": "P5525",
+  "title": "Using PyMuPDF, returned fitz.Document object cannot be opened because &quot;not picklable&quot;. Any recs?",
+  "tags": [
+   "python",
+   "pickle",
+   "dill",
+   "pymupdf"
+  ],
+  "body": "I'm trying to read in a pdf and get the text from it. I'm new to using PyMuPDF, but I did follow code I saw online pretty much line for line. However, when I read in the document, I get a fitz.Document object that cannot be opened. Spyder returns the error, \"The variable is not picklable.\" Has anyone ran into this problem, and do you have any ideas how to handle? I tried to switch the PDF just to be sure. I also tried using dill (dill.detect.baditems(doc)) to diagnose, but it just returns the path of my PDF. [CODE] I've omitted the rest of the code. The error starts with the doc variable."
+ },
+ {
+  "id": "P3935",
+  "title": "How can I create a stylized tree chart?",
+  "tags": [
+   "python",
+   "charts",
+   "graphviz",
+   "anytree"
+  ],
+  "body": "I have been making a tree of fraternity-adjacent bigs and littles and was looking for a way to automate it for changes as more people join. Everyone's names and years, big, and littles are in an Excel spreadsheet. What could I use to emulate the design I did here? Specifically, the stem style and ability to space nodes further away depending on their year. This is the design I want to automate: I tried using anytree and graphviz but couldn't find a way to emulate the stems or an easy solution for spacing based on years. Here's sample data: Name Year Instrument Extra Extra Extra Extra Big Little 1 Little 2 Little 3 T1P1 1990 Trumpet T1P2 T1P2 1991 Trumpet T1P1 T2P1 1997 Trumpet T2P2 T2P2 2001 Trumpet T2P1 T2P3 T2P4 T2P5 T2P3 2003 Trumpet T2P2 T2P4 2004 Trumpet T2P2 T2P5 2006 Trumpet T2P2 T3P1 2000 Trumpet T3P2 T3P2 2004 Trumpet T3P1 T3P3 T3P4 T3P3 2005 Trumpet T3P2 T3P5 T3P6 T3P5 2006 Trumpet T3P3 T3P6 2007 Trumpet T3P3 T3P4 2006 Trumpet T3P2 T3P7 T3P7 2010 Flute T3P4 Here's my basic approach using anytree and the results: [CODE] example of output mirroring background aestetics of original work Here's my approach with graphviz: [CODE] example of output showing trees using proper node visuals"
+ },
+ {
+  "id": "P2002",
+  "title": "python imported variables working for some functions only",
+  "tags": [
+   "python",
+   "import"
+  ],
+  "body": "i need some help to a problem that makes no sense to me. my code goes like this: [CODE] and what's happening is that the variable works perfectly fine in func1 but somehow i cannot access it from func2. i tried gobal, aswell as global in every function hoping it would synchronize and nothing works. i hope someone konws the problem please. i want the variables in func2 to be accessed like every other function (func2 is the only one with problems)"
+ },
+ {
+  "id": "P2895",
+  "title": "Expand wireframe 3d shape made in pygame",
+  "tags": [
+   "python",
+   "pygame"
+  ],
+  "body": "So I have this [code] function which, using pygame, draws 9 lines. I have added 100 to the original points so they will not be in the top left. I want to make the rectangular prism larger so it's not all clumped together. Here's my function: [CODE]"
+ },
+ {
+  "id": "P1450",
+  "title": "SQLite same-table ON DELETE CASCADE not working",
+  "tags": [
+   "python",
+   "database",
+   "sqlite",
+   "recursion"
+  ],
+  "body": "I'm building a web forum thing and using SQLite (with Python) to store data. Each forum has a table with the following create statement (defined via DB Browser for SQLite 3.12.2): [CODE] What I want to achieve is delete all children (recursively) when a post gets deleted. My original approach was to fetch all posts from the same page to Python, check which ones have the deleted post's ID in their ancestry and then delete everything relevant. Then I learned about ON DELETE CASCADE which sounded like an ideal oneliner solution, except it doesn't seem to work - when I delete post X with children Y, Z it only deletes X and leaves Y and Z dangling in the database. The logic behind rendering posts on the website prevents them from ever showing up but I obviously don't want this anyway. I do have the \"enforce foreign keys\" pragma enabled. What am I missing? EDIT: When I run \"DELETE FROM forum0 WHERE postId = {some_existing_post_id}\" directly in DB Browser it works as expected so I'm assuming the problem is related to querying the database with the sqlite3 module in Python. The query I use is exactly the same though."
+ },
+ {
+  "id": "P4419",
+  "title": "not able to replace \\n using regex_replace in pyspark",
+  "tags": [
+   "python",
+   "regex",
+   "pyspark",
+   "regexp-replace"
+  ],
+  "body": "I am trying to replace all \"\\n\" characters present in a string column in pyspark. I tried the following which seems not to work [CODE] The current dataframe has the exact same text in both column [CODE] Can someone please let me know what am I missing. I want all the \\n characters to be replaced in the text."
+ },
+ {
+  "id": "P3909",
+  "title": "Error in running python file using ASE library",
+  "tags": [
+   "python",
+   "pythonpath"
+  ],
+  "body": "I am trying to run a python script using ASE library, I have installed ase ( https://wiki.fysik.dtu.dk/ase/install.html )and run my python script using this library on my terminal. I have made a virtual env named 'MLC_env' and have already installed the ase library there. There is a folder 'Desktop/MLC/MLC_env/lib/python3.10/site-packages/ase' which got installed over there. Now the the website ( https://pypi.org/project/ase/ ) says Add [code] to your $PYTHONPATH environment variable and add [code] to $PATH (assuming [code] is where your ASE folder is). I am not able to figure out what exactly I have to do? How to add this ase folder to my pythonpath? Any suggestions will be helpful. I tried to follow this answer Permanently add a directory to PYTHONPATH? , according to this I can try doing [code] where [code] will be the full path name of the ase folder. Shall I go ahead with this? any suggestions. Python script [CODE] Error: While trying to run the above python script [CODE]"
+ },
+ {
+  "id": "P5481",
+  "title": "Reading and getting sets of data from a file with numbers and words",
+  "tags": [
+   "python",
+   "list"
+  ],
+  "body": "I am trying to get the city, state, and then a number indicating area from a file. Then I need to do the same with another file with the same cities and states with a number indicating population and make a file in the same format for the population density. I don't understand how I should go about doing this I am new to py and don't have a lot of coding experience so this is what I have so far here is the population txt file: [CODE] here is the area txt file: [CODE] I know I need to do something along the lines of: [CODE]"
+ },
+ {
+  "id": "P5087",
+  "title": "pd.to_datetime() with the same arguments returns error when Pandas is updated from 1.5.3 to 2.2.2. What exactly changed?",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "I'm trying to convert the contents of a str timestamp column to datetime. The input timestamp string differs from the [code] , but Pandas 1.5.3 is able to do the conversion just fine: [CODE] In our code, we were using Pandas 1.5.3 with Python 3.8, but now we're updating to 2.2.2 with Python 3.12. With 1.5.3 + Python 3.8, there seems to be some kind of format auto detecting, even though it's not being explicited in the function arguments. With 2.2.2 + Python 3.12, I get the following error from the code snippet above: [CODE] In 2.2.2 + Python 3.12, in order for this to work I need to fix [code] to match the input timestamp str. I went on to read the function reference documentation but, in 1.5.3, all parameters that would somehow affect this outcome are all correctly set by default already: [code] and [code] . I'll be fixing the format, but I'd like to know exactly what changed from 1.5.3 to 2.x.x in this aspect."
+ },
+ {
+  "id": "P1994",
+  "title": "Opencv findContours() and drawContours() show hollow contours",
+  "tags": [
+   "python",
+   "opencv",
+   "image-processing",
+   "contour"
+  ],
+  "body": "the left is \"plane.png\", the right is \"plane_contours.png\". I want to get filled contours without the inner hollow gaps between two lines in the right image. In other words, I only need the contours of one line. My code: [CODE] I tried to set thickness to -1 [CODE] And result is I also set [code] to [code] to avoid final filling which will make whole image the same color. But one window and one wing of plane has been filled which is not what I want. How can I get the correct image? Any help is appreciated. UPDATE: I tried [code] . But if I only take outer contours or inner contours, those contours are disconnected. For example: original image RETR_LIST RETR_CCOMP"
+ },
+ {
+  "id": "P3329",
+  "title": "Optimising requests in my Python code using asynchronicity",
+  "tags": [
+   "python",
+   "beautifulsoup",
+   "aiohttp"
+  ],
+  "body": "I’m currently attempting to optimise a Python script I wrote that makes multiple HTTP requests using the [code] library. I want to take advantage of asynchronous programming in order to handle requests concurrently, without blocking the execution of the rest of the program. I have written the following code with the goal of improving performance by making non-blocking HTTP requests, but after running the new asynchronous code, I don't observe any significant performance improvements when compared to the previous, synchronous version of the script. I suspect there might be something I'm missing or doing incorrectly. I’m hoping to understand what could be going wrong with my implementation—whether it's a problem with how I'm structuring the asynchronous code, how I'm managing concurrency, or something else that could be affecting the performance [CODE]"
+ },
+ {
+  "id": "P4186",
+  "title": "How to get an input from textbox using Flask",
+  "tags": [
+   "python",
+   "html",
+   "flask"
+  ],
+  "body": "This is my app.route that I'm trying to reach: [CODE] def advance_search(): [CODE] This is the HTML I'm trying to reach from the home page ( [code] ): [CODE] and this is the HTML of the [code] I'm trying to reach: [CODE] When I try to click on the (Advanced) button in order to go to the `advance_search.htmln page I get this error: [CODE]"
+ },
+ {
+  "id": "P4862",
+  "title": "Access an excel file in sharepoint using python to ingest into SQL sever using a dataframe - Access has been blocked by conditional access policies",
+  "tags": [
+   "python",
+   "azure",
+   "sharepoint"
+  ],
+  "body": "I presently have a .env file which holds the sql login credentials and the sharepoint login credentials. My code below fails in the second section of Step two with the following error: An error occurred while retrieving token from XML response: AADSTS53003: Access has been blocked by Conditional Access policies. The access policy does not allow token issuance. [CODE] I have spoken to our infrastructure team thinking this could be due to MFA blocking entry into SharePoint however I am using my credentials and in the office, so there is no MFA/2FA request. I have previously looked at sharepoint: Access has been blocked by Conditional Access policies . There is no answer on this question, the post does suggest not using user credentials however suggests this doesn't work in anycase. Any help would be appreciated."
+ },
+ {
+  "id": "P3618",
+  "title": "Treemap with variable # of categories (Plotly)",
+  "tags": [
+   "python",
+   "pandas",
+   "colors",
+   "plotly",
+   "treemap"
+  ],
+  "body": "I am working on a dashboard that uses a dataset for a treemap that looks like the following: [CODE] I will be using a filter that will change the countries and counts. Here is some code that will produce the treemap: [CODE] This all works, but when using the filters there will be situations where I have fewer than 10 countries in the dataframe. How can I rewrite the [code] argument to account for a varying number of categories."
+ },
+ {
+  "id": "P4781",
+  "title": "Add metadata to stripe Subscription.resume in python SDK",
+  "tags": [
+   "python",
+   "stripe-payments",
+   "python-stripe-api"
+  ],
+  "body": "I have made a bunch of endpoints for subscriptions like modify, cancel, and create Customer.create, all of these take a metadata parameter, that will be available in the hook event, except when i use [code] i get an error saying [code] Here's a simplified version of my code: [CODE] I know I could resume a subscription using the Subscription.Modify like: [CODE] I want to keep this as a last resort, and use the Resume method because it may trigger the [code] webhook. some extra questions, the modify method, if used to pause a subscription it only triggers the [code] webhook, how to trigger the [code] ?"
+ },
+ {
+  "id": "P4443",
+  "title": "How do grab the name of an mp4 when using urllib?",
+  "tags": [
+   "python",
+   "selenium",
+   "selenium-webdriver",
+   "urllib"
+  ],
+  "body": "The link.txt file contains links that I'm looping thru. The links lead to pages that have mp4 files. I am downloading these. It works fine except I cannot grab the original name of the mp4. Current output for the mp4 file: [CODE] Desired output for the mp4 file: [CODE] My Code: [CODE] HTML of the page: [CODE]"
+ },
+ {
+  "id": "P4262",
+  "title": "How do I solve Google Maps API HTTP 400 Error?",
+  "tags": [
+   "python",
+   "network-analysis"
+  ],
+  "body": "I am attempting to caclulate driving times from a list of tuples of starting points to each tuple in a destination list. The following code yielded an HTTPError: HTTP Error: 400 [CODE]"
+ },
+ {
+  "id": "P3194",
+  "title": "How to calculate the largest possible common subnet among multiple IP addresses?",
+  "tags": [
+   "python",
+   "sql",
+   "visual-studio-code",
+   "ip",
+   "subnet"
+  ],
+  "body": "I have a CSV file containing all different IP addresses. And I want to find the largest possible common subnet along with its CIDR value among these IP addresses. For example, '35.168.107.193' and '34.199.153.226' both belong to 34.0.0.0/7. FYI, I got a python code that is able to calculate the largest possible common subnet among two IP addresses. Is there any way this code can be revised so that I don't have to manually pass two arguments to the function and the program is able to scan through all the IP addresses in my CSV file rather than just two IP addresses? import ipaddress [CODE]"
+ },
+ {
+  "id": "P0633",
+  "title": "Django URL 404 - 1 week spent debugging with GPT4, Claude luck. One specific function is just NOT resolving",
+  "tags": [
+   "python",
+   "django",
+   "url",
+   "server",
+   "http-status-code-404"
+  ],
+  "body": "Issue Summary: I'm facing an issue where the /LS/mark-text-responses/ URL in my Django application is not being found when an AJAX request is sent to the mark_text_responses view. This issue is occurring in the user-facing part of my application, specifically in the JavaScript code that sends the AJAX request. I'm receiving a 404 Not Found error, indicating that the URL is not being resolved correctly. Relevant JavaScript Code: **javascript ** [CODE] Relevant Python / Django code: python [CODE] LM/views.py [CODE] What We Know for Sure: [CODE] I AM STUMPED. On the front-end, there's a button that says \"submit worksheet\". Nothing happens in terms of functionality except the py console shows 404 :( Steps Tried: [CODE] Expected: Expected calling the submit worksheet function to do anythign other than return a 404... Steps Tried: [CODE] Expected: Expected calling the submit worksheet function to do anythign other than return a 404... Edit #1 - Full Relevant Console Log [CODE]"
+ },
+ {
+  "id": "P1158",
+  "title": "Time limit exceeded on Leetcode 128 even for optimal time complexity",
+  "tags": [
+   "python",
+   "python-3.x",
+   "algorithm",
+   "sorting",
+   "time-complexity"
+  ],
+  "body": "I was attempting LeetCode question 128. Longest Consecutive Sequence : Given an unsorted array of integers [code] , return the length of the longest consecutive elements sequence . You must write an algorithm that runs in [code] time. Example 1: Input: [code] Output: [code] Explanation: The longest consecutive elements sequence is [code] . Therefore its length is [code] . Constraints: [code] [code] My first attempt did sorting followed by counting. This has O(nlogn) time complexity, but it surprisingly gave me 93.93% percentile for time complexity (40ms). I then re-read the question and realised the answer must be in O(n) time complexity. So I wrote the following code: [CODE] (I know, it's not a great practice to reuse num variable name in the nested loop, but that's beside the point of the question, I have tested using a separate variable as well with the same result as below) While this should theoretically be O(n) time complexity, faster than my first solution, this actually resulted in time limit exceeded for a couple of the cases and my code was rejected. I eventually submitted a passing solution after referring to the solution [CODE] where I identified 2 key differences: I reassigned nums to a set in-place instead of a new variable I used next_num instead of keeping a current_streak variable However, both of these changes does not seem like it should have significant impa"
+ },
+ {
+  "id": "P3513",
+  "title": "Creating triangle pattern in python looping two characters using nested loop",
+  "tags": [
+   "python",
+   "loops",
+   "nested-loops"
+  ],
+  "body": "Please help. I need to create this pattern: [CODE] The best I can do is: [CODE] But it is not what I need. I desperately need help."
+ },
+ {
+  "id": "P4736",
+  "title": "Splitting a string which contains mathematical operators in python",
+  "tags": [
+   "python",
+   "string",
+   "list"
+  ],
+  "body": "world!, I ran into a problem earlier today... I am trying to split operations apart from digits and variables. it'll split [code] , [code] , [code] , [code] apart from the digits or the variable (ex: 10+11+10 goes in the code and a list comes out with [code] My code: [CODE] The output I get: [CODE] The output I want: [CODE]"
+ },
+ {
+  "id": "P0611",
+  "title": "how can I close a lingering API connection?",
+  "tags": [
+   "python",
+   "websocket"
+  ],
+  "body": "I have a simple Python program that queries a server via API. It uses the polygon-api-client module and returns stock market data in the form of a python list. The code is as follows: [CODE] The code works, and in the terminal, I get a list of dictionaries. The issue is that theconnection doesnt close. Immediately following the list, I get the following message in the terminal: [CODE] And then a blinking cursor (instead of a prompt for another command.) How can I close the connection from within my code so that it returns and I get a prompt in the terminal? Also, in case it helps, the [code] module depends on [code] and [code] , so I assume that it uses one or both to create the web socket."
+ },
+ {
+  "id": "P2056",
+  "title": "Why spdlog not print in async function",
+  "tags": [
+   "python",
+   "asynchronous",
+   "logging",
+   "spdlog"
+  ],
+  "body": "[CODE] First, I created a task [code] inside [code] , which prints a line of [code] every second. When I used Python's default logging, everything worked fine, but with C++'s spdlog, there’s no output, regardless of whether I enable [code] or not. I have tried to disable [code] , still the same"
+ },
+ {
+  "id": "P2024",
+  "title": "Resolve infinite time for parquet file loading in pandas",
+  "tags": [
+   "python",
+   "pandas",
+   "machine-learning",
+   "parquet"
+  ],
+  "body": "[CODE] When I run the last line for loading the parquet file with the function read_dataframe1, it does not load even after waiting over 30 minutes and the cell keeps running What can be the reason?"
+ },
+ {
+  "id": "P5215",
+  "title": "Selenium can not find Accept All cookies button",
+  "tags": [
+   "python",
+   "selenium-webdriver",
+   "web-scraping",
+   "selenium-chromedriver"
+  ],
+  "body": "I am running a web scraper, which tries to scrape this side. However when accessing it, a Accept Cookies Windows opens. The button has the following HTML code: [CODE] My script looks like this: [CODE] The Cookie window with the accept button pops up, but the whole process exits after the timeout I have set with the following error: [CODE] Has anybody got a clue why it can not be found, even though it visually appears? I have also tried it with CSS selectors instead of XPATH but the same happens."
+ },
+ {
+  "id": "P5806",
+  "title": "How to get LinkedIn API via Python to work so I get number of followers?",
+  "tags": [
+   "python",
+   "linkedin-api"
+  ],
+  "body": "Problem statement: Using linkedin API in python I need to get number of followers and impressions. My Approach: I am added to my company's linkedIn page as a contributor. I created an app via developer.linkedin which is connected to the company's linkedIn page. Got following scopes for this app: r_organization_followers r_organization_social rw_organization_admin r_organization_social_feed [CODE] I use this to get the access token and call it \"authorization_code\". Also using \"CompanyName\" as my company name in the URL [CODE] Until here I get all the outputs correctly. However, when I try to get the followers data, I am getting hit with 500, internal service error. And this is for the last 1 week. I am convinced I am not doing something right here. [CODE] I have tried with various LinkedIn-Versions, like 202408 or 202402, either the response is the version is outdated or Internal server error. Any pointers?"
+ },
+ {
+  "id": "P1866",
+  "title": "Can&#39;t install numpy with PyPy 7.3.19",
+  "tags": [
+   "python",
+   "numpy",
+   "pip",
+   "pypy"
+  ],
+  "body": "I'm trying to install numpy (2.2.3) with PyPy 7.3.19 (Python 3.11.11). I'm using PyPy in a .venv folder. While the venv is active, I've tried running these commands: [code] [code] [code] First windows flagged the install as a virus: This was fixed by allowing the threat. After this was fixed I got this error (error has been truncated to fit stack overflow): [CODE] When trying to install numpy with Python 3.11 (without PyPy), it gets installed without errors. Software information: [code] : [PyPy 7.3.19 with MSC v.1941 64 bit (AMD64)] os: Windows 11 24H2"
+ },
+ {
+  "id": "P3144",
+  "title": "index out of range question during recursion in python",
+  "tags": [
+   "python",
+   "recursion"
+  ],
+  "body": "I am using python to try to get a sum of squares of the non-negative numbers of some tuples within a list: [CODE] so lst1 is my list where it has the first element being the tuple: (3, ('-5', '-4', '4')) # 3 is to indicate how many elements in this particular tuple so I have a two functions, the first function (i.e. iterate) calculate the sum of squares of the non-negative number within a tuple. The second function (i.e. iterateList) would go through the list lst1, tuple-by-tuple, to calculate the sum of squares within each tuple, basically it calls the first function and then return a list where each element in the list being the sum of squares of each of the individual tuple since I build the list by concatenate them using the + in my iterateList function. [CODE] However, I keep getting the error of index out of range: I think it has to do with the second iteration inside the iterateList function. But I just not sure how to fix it or where the exact error is. I have added some print statement to check where the error is. It seems it happens to the second element within the list: (2, ('2','4')) but I just not sure what range it is talking about when the error says \"index out of range\"."
+ },
+ {
+  "id": "P0551",
+  "title": "Which Python GUI frameworks expose native Windows UI Automation properties correctly?",
+  "tags": [
+   "python",
+   "windows",
+   "accessibility",
+   "ui-automation",
+   "screen-readers"
+  ],
+  "body": "I am developing a Windows desktop GUI application in Python and need proper compatibility with screen readers such as NVDA and JAWS. My main requirement is correct exposure of Microsoft UI Automation (UIA) properties and usage of native Windows controls. I tested: Tkinter: NVDA does not consistently read widgets. PySide6 (Qt): NVDA reads most controls, but some behaviors are not fully native. My goal is: Native Windows control behavior Reliable UIA support Minimal custom accessibility implementation From an architectural perspective, which Python GUI frameworks integrate best with native Windows accessibility APIs (UIA/MSAA)? Are there recommended approaches to guarantee proper screen reader support?"
+ },
+ {
+  "id": "P1914",
+  "title": "How to delete the dulplicate list in list of list if I want to check by spetific index?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "list",
+   "loops",
+   "nested-lists"
+  ],
+  "body": "So I try to delete the duplicate list in list of list by checking just from only one element in that list. I only know to delete the duplicate from normal list, can you guys help me? Thanks! So what I want to do is append just ONLY one list per name which I have sort it and the most value of each person will be the first one of another value in the same name. input : liz = [['Lina', 60], ['Gaga', 0], ['Dene', 100], ['Dene', 80], ['Dene', 0], ['Helen', 0], ['Will', 100]] expected output : lix = [['Lina', 60], ['Gaga', 0], ['Dene', 100], ['Helen', 0], ['Will', 100]] What I have try to reach it and it just append all of list into list because it isn't equal to recent of all because its value of index[1]: [CODE]"
+ },
+ {
+  "id": "P1654",
+  "title": "How do I add share drive access to a google service account",
+  "tags": [
+   "python",
+   "google-cloud-platform"
+  ],
+  "body": "All the documentation and google's support chat bot doesn't seem to be able to answer this simple question. How do I add share drive access to a service account? I am able to authenticate using python but I get this error when trying to create a folder. I've tried impersonating a user who has access, I also enabled domain-wide delegation in the workspace, adding the email from the service account to a group that has access to the shared drive and I have had no luck. Different pages point to adding roles in the IAM menu but nothing related to Google Drive appears in permissions that can be added. Authentication code: [CODE] Create folder code: [CODE] Error: [CODE]"
+ },
+ {
+  "id": "P0616",
+  "title": "Intercepting a TLS connection and serving a different certificate based on hostname",
+  "tags": [
+   "certificate-authority",
+   "proxy",
+   "python"
+  ],
+  "body": "I am trying to write a mitmproxy addon that allows me to automatically intercept a TLS connection from a client by using the hostname and then on-the-fly generate a new certificate (with pyOpenSSL and cryptography) and serve that certificate to that intercepted client. I have read the documentation for mitmproxy addons but it is difficult to understand how TLS interception can be hooked into from an addon ( https://docs.mitmproxy.org/stable/api/events.html#TLSEvents ). Based on this addon https://github.com/mitmproxy/mitmproxy/blob/main/examples/contrib/tls_passthrough.py and the previously mentioned documentation it seems like I would want to hook into [code] to send the client a custom ServerHello. Though from the [code] hook I can also see that there is a [code] class ( https://docs.mitmproxy.org/stable/api/mitmproxy/tls.html#TlsData ) used as an argument with the context object ( https://docs.mitmproxy.org/stable/api/mitmproxy/proxy/context.html#Context ) from where I can access the client connection ( https://docs.mitmproxy.org/stable/api/mitmproxy/connection.html#Client ) which exposes the mitmcert. This looks like what I want? How would I go about writing an add-on with this functionality? Manually testing using the [code] for that specific domain works, but I want to dynamically intercept based on the received [code] and generate and serve a certificate from there."
+ },
+ {
+  "id": "P0127",
+  "title": "Python docker: remove unused dependencies to reduce image size",
+  "tags": [
+   "python",
+   "docker"
+  ],
+  "body": "I dockerize an python app that has a dependency on a package that has dependency in numpy, pandas, scipy, etc.. Actually in the actual app only part of that dependencies are actually used. But when I install the application in dockerfile, all the wheels are downloaded and unpacked. Which leads to an layer of roughly 500MB in size. I already used [code] to make it a bit smaller, but of course the unpacked deps are still there. Can one do some nagic to only keep the actually used modules instead of all those huge packages? To give more specific example. I use one interpolation method from SciPy. So the SciPy package will be in my site-packages which takes alone 114MB unpacked. Most of this is never used. So I wondered whether there is some option to filter out unnused stuff. I found an tutorial that suggested to recompile all the packages with removing debug functionallity etc. but that only reduces the size by 40% and in an first attempt caused more problems, because one needs to provide even more build tools like rust etc."
+ },
+ {
+  "id": "P3390",
+  "title": "Poker all existing flops generation using Python",
+  "tags": [
+   "python"
+  ],
+  "body": "First, I can already manage to do what I want, what I'm talking about here is optimisation. I've created a way to generate a DataFrame in Python that will contain all the different flops of poker. 22100 = ((52x51x50)/6) I did it first very roughly, I needed about 20 lines of code and 16 seconds for the generation. Then I improved my code and managed to do it in 15 lines for 80ms. That's already a good start, but as I want to improve my skills, I'm looking for a better / faster way. Here is my code: [CODE]"
+ },
+ {
+  "id": "P3375",
+  "title": "Efficient Password Cracker",
+  "tags": [
+   "python",
+   "performance",
+   "passwords"
+  ],
+  "body": "I've begun work on a rudimentary password, code shown here: [CODE] In this code block, 'usernames' is just a list of usernames and 'MostCommonPWs' is a list of common passwords. Then, the intention is it uses a login mechanism (Login.pyc) and spits to the terminal \"Login.pyc 'current username iteration' 'current password iteration'\". It's a tad convoluted, so if anyone has any questions on how it works, just let me know! Anyway, this all works correctly, but my question is, right now, the list of common passwords I have is only about 20 passwords long. Is there any way to make this code block more efficient so that it could handle a password list of 1,000 - 100,000 passwords, or would this require a different sort of attack altogether. Thank you!"
+ },
+ {
+  "id": "P0973",
+  "title": "Python&#39;s requests is not working as expected",
+  "tags": [
+   "python",
+   "python-requests"
+  ],
+  "body": "The python request is giving 200 status code even though proxy server is powered off. While experimenting, I realized it's giving status code 200 for all the IP address from 0.0.0.0 to 255.255.255.255. Question: Why it's working? Does it go for localhost if proxy doesn't work? Is there any alternative which will throw an error or at least give connection refused?"
+ },
+ {
+  "id": "P4368",
+  "title": "SAM build can&#39;t resolve dependencies for &#39;onnxruntime&#39;",
+  "tags": [
+   "python",
+   "pip",
+   "aws-sam",
+   "aws-sam-cli",
+   "onnxruntime"
+  ],
+  "body": "My problem Summary I am trying to implement YOLO on AWS Lambda, and when trying to build a Lambda Layer with ONNX, I get [code] . Minimal example Here's a minimal template that reproduces the error: [CODE] The [code] file looks like: [CODE] When running with the [code] option, these are the logs of the important part (formatted for easier reading): [CODE] What I've tried If I create a virtual environment, with python 3.12, and install the same [code] file, it installs without an issue. I am using [code] and [code] ."
+ },
+ {
+  "id": "P5448",
+  "title": "ctypes.ArgumentError passing a const char * from Python 3 to C function in Windows DLL",
+  "tags": [
+   "python",
+   "python-3.x",
+   "ctypes"
+  ],
+  "body": "I have a function in a Windows DLL: [CODE] which I am trying to invoke from a Python 3.12.9 script as follows: [CODE] and am getting: [CODE] What am I doing wrong? Many thanks"
+ },
+ {
+  "id": "P2667",
+  "title": "opencv keeps ignoring my cv2.waitkey(1) character",
+  "tags": [
+   "python",
+   "json",
+   "opencv"
+  ],
+  "body": "I'm using opencv's waitkey(1) and saved it in a variable named 'key' why does my program keep on ignoring my character? Code: [CODE] I tried re installing opencv altogether, but the problem still persists. I think its got something to do with my settings or json file?"
+ },
+ {
+  "id": "P5918",
+  "title": "How does P2P multiplayer work without port forwarding?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "sockets",
+   "ip",
+   "p2p"
+  ],
+  "body": "I'm just trying to understand the title, basically. I understand how client/server relationships work, for example, using the socket module in python. A server is hosted somewhere, the router there forwards a port to be handled by the machine that is hosting the server, and the clients connect to the server. Games like Overwatch and Minecraft (although you have to host the server yourself) use this setup as I understand P2P of course, the peers all act as both server and client to each other. As I understand, Deep Rock Galactic uses this method. But how do the clients connect to each other without port forwarding? Why and how are their requests not blocked at their router's public IP? How can this be emulated? If someone could explain that, preferably with a demonstration of a simple p2p connection using python sockets, I would be very grateful"
+ },
+ {
+  "id": "P1402",
+  "title": "How to get one or multiple values from a cell and dump the rest of the cell using pandas",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "split",
+   "jupyter-notebook"
+  ],
+  "body": "In this database of movies, there’s this column called spoken languages. The data in the column looks like this [CODE] I need to extract the language code, so I was thinking of using the string split function to extract the code between the quotes after this specific line ‘“iso_639_1”:’ and using that to clean the data."
+ },
+ {
+  "id": "P2000",
+  "title": "Python fast interpolation with consistent input shapes",
+  "tags": [
+   "python",
+   "performance",
+   "matplotlib",
+   "scipy",
+   "interpolation"
+  ],
+  "body": "I have some data that is on a consistent grid like the one bellow, where each point has some scalar value: I'd like to interpolate the scalars onto a regular grid like the one bellow: Currently I am using scipy.interpolate.griddata, but it is a bit slow. I have 162000 data files that need to be interpolated in the exact same way (and plenty more in the future), and so a much faster algorithm would be desirable. All data files have scalars that need to be interpolated with the exact same grid structure. A simple toy example is provided bellow: [CODE] I feel like we could take advantage of the consistent shape that the data needs to be interpolated from to significantly speed things up, but I don't know if there are any python functions that can make use of this advantage. Specifically, I am converting scalar data from an Icosphere onto a UV sphere. Perhaps there are functions out there that already do this? I've tried 3D interpolation algorithms, but they are much slower than the griddata approach. Any suggestions?"
+ },
+ {
+  "id": "P2508",
+  "title": "Joblib process not working when loading model",
+  "tags": [
+   "python",
+   "joblib"
+  ],
+  "body": "I have created an image classification model using pre-trained model inceptionV3. After I trained the model on my dataset I saved the model using joblib. When trying to load the model Im getting error \"Unsuccessful TensorSliceReader constructor: Failed to find any matching files for ram://1ea4479d-6a25-4562-965a-428f7eb33342/variables/variables You may be trying to load on a different device from the computational device. Consider setting the [code] option in [code] to the io_device such as '/job:localhost'.\" Any idea why is this message appearing or is it because you cant use joblib to save a model made from pre-trained model. Below is the code and the error [CODE]"
+ },
+ {
+  "id": "P5367",
+  "title": "Pyinstaller: ModuleNotFoundError: No module named &#39;gradio_rangeslider&#39;",
+  "tags": [
+   "python",
+   "pyinstaller",
+   "exe",
+   "modulenotfounderror",
+   "gradio"
+  ],
+  "body": "I am trying to package my python program using 'gradio' for the GUI and the custom gradio addon 'gradio_rangeslider' (by freddyaboulton on GitHub). Previously I was unable to import gradio until I followed this thread ( https://github.com/pyinstaller/pyinstaller/issues/8108 ). I added --collect-data=gradio and --collect-data=gradio_client to the command line argument and specified in the .spec file to import gradio as 'py' files. i generated a .spec file by using: [code] The .spec file is as follows [CODE] I then ran: [code] The .exe was constructed but when I run it i get the following error. [CODE] I have trieed adding --collect-data=gradio_rangeslider to the pyi-makespec command and setting gradio_rangeslider as 'py' compile mode in the .spec file. [CODE] But I still get the same error. I am unsure if this module is configured correctly, or if I am missing something. All modules are installed in a python virtual environment and pyinstaller is being run from within the virtual environment. The code runs file as a python file. Any help with this would be appreciated. EDIT: found this message in the pyinstaller CMD outputs [code] I don't know why it thinks its not a package."
+ },
+ {
+  "id": "P4505",
+  "title": "Getting statistical values from deeply nested dictionary with k8s resource recommendations in YAML string",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "Since Goldilocks only supports machine-readable output via the CLI, which is namespace-scoped, I wrote a script to scrape every pod in every namespace in every cluster using requests, kubernetes , and beautifulsoup. It basically grabs the YAML code blocks out of the DOM, which look like this: [CODE] I then dump those into a nested_dict , which looks like this: [CODE] From there, I parse values out into another nested_dict: [CODE] I now need to generate statistical values for a given SOA's CPU and Memory requests/limits - min/max/median/average is probably sufficient. Preferably, I'd have these values for a given cluster, as well as across n clusters. The units aren't guaranteed, but can be split out and compared to do the math - for instance, memory could be presented in M[B] or G[B]. I could just go further with the nested_dict, and probably do some dict comprehension and the statistics library, but I feel like Pandas is probably a better solution. Dumping the nested_dict straight into Pandas works, and gives me this: Pandas is smart enough to let me split out the row values based on their keys, so I presume I could do something with iloc and mean, but I'm not sure how. Potentially adding a twist, not all SOAs are deployed to all namespaces, and of course this is only one cluster, although it's not a deal-breaker to have multiple dataframes, one for each cluster. Open to any s"
+ },
+ {
+  "id": "P4538",
+  "title": "How to extract certain data from list of serial port data using python",
+  "tags": [
+   "python"
+  ],
+  "body": "i am beginner. i have connected my arduino to my raspberry pi and get data from serial monitor. Below is the code that i used. [CODE] The ouput on each line consist of: mac address,data,time . How can i get just data (-83, -85, -89) from specific mac address (let say 40:49:0f) and pass into a variable in array? Can anyone assists? Thanks for help. The output at the moment like this: [CODE]"
+ },
+ {
+  "id": "P3596",
+  "title": "how can i use a function to identify if zero is the first number in an alphanumeric string?",
+  "tags": [
+   "python",
+   "function",
+   "for-loop",
+   "if-statement",
+   "indices"
+  ],
+  "body": "I'm trying to create a function that will identify if 0 is the first number in an alphanumeric sequence; for example, the function should evaluate to True if given the string \"J02\". I came up with a for loop that would work for inputs that are alphanumeric but not strictly alpha inputs. [CODE] I tried using an else statement that aligned with the indentation of the if char.isdigit() == True: ; but that would make the return of the function true if the first index of the string is a letter."
+ },
+ {
+  "id": "P4260",
+  "title": "AttributeError: &#39;NoneType&#39; object has no attribute &#39;shape&#39; using OpenCV on Raspberry Pi 4",
+  "tags": [
+   "python",
+   "opencv",
+   "raspberry-pi",
+   "imutils"
+  ],
+  "body": "I'm using Raspberry Pi 4B and running OpenCV on it. I have attached webcam for video steam to detect objects using OpenCV, also, a mouse and keyboard. I'm facing a very unique problem here, when I run the python script containing the OpenCV program, it runs smoothly without any errors, and the frame window (webcam) is opened for detection. But after some time (say 50 frames), the RGB lights on my mouse and keyboard turns off meaning that they stop working (goes blank) as well as the webcam which is also connected to one of the USB ports, stops working, but everything turns back on after a second or two. So, the whole problem process takes like 1~2 seconds. Due to this problem, the program shows an error. Error: [CODE] which basically means that the program is unable to read frames from the webcam as it gets non-responsive for like 1~2 seconds. Not to mention that this problem doesn't occur while idling or doing anything else. What could be the cause that is making Raspberry Pi do that weird thing? PS: I have run this program on Windows PC multiple times and it runs smoothly without giving any errors."
+ },
+ {
+  "id": "P5968",
+  "title": "How to update detached objects efficiently",
+  "tags": [
+   "python",
+   "sqlalchemy"
+  ],
+  "body": "I'm reading an object, e.g. UserModel, after reading it I convert it to my Business model, User. The service than modifies the user based on some logic. When the process ends I want to update the table with the changes. My initial thought was to convert the User to UserModel and call some sort of [code] however this method doesn't exist. The two solutions I found were problematic: to create an update statement with the explicit columns changed, I prefer to avoid this approach as it requires specifying specific fields when updating. Using merge which I don't want to use due to its performance overhead. Example: [CODE]"
+ },
+ {
+  "id": "P5742",
+  "title": "MSAL Package for FastAPI",
+  "tags": [
+   "python",
+   "azure",
+   "fastapi",
+   "msal"
+  ],
+  "body": "I want to create an API using FastAPI but this API has to recieve a token generated with Azure Active Directory. For now, I only need to read the token and retrieve the info. But I wanna use the Microsoft Authentication Library (MSAL) to achieve it just because it's probable to use other stuff with the library. My code for now, is this: [CODE] As seen, this use the JWK to decode the token but doesn't use the MSAL package. Any suggestions?"
+ },
+ {
+  "id": "P1549",
+  "title": "What is causing this code to output &quot;Unreachable&quot; and &quot;continue and break not in the loop&quot;?",
+  "tags": [
+   "python"
+  ],
+  "body": "The console is saying that \"continue\" and \"break\" are not in the loop. [CODE] I tried to executed but nothing works. The console should state this: [CODE]"
+ },
+ {
+  "id": "P1662",
+  "title": "PyVISA error reading from TCP/IP unless exact number of incoming bytes is specified",
+  "tags": [
+   "python",
+   "tcp",
+   "labview",
+   "pyvisa"
+  ],
+  "body": "I have some Python code for reading from a device, which returns a read error unless I specify exactly the number of bytes returned or fewer. The following code successfully returns [code] , which is exactly 8 characters and is the correct response. But we will not always know the correct length of the response in advance and replacing [code] with [code] or [code] or [code] causes an error. [CODE] Here are the error and proximate debugging statements for [code] : [CODE] The device is an obscure Fibre-Bragg-Grating demodulation device with very little documentation. To my knowledge it uses no termination character for input or output (changing it from [code] to [code] or [code] doesn't alter things). I have looked up the error code here: https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000000P6FmSAK but it sheds no light. We have separate working code using the Python socket library and it ostensibly does exactly the same as here: opens a TCPIP connection, writes a byte string, reads a response (into a buffer with 1024 characters). Unfortunately the goal is a PyVisa implementation, not a raw sockets implementation."
+ },
+ {
+  "id": "P4713",
+  "title": "matplotlib axes3d how to use all window space plotting",
+  "tags": [
+   "python",
+   "matplotlib",
+   "pyqt",
+   "pyqt5",
+   "matplotlib-3d"
+  ],
+  "body": "I have an application in python that embeds a [code] in a QWidget to draw 3D curves. The problem is that when resizing or there is a lot of space in the window, matplotlib cuts the plot like in the image below. I tried [code] , [code] , [code] , [code] and changed the [code] and [code] , but nothing worked. I think it is something to do with the projection matrix and the clipping plane/frustum. How can I use the full space of the window? Here's a simple example. The matplotlib window doesn't fill all of the window. You can also remove [code] and keep the mouse right button pressed and drag down. You can play to zoom in. [CODE]"
+ },
+ {
+  "id": "P1246",
+  "title": "Refresh token being passed in response body in registration but not login in Django",
+  "tags": [
+   "python",
+   "django",
+   "django-rest-framework",
+   "jwt",
+   "dj-rest-auth"
+  ],
+  "body": "I am using the Django REST Framework with [code] and [code] for authentication and authorisation with JWTs. From what I have heard, using HTTP-only cookies to store the tokens is a secure approach where the access token is passed in the response body but the refresh token is passed to the browser as a cookie. The default (straight from dj_rest_auth.registration.views) login endpoint works this way, returning the access token in the response body and returning the access and refresh tokens as HTTP-only cookies as well as a csrftoken and sessionid. However, the default signup endpoint doesn't exhibit the same behaviour, it returns both access and refresh tokens in the response body and returns neither as a cookie, but does return these cookies: messages, csrftoken, sessionid. Does anyone know why this might be happening and how I could get registration to behave the same way as login? Here are the relevant parts of my settings.py: [CODE]"
+ },
+ {
+  "id": "P5648",
+  "title": "Find match of numeric arrays Python",
+  "tags": [
+   "python",
+   "arrays",
+   "algorithm"
+  ],
+  "body": "Consider I have 2 arrays. arr2 will always be longer than arr1. I'd like to drop the values from arr2 to best fit arr1. If arr2 doesn't have an equal value to arr1 it will need to be the closest value that is still in arr2. [CODE] observing the output. the first value is 0, both have a match at the 0 index position next is 1, the arr2[1]==0, and is skipped because arr2[2]==1 the next value is 1 also here the next value is 2, arr2 does not have a three, 3 values like how arr1 does, and 2,3,4 are used from arr2 to best fit arr1. How could I get the desired output above from the 2 arrays? This isn't an interpolation problem. Is there a specific name for this problem? I'm not sure how to look this up."
+ },
+ {
+  "id": "P4844",
+  "title": "Python How can I use Folium in streamlit to show a map and when I hover to a market it pop up an image?",
+  "tags": [
+   "python",
+   "image",
+   "openstreetmap",
+   "folium",
+   "streamlit"
+  ],
+  "body": "I'm building a streamlit app that will show a map with lat and long markers. I'm using folium to display the map. How can I add images to the map so that when I hover over a marker a pop-up will show me the image of that marker? The images are in s3 static format. http://...../84f18d80-4125-11ed-80ab-f4ee08f238f9.jpg [CODE] The images are on the dataframe in the \"image\" column. So when I hover over one of the markers I would like to see the image of that specific marker."
+ },
+ {
+  "id": "P3349",
+  "title": "How do I get this Fahrenheit to Celsius Code in Python to return a value instead of the formula?",
+  "tags": [
+   "python"
+  ],
+  "body": "[CODE] The output***: [CODE] enter image description here"
+ },
+ {
+  "id": "P3993",
+  "title": "How to load a PDF from bytes instead of file in Pyside6?",
+  "tags": [
+   "python",
+   "qt",
+   "pdf",
+   "pyside",
+   "pyside6"
+  ],
+  "body": "I'm trying to display a PDF I created (using fpdf2) in a Pyside6 app. There seems to be two roads there: I can use QWebEngineView with plugins enabled, in which I can inject the PDF raw bytes, which works. It is not ideal for me since there's a lot of UI involved ; I'd like something cleaner. Or I can use QPdfView. That widgets takes an QPdfDocument object from which it reads from. Unfortunately, QPdfDocument only have a .load() function that takes a filename. Since I'm looking to avoid disk writes there, I'm not interested in temporarly saving the file to disk to show it on the GUI. There's two signatures on the .load() function tho : [CODE] Here's the thing: I can't instantiate a QIODevice from Python, so I can't feed it PDF's bytes like a buffer (there's a .write() function that looks interesting). I've tried using BytesIO (from io package), but no luck there. Is there a way to create a QPdfDocument object from a PDF file's bytes? Thanks for your help!"
+ },
+ {
+  "id": "P4928",
+  "title": "How can I get my column to drop decimals unless it&#39;s necessary",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "I have a column that is currently in dollars and my prof wants us to convert it so that it's showin inn 10,000's (for example 150000 will be 15, 30000 will be 3, 15000 will be 1.5). I was able to convert it but I don't know how to get it to only show the decimal if it's necessary (like the 15000 being 1.5). Does anyone know how I can get it to show whole numbers unless it's like 1.5? [CODE] If I use the astype(np.int64) it shows the whole number but if I don't it puts a bunch of decimals, if i use the round() i get the 0"
+ },
+ {
+  "id": "P5203",
+  "title": "Enumerated dataclass types: subclass or custom constructors?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "python-dataclasses"
+  ],
+  "body": "I often find myself making dataclasses of enumerated type - for instance an [code] dataclass that has a few parameters and can be one of several types. I can see two ways to code this. First is to encapsulate everything into one class and provide custom constructors for convenience: [CODE] Usage: [CODE] The other is to encapsulate at the module level and create multiple subclasses: [CODE] Usage: [CODE] Is there a reason to prefer one of these to the other - or another, better way to provide this kind of behaviour?"
+ },
+ {
+  "id": "P4597",
+  "title": "What is the python code for find all the possible values?",
+  "tags": [
+   "python"
+  ],
+  "body": "Suppose I have a series of numbers of 14 digits. I know the 10 digits and the remaining 4 were from 2,3,0,8 and 9. I also know the order means on which index the 4 digits have to be placed. I want to make a python program for finding all the possible combinations. Example: 14-digit series were like 001_ 010_1 83__4 the blank spaces can be from either 2,3,0,8 or 9. I want to know all the possible combinations."
+ },
+ {
+  "id": "P1884",
+  "title": "Control over browser lost when executable path is specified",
+  "tags": [
+   "python",
+   "selenium-webdriver"
+  ],
+  "body": "I've renamed the chrome executable to [code] for experimenting purposes, and well, it doesn't open the webpage by [code] but it does open the chrome, by debugging I found out that I've lost control over the browser once it opens, the code works completely fine if i dont specify the executable path, i.e just [code] Below is my code. [CODE] To be noted that it isn't the chromedriver, but the chrome executable, if I run the above code when the executable is named anything apart from chrome it throws an error"
+ },
+ {
+  "id": "P1653",
+  "title": "Running unit tests during pip install when using scikit-build-core with pyproject.toml",
+  "tags": [
+   "python",
+   "pip",
+   "pyproject.toml",
+   "scikit-build"
+  ],
+  "body": "Is there a way to automatically test the installation of a python package that is built using scikit-build-core? I already got the C++ unit-tests as part of the C++ build like so , can something like this be done for the python bindings as well? The test does not necessarily have to be invoked by scikit-build-core, if there is some other mechanism that can be invoked automatically by [code] . Of course it's not too much effort to run the test manually after install but you also don't want to put the cherry on top of the cake manually after install ;) While writing this question, I had the idea that this automatic test could also be done by cmake after building the python library, and I actually got it working: I append this code [CODE] to my CMakeLists.txt which basically looks like this . However, this is somewhat hacky and only tests that the generated lib can be imported to python, not if it's available to the user after installing."
+ },
+ {
+  "id": "P4317",
+  "title": "How to create a video player gui that you can increase and decrease video files&#39;s audio in python?",
+  "tags": [
+   "python"
+  ],
+  "body": "I'm new to programming. I'm trying to create a video player GUI using tkinter in python and TkVideoplayer to play my video files. I can only find working volume control function for audio files using pygame, but i can't find any for video files' audio. My question is : \"Can I control the volume of my video files' audio in python?\" If yes, : \"How can I increase or decrease my video files audio in python? \""
+ },
+ {
+  "id": "P1904",
+  "title": "How do I disable a VM Locks using Azure REST APIs?",
+  "tags": [
+   "python",
+   "azure",
+   "rest",
+   "locks"
+  ],
+  "body": "I'm working on an API that uses Azure REST APIs to delete a VM, with disks and network interfaces when given a specific VM name in the URL. I was told the first thing I have to do is fetch the locks associated with the VM and disable them. I found that I can obtin the locks by calling the Azure API \"list of locks at Subscription_ID level\": [code] This returns a json payload with a list of locks with the respective VMs that are associated: [CODE] In this payload I can see both lock and VM, but I haven't found an API for disabling the lock, or removing it. What would be the best way to remove this VM lock through Python REST API?"
+ },
+ {
+  "id": "P5762",
+  "title": "How to expand list columns into rows in polars?",
+  "tags": [
+   "python",
+   "dataframe",
+   "python-polars"
+  ],
+  "body": "I am trying to expand the list column data into non list format in [code] but not able to do it. dataframe [CODE] creating list column dataset below [CODE] [CODE] Getting Error when trying to expand [code] into rows instead of list [CODE]"
+ },
+ {
+  "id": "P5171",
+  "title": "Order of columns in a plotnine bar plot using a polars dataframe",
+  "tags": [
+   "python",
+   "dataframe",
+   "python-polars",
+   "plotnine",
+   "polars"
+  ],
+  "body": "I'm quite new to the packages polars and plotnine and have the following code: [CODE] It runs without errors. However, the Category order is not right. The \"5-10\" value show be on \"row 3\". My questions: Is there a way to set the categorical order in a polars dataframe to fix this? Is there a way to set the categorical order in plotnine?"
+ },
+ {
+  "id": "P2307",
+  "title": "Why doesn&#39;t VS Code&#39;s Pylance show function descriptions for OpenCV?",
+  "tags": [
+   "python",
+   "opencv",
+   "visual-studio-code",
+   "intellisense",
+   "pylance"
+  ],
+  "body": "I just installed MS VS Code and all of the recommended extensions for Python, including Pylance. In every tutorial for OpenCV I see, there are descriptions shown for every single function when I type them or hover my mouse above them. But as you can see in the images below, I get no description. The information I get: The information I would like to get: In the settings.json I already set [code] to Pylance. I also tried uninstalling all the extensions and reinstalled VSCode."
+ },
+ {
+  "id": "P0332",
+  "title": "Running a python script with a Azure SQL connection on Heroku",
+  "tags": [
+   "python",
+   "heroku",
+   "azure-sql-database"
+  ],
+  "body": "I have this simple python script, which works fine on local with either ODBC Driver 17 or ODBC Driver 18, the database is a Azure SQL db. [CODE] when I deploy the script to Heroku, and run it, I get this Error en la conexión: ('08001', '[08001] [Microsoft][ODBC Driver 17 for SQL Server]SSL Provider: [OpenSSL library could not be loaded, make sure OpenSSL 1.0 or 1.1 is installed] (-1) (SQLDriverConnect)') I added these buildpacks but I got the same error enter image description here Any ideas? I ran it, I should expect to get results back from the database, but looks like I'm getting errors trying to connect the DB."
+ },
+ {
+  "id": "P5616",
+  "title": "sqlite3.OperationalError: unknown function: CONCAT_WS() when querying a virtual column with SQLiteODBC",
+  "tags": [
+   "python",
+   "windows",
+   "sqlite",
+   "odbc",
+   "concat-ws"
+  ],
+  "body": "I'm facing an issue with sqlite3.OperationalError: unknown function: CONCAT_WS() in my Python 3.12 application. I'm using the sqlite3 module to connect to an SQLite database via an ODBC driver ( http://www.ch-werner.de/sqliteodbc/ ) in Windows 10. My SQLite3 version is 3.46.0. The traceback is: [CODE] The error occurs when I try to query a virtual column that uses the CONCAT_WS function. Table definition is: [CODE] The query in question is this one: [CODE] Interestingly, the same query works perfectly fine in both Beekeeper Studio, DBeaver and WSL2, but not in Windows or any PowerBI/Excel source using the ODBC driver."
+ },
+ {
+  "id": "P1245",
+  "title": "Insert JSON Array into Elasticsearch Using Python Bulk API",
+  "tags": [
+   "python",
+   "json",
+   "elasticsearch"
+  ],
+  "body": "I have a JSON array of 100 records , I want to insert it into elasticsearch ,I tried it using the below code but it gives me JSON Error exception . I am not sure where I am doing it wrong . The code which I am using to insert record is [CODE] When I do bulk insert using the above code I get the below exception , [CODE]"
+ },
+ {
+  "id": "P0051",
+  "title": "How reload plugin automatically after installing in the startup.py script",
+  "tags": [
+   "python",
+   "qgis",
+   "pyqgis"
+  ],
+  "body": "In my startup.py script I run code to install a plugin based on a zip file and the plugin is extracted succesfully to the path location where QGIS looks at to find plugins. During the same QGIS session, the button for the plugin is not shown and based on qgis.utils.active_plugins it appears that the plugin is not yet active. When I close the current QGIS session and open a new QGIS session, the plugin is now active and shown as a button. However, it would be less confusing to the user to if the plugin is simply already shown, since I write log messages that the plugin is installed. So some users might start looking for the plugin, while the plugin is not yet available. Are there PyQgis functions that automatically update the active plugins and reload plugins? Below is my current startup.py script [CODE]"
+ },
+ {
+  "id": "P2080",
+  "title": "Pass string to Data frame - For loop",
+  "tags": [
+   "python",
+   "python-3.x",
+   "pandas"
+  ],
+  "body": "I have the following code example. I basically want to parse the string inside the loop. [CODE] What I need is for example, the two lines below to run [CODE]"
+ },
+ {
+  "id": "P0652",
+  "title": "Getting latest updated object on each S3 bucket",
+  "tags": [
+   "python",
+   "amazon-web-services",
+   "amazon-s3",
+   "aws-lambda",
+   "boto3"
+  ],
+  "body": "I am trying to take the list of unused S3 buckets. For that I am taking latest updated object on each bucket and comparing the last modified date with a given date. I am receiving key error on contents. This is my code. [CODE] This works perfectly fine on my local system, but not on AWS Lambda. I receive the below error. Any insights? Response { \"errorMessage\": \"'Contents'\", \"errorType\": \"KeyError\", \"requestId\": \"e981bffb-61da-4bc3-8078-29c13018e659\", \"stackTrace\": [ \" File \"/var/task/lambda_function.py\", line 17, in lambda_handler\\n latest_updated = max(objectlist[\"Contents\"],key=lambda x: x['LastModified'])\\n\" ] }"
+ },
+ {
+  "id": "P5447",
+  "title": "How to make a column with data type Bit and lenght 4 in sqlalchemy for mariadb or mysql",
+  "tags": [
+   "python",
+   "mysql",
+   "sqlalchemy",
+   "mariadb"
+  ],
+  "body": "I have not found a way to do this as the BIT data type in sqlalchemy inherits from Boolean datatype. [CODE] AttributeError: 'BIT' object has no attribute 'length'"
+ },
+ {
+  "id": "P1720",
+  "title": "How to calculate the correct persistence diagram from a binary-mask-png using GUDHI",
+  "tags": [
+   "python",
+   "pytorch",
+   "persistence",
+   "topology"
+  ],
+  "body": "I'm trying to get the persistence diagram from a mask(for segmentation), and my codes are as follows: [CODE] And I got: and It seems like there were something wrong. Even when I tried to change my png, or even I tried generated some binary masks randomly, the Persistence Diagram always showed like this, with just two red points. But it seems like the function have generated the correct [code] ! Then why?! Please help! Thanks! Please tell me if I am wrong at any point!"
+ },
+ {
+  "id": "P1022",
+  "title": "Regex to split this string after &#39;.&#39; if there is a capital letter [A-Z] after it",
+  "tags": [
+   "python",
+   "regex",
+   "split"
+  ],
+  "body": "the string is : \"Cryptocurrency prices today were trading mixed with the world's largest cryptocurrency by market capitalization trading marginally lower. Cryptocurrency prices today were trading mixed with the world's largest cryptocurrency by market capitalization trading marginally lower. Bitcoin prices today were down 0.9% at $61,693. It is up 112% this year so far after hitting a record high of near $67,000 in October.Ether prices climbed to record high during the weekend. The AUM included all-time highs for individual asset products such as $55.2 billion for bitcoin products (52.2% increase) and $15.9 billion for ethereum products (30.0% increase).\" the out put will look like this : [CODE]"
+ },
+ {
+  "id": "P3816",
+  "title": "Python behave test is failing, but code working by itself",
+  "tags": [
+   "python",
+   "testing",
+   "bdd",
+   "python-behave"
+  ],
+  "body": "I have code about game \"Towns\", where you are naming a town and the next town should start from last char of last town. By itself it seems to work, but an error occurs during testing. [CODE] [CODE] Feature: [CODE] Test: [CODE] When I run test, it says: [code] Why?"
+ },
+ {
+  "id": "P3009",
+  "title": "Correct use of psycopg3",
+  "tags": [
+   "python",
+   "python-3.x",
+   "postgresql",
+   "psycopg3"
+  ],
+  "body": "I am studying the psycopg3 library for working with postgresql, I wanted to know if I applied the correct approach to working with psycopg3. I recently learned what pool connections are, so I wrote the following code: [CODE] Before this I just created a connection using the old approach but I didn't know about the pool: [CODE] I would like to know if I am using and programming psycopg3 correctly."
+ },
+ {
+  "id": "P0182",
+  "title": "Creating seaborn histplot with dates instead of data&#39;s default dates",
+  "tags": [
+   "python",
+   "date",
+   "graph",
+   "seaborn",
+   "histogram"
+  ],
+  "body": "I'm wanting to format this histplot in seaborn so that it includes the date range for the entire dataset I have, not just the range in which this variable occurs. Histplot with code above, shows data ranging in the may 2025 time frame I want it to show it only occurs in may compared to other months of my dataset, so it looks more like this one. Histplot showing data ranging from February to May, showing a peak in May Is there a way to create this formatting even though there is no data for any of the preceding months? I already tried using binrange with a start date and an end date, but it kept giving me errors when I tried that. I tried using a binrange function with the bounds of my dataset as the starting and ending point, but it did not respond well to the date format."
+ },
+ {
+  "id": "P2057",
+  "title": "What is the difference between a SubQuestionQueryEngine and a MultiStepQueryEngine?",
+  "tags": [
+   "python",
+   "llama-index"
+  ],
+  "body": "The title says it: What is the difference between a SubQuestionQueryEngine and a MultiStepQueryEngine? Intuitively, these things seem very similar: Breaking a question down into multiple steps is very similar to breaking a question down into multiple subquestions. Conceptually, what is the difference between both? In what situation would you use one over the other? Would/could you combine them somehow or does that not make sense?"
+ },
+ {
+  "id": "P0293",
+  "title": "Add missing value of pair",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "I have a dataframe: [CODE] [CODE] And like to fill up the missing Date: 2023-01-20 Sex: F as 0 to Value, Target and A. Result: [CODE]"
+ },
+ {
+  "id": "P1621",
+  "title": "I need to sort a list of coordinate pairs by y decreasing then x increasing",
+  "tags": [
+   "python",
+   "sorting"
+  ],
+  "body": "I am trying to sort this list of pairs so they are ordered by y decreasing as the primary factor and x increasing as a tie breaker. [CODE] So the result should be : [CODE] What I have is: [CODE] Which is reversing both values: [CODE] How do it get to just reverse the Y but not the X coordinate?"
+ },
+ {
+  "id": "P3675",
+  "title": "Which correlation method do I use?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "pandas",
+   "correlation",
+   "coefficients"
+  ],
+  "body": "For a project, I have a dataset: Eruptions Waiting 0 3.600 79 1 1.800 54 2 3.333 74 3 2.283 62 4 4.533 85 and was instructed to turn it into a Seaborn pairplot: I am then asked: What correlation method should I use based on this graph. I am stuck between Pearson and Spearman. I am unsure which I should use. Based on this, I am also asked: Are the durations correlated with the waiting time between eruptions? Any correlation >= .7 is a correlation. Please help"
+ },
+ {
+  "id": "P4931",
+  "title": "Run Boruta on Weighted Dataset",
+  "tags": [
+   "python",
+   "weighting"
+  ],
+  "body": "I have a dataset which I have split into [CODE] I've also defined a random forest classifier: [CODE] To run boruta I have the code set up as: [CODE] However, I'm getting a TypeError saying sample_weight is an unexpected argument, but I cant work out where else I can add it to my code. Does anyone know a way around this? Or does anyone know if using BorutaShap may help solve this?"
+ },
+ {
+  "id": "P2732",
+  "title": "How can I store the value of a Dash slider component?",
+  "tags": [
+   "python",
+   "user-interface",
+   "plotly",
+   "plotly-dash",
+   "bioinformatics"
+  ],
+  "body": "I am developing an MRI file viewer app using dash and plotly. The way it works is I can select a specific MRI file from my dataset and the app will generate a slider that could take you through the different MRI slices. There's also a show ROI (ROI is short for region of interest) check box that if toggled will re-size the slicer to only slide through the MRI slices on which the ROI could be shown. The problem is when I uncheck the Display ROI box and go back to the normal view with the original slider the MRI slice gets reset to the first one and not the one I was viewing last. Is there a way to store the slider value when viewing the ROI so that when I uncheck the \"Display ROI\" box, the same slice I was viewing with the ROI remains selected for the full view? Here's the app's code: [CODE] I tried usind dcc.Store() as well as updating the 'value' of 'slice-slider' through my display_mri_with_mask() function by adding Output('slice-slider', 'value') to the callback, but nothing worked. I'm just stuck and any help would be much appreciated! Thank you in advance!"
+ },
+ {
+  "id": "P2410",
+  "title": "Python hvac implementation to retrieve secrets",
+  "tags": [
+   "python",
+   "hashicorp-vault",
+   "vault",
+   "hashicorp",
+   "secrets"
+  ],
+  "body": "I am working on a Python sample code for the first time. This is about how to retrieve secrets from Hashicorp Vault secrets manager API; [code] , my code is as follows: [CODE] As next step I am trying to retrieve the secrets [CODE] This is a very simple step, but it raises an error code I can't find on the web: InvalidPath: {\"code\":5,\"message\":\"Not Found\",\"details\":[]}, on get It seems like the URL I am giving is not the right one, because the secret path I am requesting is not available, then after reviewing it, it seems correct: [CODE] I also reviewed the client object properties, and corrected them as follows [CODE] Then I tried curl - it and it works, without raising any error. I think it is an easy implementation, that must be working fine, but it doesn't. I hope my explanation is understandable, letting you know the required details to find a solution."
+ },
+ {
+  "id": "P3280",
+  "title": "Axios POST causes CORS error despite enabling CORS in Flask",
+  "tags": [
+   "python",
+   "typescript",
+   "flask",
+   "cors",
+   "vscode-restclient"
+  ],
+  "body": "I have spent many days on this problem and still couldn't figure out how to solve this. I'm having CORS issues and I've tried enabling CORS in Flask but it didn't work. Backend code (hosted on port 5000): [CODE] Frontend code (hosted on port 3001. I use react, only the function that sends the request shown here): [CODE] Error as shown in Chrome console: Access to XMLHttpRequest at 'http://localhost:5000/process' from origin 'http://localhost:3001' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. and POST http://localhost:5000/process net::ERR_FAILED 403 (Forbidden) I also tested with VSCode REST Client using this request: [CODE] It worked using the REST client so the backend is running properly. But I guess the REST client doesn't follow SOP. So I tried to see if it does return with [code] header and it does: [CODE] Questions: I thought I already allow CORS using flask_cors but it didn't work. How do I solve this? Am I sending the same format of requests in my frontend and in VSCode REST client? If not, what's the equivalent frontend code of the request in REST client? From the curl response, it seems [code] header is indeed included, then why do I still get CORS issues? Is the 403 error a result of the CORS issue? Do I have two problems or one problem here? I'm sending a simple request, which means there's no prefli"
+ },
+ {
+  "id": "P3821",
+  "title": "LSTNet RuntimeError: Input and parameter tensors are not at the same device",
+  "tags": [
+   "python",
+   "pytorch",
+   "lstm"
+  ],
+  "body": "I cloned a github repo which runs a pytorch deep learning module, I customized this part to send the module and the data into GPU. [CODE] But I got this error instead [code] If I checked, both the module and the X and Y is already on cuda. Why the error still indicates the input and parameters are not at the same device?"
+ },
+ {
+  "id": "P5002",
+  "title": "Using already deployed Snowflake UDF from snowpark",
+  "tags": [
+   "python",
+   "snowflake-cloud-data-platform",
+   "user-defined-functions"
+  ],
+  "body": "So I have a prebuilt and predeployed set of Python UDFs that I would like to use from within a snowpark program. I defined the UDFs in SQL: [CODE] Now I want to leverage those UDFs from snowpark python dsl. Something like: [CODE] Is there a way to do this, or am I required to redefine dg_utility__field_contains_phone_number within my snowpark program? I want to be able to share UDFs between SQL and python. I think I could just use session.sql, but that would require me to generate dynamic SQL against the dataframe I want to apply these functions to and I'm looking to avoid that."
+ },
+ {
+  "id": "P4835",
+  "title": "How to save multiple files uploaded using FileInput in Python Panel?",
+  "tags": [
+   "python",
+   "panel",
+   "dashboard"
+  ],
+  "body": "I created a working code to upload multiple files using FileInput, and I binded it to a selector to show them in the dashboard after uploading: [CODE] I can see the filenames there: (Pdb) file_input.filename ['test_5.csv', 'test_4.csv', 'test_3.csv', 'test_2.csv', 'test.csv'] But the save method only works for me when I have uploaded only one file: (Pdb) out = io.BytesIO() (Pdb) file_input.save(out) *** TypeError: FileInput contains a single files but a list of filenames was given. Please provide a single filename or file-like object. I could not find anything useful reading FileInput documentation. Someones give me an working method to save multiple files using FileInput."
+ },
+ {
+  "id": "P5954",
+  "title": "Python Question Keeps on Getting Asked at the End of Code",
+  "tags": [
+   "python",
+   "python-3.x"
+  ],
+  "body": "I am trying to make a game for my highschool project and am finding that the question \"Take the sword? (yes/no): \" is repeating at the end of my code, any answer to fixing this would be greatly appreciated, please note that I am just a beginner as well so a bit of a brief explanation may be required depending on how in depth the answer is. Thank you! [CODE]"
+ },
+ {
+  "id": "P1144",
+  "title": "Roboflow Vs. Darknet for generating weight file and creating the model",
+  "tags": [
+   "python",
+   "machine-learning",
+   "yolo",
+   "yolov8",
+   "darknet"
+  ],
+  "body": "I have a YoloV8 data file format that is an annotation of data (images) done manually. What is the most effective and straightforward way of generating a model and therefore yielding the weights file? is it using [code] through the command: [CODE] then something like the following to generate the associate model: [CODE] Or using [code] through: [CODE] Seems to me darknet is more difficult to install."
+ },
+ {
+  "id": "P4160",
+  "title": "How to force SMS verification code instead of Telegram app notification using Telethon?",
+  "tags": [
+   "python",
+   "android",
+   "telegram",
+   "telegram-bot",
+   "telethon"
+  ],
+  "body": "I'm building a Telegram account automation tool using Telethon in Python. I need to log in to multiple phone numbers, some of which are not yet registered on Telegram. The problem is that when I call [code] , Telegram sends the login code to the Telegram app ( [code] ) instead of via SMS. For unregistered numbers or numbers without an active Telegram session, this makes it impossible to receive the code. What I've tried: [code] in [code] — this parameter is deprecated and no longer works in newer versions of Telethon. Calling [code] after the initial request — this sometimes works, but I'm not confident it's reliable across all account states. Questions: Is [code] the correct and reliable way to force SMS delivery in modern Telethon? Are there any edge cases where this still won't result in an SMS being delivered? Is there a way to directly request SMS on the first call without needing a resend step?"
+ },
+ {
+  "id": "P4295",
+  "title": "Using pandas shift and rolling for ML model",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "I'm building a Machine Learning program to predict football games. One of the features I want to use to train the program are the average goals scored by the team during the last 5 games. I have a pandas DataFrame that, amongst other things, contains this information. When I just use [code] , the goals of the game, which I'm trying to predict (to train the model) are also used to calculate the average of the last 5 games. I've tried to use [code] before [code] , but then the data gets shifted down (as expected) and gets replaced by [code] . This causes the number of values to be too small, so [code] automatically jumps to the next line and I have the same problem again. [CODE]"
+ },
+ {
+  "id": "P2140",
+  "title": "Problem faced in CP-SAT when using OnlyEnforceIf",
+  "tags": [
+   "python",
+   "or-tools",
+   "boolean-expression",
+   "cp-sat"
+  ],
+  "body": "I have the following excerpt from my Python code [CODE] It is my understanding that if d120 is False then d121 has to be True and the other way around. I am finding that both variables are False. What am I missing?"
+ },
+ {
+  "id": "P3940",
+  "title": "Opening a photo from a directory",
+  "tags": [
+   "python",
+   "image",
+   "directory",
+   "python-imaging-library"
+  ],
+  "body": "I am trying to open images from a kaggle dataset, which I have imported into my python program and have loaded I am unable to open the photo, when I run the code it simply produces a blank space I tried the following code below (this is a section of my wider code), yet it only produces a with [CODE]"
+ },
+ {
+  "id": "P4257",
+  "title": "Center one or both axis to center the &quot;view&quot; around a specific plot",
+  "tags": [
+   "python",
+   "matplotlib",
+   "axis"
+  ],
+  "body": "Let's say the point (10, 50) divides my plot of a 2d coordinate system in four sections: top left, top right bottom left, bottom right This point is fixed and I know its location in advance. Task: Always keep this point in the middle of the by matplotlib displayed coordinate system. Sure I can achieve this by for example setting [CODE] This perfectly centers mentioned point in the middle of the graph. The problem with this approach is, that I do not know in advance about my dynamic scatter data that I also want to visualize within this plot. Sometimes it might be [CODE] This would work with my previously set [code] and [code] but sometimes the data might be: [CODE] This data would not show up because it is outside of set [code] and [code] . Question: Can I keep the default dynamic expanding of the axis so every point of my data is included and still somehow center the point in \"the middle\" of the graph? Different phrasing: Can I specify the center of an axis without specifying its min and max and still keep the auto scaling so \"every point\" that is to scatter is included?"
+ },
+ {
+  "id": "P3389",
+  "title": "asyncio freezes when spawning multiprocessing process on Windows but works fine on Linux",
+  "tags": [
+   "python",
+   "windows",
+   "concurrency",
+   "multiprocessing",
+   "python-asyncio"
+  ],
+  "body": "I’m experimenting with mixing [code] and [code] in Python 3.12. On Linux, the following code works as expected — the event loop stays responsive and the child process prints normally. On Windows, the event loop freezes after the first [code] . Minimal code: [CODE] What happens: Linux: prints [code] , [code] , [code] , worker messages → works fine Windows: prints only [code] , then freezes indefinitely My questions: Why does the event loop freeze only on Windows? Is this expected because Windows uses the “spawn” start method? Is there a recommended workaround (e.g., using [code] , [code] , or setting a different start method)? Should [code] + [code] generally be avoided on Windows?"
+ },
+ {
+  "id": "P0071",
+  "title": "Llama_cookbook: why are labels not shifted for CausalLM?",
+  "tags": [
+   "python",
+   "large-language-model",
+   "llama",
+   "attention-model",
+   "fine-tuning"
+  ],
+  "body": "I'm studying the llama_cookbok repo, in particular their finetuning example . This example uses [code] model and [code] (input: dialog, output: summary). Now, looking at how they process the dataset , if we look at the \"labels\" part: For prompt tokens, every label is [code] For summary tokens, we have [code] Code: [CODE] I also see this when printing the actual samples with the Dataloader they create (Note: if you want to reproduce the behavior, you'll have to change the path to the dataset to [code] in the package internals; or maybe use a different dataset): [CODE] Why is the summary part correct? I thought that for [code] we must have [code] for every label we want to predict."
+ },
+ {
+  "id": "P2808",
+  "title": "How to avoid X11 race condition when multithreading with PyAutoGUI?",
+  "tags": [
+   "python",
+   "linux",
+   "multithreading",
+   "x11",
+   "pyautogui"
+  ],
+  "body": "I am using X11 display server. I have a Python script that uses PyAutoGUI to turn touches on the screen into mouse movement and controls. The packets which send the coordinate (and other) data of touches is sent over a named pipe (fifo). Because of this, I need to run a PyAutoGUI function within a thread that checks if the last packet has timed out and so the mouse should lift up (this is to determine between a tap and a drag and also end a drag). For the program to run smoothly, I need to set: [CODE] However, this seemingly causes a race condition between pyautogui and the X11 server and so the program crashes when it receives a reply that it was not expecting: [CODE] Here is the relevant code: [CODE] Here is what I have tried: I have disabled the thread (which removes the functionality of the mouse moving up but this is okay for this test). This resulted in no error and smooth performance. I have adjusted the pag.PAUSE to various values. Anything other than 0 is too slow and does not provide required performance. However, the higher the value, the less often the mentioned error occurs."
+ },
+ {
+  "id": "P3742",
+  "title": "Windows Defender asks to exclude PyCharm projects each and every time",
+  "tags": [
+   "python",
+   "pycharm",
+   "windows-defender"
+  ],
+  "body": "I've made a folder which contains Python projects and entered it into Windows Defender's exclusion list, but every time I make a new project in PyCharm I'm being asked to exclude the folder inside the excluded folder. Is there a step I'm missing? I've added the whole parent folder into the exclusion list and opened new project folders inside it."
+ },
+ {
+  "id": "P3370",
+  "title": "sqlAlchemy to_sql with azure function returning collation error, but work without issues if executing just the python file",
+  "tags": [
+   "python",
+   "sql-server",
+   "pandas",
+   "sqlalchemy",
+   "azure-functions"
+  ],
+  "body": "I have written a python method to form a pandas df and upsert it into sqlserver. This method works perfectly fine when I try to execute the python file alone. But it throws collation exception when I try to run via Azure functions. Here is my code: [CODE] Error when trying to execute from Azure function: Exception user_name (VARCHAR(100) COLLATE \"SQL_Latin1_General_CP1_CI_AS\") not a string Drivers: ODBC Driver 17 for SQL Server What could be the cause of this issue?"
+ },
+ {
+  "id": "P4154",
+  "title": "Not finding Module in non child folder in Python",
+  "tags": [
+   "python",
+   "visual-studio-code"
+  ],
+  "body": "I have a Python project in VS Code with this file structure: [CODE] The [code] files are empty. ( Update: They're not required.) In the main.py I try and import the lib module [CODE] When I run main.py (from VS Code terminal) I get this error: [CODE] What am I missing? How do I get it to see the lib module? Win11, VS Code, Python 3.14"
+ },
+ {
+  "id": "P1698",
+  "title": "Plotly won&#39;t produce a graph on python spyder/anaconda IDE",
+  "tags": [
+   "python",
+   "anaconda",
+   "spyder",
+   "physics",
+   "plotly"
+  ],
+  "body": "I have the following code that should produce spheres of infinite potential value at some specific points that represent atoms in a periodic silicon lattice, furthermore, it should also produce a surface of variable color, that represents the value for the calculated electric potential of that lattice due to the atoms in a cationic state. That said the problem I'm having is that after all the compilation no graph will show on the screen, and no problem has appeared in the console for troubleshooting. [CODE] I have already tried to analyze the variables tab and all of then have the expected values. Upon further research I've encountered the official plotly page that recommended that I reinstalled plotly via terminal, and so I did, just to get nothing as reward. A few days ago I've tried to create another post here that referred to the same code but a different problem, and since the problem was solved with a simple reboot of the IDE I've decided to delete the post, since it was no longer necessary and the problem has changed in to another totally different, or so I think."
+ },
+ {
+  "id": "P3267",
+  "title": "How to handle aiokafka getmany() exceptions in case of stopped kafka",
+  "tags": [
+   "python",
+   "apache-kafka",
+   "aiokafka"
+  ],
+  "body": "I am runnging aiokafka consumer in fastAPI app In the main file I am starting the consumer [CODE] I want to print ERROR if kafka was stopped My actions Turn on Kafka and fastAPI application - see valid logs Trun off Kafka (via docker stop Current result after the actions - I see logs \"Try consume\" Expected result - I want to see Error log (in the exception handler)"
+ },
+ {
+  "id": "P3145",
+  "title": "How do I add the project title to the project_details url&#39;s (slug) on this django project",
+  "tags": [
+   "python",
+   "django",
+   "django-views",
+   "django-urls"
+  ],
+  "body": "I've been stuck trying to add the project title to the project_details urls (slug). The issue is, I would rather achieve this without changing the models.py as this would create complications with the db... Is there a way to achieve this with just changes to the veiws.py, urls.py and the link tag? Here is my code, any help is much appreciated... [CODE] urls.py file: [CODE] For safe measure here is the models however I would like to achieve adding the title without adding a slug field if possible [CODE] example code (this didn't work got 404 error) [CODE] the error returned is as follows: [CODE] [CODE]"
+ },
+ {
+  "id": "P2848",
+  "title": "Permutation of list in python with one or multiple fixed items",
+  "tags": [
+   "python",
+   "list",
+   "permutation"
+  ],
+  "body": "I have a list of [code] I want all the possible permutations, with one or more entry fixed. e.g. If I want to fix third element [code] , then in all permutations I want to see [code] in the third place of the list. The code I wrote works well. [CODE] My main problem is if the list one is long and I want multiple indexes to be fixed then what is the best way to do that. the output is like this [code]"
+ },
+ {
+  "id": "P5152",
+  "title": "How to restrict float arithmetics in pulp or pyomo to specifically use float32",
+  "tags": [
+   "python",
+   "numpy",
+   "linear-programming",
+   "pyomo",
+   "pulp"
+  ],
+  "body": "I need pulp or pyomo to do ALL arithmetic operations exclusively using [code] . It seems that the default they use is float64. The following are 2 examples from both pulp and pyomo for the [code] operation. [CODE]"
+ },
+ {
+  "id": "P0362",
+  "title": "Refreshing page rather than creating new window in PySimpleGUI",
+  "tags": [
+   "python",
+   "sqlite",
+   "pysimplegui"
+  ],
+  "body": "I'm retrieving a large list of people from a database, then looping through each person to get their note/s and phone number/s. then displaying one person at a time with PySimpleGUI. My issue is that it I'm doing multiple sql queries rather than just one (I don't know if this is an issue), and I have to repeatedly Finalize() and close() the screen, which creates a new window each time, rather than just refreshing the current page. Am I able to refactor this so I don't have to close and create a new window each time? Thank you. [CODE]"
+ },
+ {
+  "id": "P3122",
+  "title": "GreatExpectations; ExpectColumnValuesToBeIncreasing; &#39;&gt;=&#39; not supported between instances of &#39;Timedelta&#39; and &#39;int&#39;",
+  "tags": [
+   "python",
+   "pandas",
+   "typeerror",
+   "great-expectations"
+  ],
+  "body": "I try to load many different csv files and data check them with GreatExpecatations. It works for ExpectColumnValuesToNotBeNull, ExpectColumnValuesToBeUnique and ExpectColumnValuesToMatchRegex. But with ExpectColumnValuesToBeIncreasing I get an error that I am trying to solve for the last 4 hours unsuccessfully. To reproduce on a small scale, create 'Test Calendar.csv': [CODE] The python script is: [CODE] The script itself runs without error, but yields amongst others [CODE] I cant figure out why This is the full result [CODE]"
+ },
+ {
+  "id": "P1363",
+  "title": "How to document *args parameter for method? [Python]",
+  "tags": [
+   "python",
+   "numpy",
+   "documentation",
+   "docstring"
+  ],
+  "body": "How do document a method arguments using NumPy (PEP 257) convention when it contains * args parameter? For example, I have such a method in my class: [CODE] What should go under parameters section? How is the correct way to document this if my intention is to make sure able to either provide a single object (Seis) or three objects (str, str, Interval) based on which the same object would then be internally created?"
+ },
+ {
+  "id": "P3266",
+  "title": "No error in code but Login is not working for python selenium simple script",
+  "tags": [
+   "python",
+   "selenium"
+  ],
+  "body": "[CODE] Above script is not having driver.close() but still chrome is getting closed automatically and login page is not opening Not sure what mistake I am doing here I am expecting Logged in paged after given login credentials But chrome is getting closed instead"
+ },
+ {
+  "id": "P5868",
+  "title": "Using Customized Pyinstaller .spec file with PyArmor",
+  "tags": [
+   "python",
+   "python-3.x",
+   "ubuntu",
+   "pyinstaller",
+   "pyarmor"
+  ],
+  "body": "If my Python 2 script has been packed using PyInstaller 4.3 using a customized [code] file and with the command [CODE] how do we use PyArmor 6.7.2 to pack the same Python script using the same [code] file? Running the following command [CODE] results in the error makespec.py: error: unrecognized arguments: ./start.py How can we fix this? PyArmor output: Why is it still trying to generate another .spec file? [CODE] foo.spec: [CODE]"
+ },
+ {
+  "id": "P5211",
+  "title": "Difference in Measuring Latency of (torch.)Multiprocessing.Queue",
+  "tags": [
+   "python",
+   "python-3.x",
+   "multiprocessing"
+  ],
+  "body": "I'm writing a program that requires transferring GPU tensors across processes in a pipeline manner. I knew that using torch.Multiprocessing would automatically get the CudaIpcMemHandle for me and send it through the pipe under the hood of Multiprocessing.Queue. I wanted to measure the latency of each item go through the Queue. I implemented this code [code] : The method is when the producer put an item to the Queue, it will also add a timestamp [code] in the tuple being sent through Queue. [CODE] The problem is the measured latency of each item is very high: [CODE] Usually IPC with Pipes shouldn't have taken hundreds of milliseconds. So I found another Stack Overflow Thread that also measures this component. Here's a reproducible snippet [code] [CODE] And the results turned out to be more quite accurate: [CODE] Here's my problems with this difference: I can't think of any concrete reason why there should be such a huge difference in measurement. In either case, there has to be a timestamp being sent through mp.Queue. So the issue shouldn't be pickling the timestamp integer. Another doubt is that the clock between processes are not synchronized. But I checked that time.perf_counter_ns() uses CLOCK_MONOTONIC. So the precision shouldn't be this far away."
+ },
+ {
+  "id": "P4645",
+  "title": "Picking an area on a grid",
+  "tags": [
+   "python",
+   "python-3.x",
+   "list"
+  ],
+  "body": "ok so i have a code that makes (n)lists in one list like for example [CODE] Where it would print each as [CODE] Here is the code [CODE] the code above me would print it like [CODE] Im confused on how to make it so the generated numbers where 1 = vertical[0][0] 2 = vertical[0][1] So if thechosenhalf were numbers from 1 to 8 it would change from [CODE] to [CODE] and if thechosenhalf were numbers 12 5 16 2 8 9 15 3 it would change from [CODE] to [CODE]"
+ },
+ {
+  "id": "P3520",
+  "title": "How can I write this code in a more professional way?",
+  "tags": [
+   "python",
+   "json"
+  ],
+  "body": "I'm currently working on a small project to practice (as you'll see from my code, I'm a beginner). The goal is simply to create a mini online library where I can add, delete, and view my books, and check if I already have a particular book in my library. I know this isn’t the best solution and that I should be using SQL, but this is actually my second version—I wanted to practice working with .json files first. So everything works, but I wanted to know if you have any advice on how to improve my code and make the syntax cleaner. I also realize I’m not very good at writing functions—can I create them here? [CODE]"
+ }
+]

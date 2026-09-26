@@ -1,0 +1,82 @@
+[
+  {
+    "qid": 79724772,
+    "answer": "Airflow doesn't natively support \"N of M tasks\" join conditions. Use an intermediate decision task: create a sensor that polls for exactly 10 task completions in test_1, then trigger test_2. Alternatively, use `upstream_list` with a subset: `test_1_subset >> test_2_all`, but this requires manually listing 10 tasks. Best practice: add a `@task.sensor` decorated function that monitors test_1's completion count and returns True after 10 succeed. This avoids hard-coding task references and scales cleanly."
+  },
+  {
+    "qid": 79725199,
+    "answer": "subprocess.call expects each list element to be a separate argument. Your issue: combining `-b:a 320k` as one element—it should be two: `'-b:a'` and `'320k'`. Same with `-id3v2_version 3` split to `'-id3v2_version'`, `'3'`. Corrected:\n```python\ncommand = ['/usr/local/bin/ffmpeg', '-i', '<input>', '-b:a', '320k', '-map_metadata', '0', '-id3v2_version', '3', '<output>']\nsubprocess.call(command)\n```\nThe shell parses arguments; subprocess.call treats each list item as literal, so flags and values must be separate elements."
+  },
+  {
+    "qid": 78937912,
+    "answer": "Yes, use the `bidict` library (pip install bidict): `from bidict import bidict; d = bidict({'ace': 0, 'bob': 1})`. It maintains true bidirectional mapping with O(1) lookups both ways. For your use case (compress strings to indices), bidict is the standard. Alternatively, the `sortedcontainers` library has `SortedDict` which can be wrapped. Your custom implementation works, but bidict is battle-tested, thread-safe, and has better semantics than subclassing dict. If you want minimal dependencies, your approach is reasonable—just add a `get_index()` method."
+  },
+  {
+    "qid": 79754286,
+    "answer": "The issue: triton is either not installed or incompatible. While using 8-bit avoids needing Triton, the import still fails due to old/broken bitsandbytes. Fix: install compatible triton and bitsandbytes versions together:\n```bash\npip install --upgrade bitsandbytes triton==3.0.0\n```\nOr use a pre-built wheel for Kaggle. If issues persist, fall back to 4-bit quantization without Triton: `load_in_4bit=True, bnb_4bit_compute_dtype=torch.float16`. Check your Kaggle GPU type (Triton requires specific GPU support). Missing: Kaggle GPU details, but incompatible package combo is the likely root cause."
+  },
+  {
+    "qid": 79806571,
+    "answer": "\"No route to host\" on macOS with USB Ethernet suggests the interface isn't routing correctly. Check: `route -n get 192.168.0.201`—does it show your Belkin adapter? On Windows it works because the adapter is the default gateway. Try: 1) Verify adapter is configured as gateway: `ifconfig` should show `192.168.0.204` with netmask. 2) Add explicit route: `sudo route add 192.168.0.201 192.168.0.204`. 3) Check Belkin adapter driver/firmware is current. 4) Restart the adapter. Missing: adapter configuration details, but likely a routing table or gateway issue specific to macOS USB adapter handling."
+  },
+  {
+    "qid": 79324706,
+    "answer": "ContextVar values persist for the lifetime of the async context (the request). If you don't reset it: the session object stays in the context—not garbage collected until the context exits. This means: 1) Memory leaks if sessions accumulate, 2) Sessions might be reused across requests (if context is shared), 3) `session.close()` is called but the var holds the closed reference. Best practice: always reset after use: `session_context.set(None)` or use `contextvars.copy_context()` per-request. Your background task sees the same context—it will access the same stale session. Reset after handling the request."
+  },
+  {
+    "qid": 79834873,
+    "answer": "Use try/except—it's more Pythonic and handles edge cases (negative numbers, decimals) better than `isdigit()`:\n```python\nwhile True:\n    guess = input(\"Guess a number between 1 and 10: \")\n    try:\n        guess_num = int(guess)\n        if guess_num == number_to_guess:\n            print(\"You won!\")\n            break\n        else:\n            print(\"Wrong, try again.\")\n    except ValueError:\n        print(\"Please enter a valid number\")\n```\n`isdigit()` only accepts positive integers. try/except catches invalid conversions explicitly. This is the standard Python pattern for input validation."
+  },
+  {
+    "qid": 79808277,
+    "answer": "The backward-seek loop is O(n²). Faster approach: sequential scan with mmap for large files:\n```python\nimport mmap\nwith open(filename, 'rb') as f:\n    with mmap.mmap(f.fileno(), 0, access=mmap.ACCESS_READ) as m:\n        positions = [0]\n        chunk_size = len(m) // n_chunks\n        for i in range(1, n_chunks):\n            start = i * chunk_size\n            idx = m.find(b'\\n', start)\n            if idx > 0:\n                positions.append(idx + 1)\n        positions.append(len(m))\n```\nThis searches forward from chunk boundaries (not backward), uses mmap to avoid I/O, and is O(n). For 2GB, should complete in seconds. Missing: file encoding details, but this approach eliminates the nested loop."
+  },
+  {
+    "qid": 79781331,
+    "answer": "Excel uses Catmull-Rom splines by default. Your spline has too much smoothing. Reduce the `s` parameter (controls smoothing weight): `UnivariateSpline(x_sorted, y_sorted, s=0.1)` (lower = smoother but fits closer). Or switch to CubicSpline for exact interpolation:\n```python\nfrom scipy.interpolate import CubicSpline\ncs = CubicSpline(x_sorted, y_sorted)\nx_smooth = np.linspace(min(x_sorted), max(x_sorted), 100)\ny_smooth = cs(x_smooth)\n```\nCubicSpline passes through all points and creates smooth curves like Excel. If you need even smoother, use `s=None` in UnivariateSpline and increase the number of interpolation points."
+  },
+  {
+    "qid": 79935886,
+    "answer": "You created a Canvas but never added the image to it. The `create_image()` call creates a new unattached canvas instead of adding to the existing one. Fix:\n```python\ncanvas = tk.Canvas(self, bg='white')\ncanvas.place(relx=0, rely=.2, width=300, height=160)\nphoto = tk.PhotoImage(file=\"PetAssets/Pet1Idle1.png\")\ncanvas.create_image(150, 80, anchor='center', image=photo)\ncanvas.photo_keep = photo  # Prevent garbage collection\n```\nKey issues: 1) Store the canvas reference, 2) Create PhotoImage once (don't inline), 3) Keep a reference to prevent GC. Also ensure the PNG path is correct and the image exists."
+  },
+  {
+    "qid": 79605214,
+    "answer": "The `send()` call signature for binary data is: `send(payload, data_bytes)`. Ensure the byte array is properly formatted:\n```javascript\nconst byteArray = stream.toByteArray();\nsend({type: \"bitmap\", page: pageNum}, byteArray);\n```\nIn Python, `on_message(message, data)` receives it correctly. Issue might be: 1) byteArray isn't a Java byte[] type when sent, 2) data parameter isn't being captured. Verify: `print(f\"Data type: {type(data)}, len: {len(data)}\")` in on_message. If None, the JS send() isn't passing binary correctly. Missing: exact Frida version and device type, but the fix is ensuring byteArray is typed correctly before send()."
+  },
+  {
+    "qid": 79781244,
+    "answer": "The httpx client's SSL verification isn't being passed through to Langfuse's internal requests. Two fixes: 1) Directly disable verification (risky, testing only):\n```python\nclient = httpx.Client(verify=False)\n```\n2) Use a requests Session with certs and pass it:\n```python\nimport requests\nsess = requests.Session()\nsess.verify = cacert_path\nlangfuse = Langfuse(..., requests_session=sess)\n```\nOr 3) Ensure the cert path is absolute and valid: `os.path.abspath(cacert_path)`. Missing: exact Langfuse internals, but the httpx client you pass should work if Langfuse respects it. If not, try requests.Session as a fallback."
+  },
+  {
+    "qid": 74270886,
+    "answer": "They work because the first parameter name is arbitrary—Python doesn't enforce it. In `@classmethod def hello(self)`, `self` receives the class, not an instance. It works but is confusing convention. The first parameter: 1) in instance methods: receives the instance (conventionally `self`), 2) in class methods: receives the class (conventionally `cls`), 3) in static methods: no implicit first parameter. Python only cares about position, not the name. Use `cls` in classmethods to signal intent to readers. Naming it `self` is technically valid but semantically wrong and will confuse maintainers."
+  },
+  {
+    "qid": 79902744,
+    "answer": "Qt re-renders tabs during drag-and-drop, losing custom styles. Connect to the tab move signal and reapply the font:\n```python\nfrom PyQt5.QtWidgets import QApplication, QTabWidget\nfrom PyQt5.QtGui import QFont\n\ntab.tabBar().tabMoved.connect(lambda: self.apply_font())\n\ndef apply_font(self):\n    tbfont = QFont('Verdana', 14)\n    tab.setFont(tbfont)\n    tab.tabBar().setFont(tbfont)\n```\nAlternatively, use stylesheets which sometimes persist better:\n```python\ntab.setStyleSheet(\"QTabBar::tab { font: 14pt 'Verdana'; }\")\n```\nThe stylesheet approach is more robust to Qt's internal re-rendering. Test both; stylesheet typically survives drag operations better."
+  },
+  {
+    "qid": 79478360,
+    "answer": "The download bubble is controlled via Chrome preferences, not command-line arguments. For SeleniumBase, pass preferences dict:\n```python\nfrom seleniumbase import SB\n\nprefs = {\n    'download_bubble.partial_view_enabled': False,\n    'profile.default_content_setting_values.notifications': 2  # Block all\n}\n\nwith SB(uc=True, headless=True, xvfb=True, prefs=prefs) as sb:\n    ...\n```\nOr use `chromium_arg` with `--disable-features`: `--disable-features=DownloadBubble,DownloadBubbleV2` (already tried, but ensure it's spelled correctly). Missing: exact SeleniumBase version, but the prefs dict approach is the correct lever for this setting."
+  },
+  {
+    "qid": 78938211,
+    "answer": "Use Polars' `rank()` window function grouped by date:\n```python\nreturns = df.drop_nulls().with_columns(\n    pl.col(\"price\").pct_change(n=2).over(\"symbol\").alias(\"return\")\n).pivot(on=\"symbol\", index=\"date\", values=\"return\").with_columns(\n    pl.all().rank(method='ordinal').over(pl.exclude(['date'])).alias('rank')\n)\n```\nOr more explicitly:\n```python\nreturns.with_columns(\n    pl.all_horizontal(pl.col('^(?!date).*').rank()).alias('rank')\n)\n```\nActually, to rank across symbols per date:\n```python\nreturns.with_columns(\n    pl.all_horizontal(pl.col('^symbol.*').rank(method='ordinal')).alias('rank_all')\n)\n```\nUse `rank(method='ordinal')` to get 1, 2, 3, ... for ascending ranks. Missing: exact rank definition (ascending/descending), but the window function approach is the Polars pattern."
+  },
+  {
+    "qid": 79882457,
+    "answer": "The issue: `super(A, self)` is wrong syntax. Inside `__format__`, call the parent's `__str__` directly:\n```python\ndef __format__(self, fmt):\n    return f'{super().__str__()}, {self.suffix}'\n```\nOr explicitly:\n```python\ndef __format__(self, fmt):\n    base_str = A.__str__(self)  # Call parent directly\n    return f'{base_str}, {self.suffix}'\n```\n`super(A, self)` returns a super proxy object (which prints as `<super: ...>`). Use `super().__str__()` without arguments. In Python 3, `super()` without args is cleaner and works in both class and instance methods."
+  },
+  {
+    "qid": 79687131,
+    "answer": "To get branch names as strings, access the `.name` attribute:\n```python\nfrom git import Repo\n\nr = Repo(url)\nbranch_names = [head.name for head in r.heads]\nprint(branch_names)  # ['main', 'dev', ...]\n```\n`r.heads` returns `git.Head` objects. Loop through and extract `.name` for the string representation. If you want remote branches too: `[ref.remote_head for ref in r.remotes[0].refs]`. For all refs: `[ref.name for ref in r.references]`. Missing: whether you need local/remote/all branches, but the `.name` accessor solves the string conversion issue."
+  },
+  {
+    "qid": 79602850,
+    "answer": "Common causes: 1) The LWA token isn't being passed or is malformed. 2) Temporary credentials from AssumeRole lack the required SP-API permissions. 3) X-amz-security-token header is missing (required for temporary creds). Verify: 1) Print the token and headers to confirm they're present. 2) Ensure your IAM role has `selling-partner-api` permissions. 3) Check that the security token from AssumeRole is included. Example fix:\n```python\nheaders = {\n    'x-amzn-access-token': lwa_token,\n    'x-amz-security-token': temp_creds['SessionToken'],  # Don't forget this\n    'x-amz-date': amz_date\n}\n```\nMissing: IAM role trust policy and actual token/credentials values, but the session token header is often the culprit."
+  },
+  {
+    "qid": 77401730,
+    "answer": "The `imp` module was removed in Python 3.12. EB CLI is outdated and incompatible. Two fixes: 1) Downgrade Python to 3.11 or earlier:\n```bash\nchoco install python@3.11  # Windows\n```\n2) Update EB CLI to a version that supports Python 3.12:\n```bash\npip install --upgrade awsebcli\n```\nThe latest awsebcli (v3.21+) should support 3.12. If still broken, check the cement dependency version—it was updated to replace `imp` with `importlib`. Reinstall EB CLI in a fresh virtual env:\n```bash\nrm -r ~/.ebcli-virtual-env\neb --version  # Re-initializes\n```\nMissing: your current awsebcli version, but updating both Python and EB CLI together should resolve this."
+  }
+]
