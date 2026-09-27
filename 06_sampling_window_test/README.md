@@ -25,9 +25,11 @@ Read alone, R1 looks as if the sampling rule moved the result. R1c shows that pa
 of that signal is a pure rater effect, and R1d, holding the rater fixed, finds no
 movement. A comparison across raters cannot separate the two.
 
-The limits are in S19.4. Converted to the primary classifier's scale, the R1d
-interval admits a sampling-rule contribution of up to 88% of the 0.355 shift, so it
-cannot exclude a smaller contribution; and the twelve post-period months drawn have
+The limits are in S19.4. Converted to the blind classification's scale, the R1d
+interval admits a sampling-rule contribution of up to about 0.36, which is 150% of
+that classification's 0.240 shift on the matched subsample (on the earlier
+classification's scale, 88% of its 0.355 shift), so it cannot exclude a smaller
+contribution; and the twelve post-period months drawn have
 a median fill of 13.9 hours, against 24.1 for all 42 post-period months, so the test
 sits mostly where the artefact it looks for would be small.
 
@@ -71,18 +73,20 @@ their names, which carries no meaning.
 
 Two kinds of period cue remain in the question text: a four-digit year and an
 AI-related term. They were left in place, because removing them would make the
-instrument differ from the text the primary classifier scored, and each is removed
+instrument differ from the text the earlier classifier scored, and each is removed
 in a sensitivity reported in S19.3.
 
 ## Notes
 
 - No script in this directory calls a model. The labels were produced in model
-  sessions, as the primary classification was (see `01_panels_and_classification`).
+  sessions, as the earlier classification was (see `01_panels_and_classification`).
   The label files carry no endpoint, timestamp or model version string, so the labels
   cannot be regenerated, only reused; every analysis reproduces from them. See
   `RUN_LOG.md`.
 - The data paths in the scripts are absolute paths from the machine they were written
   on; adjust them as the last section of `RUN_LOG.md` describes.
+- Which files each of the twenty rating sessions touched is listed in
+  `07_blind_reclassification/session_access_audit/` (Supplementary Section S19.2).
 - `R1_coverage.py` asserts every window and coverage figure against the manuscript and
   stops without writing if any disagrees. On its first run it caught two places where
   the fill and reach measures had been used interchangeably.

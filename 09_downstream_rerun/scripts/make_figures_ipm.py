@@ -286,10 +286,12 @@ box(39.5, 26, 21, 22, "Channel choice",
 box(78.0, 26, 21, 22, "Observed outcome (H1)",
     ["question volume falls,", "ordered by substitutability", "(Sections 6.1, 7.6)"])
 
-for x1, x2, lab in ((22.7, 38.8, "AI substitutability"),
-                    (61.2, 77.3, "task\u2013technology fit")):
+# 2026-09-27 模拟审稿 I-22:原先第一支标「AI substitutability」、第二支标「task–technology fit」,
+# 把 §2.3 所说的同一构念拆到了两支箭头上。改为第一支标构念及其理论名,第二支标选择如何汇成可观测结果。
+for x1, x2, lab in ((22.7, 38.8, "AI substitutability\n(task\u2013technology fit)"),
+                    (61.2, 77.3, "choices aggregate\ninto what is asked")):
     arrow(x1, 37, x2, 37)
-    ax.text((x1 + x2) / 2, 39.2, lab, ha="center", va="bottom",
+    ax.text((x1 + x2) / 2, 39.2, lab, ha="center", va="bottom", linespacing=1.15,
             fontsize=FS_NOTE, color=MUTED, zorder=4)
 
 # ---- 上：移动的能力前沿（H2）----

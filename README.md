@@ -66,7 +66,10 @@ readers of this package; no rater saw it, and where the two differ the original
 governs.
 
 `data/` holds the raw question text for 6,000 questions in each of the three
-languages, the per-question labels, and the 60-month panels. The panel values
+languages, the per-question labels, and the 60-month panels.
+`question_labels_python_2021-2024.csv` holds all sixty months despite its name;
+`question_labels_python_ext_2024-07_2026-05.csv` repeats its 2,300 questions from
+July 2024 onward with identical scores and must not be concatenated with it. The panel values
 were checked cell by cell against the published panels: 1,440 cells, no
 disagreement.
 
@@ -198,6 +201,25 @@ blinding (Supplementary Section S20).
   include them and the judgment of the top-up answer, and the re-export reproduces
   the first export's entries exactly. Five dispatch attempts that were refused by a
   concurrency limit and never ran are not listed.
+- `session_access_audit/` — which files each blind rating session touched, exported
+  from the working-session records (Supplementary Sections S19.2 and S20.2):
+  the fifty sessions of the blind classification and the twenty rating sessions of
+  the sampling-window test. `session_access_summary.csv` has one row per session
+  (whether it named a map file in any tool call, opened one with the file-reading
+  tool, listed its input directory, or saw a map file name in any tool result);
+  `session_file_paths.csv` lists every file path in every tool call, with local
+  prefixes replaced by placeholders such as `<workdir>` and `<scratchpad>`; for
+  command-line calls the `field` column gives the command's first word, not
+  necessarily the verb that acted on the path. `session_access_counts.json` holds
+  the totals and the positive control (the batch-building parent sessions, in which
+  the same detector finds the map files). `export_session_access.py` produced all
+  three from the session records, which are not in the package, reading only tool
+  names and inputs, the file names in tool results, model identifiers and
+  timestamps; `identification_rules_zh.md`, in Chinese, is the identification rule
+  written before the first export, with its four amendments appended.
+  The list covers tool calls only; what each session received at start-up,
+  before any tool call, is described in Supplementary Sections S15, S19.2, S20.2
+  and S20.6.
 - `same_model_sonnet46/` — the blind re-run of the earlier classifier, Claude
   Sonnet 4.6, registered in the design document's thirteenth entry and carried out
   under its fifteenth (Supplementary Section S20.6). No estimate in the manuscript

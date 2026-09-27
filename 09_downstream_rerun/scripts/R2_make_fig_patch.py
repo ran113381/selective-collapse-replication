@@ -178,5 +178,18 @@ rep('''    fig.savefig(os.path.join(OUT, f"{name}.pdf"), bbox_inches="tight",
         fig.savefig(os.path.join(OUT, f"{name}.png"), bbox_inches="tight", pad_inches=PAD, facecolor=SURFACE, dpi=600)
         fig.savefig(os.path.join(OUT, f"{name}.pdf"), bbox_inches="tight", pad_inches=PAD, facecolor=SURFACE)
     plt.close(fig)''')
+# ---- 图 1 箭头标签(2026-09-27 模拟审稿 I-22):同一构念不得拆到两支箭头上。只改 IPM 版,PNAS 源脚本不动 ----
+rep('''for x1, x2, lab in ((22.7, 38.8, "AI substitutability"),
+                    (61.2, 77.3, "task\\u2013technology fit")):
+    arrow(x1, 37, x2, 37)
+    ax.text((x1 + x2) / 2, 39.2, lab, ha="center", va="bottom",
+            fontsize=FS_NOTE, color=MUTED, zorder=4)''',
+    '''# 2026-09-27 模拟审稿 I-22:原先第一支标「AI substitutability」、第二支标「task–technology fit」,
+# 把 §2.3 所说的同一构念拆到了两支箭头上。改为第一支标构念及其理论名,第二支标选择如何汇成可观测结果。
+for x1, x2, lab in ((22.7, 38.8, "AI substitutability\\n(task\\u2013technology fit)"),
+                    (61.2, 77.3, "choices aggregate\\ninto what is asked")):
+    arrow(x1, 37, x2, 37)
+    ax.text((x1 + x2) / 2, 39.2, lab, ha="center", va="bottom", linespacing=1.15,
+            fontsize=FS_NOTE, color=MUTED, zorder=4)''')
 io.open(DST, "w", encoding="utf-8").write(t)
 print("写出 %s,替换 %d 处" % (DST, len(R)))

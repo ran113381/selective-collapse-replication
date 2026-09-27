@@ -35,7 +35,7 @@ panel-subsample batch 05, which switched model partway through (see below).
 | Sampling parameters | **not set and not recorded.** No temperature, top-p or seed was specified; the instances ran at the platform default, and the stored outputs carry no record of what that was. |
 | Per-call metadata | **none.** The label files carry `id`, `score`, `label`, `why` and nothing else — no endpoint, no timestamp, no model version string. The model name above is read from the instances' own task transcripts, which are outside this package. |
 
-This is the same situation as the primary classification described in
+This is the same situation as the earlier classification described in
 `01_panels_and_classification` and in Section 4.3 of the manuscript: the rating
 was done by model sessions, not by a script calling an endpoint, so none of the
 scripts for this test calls a model and re-running them will not regenerate the
