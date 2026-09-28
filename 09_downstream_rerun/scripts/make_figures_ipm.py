@@ -284,7 +284,7 @@ box(39.5, 26, 21, 22, "Channel choice",
     ["ask the platform, or", "ask a model instead", "(inferred)"],
     edge=DASHE, ls=(0, (4, 2)))
 box(78.0, 26, 21, 22, "Observed outcome (H1)",
-    ["question volume falls,", "ordered by substitutability", "(Sections 6.1, 7.6)"])
+    ["question volume falls,", "ordered by substitutability", "(Sections 6.1, 6.5)"])
 
 # 2026-09-27 模拟审稿 I-22:原先第一支标「AI substitutability」、第二支标「task–technology fit」,
 # 把 §2.3 所说的同一构念拆到了两支箭头上。改为第一支标构念及其理论名,第二支标选择如何汇成可观测结果。
@@ -611,8 +611,6 @@ ax.set_ylim(-0.7, len(SPECS) - 0.3)
 ax.set_xlabel("Dose slope γ, 95% CI")
 ax.grid(axis="x", color=GRID, lw=LW_GRID)
 framed(ax)
-ax.set_title("sign and significance hold across every estimator and classification",
-             fontsize=FS_NOTE, color=MUTED, loc="left", pad=6)
 save(fig, "fig_estimators")
 
 # ---- 新图 B：能力窗口（对应 Table 4）----
@@ -644,8 +642,6 @@ ax.set_ylabel("Dose slope γ, 95% CI")
 ax.grid(axis="y", color=GRID, lw=LW_GRID)
 below_legend(ax, ncol=3, y=-0.185)  # 让开两行 x 轴标签即可；再往下只是白高
 framed(ax)
-ax.set_title(f"python (blind): four post years not equal, F = {WT['F']:.2f}, p = {WT['F_p']:.3f}".replace("p = 0.", "p = ."),
-             fontsize=FS_NOTE, color=MUTED, loc="left", pad=5)
 save(fig, "fig_windows")
 
 # ---- 新图 C：评分者一致性 κ 与人-人上限（对应 Table 5）----
@@ -719,8 +715,6 @@ ax.grid(axis="x", color=GRID, lw=LW_GRID)
 # 一行数字加一行 set_xlabel，与 fig_windows 的两行刻度标签同量级，救回同档 y。
 below_legend(ax, ncol=4, y=-0.20, title="Substitutability bin", title_fontsize=FS_LEGT)
 framed(ax)
-ax.set_title("every bin collapsed; the least substitutable collapsed least",
-             fontsize=FS_NOTE, color=MUTED, loc="left", pad=5)
 save(fig, "fig_volume")
 
 print("DONE — 3 multi-panel + 4 single-panel figures")
