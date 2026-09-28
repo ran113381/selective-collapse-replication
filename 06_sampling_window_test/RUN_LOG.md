@@ -1,4 +1,4 @@
-# Run log: the sampling-window test (Supplementary Section S19)
+# Run log: the sampling-window test (Section 7.1 of the manuscript)
 
 Everything below is either read off a stored artifact or off the file system.
 Where a parameter was not recorded, this log says so rather than supplying a
@@ -27,7 +27,7 @@ panel-subsample batch 05, which switched model partway through (see below).
 
 | | |
 |---|---|
-| Model | `claude-opus-5`, except that the instance scoring panel-subsample batch 05 switched to `claude-opus-4-8` partway through, after the newer model's safety filter stopped on a question in its batch, and wrote that batch's labels (Supplementary Section S19.2) |
+| Model | `claude-opus-5`, except that the instance scoring panel-subsample batch 05 switched to `claude-opus-4-8` partway through, after the newer model's safety filter stopped on a question in its batch, and wrote that batch's labels (Section 4.6 of the manuscript) |
 | Instances | 20 total, 10 per design, one per batch |
 | Instance reuse | none; each batch went to a separate instance, and no instance saw another's output |
 | Batch size | 118–120 questions (uniform design), 120 (panel subsample) |
@@ -48,7 +48,7 @@ outputs, and at an unrecorded temperature it would not draw the same ones. A
 replicator who wants an independent check should re-score the shipped blind
 batches with a rater of their choosing and re-run `scripts/R1d_analyze.py`; the
 design comparison it computes is valid for any rater applied to both batch sets,
-which is the property Section S19.3 relies on.
+which is the property Section 7.1 of the manuscript relies on.
 
 ## Blinding, as verified from the shipped files
 

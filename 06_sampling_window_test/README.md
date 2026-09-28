@@ -1,4 +1,4 @@
-# 06_sampling_window_test: a direct test of the within-month sampling window (Supplementary Section S19)
+# 06_sampling_window_test: a direct test of the within-month sampling window (Section 7.1 of the manuscript)
 
 ## What this directory tests
 
@@ -86,7 +86,7 @@ in a sensitivity reported in S19.3.
 - The data paths in the scripts are absolute paths from the machine they were written
   on; adjust them as the last section of `RUN_LOG.md` describes.
 - Which files each of the twenty rating sessions touched is listed in
-  `07_blind_reclassification/session_access_audit/` (Supplementary Section S19.2).
+  `07_blind_reclassification/session_access_audit/` (Section 4.3 of the manuscript).
 - `R1_coverage.py` asserts every window and coverage figure against the manuscript and
   stops without writing if any disagrees. On its first run it caught two places where
   the fill and reach measures had been used interchangeably.

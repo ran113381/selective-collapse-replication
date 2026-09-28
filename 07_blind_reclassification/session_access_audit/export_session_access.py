@@ -2,9 +2,9 @@
 u"""Export, from the working-session records, which files each blind rating session touched.
 
 Rules: SIM27_access_rules.md (written before the first export). Two groups of sub-sessions:
-  H  the fifty sessions of the blind classification (Supplementary Section S20), identified by
+  H  the fifty sessions of the blind classification (Section 4.2 of the manuscript), identified by
      writing 工作文档/R2_blind/R2_labels_batch_NN.json;
-  W  the twenty rating sessions of the sampling-window test (Supplementary Section S19), identified by
+  W  the twenty rating sessions of the sampling-window test (Section 7.1 of the manuscript), identified by
      writing 工作文档/R1_labels_batch_NN.json or 工作文档/R1c_labels_batch_NN.json.
 Only structured fields are read: line type, timestamp, message.model, the name and input of each tool
 call, and the text of tool results (searched for a watch-list of file names only, never exported).

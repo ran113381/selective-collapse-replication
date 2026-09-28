@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-u"""Staging Ground split recomputed at the official opening date (Supplementary S9).
+u"""Staging Ground split recomputed at the official opening date (Section 7.3 of the manuscript).
 
 Steps:
   1) Rebuild the pre-/post-ChatGPT closure-rate columns and check that they equal

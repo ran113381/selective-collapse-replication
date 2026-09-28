@@ -18,27 +18,27 @@ analysed are public and were retrieved from the Stack Exchange API.
 05_additional_checks/           cross-family relabelling, frontier-tier rescoring,
                                 GLM answering runs
 06_sampling_window_test/        direct test of the within-month sampling window
-                                (Supplementary Section S19)
+                                (Section 7.1 of the manuscript)
 07_blind_reclassification/      the blind re-classification of the python panel on
                                 which every python estimate rests, its
                                 date-visible diagnostic arm, and a same-model
                                 blind run of the earlier classifier
-                                (Supplementary S20)
+                                (Section 4.2 of the manuscript)
 08_criterion_round3/            the third criterion-validity round, the one the
-                                manuscript reports (Section 6.3, Supplementary S13)
+                                manuscript reports (Section 6.3)
 09_downstream_rerun/            every python check re-run on both label sets, with
                                 the outputs, logs and comparison files
 ```
 
 **Read this first.** The python panel was classified twice. The labels in
 `01_panels_and_classification/data/` are the *earlier* classification, whose batch
-files carried each question's date, vote score and answer count (Supplementary
-Section S20.1 explains how this was found). Every python estimate in the manuscript
+files carried each question's date, vote score and answer count (Section 4.2 of
+the manuscript states this). Every python estimate in the manuscript
 now rests on the *blind* classification in `07_blind_reclassification/labels/`;
 the earlier labels are kept as a second rating of the same questions, and they are
 the only labels the javascript and java panels have. The earlier classifier was
 later re-run blind on the same batches as a check
-(`07_blind_reclassification/same_model_sonnet46/`, Supplementary Section S20.6);
+(`07_blind_reclassification/same_model_sonnet46/`, Section 4.2 and Table 4 of the manuscript);
 no estimate rests on that run.
 
 Total size 65 MB.
@@ -89,14 +89,14 @@ round of pre-submission review. Two of those scripts were missing from earlier
 versions of this package although the manuscript used their output, and have been
 added unchanged with the outputs they produced at the time:
 `p1_12_ninety_day_window.py` (the ninety-day duplicate-closure table of
-Supplementary Section S17) and `p1_parallel_trends_sensitivity.py` (the pre-period
+Section 7.5 of the manuscript) and `p1_parallel_trends_sensitivity.py` (the pre-period
 drift and breakdown values of Section 6.2). As shipped, the scripts in this
 directory read the earlier classification; `09_downstream_rerun/` re-runs them on
 both label sets. `bh_fdr_table1_family.py` computes the
 Benjamini–Hochberg correction reported in Section 7.1 of the manuscript from the
 p values printed in its Table 1; the BH block inside `phaseA_composition.py` is an
 earlier, different family. `asker_cohort_prelim.py` and `asker_rival_test.py` are
-superseded (Supplementary Section S16) and their shipped outputs predate a later
+superseded (Section 7.4 of the manuscript) and their shipped outputs predate a later
 edit of the scripts, so re-running them does not reproduce those outputs; the
 manuscript cites only `asker_rival_exact.py` and `asker_tenure.py`, whose outputs
 re-run exactly.
@@ -108,7 +108,7 @@ re-run exactly.
   `kappa_results.json`, written at the time, names the two raters
   (`sonnet-4.6 (primary)`, `opus-4.8 (independent, blind)`); it is the record on
   which the manuscript's attribution of the earlier classification to Claude
-  Sonnet 4.6 rests (Supplementary Section S3).
+  Sonnet 4.6 rests (Section 4.2 of the manuscript).
 - `criterion_validity_rounds1_2/` — the first two rounds in full: scripts, the
   blind answer and judgment batches for all four answering models, and the
   results. Both are superseded by the third round in `08_criterion_round3/`.
@@ -142,7 +142,7 @@ were fetched during exploration but did not enter it are kept separately under
 ### 05_additional_checks
 
 Cross-family relabelling, frontier-tier rescoring and the GLM answering runs.
-The script that scanned answers for misalignment (Supplementary Section S15) is
+The script that scanned answers for misalignment (Section 4.6 of the manuscript) is
 not in this package. The one batch it corrected ships in
 `03_validation/criterion_validity_rounds1_2/batches_haiku45/` in its original
 (`answer_out_9_preswapfix.json`) and corrected (`answer_out_9.json`) form, with
@@ -153,8 +153,8 @@ criterion-validity tree in `03_validation` and are not duplicated here.
 
 ### 06_sampling_window_test
 
-The direct test of the within-month sampling window reported in Supplementary
-Section S19: the month-uniform draw, the blind batches and labels for both
+The direct test of the within-month sampling window reported in Section 7.1
+of the manuscript: the month-uniform draw, the blind batches and labels for both
 designs, the analysis and sensitivity scripts with their result files, the
 verbatim rating instruction (`PROMPT.md`), and a run log (`RUN_LOG.md`) giving
 dates, model, instance count, and the sampling parameters that were not set.
@@ -163,7 +163,7 @@ That directory has its own README.
 ### 07_blind_reclassification
 
 The re-classification of all 6,000 python questions by Claude Sonnet 5 under full
-blinding (Supplementary Section S20).
+blinding (Section 4.2 of the manuscript).
 
 - `design/` — three files. `R2_design_document_zh.md` is the design document,
   written before any new label existed, in its original Chinese; it may only be
@@ -176,7 +176,7 @@ blinding (Supplementary Section S20).
   were overwritten when the working session was rolled back to a point before the
   decision they recorded. The desktop application's log records that rewind, and
   the session logs record no write to the document between the second of those
-  appends and the rollback (Supplementary Section S20.5). The hash file and the document refer to these two documents by their
+  appends and the rollback. The hash file and the document refer to these two documents by their
   working names, `R2_设计书_盲重标与效标重抽_20260923.md` and
   `R2_blind\R2_设计书_被覆盖版本_20260923_2127.md`. Every hash in the hash file
   equals the SHA-256 of a prefix of the current document or of the overwritten
@@ -202,7 +202,7 @@ blinding (Supplementary Section S20).
   the first export's entries exactly. Five dispatch attempts that were refused by a
   concurrency limit and never ran are not listed.
 - `session_access_audit/` — which files each blind rating session touched, exported
-  from the working-session records (Supplementary Sections S19.2 and S20.2):
+  from the working-session records (Section 4.3 of the manuscript):
   the fifty sessions of the blind classification and the twenty rating sessions of
   the sampling-window test. `session_access_summary.csv` has one row per session
   (whether it named a map file in any tool call, opened one with the file-reading
@@ -218,11 +218,10 @@ blinding (Supplementary Section S20).
   timestamps; `identification_rules_zh.md`, in Chinese, is the identification rule
   written before the first export, with its four amendments appended.
   The list covers tool calls only; what each session received at start-up,
-  before any tool call, is described in Supplementary Sections S15, S19.2, S20.2
-  and S20.6.
+  before any tool call, is described in Section 4.3 of the manuscript.
 - `same_model_sonnet46/` — the blind re-run of the earlier classifier, Claude
   Sonnet 4.6, registered in the design document's thirteenth entry and carried out
-  under its fifteenth (Supplementary Section S20.6). No estimate in the manuscript
+  under its fifteenth (Section 4.2 and Table 4 of the manuscript). No estimate in the manuscript
   rests on it. `instruction/` holds the task template (the blind classification's,
   with only the input and output paths changed), the fifty task texts as issued
   with their SHA-256, and `input_manifest.json`, whose hashes show that the input
@@ -249,8 +248,8 @@ blinding (Supplementary Section S20).
 
 ### 08_criterion_round3
 
-The criterion-validity round the manuscript reports (Section 6.3, Supplementary
-Sections S2 and S13). `scripts/R2c_fetch_criterion.py` draws 80 questions per bin
+The criterion-validity round the manuscript reports (Section 6.3).
+`scripts/R2c_fetch_criterion.py` draws 80 questions per bin
 of the blind labels from all sixty months, excluding both earlier rounds, and
 fetches the questions and reference answers with an explicit page size of 100,
 asserting on every call that nothing was truncated; `data/criterion_sample_v3_meta.json`
@@ -277,9 +276,9 @@ still unanswered to at least four attempts and recovered one answer, which is in
 (`topup_attempts.json`). The Chinese in the file names reads: 余额中断, stopped by
 credit exhaustion; 首轮续跑, first pass resumed; 重试, retry; 补跑, top-up. Seven
 of 320 questions have no GLM-5.3 answer, and every answerer is evaluated on the
-313 questions all four completed (Supplementary S13 and S15). Four judging sessions,
+313 questions all four completed (Section 4.6 of the manuscript). Four judging sessions,
 one per answerer and all on the same forty questions, switched from Claude Opus 5.5
-to Claude Opus 4.8 partway through (Supplementary S15). Their judgments, and a second
+to Claude Opus 4.8 partway through (Section 4.6 of the manuscript). Their judgments, and a second
 Opus 4.8 pass over the same batches, are kept under each answerer's
 `_superseded_opus48/`; the thirty-nine questions re-judged by Opus 5.5 are in
 `judge_batch_89b.json` and `judgment_out_89b.json`, and the one question whose four
@@ -309,14 +308,14 @@ records, which are not in the package; it reads their location from the
 environment variable `R2_SESSION_DIR`. `R2m_model_identity.py` reads, from the same records, the model
 identifier logged for every step of the third round's judging and answering
 sessions and of the sampling-window ratings, and computes the judging agreement
-and the two robustness checks of Supplementary Sections S15 and S19.2
+and the two robustness checks of Sections 4.6 and 7.1 of the manuscript
 (`results/R2m_result.json`, `results/R2m_s19_excl05.json`).
 `make_figures_ipm.py` renders the manuscript's figures from these outputs; it is
-generated from an older figure script by `R2_make_fig_patch.py`. In the blind
-copy's log of `s17_bound_both_samples.py` the sample sizes printed as headings
-(5,640 and 5,930) are constants in the script that describe the earlier
-classification's samples; the blind samples the figures below them come from
-hold 5,201 and 5,467 questions (Supplementary Section S17). These scripts
+generated from an older figure script by `R2_make_fig_patch.py`. `s17_bound_both_samples.py` prints its sample-size headings from the data it
+reads: the earlier-classification copy's log reports 5,640 and 5,930 questions,
+and the blind copy's log reports 5,201 and 5,467 (Section 7.5 of the
+manuscript), because bin s0 holds many more questions under the blind labels
+than under the earlier classification (Section 4.2). These scripts
 carry absolute paths from the machine they were written on, like the rest of the
 package.
 

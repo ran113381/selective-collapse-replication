@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Supplementary Section S17: the relabelling bound on both samples.
+"""Section 7.5 of the manuscript: the relabelling bound on both samples.
 
 `bin_stability_test.py` computes the bound on 5,640 questions: it drops the 45
 questions whose creation timestamp was not recovered and the panel's final three
@@ -8,7 +8,7 @@ every question satisfies it. This script computes the same bound on that sample
 and on the 5,930 questions that keep the final three months, so that both can be
 reported.
 
-It first reproduces every figure S17 prints for the 5,640-question sample and
+It first reproduces every figure this section prints for the 5,640-question sample and
 stops if any differs; only then does it print the 5,930-question figures.
 Reads only files in this package. Run from this directory.
 """
@@ -82,15 +82,15 @@ base = dd[dd.q_creation.notna() & dd.s.between(1, 4)]
 trim = base[base.mi <= dd.mi.max() - math.ceil(90 / 30.0)]
 t, u = bound(trim), bound(base)
 
-# ---- the 5,640-question figures printed in S17 must reproduce first ----
+# ---- the 5,640-question figures printed in the manuscript (Section 7.5) must reproduce first ----
 assert t["n"] == 5640, t["n"]
 assert round(100 * t["s1_close_hi"], 1) == 15.7 and round(100 * t["s2_close_hi"], 1) == 13.1
 assert round(100 * t["s1_ans_hi"], 1) == 2.4 and round(100 * t["s2_ans_hi"], 1) == 2.0
 assert round(100 * t["s1_ans_share"]) == 6 and round(100 * t["s2_ans_share"]) == 9
 assert u["n"] == 5930, u["n"]
 
-for name, r in (("5,640 (final three months dropped)", t), ("5,930 (final three months kept)", u)):
-    print("Sample of %s questions" % name)
+for label, r in (("final three months dropped", t), ("final three months kept", u)):
+    print("Sample of %s (%s) questions" % (format(r["n"], ","), label))
     print("  closure tracer, 95%% upper bound on migrant fraction: s1 %.1f%%, s2 %.1f%%"
           % (100 * r["s1_close_hi"], 100 * r["s2_close_hi"]))
     print("  answer tracer,  95%% upper bound on migrant fraction: s1 %.1f%%, s2 %.1f%%"

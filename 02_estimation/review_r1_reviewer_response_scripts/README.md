@@ -73,7 +73,7 @@ months, z = 1.93. The same test against references that do not rest on that mont
 | Windows against each other (no reference) | 0.09 | 2 | 0.958 |
 
 Only the single-month reference finds a pre-period gradient, and the manuscript
-reports none (Section 6.2 and Supplementary Section S11).
+reports none (Section 6.2 of the manuscript).
 
 ## p1_14_bin_dummies.py: the linear score against bin dummies
 

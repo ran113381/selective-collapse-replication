@@ -446,7 +446,7 @@ ts = sorted(d.t.unique())
 # cutoff is not handed a mechanical advantage by absorbing more post-period months.
 # (The earlier design restricted candidates to dates at or before the true event and
 # let each use every later month; with a growing effect the true date wins by
-# construction. SI S9b records that.)
+# construction. Section 7.2 of the manuscript records that.)
 W = 9
 cands = [t for t in ts if t - W >= ts[0] and t + W - 1 <= ts[-1]]
 gs_c = {}
