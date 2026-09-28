@@ -93,10 +93,11 @@ Section 7.5 of the manuscript) and `p1_parallel_trends_sensitivity.py` (the pre-
 drift and breakdown values of Section 6.2). As shipped, the scripts in this
 directory read the earlier classification; `09_downstream_rerun/` re-runs them on
 both label sets. `bh_fdr_table1_family.py` computes the
-Benjamini–Hochberg correction reported in Section 7.1 of the manuscript from the
-p values printed in its Table 1; the BH block inside `phaseA_composition.py` is an
+Benjamini–Hochberg correction reported in Section 7.2 and Table 7 of the manuscript from the
+p values printed in its Table 2; the BH block inside `phaseA_composition.py` is an
 earlier, different family. `asker_cohort_prelim.py` and `asker_rival_test.py` are
-superseded (Section 7.4 of the manuscript) and their shipped outputs predate a later
+superseded (the asker test of Section 7.4 uses only `asker_rival_exact.py` and
+`asker_tenure.py`) and their shipped outputs predate a later
 edit of the scripts, so re-running them does not reproduce those outputs; the
 manuscript cites only `asker_rival_exact.py` and `asker_tenure.py`, whose outputs
 re-run exactly.
@@ -122,7 +123,10 @@ re-run exactly.
   completed adjudication record (`裁决记录表.csv`), the classifier's labels for
   the 300 questions (`answer_key_封存勿开.csv`, named for having been sealed
   from the coders while they worked), the question files, and the list of the
-  four questions with dates written into their text. `score_gold_v2.py`
+  four questions with dates written into their text. `coder_followup_q5_excerpt.md`
+  excerpts the two coders' own-words answer to the post-adjudication question on
+  the 2-versus-3 boundary that Section 4.4 of the manuscript condenses as
+  *information sufficiency*, with an English translation. `score_gold_v2.py`
   reproduces the reliability figures of Section 4.4 and `score_adjudication.py`
   the comparison of the adjudicated standard with the classifier; both run from
   this directory as shipped. The subfolders hold the questionnaire in both
@@ -134,22 +138,29 @@ re-run exactly.
 `run_so_did.py`, `run_so_did_v2.py` (whose `--simulate` flag is the entry point
 to the 25-check Monte Carlo harness) and `honest_did.py`.
 `monte_carlo_harness_output/` holds the harness pass table and the output for
-the real three-site design, which matches the table in the manuscript digit for
-digit. `data/` holds the three sites used in the final design; four sites that
+the real three-site design, which matches the figures reported in Section 5.1 of
+the manuscript. `data/` holds the three sites used in the final design; four sites that
 were fetched during exploration but did not enter it are kept separately under
 `data/exploratory_not_in_final_3site_design/` rather than removed.
 
 ### 05_additional_checks
 
 Cross-family relabelling, frontier-tier rescoring and the GLM answering runs.
-The script that scanned answers for misalignment (Section 4.6 of the manuscript) is
-not in this package. The one batch it corrected ships in
+The script that scanned the second round's answers for misalignment is not in
+this package; the third round's scan, described in Section 4.6 of the
+manuscript, is `08_criterion_round3/scripts/R2c_align_scan.py`. The one batch it corrected ships in
 `03_validation/criterion_validity_rounds1_2/batches_haiku45/` in its original
 (`answer_out_9_preswapfix.json`) and corrected (`answer_out_9.json`) form, with
 the re-judgment (`judge_batch_swapfix.json`, `judgment_out_swapfix.json`). The
 outputs of the discarded empty-completion GLM-4.6 answering run are not in this
 package either. The blind batches for the four answering models live with the
 criterion-validity tree in `03_validation` and are not duplicated here.
+`s12_glm_month_sensitivity.py` reproduces, from `glm_relabel/labels_glm-4.6.jsonl`
+and the python question labels in `01_panels_and_classification/data`, the
+Section 4.5 sensitivity that drops 2022-06 (the one month for which the GLM-4.6
+relabelling run returned no parseable score), moving the independent-family
+dose-response estimate from −0.227 to −0.226; run it from this directory as
+shipped.
 
 ### 06_sampling_window_test
 
@@ -310,8 +321,10 @@ identifier logged for every step of the third round's judging and answering
 sessions and of the sampling-window ratings, and computes the judging agreement
 and the two robustness checks of Sections 4.6 and 7.1 of the manuscript
 (`results/R2m_result.json`, `results/R2m_s19_excl05.json`).
-`make_figures_ipm.py` renders the manuscript's figures from these outputs; it is
-generated from an older figure script by `R2_make_fig_patch.py`. `s17_bound_both_samples.py` prints its sample-size headings from the data it
+`make_figures_ipm.py` renders the manuscript's figures from these outputs; it was
+first generated from an older figure script by `R2_make_fig_patch.py` and has
+since been edited by hand, and the shipped file is the one that rendered the
+submitted figures. `s17_bound_both_samples.py` prints its sample-size headings from the data it
 reads: the earlier-classification copy's log reports 5,640 and 5,930 questions,
 and the blind copy's log reports 5,201 and 5,467 (Section 7.5 of the
 manuscript), because bin s0 holds many more questions under the blind labels
@@ -325,7 +338,7 @@ package.
 
 **The model calls do not regenerate.** The runs with Claude models (both
 classifications, same-family second rating, Claude answering and judging, the
-diagnostic arm, the same-model blind run, and the S19 ratings) were done in model sessions, so their stored batch files carry only the per-item
+diagnostic arm, the same-model blind run, and the sampling-window ratings) were done in model sessions, so their stored batch files carry only the per-item
 output — score, label and rationale — with no endpoint, no call-level timestamp
 and no model version string. The runs with GLM models (cross-family rating,
 frontier-tier re-scoring and GLM answering) were scripted calls to the vendor's
@@ -336,7 +349,7 @@ outputs themselves rather than only the prompts that produced them, and a fresh
 run would draw different outputs rather than recover these. The provenance record
 is the month of each run and the model named for it in Section 4.3 of the
 manuscript, together with the verbatim instruction and run log shipped with the
-S19 test and the verbatim dispatch log in `07_blind_reclassification/`.
+sampling-window test and the verbatim dispatch log in `07_blind_reclassification/`.
 
 **The numbers have not been regenerated end to end by re-running every script.**
 Many estimation scripts require live API access, and several rating scripts would
@@ -369,7 +382,7 @@ only the instances for batches 4 and 5 had written their answer files. The next
 day those two files were renamed to `answer_out_fable_4.json` and
 `answer_out_fable_5.json` and kept, and Haiku 4.5 answered all six batches as the
 round's primary answerer.
-That first round, at N = 88, is described in the manuscript as diagnostic and was
+That first round, at N = 88, is described in the manuscript as underpowered and was
 replaced by a second round and then by a third, each at N = 320 with four
 answerers; the third is the round every reported criterion-validity figure comes
 from. The round-1 files are

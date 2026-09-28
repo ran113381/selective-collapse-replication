@@ -68,10 +68,12 @@ These are recomputed by `scripts/R1_sensitivity.py`, which writes them to
 Two cues to period survive inside the question text itself and were left there
 because removing them would make this instrument differ from the one that scored
 the panel: a four-digit year (30 of 1,198 draw questions, 24 of 1,200 panel
-questions) and an AI-related term matched by the pattern given in S19.2 (15 and
+questions) and an AI-related term matched by the pattern in
+`results/R1_sensitivity_result.json` (`ai_era_terms.regex`) (15 and
 14). The pattern is not limited to post-2022 names: it also matches Copilot,
 OpenAI and GPT-3, and 3 of the 14 panel matches are pre-period questions. Both
-cues are removed in sensitivities reported in S19.3.
+cues are removed in sensitivities in `results/R1_sensitivity_result.json`
+(`R1d_organic_year_excluded`, `R1d_ai_era_excluded`).
 
 ## Reproducing the analysis
 

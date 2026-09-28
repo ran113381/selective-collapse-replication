@@ -72,5 +72,6 @@ In this package the three files they refer to are:
 
 The instruction "Ignore any date, version number, or year that happens to appear
 in the text" is in the prompt because the question bodies were left unedited and
-a small number of them mention a year or an AI model or vendor. Supplementary Section
-S19.2 reports how many, and S19.3 reports the sensitivity that removes them.
+a small number of them mention a year or an AI model or vendor; their counts and
+the sensitivities that remove them are in `results/R1_sensitivity_result.json`
+(`ai_era_terms`, `R1d_organic_year_excluded`, `R1d_ai_era_excluded`).

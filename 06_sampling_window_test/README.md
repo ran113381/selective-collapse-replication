@@ -25,7 +25,7 @@ Read alone, R1 looks as if the sampling rule moved the result. R1c shows that pa
 of that signal is a pure rater effect, and R1d, holding the rater fixed, finds no
 movement. A comparison across raters cannot separate the two.
 
-The limits are in S19.4. Converted to the blind classification's scale, the R1d
+The limits are in Table 8 of the manuscript. Converted to the blind classification's scale, the R1d
 interval admits a sampling-rule contribution of up to about 0.36, which is 150% of
 that classification's 0.240 shift on the matched subsample (on the earlier
 classification's scale, 88% of its 0.355 shift), so it cannot exclude a smaller
@@ -74,7 +74,7 @@ their names, which carries no meaning.
 Two kinds of period cue remain in the question text: a four-digit year and an
 AI-related term. They were left in place, because removing them would make the
 instrument differ from the text the earlier classifier scored, and each is removed
-in a sensitivity reported in S19.3.
+in a sensitivity in `results/R1_sensitivity_result.json` (`R1d_organic_year_excluded`, `R1d_ai_era_excluded`).
 
 ## Notes
 

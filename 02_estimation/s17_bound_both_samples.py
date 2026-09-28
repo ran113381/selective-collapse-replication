@@ -8,7 +8,8 @@ every question satisfies it. This script computes the same bound on that sample
 and on the 5,930 questions that keep the final three months, so that both can be
 reported.
 
-It first reproduces every figure this section prints for the 5,640-question sample and
+It first reproduces every figure the earlier, supplementary version of this
+analysis printed for the 5,640-question sample (earlier classification) and
 stops if any differs; only then does it print the 5,930-question figures.
 Reads only files in this package. Run from this directory.
 """
@@ -82,7 +83,7 @@ base = dd[dd.q_creation.notna() & dd.s.between(1, 4)]
 trim = base[base.mi <= dd.mi.max() - math.ceil(90 / 30.0)]
 t, u = bound(trim), bound(base)
 
-# ---- the 5,640-question figures printed in the manuscript (Section 7.5) must reproduce first ----
+# ---- the 5,640-question figures printed in the earlier, supplementary version of this analysis (earlier classification) must reproduce first ----
 assert t["n"] == 5640, t["n"]
 assert round(100 * t["s1_close_hi"], 1) == 15.7 and round(100 * t["s2_close_hi"], 1) == 13.1
 assert round(100 * t["s1_ans_hi"], 1) == 2.4 and round(100 * t["s2_ans_hi"], 1) == 2.0

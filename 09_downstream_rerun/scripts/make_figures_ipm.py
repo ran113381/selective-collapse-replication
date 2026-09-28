@@ -90,6 +90,9 @@ COL140 = 5.51      # 140 mm —— Elsevier 标准栏宽之一（30/90/140/190�
                    # 而其余七张都在 2.16–2.66，独它像一条带子。save() 是按**存出宽度**
                    # 反推画布的，而 matplotlib 字号是绝对磅值，所以换宽度不动印出字号。
 PAD = 0.02         # savefig 两侧留白
+# 2026-09-28 终版独立复核 m-25：不给 PDF 写 CreationDate（带时区是弱地理信号）；
+# 传给 savefig(..., metadata=...) 的 PDF 后端接受 None 值＝不写该字段。
+PDF_METADATA = {"CreationDate": None}
 FS_TICK = 7.5      # 刻度数字 / 行标签
 FS_LABEL = 8.5     # 轴标题
 FS_PANEL = 9.5     # 面板字母 A/B
@@ -194,8 +197,10 @@ def save(fig, name, target=COL):
         fig.set_size_inches(w + (goal - bb.width), h)
     fig.savefig(os.path.join(OUT, f"{name}.png"), bbox_inches="tight",
                 pad_inches=PAD, facecolor=SURFACE, dpi=600)
+    # 2026-09-28 终版独立复核 m-25：PDF 的 CreationDate 带 "+09'00'" 时区，是弱地
+    # 理信号；PDF_METADATA 不写 CreationDate，matplotlib 因此不生成该字段。
     fig.savefig(os.path.join(OUT, f"{name}.pdf"), bbox_inches="tight",
-                pad_inches=PAD, facecolor=SURFACE)
+                pad_inches=PAD, facecolor=SURFACE, metadata=PDF_METADATA)
     import re as _re
     for _ in range(5):   # 读 PDF MediaBox 实宽,偏离目标超过 0.003 in 就按差值收放画布重存两份
         _mb = _re.search(rb"/MediaBox\s*\[\s*[\d.]+\s+[\d.]+\s+([\d.]+)", open(os.path.join(OUT, f"{name}.pdf"), "rb").read())
@@ -205,7 +210,7 @@ def save(fig, name, target=COL):
         w, h = fig.get_size_inches()
         fig.set_size_inches(w + (target - _w), h)
         fig.savefig(os.path.join(OUT, f"{name}.png"), bbox_inches="tight", pad_inches=PAD, facecolor=SURFACE, dpi=600)
-        fig.savefig(os.path.join(OUT, f"{name}.pdf"), bbox_inches="tight", pad_inches=PAD, facecolor=SURFACE)
+        fig.savefig(os.path.join(OUT, f"{name}.pdf"), bbox_inches="tight", pad_inches=PAD, facecolor=SURFACE, metadata=PDF_METADATA)
     plt.close(fig)
     print(f"[fig] {name}  存出 {bb.width + 2*PAD:.2f} x {bb.height + 2*PAD:.2f} in")
 
@@ -295,10 +300,15 @@ for x1, x2, lab in ((22.7, 38.8, "AI substitutability\n(task\u2013technology fit
             fontsize=FS_NOTE, color=MUTED, zorder=4)
 
 # ---- 上：移动的能力前沿（H2）----
-box(29.0, 54, 42, 12, "Capability frontier, moving (H2)",
-    ["the gradient predates the release and persists after it"],
-    fc=SOFT, edge=DASHE, ls=(0, (4, 2)))
-arrow(50, 54, 50, 48, ls=(0, (4, 2)), color=DASHE)
+# 2026-09-28 终版独立复核 M-3：原先一行 "the gradient predates the release and
+# persists after it" 正是正文 §6.2 说本设计确立不了的前半句，虚线又把已检验并
+# 支持的负半句（不是发布日断点，§6.2、Table 3）一并标成"未识别"。改为两行，
+# 分别对应正文 §6.2 的负半句（已检验，实线）与前半句（未识别）。
+box(29.0, 50, 42, 16, "Capability frontier, moving (H2)",
+    ["no discontinuity at the release (tested, Section 6.2)",
+     "present before it: not identified here"],
+    fc=SOFT, edge=BOXE)
+arrow(50, 50, 50, 48, ls=(0, (4, 2)), color=DASHE)
 
 # ---- 下左：构念验证（H3）----
 box(6.0, 4, 38, 16, "Construct validation (H3)",
@@ -308,14 +318,17 @@ box(6.0, 4, 38, 16, "Construct validation (H3)",
 arrow(25.0, 20, 12.0, 26, rad=-0.18, color=BOXE)
 
 # ---- 下右：供给侧（H4，虚线＝探索性）----
+# 2026-09-28 终版独立复核 m-22：框已是虚线并标 exploratory，
+# 行内再加 "\u2014 not established" 是把结果陈述重复写进图（断言口呴），删去。
 box(56.0, 4, 38, 16, "Supply side (H4, exploratory)",
     ["answered-rate decline steepest where",
-     "substitutability is lowest \u2014 not established"],
+     "substitutability is lowest"],
     fc=SOFT, edge=DASHE, ls=(0, (4, 2)))
 arrow(88.0, 26, 81.5, 20, rad=-0.18, ls=(0, (4, 2)), color=DASHE)
 
-ax.text(0, -1.5, "Solid outline: observed or tested by this design.    "
-                 "Dashed outline: inferred, exploratory, or not identified here.",
+# 2026-09-28 终版独立复核 m-22：图内图例改为与题注（L109）一致的措辞。
+ax.text(0, -1.5, "Solid outlines mark what this design observes or tests.    "
+                 "Dashed outlines mark what it does not identify.",
         ha="left", va="bottom", fontsize=FS_NOTE, color=MUTED)
 save(fig, "fig0_framework")
 
