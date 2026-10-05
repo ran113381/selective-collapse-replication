@@ -1,0 +1,20 @@
+﻿group,row,estimate,se,estimator,source_path,source_key
+"Estimators (python, blind)",log-count OLS,-0.303800,0.037900,log-count OLS,R2_analyze_result.json,blind.ols.coef; blind.ols.se
+"Estimators (python, blind)",fixed-total FE-PPML,-0.287200,0.032600,FE-PPML,R2_analyze_result.json,blind.ppml.coef; blind.ppml.se
+"Estimators (python, blind)",Newey–West log(s4/s1) per point,-0.297833,0.038933,"Newey-West log-ratio, coef and SE divided by 3",R2_analyze_result.json,blind.logratio_nw.coef / 3; blind.logratio_nw.se / 3
+Raters (python),blind classification (Sonnet 5),-0.303800,0.037900,log-count OLS,R2_analyze_result.json,blind.ols.coef; blind.ols.se
+Raters (python),earlier classifier re-run blind (Sonnet 4.6),-0.345700,0.042600,log-count OLS,R2_blind_s46\R2s46_analyze_result.json,headline_s46.ols.coef; headline_s46.ols.se
+Raters (python),independent family (GLM-4.6),-0.226968,0.036477,log-count OLS,R2_downstream\blind\05_additional_checks\glm_relabel\cross_family_glm-4.6.json,dose_glm.ols[0]; dose_glm.ols[1]
+"Languages (earlier, date-visible classification)",python,-0.415593,0.067322,log-count OLS,R2_downstream\orig\02_estimation\capability_ramp.json,python.windowed[window startswith 'full'].gamma; .se
+"Languages (earlier, date-visible classification)",javascript,-0.228847,0.067438,log-count OLS,R2_downstream\orig\02_estimation\capability_ramp.json,javascript.windowed[window startswith 'full'].gamma; .se
+"Languages (earlier, date-visible classification)",java,-0.123346,0.052364,log-count OLS,R2_downstream\orig\02_estimation\capability_ramp.json,java.windowed[window startswith 'full'].gamma; .se
+"Sample and specification (python, blind)","excluding questions at the 1,400-character cap",-0.292000,0.038000,log-count OLS (SE printed to 3 dp in log),R2_downstream\blind\logs\check_cap_sensitivity.log,line 5: gamma and SE parsed from the log line
+"Sample and specification (python, blind)","stricter exclusion at 1,000 characters",-0.278000,0.038000,log-count OLS (SE printed to 3 dp in log),R2_downstream\blind\logs\check_cap_sensitivity.log,line 6: gamma and SE parsed from the log line
+"Sample and specification (python, blind)",s0 folded into s1,-0.318000,0.037300,log-count OLS,R2_analyze_result.json,blind_s0_folded_into_s1.ols.coef; .se
+"Sample and specification (python, blind)",closed questions dropped,-0.311268,0.041813,log-count OLS,R2_downstream\blind\02_estimation\closure_check.json,gamma_excl_closed_ols.gamma; .se
+"Sample and specification (python, blind)",before Staging Ground,-0.262639,0.055438,"log-count OLS, post window 2022-12..2024-05",R2_downstream\blind\02_estimation\review_r1\p0_2_staging_ground.json,panel_b_corrected_split.before.gamma; .se
+"Sample and specification (python, blind)",after Staging Ground,-0.334718,0.037753,"log-count OLS, post window 2024-06..2026-05",R2_downstream\blind\02_estimation\review_r1\p0_2_staging_ground.json,panel_b_corrected_split.after.gamma; .se
+"Asker composition (python, blind)",youngest tenure tercile,-0.322194,0.062246,log-count OLS,R2_downstream\blind\02_estimation\asker_tenure.json,stratified_gamma.young.gamma; .se
+"Asker composition (python, blind)",middle tenure tercile,-0.298667,0.076702,log-count OLS,R2_downstream\blind\02_estimation\asker_tenure.json,stratified_gamma.mid.gamma; .se
+"Asker composition (python, blind)",oldest tenure tercile,-0.326841,0.052926,log-count OLS,R2_downstream\blind\02_estimation\asker_tenure.json,stratified_gamma.old.gamma; .se
+"Asker composition (python, blind)",FE-PPML with novice-by-month effects,-0.307402,0.040282,FE-PPML,R2_downstream\blind\02_estimation\asker_rival_exact.json,ppml.novice_x_month_fe.gamma; .se

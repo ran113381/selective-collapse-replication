@@ -1,0 +1,18 @@
+design sha256 = d37dc8f86f5e713788a314b6d30c9fa9ff3f7c56871084a7ba0c8d330a316562 (matches record)
+input records: 6000 key sets: {('body', 'id', 'tags', 'title')}
+self-check 2: score mismatches vs csv via token map: 0 of 6000
+tags >=120 (excluding python): [('pandas', 608), ('python-3.x', 419), ('dataframe', 354), ('django', 242), ('numpy', 232), ('list', 160), ('tkinter', 155), ('matplotlib', 146), ('flask', 120)]
+feature matrix: (6000, 29) constant columns: []
+== pass 1 ==
+pass 1 done in 3.8s
+== pass 2 ==
+oof sha256 pass1/pass2: ('57169b220707e01aa5eabf6423278adabcb1fba68920a5c63d7fb084071a3d17', '57169b220707e01aa5eabf6423278adabcb1fba68920a5c63d7fb084071a3d17')
+shap sha256 pass1/pass2: ('555b45e7b142e08e4b2756b73fc27beed5995f4459712f3f3c139a03fae1b8c4', '555b45e7b142e08e4b2756b73fc27beed5995f4459712f3f3c139a03fae1b8c4')
+C1 AUC = 0.7634 ; Spearman(pred, score) = 0.5100
+C2 attribute share = 0.8522
+C3 consistent 8 / selected 10
+R1 (drop F01,F02): C1 0.7517 C2 0.8101 C3 7/8
+S1 Spearman(pre, post mean|SHAP|) = 0.9759 ; n_pre=1800 n_post=4200
+static scan for a why-key literal: 0
+self-checks: {'1_input_keys_and_no_why_access': True, '2_scores_match_csv_via_tokenmap': True, '3_feature_matrix_29_cols_names_match': True, '4_ym_map_opened_only_after_oof': True, '5_two_pass_hash_identical': True}
+wrote shap_result.json and shap_oof.npz

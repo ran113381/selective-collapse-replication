@@ -27,19 +27,70 @@ import matplotlib.patheffects as pe
 from matplotlib.gridspec import GridSpec
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, "figures")
+PKG_ROOT = os.path.dirname(os.path.dirname(HERE))   # scripts -> 09_downstream_rerun -> 包根；不写绝对路径
+# 输出目录：默认 <脚本所在目录>/figures；环境变量 P9B_FIG_OUT 可改到别处(仅改输出位置)
+OUT = os.environ.get("P9B_FIG_OUT") or os.path.join(HERE, "figures")
 os.makedirs(OUT, exist_ok=True)
-R2 = r"E:\智能体论文\P9b_IPM_20260919\工作文档"
-DATA = os.path.join(R2, "R2_downstream", "blind", "data")   # 盲标签镜像:python 面板、题级标签、事件研究
-ORIG_EST = os.path.join(R2, "R2_downstream", "orig", "02_estimation")
-BLIND_EST = os.path.join(R2, "R2_downstream", "blind", "02_estimation")
+
+_PKG_MAP = {  # 根里相对路径(工作文档\ 下；OSF 件为其包内路径) -> 包内相对路径；由 audit hook 实测的 24 个输入生成
+    "步骤3_SHAP/shap_oof.npz": "10_shap_transparency/shap_oof.npz",
+    "步骤3_SHAP/shap_result.json": "10_shap_transparency/shap_result.json",
+    "R2_analyze_result.json": "07_blind_reclassification/results/R2_analyze_result.json",
+    "R2_blind_s46/R2s46_analyze_result.json": "07_blind_reclassification/same_model_sonnet46/results/R2s46_analyze_result.json",
+    "R2_downstream/blind/02_estimation/absolute_volume.json": "09_downstream_rerun/blind/outputs/02_estimation/absolute_volume.json",
+    "R2_downstream/blind/02_estimation/absolute_volume_series_python.csv": "09_downstream_rerun/blind/outputs/02_estimation/absolute_volume_series_python.csv",
+    "R2_downstream/blind/02_estimation/asker_rival_exact.json": "09_downstream_rerun/blind/outputs/02_estimation/asker_rival_exact.json",
+    "R2_downstream/blind/02_estimation/asker_tenure.json": "09_downstream_rerun/blind/outputs/02_estimation/asker_tenure.json",
+    "R2_downstream/blind/02_estimation/capability_ramp.json": "09_downstream_rerun/blind/outputs/02_estimation/capability_ramp.json",
+    "R2_downstream/blind/02_estimation/closure_check.json": "09_downstream_rerun/blind/outputs/02_estimation/closure_check.json",
+    "R2_downstream/blind/02_estimation/review_r1/p0_2_staging_ground.json": "09_downstream_rerun/blind/outputs/02_estimation/review_r1/p0_2_staging_ground.json",
+    "R2_downstream/blind/05_additional_checks/glm_relabel/cross_family_glm-4.6.json": "09_downstream_rerun/blind/outputs/05_additional_checks/glm_relabel/cross_family_glm-4.6.json",
+    "R2_downstream/blind/data/question_labels.csv": "09_downstream_rerun/blind/data/question_labels.csv",
+    "R2_downstream/blind/data/question_labels_ext_py.csv": "09_downstream_rerun/blind/data/question_labels_ext_py.csv",
+    "R2_downstream/blind/data/so_questions_ext_py.json": "01_panels_and_classification/data/so_questions_python_ext_2024-07_2026-05.json",
+    "R2_downstream/blind/data/so_questions_full.json": "01_panels_and_classification/data/so_questions_python_2021-2024.json",
+    "R2_downstream/blind/data/within_so_llm_eventstudy.csv": "09_downstream_rerun/blind/outputs/within_so_llm_eventstudy.csv",
+    "R2_downstream/blind/data/within_so_llm_panel.csv": "07_blind_reclassification/labels/within_so_llm_panel_python_blind.csv",
+    "R2_downstream/blind/logs/check_cap_sensitivity.log": "09_downstream_rerun/blind/logs/check_cap_sensitivity.log",
+    "R2_downstream/orig/02_estimation/capability_ramp.json": "09_downstream_rerun/orig/outputs/02_estimation/capability_ramp.json",
+    "R2c_result.json": "08_criterion_round3/results/R2c_result.json",
+    "R2d_extra_result.json": "09_downstream_rerun/results/R2d_extra_result.json",
+    "R2d_kappa_result.json": "09_downstream_rerun/results/R2d_kappa_result.json",
+    "04_crosssite_engine/data/so_monthly_panel.csv": "04_crosssite_engine/data/so_monthly_panel.csv",
+}
+_PKG_BARE = {}
+for _k in _PKG_MAP:
+    _PKG_BARE.setdefault(_k.rsplit("/", 1)[-1], []).append(_k)
+
+
+def resolve(name_or_relpath, *more):
+    """文件名／根里相对路径 -> 包内绝对路径。查不到映射或文件不在包内则报错并写明文件名，不静默跳过。"""
+    key = "/".join([name_or_relpath, *more]).replace("\\", "/").strip("/")
+    if key not in _PKG_MAP:
+        hits = _PKG_BARE.get(key, [])
+        if len(hits) == 1:
+            key = hits[0]
+        elif len(hits) > 1:
+            raise KeyError(f"resolve: file name '{key}' is ambiguous, give a relative path; candidates: {hits}")
+        else:
+            raise KeyError(f"resolve: no package mapping for '{key}'")
+    p = os.path.join(PKG_ROOT, *_PKG_MAP[key].split("/"))
+    if not os.path.isfile(p):
+        raise FileNotFoundError(f"resolve: '{key}' should be at package path '{_PKG_MAP[key]}' but is missing")
+    return p
+
+
+# 以下三个仅是「根里相对路径」前缀(不是磁盘路径)，取文件时一律过 resolve()
+DATA = "R2_downstream/blind/data"           # 盲标签镜像:python 面板、题级标签、事件研究
+ORIG_EST = "R2_downstream/orig/02_estimation"
+BLIND_EST = "R2_downstream/blind/02_estimation"
 J = lambda *p: json.load(open(os.path.join(*p), encoding="utf-8"))
-A2 = J(R2, "R2_analyze_result.json")
-RAMP_B = {r["window"]: r for r in J(BLIND_EST, "capability_ramp.json")["python"]["windowed"]}
-RAMP_O = J(ORIG_EST, "capability_ramp.json")
-WT = J(R2, "R2d_extra_result.json")["blind"]["stats"]["window_tests"]
-KP = J(R2, "R2d_kappa_result.json")
-AVJ = J(BLIND_EST, "absolute_volume.json")
+A2 = J(resolve("R2_analyze_result.json"))
+RAMP_B = {r["window"]: r for r in J(resolve(BLIND_EST, "capability_ramp.json"))["python"]["windowed"]}
+RAMP_O = J(resolve(ORIG_EST, "capability_ramp.json"))
+WT = J(resolve("R2d_extra_result.json"))["blind"]["stats"]["window_tests"]
+KP = J(resolve("R2d_kappa_result.json"))
+AVJ = J(resolve(BLIND_EST, "absolute_volume.json"))
 EVENT = 2022 * 12 + 11
 
 SURFACE, INK, INK2, MUTED = "#ffffff", "#111111", "#3f3f3f", "#767676"
@@ -107,7 +158,7 @@ FS_SMALL = 7.0     # 柱内数值 / 密排注记
 
 plt.rcParams.update({
     "font.sans-serif": ["DejaVu Sans", "Arial"], "font.family": "sans-serif",
-    "axes.unicode_minus": False, "savefig.dpi": 600, "figure.dpi": 600,
+    "axes.unicode_minus": True, "savefig.dpi": 600, "figure.dpi": 600,
     "font.size": FS_LABEL, "axes.labelsize": FS_LABEL,
     "xtick.labelsize": FS_TICK, "ytick.labelsize": FS_TICK,
     "axes.edgecolor": BASE, "axes.linewidth": LW_SPINE, "text.color": INK,
@@ -216,14 +267,14 @@ def save(fig, name, target=COL):
 
 
 # ---- load python panel + questions once ----
-wpy = pd.read_csv(os.path.join(DATA, "within_so_llm_panel.csv"))
+wpy = pd.read_csv(resolve(DATA, "within_so_llm_panel.csv"))
 labels = {}
 for fn in ("question_labels.csv", "question_labels_ext_py.csv"):
-    for r in csv.DictReader(open(os.path.join(DATA, fn), encoding="utf-8")):
+    for r in csv.DictReader(open(resolve(DATA, fn), encoding="utf-8")):
         labels[int(r["question_id"])] = int(r["score"])
 qrows = []
 for fn in ("so_questions_full.json", "so_questions_ext_py.json"):
-    qs = json.load(open(os.path.join(DATA, fn), encoding="utf-8"))
+    qs = json.load(open(resolve(DATA, fn), encoding="utf-8"))
     scrape = max(q["creation_date"] for q in qs)
     sc = pd.to_datetime(scrape, unit="s").to_period("M")
     sci = sc.year * 12 + (sc.month - 1)
@@ -300,13 +351,14 @@ for x1, x2, lab in ((22.7, 38.8, "AI substitutability\n(task\u2013technology fit
             fontsize=FS_NOTE, color=MUTED, zorder=4)
 
 # ---- 上：移动的能力前沿（H2）----
+# 2026-10-05 收口第3步：H2 拆为 H2a/H2b，框内标题与两行文字按正文 §6.2/§8.1 的措辞改。
 # 2026-09-28 终版独立复核 M-3：原先一行 "the gradient predates the release and
 # persists after it" 正是正文 §6.2 说本设计确立不了的前半句，虚线又把已检验并
 # 支持的负半句（不是发布日断点，§6.2、Table 3）一并标成"未识别"。改为两行，
 # 分别对应正文 §6.2 的负半句（已检验，实线）与前半句（未识别）。
-box(29.0, 50, 42, 16, "Capability frontier, moving (H2)",
-    ["no discontinuity at the release (tested, Section 6.2)",
-     "present before it: not identified here"],
+box(29.0, 50, 42, 16, "Capability frontier, moving (H2a, H2b)",
+    ["H2a: no discontinuity at the release (Section 6.2)",
+     "H2b: present before it, not supported (Section 6.2)"],
     fc=SOFT, edge=BOXE)
 arrow(50, 50, 50, 48, ls=(0, (4, 2)), color=DASHE)
 
@@ -333,7 +385,7 @@ ax.text(0, -1.5, "Solid outlines mark what this design observes or tests.    "
 save(fig, "fig0_framework")
 
 # ============ FIGURE 1 — absolute volume + composition ============
-ABS = os.path.join(BLIND_EST, "absolute_volume_series_python.csv")
+ABS = resolve(BLIND_EST, "absolute_volume_series_python.csv")
 fig = plt.figure(figsize=(COL, 3.5))
 gs = GridSpec(1, 2, width_ratios=[1.0, 1.0], wspace=0.34, figure=fig)
 
@@ -530,7 +582,7 @@ gs = GridSpec(1, 2, width_ratios=[1.2, 1.0], wspace=0.28, figure=fig)
 
 # 3A event-study pre-trend
 axA = fig.add_subplot(gs[0])
-es = pd.read_csv(os.path.join(DATA, "within_so_llm_eventstudy.csv"))
+es = pd.read_csv(resolve(DATA, "within_so_llm_eventstudy.csv"))
 kk, gk = es["k"].values, es["gamma_k"].values
 pre_m = kk < 0
 # 处理发生在最后一个前期月(k=-1)与第一个后期月(k=0)**之间**,故分界线与阴影
@@ -561,7 +613,7 @@ axA.grid(axis="y", color=GRID, lw=LW_GRID); finish(axA); panel_label(axA, "A")
 
 # 3B criterion validity across four answerers (answer margin -> supplementary)
 axB = fig.add_subplot(gs[1])
-wt = J(R2, "R2c_result.json")["common_subset"]      # 第三轮:四个答题者共同完成的题
+wt = J(resolve("R2c_result.json"))["common_subset"]      # 第三轮:四个答题者共同完成的题
 tiers = [t_ for t_ in [("Sonnet 5", "sonnet5", "#14497F", "-", "o"),
                        ("GLM-5.3", "glm53", "#3E85C6", "-", "s"),
                        ("Haiku 4.5", "haiku45", "#C2603E", "--", "o"),
@@ -596,7 +648,7 @@ print("DONE — 3 multi-panel figures (600dpi PNG + vector PDF)")
 # ---- 新图 A：估计量稳健性（对应 Table 3）----
 fig = plt.figure(figsize=(COL, 3.5))
 ax = fig.add_subplot(111)
-_cf = J(R2, "R2d_kappa_result.json")["cross_family"]["glm"]["per_point"]
+_cf = J(resolve("R2d_kappa_result.json"))["cross_family"]["glm"]["per_point"]
 SPECS = [  # (标签, γ, SE, 是否主规格) —— 读 R2 产物
     ("log-count OLS (python, blind)",   A2["blind"]["ols"]["coef"], A2["blind"]["ols"]["se"], True),
     ("Fixed-total FE-PPML",             A2["blind"]["ppml"]["coef"], A2["blind"]["ppml"]["se"], False),
@@ -707,13 +759,13 @@ for i, b in enumerate(("s1", "s2", "s3", "s4")):
     ax.barh(ys_, vals, height=w, color=RAMP[i], label=LEGLBL[i], zorder=3,
             edgecolor=SURFACE, linewidth=0.4)
     for yy, vv in zip(ys_, vals):
-        ax.annotate(f"{vv:.1f}", xy=(0, yy), xytext=(6, 0),
+        ax.annotate(f"{vv:.1f}".replace("-", "−"), xy=(0, yy), xytext=(6, 0),
                     textcoords="offset points", ha="left", va="center",
                     fontsize=FS_SMALL, color=SURFACE, fontweight="bold", zorder=6)
 for j, n in enumerate(names):
     ax.plot([PLAT[n], PLAT[n]], [j - 0.46, j + 0.46], color=INK, lw=LW_REF,
             ls=(0, (3.5, 1.85)), zorder=5)
-    ax.annotate(f"platform {PLAT[n]:.1f}", xy=(PLAT[n], j - 0.46), xytext=(0, 2),
+    ax.annotate(f"platform {PLAT[n]:.1f}".replace("-", "−"), xy=(PLAT[n], j - 0.46), xytext=(0, 2),
                 textcoords="offset points", ha="center", va="bottom",
                 fontsize=FS_SMALL, color=INK, zorder=6,
                 bbox=dict(boxstyle="round,pad=0.15", fc=SURFACE, ec="none", alpha=0.92))
@@ -731,3 +783,398 @@ framed(ax)
 save(fig, "fig_volume")
 
 print("DONE — 3 multi-panel + 4 single-panel figures")
+
+
+
+# =====================================================================================
+# 第 3 步新增（2026-10-04）：fig_design / fig_crosssite / fig_shap / fig_forest / fig_placebo
+# 只新增函数与输出，上面既有七张图的代码一字未动。图内不写图题；凡画出的数一律从产物读。
+# =====================================================================================
+STEP3 = os.path.dirname(resolve("步骤3_SHAP/shap_result.json"))   # 包内 10_shap_transparency；自检 json 与 forest 行表写回此处
+OSF_PANEL = resolve("04_crosssite_engine/data/so_monthly_panel.csv")
+from matplotlib.colors import LinearSegmentedColormap
+import matplotlib.ticker, matplotlib.cm, matplotlib.colors
+from matplotlib.lines import Line2D
+from matplotlib.text import Text as _Text
+from matplotlib.textpath import TextPath as _TextPath
+from matplotlib.font_manager import FontProperties as _FP
+from scipy.stats import rankdata
+
+# 报告「最小印出字号」用：save() 把成品宽钉在 target，故缩放系数恒为 1，印出字号 = 写下的磅值。
+STEP3_FONT_LOG = {}
+
+
+def _min_font(fig, name):
+    sizes = [t.get_fontsize() for t in fig.findobj(_Text) if t.get_visible() and t.get_text().strip()]
+    STEP3_FONT_LOG[name] = min(sizes) if sizes else None
+    print(f"[minfont] {name}  最小字号 {STEP3_FONT_LOG[name]} pt (成品宽/存出宽 = 1)")
+
+
+def _wrap_pt(text, fs, width_pt, weight="normal"):
+    """按真实字形宽度贪心折行（宽度单位：磅）。"""
+    fp = _FP(weight=weight)
+    wd = lambda s: _TextPath((0, 0), s, size=fs, prop=fp).get_extents().width
+    out, cur = [], ""
+    for word in text.split():
+        t = (cur + " " + word).strip()
+        if cur and wd(t) > width_pt:
+            out.append(cur)
+            cur = word
+        else:
+            cur = t
+    if cur:
+        out.append(cur)
+    return out
+
+
+# ------------------------------------------------------------------ fig_design
+def fig_design():
+    global ax
+    H = 3.35
+    fig = plt.figure(figsize=(COL, H))
+    fig.subplots_adjust(left=0, right=1, bottom=0, top=1)
+    ax = fig.add_subplot(111)
+    XL = 101.0
+    unit = COL * 72 / XL                    # 每个 x 单位的磅数；y 与 x 同比例，圆角不变形
+    YT = H * 72 / unit
+    ax.set_xlim(-0.5, 100.5); ax.set_ylim(0, YT); ax.axis("off")
+
+    def tbox(x, y, w, h, title, paras, edge=BOXE, fc=BOXC, ls="-", lw=None):
+        ax.add_patch(mpatches.FancyBboxPatch(
+            (x, y), w, h, boxstyle="round,pad=0,rounding_size=1.0",
+            linewidth=lw or LW_CI_THIN, edgecolor=edge, facecolor=fc, linestyle=ls, zorder=3))
+        wpt = (w - 2.0) * unit
+        lh_t, lh = FS_VALUE * 1.28 / unit, FS_ANNOT * 1.28 / unit
+        tl = _wrap_pt(title, FS_VALUE, wpt, "bold") if title else []
+        pls = [_wrap_pt(p, FS_ANNOT, wpt) for p in paras]
+        bh = len(tl) * lh_t + (0.3 * lh_t if tl and pls else 0) + sum(len(p) for p in pls) * lh + 0.25 * lh * max(len(pls) - 1, 0)
+        if bh > h - 0.8:
+            print(f"[fig_design] 警告：文字块 {bh:.1f} 超出框高 {h:.1f}：{title!r}")
+        yy = y + h / 2 + bh / 2
+        for s in tl:
+            ax.text(x + w / 2, yy, s, ha="center", va="top", zorder=4, fontsize=FS_VALUE,
+                    fontweight="bold", color=INK)
+            yy -= lh_t
+        if tl and pls:
+            yy -= 0.3 * lh_t
+        for p in pls:
+            for s in p:
+                ax.text(x + w / 2, yy, s, ha="center", va="top", zorder=4, fontsize=FS_ANNOT, color=INK2)
+                yy -= lh
+            yy -= 0.25 * lh
+
+    # 主线四框
+    bw, gap = 21.5, 4.6
+    top = YT - 0.6
+    mh = 19.0
+    my = top - mh
+    xs_ = [0.0 + i * (bw + gap) for i in range(4)]
+    tbox(xs_[0], my, bw, mh, "Sample",
+         ["18,000 Stack Overflow questions; python, java, javascript; 100 per month, June 2021\u2013May 2026"])
+    tbox(xs_[1], my, bw, mh, "Classifier",
+         ["AI-substitutability rubric, 0\u20134.", "python: blind to date and outcomes.",
+          "java, javascript: earlier, date-visible classification"])
+    tbox(xs_[2], my, bw, mh, "Within-platform dose-response", ["bin \u00d7 post, bin and month fixed effects"])
+    tbox(xs_[3], my, bw, mh, "Composition of asking (\u03b3)", ["reconstructed volumes (descriptive)"])
+    for i in range(3):
+        arrow(xs_[i] + bw + 0.6, my + mh / 2, xs_[i + 1] - 0.6, my + mh / 2)
+
+    # 验证行：两组
+    gy, gh = 0.6, 19.2
+    ginside = (0.0, gy, 57.2, gh)
+    goutside = (61.0, gy, 38.8, gh)
+    ax.add_patch(mpatches.FancyBboxPatch(
+        (ginside[0], ginside[1]), ginside[2], ginside[3], boxstyle="round,pad=0,rounding_size=1.0",
+        linewidth=LW_CI_THIN, edgecolor=DASHE, facecolor="none", linestyle=(0, (4, 2)), zorder=2))
+    ax.add_patch(mpatches.FancyBboxPatch(
+        (goutside[0], goutside[1]), goutside[2], goutside[3], boxstyle="round,pad=0,rounding_size=1.0",
+        linewidth=LW_CI_THIN, edgecolor=BOXE, facecolor="none", linestyle="-", zorder=2))
+    ax.text(ginside[0] + 1.2, gy + gh - 0.9, "Inside the model loop", ha="left", va="top",
+            fontsize=FS_VALUE, fontweight="bold", color=INK, zorder=4)
+    ax.text(goutside[0] + 1.2, gy + gh - 0.9, "Outside the model loop", ha="left", va="top",
+            fontsize=FS_VALUE, fontweight="bold", color=INK, zorder=4)
+    iw, ih, iy = 17.4, 12.6, gy + 1.0
+    inside = ["Second raters: same family, independent family",
+              "Answering models and judges: four models, 320 questions",
+              "Surrogate model with SHAP"]
+    outside = ["Two human coders: 300 questions", "Moderators' duplicate closures"]
+    for k, t in enumerate(inside):
+        tbox(1.0 + k * (iw + 1.5), iy, iw, ih, None, [t], edge=BASE, fc=SOFT, lw=LW_CAP)
+    for k, t in enumerate(outside):
+        tbox(goutside[0] + 1.0 + k * (iw + 1.5), iy, iw, ih, None, [t], edge=BASE, fc=SOFT, lw=LW_CAP)
+    # 向上箭头指向框 2
+    b2x = xs_[1] + bw / 2
+    arrow(ginside[0] + ginside[2] / 2, gy + gh + 0.4, b2x - 3.0, my - 0.6, color=DASHE, ls=(0, (4, 2)), rad=0.0)
+    arrow(goutside[0] + goutside[2] / 2, gy + gh + 0.4, b2x + 3.0, my - 0.6, color=BOXE, rad=0.0)
+    _min_font(fig, "fig_design")
+    save(fig, "fig_design")
+
+
+# ------------------------------------------------------------------ fig_crosssite
+def fig_crosssite():
+    d_ = pd.read_csv(OSF_PANEL)
+    q_ = d_[d_.endpoint == "questions"]
+    p_ = q_.pivot(index="ym", columns="site", values="count").sort_index()
+    base_ = p_.loc["2022-06":"2022-11"].mean()
+    win_ = (p_.loc["2022-12":"2023-12"].mean() / base_ - 1) * 100
+    late_ = (p_.loc["2025-06":"2026-05"].mean() / base_ - 1) * 100
+    targets = [("stackoverflow", "2022-12 to 2023-12", win_, -37.5),
+               ("ru.stackoverflow", "2022-12 to 2023-12", win_, -32.7),
+               ("math.stackexchange", "2022-12 to 2023-12", win_, -10.4),
+               ("mathoverflow.net", "2022-12 to 2023-12", win_, -2.2),
+               ("math.stackexchange", "2025-06 to 2026-05", late_, -76.8),
+               ("mathoverflow.net", "2025-06 to 2026-05", late_, -41.5)]
+    chk = []
+    for site, wname, ser, want in targets:
+        got = float(ser[site])
+        chk.append(dict(site=site, window=wname, got=got, got_1dp=round(got, 1), want=want, ok=bool(round(got, 1) == want)))
+    json.dump(chk, open(os.path.join(STEP3, "crosssite_selfcheck.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    for c in chk:
+        print(f"[crosssite selfcheck] {c['site']:20s} {c['window']}  got {c['got']:.3f}  -> {c['got_1dp']:.1f}  want {c['want']:.1f}  {'OK' if c['ok'] else 'MISMATCH'}")
+    if not all(c["ok"] for c in chk):
+        raise SystemExit("fig_crosssite 自证未过：与 §5.1 六个数不吻合，停止，不画图")
+
+    idx = (p_ / base_ * 100).loc["2021-06":"2026-05"]
+    idx = idx.where(p_.loc["2021-06":"2026-05"] > 0)   # 三个零计数月（pt.stackoverflow）在对数轴上无定义，留空不连线
+    x = pd.to_datetime(idx.index + "-01")
+    fig = plt.figure(figsize=(COL, 2.95))
+    ax_ = fig.add_subplot(111)
+    ax_.axvspan(pd.Timestamp("2022-06-01"), pd.Timestamp("2023-12-01"), color="#f2f4f7", zorder=0)
+    ax_.axvline(pd.Timestamp("2022-12-01"), color=INK2, ls=(0, (3.5, 1.5)), lw=LW_REF, zorder=2)
+    GREYC = "#b9b9b9"
+    for k, s in enumerate(("es.stackoverflow", "pt.stackoverflow", "superuser")):
+        ax_.plot(x, idx[s], color=GREYC, lw=0.9, zorder=2.5,
+                 label="Other candidate controls" if k == 0 else "_nolegend_")
+    CS = [("ru.stackoverflow", RAMP[0], "Russian Stack Overflow"), ("math.stackexchange", "#3E85C6", "Mathematics Stack Exchange"), ("mathoverflow.net", "#C2603E", "MathOverflow")]
+    ax_.plot(x, idx["stackoverflow"], color=ACCENT, lw=2.4, zorder=5, label="English Stack Overflow", solid_capstyle="round")
+    for s, c, lab in CS:
+        ax_.plot(x, idx[s], color=c, lw=LW_SERIES + 0.2, zorder=4, label=lab, solid_capstyle="round")
+    ax_.set_yscale("log")
+    lo, hi = float(np.nanmin(idx.values)), float(np.nanmax(idx.values))
+    ax_.set_ylim(lo * 0.85, hi * 1.12)
+    ticks = [t for t in (3, 10, 30, 100, 200) if ax_.get_ylim()[0] <= t <= ax_.get_ylim()[1]]
+    ax_.set_yticks(ticks); ax_.set_yticklabels([str(t) for t in ticks])
+    ax_.yaxis.set_minor_locator(matplotlib.ticker.NullLocator())
+    ax_.set_xlim(x[0], x[-1])
+    ax_.set_ylabel("Monthly questions, index\n(2022-06 to 2022-11 mean = 100)", fontsize=FS_LABEL)
+    ax_.grid(color=GRID, lw=LW_GRID)
+    year_axis(ax_); framed(ax_)
+    # 图例顺序：强调线、三条彩线、灰线
+    hh, ll = ax_.get_legend_handles_labels()
+    order = [ll.index(n) for n in ("English Stack Overflow", "Russian Stack Overflow", "Mathematics Stack Exchange", "MathOverflow", "Other candidate controls")]
+    ax_.legend([hh[i] for i in order], [ll[i] for i in order], frameon=False, fontsize=FS_LEG, ncol=3,
+               loc="upper center", bbox_to_anchor=(0.5, -0.12), handlelength=1.6, columnspacing=1.5, borderaxespad=0.0)
+    _min_font(fig, "fig_crosssite")
+    save(fig, "fig_crosssite")
+
+
+# ------------------------------------------------------------------ fig_shap
+def fig_shap():
+    R_ = json.load(open(resolve("步骤3_SHAP/shap_result.json"), encoding="utf-8"))
+    if not R_["C1"]["passed"]:
+        print("[fig_shap] C1 未过，不出图")
+        return
+    Z = np.load(resolve("步骤3_SHAP/shap_oof.npz"))
+    sv, Xm, fn = Z["shap"], Z["X"], [str(s) for s in Z["feature_names"]]
+    disp = R_["display_names"]
+    ms_ = np.abs(sv).mean(axis=0)
+    order = list(np.argsort(-ms_, kind="stable")[:12])
+    assert [fn[i] for i in order] == [r["id"] for r in R_["per_feature"][:12]], "前 12 名与 shap_result.json 不一致"
+    rng = np.random.default_rng(20261004)
+    cmap = LinearSegmentedColormap.from_list("coldwarm", RAMP)
+    fig = plt.figure(figsize=(COL, 3.75))
+    gs = GridSpec(1, 2, width_ratios=[1.75, 1.0], wspace=0.85, figure=fig)
+    axA = fig.add_subplot(gs[0])
+    n = sv.shape[0]
+    for r, j in enumerate(order):
+        col = Xm[:, j]
+        q = (rankdata(col, method="average") - 1) / (n - 1)
+        yj = r + rng.uniform(-0.32, 0.32, size=n)
+        perm = rng.permutation(n)
+        axA.scatter(sv[perm, j], yj[perm], c=q[perm], cmap=cmap, vmin=0, vmax=1, s=2.2, linewidths=0,
+                    rasterized=True, zorder=3)
+    axA.axvline(0, color=BASE, lw=LW_REF, zorder=2)
+    axA.set_yticks(range(12)); axA.set_yticklabels([disp[fn[j]] for j in order], fontsize=FS_TICK)
+    axA.set_ylim(11.6, -0.6)
+    axA.set_xlabel("SHAP value (score points)", fontsize=FS_LABEL)
+    axA.grid(axis="x", color=GRID, lw=LW_GRID)
+    framed(axA); panel_label(axA, "A")
+    sm = matplotlib.cm.ScalarMappable(cmap=cmap, norm=matplotlib.colors.Normalize(0, 1))
+    cb = fig.colorbar(sm, ax=axA, fraction=0.035, pad=0.02, aspect=28)
+    cb.set_ticks([]); cb.outline.set_linewidth(LW_SPINE); cb.outline.set_edgecolor(BASE)
+    cb.set_label("Feature value (low \u2192 high)", fontsize=FS_ANNOT, color=INK2)
+
+    axB = fig.add_subplot(gs[1])
+    gsh = R_["group_share"]
+    gnames = R_["group_names"]
+    groups = ["P1", "P2", "P3", "P4", "P5", "T"]
+    vals = [gsh[g] for g in groups]
+    ybar = list(range(len(groups)))
+    axB.barh(ybar, vals, height=0.62, color=[RAMP[0]] * 5 + ["#9a9a9a"], zorder=3, edgecolor=SURFACE, linewidth=0.4)
+    for yy, v in zip(ybar, vals):
+        axB.annotate(f"{v:.2f}", xy=(v, yy), xytext=(4, 0), textcoords="offset points", ha="left", va="center",
+                     fontsize=FS_VALUE, color=INK, fontweight="bold")
+    axB.set_yticks(ybar); axB.set_yticklabels([f"{g} {gnames[g]}" for g in groups], fontsize=FS_TICK)
+    axB.set_ylim(len(groups) - 0.4, -0.6)
+    axB.set_xlim(0, max(vals) * 1.38)
+    axB.set_xlabel("Share of total |SHAP|", fontsize=FS_LABEL)
+    axB.grid(axis="x", color=GRID, lw=LW_GRID)
+    framed(axB); panel_label(axB, "B")
+    _min_font(fig, "fig_shap")
+    save(fig, "fig_shap")
+
+
+# ------------------------------------------------------------------ fig_forest
+def _jload(rel):
+    return json.load(open(resolve(rel), encoding="utf-8"))
+
+
+def fig_forest():
+    import re as _re
+    A2_ = "R2_analyze_result.json"
+    a2 = _jload(A2_)
+    s46p = r"R2_blind_s46\R2s46_analyze_result.json"; s46 = _jload(s46p)
+    glmp = r"R2_downstream\blind\05_additional_checks\glm_relabel\cross_family_glm-4.6.json"; glm = _jload(glmp)
+    orp = r"R2_downstream\orig\02_estimation\capability_ramp.json"; orr = _jload(orp)
+    clp = r"R2_downstream\blind\02_estimation\closure_check.json"; cl = _jload(clp)
+    sgp = r"R2_downstream\blind\02_estimation\review_r1\p0_2_staging_ground.json"; sg = _jload(sgp)["panel_b_corrected_split"]
+    tnp = r"R2_downstream\blind\02_estimation\asker_tenure.json"; tn = _jload(tnp)["stratified_gamma"]
+    rvp = r"R2_downstream\blind\02_estimation\asker_rival_exact.json"; rv = _jload(rvp)["ppml"]["novice_x_month_fe"]
+    capp = r"R2_downstream\blind\logs\check_cap_sensitivity.log"
+    caplines = open(resolve(capp), encoding="utf-8").read().splitlines()
+
+    def capline(prefix):
+        for i, s in enumerate(caplines, 1):
+            if s.startswith(prefix):
+                m = _re.search(r"\u03b3 = (-?[\d.]+) \(SE ([\d.]+)\)", s)
+                return float(m.group(1)), float(m.group(2)), i
+        raise KeyError(prefix)
+
+    def full(lang):
+        r = next(r for r in orr[lang]["windowed"] if r["window"].startswith("full"))
+        return r["gamma"], r["se"]
+
+    cap1, cap1se, cap1l = capline("\u5254\u9664\u89e6\u9876\u95ee\u9898")        # 剔除触顶问题
+    cap2, cap2se, cap2l = capline("\u5254\u9664 \u22651,000")                      # 剔除 ≥1,000
+    nw_c, nw_s = a2["blind"]["logratio_nw"]["coef"] / 3, a2["blind"]["logratio_nw"]["se"] / 3
+    # (group, label, est, se, estimator, source_path, source_key, expected_value, digits)
+    ROWS = [
+        ("Estimators (python, blind)", "log-count OLS", a2["blind"]["ols"]["coef"], a2["blind"]["ols"]["se"], "log-count OLS", A2_, "blind.ols.coef; blind.ols.se", -0.304, 3),
+        ("Estimators (python, blind)", "fixed-total FE-PPML", a2["blind"]["ppml"]["coef"], a2["blind"]["ppml"]["se"], "FE-PPML", A2_, "blind.ppml.coef; blind.ppml.se", -0.29, 2),
+        ("Estimators (python, blind)", "Newey\u2013West log(s4/s1) per point", nw_c, nw_s, "Newey-West log-ratio, coef and SE divided by 3", A2_, "blind.logratio_nw.coef / 3; blind.logratio_nw.se / 3", -0.30, 2),
+        ("Raters (python)", "blind classification (Sonnet 5)", a2["blind"]["ols"]["coef"], a2["blind"]["ols"]["se"], "log-count OLS", A2_, "blind.ols.coef; blind.ols.se", -0.304, 3),
+        ("Raters (python)", "earlier classifier re-run blind (Sonnet 4.6)", s46["headline_s46"]["ols"]["coef"], s46["headline_s46"]["ols"]["se"], "log-count OLS", s46p, "headline_s46.ols.coef; headline_s46.ols.se", -0.346, 3),
+        ("Raters (python)", "independent family (GLM-4.6)", glm["dose_glm"]["ols"][0], glm["dose_glm"]["ols"][1], "log-count OLS", glmp, "dose_glm.ols[0]; dose_glm.ols[1]", -0.227, 3),
+        ("Languages (earlier, date-visible classification)", "python", full("python")[0], full("python")[1], "log-count OLS", orp, "python.windowed[window startswith 'full'].gamma; .se", -0.416, 3),
+        ("Languages (earlier, date-visible classification)", "javascript", full("javascript")[0], full("javascript")[1], "log-count OLS", orp, "javascript.windowed[window startswith 'full'].gamma; .se", -0.229, 3),
+        ("Languages (earlier, date-visible classification)", "java", full("java")[0], full("java")[1], "log-count OLS", orp, "java.windowed[window startswith 'full'].gamma; .se", -0.123, 3),
+        ("Sample and specification (python, blind)", "excluding questions at the 1,400-character cap", cap1, cap1se, "log-count OLS (SE printed to 3 dp in log)", capp, f"line {cap1l}: gamma and SE parsed from the log line", -0.292, 3),
+        ("Sample and specification (python, blind)", "stricter exclusion at 1,000 characters", cap2, cap2se, "log-count OLS (SE printed to 3 dp in log)", capp, f"line {cap2l}: gamma and SE parsed from the log line", -0.278, 3),
+        ("Sample and specification (python, blind)", "s0 folded into s1", a2["blind_s0_folded_into_s1"]["ols"]["coef"], a2["blind_s0_folded_into_s1"]["ols"]["se"], "log-count OLS", A2_, "blind_s0_folded_into_s1.ols.coef; .se", -0.318, 3),
+        ("Sample and specification (python, blind)", "closed questions dropped", cl["gamma_excl_closed_ols"]["gamma"], cl["gamma_excl_closed_ols"]["se"], "log-count OLS", clp, "gamma_excl_closed_ols.gamma; .se", -0.311, 3),
+        ("Sample and specification (python, blind)", "before Staging Ground", sg["before"]["gamma"], sg["before"]["se"], "log-count OLS, post window 2022-12..2024-05", sgp, "panel_b_corrected_split.before.gamma; .se", -0.263, 3),
+        ("Sample and specification (python, blind)", "after Staging Ground", sg["after"]["gamma"], sg["after"]["se"], "log-count OLS, post window 2024-06..2026-05", sgp, "panel_b_corrected_split.after.gamma; .se", -0.335, 3),
+        ("Asker composition (python, blind)", "youngest tenure tercile", tn["young"]["gamma"], tn["young"]["se"], "log-count OLS", tnp, "stratified_gamma.young.gamma; .se", -0.322, 3),
+        ("Asker composition (python, blind)", "middle tenure tercile", tn["mid"]["gamma"], tn["mid"]["se"], "log-count OLS", tnp, "stratified_gamma.mid.gamma; .se", -0.299, 3),
+        ("Asker composition (python, blind)", "oldest tenure tercile", tn["old"]["gamma"], tn["old"]["se"], "log-count OLS", tnp, "stratified_gamma.old.gamma; .se", -0.327, 3),
+        ("Asker composition (python, blind)", "FE-PPML with novice-by-month effects", rv["gamma"], rv["se"], "FE-PPML", rvp, "ppml.novice_x_month_fe.gamma; .se", -0.307, 3),
+    ]
+    # 点估计与稿件现有数对账（按稿件写的位数）；对不上就停
+    bad = []
+    for r in ROWS:
+        if round(r[2], r[8]) != r[7]:
+            bad.append((r[1], r[2], r[7]))
+    if bad:
+        raise SystemExit(f"fig_forest：点估计与稿件数对不上，停止：{bad}")
+    with open(os.path.join(STEP3, "fig_forest_rows.csv"), "w", encoding="utf-8-sig", newline="") as f:
+        w_ = csv.writer(f)
+        w_.writerow(["group", "row", "estimate", "se", "estimator", "source_path", "source_key"])
+        for r in ROWS:
+            w_.writerow([r[0], r[1], f"{r[2]:.6f}", f"{r[3]:.6f}", r[4], r[5], r[6]])
+    print(f"[fig_forest] {len(ROWS)} rows, all with estimate and SE; none dropped")
+
+    fig = plt.figure(figsize=(COL, 4.72))
+    ax_ = fig.add_subplot(111)
+    y = 0.0
+    yt, yl, heads, sep = [], [], [], []
+    last = None
+    for r in ROWS:
+        if r[0] != last:
+            if last is not None:
+                y -= 0.35
+                sep.append(y + 0.0)
+            heads.append((y, r[0]))
+            y -= 1.0
+            last = r[0]
+        yt.append(y); yl.append(r[1]); y -= 1.0
+    HL = -0.304
+    ax_.axvline(0, color=ACCENT, lw=LW_REF, zorder=2)
+    ax_.axvline(HL, color=INK2, lw=LW_REF, ls=(0, (3.5, 1.5)), zorder=2)
+    for yy, r in zip(yt, ROWS):
+        main = r[1] in ("log-count OLS", "blind classification (Sonnet 5)")
+        c = RAMP[0] if main else INK2
+        ax_.plot([r[2] - 1.96 * r[3], r[2] + 1.96 * r[3]], [yy, yy], color=c, lw=LW_CI if main else LW_CI_THIN,
+                 solid_capstyle="round", zorder=3)
+        ax_.plot(r[2], yy, "o", color=c, ms=MS_MAIN if main else MS_MID, markeredgecolor=SURFACE,
+                 markeredgewidth=MEW, zorder=4)
+    for yy, name in heads:
+        ax_.text(0.006, yy, name, transform=ax_.get_yaxis_transform(), ha="left", va="center",
+                 fontsize=FS_VALUE, fontweight="bold", color=INK, zorder=5)
+    for ys in sep:
+        ax_.axhline(ys + 0.0 + 0.0, color=GRID, lw=LW_GRID, zorder=1)
+    ax_.set_yticks(yt); ax_.set_yticklabels(yl, fontsize=FS_TICK)
+    ax_.set_ylim(y + 0.45, 0.6)
+    ax_.set_xlim(-0.64, 0.05)
+    ax_.set_xlabel("Dose slope \u03b3, 95% CI", fontsize=FS_LABEL)
+    ax_.grid(axis="x", color=GRID, lw=LW_GRID)
+    framed(ax_)
+    _min_font(fig, "fig_forest")
+    save(fig, "fig_forest")
+
+
+# ------------------------------------------------------------------ fig_placebo
+def fig_placebo():
+    # 与 fig3_robustness 的 B 面板同一读取、同一算法：直接用上面该图算出的 gs_c（逐截点 γ）、wpy、EVENT、W
+    evs_ = sorted(gs_c)
+    xs_ = [pd.Timestamp(year=e // 12, month=e % 12 + 1, day=1) for e in evs_]
+    assert abs(gs_c[EVENT] - (-0.145)) < 0.0006, "真实截点 γ 与稿件 −0.145 不一致"
+    fig = plt.figure(figsize=(COL, 3.3))
+    axB = fig.add_subplot(111)
+    for xi, e in zip(xs_, evs_):
+        v = gs_c[e]
+        if e == EVENT:
+            axB.plot(xi, v, "o", ms=MS_EMPH, color=ACCENT, zorder=5, markeredgecolor=SURFACE, markeredgewidth=MEW)
+        elif e + W - 1 < EVENT:
+            axB.plot(xi, v, "s", ms=MS_SMALL + 1, color="#4a4a4a", zorder=5, markeredgecolor=SURFACE, markeredgewidth=MEW)
+        elif e < EVENT:
+            axB.plot(xi, v, "o", ms=MS_SMALL, color="#4a4a4a", zorder=4, markeredgecolor=SURFACE, markeredgewidth=MEW_S)
+        else:
+            axB.plot(xi, v, "o", ms=MS_TINY, color="#b9b9b9", zorder=3, markeredgecolor=SURFACE, markeredgewidth=MEW_S)
+    axB.axvspan(pd.Timestamp("2022-12-01"), xs_[-1], color="#f2f4f7", zorder=0)
+    axB.axvline(pd.Timestamp("2022-12-01"), color=ACCENT, ls=(0, (3.5, 1.5)), lw=LW_REF, alpha=0.75, zorder=2)
+    axB.axhline(0, color=BASE, lw=LW_REF, zorder=1)
+    tx = pd.Timestamp(year=EVENT // 12, month=EVENT % 12 + 1, day=1)
+    axB.annotate("true event", xy=(tx, gs_c[EVENT]), xytext=(-9, 0), textcoords="offset points", ha="right",
+                 va="center", fontsize=FS_ANNOT, color=ACCENT, fontweight="bold")
+    _h = [Line2D([], [], ls="none", marker="s", ms=MS_SMALL + 1, color="#4a4a4a", markeredgecolor=SURFACE,
+                 markeredgewidth=MEW, label="window entirely pre-event"),
+          Line2D([], [], ls="none", marker="o", ms=MS_SMALL, color="#4a4a4a", markeredgecolor=SURFACE,
+                 markeredgewidth=MEW_S, label="window overlaps treatment")]
+    axB.legend(handles=_h, frameon=False, fontsize=FS_LEG, loc="upper left", handletextpad=0.5,
+               borderaxespad=0.2, labelspacing=0.25)
+    axB.text(0.985, 0.04, "cutoffs inside the treated period", transform=axB.transAxes, ha="right", va="bottom",
+             fontsize=FS_ANNOT, color=MUTED)
+    axB.set_ylabel("Dose slope \u03b3, matched \u00b19-month window")
+    axB.set_xlabel("Candidate cutoff date")
+    year_axis(axB)
+    axB.grid(axis="y", color=GRID, lw=LW_GRID); finish(axB)
+    _min_font(fig, "fig_placebo")
+    save(fig, "fig_placebo")
+
+
+fig_design()
+fig_crosssite()
+fig_shap()
+fig_forest()
+fig_placebo()
+print("DONE — step 3 new figures: fig_design, fig_crosssite, fig_shap, fig_forest, fig_placebo")
