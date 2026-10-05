@@ -55,6 +55,8 @@ _PKG_MAP = {  # 根里相对路径(工作文档\ 下；OSF 件为其包内路径
     "R2_downstream/orig/02_estimation/capability_ramp.json": "09_downstream_rerun/orig/outputs/02_estimation/capability_ramp.json",
     "R2c_result.json": "08_criterion_round3/results/R2c_result.json",
     "R2d_extra_result.json": "09_downstream_rerun/results/R2d_extra_result.json",
+    "R2_downstream/blind/02_estimation/memorization_check.json": "09_downstream_rerun/blind/outputs/02_estimation/memorization_check.json",
+    "R2_downstream/orig/02_estimation/memorization_check.json": "09_downstream_rerun/orig/outputs/02_estimation/memorization_check.json",
     "R2d_kappa_result.json": "09_downstream_rerun/results/R2d_kappa_result.json",
     "04_crosssite_engine/data/so_monthly_panel.csv": "04_crosssite_engine/data/so_monthly_panel.csv",
 }
@@ -1172,9 +1174,99 @@ def fig_placebo():
     save(fig, "fig_placebo")
 
 
+# ------------------------------------------------------------------ fig_outside
+# 2026-10-05：图 8 由单面板 κ 图（fig_kappa，仍留在上面，不再进 artwork 与闸门）扩为三面板
+# 「模型环路之外的证据」。A=κ 对人工共识（沿用 fig_kappa 的内容与读取）；
+# B=金标准 300 题平均可替代度分事件前→后的变化（memorization_check.json 的 diff/se）；
+# C=版主按「重复问题」关闭的比例（R2d_extra_result.json 盲分类臂 closure_reasons）。
+# 凡画出的数一律从产物读；读出后先做自证，不符即抛错，不调数据。
+def fig_outside():
+    mc_b = J(resolve(BLIND_EST, "memorization_check.json"))
+    mc_o = J(resolve(ORIG_EST, "memorization_check.json"))
+    cr_all = J(resolve("R2d_extra_result.json"))
+    cr = cr_all["blind"]["stats"]["closure_reasons"]       # 注意：要 blind 臂，不是 orig
+    # --- B 数据 ---
+    rowsB = [("Human\nconsensus", mc_b["human"]["diff"], mc_b["human"]["se"], (-0.613, (-0.852, -0.375))),
+             ("Blind\nclassification", mc_b["model"]["diff"], mc_b["model"]["se"], (-0.760, (-1.052, -0.469))),
+             ("Earlier\nclassification", mc_o["model"]["diff"], mc_o["model"]["se"], (-0.535, (-0.784, -0.286)))]
+    for lab, d_, se_, (dd, (a_, b_)) in rowsB:
+        lo_, hi_ = d_ - 1.96 * se_, d_ + 1.96 * se_
+        assert round(d_, 3) == dd, f"B 自证失败：{lab!r} diff {d_:.4f} != {dd}"
+        assert abs(lo_ - a_) <= 0.0011 and abs(hi_ - b_) <= 0.0011, f"B 自证失败：{lab!r} 区间 [{lo_:.3f}, {hi_:.3f}] != [{a_}, {b_}]"
+    # --- C 数据 ---
+    dup = list(cr["dup_pct"])
+    assert [round(v, 1) for v in dup] == [2.8, 2.6, 5.4, 12.5], f"C 自证失败：dup_pct {dup}"
+    assert round(cr["spearman"][0], 3) == 0.135, f"C 自证失败：spearman {cr['spearman'][0]}"
+    print("[fig_outside] 自证通过：B diff/区间、C dup_pct/spearman；closure_reasons.N =", cr["N"])
+
+    fig = plt.figure(figsize=(COL, 2.7))
+    gs_ = GridSpec(1, 3, figure=fig, width_ratios=[1.35, 0.95, 1.1], wspace=0.62)
+    axA, axB, axC = (fig.add_subplot(gs_[0, i]) for i in range(3))
+
+    # ---- A：κ 对人工共识（内容与数值同 fig_kappa，不改读取方式）----
+    _kk = KP["kappa_vs_consensus"]
+    RAT = [(lab, _kk[key]["kappa"], _kk[key]["ci"][0], _kk[key]["ci"][1]) for lab, key in (
+        ("Claude Sonnet 5\n(blind, primary)", "blind"), ("Claude Sonnet 4.6\n(earlier)", "orig"),
+        ("GLM-4.6", "glm46"), ("GLM-5.3\n(frontier tier)", "glm53"))]
+    HUM_, HLO_, HHI_ = 0.533, 0.439, 0.627
+    axA.axvspan(HLO_, HHI_, color="#ebe7f5", zorder=0)
+    axA.axvline(HUM_, color=RAMP[1], lw=LW_REF, ls=(0, (3.5, 1.5)), zorder=2)
+    axA.annotate("human–human\nagreement\nκ = 0.533", xy=(HUM_, 3.7), xytext=(4, 0),
+                 textcoords="offset points", ha="left", va="center", fontsize=FS_ANNOT, color=RAMP[1], fontweight="bold")
+    for i, (lab, k, lo, hi) in enumerate(RAT):
+        axA.plot([lo, hi], [i, i], color=RAMP[0], lw=LW_CI, solid_capstyle="round", zorder=3)
+        axA.plot(k, i, "o", color=RAMP[0], ms=MS_MAIN, markeredgecolor=SURFACE, markeredgewidth=MEW, zorder=4)
+        axA.annotate(f"{k:.3f}", xy=(hi, i), xytext=(5, 0), textcoords="offset points",
+                     va="center", fontsize=FS_VALUE, color=RAMP[0], fontweight="bold")
+    axA.set_yticks(range(len(RAT)))
+    axA.set_yticklabels([r[0] for r in RAT], fontsize=FS_TICK)
+    axA.set_ylim(-0.6, 4.35); axA.invert_yaxis()
+    axA.set_xlim(0.30, 0.84)
+    axA.set_xticks([0.4, 0.5, 0.6, 0.7])
+    axA.set_xlabel("Binary κ vs. human consensus", fontsize=FS_LABEL)
+    axA.grid(axis="x", color=GRID, lw=LW_GRID)
+    framed(axA)
+    panel_label(axA, "A")
+
+    # ---- B：金标准 300 题，平均可替代度分 事件前→后 ----
+    axB.axvline(0, color=BASE, lw=LW_REF, zorder=1)
+    for i, (lab, d_, se_, _x) in enumerate(rowsB):
+        lo_, hi_ = d_ - 1.96 * se_, d_ + 1.96 * se_
+        axB.plot([lo_, hi_], [i, i], color=RAMP[0], lw=LW_CI, solid_capstyle="round", zorder=3)
+        axB.plot(d_, i, "o", color=RAMP[0], ms=MS_MAIN, markeredgecolor=SURFACE, markeredgewidth=MEW, zorder=4)
+        axB.annotate(f"{d_:.2f}".replace("-", "−"), xy=(d_, i), xytext=(0, 6), textcoords="offset points",
+                     ha="center", va="bottom", fontsize=FS_VALUE, color=RAMP[0], fontweight="bold")
+    axB.set_yticks(range(3)); axB.set_yticklabels([r[0] for r in rowsB], fontsize=FS_TICK)
+    axB.set_ylim(2.6, -0.75)
+    axB.set_xlim(-1.2, 0.1)
+    axB.set_xticks([-1.0, -0.5, 0.0])
+    axB.set_xticklabels(["−1.0", "−0.5", "0"])
+    axB.set_xlabel("Change in mean score, pre to post\n(0–4 scale)", fontsize=FS_LABEL)
+    axB.grid(axis="x", color=GRID, lw=LW_GRID)
+    framed(axB)
+    panel_label(axB, "B")
+
+    # ---- C：版主按「重复问题」关闭的比例 ----
+    for i, v in enumerate(dup):
+        axC.bar(i, v, width=0.68, color=RAMP[i], zorder=3, edgecolor=SURFACE, linewidth=0.4)
+        axC.annotate(f"{v:.1f}", xy=(i, v), xytext=(0, 2), textcoords="offset points",
+                     ha="center", va="bottom", fontsize=FS_VALUE, color=INK, fontweight="bold")
+    axC.set_xticks(range(4)); axC.set_xticklabels(["s1", "s2", "s3", "s4"], fontsize=FS_TICK)
+    axC.set_ylim(0, 14.5)
+    axC.set_ylabel("Closed as duplicate, % of questions", fontsize=FS_LABEL)
+    axC.set_xlabel("Substitutability bin", fontsize=FS_LABEL)
+    axC.grid(axis="y", color=GRID, lw=LW_GRID)
+    framed(axC)
+    panel_label(axC, "C")
+
+    _min_font(fig, "fig_outside")
+    save(fig, "fig_outside")
+
+
 fig_design()
 fig_crosssite()
 fig_shap()
 fig_forest()
 fig_placebo()
-print("DONE — step 3 new figures: fig_design, fig_crosssite, fig_shap, fig_forest, fig_placebo")
+fig_outside()
+print("DONE — step 3 new figures: fig_design, fig_crosssite, fig_shap, fig_forest, fig_placebo; step 5: fig_outside")
