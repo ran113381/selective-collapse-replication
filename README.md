@@ -326,15 +326,21 @@ identifier logged for every step of the third round's judging and answering
 sessions and of the sampling-window ratings, and computes the judging agreement
 and the two robustness checks of Sections 4.6 and 7.1 of the manuscript
 (`results/R2m_result.json`, `results/R2m_s19_excl05.json`).
-`make_figures_ipm.py` renders the manuscript's fourteen figure files (the eleven in the
+`R2figbins.py` (in `scripts/`) fits the bin-dummy version of the Table 2 dose-response (s2, s3 and s4
+each against s1, with the linear dose term replaced by three bin dummies) on four classifications of
+the same 6,000 python questions: the blind one, the earlier one, the earlier classifier re-run blind and
+GLM-4.6. It reads the four label files and the two stored `p1_14_bin_dummies.json` files inside the package, and writes
+`results/R2figbins_result.json`. Before writing, it asserts as positive controls that the blind and
+earlier bin-dummy coefficients equal those stored `p1_14_bin_dummies.json` values and that the four linear
+coefficients equal Table 2 to three decimals. `make_figures_ipm.py` renders the manuscript's eighteen figure files (the fifteen in the
 text plus `fig_estimators`, `fig3_robustness` and `fig_kappa`, the last three no longer in the text) from files inside this package: it
 infers the package root from its own location and finds each input through a small
-`resolve()` table (26 input files, each mapped to its place in the package), and stops
+`resolve()` table (42 entries, mapping to 38 package files), and stops
 with the file name if one is missing. Run `python 09_downstream_rerun/scripts/make_figures_ipm.py`;
 it writes PNG and PDF files to `09_downstream_rerun/scripts/figures/` (set the environment
 variable `P9B_FIG_OUT` to write elsewhere) and rewrites `10_shap_transparency/crosssite_selfcheck.json`
 and `fig_forest_rows.csv`. Run from this package, it reproduces the submitted figures
-pixel for pixel (14 of 14 PNG files, 0 differing pixels). It was first generated from an
+file for file (all 18 PNG files and all 18 PDF files, byte-identical to the submitted ones). It was first generated from an
 older figure script by `R2_make_fig_patch.py` and has since been edited by hand, and the
 shipped file is the one that rendered the submitted figures. `s17_bound_both_samples.py` prints its sample-size headings from the data it
 reads: the earlier-classification copy's log reports 5,640 and 5,930 questions,
@@ -346,7 +352,7 @@ package; `make_figures_ipm.py` is the exception described above.
 
 ### 10_shap_transparency
 
-The surrogate-model analysis of Section 6.3 (Figure 9 of the manuscript). A LightGBM model
+The surrogate-model analysis of Section 6.3 (Figure 11 of the manuscript). A LightGBM model
 predicts the blind scores of the 6,000 python questions from 29 surface features, and tree
 SHAP values decompose its five-fold out-of-fold predictions. The design note
 (`步骤2_SHAP设计说明_20261004.md`, in Chinese) fixed the features, their expected signs, the
@@ -434,11 +440,11 @@ traced from the manuscript's table text against the keypath record of the number
 script descriptions above. Where a table row could not be traced to a file, the entry says
 **存疑 (not traced)** rather than guessing. Paths are relative to the package root.
 
-### Figures 1 to 11
+### Figures 1 to 15
 
-All eleven are drawn by `09_downstream_rerun/scripts/make_figures_ipm.py`, which writes
+All fifteen are drawn by `09_downstream_rerun/scripts/make_figures_ipm.py`, which writes
 `<name>.png` and `<name>.pdf` to `09_downstream_rerun/scripts/figures/` (or to `P9B_FIG_OUT`). Figures
-2, 3, 5, 8, 9 and 11 have their own function; Figures 1, 4, 6, 7 and 10 are module-level blocks of the
+2, 3, 5, 6, 9, 10, 11, 13, 14 and 15 have their own function; Figures 1, 4, 7, 8 and 12 are module-level blocks of the
 script that end in `save(fig, "<name>")`. Inputs are found through `resolve()`; the table below gives the
 package file each input resolves to.
 
@@ -449,15 +455,19 @@ package file each input resolves to.
 | 3 | `fig_crosssite` | `fig_crosssite()` | `04_crosssite_engine/data/so_monthly_panel.csv`; writes `10_shap_transparency/crosssite_selfcheck.json` |
 | 4 | `fig1_main` | module-level block "FIGURE 1 — absolute volume + composition" | `09_downstream_rerun/blind/outputs/02_estimation/absolute_volume_series_python.csv`; `07_blind_reclassification/labels/within_so_llm_panel_python_blind.csv` |
 | 5 | `fig_forest` | `fig_forest()` | `07_blind_reclassification/results/R2_analyze_result.json`; `07_blind_reclassification/same_model_sonnet46/results/R2s46_analyze_result.json`; `09_downstream_rerun/blind/outputs/05_additional_checks/glm_relabel/cross_family_glm-4.6.json`; `09_downstream_rerun/orig/outputs/02_estimation/capability_ramp.json`; `09_downstream_rerun/blind/outputs/02_estimation/closure_check.json`, `review_r1/p0_2_staging_ground.json`, `asker_tenure.json`, `asker_rival_exact.json`; `09_downstream_rerun/blind/logs/check_cap_sensitivity.log`; writes `10_shap_transparency/fig_forest_rows.csv` |
-| 6 | `fig2_dynamics` | module-level block "FIGURE 2 (was 3) — dynamics + criterion validity" | `09_downstream_rerun/blind/outputs/within_so_llm_eventstudy.csv` (panel A); `08_criterion_round3/results/R2c_result.json` (panel B) |
-| 7 | `fig_windows` | module-level block "新图 B：能力窗口" | `09_downstream_rerun/blind/outputs/02_estimation/capability_ramp.json`; `09_downstream_rerun/orig/outputs/02_estimation/capability_ramp.json` |
-| 8 | `fig_outside` (three panels) | `fig_outside()` | Panel A: `09_downstream_rerun/results/R2d_kappa_result.json`; Panel B: `09_downstream_rerun/blind/outputs/02_estimation/memorization_check.json` (human consensus, blind classification) and `09_downstream_rerun/orig/outputs/02_estimation/memorization_check.json` (earlier classification); Panel C: `09_downstream_rerun/results/R2d_extra_result.json` (blind arm, `closure_reasons`) |
-| 9 | `fig_shap` | `fig_shap()` | `10_shap_transparency/shap_result.json`; `10_shap_transparency/shap_oof.npz` |
-| 10 | `fig_volume` | module-level block "新图 D：绝对量降幅" | `09_downstream_rerun/blind/outputs/02_estimation/absolute_volume.json` |
-| 11 | `fig_placebo` | `fig_placebo()`, which reuses the cutoff estimates computed by the block that draws `fig3_robustness` | `07_blind_reclassification/labels/within_so_llm_panel_python_blind.csv` (through that block; 存疑 whether the block reads any further file) |
+| 6 | `fig_bins` | `fig_bins()` | `09_downstream_rerun/results/R2figbins_result.json` (produced by `09_downstream_rerun/scripts/R2figbins.py`) |
+| 7 | `fig2_dynamics` | module-level block "FIGURE 2 (was 3) — dynamics + criterion validity" | `09_downstream_rerun/blind/outputs/within_so_llm_eventstudy.csv` (panel A); `08_criterion_round3/results/R2c_result.json` (panel B) |
+| 8 | `fig_windows` | module-level block "新图 B：能力窗口" | `09_downstream_rerun/blind/outputs/02_estimation/capability_ramp.json`; `09_downstream_rerun/orig/outputs/02_estimation/capability_ramp.json` |
+| 9 | `fig_agree` | `fig_agree()` | `03_validation/gold_standard/coding_sheet_A_v2.csv`; `03_validation/gold_standard/coding_sheet_B_v2.csv`; `07_blind_reclassification/labels/question_labels_python_blind.csv`; `01_panels_and_classification/data/question_labels_python_2021-2024.csv`; `05_additional_checks/glm_relabel/labels_glm-4.6.jsonl` |
+| 10 | `fig_outside` (three panels) | `fig_outside()` | Panel A: `09_downstream_rerun/results/R2d_kappa_result.json`; Panel B: `09_downstream_rerun/blind/outputs/02_estimation/memorization_check.json` (human consensus, blind classification) and `09_downstream_rerun/orig/outputs/02_estimation/memorization_check.json` (earlier classification); Panel C: `09_downstream_rerun/results/R2d_extra_result.json` (blind arm, `closure_reasons`) |
+| 11 | `fig_shap` | `fig_shap()` | `10_shap_transparency/shap_result.json`; `10_shap_transparency/shap_oof.npz` |
+| 12 | `fig_volume` | module-level block "新图 D：绝对量降幅" | `09_downstream_rerun/blind/outputs/02_estimation/absolute_volume.json` |
+| 13 | `fig_answer` | `fig_answer()` | `02_estimation/legB_first_answer.csv`; `09_downstream_rerun/blind/data/question_labels.csv`; `09_downstream_rerun/blind/data/question_labels_ext_py.csv`; `01_panels_and_classification/data/so_questions_python_2021-2024.json`; `01_panels_and_classification/data/so_questions_python_ext_2024-07_2026-05.json` |
+| 14 | `fig_sampling` | `fig_sampling()` | `02_estimation/platform_monthly_totals.csv`; for each of python, javascript and java, `01_panels_and_classification/data/so_questions_<language>_2021-2024.json` and `so_questions_<language>_ext_2024-07_2026-05.json` |
+| 15 | `fig_placebo` | `fig_placebo()`, which reuses the cutoff estimates computed by the block that draws `fig3_robustness` | `07_blind_reclassification/labels/within_so_llm_panel_python_blind.csv` (through that block; 存疑 whether the block reads any further file) |
 
 Figures 1 and 2 carry no data. The three further files the script renders, `fig_estimators`, `fig3_robustness` and `fig_kappa`, are not in the manuscript
-(`fig_kappa` was the single-panel Figure 8 before it became Panel A of `fig_outside`).
+(`fig_kappa` was the single-panel Figure 10 before it became Panel A of `fig_outside`).
 
 ### Tables 1 to 7
 
@@ -500,6 +510,8 @@ labels, used for javascript and java). The long names below are the files in `09
   `02_estimation/phaseA_composition.py` (the permutation row: 存疑);
   Benjamini-Hochberg, `02_estimation/bh_fdr_table1_family.py`;
   bin dummies, `p1_14_bin_dummies.json` (same directory, blind copy under `09_downstream_rerun/blind/outputs/02_estimation/`);
+  bin dummies, other python classifications (earlier classifier re-run blind; GLM-4.6),
+  `09_downstream_rerun/results/R2figbins_result.json` (keys `s46_rerun_blind` and `glm46`; produced by `09_downstream_rerun/scripts/R2figbins.py`);
   moderation and deletion, `closure_check.json` and `review_r1/p0_2_staging_ground.json`;
   asker composition, `asker_rival_exact.json` and `asker_tenure.json`;
   changes in question text, `review_r1/p1_12_ninety_day_window.json`, `bin_stability_test.json`, and `s17_bound_both_samples.py` output;

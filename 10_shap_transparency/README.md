@@ -1,6 +1,6 @@
 # 10_shap_transparency
 
-The surrogate-model (SHAP) analysis of Section 6.3 (Figure 9) and the data behind two
+The surrogate-model (SHAP) analysis of Section 6.3 (Figure 11) and the data behind two
 figures that read results from elsewhere in the package.
 
 | File | What it is |
@@ -9,7 +9,7 @@ figures that read results from elsewhere in the package.
 | `步骤2_SHAP设计说明_sha256.txt` | Its SHA-256 (`d37dc8f8...6562`) with the time it was recorded (2026-10-04 19:36:14 +0900), before the analysis directory existed. `shap_surrogate.py` recomputes the hash of the design note at the start of a run and stops if it differs; `shap_run.log` shows the match. |
 | `shap_surrogate.py` | The analysis: LightGBM gradient-boosted trees on the 29 surface features of the 6,000 python questions, five-fold out-of-fold predictions of the blind scores, tree SHAP values, the three criteria (AUC, attribution share of the rubric properties, direction agreement), the drop-the-two-length-features rerun, and the pre- versus post-event ranking comparison. It runs twice and compares the hashes of the out-of-fold predictions and SHAP values. |
 | `shap_result.json` | Every number the manuscript quotes from this analysis, with its key path (`C1`, `C2`, `C3`, `group_share`, `per_feature`, `R1`, `S1`). |
-| `shap_oof.npz` | The out-of-fold predictions, feature matrix, SHAP values and feature names behind Figure 9. |
+| `shap_oof.npz` | The out-of-fold predictions, feature matrix, SHAP values and feature names behind Figure 11. |
 | `shap_run.log` | The run log: design-note hash match, the self-checks, the two-pass hash comparison and the criteria values. |
 | `fig_forest_rows.csv` | The 19 rows of Figure 5 (estimate, standard error, estimator, and the result file and key each came from). |
 | `crosssite_selfcheck.json` | The six percentage changes printed in Section 5.1, recomputed from the cross-site panel before Figure 3 is drawn. |
@@ -28,7 +28,7 @@ six printed in Section 5.1.
 **Which function reads which file.** All in `09_downstream_rerun/scripts/make_figures_ipm.py`, which
 finds every input through its `resolve()` table.
 `fig_crosssite()` (Figure 3) reads `04_crosssite_engine/data/so_monthly_panel.csv` and writes
-`crosssite_selfcheck.json`. `fig_shap()` (Figure 9) reads `shap_result.json` and `shap_oof.npz`.
+`crosssite_selfcheck.json`. `fig_shap()` (Figure 11) reads `shap_result.json` and `shap_oof.npz`.
 `fig_forest()` (Figure 5) reads `07_blind_reclassification/results/R2_analyze_result.json`,
 `07_blind_reclassification/same_model_sonnet46/results/R2s46_analyze_result.json`,
 `09_downstream_rerun/blind/outputs/` (`02_estimation/closure_check.json`,

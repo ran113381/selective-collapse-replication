@@ -59,6 +59,21 @@ _PKG_MAP = {  # 根里相对路径(工作文档\ 下；OSF 件为其包内路径
     "R2_downstream/orig/02_estimation/memorization_check.json": "09_downstream_rerun/orig/outputs/02_estimation/memorization_check.json",
     "R2d_kappa_result.json": "09_downstream_rerun/results/R2d_kappa_result.json",
     "04_crosssite_engine/data/so_monthly_panel.csv": "04_crosssite_engine/data/so_monthly_panel.csv",
+    # 加图第1步新增（fig_bins / fig_agree / fig_answer / fig_sampling 的输入；键 = 值 = 包内相对路径）
+    "R2figbins_result.json": "09_downstream_rerun/results/R2figbins_result.json",
+    **{_p: _p for _p in (
+        "03_validation/gold_standard/coding_sheet_A_v2.csv",
+        "03_validation/gold_standard/coding_sheet_B_v2.csv",
+        "07_blind_reclassification/labels/question_labels_python_blind.csv",
+        "01_panels_and_classification/data/question_labels_python_2021-2024.csv",
+        "05_additional_checks/glm_relabel/labels_glm-4.6.jsonl",
+        "02_estimation/legB_first_answer.csv",
+        "02_estimation/platform_monthly_totals.csv",
+        "09_downstream_rerun/blind/data/question_labels.csv",
+        "09_downstream_rerun/blind/data/question_labels_ext_py.csv",
+        *[f"01_panels_and_classification/data/so_questions_{_l}_{_r}.json"
+          for _l in ("python", "javascript", "java") for _r in ("2021-2024", "ext_2024-07_2026-05")],
+    )},
 }
 _PKG_BARE = {}
 for _k in _PKG_MAP:
@@ -296,9 +311,11 @@ qd = pd.DataFrame(qrows); qd["post"] = (qd.t >= EVENT).astype(int)
 # 只画 §3 已写定的关系，不引入任何新主张。虚线一律表示「探索性/未识别」。
 import matplotlib.patches as mpatches
 
-fig = plt.figure(figsize=(COL, 3.6))
+# 2026-10-05 加图第1步（含补修）：顶框加高并上移（y 50->53，h 16->19，ylim 上界 68->74、画布高按比例加，纵向比例不变；箭头 53->48.6），
+# 使向下箭头的尖与 H2b 行文字留出间隙；框内文字内容与相对框顶的位置不变。
+fig = plt.figure(figsize=(COL, 3.6 * 76 / 70))
 ax = fig.add_subplot(111)
-ax.set_xlim(0, 100); ax.set_ylim(-2, 68); ax.axis("off")
+ax.set_xlim(0, 100); ax.set_ylim(-2, 74); ax.axis("off")
 
 BOXC = "#f4f2fb"     # 主链条底色
 SOFT = "#fbfbfd"
@@ -358,11 +375,11 @@ for x1, x2, lab in ((22.7, 38.8, "AI substitutability\n(task\u2013technology fit
 # persists after it" 正是正文 §6.2 说本设计确立不了的前半句，虚线又把已检验并
 # 支持的负半句（不是发布日断点，§6.2、Table 3）一并标成"未识别"。改为两行，
 # 分别对应正文 §6.2 的负半句（已检验，实线）与前半句（未识别）。
-box(29.0, 50, 42, 16, "Capability frontier, moving (H2a, H2b)",
+box(29.0, 53, 42, 19, "Capability frontier, moving (H2a, H2b)",
     ["H2a: no discontinuity at the release (Section 6.2)",
      "H2b: present before it, not supported (Section 6.2)"],
     fc=SOFT, edge=BOXE)
-arrow(50, 50, 50, 48, ls=(0, (4, 2)), color=DASHE)
+arrow(50, 53, 50, 48.6, ls=(0, (4, 2)), color=DASHE)
 
 # ---- 下左：构念验证（H3）----
 box(6.0, 4, 38, 16, "Construct validation (H3)",
@@ -406,6 +423,10 @@ axA.axvline(pd.Timestamp("2022-12-01"), color=INK2, ls=(0, (3.5, 1.5)),
 axA.text(pd.Timestamp("2022-12-01"), axA.get_ylim()[1], " ChatGPT", fontsize=FS_ANNOT,
          color=INK2, ha="left", va="top", fontweight="bold")
 axA.set_xlim(xa.iloc[0], xa.iloc[-1])
+# 2026-10-05 加图第1步：纵轴刻度由科学记数改为普通数字（千分位），范围不变
+_yl = axA.get_ylim()
+axA.set_yticks([100, 300, 1000, 3000]); axA.set_yticklabels(["100", "300", "1,000", "3,000"])
+axA.set_ylim(_yl)
 axA.set_ylabel("Estimated questions per month (log scale)")
 axA.grid(color=GRID, lw=LW_GRID)
 year_axis(axA); framed(axA); panel_label(axA, "A")
@@ -627,7 +648,9 @@ for lab, key, col, ls, mk in tiers:
              markeredgecolor=SURFACE, markeredgewidth=MEW, zorder=3)
     _grp = [t_ for t_ in tiers if t_[3] == ls]
     _hi = max(_grp, key=lambda t_: wt[t_[1]]["s4"])[0]
-    dy = (9 if lab == _hi else -9) if len(_grp) > 1 else 0
+    # 2026-10-05 加图第1步：虚线组偏移 +9/-9 改 +4/-12，把 Sonnet 5 与 GLM-4.6 两个标签拉开
+    _up, _dn = (9, -9) if ls == "-" else (4, -12)
+    dy = (_up if lab == _hi else _dn) if len(_grp) > 1 else 0
     axB.annotate(lab, xy=(4, ys[-1]), xytext=(8, dy), textcoords="offset points",
                  va="center", fontsize=FS_VALUE, color=col, fontweight="bold",
                  annotation_clip=False)
@@ -702,7 +725,9 @@ for lname, li in langs3:
     ax.errorbar(xs_, ys_, yerr=es_, fmt="o", color=c, ms=MS_SMALL, lw=LW_CI_THIN,
                 capsize=3, capthick=LW_CAP, markeredgecolor=SURFACE,
                 markeredgewidth=MEW_S, label=_LBL3[lname], zorder=3)
-ax.axhline(0, color=ACCENT, lw=LW_REF, zorder=2)
+# 2026-10-05 加图第1步：零线改深灰（红色与 java 的橙红易混）；「全事后期间」一组与上面各窗口之间加一道细分隔
+ax.axhline(0, color=BASE, lw=LW_REF, zorder=2)
+ax.axvline(len(WIN) - 1.5, color=BASE, lw=LW_GRID + 0.2, zorder=1)
 ax.set_xticks(range(len(WIN)))
 ax.set_xticklabels([w[0] for w in WIN], fontsize=FS_TICK)
 ax.set_ylabel("Dose slope γ, 95% CI")
@@ -746,13 +771,13 @@ save(fig, "fig_kappa", target=COL140)
 # （"s1 (least substitutable)"）吃掉画布右端约 15%，柱状区被挤窄、显得
 # 又长又局促。改横排放底部（below_legend，与图 6 同款修法），柱状区吃满
 # 全宽；多出的图例一行从画布高度里加回来，宽度不变，仍是 190 mm 标准栏宽。
-fig = plt.figure(figsize=(COL, 4.05))
+fig = plt.figure(figsize=(COL, 4.25))   # 2026-10-05 加图第1步：4.05->4.25，组间留白加大以容纳 platform 标注
 ax = fig.add_subplot(111)
 VOL = {lang: [round(100 * AVJ[f"absolute_by_bin_{lang}"][f"s{b}"]["pct_change"], 1) for b in (1, 2, 3, 4)]
        for lang in ("python", "javascript", "java")}   # python 盲标签;另两种原标签
 PLAT = {lang: round(100 * AVJ[f"platform_total_{lang}"]["pct_change"], 1) for lang in ("python", "javascript", "java")}
 names = list(VOL)
-w = 0.185
+w = 0.175
 # 横向条形：数值标签因此不必旋转 90°，语言名也能横排，比竖版好读。
 # 组内 s1 在上、s4 在下，与右侧图例的上下顺序一致。
 for i, b in enumerate(("s1", "s2", "s3", "s4")):
@@ -765,9 +790,9 @@ for i, b in enumerate(("s1", "s2", "s3", "s4")):
                     textcoords="offset points", ha="left", va="center",
                     fontsize=FS_SMALL, color=SURFACE, fontweight="bold", zorder=6)
 for j, n in enumerate(names):
-    ax.plot([PLAT[n], PLAT[n]], [j - 0.46, j + 0.46], color=INK, lw=LW_REF,
+    ax.plot([PLAT[n], PLAT[n]], [j - 0.42, j + 0.42], color=INK, lw=LW_REF,
             ls=(0, (3.5, 1.85)), zorder=5)
-    ax.annotate(f"platform {PLAT[n]:.1f}".replace("-", "−"), xy=(PLAT[n], j - 0.46), xytext=(0, 2),
+    ax.annotate(f"platform {PLAT[n]:.1f}".replace("-", "−"), xy=(PLAT[n], j - 0.42), xytext=(0, 1),
                 textcoords="offset points", ha="center", va="bottom",
                 fontsize=FS_SMALL, color=INK, zorder=6,
                 bbox=dict(boxstyle="round,pad=0.15", fc=SURFACE, ec="none", alpha=0.92))
@@ -1263,6 +1288,237 @@ def fig_outside():
     save(fig, "fig_outside")
 
 
+# =====================================================================================
+# 加图第 1 步新增（2026-10-05）：fig_bins / fig_agree / fig_answer / fig_sampling
+# 新图一律读复现包里的文件（_pkg）；fig_bins 读 R2figbins.py 的结果。凡画出的数先自证，不符即抛错。
+# 草稿：工作文档\图加_草稿_20261005\（样式常量、版式、自证沿用；辅助函数用本脚本既有的）。
+# =====================================================================================
+_pkg = resolve                                    # 键 = 包内相对路径本身（见 _PKG_MAP 末尾新增项）
+FIGBINS = resolve("R2figbins_result.json")
+Z95 = 1.959964
+
+
+def _grid(ax, axis):
+    ax.grid(axis=axis, color=GRID, lw=LW_GRID)
+
+
+def _subtitle(ax, text, x=0.06):
+    ax.set_title(text, fontsize=FS_ANNOT, color=INK2, loc="left", x=x, y=1.005)
+
+
+# ------------------------------------------------------------------ fig_bins
+def fig_bins():
+    R_ = json.load(open(FIGBINS, encoding="utf-8"))
+    assert [round(R_["blind"]["deltas"][k]["coef"], 3) for k in ("s2", "s3", "s4")] == [-0.213, -0.495, -0.919], "fig_bins 自证失败：blind δ"
+    assert [round(R_["earlier"]["deltas"][k]["coef"], 3) for k in ("s2", "s3", "s4")] == [-0.258, -0.630, -1.261], "fig_bins 自证失败：earlier δ"
+    for k, want in (("blind", -0.304), ("earlier", -0.416), ("s46_rerun_blind", -0.346), ("glm46", -0.227)):
+        assert round(R_[k]["gamma_linear"], 3) == want, f"fig_bins 自证失败：γ {k}"
+    print("[fig_bins] 自证通过：blind/earlier δ 与四个 γ")
+
+    def series(name):
+        r = R_[name]
+        return (r["gamma_linear"], np.array([0.0] + [r["deltas"][k]["coef"] for k in ("s2", "s3", "s4")]),
+                np.array([0.0] + [r["deltas"][k]["se"] for k in ("s2", "s3", "s4")]))
+
+    fig, axes = plt.subplots(1, 2, figsize=(COL, 2.75), sharey=True)
+    yt = [2.0, 1.5, 1.0, 0.7, 0.5, 0.3, 0.2]
+    for k, ax in enumerate(axes):
+        framed(ax); _grid(ax, "y")
+        ax.set_yscale("log"); ax.set_ylim(0.15, 2.3)
+        ax.set_yticks(yt); ax.set_yticks([], minor=True)
+        ax.set_yticklabels(["0%" if v == 1 else ("+%d%%" % round(100 * (v - 1)) if v > 1 else "\u2212%d%%" % round(100 * (1 - v))) for v in yt])
+        ax.axhline(1.0, color=BASE, lw=LW_REF)
+        ax.set_xlim(0.6, 4.9 if k == 1 else 5.35)
+        ax.set_xticks([1, 2, 3, 4]); ax.set_xticklabels(["s1", "s2", "s3", "s4"])
+        ax.set_xlabel("Substitutability bin (s1 least, s4 most substitutable)")
+    axes[0].set_ylabel("Post-to-pre ratio relative to s1")
+
+    def draw(ax, name, color, dx, marker, filled, label, ms=MS_MAIN, direct=None):
+        g, c, se = series(name)
+        x = np.array([1, 2, 3, 4]) + dx
+        xs = np.linspace(1, 4, 50)
+        ax.plot(xs + dx, np.exp(g * (xs - 1)), ls=(0, (4, 2.5)), color=color, lw=LW_REF, zorder=2)
+        for i in range(1, 4):
+            ax.plot([x[i]] * 2, [np.exp(c[i] - Z95 * se[i]), np.exp(c[i] + Z95 * se[i])], color=color,
+                    lw=LW_CI_THIN if dx else LW_CI, solid_capstyle="butt", zorder=3)
+        ax.plot(x, np.exp(c), ls="none", marker=marker, ms=ms, mfc=color if filled else SURFACE,
+                mec=SURFACE if filled else color, mew=MEW if filled else 1.1, zorder=4, label=label)
+        if direct:
+            ax.text(4.32, np.exp(c[3]), direct, color=color, fontsize=FS_ANNOT, va="center", ha="left")
+
+    draw(axes[0], "blind", LANGC["python"], 0.0, "o", True, "blind (Sonnet 5)", direct="blind\n(Sonnet 5)")
+    panel_label(axes[0], "A")
+    _subtitle(axes[0], "headline classification")
+    draw(axes[1], "earlier", "#3f3f3f", -0.13, "o", False, "earlier (Sonnet 4.6, date-visible)")
+    draw(axes[1], "s46_rerun_blind", "#3f3f3f", 0.0, "s", True, "Sonnet 4.6 re-run blind", ms=MS_MID + 0.6)
+    draw(axes[1], "glm46", "#8a8a8a", +0.13, "D", True, "GLM-4.6 (independent family)", ms=MS_MID)
+    axes[1].legend(frameon=False, fontsize=FS_LEG, loc="lower left", handletextpad=0.4)
+    panel_label(axes[1], "B")
+    _subtitle(axes[1], "three other classifications of the same questions")
+    fig.subplots_adjust(wspace=0.08)
+    _min_font(fig, "fig_bins")
+    save(fig, "fig_bins")
+
+
+# ------------------------------------------------------------------ fig_agree
+def _kappa_bin(a, b):
+    a = np.asarray(a) >= 3; b = np.asarray(b) >= 3
+    po = np.mean(a == b); pe = a.mean() * b.mean() + (1 - a.mean()) * (1 - b.mean())
+    return (po - pe) / (1 - pe)
+
+
+def fig_agree():
+    import io
+    A = pd.read_csv(_pkg("03_validation/gold_standard/coding_sheet_A_v2.csv"), encoding="utf-8-sig")
+    Bc = pd.read_csv(_pkg("03_validation/gold_standard/coding_sheet_B_v2.csv"), encoding="utf-8-sig")
+    hb = A[["question_id", "score_0_4"]].merge(Bc[["question_id", "score_0_4"]], on="question_id", suffixes=("_a", "_b"))
+    assert len(hb) == 300
+    blind = pd.read_csv(_pkg("07_blind_reclassification/labels/question_labels_python_blind.csv"))
+    earlier = pd.read_csv(_pkg("01_panels_and_classification/data/question_labels_python_2021-2024.csv"))
+    glm = pd.DataFrame([json.loads(l) for l in io.open(_pkg("05_additional_checks/glm_relabel/labels_glm-4.6.jsonl"), encoding="utf-8") if l.strip()])
+    glm = glm[["question_id", "score"]].drop_duplicates("question_id")
+    be = blind[["question_id", "score"]].merge(earlier[["question_id", "score"]], on="question_id", suffixes=("_b", "_e"))
+    bg = blind[["question_id", "score"]].merge(glm, on="question_id", suffixes=("_b", "_g"))
+    k_h, k_be, k_bg = _kappa_bin(hb.score_0_4_a, hb.score_0_4_b), _kappa_bin(be.score_b, be.score_e), _kappa_bin(bg.score_b, bg.score_g)
+    print("[fig_agree] kappa coders %.4f  blind-earlier %.4f (n=%d)  blind-glm %.4f (n=%d)" % (k_h, k_be, len(be), k_bg, len(bg)))
+    assert round(k_h, 3) == 0.533 and round(k_be, 3) == 0.605 and round(k_bg, 3) == 0.613, "fig_agree 自证失败：κ"
+    assert len(be) == 6000 and len(bg) == 5999, "fig_agree 自证失败：N"
+
+    cmap = LinearSegmentedColormap.from_list("ink", ["#ffffff", "#e9e4f7", "#9b8fd0", "#4b2fa6", "#1d0a6b"])
+    fig, axes = plt.subplots(1, 3, figsize=(COL, 2.75))
+    spec = [(hb.score_0_4_a, hb.score_0_4_b, "Coder A", "Coder B", "two human coders, N = 300"),
+            (be.score_b, be.score_e, "Blind classification", "Earlier classification", "blind vs earlier, N = 6,000"),
+            (bg.score_b, bg.score_g, "Blind classification", "GLM-4.6", "blind vs GLM-4.6, N = 5,999")]
+    for k, (ax, (yv, xv, ylab, xlab, ttl)) in enumerate(zip(axes, spec)):
+        M = pd.crosstab(pd.Categorical(yv, categories=range(5)), pd.Categorical(xv, categories=range(5)), dropna=False).to_numpy().astype(float)
+        Pm = 100 * M / M.sum()
+        # 加图第1步补修：热图由 imshow（PDF 内嵌位图）改为矢量 pcolormesh；格线 edgecolors=face 防缝
+        ax.pcolormesh(np.arange(-0.5, 5.5), np.arange(-0.5, 5.5), Pm, cmap=cmap, vmin=0, vmax=max(28, Pm.max()),
+                      edgecolors="face", linewidth=0.15, antialiased=False)
+        ax.set_xlim(-0.5, 4.5); ax.set_ylim(-0.5, 4.5); ax.set_aspect("equal")
+        for i in range(5):
+            for j in range(5):
+                v = Pm[i, j]
+                ax.text(j, i, ("%.0f" % v) if v >= 0.5 else ("<1" if M[i, j] > 0 else "0"), ha="center", va="center",
+                        fontsize=FS_SMALL, color=SURFACE if v > 12 else INK2)
+        ax.axhline(2.5, color=INK, lw=0.9, ls=(0, (3, 2))); ax.axvline(2.5, color=INK, lw=0.9, ls=(0, (3, 2)))
+        ax.set_xticks(range(5)); ax.set_yticks(range(5))
+        ax.set_xlabel(xlab); ax.set_ylabel(ylab, labelpad=2)
+        for sp in ax.spines.values():
+            sp.set_color(BASE); sp.set_linewidth(LW_SPINE)
+        ax.tick_params(length=2, color=BASE)
+        ax.text(-0.02, 1.02, "ABC"[k], transform=ax.transAxes, fontsize=FS_PANEL, fontweight="bold", va="bottom", ha="left", color=INK)
+        _subtitle(ax, ttl, x=0.10)
+    fig.subplots_adjust(wspace=0.42)
+    _min_font(fig, "fig_agree")
+    save(fig, "fig_agree")
+
+
+# ------------------------------------------------------------------ fig_answer
+def fig_answer():
+    fa = {int(r["question_id"]): r for r in csv.DictReader(open(_pkg("02_estimation/legB_first_answer.csv"), encoding="utf-8"))}
+    lab_ = {}
+    for rel in ("09_downstream_rerun/blind/data/question_labels.csv", "09_downstream_rerun/blind/data/question_labels_ext_py.csv"):
+        for r in csv.DictReader(open(_pkg(rel), encoding="utf-8")):
+            lab_[int(r["question_id"])] = int(r["score"])
+    rows = []
+    for rel in ("01_panels_and_classification/data/so_questions_python_2021-2024.json",
+                "01_panels_and_classification/data/so_questions_python_ext_2024-07_2026-05.json"):
+        for q in json.load(open(_pkg(rel), encoding="utf-8")):
+            qid = int(q["question_id"]); s = lab_.get(qid)
+            if s is None or s == 0 or qid not in fa:
+                continue
+            cd = int(q["creation_date"]); cm = pd.to_datetime(cd, unit="s").to_period("M")
+            fad = fa[qid]["first_answer_date"]
+            lat = (int(fad) - cd) / 86400 if fad else np.inf
+            rows.append({"score": s, "post": int(cm.year * 12 + cm.month - 1 >= EVENT), "a30": int(lat <= 30), "a90": int(lat <= 90)})
+    d = pd.DataFrame(rows)
+    assert len(d) == 5500, "fig_answer 自证失败：N"
+    T = {w: d.groupby(["score", "post"])[w].mean().unstack() for w in ("a30", "a90")}
+    chk = {w: [round(T[w].loc[s, p], 3) for s in (1, 4) for p in (0, 1)] for w in T}
+    print("[fig_answer] check", chk)
+    assert chk["a30"] == [0.761, 0.681, 0.906, 0.888] and chk["a90"] == [0.769, 0.703, 0.906, 0.896], "fig_answer 自证失败：比例"
+
+    fig, axes = plt.subplots(1, 2, figsize=(COL, 2.3), sharey=True)
+    for k, (ax, w, ttl) in enumerate(zip(axes, ("a30", "a90"), ("answered within 30 days of publication", "answered within 90 days of publication"))):
+        framed(ax); _grid(ax, "x")
+        for s in (1, 2, 3, 4):
+            pre, post = 100 * T[w].loc[s, 0], 100 * T[w].loc[s, 1]
+            y = 5 - s
+            ax.annotate("", xy=(post, y), xytext=(pre, y),
+                        arrowprops=dict(arrowstyle="-|>", color=RAMP[s - 1], lw=1.5, shrinkA=3.2, shrinkB=3.0, mutation_scale=7))
+            ax.plot(pre, y, "o", ms=MS_MAIN, mfc=SURFACE, mec=PRE, mew=1.1, zorder=4)
+            ax.plot(post, y, "o", ms=MS_MAIN, mfc=RAMP[s - 1], mec=SURFACE, mew=MEW, zorder=5)
+        ax.set_xlim(62, 96)
+        ax.set_xlabel("Questions answered, %")
+        ax.set_yticks([4, 3, 2, 1]); ax.set_yticklabels(["s1 (least)", "s2", "s3", "s4 (most)"])
+        ax.set_ylim(0.4, 4.6)
+        panel_label(ax, "AB"[k])
+        _subtitle(ax, ttl)
+    h1, = axes[1].plot([], [], "o", ms=MS_MAIN, mfc=SURFACE, mec=PRE, mew=1.1, label="pre-ChatGPT")
+    h2, = axes[1].plot([], [], "o", ms=MS_MAIN, mfc=INK2, mec=SURFACE, mew=MEW, label="post-ChatGPT")
+    axes[1].legend(handles=[h1, h2], frameon=False, fontsize=FS_LEG, loc="upper right")
+    fig.subplots_adjust(wspace=0.06)
+    _min_font(fig, "fig_answer")
+    save(fig, "fig_answer")
+
+
+# ------------------------------------------------------------------ fig_sampling
+def fig_sampling():
+    import io
+    tot = pd.read_csv(_pkg("02_estimation/platform_monthly_totals.csv"))
+    fills = {}
+    for lang in ("python", "javascript", "java"):
+        qs = []
+        for rel in (f"01_panels_and_classification/data/so_questions_{lang}_2021-2024.json",
+                    f"01_panels_and_classification/data/so_questions_{lang}_ext_2024-07_2026-05.json"):
+            qs += json.load(io.open(_pkg(rel), encoding="utf-8"))
+        df = pd.DataFrame(qs)[["question_id", "ym", "creation_date"]].drop_duplicates("question_id")
+        df["creation_date"] = df.creation_date.astype(int)
+        out = []
+        for ym, gg in df.groupby("ym"):
+            assert len(gg) == 100, ("fig_sampling 自证失败：每月应恰 100 题", lang, ym, len(gg))
+            cd = np.sort(gg.creation_date.to_numpy())
+            y_, mo_ = map(int, ym.split("-"))
+            out.append({"ym": ym, "fill_h": (cd[-1] - cd[0]) / 3600.0, "t": y_ * 12 + mo_ - 1})
+        fills[lang] = pd.DataFrame(out).sort_values("t")
+    f = fills["python"]; pre, post = f[f.t < EVENT], f[f.t >= EVENT]
+    chk = (round(pre.fill_h.mean(), 1), round(post.fill_h.mean(), 1), round(post.fill_h.max() / 24, 2))
+    chk2 = tuple(round(fills[l][fills[l].t >= EVENT].fill_h.mean(), 1) for l in ("javascript", "java"))
+    chk3 = tuple(round(fills[l][fills[l].t >= EVENT].fill_h.max() / 24, 1) for l in ("javascript", "java"))
+    print("[fig_sampling] fill check", chk, chk2, chk3)
+    assert chk == (6.8, 55.4, 9.75) and chk2 == (119.6, 129.9) and chk3 == (23.3, 21.1), "fig_sampling 自证失败"
+
+    dts = lambda ym: pd.to_datetime(pd.Series(ym) + "-15")
+    fig, axes = plt.subplots(1, 2, figsize=(COL, 2.6))
+    for k, ax in enumerate(axes):
+        framed(ax); _grid(ax, "y")
+        ax.set_yscale("log")
+        ax.axvline(pd.Timestamp("2022-12-01"), color=BASE, lw=LW_REF, ls=(0, (4, 2.5)))
+        year_axis(ax)
+        panel_label(ax, "AB"[k])
+    for lang in ("python", "javascript", "java"):
+        t = tot[tot.tag == lang].sort_values("ym")
+        axes[0].plot(dts(t.ym), t.total, color=LANGC[lang], lw=LW_SERIES, label=lang)
+        g = fills[lang]
+        axes[1].plot(dts(g.ym), g.fill_h, color=LANGC[lang], lw=LW_SERIES, label=lang)
+    axes[0].set_ylabel("Questions per month")
+    axes[0].set_yticks([300, 1000, 3000, 10000, 30000]); axes[0].set_yticks([], minor=True)
+    axes[0].set_yticklabels(["300", "1,000", "3,000", "10,000", "30,000"])
+    _subtitle(axes[0], "all questions with the tag, platform-wide")
+    axes[1].set_ylabel("Hours")
+    for hh, lab in ((24, "1 day"), (168, "1 week")):
+        axes[1].axhline(hh, color=GRID, lw=0.9, zorder=0)
+        axes[1].text(pd.Timestamp("2021-06-20"), hh * 1.08, lab, fontsize=FS_SMALL, color=MUTED, va="bottom")
+    axes[1].set_yticks([1, 3, 10, 30, 100, 300]); axes[1].set_yticks([], minor=True)
+    axes[1].set_yticklabels(["1", "3", "10", "30", "100", "300"])
+    _subtitle(axes[1], "first to hundredth sampled question of the month")
+    axes[0].legend(frameon=False, fontsize=FS_LEG, loc="lower left")
+    fig.subplots_adjust(wspace=0.28)
+    _min_font(fig, "fig_sampling")
+    save(fig, "fig_sampling")
+
+
 fig_design()
 fig_crosssite()
 fig_shap()
@@ -1270,3 +1526,8 @@ fig_forest()
 fig_placebo()
 fig_outside()
 print("DONE — step 3 new figures: fig_design, fig_crosssite, fig_shap, fig_forest, fig_placebo; step 5: fig_outside")
+fig_bins()
+fig_agree()
+fig_answer()
+fig_sampling()
+print("DONE — 加图第 1 步：fig_bins, fig_agree, fig_answer, fig_sampling")
