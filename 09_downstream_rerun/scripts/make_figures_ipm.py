@@ -937,6 +937,164 @@ def fig_design():
     save(fig, "fig_design")
 
 
+# ------------------------------------------------------------------ fig_protocol
+def fig_protocol():
+    """Measurement-validation protocol: six steps in three groups (no data read, no new numbers).
+    Built from 工作文档\\协议图_草稿_20261006\\draft_protocol.py; cards are sized to content,
+    cards in one row share a top edge, group frames shrink to the tallest content."""
+    XL = 101.0
+    unit = COL * 72 / XL                    # points per x unit; y uses the same scale (y downward)
+    LH = lambda fs: fs * 1.28 / unit
+    STEPS = [
+        (1, "Blind and audit the scorer", "Scores absorb outcome or period; silent run errors",
+         "here: date- and outcome-blind classification; coverage and model-identity checks (Sections 4.2, 4.6)"),
+        (2, "Replicate across raters", "Scores reflect one model’s habits",
+         "here: same- and independent-family raters (Sections 4.5, 6.1)"),
+        (3, "Test a behavioural criterion", "Scale does not measure what models can answer",
+         "here: four answering models, blind judges, 320 questions (Section 6.3)"),
+        (4, "Explain what the score follows", "Scores track irrelevant surface features",
+         "here: surrogate model with SHAP (Section 6.3)"),
+        (5, "Step outside the model loop", "The construct is defined by the model itself",
+         "here: two human coders, 300 questions; moderators’ duplicate closures (Sections 4.4, 6.4)"),
+        (6, "Stress-test over time", "Time-varying measurement error passes as an effect",
+         "here: memorisation, edit exposure, relabelling (Sections 7.5, 7.6)"),
+    ]
+    R = 1.7                                  # step-badge radius (units)
+    PADX = 1.2
+
+    def card_lines(step, w):
+        n, title, threat, here = STEPS[step - 1]
+        tw = (w - 2 * PADX - 2 * R - 0.8) * unit           # title sits right of the badge
+        bw_ = (w - 2 * PADX) * unit
+        return (_wrap_pt(title, FS_VALUE, tw, "bold"), _wrap_pt(threat, FS_ANNOT, bw_),
+                _wrap_pt(here, FS_SMALL, bw_))
+
+    def card_need(step, w):
+        t, th, he = card_lines(step, w)
+        return (0.9 + max(len(t) * LH(FS_VALUE), 2 * R) + 0.5 + len(th) * LH(FS_ANNOT)
+                + 0.5 + len(he) * LH(FS_SMALL) + 0.9)
+
+    # ---------------- layout (y downward) ----------------
+    bw, gap = 21.5, 4.6
+    xs = [i * (bw + gap) for i in range(4)]
+    sh = 8.0                                 # strip box height
+    y_strip = 0.6
+    y_inst = y_strip + sh + 1.6
+    GAPX = 1.6
+    w_in_card = 23.8
+    w_in = 2 * w_in_card + 3 * 1.0           # inside group width
+    w_out = 27.6
+    w_ot = 100.0 - w_in - w_out - 2 * GAPX
+    x_in, x_out, x_ot = 0.0, w_in + GAPX, w_in + GAPX + w_out + GAPX
+    inst_lines = _wrap_pt("Here: AI-substitutability rubric; 18,000 Stack Overflow questions, 100 per month, "
+                          "June 2021–May 2026; within-platform dose-response.", FS_SMALL, (100.0 - 49.0) * unit)
+    y_bus = y_inst + len(inst_lines) * LH(FS_SMALL) + 1.8
+    y_grp = y_bus + 3.0
+    lab_h = LH(FS_VALUE) + 1.0
+    w_out_card, w_ot_card = w_out - 2.0, w_ot - 2.0
+    need = {s: card_need(s, w_in_card) for s in (1, 2, 3, 4)}
+    need[5] = card_need(5, w_out_card)
+    need[6] = card_need(6, w_ot_card)
+    row_h = [max(need[1], need[2]), max(need[3], need[4])]      # row height = tallest card in the row
+    h_in = lab_h + 1.0 + row_h[0] + 1.0 + row_h[1] + 1.0
+    h_out = lab_h + 1.0 + need[5] + 1.0
+    h_ot = lab_h + 1.0 + need[6] + 1.0
+    grp_h = max(h_in, h_out, h_ot)           # canvas height only; each frame keeps its own tight height
+    YT = y_grp + grp_h + 0.6
+
+    H = YT * unit / 72
+    fig = plt.figure(figsize=(COL, H))
+    fig.subplots_adjust(left=0, right=1, bottom=0, top=1)
+    ax = fig.add_subplot(111)
+    ax.set_xlim(-0.5, 100.5); ax.set_ylim(YT, 0); ax.axis("off")
+
+    def rbox(x, y, w, h, edge, fc, ls="-", lw=LW_CI_THIN, z=3):
+        ax.add_patch(mpatches.FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0,rounding_size=1.0",
+                                             linewidth=lw, edgecolor=edge, facecolor=fc, linestyle=ls, zorder=z))
+
+    def parrow(x1, y1, x2, y2):
+        ax.annotate("", xy=(x2, y2), xytext=(x1, y1), zorder=5,
+                    arrowprops=dict(arrowstyle="-|>", color=INK2, linewidth=LW_REF, linestyle="-",
+                                    shrinkA=0, shrinkB=0))
+
+    def seg(x1, y1, x2, y2, color=INK2, ls="-"):
+        ax.plot([x1, x2], [y1, y2], color=color, lw=LW_REF, ls=ls, zorder=2, solid_capstyle="butt")
+
+    # top strip of four boxes
+    strip = ["Item-level rubric (anchored, 0–4)", "Validation protocol (six steps below)",
+             "Validated measure", "Design that uses it"]
+    for i, t in enumerate(strip):
+        rbox(xs[i], y_strip, bw, sh, BOXE, BOXC)
+        tl = _wrap_pt(t, FS_VALUE, (bw - 2.0) * unit, "bold")
+        th = len(tl) * LH(FS_VALUE)
+        yy = y_strip + sh / 2 - th / 2
+        for s in tl:
+            ax.text(xs[i] + bw / 2, yy, s, ha="center", va="top", zorder=4, fontsize=FS_VALUE,
+                    fontweight="bold", color=INK)
+            yy += LH(FS_VALUE)
+    for i in range(3):
+        parrow(xs[i] + bw + 0.4, y_strip + sh / 2, xs[i + 1] - 0.4, y_strip + sh / 2)
+
+    # instance line (right part, clear of the bus arrow)
+    x_inst = 100.0 - (100.0 - 49.0)
+    yy = y_inst
+    for s in inst_lines:
+        ax.text(x_inst + 0.5, yy, s, ha="left", va="top", zorder=4, fontsize=FS_SMALL, color=MUTED)
+        yy += LH(FS_SMALL)
+
+    def group_frame(x, w, h, label, edge, ls):
+        rbox(x, y_grp, w, h, edge, "none", ls=ls, z=2)
+        ax.text(x + 1.2, y_grp + 0.9, label, ha="left", va="top", zorder=4, fontsize=FS_VALUE,
+                fontweight="bold", color=INK)
+
+    def card(step, x, y, w, h):
+        n, title, threat, here = STEPS[step - 1]
+        tl, th, he = card_lines(step, w)
+        rbox(x, y, w, h, BASE, SOFT, lw=LW_CAP)
+        cx, cy = x + PADX + R, y + 0.9 + R
+        ax.add_patch(mpatches.Circle((cx, cy), R, facecolor=INK2, edgecolor="none", zorder=4))
+        ax.text(cx, cy, str(n), ha="center", va="center", fontsize=FS_SMALL, fontweight="bold",
+                color="white", zorder=5)
+        yy = y + 0.9
+        for s in tl:
+            ax.text(x + PADX + 2 * R + 0.8, yy, s, ha="left", va="top", zorder=4, fontsize=FS_VALUE,
+                    fontweight="bold", color=INK)
+            yy += LH(FS_VALUE)
+        yy = y + 0.9 + max(len(tl) * LH(FS_VALUE), 2 * R) + 0.5
+        for s in th:
+            ax.text(x + PADX, yy, s, ha="left", va="top", zorder=4, fontsize=FS_ANNOT, color=INK2)
+            yy += LH(FS_ANNOT)
+        yy += 0.5
+        for s in he:
+            ax.text(x + PADX, yy, s, ha="left", va="top", zorder=4, fontsize=FS_SMALL, color=MUTED)
+            yy += LH(FS_SMALL)
+        assert yy - y <= h + 1e-6, ("card overflow", step, yy - y, h)
+
+    group_frame(x_in, w_in, h_in, "Inside the model loop", DASHE, (0, (4, 2)))
+    group_frame(x_out, w_out, h_out, "Outside the model loop", BOXE, "-")
+    group_frame(x_ot, w_ot, h_ot, "Over time", BOXE, "-")
+    y0 = y_grp + lab_h + 1.0
+    ys_in = [y0, y0 + row_h[0] + 1.0]
+    for k, s in enumerate((1, 2, 3, 4)):
+        r_, c_ = divmod(k, 2)
+        card(s, x_in + 1.0 + c_ * (w_in_card + 1.0), ys_in[r_], w_in_card, need[s])
+    card(5, x_out + 1.0, y0, w_out_card, need[5])
+    card(6, x_ot + 1.0, y0, w_ot_card, need[6])
+
+    # arrows: stubs to a bus, one arrow from the bus to box 2
+    cx_in, cx_out, cx_ot = x_in + w_in / 2, x_out + w_out / 2, x_ot + w_ot / 2
+    bx = xs[1] + bw / 2
+    seg(cx_in, y_grp, cx_in, y_bus, DASHE, (0, (4, 2)))
+    seg(cx_out, y_grp, cx_out, y_bus, BOXE)
+    seg(cx_ot, y_grp, cx_ot, y_bus, BOXE)
+    seg(min(cx_in, bx), y_bus, cx_ot, y_bus, BOXE)
+    parrow(bx, y_bus, bx, y_strip + sh + 0.4)
+    print("[fig_protocol] needs", {k: round(v, 2) for k, v in need.items()}, "row_h", [round(v, 2) for v in row_h],
+          "grp_h %.2f (in %.2f out %.2f ot %.2f)" % (grp_h, h_in, h_out, h_ot))
+    _min_font(fig, "fig_protocol")
+    save(fig, "fig_protocol")
+
+
 # ------------------------------------------------------------------ fig_crosssite
 def fig_crosssite():
     d_ = pd.read_csv(OSF_PANEL)
@@ -1520,6 +1678,7 @@ def fig_sampling():
 
 
 fig_design()
+fig_protocol()
 fig_crosssite()
 fig_shap()
 fig_forest()
