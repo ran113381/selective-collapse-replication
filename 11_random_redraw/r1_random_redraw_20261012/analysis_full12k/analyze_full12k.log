@@ -1,0 +1,46 @@
+script sha12 (self): 87e222d0c7c9
+sha12 ..\derived\labels_by_question_full12k.csv = dc2f07ad7c85 (want dc2f07ad7c85)
+sha12 subagent_run\full12k\all100_verify.log = 148bcf743f19 (want 148bcf743f19)
+口径来源脚本 sha12: run_within_so_llm.py=04c81e5354fd  phaseA_composition.py=40c9cd8e1654
+发表标签 question_labels_python_blind.csv sha12=507c5779f4f9 ; 发表月面板 within_so_llm_panel_python_blind.csv sha12=f8c003950b4e
+labels files checked 100; total rated ids: 12000 ; problems: 0 []
+months: 60 2021-06 2026-05 ; panel x ym cells: 120 ; cell sizes set: [100]
+GATE 2 PASS: 100 files, 12000 ids once each, 120 cells x 100; label-file score distribution == derived table
+发表标签重建面板 == 包内发表月面板: True
+复现(发表标签): OLS γ=-0.3038 SE 0.0379 p 1.07e-15 | bin β=-0.6100 SE 0.1031 | PPML γ=-0.2872 SE 0.0326 | NW β=-0.8935 SE 0.1168
+GATE 3 PASS: 复现到正文位数 (OLS -0.30(0.04)/-0.304, bin -0.61(0.10), PPML -0.29(0.03)) 且四位小数与包内日志一致
+面板 A: 月数 60, n=6000, s1..s4 最小格=7, 零格数=0
+面板 B: 月数 60, n=6000, s1..s4 最小格=5, 零格数=0
+面板 C: 月数 60, n=6000, s1..s4 最小格=4, 零格数=0
+fast_est 自检通过：与原口径点估计一致(OLS/二分 1e-8，PPML 1e-5)
+
+=== RESULTS ===
+seed=20261013 nboot=2000; bootstrap 按月整块重抽(60月有放回)，同一组月份同时算 B 与 C；新旧面板 326 题同题号重叠，按月重抽已天然处理(两面板各自按月整块进出，未做按题去重)
+口径: bin_b=score==b 的题数(b=1..4, s0 丢弃); GEN=score>=3, VER=其余含 s0; post=ym>=2022-12 (前期18月/后期42月); 零格: 原口径 assert count>0(本次三面板零格数均为0); 聚类=月; PPML=pyfixest fepois 'count~dose|score+ym' CRV1 月
+复现(发表标签) OLS γ=-0.3038(0.0379) p=1.07e-15 | bin β=-0.6100(0.1031) | PPML γ=-0.2872(0.0326) | NW β=-0.8935(0.1168)
+-- 第1步 一致性 (旧面板 6000 题: 本次重评 vs 原发表标签) --
+CONS all              n=6000 exact=0.5793 within1=0.9450 label=0.8442 kappa_lin=0.6499 kappa_quad=0.7980 kappa_GEN=0.6840
+CONS pre(<2022-12)    n=1800 exact=0.5667 within1=0.9428 label=0.8389 kappa_lin=0.6327 kappa_quad=0.7851 kappa_GEN=0.6752
+CONS post(>=2022-12)  n=4200 exact=0.5848 within1=0.9460 label=0.8464 kappa_lin=0.6494 kappa_quad=0.7964 kappa_GEN=0.6791
+CONF5x5 rows=published 0..4, cols=rerun 0..4:
+    0 [242, 235, 13, 8, 2]
+    1 [182, 1172, 294, 94, 6]
+    2 [22, 346, 381, 306, 13]
+    3 [5, 143, 334, 1036, 224]
+    4 [0, 2, 22, 273, 645]
+-- 第2步 逐月 GEN 比例与平均分(月度未加权均值; 前期18月/后期42月) --
+GEN A 旧面板·原发表标签      前期=0.5511 后期=0.4029 后-前=-0.1483 | 平均分 前期=2.4372 后期=2.0217 后-前=-0.4156
+GEN B 旧面板·本次重评       前期=0.5389 后期=0.3898 后-前=-0.1491 | 平均分 前期=2.4083 后期=1.9910 后-前=-0.4174
+GEN C 新面板·本次重评       前期=0.5333 后期=0.3850 后-前=-0.1483 | 平均分 前期=2.3917 后期=1.9848 后-前=-0.4069
+-- 第3步 γ (log-count OLS / binary GEN-VER / FE-PPML; 月聚类 SE) --
+GAMMA A 旧面板·原发表标签      OLS γ=-0.3038 SE 0.0379 p 1.07e-15 | bin β=-0.6100 SE 0.1031 p 3.3e-09 | PPML γ=-0.2872 SE 0.0326 p 0
+S4S1  A s4-vs-s1 post: exp(3γ_OLS)-1=-59.8%  exp(3γ_PPML)-1=-57.8%  | NW log((s4+.5)/(s1+.5)) post β=-0.8935 SE 0.1168 p 2.01e-14
+GAMMA B 旧面板·本次重评       OLS γ=-0.3147 SE 0.0440 p 8.23e-13 | bin β=-0.6152 SE 0.1060 p 6.54e-09 | PPML γ=-0.2972 SE 0.0363 p 2.22e-16
+S4S1  B s4-vs-s1 post: exp(3γ_OLS)-1=-61.1%  exp(3γ_PPML)-1=-59.0%  | NW log((s4+.5)/(s1+.5)) post β=-0.9358 SE 0.1158 p 6.5e-16
+GAMMA C 新面板·本次重评       OLS γ=-0.3174 SE 0.0377 p 3.72e-17 | bin β=-0.6104 SE 0.0887 p 5.82e-12 | PPML γ=-0.2926 SE 0.0289 p 0
+S4S1  C s4-vs-s1 post: exp(3γ_OLS)-1=-61.4%  exp(3γ_PPML)-1=-58.4%  | NW log((s4+.5)/(s1+.5)) post β=-0.9226 SE 0.1204 p 1.81e-14
+-- C - B (bootstrap 95% 百分位区间; 点差=全样本 γ_C-γ_B) --
+DIFF ols   γ_C-γ_B=-0.0027  boot mean -0.0015 sd 0.0478  95% CI [-0.0963, +0.0945]
+DIFF bin   γ_C-γ_B=+0.0048  boot mean +0.0062 sd 0.0857  95% CI [-0.1651, +0.1733]
+DIFF ppml  γ_C-γ_B=+0.0046  boot mean +0.0054 sd 0.0438  95% CI [-0.0818, +0.0926]
+=== END RESULTS ===

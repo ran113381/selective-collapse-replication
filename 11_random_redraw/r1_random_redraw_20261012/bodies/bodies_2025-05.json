@@ -1,0 +1,1536 @@
+[
+ {
+  "question_id": 79602106,
+  "ym": "2025-05",
+  "creation_date": 1746113232,
+  "title": "Trying to get the CPU temperature using several libraries returns wrong results",
+  "tags": [
+   "python",
+   "windows",
+   "cpu",
+   "temperature"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I want to get the CPU temperature using Python code. I’m using Windows 11 24H2 and Python 3.10.6. I’ve already tried using [code] : [CODE] But that seems wrong. I've also tried: [CODE] Output: [CODE] So, by using WMI or MSAcpi to retrieve the temperature also through OpenHardwareMonitorLib.dll, LibreHardwareMonitorLib.dll, or CPUThermometerLib.dll, I get incorrect information (typically 0°C or 29°C) or errors. My main goal is to implement my idea without running OpenHardwareMonitor (OHM). I can use the DLLs, but I don’t want to run third-party applications. (Btw, the OHM app shows correct data.) I also tried all the code from these topics: Accessing CPU temperature in python But nothing works. Do you have any ideas on how I can get the information I’m interested in? I’m testing my code on a Ryzen 9 3950X and Ryzen 7 2700X. (Also, please describe the process of using .dll files in code in more detail, as I don’t have experience in using C#, C++ libraries and in mixing Python code with it, if the solution you suggest includes using C libraries. If that's not possible, also tell me so I can look in another direction.)"
+ },
+ {
+  "question_id": 79603499,
+  "ym": "2025-05",
+  "creation_date": 1746193405,
+  "title": "Training a custom tokenizer with Huggingface gives weird token splits at inference",
+  "tags": [
+   "python",
+   "tensorflow",
+   "nlp",
+   "bert-language-model"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "So I trained a tokenizer from scratch using Huggingface’s tokenizers library (not AutoTokenizer.from_pretrained, but actually trained a new one). Seemed to go fine, no errors. But when I try to use it during inference, it splits words in weird places. even pretty common ones like “awesome” or “terrible” end up getting split into multiple subwords like aw, ##es, ##ome, etc. I expected a fresh tokenizer to do better with those kinds of words since I saw them in the training data. Here’s how I trained the tokenizer (simplified version): [CODE] And this is how I use it later: [CODE] Which gives me: [code] So like... why is “awesome” getting split into 3 tokens? That word appears in the training file multiple times, definitely more than the min_frequency of 2. I even checked the vocab file, and I don’t see “awesome” as a full token in there. I tried: increasing vocab_size to 10k (same issue) lowering min_frequency to 1 turning off lowercase checking the vocab.txt , still doesn’t have full words I expect Maybe I’m misunderstanding how the tokenizer learns or builds its vocab? Or is there something I’m doing wrong during training? If needed I can share a dummy version of the data.txt file I used. It’s just a list of simple sentences like: [CODE] Would appreciate any ideas, not sure if this is expected behavior or if I messed something up in how I’m training it."
+ },
+ {
+  "question_id": 79603730,
+  "ym": "2025-05",
+  "creation_date": 1746202082,
+  "title": "How to type hint overload Callable and type differently?",
+  "tags": [
+   "python",
+   "python-typing",
+   "mypy"
+  ],
+  "score": 3,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "How to type hint overload the return type of a Callable and type differently and safely? The problem I'm having is that the [code] doesn't support [code] , so I can't use that to enforce [code] and [code] , in the same way as as [code] . [CODE] As you can see that [code] passes with no errors, even though [code] is suppose to take in a [code] argument. I'm expecting [code] to require a [code] argument, similar to how [code] requires the second parameter [code] . I understand that this is because [code] is a [code] , which doesn't have [code] to type the [code] and [code] , but is there a way to achieve this in a type-safe way? Note that I haven't used [code] and [code] in the example for simplicity, but they are meant to be used inside of the [code] classes."
+ },
+ {
+  "question_id": 79604226,
+  "ym": "2025-05",
+  "creation_date": 1746227480,
+  "title": "Performance of list.extend slice vs islice",
+  "tags": [
+   "python",
+   "slice",
+   "python-itertools"
+  ],
+  "score": 5,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "It seems that even when [code] would theoretically be better, in practice, it is slower than just using [code] . So I am a bit puzzled by the difference in performance between the usage of [code] and [code] here: [CODE] [CODE] To justify why I believe the difference to be unexpected, here is my mental model for how the execution goes for both cases: Strict Slicing: Allocate tmp, where [code] is the immutable string from [code] th index to the end of the original string. Acquire an iterator over [code] . Create string objects for each individual character. Pass those string objects to be appended to the list. Garbage collect [code] . Lazy Slicing: Acquire an iterator over [code] , discarding the first value. Create string objects for each individual character. Pass those string objects to be appended to the list. I don't see how allocating the whole string object at once just to be garbage collected later leads to still better performance, especially considering the fact that both slicing methods are implemented in [code] ."
+ },
+ {
+  "question_id": 79605214,
+  "ym": "2025-05",
+  "creation_date": 1746319784,
+  "title": "Frida: How to send byte[] array from JavaScript to Python",
+  "tags": [
+   "javascript",
+   "python",
+   "android",
+   "frida"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a Frida JS script inside a Python session, and I'm trying to pass an array of bytes (from a Bitmap image) from the JavaScript environment back to the Python environment. Here is my attempt: [CODE] The problem happens on the call to [code] because the second argument [code] is not a pointer: [code] It's unclear to me how to get [code] into a format that can be sent using the [code] function, and I'm having trouble finding the solution in the Frida API docs."
+ },
+ {
+  "question_id": 79605344,
+  "ym": "2025-05",
+  "creation_date": 1746340412,
+  "title": "Is there a way to check if sqlite3.connect() succeeded or not in connecting to an SQL database?",
+  "tags": [
+   "python",
+   "sqlite"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to find a way to check if there was a successful connection to a database in sqlite3 and Python. I'm doing this because I'm making a password manager and want to make sure that I'm actually connected to the database and there's no errors in doing so. I started Python and SQL today, and only really have experience in C, so I'm still working through some growing pains. I've tried these solutions: 1) [CODE] [CODE] [CODE]"
+ },
+ {
+  "question_id": 79606481,
+  "ym": "2025-05",
+  "creation_date": 1746429669,
+  "title": "How to Add Editable Text Layer to a Photoshop PSD File using Python",
+  "tags": [
+   "python",
+   "photoshop",
+   "psd"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a very simple use case where I need to pack a PNG file and a text layer into a PSD file and save it. That's it. I have tried [code] for it and so far it works in principle. The problem is that the text layer that it creates is not editable. The text layer itself is added as an image (transparent background) so I can't edit the text by opening it in Krita/Gimp. Here's my code: [CODE] I have looked other libs and found [code] can do editable text layer, but it's a paid feature in the python library and I need a license for it. So, does anybody know a way to add an editable text layer to a PSD file programmatically.? Thanks."
+ },
+ {
+  "question_id": 79607373,
+  "ym": "2025-05",
+  "creation_date": 1746465648,
+  "title": "How to exclude thinking steps when streaming from `google/gemini-2.5-flash-preview:thinking` via OpenRouter and OpenAI library?",
+  "tags": [
+   "python",
+   "openai-api",
+   "google-gemini",
+   "openrouter"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am using the [code] Python library to stream chat completions from the [code] model via the OpenRouter API . My goal is to get only the final assistant response, but this specific model variant ( [code] ) prepends its internal thought process (e.g., \"Thinking...\", \"Examining Request...\", \"Locating References...\") directly into the main content stream before the actual answer: Example Code: [CODE] What I've Tried: Explicitly instructing the model in the system prompt not to output its thinking steps. This was ignored. Passing [code] in the [code] call, based on OpenRouter documentation for controlling \"Reasoning Tokens\" . This also had no effect on the output from this specific model. Question: Given that the thinking steps seem to be part of the main content stream for [code] , is there any way using the [code] Python library and OpenRouter API parameters to prevent this specific model variant from outputting its thinking steps? Or, is the only practical solution to achieve a clean output to switch to a different model endpoint without the [code] suffix (e.g., [code] )?"
+ },
+ {
+  "question_id": 79608270,
+  "ym": "2025-05",
+  "creation_date": 1746519751,
+  "title": "Tensorflow timeseries cant predict Sine",
+  "tags": [
+   "python",
+   "tensorflow",
+   "machine-learning"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "i am trying to validate a tensorflow code for simple timeseries prediction in where: [CODE] and the following parameters for the timeseries: [CODE] any model I use or try gets very bad performance, LSTM, MLP, CNN... loss is not improved in any epoch. [CODE] Model is as follows: [CODE] The following code is what i am currently trying: [CODE]"
+ },
+ {
+  "question_id": 79608936,
+  "ym": "2025-05",
+  "creation_date": 1746542682,
+  "title": "Unrecognized configuration parameter &quot;sap_ashost&quot;",
+  "tags": [
+   "python",
+   "duckdb"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm connecting to SAP BW Application Server cube from Fabric Notebook (using Python) using duckdb+erpl . I use connection parameters as per documentation: [CODE] ERPL extension is loaded successfully. However, I get error message: CatalogException: Catalog Error: unrecognized configuration parameter \"sap_ashost\" For testing purposes I connected to SAP BW thru Fabric Dataflow connector and here are the parameters generated automatically in Power M which I use as values in parameters above: [CODE] Why parameter is not recognized if its name is the same as in the documentation? What's wrong with parameters? I tried capital letters but in vain. I follow this documentation: https://erpl.io/docs/integration/connecting_python_with_sap.html and my code is same as in the docs."
+ },
+ {
+  "question_id": 79609252,
+  "ym": "2025-05",
+  "creation_date": 1746554500,
+  "title": "How can I define a protocol for a class that contains a protocol field and use a dataclass implementer?",
+  "tags": [
+   "python",
+   "python-dataclasses"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I want to do this: [CODE] But in pylance it reports: [CODE] To get this to work do I need to freeze my dataclasses and provide read only access in my protocols like so? [CODE] Long term this is the code in one module, module_a which is stand alone. There is another module_b which also exists, has similar code and is stand alone. I want to use instances of HasConfig from module_a in module_b. Because the modules do not know about eachother, I am including the same protocol definition in each of them. To reuse protocols across modules and have instances work for both of them, the protocol definitions must be the same, and the Protocol definitions only must use @property definitions."
+ },
+ {
+  "question_id": 79609499,
+  "ym": "2025-05",
+  "creation_date": 1746566391,
+  "title": "Running bazel/uv/python",
+  "tags": [
+   "python",
+   "bazel",
+   "uv"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "At my job, we are currently transitioning build tools from meson to bazel. We have decided to incorporate Python as well to simplify the deployment process but we'd like to give developers the ability to run it from source. Then, they just need to confirm that the code runs in bazel as well before merging. We have tried using the rules_python as well as the rules_uv but we are running into walls. One problem with the rules_uv approach is that rules_uv simply runs [code] and does the pyproject.toml -> req.txt translation. However, it does not give us access to the intermediate uv.lock that we can use for running code in source. We were instead hoping for the following workflow: Devs run [code] to create a project Devs can use commands such as [code] or [code] in their own standard terminal to alter the pyproject.toml and uv.lock file The resulting .venv can be used as the vs-code python interpreter Using either a [code] or a [code] , bazel updates the requirements.txt to use exact same hashes as the tracked uv.lock file and installs it This way, we can track pyproject.toml and uv.lock files in git, run python from source using uv, auto-generate the req.txt consumed by bazel and python_rules, and ensure that bazel and uv's dependencies are aligned. I have a feeling there are much better ways of doing things. I've looked into rules_pycross, rules_uv, custom rules that essentially "
+ },
+ {
+  "question_id": 79610507,
+  "ym": "2025-05",
+  "creation_date": 1746620434,
+  "title": "Python opcua library -&gt; get_value() function is not reading value, traceback show raise TimeoutError()",
+  "tags": [
+   "python",
+   "opc-ua"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to read 4 nodes values. I wrote a test for a check kepserver connection and get_value from nodes and it works. Here is the test codes : [CODE] Returns node value correctly and subscription is working also. But then I wrote some code to get tag path from sql and opcserver link. And I implemented like that [CODE] AppData class has singleton pattern to keep values for whole project. I am fetching data and setting into AppData class to reach data quickly. Station info data is keeps opcserver link and tag paths. And stores data correctly and return data correctly I can connect the opcserver succesfully I can create nodes successfully I can subscribe nodes successfully But I can't read node value with using get_value() or get_values() methods. [CODE] Exception catch something but catch don't return error messaje but tracing throws me this error : [CODE] Why is this happen?"
+ },
+ {
+  "question_id": 79610805,
+  "ym": "2025-05",
+  "creation_date": 1746628651,
+  "title": "How to generate a list of words using random letters?",
+  "tags": [
+   "python",
+   "loops"
+  ],
+  "score": -2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to generate a list of words (with a random length of 1,4,7,or 2) using random letters. I'm having trouble with the final for loop adding onto the previous iteration. Thanks! [CODE] I get something like this: [CODE] But I'm trying to get every output separate and not adding to the previous output."
+ },
+ {
+  "question_id": 79610925,
+  "ym": "2025-05",
+  "creation_date": 1746632157,
+  "title": "Sympy won&#39;t accept I as a symbol while differentiating",
+  "tags": [
+   "python"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I made a simple program to calculate std for a given set of numbers and a function. While inputing some data today I realized that if one of the variables is called I it gives 0 as the derivative. Here is the relevant part of the code: [CODE] Sorry for the variables being in spanish. If I input the ecuation a+b i get 1 and 1 as derivatives but i get 0 and 1 when I input I+a. I was expecting the results to be consistent. Changing the name of the variable shouldn't affect the result, right?"
+ },
+ {
+  "question_id": 79611116,
+  "ym": "2025-05",
+  "creation_date": 1746638950,
+  "title": "How to access &quot;Groups&quot; folder in Outlook using pywin32",
+  "tags": [
+   "python",
+   "winapi",
+   "outlook",
+   "pywin32",
+   "win32com"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am trying to read emails of a particular mail group using pywin32 which, is showing under \"Groups\" of my outlook mail (shown in screenshot). I am able to access all the folders under my personal id but the folders/groups showing under \"Groups\" are not showing under \"Folders\". I am trying to access a specific shared mailing list as shown below using the [code] MAPI namespace: The groups are not shown in the 'Folders' property of the namespace. I am a newbie to pywin32. I have even tried using navigation panes but unsuccessful. How can I resolve the issue? I have tried using pywin32 MAPI namespace methods and I have even tried using navigation panes but unsuccessful. [CODE]"
+ },
+ {
+  "question_id": 79611972,
+  "ym": "2025-05",
+  "creation_date": 1746691820,
+  "title": "Renaming a Python module using import as",
+  "tags": [
+   "python",
+   "python-import"
+  ],
+  "score": -3,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I'm curious as to why this doesn't work, resulting in: [CODE] [CODE]"
+ },
+ {
+  "question_id": 79612149,
+  "ym": "2025-05",
+  "creation_date": 1746699159,
+  "title": "Turn polars dataframe into nested dictionary",
+  "tags": [
+   "python",
+   "python-polars"
+  ],
+  "score": 3,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have a [code] dataframe like such: [CODE] And I would like to turn it into a bested dictionary like this [CODE] I tried my luck with grouping and selecting structs, but I'm unable to do the conversion using only [code] functions. What's the right approach here? EDIT: I tried two things: Using [code] : [CODE] but that gives the keys as tuples, i.e., [CODE] I also tried to manually loop over the groups: [CODE] This yields the right output: [CODE] But this feels cumbersome and I wonder whether there's a more direct way of doing this."
+ },
+ {
+  "question_id": 79613425,
+  "ym": "2025-05",
+  "creation_date": 1746758918,
+  "title": "Get &quot;Media created&quot; timestamp with python for .mp4 and .m4a video, audio files (no EXIF)",
+  "tags": [
+   "python",
+   "windows",
+   "mp4",
+   "datecreated"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "Trying to get \" Media created \" timestamp and insert as the \" Last modified date \" with python for .mp4 and .m4a video, audio files (no EXIF). The \"Media created\" timestamp shows up and correctly in Windows with right click file inspection, but I can not get it with python. What am I doing wrong? (This is also a working fix for cloud storage changing the last modified date of files.) [CODE]"
+ },
+ {
+  "question_id": 79613434,
+  "ym": "2025-05",
+  "creation_date": 1746759590,
+  "title": "Polars pl.read_csv_batched -&gt; batch_size is not respected at all",
+  "tags": [
+   "python",
+   "python-polars"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Using the [code] with [code] , batches are read without any regard to [code] whatsoever. I use polars version 1.29.0. What's up with that. Can I use polars to import a large csv file without going the manual route? Why does [code] not constrain the batch sizes whatsoever?"
+ },
+ {
+  "question_id": 79613929,
+  "ym": "2025-05",
+  "creation_date": 1746786504,
+  "title": "Steal the GIL after fork()&#39;ing",
+  "tags": [
+   "python",
+   "fork",
+   "gil"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm writing a C++ python module, the module needs to fork() a child process and call some python functions in the child process. The child process has only one thread. I cannot acquire the GIL before calling fork() because doing so will result in a deadlock. If the GIL isn't acquired, after fork(), the child process will see the GIL as locked by other thread which isn't there, and it won't be able to acquire it. Is there any way to \"steal\" the GIL in the child process, since there is only one thread in the child process, it should be safe to do so."
+ },
+ {
+  "question_id": 79614863,
+  "ym": "2025-05",
+  "creation_date": 1746824474,
+  "title": "Match a 3D submesh-template in main mesh",
+  "tags": [
+   "python",
+   "3d",
+   "geometry",
+   "mesh",
+   "point-clouds"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am in python loading 3D models as meshes (their data consists of vertices, normals and faces). I want to find their connectable points. These connection points are modeled the same way in every of these models: either a cylindrical pin as male connector or a hole as female connector. However, the model dataset doesn't contain the connection points, so I want to infer them via code. This means: I am trying to match and locate all occurences of a template mesh that I specify and create once for every connector type (one male + one female template) in a greater model mesh. I am going to illustrate what I mean with LEGO pieces: Piece A: hole connection/female Piece B: pin connection/male find location of these holes find location of these pin halves I thought this would be a pretty standard task to do and there would be some libraries where I can just proivde a mesh and I get all occurences of this mesh in my main mesh. However, I cant seem to find any. So, I am wondering if my approach to this problem is wrong, and if it's even possible. While researching, I had some other ideas: instead of finding the male connector in male mesh, try to insert the female mesh. This seems to not be a great idea convert to pointcloud and use pointcloud analysis. However, I'm not sure if this helps convert model to graph and try to find a sub-graph. However, I don't know how i should convert the m"
+ },
+ {
+  "question_id": 79614976,
+  "ym": "2025-05",
+  "creation_date": 1746832549,
+  "title": "Does file_obj.close() nicely close file objects in other modules that have been set equal to file_obj?",
+  "tags": [
+   "python",
+   "module",
+   "global-variables",
+   "text-files"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a file [code] that creates a global variable [code] by opening a text file and imports a module [code] which has functions that write to this file and therefore also has a global variable [code] which I set equal to [code] in [code] : main_file.py [CODE] imported_module.py [CODE] If I close [code] in [code] as above, does this also nicely close [code] in [code] ? (In the MRE above, I could add [code] to [code] just to be sure. However, a generalization of this explicit approach does not appear possible if [code] imports a second module [code] which also has a global variable [code] and sets this variable to its own copy of [code] with a command like [code] .)"
+ },
+ {
+  "question_id": 79615284,
+  "ym": "2025-05",
+  "creation_date": 1746864205,
+  "title": "how to remove duplicates from this nested dataframe",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "duplicates",
+   "drop"
+  ],
+  "score": 2,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I have a dataframe as below and I want remove the duplicates and want the output as mentioned below. Tried few things but not working as expected. New to pandas. [CODE] The output is [CODE] I want to remove duplicates and the output should look like [CODE] How can this be achieved? I tried multiple ways some times it fails with unhashable dict. I have pretty big nested data frame like this. I am using pandas dataframe and python. New to this technology"
+ },
+ {
+  "question_id": 79616179,
+  "ym": "2025-05",
+  "creation_date": 1746939434,
+  "title": "duplicate removal from grouped and merged data frame fails generating duplicates in final JSON",
+  "tags": [
+   "python",
+   "dataframe",
+   "aws-glue"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have two dataframes as below: DataFrame 1: df1 UniqueId VendorId Fname LName VendorAccNo 001 12 ABC XYZ 8787888 002 13 XYZ FFF 8787888 003 14 PQR ZZZ 8787888 005 16 MMM TTT 5432100 006 17 BBB XXX 5432100 007 18 CCC PPP 8787888 DataFrame 2: df2 VendorXNo PhNo Active Type ActiveTime 8787888 45789 Y W 2019-05-22 09:36:04 8787888 45789 Y W 2019-05-22 09:36:04 8787888 12345 N M 2019-05-23 09:36:04 8787888 45789 Y W 2019-05-24 09:36:04 8787888 56742 Y W 2019-05-25 09:36:04 8787888 45789 Y H 2019-05-26 09:36:04 5432100 11111 Y W 2019-05-25 09:37:04 5432100 22222 Y H 2019-05-26 09:38:04 I am using python to generate JSON form this. Want to avoid duplicates from the second data frame when joining with first data frame on VendorAccNo to VendorXNo My code is as below to group by convert the second datset to records and give a new name to my subdocument for the JSON [CODE] The above line of code fails with error: list object has no attribute items If I do not add the code to remove the duplicates the json that I am creating has duplicates for each json as below. The json is generated for each \"UniqueId\" from the dataframe 1 [CODE] What's wrong in this code? why it fails for duplicate removal?"
+ },
+ {
+  "question_id": 79616382,
+  "ym": "2025-05",
+  "creation_date": 1746958823,
+  "title": "Runtime Error: No Running Event Loop on Streamlit with Docker",
+  "tags": [
+   "python",
+   "docker",
+   "deployment",
+   "streamlit",
+   "langgraph"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Goal : Trying to build and deploy a streamlit langgraph application Problem: Docker and Streamlit do not play well Phase 1: The app I made: https://github.com/tanvircr7/CRAG/ I first built without docker in mind. I used python virtual environment and everything was working. Then I started containerising and the problems started This error kept popping up: https://pastebin.com/FsGanN8N Phase 2: I deciding to start fresh with docker and then work my way up to the final app github link of the new project: https://github.com/tanvircr7/corrective-rag Dockerfile: [CODE] compose.yaml file [CODE] Now I just have a simple file upload application. When I run it, it starts up on port 8501. But The same error keeps popping up: https://pastebin.com/FsGanN8N System : Windows 11 with wsl2 Docker Version : 28.0.4 build b8034c0 Streamlit Version : 1.45.0 Python Version : 3.11.12 The error code: [CODE]"
+ },
+ {
+  "question_id": 79616865,
+  "ym": "2025-05",
+  "creation_date": 1746993191,
+  "title": "Scrapling Save PDF File Locally",
+  "tags": [
+   "python",
+   "web-scraping",
+   "pdf",
+   "utf-8"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have to scrape a website which returns a static PDF file. The only Python package that can access the document successfully is scrapling. However, the PDF file returned is not saved correctly in my program at the moment. How can I get the program to successfully save the file with the provided format locally? Thanks for any help in advance! Code: [CODE] PDF Output: [CODE]"
+ },
+ {
+  "question_id": 79617775,
+  "ym": "2025-05",
+  "creation_date": 1747050273,
+  "title": "Trying to deploy Django web app on PythonAnywhere, &quot;no python application found&quot;",
+  "tags": [
+   "python",
+   "django",
+   "pythonanywhere"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have a Django web app (Python 3.11) that runs on Azure, and I'm trying to migrate it to PythonAnywhere. I've followed the setup instructions. The web page itself says \"Internal Server Error\". The error log is empty. The server log has the following: [CODE] as well as a most peculiar 'import math' error (see below) that may be relevant. (Starting python in my virtual environment, I'm unable to import anything there either, so possibly a PYTHONPATH or other env problem?) Where are these startup logs? I assume something is just pointing to the wrong place, I just need the information to work out what. The server log in more detail: [CODE]"
+ },
+ {
+  "question_id": 79618466,
+  "ym": "2025-05",
+  "creation_date": 1747074886,
+  "title": "Specify Contact info in Wikipedia User Agent Policy",
+  "tags": [
+   "python",
+   "wikipedia"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I was trying to use some Wikipedia images for a Python script, but I came across an error: Error: 403 Client Error: Forbidden. Please comply with the User-Agent policy: https://meta.wikimedia.org/wiki/User-Agent_policy for url: https://upload.wikimedia.org/wikipedia/commons/1/14/Orange-Fruit-Pieces.jpg When I googled it, I found this post ( Downloading images from wikipedia gives forbidden error due to User Agent policy ) that mentioned I need to be sending some user agent. Is there a way for me to anonymize my email address from wikipedia or is it a requirement for me if I want to use their images from a link? [CODE] I'm mostly trying to figure out if there's a way around their header requirements and not have my email address stored in my github repo."
+ },
+ {
+  "question_id": 79618488,
+  "ym": "2025-05",
+  "creation_date": 1747075853,
+  "title": "Unknown issue for failure in Minimax/Alpha-beta pruning functions",
+  "tags": [
+   "python",
+   "minimax",
+   "alpha-beta-pruning"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "My AI will sometimes skip the direct winning move and do some weired actions and avoid direct win in a connect 4 game. According to the minimax, the AI should able to get the MAX value, which is math.inf and use the correspond colum for victory. ALthough it still always win in the end The AI (O) missed the direct victory move Additionally, I am not sure if it is because the mentioned issue, My model somehow can not pass the hidden test. I have tried to rewrite the code for many times and still can not pass it. I tired to change different ways of rewirting the code [CODE] Or: [CODE] And: [CODE] But none of them can solve the issue."
+ },
+ {
+  "question_id": 79618516,
+  "ym": "2025-05",
+  "creation_date": 1747077019,
+  "title": "Formatting csv file format in pyspark",
+  "tags": [
+   "python",
+   "pyspark",
+   "data-manipulation",
+   "data-transform",
+   "data-engineering"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have a | delimited csv file with data as shown below. [CODE] However, when the data is read from csv into a data frame, the dataframe output is as below: [CODE] How can I read the data in pyspark in proper format where the data can be written in a dataframe as shown below Expected output is as below: [CODE]"
+ },
+ {
+  "question_id": 79618567,
+  "ym": "2025-05",
+  "creation_date": 1747080319,
+  "title": "How to Cache Elements to increase the Runtime Performance with lxml Pythin Library",
+  "tags": [
+   "python",
+   "lxml"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "In the lxml.de website https://lxml.de/performance.html I see the following statement: A way to improve the normal attribute access time is static instantiation of the Python objects, thus trading memory for speed. Just create a cache dictionary and run: cache[root] = list(root.iter()) after parsing and: del cache[root] Can anyone provide me a suitable Python Code example about how these above mechanism can be used in a Python Function?"
+ },
+ {
+  "question_id": 79618769,
+  "ym": "2025-05",
+  "creation_date": 1747094140,
+  "title": "Why is my loss value increasing when I update the biases?",
+  "tags": [
+   "python",
+   "machine-learning",
+   "conv-neural-network"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am currently working on a convolutional neural network in python, and I am currently implementing back propagation. As of now I am just implementing it for the output layer, and I just wrote the code to calculate the derivatives of the bias values. Here is the code: [CODE] desired_outputs is an array of the class indices of a training batch and self.output is a 2d array organized by batches x classes. To calculate loss, I use cross entropy and here is the code: [CODE] target_indices will be the same variable as desired_outputs. Also, check_loss() is in a different class than back_prop() but self.output is still the same value for both. I am using a simple spiral data pattern from the internet with and x and a y input and 3 classes with no hidden layers to test the code but every time I attempt to propagate a batch through the model the loss increases. I believe it maybe has something to do with how I am calculating the derivatives, but I checked and to my understanding it works. According to my knowledge, the derivative for a bias within the output layer is softmax activation of that neuron minus the predicted value for that activation but I could be wrong. Any clue what is wrong? Edit: I changed the code to subtract the biases and changed how I calculated the gradients and now the loss decreases as it is supposed to. Here is the edited code: [CODE] I am open to any other sug"
+ },
+ {
+  "question_id": 79619115,
+  "ym": "2025-05",
+  "creation_date": 1747119931,
+  "title": "GNN Link Prediction (GraphSAGE/PyG) - Validation AUC Consistently Below 0.5 Despite Overfitting Control",
+  "tags": [
+   "python",
+   "model",
+   "prediction",
+   "auc",
+   "graph-neural-network"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm working on a task dependency prediction problem using Graph Neural Networks with PyTorch Geometric. The goal is to predict directed precedence links (A -> B) between tasks within specific sets (called \"gammes\", typically ~50-60 tasks at inference). Data & Features: I'm currently training on a subset of historical data related to one equipment type family (\"ballon\"). This subset has ~14k nodes (tasks) and ~15k edges (known dependencies), forming a Directed Acyclic Graph (DAG). Node features (data.x fed into the first GNN layer, dim ~401): Sentence Embeddings (from sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2, dim 384) for the task name (Nom de l'activite), which is semantically important. Learned categorical embeddings (via torch.nn.Embedding, dim 16) for the specific equipment type variant (3 unique types in this subset). Normalized duration (1 dim). The original Gamme name and Projet source were found to be uninformative and are not used as input features. Data Splitting: Using torch_geometric.transforms.RandomLinkSplit (num_val=0.1, num_test=0.1, is_undirected=False, add_negative_train_samples=True, neg_sampling_ratio=1.0, split_labels=True). Model Architecture: Encoder : 2-layer GraphSAGEEncoder (using SAGEConv) that takes node features + type embeddings and edge_index (training links) to produce node embeddings (currently dim=32). Includes ReLU and Dropou"
+ },
+ {
+  "question_id": 79619137,
+  "ym": "2025-05",
+  "creation_date": 1747120870,
+  "title": "python -v results zsh: command not found: python MacOS Sequoia 15.5 Beta",
+  "tags": [
+   "python",
+   "macos",
+   "python-2.7"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Why does the command \"python -v\" result in \"zsh: command not found: python\" on Mac, even though Python 2 used to come installed with the device? I am working on an 2020 MacBook Pro with the M1 chip on MacOS Sequoia 15.5 Beta. Does this have to do with the beta testing on the Operating System, or does Python 2 not get shipped anymore? I remember the command \"python -v\" resulting in something like \"2.7.x\".. Thanks in advance"
+ },
+ {
+  "question_id": 79619667,
+  "ym": "2025-05",
+  "creation_date": 1747139795,
+  "title": "Why is PyCharm lagging with Conda and GitHub Copilot on MacBook M3?",
+  "tags": [
+   "python",
+   "pycharm",
+   "anaconda",
+   "miniconda"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm currently experiencing performance issues while coding in PyCharm on my MacBook Pro with an M3 chip. I'm using Miniconda as my environment manager, and GitHub Copilot is enabled for auto-completion. The issue becomes noticeable when I'm working on larger Python scripts (around 200 lines of code). PyCharm starts to lag while typing, and I observe high CPU usage during this time. I've noticed that the combination of Conda environments and Copilot might be causing additional overhead, but I'm not entirely sure. I would appreciate any suggestions to improve performance—whether it’s about IDE settings, Conda optimization, Copilot impact, or macOS-related configurations. Has anyone faced a similar problem and found a working solution? I was experiencing noticeable lag and high CPU usage in PyCharm while working on a ~200-line Python file, using a Miniconda environment with GitHub Copilot enabled. To improve performance, I tried the following: Switched from Anaconda to Miniconda Disabled GitHub Copilot Reduced the number of active inspections in PyCharm settings While these changes slightly reduced the lag and CPU usage, the issue still persists. I expected PyCharm to perform more smoothly after these optimizations, but unfortunately, the performance problems remain."
+ },
+ {
+  "question_id": 79620196,
+  "ym": "2025-05",
+  "creation_date": 1747159202,
+  "title": "Explode and repeat rows based on number contained in another Polars column",
+  "tags": [
+   "python",
+   "dataframe",
+   "python-polars"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have this DataFrame: [CODE] I did this to explode and duplicate the rows: [CODE] Which gives me: [CODE] The result I want to have is: [CODE] How could I create the [code] column? What I want to do is: [CODE] Thank you."
+ },
+ {
+  "question_id": 79621002,
+  "ym": "2025-05",
+  "creation_date": 1747210092,
+  "title": "remove ultralytics dependency while loading yolo models",
+  "tags": [
+   "python",
+   "machine-learning",
+   "artificial-intelligence"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have trained a classification model using yolo11n , now i have to write its inference script , but the problem is for development and deployment I have python version 3.6, but yolo and ultralytics supports python version 3.8 and above only , I have tried to convert the classification model i.e .pt file into torchscript to remove this dependency issue , but converting into torchscript is lowering the accuracy of the model , is there any way , or any source I can refer to resolve this issue? My requirement is to use .pt file directly to infer my model on python version 3.6 without loading model using ultralytics. I tried different approches Converting the classification .pt file into torchscript but is is lowering the accuracy. I tries rebuilding the architecture for yolo11 and then extarcting weights"
+ },
+ {
+  "question_id": 79621149,
+  "ym": "2025-05",
+  "creation_date": 1747215181,
+  "title": "only change type annotation of method in subclass",
+  "tags": [
+   "python",
+   "python-typing"
+  ],
+  "score": 0,
+  "answer_count": 3,
+  "is_answered": false,
+  "body_excerpt": "Is it possible to change/\"override\" the return type of a method in a subclass without overriding/altering the method (implementation) itself? Something like: [CODE]"
+ },
+ {
+  "question_id": 79621191,
+  "ym": "2025-05",
+  "creation_date": 1747216212,
+  "title": "Issue in scraping data",
+  "tags": [
+   "python",
+   "selenium-webdriver",
+   "web-scraping"
+  ],
+  "score": -3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have an issue in scraping schools data. I need their email and website URL. I tried a lot but it's returning empty results. What's the best way to do this? Here is the code: [CODE]"
+ },
+ {
+  "question_id": 79621854,
+  "ym": "2025-05",
+  "creation_date": 1747238008,
+  "title": "Compute cumulative mean &amp; std on polars dataframe (using over)",
+  "tags": [
+   "python",
+   "python-3.x",
+   "python-polars",
+   "cumulative-sum"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I want to compute the cumulative mean & std on a polars dataframe column. For the [code] I tried this: [CODE] which correctly gives [CODE] However, this seems very clunky, and becomes a little more complicated (and possibly error-prone) for [code] . Is there a nicer (possibly built-in) version for computing the cum mean & cum std?"
+ },
+ {
+  "question_id": 79622730,
+  "ym": "2025-05",
+  "creation_date": 1747290015,
+  "title": "Split an array in a polars dataframe into regular columns",
+  "tags": [
+   "python",
+   "dataframe",
+   "python-polars",
+   "polars"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a [code] with an array column. I need to split the array columns into traditional columns while assigning headers at the same time. [CODE] I need it like this: [CODE]"
+ },
+ {
+  "question_id": 79622856,
+  "ym": "2025-05",
+  "creation_date": 1747295823,
+  "title": "Unable To Interect with element in div || Selenium",
+  "tags": [
+   "python",
+   "selenium-webdriver",
+   "xpath",
+   "input"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "[CODE] [CODE] I want to go to the title keyword input and change its value, but it's not working."
+ },
+ {
+  "question_id": 79623682,
+  "ym": "2025-05",
+  "creation_date": 1747322145,
+  "title": "Flattening signal frames withou overlap after applying VAD Filter using Librosa",
+  "tags": [
+   "python",
+   "audio",
+   "librosa"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Hello I've built a very basic VAD filter using Librosa. [CODE] The issue I'm running into is that when I'm just naively filtering and flattening the signal, I keep the overlap. (Effectively this sounds like I'm lowering the frequency) [CODE] I could simply remove the preceding and trailing 221 samples from each frame, but I'm wondering if there is a librosa function which will help me do that."
+ },
+ {
+  "question_id": 79623944,
+  "ym": "2025-05",
+  "creation_date": 1747331498,
+  "title": "How do I request and download a CSV of email activity from the SendGrid API?",
+  "tags": [
+   "python",
+   "sendgrid",
+   "sendgrid-api-v3"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I want to get a CSV of email activity from the SendGrid v3 Email Activity API. I tried to use the API to request a CSV export of email activity , like so: [CODE] This successfully makes a POST request to [code] , but the response simply says the CSV will be emailed to the administrator of our SendGrid account: [CODE] That is, it does not provide a link to the CSV. The only way I can find to download it is through a link emailed to the administrator a few minutes after the request was sent. I want the export to be automated so that the admin doesn't need to be involved. SendGrid's documentation mentions an endpoint for downloading a CSV , but it requires a [code] that isn't in the response from the initial request. SendGrid has an API to \"Filter all messages\" , but it is limited to a maximum of 1,000 messages and doesn't support pagination for receiving more entries beyond that. In contrast, the CSV export supports up to 1,000,000 events and contains more information about the messages. How can I retrieve the generated CSV of email activity through the SendGrid API in a way that doesn't require the admin to receive and forward an email?"
+ },
+ {
+  "question_id": 79624459,
+  "ym": "2025-05",
+  "creation_date": 1747368753,
+  "title": "Merge dataframes with repeated IDs",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have 2 dataframes, dfA & dfB. dfA contains purchases of certain products & dfB contains info on said products. For instance, dfA: purchaseID productID quantity 1 432 1 2 432 4 3 567 7 and dfB: productID name 432 'mower' 567 'cat' I wish to merge the two datasets on productID to produce something like: purchaseID productID quantity name 1 432 1 'mower' 2 432 4 'mower' 3 567 7 'cat' In actual fact, dfA & dfB are much larger. How can I do this? I understand how to do normal one-one merges, but struggling to see how to do one-many."
+ },
+ {
+  "question_id": 79624972,
+  "ym": "2025-05",
+  "creation_date": 1747390956,
+  "title": "How to solve error about configparser not having a SafeConfigParser attribute when installing py-near?",
+  "tags": [
+   "python",
+   "pip",
+   "nearprotocol"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am getting the following error when downloading py-near using pip: [CODE] I ran the following command to install py-near: [CODE] How do I solve this error?"
+ },
+ {
+  "question_id": 79625500,
+  "ym": "2025-05",
+  "creation_date": 1747409216,
+  "title": "Entity.put error after Python 3 migration for Google Data Store - refactored",
+  "tags": [
+   "python",
+   "google-app-engine",
+   "google-cloud-datastore",
+   "ndb"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have the code below to update an entity in the Google data store. I'm now getting an internal error on the [code] sync.yaml [CODE] [CODE] Can I ask for some guidance, did something with how i should use these methods? [CODE] [CODE]"
+ },
+ {
+  "question_id": 79625529,
+  "ym": "2025-05",
+  "creation_date": 1747410466,
+  "title": "Creating TabularInline in Django Admin View for inherited Many2Many relation",
+  "tags": [
+   "python",
+   "django"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a Tag Model and Mixin that is used for adding tags to entities whenever it is needed. [CODE] To create new entities it works well, it implicitly creates the correspondence table for the many to many relation: [CODE] But what if I want create an admin view on Item where tag is a TabularInline input ? How should I fill the configuration: [CODE]"
+ },
+ {
+  "question_id": 79625837,
+  "ym": "2025-05",
+  "creation_date": 1747424396,
+  "title": "Pyinstaller PyQt6 app cannot find QtWebEngineProcess",
+  "tags": [
+   "python",
+   "python-3.x",
+   "pyinstaller",
+   "pyqt6",
+   "qtwebengine"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am making a PyQt6 application using the QtWebEngine module. I am trying to use Pyinstaller to turn it into a .app file that can be distributed. The issue I'm currently facing is that the application cannot find something called QtWebEngineProcess. Whenever I try to run the app it crashes with this error message: [CODE] I've gathered that all of it before [code] is a temporary folder created by the app, but beyond that I don't entirely know what's going on. I'm unclear one whether or not I need to add something else to my pyinstaller spec file, include something in my code, or do what it suggests and override the default search path, and what I'd need to add and where I'd need to do it in any of those cases. The only other answer I've found is this , which is specifically for windows (I am on a mac), is for an older version of PyQt, states that the file I need is in a folder I don't appear to have in my app, and suggests that I add a [code] file, the mechanics of which I'm a little unsure about. Any help would be greatly appreciated."
+ },
+ {
+  "question_id": 79627153,
+  "ym": "2025-05",
+  "creation_date": 1747542305,
+  "title": "How to get data from &#39;Balance Sheet&#39; on &#39;Google finance&#39; with Python and Selenium?",
+  "tags": [
+   "python",
+   "selenium-webdriver",
+   "google-finance"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "[CODE] From above code, I could know the 'Total equity' of Jan 2025 in 'Balance Sheet'. However, I cannot know how to get the data from Jan 2024 to Oct 2024. I can move from Jan 2024 to Oct 2024 and get data in the dataset of 'Income Statement' by below code. [CODE] However, I still couldn't know how to get dataset of 'Balance Sheet'. The problem is date click code is same for 'Income Statement' and 'Balance Sheet' as below. [CODE]"
+ },
+ {
+  "question_id": 79627484,
+  "ym": "2025-05",
+  "creation_date": 1747574853,
+  "title": "Simplifying development. C++ function retaining value across calls from C++ or Python, with independent invocation in 2+ places in the same program",
+  "tags": [
+   "python",
+   "c++",
+   "multithreading",
+   "static-variables",
+   "retain"
+  ],
+  "score": -2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Having the scenario of a C++ library where a function does some calculations as it receives a container normally (not always) across multiples calls, and where the function needs to retain an intermediate result across those calls, then I'm looking for a simplified way to prepare the function to be invocated in more than 1 place in a program independently, in the case to need to call the same function in the same program/file in 2 or more different places, being separate/independent invocations. Also, at the same time the function could be called from different programs. [CODE] In this scenario, the key part is that the invocations to [code] for [code] keep the track across the calls of the retained state specifically for that instruction (or session id, or instance of [code] , or the exact terminology for it), in the way that the intermediate [code] results for [code] don't get \"mixed\" (be independent) with the intermediate [code] results for [code] . And the same for the rest of possible [code] invocation instructions either in the same program or in multiple programs. For now, this is being handled with [code] : funcs.hpp [CODE] funcs.cpp [CODE] The main question is, could this situation be handled in a way where there is no need to specify an additional parameter (without [code] , without the map)? because for now, that additional parameter has the only purpose to make an i"
+ },
+ {
+  "question_id": 79627944,
+  "ym": "2025-05",
+  "creation_date": 1747614049,
+  "title": "Multiple Python Paths",
+  "tags": [
+   "python",
+   "path",
+   "interpreter",
+   "vscode-python"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have multiple Python Paths to choose from as seen in the images. I remember installing Python via brew and through the internet and Anaconda. I don't have any idea which are redundant and what to choose. And are there any conflicts that can occur due to this"
+ },
+ {
+  "question_id": 79628273,
+  "ym": "2025-05",
+  "creation_date": 1747639488,
+  "title": "How to use uv with Artifactory Python Package index",
+  "tags": [
+   "python",
+   "artifactory",
+   "uv"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "How can I run [code] using Artifactory as an alternative package index that needs authentication?"
+ },
+ {
+  "question_id": 79628859,
+  "ym": "2025-05",
+  "creation_date": 1747661960,
+  "title": "Convert a Diagonal Metric into vertical table",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a diagonal metric that loops over multiple cohorts which i'm trying to convert into a vertical table, the reason for this is for future computations extracting the entire column would be simpler then applying offsets. The age is set at the age of entry, with a minimum age of 18. for a 18yr old joiner, in year 1 then are \"1\", in year 2 they would be 19, year 3 then would be 20.... for the example data i've assigned the value based on the age at commencement to hopefully show this better. my actual data has 63 cohorts, ages 18-60 with year 1 to year 20, which may change over time. Original table: Cohort age Year 1 year 2 year 3 year 4 1 18 1 1 19 2 1 1 20 3 2 1 1 21 4 3 2 1 2 18 1.5 2 19 2.5 1.5 2 20 3.5 2.5 1.5 2 21 4.5 3.5 2.5 1.5 Required output, I will need Cohort and Age at commencement as hierarchical headers but couldn't get the markdown to format correctly: Cohort Age at Commencement 1 18 1 19 1 20 1 21 2 18 2 19 2 20 2 21 Year 1 1 2 3 4 1.5 2.5 3.5 4.5 year 2 1 2 3 1.5 2.5 3.5 year 3 1 2 1.5 2.5 year 4 1 1.5 I've tried pivot, melt, etc but am struggling to then format into the desired output."
+ },
+ {
+  "question_id": 79628870,
+  "ym": "2025-05",
+  "creation_date": 1747662478,
+  "title": "Why does all(isinstance(x, str) for x in value) not help Pyright infer Iterable[str] from object?",
+  "tags": [
+   "python",
+   "python-typing",
+   "mypy",
+   "pyright"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm working with Pyright in strict mode and want to check if a function parameter [code] of type [code] is an [code] . I tried using: [CODE] However, looking at the elements, Pyright complains that the type of [code] is still [code] , even after the [code] check on each element. Why doesn't [code] refine the type of [code] to [code] ? For context: I'm implementing [code] in a class that inherits from [code] . Therefore, the method signature must remain [code] , I can't change the type annotation of [code] to [code] . Here's my current implementation: [CODE] Is there a way to get Pyright to properly infer the type of [code] here without using an explicit [code] or defining a separate [code] function? It seems to me that a separate [code] should make no difference. Alternatively: am I looking at this the wrong way? Should I try to avoid implementing [code] myself, because of the [code] type?"
+ },
+ {
+  "question_id": 79628974,
+  "ym": "2025-05",
+  "creation_date": 1747665853,
+  "title": "Unwanted ending empty string applying Python Regular Expression split method to test string",
+  "tags": [
+   "python",
+   "regex",
+   "string"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "In the following Python regular expression, splitting words from a string into a list of substrings, I'm trying to avoid the empty string, [code] , on the output. Can I adjust the inputs of the regular expression to achieve this? [CODE] Resulted in unwanted empty string at end of list apply [code] method."
+ },
+ {
+  "question_id": 79629430,
+  "ym": "2025-05",
+  "creation_date": 1747686581,
+  "title": "Python on mac: tkinter button reacts only on deep click",
+  "tags": [
+   "python",
+   "macos",
+   "tkinter",
+   "click"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I use python 3.13.3 on a macbook air M1 (2020) with Sequoia 15.5 I am testing the following program: [CODE] The button created reacts only when I use a deep click on the touchpad. Neither tapping nor simple clicks have an effect. Did somebody encounter the same?"
+ },
+ {
+  "question_id": 79629601,
+  "ym": "2025-05",
+  "creation_date": 1747696813,
+  "title": "Why in python would blocking code delay a non-blocking sleep timer?",
+  "tags": [
+   "python",
+   "python-asyncio",
+   "blocking"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "In python, if I run the following code: [CODE] My expectation is if we consider T+0 the start time of the application. The [code] would start first and a timer (at roughly T+0) would be set to resolve at T+1. The sleep timer would then start and block everything until T+2. At this point, this seems to diverge from my expectations. My expectation is that the [code] coroutine is then run and I would expect at that time the [code] from the [code] coroutine to be able to take control and complete. This does not appear to be what happens though. It seems that [code] resolves at T+3 after which first then resolves as well at T+3. Why is \"second\" delayed until T+3 (instead of resolving at T+2) and why does it not resolve immediately when the [code] call is made in \"first\" coroutine? Note: I am aware that [code] is preventing [code] task from continuing. The question is why is [code] completed prior to [code] even though [code] started running and called [code] prior to [code] being started and calling [code] later? Presumably, the [code] sleep call has already waited for 1 second prior to [code] even calling [code] ."
+ },
+ {
+  "question_id": 79629605,
+  "ym": "2025-05",
+  "creation_date": 1747697227,
+  "title": "How to replace pack() with grid()",
+  "tags": [
+   "python",
+   "tkinter",
+   "tkinter-layout"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "The following code enables the status bar to remain at the bottom of the window and expand to fill the window when the window is resized. How can I replace pack() with grid() to do the same thing? [CODE]"
+ },
+ {
+  "question_id": 79629689,
+  "ym": "2025-05",
+  "creation_date": 1747706554,
+  "title": "How to freeze Python build tools for repeatable builds?",
+  "tags": [
+   "python",
+   "pip",
+   "build",
+   "cython",
+   "python-wheel"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "TL;DR: When [code] builds and installs wheels, how do I determine which versions of build tool packages (e.g. Cython) it used? How do I force it to use the same versions of those packages in the future? Besides [code] , [code] , and [code] , what packages do I need to care about in the first place? I maintain a project which uses Docker containers running Python. These containers use an image which is based on the [code] official image, with the various Python packages and non-Python tools we require installed. One of our concerns is making our builds repeatable and consistent, and we've taken a number of measures to that end: Our base image, rather than being the [code] tag, is a specific hash, so even if a new version of that tag is released, the image we are building from will be the same Before installing our Python packages, we make sure to install a specific version of [code] and [code] Our [code] file lists not only what packages we require, but the exact versions to install, and the versions of their dependencies to use Despite all this, we recently suffered a broken build: a package, metrohash , started to fail during the compilation step. After investigation, we discovered the problem: The metrohash module was written using Cython , a package that allows for writing code in a sort of hybrid of Python & C or C++. Code in this format looks mostly like ordinary Python, b"
+ },
+ {
+  "question_id": 79630528,
+  "ym": "2025-05",
+  "creation_date": 1747747132,
+  "title": "How to send a raw TCP packet over IPv6 using Scapy",
+  "tags": [
+   "python",
+   "tcp",
+   "ipv6",
+   "scapy",
+   "kali-linux"
+  ],
+  "score": -3,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am trying to send a raw tcp packet over Ipv6 using Scapy. But I always get the warning: No route found for IPv6 destination (ipv6 address) (no default route?) I am deploying in Kali Linux. My current code: [CODE] I also tried sending without the iface and the localIpv6 without the interface. I run the script with sudo and the ping to the target device is working. I am expecting to see a packet in Wireshark."
+ },
+ {
+  "question_id": 79630864,
+  "ym": "2025-05",
+  "creation_date": 1747760377,
+  "title": "How to build and run multi-stage Dockerfile using Chainguard python image successfully?",
+  "tags": [
+   "python",
+   "dockerfile",
+   "docker-multi-stage-build",
+   "uv",
+   "chainguard"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "With very limited knowledge of dockerfile writing, I have a dockerfile where in build stage I use uv to install the dependencies of my service via pyproject.toml but unable to successfully build and run: [CODE] Here is my pyproject.toml file: [CODE] Here is the current error but I try to solve it using LLMs I get different error: [CODE] How to have a multi-stage build dockerfile such that I can use secure chainguard python image for dockerizing such service? I tried a lot but unable to find a concrete runnable solution for months"
+ },
+ {
+  "question_id": 79630930,
+  "ym": "2025-05",
+  "creation_date": 1747762996,
+  "title": "Unsloth doesn&#39;t find Llama.cpp to convert fine-tuned LLM to GGUF",
+  "tags": [
+   "python",
+   "huggingface-transformers",
+   "large-language-model",
+   "fine-tuning",
+   "llamacpp"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am executing on an Azure VM this notebook from the Unsloth docs: https://colab.research.google.com/github/unslothai/notebooks/blob/main/nb/Llama3_(8B)-Ollama.ipynb Where in the end they save the model to GGUF format after fine-tuning like this: [CODE] I get logs [CODE] and then the error [CODE] Needless to say, I do have cloned and built [code] (also with the updated guide here ). I have also tried with previous commits that had previous options, moved the [code] file from [code] to the folder of the notebook, but nothing changed. I am able to get a GGUF file regardless by launching the llama.cpp's quantization script manually like this: [CODE] However I cannot find out why unsloth does not recognize it. Details: Running on a AzureML Standard_NC24ads_A100_v4 VM. Model I started with: 'unsloth/Meta-Llama-3.1-8B-Instruct' unsloth version: '2025.5.6'"
+ },
+ {
+  "question_id": 79631448,
+  "ym": "2025-05",
+  "creation_date": 1747811690,
+  "title": "After converting an image from 0-255 pixel range to 0-1 pixel range, the two images are different in their pixels&#39; colors",
+  "tags": [
+   "python",
+   "numpy",
+   "python-imaging-library"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am making sample images using Numpy and Pillow Python libraries. I made 2 images as I describe below: For the first image, I used [code] to make a 3D-array to make the pixels digits of an image (digits between 0 and 255). Then I converted this array to an actual image using [code] . For the second image, I just divided the digits of the 3D array by 255 so that the pixel digits became between 0 and 1, and then I did the [code] again. I was expecting the two images to be the same but when I try to plot them, they are very different. Can anyone tell me what I am doing wrong? Here is the code and the picture of the resulting plots: [CODE]"
+ },
+ {
+  "question_id": 79631592,
+  "ym": "2025-05",
+  "creation_date": 1747816554,
+  "title": "Need help in working with Search_after parameter in python for API calls",
+  "tags": [
+   "python",
+   "rest"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Hi my API the OpenFDA which is an elastic search API. Due to the volume of data I will need to pull I am looking to using search_after instead of the skip parameter as that has a limit of 26,000 records it returns. I unfortunately do not really know how to implement the search_after parameter into my code [1]: https://i.sstatic.net/JKvWS2C9.png [The screenshot shows the documentation for using it - I do not really know how to implement curl into python.][1] I have seen suggestions where I structure my url in parts such as \"baseurl\", \"search\", \"limit\", \"search_after\" and have output = makerequest(url, params) However when I do my data pulls like this it is unable to find a response. Below is how my code is currently constructed (I know there are issues with its logic) Currently it does produce a csv file of 2000 rows, however it is just searching the initial query twice and it does not detect the next report_number to search_after [CODE]"
+ },
+ {
+  "question_id": 79631762,
+  "ym": "2025-05",
+  "creation_date": 1747822302,
+  "title": "Error in PyTorch when trying to create a generative AI (autoregression) Model",
+  "tags": [
+   "python",
+   "machine-learning",
+   "error-handling",
+   "pytorch",
+   "artificial-intelligence"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to build an AI Model, but am getting this error: [CODE] This is my code: [CODE] I am trying to make an AI Model inspired by GPT4, but then I am constantly getting the error provided above. Specifically during pretraining and possibly training. I would appreciate any help on fixing all the errors and problems in the code."
+ },
+ {
+  "question_id": 79633608,
+  "ym": "2025-05",
+  "creation_date": 1747911791,
+  "title": "How to select between using a `jax.lax.scan` vs a `for` loop when using JAX?",
+  "tags": [
+   "python",
+   "jax"
+  ],
+  "score": 4,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am a JAX beginner and someone experienced with JAX told me that if we have repeated calls to a [code] / [code] loop (e.g. when these are themselves wrapped by another [code] loop), it might be better to leave the loop as a [code] instead of converting it to a [code] because the [code] loop is unrolled completely and only has the 1-time huge compilation cost while the [code] is not unrolled by default and even though its compilation cost will be small, the fact that it is rolled will mean that the cost of repeatedly running this loop will end up making the [code] more expensive than the [code] . This did not strike me immediately when I started writing my code, but made sense upon thinking about it. So, I tested this assumption using code based on the following pseudo-code (the full code is really long and I hope these relevant parts I provide here are easier to understand): [CODE] The only loop in the above code that I tested switching between [code] and [code] was the [code] loop and then I varied the variable [code] to be 1, 100, 1000 and 10000 to see whether increasing the number of times the [code] (and thus the [code] loop) was executed made a difference to the timing. (The testing was done with 5 iterations for the k for loop and 2 iterations for the innermost scan although these are variable in general, if that matters.) The times taken for [code] for the different rep"
+ },
+ {
+  "question_id": 79634119,
+  "ym": "2025-05",
+  "creation_date": 1747929310,
+  "title": "Python script using tkinterweb not allowing key binding",
+  "tags": [
+   "python",
+   "python-3.x",
+   "tkinter"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have a simple script that uses tkinterweb to display a search result that is stored as html. When I try to bind the search function to the Enter key using the \"button.bind('',function())\" method, it executes the function immediately on mainloop and doesn't execute it when the Enter key is pressed. Is this a problem with tkinterweb? Minimum reproducible is below: [CODE]"
+ },
+ {
+  "question_id": 79634153,
+  "ym": "2025-05",
+  "creation_date": 1747930652,
+  "title": "opening privatekey from string rather than file in python 3?",
+  "tags": [
+   "python",
+   "snowflake-cloud-data-platform"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I found some python code to read a private key from a file to connect to Snowflake and it works fine [CODE] However, I would like to use the actual string rather than reading from a file, so I tried replacing key.read() by the actual string [CODE] But this gives me this error TypeError: from_buffer() cannot return the address of a unicode object Could this be a generic python error?"
+ },
+ {
+  "question_id": 79634616,
+  "ym": "2025-05",
+  "creation_date": 1747953045,
+  "title": "ModuleNotFoundError: No module named &#39;spotipy&#39; beginner assistance",
+  "tags": [
+   "python",
+   "spotipy"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Good afternoon I read through a couple of the other similar threads asked about this topic but am still unable to resolve my issue, please advise. I am trying to build a simple \"library backup\" tool for personal use. I know very little about coding and especially this type of coding so please bear with me if I do not understand basic concepts. I freshly installed python and the spotipy library today as well as the pycharm IDE today python: v 3.13, installed directly onto D: drive which i realize was probably not a smart idea since every thread i see talks about the C: drive, but I cannot uninstall and move it as I get an error that a file is missing which I did not delete myself, however repair works fine though I still cannot uninstall after repairing, though that is a separate issue for a separate time. I see that spotipy is installed v 2.25.1 in the python packages section of pycharm when i am in my project. But when I run just a basic example code from the spotipy \"readthedocs\" to see if it is set up it returns the error [code] if i can provide any additional information please let me know. such i am just running on windows and i may or may not have set up a virtual environment as i do not know what that means or how to do so i just know i have seen it come up constantly on other threads i was researching this issue on."
+ },
+ {
+  "question_id": 79634725,
+  "ym": "2025-05",
+  "creation_date": 1747963585,
+  "title": "Are Enums optional in PyQt6",
+  "tags": [
+   "python",
+   "enums",
+   "pyqt5",
+   "pyqt6"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have two python programs running in the same virtual environment using PyQt6.5 on MacOS Sonoma 14.5 and python 3.11. Both execute just fine. One uses the updated enums for PyQt6 for QMessageBox as such: [CODE] while the other uses the PyQt5 format: [CODE] Both work and I don't understand why. I do not have pyqt5 installed: [CODE] I do know that if I am missing the StandardButton and Icon enum specifiers in the first program it fails. The only plausible thing I can think of is that there is a fallback in PyQt6 that says if everything is PyQt5-compatible it works but that doesn't make much sense. I expect to have to change the 40 QMessageBox instantiations to update to the PyQt6 form but haven't made the changes as the code seems to work fine. I have this code at the top of both programs to work for either PyQt5 or PyQt6: [CODE] Any ideas why the PyQt5 format would work? I don't think it should."
+ },
+ {
+  "question_id": 79634952,
+  "ym": "2025-05",
+  "creation_date": 1747981715,
+  "title": "JS seems not to work in Python / Selenium / Google Chrome - page is not loading",
+  "tags": [
+   "python",
+   "selenium-webdriver",
+   "selenium-chromedriver"
+  ],
+  "score": -3,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I would like to automate the process of checking domain on https://haveibeensquatted.com/ . I wrote a simple code in Python Selenium, but it seems the page has problems with loading results in selenium - but normally (when I just click and wait) it all works. What is going on here? I do not understand why its happening. Here's the code: [CODE]"
+ },
+ {
+  "question_id": 79635098,
+  "ym": "2025-05",
+  "creation_date": 1747987906,
+  "title": "undetected_chromedriver error: Too many open files",
+  "tags": [
+   "python",
+   "selenium-webdriver",
+   "undetected-chromedriver"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am running this selenium-script on my Linux server. After 10 hours I see an error Too many open files My code: [CODE] Full trace: [CODE] Update1 -- created instance of Display object only once, but it didn't help (still have the same error)"
+ },
+ {
+  "question_id": 79635263,
+  "ym": "2025-05",
+  "creation_date": 1747993286,
+  "title": "CrewAI Deployment Issue with Permisson in AWS Lambda",
+  "tags": [
+   "python",
+   "amazon-web-services",
+   "aws-lambda",
+   "fastapi",
+   "crewai"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Good day all, I have a fastapi application API's that connect to my CrewAI agents. It is working fine as expected in local. The CrewAI agent uses the PDFSearchTool of CrewAI. The PDFSearchTool create a vector DB of the PDF that is connected. So the code creates a folder ' db\\ ' parallel to main.py . Now I am trying to deploy this application to AWS Lambda. But when I deployed my container to Lambda, I started getting exceptions. So I realized we can only create folders inside the ' temp\\ ' folder. To change the position of the data creating I added few lines to the code but still getting the same error. The added codes are: [CODE] [CODE] And the error I am still getting is, [CODE] Can anyone please help me to resolve the issue?"
+ },
+ {
+  "question_id": 79636095,
+  "ym": "2025-05",
+  "creation_date": 1748028325,
+  "title": "Coqui-ai TTS in Jenkins job",
+  "tags": [
+   "python",
+   "jenkins",
+   "artificial-intelligence",
+   "text-to-speech",
+   "coqui"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Trying to use Coqui-ai TTS in Jenkins job, and Im getting below err: [CODE] This is the code which i use: [CODE] At the same time the code is working normally when i trigger it from the cmd, just when i use jenkins the issue show up. Not able to find any proper workaround for this."
+ },
+ {
+  "question_id": 79636426,
+  "ym": "2025-05",
+  "creation_date": 1748059776,
+  "title": "How to type a generic callable in python",
+  "tags": [
+   "python",
+   "python-typing",
+   "mypy"
+  ],
+  "score": 3,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am trying to do something like this: [CODE] But I get the following mypy error on my [code] line [CODE] Which I don't understand because [code] is a [code] . How do I make mypy happy here? My end goal is to be able to have different command classes, each command class defines the expected result of the command, and then type some function that takes both the command class, and a handler for the command class, and ensure that the handler takes an instance of the command as a parameter and returns a the correct result defined by the command. If I change [code] this: [CODE] It type checks fine, but I'm not a fan of having to do the extra type check in the function to get proper typing inside the function."
+ },
+ {
+  "question_id": 79636793,
+  "ym": "2025-05",
+  "creation_date": 1748091489,
+  "title": "VS Code autocompletion for &quot;string&quot; properties",
+  "tags": [
+   "python",
+   "vs-code",
+   "jupyter-notebook",
+   "autocomplete",
+   "ansys"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm using Jupyter notebooks in VS Code to interact with Ansys Lumerical . It has a python API [code] which allows to set geometry and parameters via python. An overview can be found here and some examples here . The property keys are in string format, for example (from the second link), [CODE] These string parameters ( [code] and [code] ) have auto-completion in the native scripting prompt offered by Lumerical . How can I get VS Code to do the same (that is, get auto-completion for these strings)?"
+ },
+ {
+  "question_id": 79636868,
+  "ym": "2025-05",
+  "creation_date": 1748097845,
+  "title": "Dynamically created buttons and on_click event flet",
+  "tags": [
+   "python",
+   "events",
+   "flet"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "What is the problem with this code? The last button that is created is always the one that is clicked! [CODE]"
+ },
+ {
+  "question_id": 79637495,
+  "ym": "2025-05",
+  "creation_date": 1748161460,
+  "title": "Modin: Unable to access .cat.codes after groupby even though dtype is still category",
+  "tags": [
+   "python",
+   "pandas",
+   "pyarrow",
+   "modin"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm encountering an issue in Modin (v0.32.0) where I can access .cat.codes on a categorical column before a groupby, but not after grouping. [CODE] Sample code to reproduce the issue Dataset is https://github.com/user-attachments/files/20429918/sample.parquet.zip If you need any additional info I have raised the issue in modin github: https://github.com/modin-project/modin/issues/7586"
+ },
+ {
+  "question_id": 79638172,
+  "ym": "2025-05",
+  "creation_date": 1748219325,
+  "title": "TypeError when trying to get input from user",
+  "tags": [
+   "python",
+   "input",
+   "typeerror"
+  ],
+  "score": -2,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to get the input of index from the user using the code below: [CODE] The code produced the following error: [CODE] I expect user choice from the menu through the item index in the list. How can I get that?"
+ },
+ {
+  "question_id": 79638394,
+  "ym": "2025-05",
+  "creation_date": 1748239790,
+  "title": "Streamlit st.selectbox not displaying options from .txt file",
+  "tags": [
+   "python",
+   "pandas",
+   "drop-down-menu",
+   "streamlit"
+  ],
+  "score": 4,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm having an issue with Streamlit's [code] not displaying the options I have stored in a [code] file. Here's how I'm trying to implement it: I have a [code] file that contains many lines, each line being a question like: What is the total number of customers? What is the average number of customers? However, when I execute my app ,nothing shows up in the dropdown. Output Image Here's the code I'm using: [CODE]"
+ },
+ {
+  "question_id": 79638451,
+  "ym": "2025-05",
+  "creation_date": 1748242959,
+  "title": "Error while running constraints optimization using cvxpy",
+  "tags": [
+   "python",
+   "numpy",
+   "optimization"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I faced some issues when doing constrainted optmiziation. Use CVXPY Variables in Optimization: I'll set the unknown values (NaNs) to be part of the CVXPY optimization variable. [CODE] ERROR LOG [CODE] How do I solve the Above error? I am seeing the TypeERROR AS SHOWN BELOW. First section will be the coding that I m usin. Second section is the error that I am facing. What are the fixes?"
+ },
+ {
+  "question_id": 79638867,
+  "ym": "2025-05",
+  "creation_date": 1748260791,
+  "title": "Weird IndexError when creating hdf5 file with pandas in table mode",
+  "tags": [
+   "python",
+   "pandas",
+   "pytables"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a very weird error when creating a hdf5 file with pandas in table mode. I create the file with the store.put() function: [CODE] The meta_data is - obviously - a pandas dataframe with the column names: [CODE] I get the following error message: [CODE] together with [CODE] I am sure, that there is something off with the column names, cause when I change the column names to [\"0\" ... \"30\"] with \"...\" the respective numbers in between, the error vanishes. The length of the column names shouldn't be a problem either cause I renamed every coumn names with [CODE] which is incredibly ugly, but works. Any thoughts about this?"
+ },
+ {
+  "question_id": 79639081,
+  "ym": "2025-05",
+  "creation_date": 1748268755,
+  "title": "Django Admin site css not loading so site is lokking broken",
+  "tags": [
+   "python",
+   "django",
+   "django-admin",
+   "python-django-storages",
+   "django-admin-tools"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I am using django's admin site and in that css is not loadung so site is looking totally broken.In last 3-4 days i almost tried everything which is available around the web to fix it but its not getting fixed. As this is my new account i am not able to post the images. If anyone have any idea to solve this issue then please tell me!! [CODE]"
+ },
+ {
+  "question_id": 79639207,
+  "ym": "2025-05",
+  "creation_date": 1748272986,
+  "title": "Error with file_search tool in langchain python library",
+  "tags": [
+   "python",
+   "pydantic",
+   "langchain"
+  ],
+  "score": -1,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I have an error with my langchain-openai when I use the file_search tool: [CODE] My code to generate the response: [CODE] If I don't use the file_search tool, the code works fine. [CODE] Packages: pydantic 2.11.5 pydantic_core 2.33.2 pydantic-settings 2.9.1 langchain 0.3.25 langchain-core 0.3.61 langchain-openai 0.3.16"
+ },
+ {
+  "question_id": 79640192,
+  "ym": "2025-05",
+  "creation_date": 1748338554,
+  "title": "PNG image to vector graphic conversion method with recognition of 1px lines?",
+  "tags": [
+   "python",
+   "opencv",
+   "vector-graphics",
+   "potrace"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to find a way to convert a .png image with 1px lines to a vector file. The issue I am having is that my approaches are very inconsistent due to the thin lines I am trying to recognize. One idea was to use potrace, but I get very blobby results. The other was to use OpenCV, with the result that OpenCV does not recognize all lines. An example file I am trying to convert is this: https://geoservices.bayern.de/od/wms/alkis/v1/parzellarkarte?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=by_alkis_parzellarkarte_umr_schwarz&STYLES=&FORMAT=image/jpeg&CRS=EPSG:4326&BBOX=48.140000,11.560000,48.145000,11.565000&WIDTH=2048&HEIGHT=2048 Is there any other way to convert this to a vector file automatically? i gave opencv another try and made it much further: [CODE] but now i am struggling with the way pixels are represented: source: result: any idea how i could make these lines straight lines? Thanks a lot!!"
+ },
+ {
+  "question_id": 79640602,
+  "ym": "2025-05",
+  "creation_date": 1748353273,
+  "title": "i can&#39;t fix this error when evaluating my RL model",
+  "tags": [
+   "python",
+   "artificial-intelligence"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm working with a Gym environment and a trained RL model. I'm running an evaluation loop to collect observations and rewards. Here's a snippet of the code: [CODE] And here’s the error I’m getting: [CODE] knowing that: obs_test length = 1 First element shape = (70,)"
+ },
+ {
+  "question_id": 79641286,
+  "ym": "2025-05",
+  "creation_date": 1748385727,
+  "title": "Trying a simple problem about sorting [python]",
+  "tags": [
+   "python"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I saw a short on youtube about a prompt their teacher gave them: Given a list of numbers filter out duplicates and sort them. This seemed simple enough, and I'm still learning python, so I decided to give it a go. What I've come up with creates a list of 20 random numbers between 1 and 10 and filters out dupes, and everything works up to that point, but as soon as I get to the sorting part everything breaks down. I didn't want to just use .sort() because that felt like cheating, and I thought to use a binary search tree but that looked a bit too complex for my current skill level, and brute forcing a search over less than 20 numbers seemed like a good idea, so this is what I came up with: [CODE] For some reason it keeps skipping numbers in the filtered_list. At first I figured it was because I was originally removing the lowest value from filtered_list, so I put in search_list to change that instead, but it's still skipping. It's probably something really stupid simple, but any help you guys could give is appreciated."
+ },
+ {
+  "question_id": 79641383,
+  "ym": "2025-05",
+  "creation_date": 1748394742,
+  "title": "Hive metastore cannot find Postgres suitable driver in classpath when dropping Apache Iceberg table",
+  "tags": [
+   "python",
+   "postgresql",
+   "hive",
+   "apache-iceberg",
+   "pyiceberg"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have Hadoop 3.3.6 and HIVE 4.0.0 downloaded, extracted, configured, up and running. I have postgresql-42.7.4.jar downloaded to $HIVE_HOME/lib. I can connect to postgres14 successfully using \"sudo psql -U hiveuser -p 5432 -h localhost -d metastore_db\" I can run the following code successfully and spark data frame has been written to iceberg table successfully and I can read it again successfully. [CODE] The hive_site.xml config [CODE] just trying to add the following line to the code raising an exception: [CODE] [CODE]"
+ },
+ {
+  "question_id": 79641655,
+  "ym": "2025-05",
+  "creation_date": 1748415084,
+  "title": "MOOC 2025 - Course grading, part 2",
+  "tags": [
+   "python"
+  ],
+  "score": -1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "The link to the exercise: MOOC Python Course 2025 The Exercise: Let's expand the program created in the previous exercise. Now also the exam points awarded to each student are contained in a CSV file. The contents of the file follow this format: [CODE] In the above example the student whose student number is 12345678 was awarded 4+1+4 points in the exam, which equals a total of 9 points. The program should again ask the user for the names of the files. Then the program should process the files and print out a grade for each student. [CODE] Each completed exercise is counted towards exercise points, so that completing at least 10 % of the total exercices awards 1 point, completing at least 20 % awards 2 points, etc. Completing all 40 exercises awards 10 points. The number of points awarded is always an integer number. The final grade for the course is determined based on the sum of exam and exercise points according to the following table: exam points + exercise points -> grade 0-14 -> 0 (fail) 15-17 -> 1 18-20 -> 2 21-23 -> 3 24-27 -> 4 28- -> 5 The exercise expects the output to be: [CODE] But I am getting an output as follow: [CODE] I personally think this exercise testing is bugged. Or that the data contained within the csv files are not as expected. Here is my code: [CODE] I have tried debugging the VS Code - but I couldn't find any logical error in my code that would produ"
+ },
+ {
+  "question_id": 79642878,
+  "ym": "2025-05",
+  "creation_date": 1748460089,
+  "title": "Fastadmin does not record the registration of the class model",
+  "tags": [
+   "python",
+   "fastapi",
+   "sqlmodel"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "My user model inherits from fastapi-users lib. When I try to log into the admin panel I get an error \"User model is not registered.\" [CODE]"
+ },
+ {
+  "question_id": 79643098,
+  "ym": "2025-05",
+  "creation_date": 1748472851,
+  "title": "Langchain add_texts not adding texts to Databricks Vector Search index:",
+  "tags": [
+   "python",
+   "indexing",
+   "databricks",
+   "langchain"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Getting the following issue while trying to use add_texts to load new index records into the vector index table in Databricks. This process has worked previously without issue. The only change between now and then has been the breakdown and replacement of a \"date\" field into \"day\", \"month\", and \"year\" (each as int). There were some upstream changes to the incoming data, but they are dealt with the same way it was done before. The whole process runs the same, and I can easily see data in earlier dataframes and in the docs and texts, so I'm not sure what's going wrong. There is another data source I use this code with and there have been no issues, just on datasets that had this date change. [CODE] Code to add is below [CODE]"
+ },
+ {
+  "question_id": 79643249,
+  "ym": "2025-05",
+  "creation_date": 1748489502,
+  "title": "How do I set the x-axis names?",
+  "tags": [
+   "python",
+   "excel"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to do a heat map and my x-axis is showing numbers instead of the weeks. How can I do this? I'm using Python in Excel. I understand Python is easier outside of it, but we need this to be in Excel. My data is like this. Names (W42) Week1 (X42) Week2 (Y42) ... Name1 (W43) data1 data2 ... Name2 (W44) data3 data4 ... Issue: My axis is showing numbers instead of the weeks. x-axis image Code: [CODE] I expected the x-axis to show the Week1, Week2, etc"
+ },
+ {
+  "question_id": 79644660,
+  "ym": "2025-05",
+  "creation_date": 1748554363,
+  "title": "The cognitive complexity of the function is too high",
+  "tags": [
+   "python",
+   "pytest"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am trying to write the code for Moore machine. It is working and the test coverage is 100%. But the cognitive complexity of the function test() is too high - 11 (I need it to be <10). How do I fix this? I've tried several methods, but then test coverage falls. [CODE] I've tried adding additional functions, such as: [CODE] Firstly, I added this function - the test coverage fell. Then, my friend adviced adding other functions inside test() - they didn't work because of some troubles with pytest (I don't know what happened). Then, I added these same functions outside test() and tests stopped working."
+ },
+ {
+  "question_id": 79644894,
+  "ym": "2025-05",
+  "creation_date": 1748578946,
+  "title": "Python doctests for a colored text output",
+  "tags": [
+   "python",
+   "command-line",
+   "colors",
+   "docstring",
+   "doctest"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Is it possible to write a docstring test for a function that prints out the colored text into the command line? I want to test only the content ignoring the color or to add somehow the information on color into the docstring. In the example below the test has failed, but it should not. Example [CODE] Output [CODE]"
+ },
+ {
+  "question_id": 79644926,
+  "ym": "2025-05",
+  "creation_date": 1748582356,
+  "title": "Python/TensorFlow: Persistent RAM increase in a long-running loop despite clear_session and gc.collect",
+  "tags": [
+   "python",
+   "tensorflow",
+   "keras",
+   "memory-leaks",
+   "garbage-collection"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm running a Python script on a VPS in a continuous loop. The script fetches stock data with yfinance, then trains a new TensorFlow/Keras model for each stock. Problem: The process's RAM usage steadily increases over time and never returns to its baseline, leading to an eventual crash. This happens even though I am using a cleanup routine after each iteration. [CODE] What I've tried: Calling tf.keras.backend.clear_session() after each model is processed. Explicitly deleting the model, DataFrames, and NumPy arrays using del. Forcing garbage collection with gc.collect(). Question: what else can cause this 6 MB memory increase per ticker? yfinance version: 0.2.61 pandas version: 2.2.2 numpy version: 2.0.2 tensorflow version: 2.18.0 scikit-learn version: 1.6.1 psutil version: 5.9.5 UPDATE: Program Output Processing Ticker: GOOGL (Cycle 1) RAM before GOOGL: 1081.62 MB RAM after download for GOOGL: 1082.94 MB RAM usage after training: 1088.64 MB RAM usage after prediction: 1088.72 MB RAM after deleting historical_data for GOOGL: 1088.72 MB RAM usage after cleaning: 1088.71 MB RAM after full processing of GOOGL: 1088.71 MB (Change: +7.08 MB) Processing Ticker: AMZN (Cycle 1) RAM before AMZN: 1088.71 MB RAM after download for AMZN: 1090.71 MB RAM usage after training: 1092.92 MB RAM usage after prediction: 1092.98 MB RAM after deleting historical_data for AMZN: 1092.98 MB RAM usage af"
+ },
+ {
+  "question_id": 79645878,
+  "ym": "2025-05",
+  "creation_date": 1748626513,
+  "title": "Loss of quality when plotting many lines with alpha&lt;1 with matplotlib",
+  "tags": [
+   "python",
+   "matplotlib"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to make a publication-quality graph that nicely shows the density of where randomly generated lines fall on a plot. However, when I try to save these plots in .svg format, there is always a loss in quality because I think the lines are being rasterized. Calling the set_rasterized function doesn't appear to help. Is there a way to force matplotlib to save these lines in vector format, or at least save them at higher quality so the images don't look terrible when zoomed in? Saving as a .png with high DPI does not help either. [CODE] Example of zoomed in plot"
+ },
+ {
+  "question_id": 79646403,
+  "ym": "2025-05",
+  "creation_date": 1748676296,
+  "title": "Payment Reconciliation via API",
+  "tags": [
+   "python",
+   "payment",
+   "erpnext",
+   "reconciliation"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I’m trying to reconcile payments in ERPNext using the REST API through Python. I’m able to make API calls and I receive a success message in response, but the payments are not getting reconciled in the system. When I check the invoice, it still shows as unpaid or partially paid. It seems like reconciliation isn't actually happening. Which Doctype should be used for reconciliation? Is there a specific field or flag I need to pass to trigger reconciliation? Do I need to use a different module or perform an extra step (like journal entry or ledger update)? Any guidance, code samples, or tips would be appreciated. Thank you! Here’s what I’ve tried so far: Created a 1 invoice and 1 Payment of same customer Used their numbers ACC-SINV & ACC-PAY and passed it to Payment Reconciliation Doctype for reconciliation 3.Submitted the entry 4.Received a success response 5.When I check the invoice, it still shows as unpaid or partially paid. It seems like reconciliation isn't actually happening. Below is the python code @app.route('/reconciled', methods=['POST']) def reconciled(): try: data = request.get_json() invoice = data.get(\"invoice\") payment_entry = data.get(\"payment_entry\") [CODE]"
+ },
+ {
+  "question_id": 79646690,
+  "ym": "2025-05",
+  "creation_date": 1748701234,
+  "title": "Raspberry Pi audio recording works alone, but not when recording video at the same time",
+  "tags": [
+   "python",
+   "audio",
+   "raspberry-pi-zero"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a Raspberry Pi Zero 2W wired to an Adafruit MEMS microphone with a camera attached. I tested audio recording in a separate Python program and that works perfectly: [CODE] But when I tried implementing that into my main program that records audio and video, then muxes them, video works fine but there is no audio in either the audio.wav file or the video itself. I know the mic works, the muxxing works. I am fairly certain it's an issue with how I thread and start the audio recording (some parts of the code below are removed for readability): [CODE]"
+ }
+]

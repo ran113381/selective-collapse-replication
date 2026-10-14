@@ -1,0 +1,83 @@
+all matched sessions: 8 (sorted by first timestamp)
+  batch01 agent-a3ffa408253fa5c3b.jsonl first=2026-10-12T11:11:39.499Z last=2026-10-12T11:23:10.004Z
+  batch02 agent-a6c0b0e234b638855.jsonl first=2026-10-12T11:11:39.810Z last=2026-10-12T11:23:18.996Z
+  batch03 agent-a64d095f51aac1619.jsonl first=2026-10-12T11:11:39.907Z last=2026-10-12T11:23:18.570Z
+  batch04 agent-a8372f4b4b2c787be.jsonl first=2026-10-12T11:11:40.123Z last=2026-10-12T11:23:50.959Z
+  batch01 agent-aefa6051a7fafa40f.jsonl first=2026-10-12T13:00:38.068Z last=2026-10-12T13:05:21.632Z
+  batch02 agent-ac9d2f4e63a75bf5d.jsonl first=2026-10-12T13:00:38.092Z last=2026-10-12T13:04:52.587Z
+  batch03 agent-a698964a3def358a5.jsonl first=2026-10-12T13:00:38.125Z last=2026-10-12T13:04:56.424Z
+  batch04 agent-a6f00e0a7c29c6412.jsonl first=2026-10-12T13:00:38.155Z last=2026-10-12T13:03:17.628Z
+round1 latest first-ts: 2026-10-12T11:11:40.123Z ; round2 earliest first-ts: 2026-10-12T13:00:38.068Z
+--- ROUND 2 sessions
+  batch01
+    path=C:\Users\<user>/.claude/projects\E-------\339824b5-d81d-4c90-b112-b66a4017624e\subagents\agent-aefa6051a7fafa40f.jsonl
+    first=2026-10-12T13:00:38.068Z last=2026-10-12T13:05:21.632Z
+    message.model={'claude-sonnet-5': 18} effort={'xhigh': 18}
+  batch02
+    path=C:\Users\<user>/.claude/projects\E-------\339824b5-d81d-4c90-b112-b66a4017624e\subagents\agent-ac9d2f4e63a75bf5d.jsonl
+    first=2026-10-12T13:00:38.092Z last=2026-10-12T13:04:52.587Z
+    message.model={'claude-sonnet-5': 12} effort={'xhigh': 12}
+  batch03
+    path=C:\Users\<user>/.claude/projects\E-------\339824b5-d81d-4c90-b112-b66a4017624e\subagents\agent-a698964a3def358a5.jsonl
+    first=2026-10-12T13:00:38.125Z last=2026-10-12T13:04:56.424Z
+    message.model={'claude-sonnet-5': 15} effort={'xhigh': 15}
+  batch04
+    path=C:\Users\<user>/.claude/projects\E-------\339824b5-d81d-4c90-b112-b66a4017624e\subagents\agent-a6f00e0a7c29c6412.jsonl
+    first=2026-10-12T13:00:38.155Z last=2026-10-12T13:03:17.628Z
+    message.model={'claude-sonnet-5': 8} effort={'xhigh': 8}
+--- ROUND 1 (reference only)
+  batch01 agent-a3ffa408253fa5c3b.jsonl model={'claude-sonnet-5': 12} effort={'high': 12}
+  batch02 agent-a6c0b0e234b638855.jsonl model={'claude-sonnet-5': 12} effort={'high': 12}
+  batch03 agent-a64d095f51aac1619.jsonl model={'claude-sonnet-5': 12} effort={'high': 12}
+  batch04 agent-a8372f4b4b2c787be.jsonl model={'claude-sonnet-5': 16} effort={'high': 16}
+=== RESULTS ===
+expect model=claude-sonnet-5 effort=xhigh
+matched sessions: 8 | round2 sessions: 4
+round2 first ts: 2026-10-12T13:00:38.068Z last ts: 2026-10-12T13:05:21.632Z
+round2 model counts: {'claude-sonnet-5': 53}
+round2 effort counts: {'xhigh': 53}
+GATE PASS []
+=== END RESULTS ===
+exit=0
+--- NEGATIVE CONTROL (expect-effort high) ---
+all matched sessions: 8 (sorted by first timestamp)
+  batch01 agent-a3ffa408253fa5c3b.jsonl first=2026-10-12T11:11:39.499Z last=2026-10-12T11:23:10.004Z
+  batch02 agent-a6c0b0e234b638855.jsonl first=2026-10-12T11:11:39.810Z last=2026-10-12T11:23:18.996Z
+  batch03 agent-a64d095f51aac1619.jsonl first=2026-10-12T11:11:39.907Z last=2026-10-12T11:23:18.570Z
+  batch04 agent-a8372f4b4b2c787be.jsonl first=2026-10-12T11:11:40.123Z last=2026-10-12T11:23:50.959Z
+  batch01 agent-aefa6051a7fafa40f.jsonl first=2026-10-12T13:00:38.068Z last=2026-10-12T13:05:21.632Z
+  batch02 agent-ac9d2f4e63a75bf5d.jsonl first=2026-10-12T13:00:38.092Z last=2026-10-12T13:04:52.587Z
+  batch03 agent-a698964a3def358a5.jsonl first=2026-10-12T13:00:38.125Z last=2026-10-12T13:04:56.424Z
+  batch04 agent-a6f00e0a7c29c6412.jsonl first=2026-10-12T13:00:38.155Z last=2026-10-12T13:03:17.628Z
+round1 latest first-ts: 2026-10-12T11:11:40.123Z ; round2 earliest first-ts: 2026-10-12T13:00:38.068Z
+--- ROUND 2 sessions
+  batch01
+    path=C:\Users\<user>/.claude/projects\E-------\339824b5-d81d-4c90-b112-b66a4017624e\subagents\agent-aefa6051a7fafa40f.jsonl
+    first=2026-10-12T13:00:38.068Z last=2026-10-12T13:05:21.632Z
+    message.model={'claude-sonnet-5': 18} effort={'xhigh': 18}
+  batch02
+    path=C:\Users\<user>/.claude/projects\E-------\339824b5-d81d-4c90-b112-b66a4017624e\subagents\agent-ac9d2f4e63a75bf5d.jsonl
+    first=2026-10-12T13:00:38.092Z last=2026-10-12T13:04:52.587Z
+    message.model={'claude-sonnet-5': 12} effort={'xhigh': 12}
+  batch03
+    path=C:\Users\<user>/.claude/projects\E-------\339824b5-d81d-4c90-b112-b66a4017624e\subagents\agent-a698964a3def358a5.jsonl
+    first=2026-10-12T13:00:38.125Z last=2026-10-12T13:04:56.424Z
+    message.model={'claude-sonnet-5': 15} effort={'xhigh': 15}
+  batch04
+    path=C:\Users\<user>/.claude/projects\E-------\339824b5-d81d-4c90-b112-b66a4017624e\subagents\agent-a6f00e0a7c29c6412.jsonl
+    first=2026-10-12T13:00:38.155Z last=2026-10-12T13:03:17.628Z
+    message.model={'claude-sonnet-5': 8} effort={'xhigh': 8}
+--- ROUND 1 (reference only)
+  batch01 agent-a3ffa408253fa5c3b.jsonl model={'claude-sonnet-5': 12} effort={'high': 12}
+  batch02 agent-a6c0b0e234b638855.jsonl model={'claude-sonnet-5': 12} effort={'high': 12}
+  batch03 agent-a64d095f51aac1619.jsonl model={'claude-sonnet-5': 12} effort={'high': 12}
+  batch04 agent-a8372f4b4b2c787be.jsonl model={'claude-sonnet-5': 16} effort={'high': 16}
+=== RESULTS ===
+expect model=claude-sonnet-5 effort=high
+matched sessions: 8 | round2 sessions: 4
+round2 first ts: 2026-10-12T13:00:38.068Z last ts: 2026-10-12T13:05:21.632Z
+round2 model counts: {'claude-sonnet-5': 53}
+round2 effort counts: {'xhigh': 53}
+GATE FAIL ["effort not high: {'xhigh': 53}"]
+=== END RESULTS ===
+exit=1

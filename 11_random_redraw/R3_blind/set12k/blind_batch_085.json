@@ -1,0 +1,1262 @@
+[
+ {
+  "id": "T10081",
+  "title": "Conflict pyinstaller vs pathlib --&gt; removing pathlib causes deletion of anaconda navigator",
+  "tags": [
+   "python",
+   "anaconda",
+   "pyinstaller",
+   "pathlib"
+  ],
+  "body": "I get the following error message when using the pyinstaller to convert python file to .exe: The 'pathlib' package is an obsolete backport of a standard library package and is incompatible with PyInstaller. Please remove this package using conda remove then try again. My python version is currently 3.10.9 Pyinstaller version 5.11.0 When I follow the advice to remove pathlib, pyinstaller works perfectly but my anaconda navigator gets deleted. I always have to re-install it, but then again pyinstaller is not working, because pathlib gets newly installed. Does someone faces the same issue and has a solution? Edit: I don't need the anaconda navigator for the pyinstaller application itself, but would like to keep the navigator since I use it to open programs like VS Code, Jupyter etc and its not very convenient that it gets deleted just because of the conflict between pathlib and pyinstaller."
+ },
+ {
+  "id": "T10082",
+  "title": "Issue properly passing *args and **kwargs through RPyC to underlying modules",
+  "tags": [
+   "python",
+   "apscheduler",
+   "rpyc"
+  ],
+  "body": "Background I'm attempting to implement the RPyC proof-of-concept example provided in the APScheduler github repository in order to deploy my application using gunicorn with more than one worker (an issue pointed out in APScheduler's FAQ section). Moreover, I'm trying to do so using Flask-APScheduler in order to be able to easily work within [code] from the task functions. Problem I can't seem to get past correctly providing the parameters when making a call to the scheduler service that's exposed via RPyC. More specifically, it seems to become an issue when passing parameters [code] and [code] (literal variables), along with variables that get stored in the [code] and [code] of the exposed RPyC function. Basically, the parameters that I would normally use when directly calling [code] do not work when routed through RPyC and instead cause errors like the one below when attempting to pass the parameters received by the RPyC exposed method to the underlying scheduler instance. How can I fix this? Minimal, Working Example Run [code] in one terminal and [code] in another terminal [CODE] [CODE] Tracebook from [code] [CODE]"
+ },
+ {
+  "id": "T10083",
+  "title": "How to use sklearn imputation methods on numpy.void (record or structured array, I&#39;m not sure) ndarray",
+  "tags": [
+   "python",
+   "numpy",
+   "scikit-learn"
+  ],
+  "body": "Code: [CODE] (part of) water_potability.csv: [CODE] I have a [code] of item type [code] which is actually a [code] or structured array (I'm not sure which, I just know that it have field names). When I try to use [code] 's [code] (or other imputers) on it, it throws an exception: [CODE] After testing, I found out that [code] is [code] , which indicates that [code] will be interpreted as 1d array, instead of 2d. So my question is: Is there any way to use imputation on the data while preserving the field names, or I have to cast [code] to other compatible types, say [code] ?"
+ },
+ {
+  "id": "T10084",
+  "title": "asyncio.gather() is starting first two tasks but not the third one",
+  "tags": [
+   "python",
+   "asynchronous",
+   "async-await",
+   "python-asyncio",
+   "python-3.6"
+  ],
+  "body": "I have a python function that is supposed to send packet asynchronously in a loop. [CODE] I have another python program that calls this class, along with two other classes. [CODE] This code starts up the first two meaning [code] and [code] However I can't get the last one started, to send out the packets. What am I missing. Adding the code for http_server.py [CODE] Adding the code for grpc_server.py [CODE]"
+ },
+ {
+  "id": "T10085",
+  "title": "Rearranging one list based on the other in Python",
+  "tags": [
+   "python",
+   "list"
+  ],
+  "body": "I have two lists, [code] and [code] . I want to rearrange different_lines_folders according to rearranged_list. Both the lists have one to one correspondence. I present the current and expected outputs. [CODE] The expected output is [CODE] The current output is [CODE]"
+ },
+ {
+  "id": "T10086",
+  "title": "Telethon event handler not firing when used in an asyncio task with another task",
+  "tags": [
+   "python",
+   "sockets",
+   "python-asyncio",
+   "telethon"
+  ],
+  "body": "I'm trying to get two tasks with infinite loops running simultaneously. One of them involves running the Telethon client indefinitely, the other involves a while loop in order to check for connections on a socket. The socket task works fine, I can create the socket and connect a client to it. However the other task, which runs the Telethon client, doesn't seem to respond to the NewMessage event when I fire off an event from my telegram account. I've seen this working prior, so I know it's not the client itself, my account or the connection to it. I assume this is just an issue with me not understanding how the asyncio package works. Could someone please point me in the right direction to understanding how I can have both of my tasks run concurrently and respond to both my socket and my message events. [CODE]"
+ },
+ {
+  "id": "T10087",
+  "title": "Seaborn.pointplot(): repeats of same x-axis values, but different y",
+  "tags": [
+   "python",
+   "seaborn",
+   "data-analysis"
+  ],
+  "body": "I am unsure what to do here. So the seaborn.pointplot() should take the mean of y values across 4 independent experiment for each x. However, within each independent experiment, I have also been doing repeats (e.g., 2 repeats for one experiment). But the mean should only be across the 4 independent experiments though. I am not sure how to address this with the data I have. Example of my data can be seen here:"
+ },
+ {
+  "id": "T10088",
+  "title": "Print a specific key from json file",
+  "tags": [
+   "python",
+   "list"
+  ],
+  "body": "I'm trying to print a specific key from a dictionary(key:value) like this in a JSON file(below). I tried this code but prints everything: reda.json: [CODE] Python: [CODE]"
+ },
+ {
+  "id": "T10089",
+  "title": "Having troubles with mask collision in Pygame",
+  "tags": [
+   "python",
+   "pygame",
+   "mask"
+  ],
+  "body": "I'm working on a game where my character has to navigate through a cave. If the character collides with the cave walls, its position should be reset. I made a mask of the cave layout, with the main path left transparent. I'll include an image. When I check to see if the character mask and map mask are colliding, it says that they are, even when my character is within the proper pathway. This could definitely be an issue with offset, which I'm having some trouble grasping. How can I check for collisions correctly? [CODE]"
+ },
+ {
+  "id": "T10090",
+  "title": "Python and Phishing links: detect browser blockpages",
+  "tags": [
+   "python",
+   "web-scraping",
+   "url",
+   "browser",
+   "phishing"
+  ],
+  "body": "I am trying to create a small python script to check the following: if when a URL is opened in a browser a blocking page is shown to the user with a phishing warning An example of a blockpage from Firefox is shown below I tried playing with the request package but with little success. Does anyone have any ideas or suggestions for me on how to approach this problem? Thank you"
+ },
+ {
+  "id": "T10091",
+  "title": "Avoid transformations in sympy latex printing (don&#39;t want automatic transformation of \\frac{a}{b}f(x) into \\frac{cf(x)}{d})",
+  "tags": [
+   "python",
+   "sympy"
+  ],
+  "body": "With the code: [CODE] I obtain: [code] I need to obtain: [code] How to instruct [code] to keep the original form? I tryed with : [CODE] It gives: [code] It's better, but not exactly what I want. With [code] , I obtain the same output."
+ },
+ {
+  "id": "T10092",
+  "title": "Count values greater than row value in all previous rows in each group",
+  "tags": [
+   "python",
+   "group-by"
+  ],
+  "body": "I want to compare the numerical value of each row of groups with the previous rows of the same group and return the number of previous rows that have a value greater than the current row. I know the general work and I know how to use the following formula for all the rows [CODE] But I want it to work separately for each group in column2"
+ },
+ {
+  "id": "T10093",
+  "title": "Can I use a list comprehension to write multiples of 3 within a range using addition?",
+  "tags": [
+   "python"
+  ],
+  "body": "I wrote the first block of code to list multiples of 3 and it works. Is there a way this could be done with addition inside a list comprehension? [CODE] Result: [CODE]"
+ },
+ {
+  "id": "T10094",
+  "title": "Using For Loop and If Statement Together",
+  "tags": [
+   "python",
+   "arrays",
+   "for-loop",
+   "if-statement"
+  ],
+  "body": "I am trying to get a function, \"mock_function\", to iterate through the array, \"x\", and either square or cube its elements, depending on if the element is greater than 5 or not. I need the output to be an array as well, containing the elements squared or cubed. Instead I am getting a single number, so the iteration is clearly not working. Can someone kindly show me what the code should actually be? [CODE]"
+ },
+ {
+  "id": "T10095",
+  "title": "If the user input == a key of a dictionary then return the value and vice versa. how could I do that?",
+  "tags": [
+   "python",
+   "dictionary"
+  ],
+  "body": "I want to make a program, where in a dictionary, I put in peoples names and their email addresses, and when the user puts in a name it gives back the email. Is their a quicker way to do that other than doing a whole lot of [code] loops or maybe a [code] loop? Any ideas?"
+ },
+ {
+  "id": "T10096",
+  "title": "Load key from file using Python from import clause",
+  "tags": [
+   "python",
+   "python-3.x"
+  ],
+  "body": "In my repo I have got a [code] directory in which I store some classes/functions that are later used in scripts in other directories in my repo. Each script outside the lib dir has a [code] file in its directory as follow: [CODE] so in each python script I have: [CODE] Now I wanted to add to my [code] directory a [code] file that has a structure: [CODE] Can I somehow load [code] using [code] clause?"
+ },
+ {
+  "id": "T10097",
+  "title": "Why does 32-bit bitmasking work in Python for LeetCode &quot;Single Number II&quot; when Python ints are arbitrary precision?",
+  "tags": [
+   "python",
+   "bit-manipulation"
+  ],
+  "body": "I'm trying to understand why the following solution for LeetCode's Single Number II works in Python: [CODE] But I'm confused about a few things: In Python, integers are arbitrary precision, so they're not stored in 32-bit like in C or C++. sys.getsizeof() even shows 28 bytes for small integers. So how can we assume that the number fits in 32 bits and that bit 1 << 31 is actually the sign bit? Why do we loop only from i in range(32)? Why not less If I input small integers (like 2, 3, etc.), they don't \"fill\" 32 bits — so how can checking the 31st bit be reliable? Basically, since Python ints grow as needed and aren’t stored in 32-bit containers, how does this approach still work correctly when simulating 32-bit signed behavior? I tried understanding similar questions and answers (like on CodeReview.SE ), and I get the general idea — Python ints are arbitrary precision and we simulate 32-bit behavior using bitmasking and shifting. But I'm still confused why this actually works reliably in Python. My Questions: Why can we safely assume a 32-bit simulation works in Python? Why is checking the 31st bit (1 << 31) meaningful in Python? Why doesn’t the arbitrary-size nature of Python integers break this logic?"
+ },
+ {
+  "id": "T10098",
+  "title": "How to iterate over python dictionary in C#",
+  "tags": [
+   "python",
+   "c#",
+   "python.net"
+  ],
+  "body": "I am trying to call a C# logging library from Python. I want to support logging complex Python objects and dictionaries from the C# library. I'm using pythonnet 3.0.5. When I pass the dictionary to C#, the Python code looks like this: [CODE] On the C# side, it receives a Python.Runtime.PyObject in the parameter of System.Object. My conversion code in C# looks something like this: [CODE] When I run the Python code, it gives me the following exception: [CODE] How am I supposed to iterate over the dictionary? I also tried running .Dir() and got the same exception: [CODE] I tried removing the iterating, and the following all throw the AccessViolationException: [CODE] So there seems to be a general brokenness to the PyObject API."
+ },
+ {
+  "id": "T10099",
+  "title": "TypeError: &#39;WebElement&#39; object is not iterable",
+  "tags": [
+   "python",
+   "selenium",
+   "for-loop",
+   "selenium-webdriver",
+   "web-scraping"
+  ],
+  "body": "[CODE] Output for items in body.find_element(By.TAG_NAME,'tr'): TypeError: 'WebElement' object is not iterable I want to scrape a table from website by selenium and pandas. But I have get some error in my for loop. please any expert solve this problem. please give me a write code that I can use to scrape data from table in any webpage. MY error is down blow for items in body.find_element(By.TAG_NAME,'tr'): TypeError: 'WebElement' object is not iterable"
+ },
+ {
+  "id": "T10100",
+  "title": "Pycharm debugger console not autocompleting variables created in the debugger console",
+  "tags": [
+   "python",
+   "debugging",
+   "pycharm",
+   "console",
+   "code-completion"
+  ],
+  "body": "I have just upgraded to PyCharm 2023.3.3 community edition and am experiencing a weird issue that hasn't occurred before. System is Windows 10 64 bit, and this has worked fine on this machine before. When I debug a script and hit a breakpoint and the program is suspended and the debugger window is opened, autocomplete doesn't seem to work on new variables i create in the debugging console, however it works on variables created in the script before the breakpoint was hit. e.g., Script Debugging console showing autocomplete working for variable testing but not test Any ideas why the debugging console is not autocompleting test ? and how I could fix this?"
+ },
+ {
+  "id": "T10101",
+  "title": "Awswrangler: Parquet read into multiple of expected space",
+  "tags": [
+   "python",
+   "pandas",
+   "amazon-s3",
+   "aws-lambda",
+   "parquet"
+  ],
+  "body": "In a Lambda, I'm using AWS Wrangler to read data out of a date partitioned set of parquets and concatenate them together. I am doing this by calling [code] in a loop, compiling the loaded dataframes into a list, and then joining them using [code] . I am basically just doing the below. [CODE] However, the Lambda keeps failing with an Out-of-Memory error, despite the files only summing to about one gigabyte and the Lambda being provisioned with 10GB of memory. When I added some tracking messages into the code, I found that the parquets are taking up far more space as DataFrames than they take up as files in S3. In the screenshots below, I can see that the files are taking up about 60x as much space in memory as they are in S3. Does anyone know why this would be happening? Is there a way to stop this problem? Thanks for your help."
+ },
+ {
+  "id": "T10102",
+  "title": "Combining np.where with conditional duplicate to assign column value",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "I have put together a conditional statement using the duplicate function to extract a row from the following data. That is extracted from a larger dataset [CODE] Formatted the data looks like [CODE] The code to extract the row I want is as follows [CODE] This returns the second last line in this example and all others I need in the complete dataset [CODE] The significance of this line is that the cow aborted and I would like to toggle column AbCode from 0 to 1 I have tried the following unsuccessfully [CODE] This gives an error [CODE] Is there a simple way to toggle the value of AbCode according to these conditions?"
+ },
+ {
+  "id": "T10103",
+  "title": "Add column value in panda data frame if certain condition is met",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "I have two lists: [CODE] If the value in requested_server_name column is in required list then it should be labeled as Required if the value in requested_server_name column is in not_required list then it should be labeled as Not_Required What I am doing at the moment: [CODE] What am I doing wrong?? It only populates the label for launches.appsflyer.com."
+ },
+ {
+  "id": "T10104",
+  "title": "TypeError: IB.reqTickByTickData() got an unexpected keyword argument &#39;handler&#39;",
+  "tags": [
+   "python",
+   "visual-studio-code",
+   "interactive-brokers",
+   "real-time-data",
+   "tws"
+  ],
+  "body": "While debugging my python code in visual studio code I got the error message: TypeError: IB.reqTickByTickData() got an unexpected keyword argument 'handler'. Since I am streaming via reqTickbyTickData() the data from IB TWS(and not via reqMktData), I cannot use ib.pendingTickersEvent += on_price_update to distribute the real time data to the code functions, but instead I use a \"handler\" directly within the ib.reqTickByTickData(contract, \"Last\", numberOfTicks=0, ignoreSize=True, handler=on_tick_update). Here is exactly how my code in this section looks like enter image description here I checked the functions in the source code to which I am distributing the real time data via the \"handler\". First I distribute the data to one function and from inside this one function, I call the second function so that the data gets to the second function relying on real time data as well. here is the first function I am calling directly from the reqTickbyTickData() via the \"handler\" enter image description here and from there I call the second function enter image description here . This is all. Has anyone encountered the same problem? Any hints will be highly appreciated. Thanks in advance."
+ },
+ {
+  "id": "T10105",
+  "title": "How can I embed a TikTok LIVE in my html?",
+  "tags": [
+   "python",
+   "html",
+   "flask",
+   "embed",
+   "tiktok"
+  ],
+  "body": "I'm developing a Flask application designed to manage and initiate live streams to multiple platforms. In my app I'm implementing a \"live monitor\" where users can paste a stream URL and then watch the live stream through an embedded video in the page. I've successfully implemented this functionality for YouTube live streams. When a YouTube live URL is pasted, the stream loads correctly within the iframe and scales as expected to fit the designated area. However, I'm encountering issues with TikTok live streams. When attempting to embed a TikTok live feed using their provided blockquote embed code (which subsequently renders an [code] , works only for non-live video) the result is \"Video unavailable\". The same happens if I try to embed manually with an Iframe. I tried the following: [CODE] This works for videos, but when I try to use it for live streams (which have the format https://www.tiktok.com/@TheUSerNAmeHere/live ), it doesn't work. I tried with actual live links. Below is just an example. I tried changing to: [code] [code] [code] Can someone help me?"
+ },
+ {
+  "id": "T10106",
+  "title": "Create &quot;Pass/Fail/Caution&quot; status in pandas dataframe based another columns without &quot;SettingWithCopy&quot; warning",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "I wrote code where: All values above 3 are marked as \"Fail\". Values between 1 and 3 marked as \"Caution\". However I have the following warning: [code] . And I'm not sure how I could avoid this warning. Current code: [CODE] Current Output: Values Caution limit Fail limit Status 0 1 3 Pass 1 1 3 Pass 2 1 3 Caution 3 1 3 Caution 4 1 3 Fail 5 1 3 Fail Warning message: [CODE] UPD: I found a way avoiding the SettingWithCopyWarning using lambda function: [CODE] However it completely avoids using [code] capability and my main goal is to learn how I could use [code] to do so."
+ },
+ {
+  "id": "T10107",
+  "title": "Extract details from unstructured pdfs either in table or any other format",
+  "tags": [
+   "python",
+   "html",
+   "pdf",
+   "pypdf",
+   "pymupdf"
+  ],
+  "body": "I tried to extract grant payable org details from PDFs which have fixed format but page numbers are varying. I have spent a lot of time with libraries like PYPDF2, PyMuPDF, Tabula, SpaCy, NLTK, etc. but still no luck. It will be a great help if someday suggest or provide something I am attaching the 2 sample screenshots and the code that I have tried. [CODE] List of Keywords after those keywords if only ORG name & amount are present then it is the beginning mark. Donations payable Charitable activities Grants payable Analysis of Grants Grants payable grants made payable Beneficiary Charitable Expenditure Donations to institutions Grant funding Grants made Grants paid Grant-making Grant making Grants making Grants accrued Name of organisation grants made to institutions"
+ },
+ {
+  "id": "T10108",
+  "title": "&quot;ValueError: source code string cannot contain null bytes &quot; for tkinter",
+  "tags": [
+   "python",
+   "tkinter",
+   "valueerror"
+  ],
+  "body": "I was trying to learn to create a new window using this code: [CODE] But I run into this error, [CODE] Can someone help me with this?"
+ },
+ {
+  "id": "T10109",
+  "title": "Default of an argument in two different spots",
+  "tags": [
+   "python",
+   "oop",
+   "default"
+  ],
+  "body": "I'm doing exercises on pynative.com. The url is: https://pynative.com/python-object-oriented-programming-oop-exercise/#h-oop-exercise-4-class-inheritance I'm stuck on OOP Exercise 4: Class Inheritance. Here are the given instructions: Given: Create a Bus class that inherits from the Vehicle class. Give the capacity argument of Bus.seating_capacity() a default value of 50. Use the following code for your parent Vehicle class. Here's the given code: [CODE] Here is the expected output: [CODE] Here's the solution that was provided on the website: [CODE] What I dont get is why the default for capacity was declared twice. Also I'm not getting why super() was declared. I tried to remove the default declaration from capacity from both lines (I played around with it a bit), but I kept getting errors."
+ },
+ {
+  "id": "T10110",
+  "title": "How to connect to an Oracle7 database",
+  "tags": [
+   "python",
+   "oracle-database",
+   "python-2.x",
+   "oracle7"
+  ],
+  "body": "I have an ancient Oracle7 database (version 7.3.4.5.0) that I need to extract some data from. I mainly work with Python, so naturally I started looking at oracledb . However, it looks like the oldest version of oracledb only supports Oracle 9 and up (got erro DPY-4011 when attempting a connection). So I started looking at cx_Oracle instead. It looks like I should probably use cx_Oracle 3.0 or older. However I can't find any binary distributables for it. Are they available anywhere? If not, can I install it directly from PyPi somehow? If all fails, is there any other way to write a script for Oracle7 (VBScript?, JScript?, VBA?) that's documented?"
+ },
+ {
+  "id": "T10111",
+  "title": "Extract and update DataFrame column names",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "Reading data into DataFrame, expect certain column names but often they are mixed with a random string either before or after the name. There are also other columns and the column order is not guaranteed. I want to rename the applicable columns to the correct names. [CODE] I can extract the desired name for each column. [CODE] My question is how to update the names, but if NaN to keep the original name. So the desired result in this case [code] is retained instead of NaN. [CODE]"
+ },
+ {
+  "id": "T10112",
+  "title": "Print two boards in one line on Python",
+  "tags": [
+   "python"
+  ],
+  "body": "I am new to Python programming, so need help from experienced programmers. I got a code for which I would like to print two boards as one raw. [CODE] And, based on the above class and methods there is another method that prints two boards as a column as below [CODE] Is there a straightforward way to achieve this? I tried to use [code] parameter in a [code] function, but I get weird output."
+ },
+ {
+  "id": "T10113",
+  "title": "Matplotlib broke after Ubuntu update",
+  "tags": [
+   "python",
+   "matplotlib",
+   "ubuntu-24.04"
+  ],
+  "body": "I just updated Ubuntu to 24.04.1 LTS and I'm having some trouble with Matplotlib in my Anaconda Python setup. Most of the other scientific libraries I use appear to be fine. I'll try to run [CODE] and I get [CODE] Numpy version: 1.26.4 Matplotlib version: 3.9.1"
+ },
+ {
+  "id": "T10114",
+  "title": "Steaming LLM response with flask",
+  "tags": [
+   "python",
+   "flask",
+   "streaming",
+   "large-language-model"
+  ],
+  "body": "I am trying to create a flask based api to stream the response from a local LLM model. I am trying to achieve it making use of the callbacks function of langchain. But cannout understand why the stdout(token) streaming works while the yield(token) does not work. Below is the sample code : [CODE] I am making a call to the flask server using the following code : [CODE] Any suggestion and recommendations is much appreciated. Thanks in advance ! Expecting a streaming response via an API call."
+ },
+ {
+  "id": "T10115",
+  "title": "Intercepting a TLS connection and serving a different certificate based on hostname",
+  "tags": [
+   "certificate-authority",
+   "proxy",
+   "python"
+  ],
+  "body": "I am trying to write a mitmproxy addon that allows me to automatically intercept a TLS connection from a client by using the hostname and then on-the-fly generate a new certificate (with pyOpenSSL and cryptography) and serve that certificate to that intercepted client. I have read the documentation for mitmproxy addons but it is difficult to understand how TLS interception can be hooked into from an addon ( https://docs.mitmproxy.org/stable/api/events.html#TLSEvents ). Based on this addon https://github.com/mitmproxy/mitmproxy/blob/main/examples/contrib/tls_passthrough.py and the previously mentioned documentation it seems like I would want to hook into [code] to send the client a custom ServerHello. Though from the [code] hook I can also see that there is a [code] class ( https://docs.mitmproxy.org/stable/api/mitmproxy/tls.html#TlsData ) used as an argument with the context object ( https://docs.mitmproxy.org/stable/api/mitmproxy/proxy/context.html#Context ) from where I can access the client connection ( https://docs.mitmproxy.org/stable/api/mitmproxy/connection.html#Client ) which exposes the mitmcert. This looks like what I want? How would I go about writing an add-on with this functionality? Manually testing using the [code] for that specific domain works, but I want to dynamically intercept based on the received [code] and generate and serve a certificate from there."
+ },
+ {
+  "id": "T10116",
+  "title": "Parsing file input into variables in python",
+  "tags": [
+   "python",
+   "string"
+  ],
+  "body": "I have a text file called input.txt with the following contents: [CODE] How do I write a function that puts each value into a list of lists? For example: list[0] = {0.48397,0.252017,-0.28514,0.999999} list [1] = {0.491221,0.2385892,-0.27364,0.999992} and so on.."
+ },
+ {
+  "id": "T10117",
+  "title": "Computing gradients of distribution parameters in tensorflow probability",
+  "tags": [
+   "python",
+   "tensorflow",
+   "machine-learning",
+   "keras",
+   "tensorflow-probability"
+  ],
+  "body": "I have a model that produces parameters for a beta distribution and would like to optimize according to some loss involving the pdf and the cdf of this distribution. However, I recently found that tensorflow's autograd routines are not producing the full gradients as I expected. Before getting into the details of the example, the TL;DR question is: how can I compute gradients of tensorflow probability distributions with respect to their hyperparameters, e.g., [code] and [code] in a beta distribution? By way of example consider the following simple model (note this was thrown together to illustrate the code, the model itself doesn't make much sense). The model takes 3-dimensional data and produces 2-dimensional outputs. These outputs are shifted and viewed as [code] and [code] in a beta distribution. For illustrative purposes I generate some data and aim to maximize the average probability. The following code produces some gradients: [CODE] Output [CODE] Now if I instead target the CDF rather than the PDF I get [code] for gradients: [CODE] Output [CODE] I went to the underlying [code] code and it appears that [code] uses [code] from [code] and that the gradients are not evaluated there. This can be seen by replacing the CDF above with a direct all to the incomplete beta function (grads still return [code] ). [CODE] Output [CODE] Similarly, the PDF code above calls [code] which a"
+ },
+ {
+  "id": "T10118",
+  "title": "How to install packages in docker container that has already been started",
+  "tags": [
+   "python",
+   "django",
+   "docker",
+   "backend"
+  ],
+  "body": "I am building a django app with docker. After i`ve already built my container, I've added an ImageField to one of my models. When I ran docker-compose run web(my service name) python3 manage.py makemigrations, it gave me an error, that I have to install Pillow: [CODE] After that I tried to install with [code] , it seemed, like it installed it: [CODE] But when I ran [code] , it was still giving me the same error. After some googling, I found that i can go to docker console or smth like [code] so I did that and installed Pillow, and after running [code] in it, it showed me, that Pillow is installed, but when i came back to [code] , I was still getting the same error. I tried to add Dockerfile to build section of docker-compose but it didn't work either. So I'm stack here(( My Dockerfile: [CODE] My docker-compose.yml file: [CODE]"
+ },
+ {
+  "id": "T10119",
+  "title": "How to store streaming messages from openai to chat history database?",
+  "tags": [
+   "python",
+   "asynchronous",
+   "streaming",
+   "openai-api",
+   "langchain"
+  ],
+  "body": "I have a RAG chatbot where the frontend and backend are running on different ports. We use a REST API to communicate between them, the issue is, I am trying to store the \"user\" message and \"ai\" reply into a chat history database. When the user sends a message we can include it to the chat history db quite easily, but with the \"AI\" messages, the output is being streamed, so, the whole message is not available at once, i am using asynchronous operations. Is there any easy way to solve this? I am using Langchain for the RAG service. code for rag service: [CODE] Code for the api route: [CODE] Here, the message that is being saved to database is empty, which is understandable because finalize_chat_history is being called before event_generator. I tried to solve the issue using creating a new async method to push to the database after the whole streaming has ended, But it did not solve the isseue."
+ },
+ {
+  "id": "T10120",
+  "title": "Tesseract OCR fails to recongnize number 7",
+  "tags": [
+   "python",
+   "tesseract",
+   "python-tesseract"
+  ],
+  "body": "im trying to analyze a picture but tesseract seems to have a problem diferentiating the number 7 from the number 1. current config: [CODE]"
+ },
+ {
+  "id": "T10121",
+  "title": "python customtkinter library - how to install",
+  "tags": [
+   "python",
+   "tkinter",
+   "import",
+   "package",
+   "customtkinter"
+  ],
+  "body": "I need to install the customtkinter package for python. I used the command [code] to install the package. When running [code] I can see the [code] package version. In the pycharm editor the package seam to get imported: [CODE] What am I doing wrong?"
+ },
+ {
+  "id": "T10122",
+  "title": "Download direct download to specific folder",
+  "tags": [
+   "python",
+   "web-scraping",
+   "beautifulsoup",
+   "python-re"
+  ],
+  "body": "I have this code where I am using beautifulsoup to get a url for a direct download link to a pdf and save it into a specific directory. Getting the url for the link works, it is just getting it to download and save in a directory that is causing problems. I have searched through several sources and finally tried urllib.urlretrieve but this is not working. Could I get assistance, please. Edit: Main thing I am trying to do is to get the code to download the direct link and not having to manually click it. If the url is needed for helping here it is; https://www.odfl.com/us/en/resources/tariffs/tariff-odfl-100-0.html As I am parsing through an xml, as there are several other urls that require different code. [CODE]"
+ },
+ {
+  "id": "T10123",
+  "title": "Resampling and grouping in more than one pandas column",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "Hi i want to convert my dataframe from [CODE] to this format where each [code] is reduced to the count of its associated [code] and [code] per month and year loc_mnth_yr n_domestic n_wild n_found n_not_found axp_01_2019 4 0 3 1 axe_02_2020 0 1 1 0 axp_10_2020 2 0 2 0 axe_04_2021 0 1 0 1 i have tried using the below codes but am not yet getting the desired results [CODE]"
+ },
+ {
+  "id": "T10124",
+  "title": "Dynamically index a column in Polars",
+  "tags": [
+   "python",
+   "dataframe",
+   "python-polars"
+  ],
+  "body": "I have a simple dataframe look like this: [CODE] How can I obtain the result as creating a new column as ref[idx], which is dynamic index from another column? [CODE] [CODE]"
+ },
+ {
+  "id": "T10125",
+  "title": "Computing Averages from columns and rows that have text and integers",
+  "tags": [
+   "python",
+   "csv",
+   "file",
+   "multiple-columns"
+  ],
+  "body": "I've never been more lost coding, I'll link the specifics but i have no clue how to take averages from specific columns or rows from a file. So far I've been able to: Open the file, Split the columns, and assign grade values. I'm struggling to : Average out specific values from the columns/rows, and to write that on a new file. I know what i need to do but I don't know how. any help would be super appreciated SPECIFIC DETAILS [CODE]"
+ },
+ {
+  "id": "T10126",
+  "title": "Regarding counting of duplicate values in data",
+  "tags": [
+   "python",
+   "database",
+   "dataframe",
+   "duplicates",
+   "analysis"
+  ],
+  "body": "How to get all the duplicate values of one specific column in dataframe? I want to only check values on one column but it's getting output with table or data. I want to count the number the times each value is repeated"
+ },
+ {
+  "id": "T10127",
+  "title": "How to scrape paragraph data under multiple tags",
+  "tags": [
+   "python",
+   "web-scraping",
+   "beautifulsoup"
+  ],
+  "body": "[CODE] This is HTML code I need to scrape from [code] to the end I tried writing this code in python but it gives me all the details and I only need the data the is under \" capacity \" [CODE]"
+ },
+ {
+  "id": "T10128",
+  "title": "SSH Library Robot framework - remote python script execution",
+  "tags": [
+   "python",
+   "robotframework",
+   "robotframework-sshlibrary"
+  ],
+  "body": "I am using Robot Framework SSH Library - to perform the following operations. Connect to a remote machine via SSH Copy a python file into the remote machine. [The python file obtains the process with the ID specified] Run the python file using the execute command. The issue I am facing is - Execute Command of robot framework does not return a result instead hangs. when I execute the python script via cmd-> ssh@remoteserver-> execute script - it executes perfectly fine. below is the source code of the python file and robot framework code. [CODE] I copy the python file from local to remote server via SSH Put File - all this works fine. only the execute command hangs! [CODE] Any idea how to resolve the same?"
+ },
+ {
+  "id": "T10129",
+  "title": "Python 3.10+ equivalent to `distutils` package",
+  "tags": [
+   "python",
+   "installation",
+   "setuptools",
+   "setup.py",
+   "distutils"
+  ],
+  "body": "I am using Python 3.12 and want to setup the [code] package version 1.2.1. If I run the [code] command, I get an error [code] because [code] was deprecated in Python 3.10. I tried to update the import statements in [code] 's [code] file: [CODE] The first line can be changed to [code] . How do I change the second line? I tried and failed to find some equivalent module in [code] and [code] . The various related questions ( How can one fully replace distutils, which is deprecated in 3.10? , Why did I get an error ModuleNotFoundError: No module named 'distutils'? , etc) are not helpful. I am using [code] and [code] ."
+ },
+ {
+  "id": "T10130",
+  "title": "MissingGreenlet: greenlet_spawn has not been called; can&#39;t call await_only() here. Was IO attempted in an unexpected place?",
+  "tags": [
+   "python",
+   "async-await",
+   "python-asyncio",
+   "fastapi",
+   "alembic"
+  ],
+  "body": "I am trying to perform alembic migrations but receiving the error 'sqlalchemy.exc.MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? ' I've added expire_on_commit=False but I did not help. Are there any ideas how to solve it? models.py [CODE] db_settings. [CODE]"
+ },
+ {
+  "id": "T10131",
+  "title": "Thread long running python task, doesn&#39;t work inside Docker",
+  "tags": [
+   "python",
+   "multithreading",
+   "docker"
+  ],
+  "body": "I am trying to deploy my website. More or less I made everything connected inside a docker and db is working fine with my python code. Inside my code, though, I have a long-running thread. That should update db every 15 min. this is the code. [CODE] It doesn't work properly inside docker for some reason. Just running on my computer, it works, but inside docker it doesn't. I tied to insert less waiting time, like 5 seconds, but even though after it starts, it doesn't print me right away requested data, and every 5 seconds it not working. It's not printing anything. It only starts to work a bit when I make a request to the link. (this is the backend on fastapi) it prints like 5 - 9 data logs and then nothing. I have another 2 containers running. 1 with nginx and another with PostgreSQL. What can I try to do? Thank you very much!"
+ },
+ {
+  "id": "T10132",
+  "title": "Reading str from binary file given length in bytes",
+  "tags": [
+   "python",
+   "python-3.x",
+   "struct",
+   "binary"
+  ],
+  "body": "I have a binary file with the following structure: [CODE] The rest follows this format. I have read in the first set of items without issue, but am hung up on the best way to decode the string indexLength given the bytes representing it. Here's what I have so far: I have also added my error at the end. There is not information available that I can find on encoding, so I went with utf-8. [CODE] When I print the value of index_name_bytes, it seems far greater than it should be. I see my index value in alpha-numeric values within the hexadecimal code: [CODE] I think I'm reading too many values, and there's got to be a better way to do this. Just stuck. Thanks so much for any help offered. I think I've looked at this too long."
+ },
+ {
+  "id": "T10133",
+  "title": "Prepend and append characters to all string columns in Polars dataframe",
+  "tags": [
+   "python",
+   "string",
+   "dataframe",
+   "python-polars"
+  ],
+  "body": "For a DataFrame, I want to prepend and append all the strings with extra characters. [CODE] To append the strings I can do this [CODE] [CODE] But when I try the same to prepend, I get an error [CODE] ComputeError: the name 'literal' passed to [code] is duplicate It's possible that multiple expressions are returning the same default column name. If this is the case, try renaming the columns with [code] to avoid duplicate column names."
+ },
+ {
+  "id": "T10134",
+  "title": "convert excel/word hierarchical column to microsoft word list",
+  "tags": [
+   "python",
+   "excel",
+   "vba",
+   "ms-word"
+  ],
+  "body": "I have some base data that looks like this: [CODE] I would like to convert to a hierarchical list in word format like this: I have tried recording a macro to do this but can't get it to work. My other thought is some kind of command prompt on a text file but not sure where to start with that. Any help would be appreciated thanks."
+ },
+ {
+  "id": "T10135",
+  "title": "Word guessing game – how to print blanks",
+  "tags": [
+   "python"
+  ],
+  "body": "I am having trouble with making a guessing game. When you guess a correct letter it prints out the letter but not the blanks (_)."
+ },
+ {
+  "id": "T10136",
+  "title": "How to use a $lookup result on a $nin clause?",
+  "tags": [
+   "python",
+   "mongodb",
+   "aggregation-framework",
+   "pymongo"
+  ],
+  "body": "I have three collections: [code] , [code] and [code] . The [code] collection contains the question_id and user_id. In the application level I need to find all users who fits in a query and not have answered a question yet. I was doing it building the query on application level with a $nin clause containing all the users ids who already have answered the question. [CODE] But, for questions who have many answers, the query document extrapolates the 16MB limit from MongoDB. Then, I want to delegates this part of the query for the database level with [code] . [CODE] But this is horrendous slow. How can I achieve the expected result?"
+ },
+ {
+  "id": "T10137",
+  "title": "python smtplib , Problems when try to send email with python script",
+  "tags": [
+   "python",
+   "smtplib"
+  ],
+  "body": "i want to send an email automatic with pyhton. This is my Code: [CODE] i get this error: [CODE]"
+ },
+ {
+  "id": "T10138",
+  "title": "How to update redis master object after failover process in redis-sentinel",
+  "tags": [
+   "python",
+   "redis",
+   "redis-sentinel",
+   "redis-py"
+  ],
+  "body": "I have a code which connects to sentinels and discovers redis master address. After discovering master we create redis master object and perform redis operations afterwards. The problem here is that after sentinel failover process the redis master address gets changed and new master is promoted by the sentinels, in that case the redis master object should be updated at the run time. Can anyone tell how this can be achieved in real time? [CODE]"
+ },
+ {
+  "id": "T10139",
+  "title": "i want to abstract text with lstm",
+  "tags": [
+   "python",
+   "tensorflow",
+   "keras",
+   "lstm"
+  ],
+  "body": "I'm working on a web scraping project.I have 100 links and I should scrab the first page of all. so my text length is dynamic. I use nltk to make a summary and at the end, I use the code brought here taken from the link in the post in lstm to abstract them. but in the input function, i have a dimension error because I don't know how to get the max_lenght. please help me with this.after line 73 the lstm begine. actually, I use this article for lstm. here is the link https://www.analyticsvidhya.com/blog/2019/06/comprehensive-guide-text-summarization-using-deep-learning-python/ . thanks [CODE]"
+ },
+ {
+  "id": "T10140",
+  "title": "what is this error for? &#39;NoneType&#39; object has no attribute &#39;round&#39;",
+  "tags": [
+   "python"
+  ],
+  "body": "[CODE] this is the code this code should convert cm in feet and inches but there is a error"
+ },
+ {
+  "id": "T10141",
+  "title": "How to make Open FGA Async Client work with Flask + Gunicorn?",
+  "tags": [
+   "python",
+   "thread-safety",
+   "python-asyncio",
+   "gunicorn",
+   "open-fga"
+  ],
+  "body": "[CODE] This is how I am using it right now but creating new loop for each request is not feasible Tried lazy init a background thread and a loop where I queue co routines after taking lock as well but for some api hit it works some the call time out Any better ways to do this ?"
+ },
+ {
+  "id": "T10142",
+  "title": "condition [32,1,1,1], then [16,64,64,3], and else [16,64,64,3] must be broadcastable",
+  "tags": [
+   "python",
+   "tensorflow",
+   "keras",
+   "deep-learning"
+  ],
+  "body": "I have issue in code. I run code after 1 epochs program terminate and also change batch size but can't work. I also search on google this error but can't find any solution.Any Expert Please Checkout my error Full Code Link Colab Link : https://colab.research.google.com/drive/1kPDPIXliTR1Wxc8vzJ5wjgxoM7fzgnwG?usp=sharing self.probability = tf.Variable(0.0) [CODE] def call(self, images, training): if training: augmented_images = self.augmenter(images, training) [CODE] def update(self, real_logits): current_accuracy = tf.reduce_mean(step(real_logits)) [CODE] Error InvalidArgumentError: condition [8,1,1,1], then [32,128,128,3], and else [32,128,128,3] must be broadcastable [[node adaptive_augmenter/SelectV2 (defined at :46) ]] [Op:__inference_train_function_5713] Errors may have originated from an input operation. Input Source operations connected to node adaptive_augmenter/SelectV2: adaptive_augmenter/Less (defined at :44) IteratorGetNext (defined at :1) adaptive_augmenter/adaptive_augmenter/random_zoom/transform/ImageProjectiveTransformV3 (defined at :38) Function call stack: train_function"
+ },
+ {
+  "id": "T10143",
+  "title": "Python - ConfigParser and pathlib Path WindowsPath",
+  "tags": [
+   "python",
+   "configparser",
+   "pathlib"
+  ],
+  "body": "I am reading a configuration file with [code] . Until now, I was storing the paths to my files as [code] . I decided to improve my code by using [code] from [code] . I now have the following error: [code] . I understand from this answer that the error comes from my [code] having backslashes. Question: How can I path a [code] to ConfigParser without throwing an error?"
+ },
+ {
+  "id": "T10144",
+  "title": "Running dask map_partition functions in multiple workers",
+  "tags": [
+   "python",
+   "docker",
+   "dask",
+   "dask-distributed"
+  ],
+  "body": "I have a dask architecture implemented with five docker containers: a client, a scheduler, and three workers. I also have a large dask dataframe stored in parquet format in a docker volume. The dataframe was created with 3 partitions, so there are 3 files (one file per partition). I need to run a function on the dataframe with [code] , where each worker will take one partition to process. My attempt: [CODE] Is this the correct approach? how to tell dask to use the [code] variable in the [code] statement so the functions run on the workers? Do I need [code] to start the execution? Note: removing the 'with' statement, this works fine if the dask client is run on Jupyter. Problem is when the Dask client is run on Docker as Dask creates the workers in the web application instead of the Docker containers. UPDATE docker compose file: [CODE] Starts with [code] , the flask/gunicorn application runs on [code] . Note: this configuration works fine when I run a [code] , workers run on containers. UPDATE 2 This is the code that works with current docker compose file: [CODE] I see in the Dask dashboard that the function [code] is running on the worker containers"
+ },
+ {
+  "id": "T10145",
+  "title": "Terminal closing after outputting code result",
+  "tags": [
+   "python",
+   "visual-studio-code",
+   "debugging",
+   "terminal"
+  ],
+  "body": "I'm new to coding, and I'm trying to use VS code to learn Python. I had an issue when I ran the debugger. I got some extra output showing something like this: PS C:\\Users\\user\\Desktop\\Python\\oops> & C:/Users/user/AppData/Local/Programs/Python/Python39/python.exe c:/Users/user/Desktop/Python/oops/overridingMethods.py I found that I can change in launch.json - console: \"internalTerminal\" to console: \"internalConsole\", which works to remove the clutter, but if my code has no inputs() at the end, it closes the debug window right away. Is there a way to fix this?"
+ },
+ {
+  "id": "T10146",
+  "title": "i tryed to run a quick sort algorithm and this problem appears: unsupported operand type(s) for -: &#39;NoneType&#39; and &#39;int&#39;",
+  "tags": [
+   "python",
+   "algorithm",
+   "quicksort"
+  ],
+  "body": "guys! I don't understand what's wrong with this code for the Quick Sort Algorithm. Any help, please? I wrote it in Jupyter Notebook [CODE] what should I do?"
+ },
+ {
+  "id": "T10147",
+  "title": "Writing binary in python and read in c++",
+  "tags": [
+   "python",
+   "c++"
+  ],
+  "body": "writing binary in python. [CODE] read in C++ [CODE] read value is different from write value. What should I do to write/read correctly?"
+ },
+ {
+  "id": "T10148",
+  "title": "Class Inheritance and Creation in Python",
+  "tags": [
+   "python",
+   "class",
+   "oop"
+  ],
+  "body": "When you create 2 classes in Python, does the second class always have to be a subclass or the child class? Is it possible to have two classes that have object as their parameters? Thanks! [CODE] What is wrong with this code? It says that Seagull is an inheritance so its (object) should be Bird... but why?"
+ },
+ {
+  "id": "T10149",
+  "title": "How do I install modules or pip in python idle",
+  "tags": [
+   "python",
+   "debugging",
+   "pip",
+   "module"
+  ],
+  "body": "[code] #it works on replit but not on Python IDLE [CODE] I was trying to use a module named [code] ."
+ },
+ {
+  "id": "T10150",
+  "title": "Cannot make seleniumbase load with an existed chromium profile",
+  "tags": [
+   "python",
+   "selenium-webdriver",
+   "webautomation",
+   "undetected-chromedriver",
+   "seleniumbase"
+  ],
+  "body": "Using the code below: [CODE] Expecting to see seleniumbase do the test on the profile i just speciffed. But it just create a new profile under the directory i passed. Info from [code] Profile Path path/to/Profile 1/Default and do the test there. I've tried to use [code] and also not working. What can i do to solve the problem? Thanks"
+ },
+ {
+  "id": "T10151",
+  "title": "Checking whether a number is a power of two",
+  "tags": [
+   "python",
+   "math"
+  ],
+  "body": "I am trying to solve the problem 'Power of Two' on Leetcode. My idea is that for n>=2 to be a power of two, two must divide n and n must not be divisible by any prime 2<= p<= sqrt(n). So first check if n is divisible by two, if not, then it isn't a power of two. If it is divisible, find the primes 2<= p<= sqrt(n) and check if any of them divide n, if at least one does, it isn't a power of two, if none do then n is a power of two. This was my code. [CODE] I understand this is most likely not the most effective way to solve this problem but I'd like to understand where my code has gone wrong. For example, n = 16 returns False when it should return True."
+ },
+ {
+  "id": "T10152",
+  "title": "Django Rest framework - data between two serializers do not validate",
+  "tags": [
+   "python",
+   "django",
+   "django-rest-framework"
+  ],
+  "body": "I have a API view in place where I first want to create a new user (already working) and second I want to return the new created user object using my UserSerializer (Not working). views.py [CODE] I can confirm that creation_serializer.instance.id contains the new users id. serializers.py [CODE] I can also confirm that [CODE] does not validate for some reason. Any ideas Thanks in advance"
+ },
+ {
+  "id": "T10153",
+  "title": "How to get average/mean with mapping in pandas dataframe?",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "mean"
+  ],
+  "body": "I have a dataframe that looks something like this: Birthyear Weight 1992 2 1993 2.2 1992 3 1993 2.5 1994 2.4 1993 1.8 1994 2.1 Note: This is an example, I have +100k of rows and years I want to get a new DataFrame in which I have every year and its average weight, mapping automatically every year because it would take a lot of work and code lines to do it manually. Birthyear Weight 1992 2.5 1993 2.1 1994 2.25 I've tried mapping, which worked before to use a reference table, but didn't work for this [CODE] TypeError : unhashable type: 'DataFrame' Any ideas on how can I make this idea work?"
+ },
+ {
+  "id": "T10154",
+  "title": "ValueError: invalid literal for int() with base 10: &#39;3_Other&#39;",
+  "tags": [
+   "python",
+   "pandas",
+   "machine-learning",
+   "deep-learning",
+   "dataset"
+  ],
+  "body": "I have a dataset and I want to convert all data types to an integer. one of the datatypes of the column is an object and the value in it is like\"3_other\", \"3_server\". how can I convert \"3_other\" to integer in pandas? the column name is: \"label_poly\" label_poly: 3_other 3_server 3_samba"
+ },
+ {
+  "id": "T10155",
+  "title": "How to access specific, indexed elements of a Pandas Dataframe for math?",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "indexing",
+   "best-practices"
+  ],
+  "body": "What is the right/pythonic way to do math on a few indexed elements in a Pandas Dataframe? I tried a few ways but they seem awkward and confusing: [CODE] With results: [CODE]"
+ },
+ {
+  "id": "T10156",
+  "title": "PaddleOCR predict() method throws NotImplementedError",
+  "tags": [
+   "python",
+   "python-3.x",
+   "ocr",
+   "paddle-paddle",
+   "paddleocr"
+  ],
+  "body": "I'm trying to use PaddleOCR: [CODE] ...but I'm getting a [code] when calling the predict() method: [CODE] What am I doing wrong? Is predict() the correct method to use, or should I be using a different function? I know ocr.ocr is deprecated and says to use predict, but it's not working for me."
+ },
+ {
+  "id": "T10157",
+  "title": "Pandas - Match List Values to Index within a Dataset Name and List Value to New Column",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "I have a Pandas dataframe like so: [CODE] I want to append a new column called \"Sonar_Points\" that matches values from a list to the dataset based on the unique numerical identifier in the Dataset name. My list is [5525,4374] and I need to look for the index number in the Dataset name, match it to the list index, then output that value in a new column to where this is the resulting dataframe: [CODE] I've tried the below code, but it doesn't account for datasets with the same index. [CODE]"
+ },
+ {
+  "id": "T10158",
+  "title": "how to solve &quot;TypeError: int() argument must be a string, a bytes-like object or a real number, not &#39;NoneType&#39;&quot;",
+  "tags": [
+   "python",
+   "huggingface-transformers",
+   "huggingface",
+   "huggingface-tokenizers"
+  ],
+  "body": "I tried to run this code: [CODE] but it keeps telling me TypeError Traceback (most recent call last) in <cell line: 15>() 13 return model_name 14 ---> 15 tokenized_datasets = EN_AR.map(preprocess_func, batched = True, remove_columns=>>>[\"inputs\",\"targets\"]) 10 frames /usr/local/lib/python3.10/dist-packages/transformers/tokenization_utils_fast.py in >convert_ids_to_tokens(self, ids, skip_special_tokens) 387 tokens = [] 388 for index in ids: --> 389 index = int(index) 390 if skip_special_tokens and index in self.all_special_ids: 391 continue TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoneType' I took this code from the Hugging Face website for translation preprocessing, but I don't know why it does not work for me"
+ },
+ {
+  "id": "T10159",
+  "title": "How to export all data from a Milvus collection?(~3 million records)",
+  "tags": [
+   "python",
+   "database",
+   "milvus"
+  ],
+  "body": "As Milvus does not support adding fields by default, I need to export all data, move it to the new collection, and set it in the collection of dynamic fields. My plan is to export all data and then insert it, but how do I export it? I use query, but I keep encountering the 16384 limit. My primary key is in string format, so I cannot use the interval method."
+ },
+ {
+  "id": "T10160",
+  "title": "What is the reason for MultiHeadAttention having a different call convention than Attention and AdditiveAttention?",
+  "tags": [
+   "python",
+   "tensorflow",
+   "keras",
+   "attention-model",
+   "multihead-attention"
+  ],
+  "body": "[code] and [code] are called with their input tensors in a list . (same as [code] , [code] , [code] , [code] , [code] , [code] , [code] ) But [code] is called by passing the input tensors as separate arguments . The following minimal example shows the difference in how the [code] are linked: [CODE] [CODE] What's the reason for [code] not following the convention of the other two attention layers, and what does it mean for [code] being stored as [code] in [code] in the [code] ? (Some context on why this is relevant to me: I'm maintaining this library and would like to implement support for [code] .)"
+ },
+ {
+  "id": "T10161",
+  "title": "Flush a file write so that *another program* can read it",
+  "tags": [
+   "python",
+   "logging"
+  ],
+  "body": "I have a python program that is writing a log. The idea is to tail the log so I know what's going on in the program while it is running. But no data ever comes until the python program exits. Even if I use [code] . I know it's possible, but how?"
+ },
+ {
+  "id": "T10162",
+  "title": "Gradient Error of Batch Norm That is Implemented from Scratch",
+  "tags": [
+   "python",
+   "jax"
+  ],
+  "body": "I am trying to implement batch normalization from scratch. Here is my code. [CODE] I also made a batch norm function to test my code above. [CODE] Testing for [code] and [code] gives the same or very close result but not for [code] . Here is my test for [code] . [CODE] The result is like this. [CODE] Why are both gradient w.r.t. shift not similar? Which part of the code is wrong? I really appreciate for any help."
+ },
+ {
+  "id": "T10163",
+  "title": "Calculate the number of quarters between two ending dates of quarters in Python",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "I am wondering how to calculate the number of quarters between two dates - these two dates are the end date of a quarter but they're just different in year. [code] and [code]"
+ },
+ {
+  "id": "T10164",
+  "title": "Vectorising logsum using numpy",
+  "tags": [
+   "python",
+   "numpy"
+  ],
+  "body": "I need to compute the [code] where L is a long list of numbers which can be as high as 3000. np.float64 will overflow around exp(700). However, [code] is immune to overflow but only works for two elements. I wrote the following recursive function to compute it for a list. [CODE] Output: [CODE] Additionally, [code] outputs [code] as expected whereas the [code] would overflow. Now, the problem is that my list L is huge and has upto 10 million elements and I need to compute the logsum at least 1000 times. So, I wonder if there is a way to vectorize using the [code] so that I can use it for a longer list instead of just two elements."
+ },
+ {
+  "id": "T10165",
+  "title": "unbalanced parenthesis regex",
+  "tags": [
+   "python",
+   "regex",
+   "data-processing",
+   "emoticons",
+   "unix-text-processing"
+  ],
+  "body": "[CODE] I'm trying to run the above code in google collab, but it gives the following error: [code] My undesrtanding from the re module documentation tells that [code] is correct way to use, but I still get the error. So, I'have tried replacing [code] with: [code] , it gives the same error [code] , it gives the following output: [code] The correct output should be [code] for [code] Can someone help me fix the problem?"
+ },
+ {
+  "id": "T10166",
+  "title": "Creating a conda env within windows subsystem for linux",
+  "tags": [
+   "python",
+   "conda",
+   "virtualenv",
+   "windows-subsystem-for-linux",
+   "environment"
+  ],
+  "body": "I have just started using windows subsystem for linux. I have a yml file that i am using to make the env proteomics_skani, called from within WSL, with the yml file living in my windows filesystem: [CODE] I need to use Skani in my code, which only runs on linux. I am running this command to make my env within WSL, so I can open Spyder from within WSL in that env, and call the Skani program with subprocess from within python. However, I get an error: [CODE] Can someone point me to the issue? I guess it would be better to store the yml file in the WSL directory/OS, but have no idea where it should go (just the base folder for [code] ?). Thanks! Tim EDIT I got told the updated conda version was already installed, which is interesting, as it also says I have the problematic version and a newer one is available: [CODE]"
+ },
+ {
+  "id": "T10167",
+  "title": "403 Forbidden Web Scraping",
+  "tags": [
+   "python",
+   "web-scraping",
+   "http-status-code-403"
+  ],
+  "body": "I wanted to scrape some data from the website, so I thought to check the response first. and I am getting 403 forbidden error when I am trying to execute the following code [CODE] can someone help me solve this issue, I tried changing headers but it doesn't work."
+ },
+ {
+  "id": "T10168",
+  "title": "Is there any way to not track a object after it has been recognized once in YOLOv8?",
+  "tags": [
+   "python",
+   "opencv",
+   "computer-vision",
+   "object-detection",
+   "yolo"
+  ],
+  "body": "Is there any way to not detect a object in a video after it has been detected once in a video? I am using Yolov8 with cv2 and wanted to know if there any possible way to track a id of an object that has been detected in a frame and print its id and class and then not print that specific id and its class in the next frames for 5s. [CODE] I have tried a different approach as well by simply destroying the window for the next 5s but that isn't working for my use case [CODE] I had another approach where I add the certain ids of objects detected in a frame into array and then not detect the id's that were not in that array, and then clear that array after 5s. However I wasn't able to implement it."
+ },
+ {
+  "id": "T10169",
+  "title": "Matplotlib Error when trying to display seaborn heat maps side by side",
+  "tags": [
+   "python",
+   "function",
+   "matplotlib"
+  ],
+  "body": "I'm using a for loop to plot 4 confusion matrices side by side: [CODE] Running this plots something really weird but doesn't return any error: The function I'm calling is defined: [CODE] And I intended on using it in the following way: [CODE] Perhaps I need to change the function or my for loop but I don't know how. Any help would be great."
+ },
+ {
+  "id": "T10170",
+  "title": "Python -&gt; Java migration: Java Kafka consumer Received fatal alert: bad_certificate when migrating from Python to Java",
+  "tags": [
+   "python",
+   "java",
+   "ssl",
+   "apache-kafka"
+  ],
+  "body": "I have working Python Kafka consumer, and I'm trying to migrate it to Java(Spring) one. However I'm stuck in the process, I can't connect to bootstrap server - my consumer is failing at the stage of SSL cert exchange? I'm getting error: [CODE] I've tried many options, like I created my dedicated JKS containing multiple certs (Certs are self issues I believe, internally in the company) with all certs both exported from browser or from the working Python consumer and nothing works. I've tried also putting those certs in default cacerts store, still getting the same error (previously before adding those certs I had different error). I've tried creating custom PKCS12 keystore providing PEM cert, .key file and CA file from Python config that I have, however this doesn't work neither. I'm basically out of the options I can think of right now. [CODE] And there's my spring config related to kafka: [CODE] My kafka_cert.jks contains multiple certificates (I've tried multiple of our self signed certs) and one Key par, the same one that was used in Python."
+ },
+ {
+  "id": "T10171",
+  "title": "Monitoring a folder with subfolders for newly added files using python",
+  "tags": [
+   "python",
+   "file",
+   "monitoring",
+   "real-time",
+   "advice"
+  ],
+  "body": "I would like to monitor a folder with subfolders where every minute a new file is added (by another application). I need to process these files in python as soon as they are added. The folder contains subfolders named by the date the data was collected, for example 2026_01_01, 2026_01_02, and so on. Each subfolder contains data files that I need to process, named by the date & time they were added, for example, 2026_01_01_03_55.csv, 2026_01_01_03_56.csv, 2026_01_01_03_57.csv and so on. How can I efficiently collect these files in a list in real time? I need to get a list like this (that would update continuously): [CODE] I've found this post How do I get a Cron like scheduler in Python? discussing a library to schedule checks but I'm not sure how to handle looking into subfolders. I would appreciate any advice."
+ },
+ {
+  "id": "T10172",
+  "title": "AWS Athena with python - is it possible to mock with moto while still testing the sql?",
+  "tags": [
+   "python",
+   "boto3",
+   "amazon-athena",
+   "moto"
+  ],
+  "body": "My code performs sql queries on Athena using [code] . I want to be able to test the entire functionality, but avoiding the actual access to athena. I need the data to be fetched based on the query string my code sends and the actual data I put in mocked [code] as part of the tests setup. Has anyone ever done something like this? All examples I see online are not really testing sql logic, but rather use predefined query results to be returned when starting Athena queries."
+ },
+ {
+  "id": "T10173",
+  "title": "When I try to install tensorflow in Jupyter I keep getting the error &quot;Could not find a version that satisfies the requirement tensorflow&quot;",
+  "tags": [
+   "python",
+   "tensorflow",
+   "jupyter-notebook",
+   "modulenotfounderror"
+  ],
+  "body": "I am using Python 3.13.0(64-bit). I am trying to import tensorflow in Jupyter Notebook and I keep getting the error [code] . I run Jupyter Notebook locally. So I upgraded my pip and tried to install Tensorflow using [code] . Then I get the error: [CODE] I tried installing Tensorflow. I upgraded my pip. I rechecked Python env variable path. How to resolve this?"
+ },
+ {
+  "id": "T10174",
+  "title": "Subclass of Generic fails with AttributeError: object has no attribute &#39;__parameters__&#39; - using Generic when superclass does forward __init_subclass__",
+  "tags": [
+   "python",
+   "generics",
+   "python-typing",
+   "subclass"
+  ],
+  "body": "I have a setup like the following [CODE] However it fails with the following [CODE] I figured out that this is because ThirdParty has a [code] function but it does not call [code] , hence [code] is not called. Is there a way around this? Adding [code] to [code] does not work or the following fails as well: [CODE]"
+ },
+ {
+  "id": "T10175",
+  "title": "Pass class method name as a parameter",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "I want to change the last line of following code [CODE] so that I can pass the name of the class method [code] as an argument. Like [CODE] I tried [code] , [code] as an argument as well. May I ask for help for fixing this?"
+ },
+ {
+  "id": "T10176",
+  "title": "ValidationError (Django)",
+  "tags": [
+   "javascript",
+   "python",
+   "django",
+   "postgresql"
+  ],
+  "body": "hello am designing a system with feedback function that capture only user_id however am facing an error a validationerror as shown below enter image description here here is my model.py [CODE] view.py [CODE] i need to capture only the user id when they submit a feedback as well as i need to filter out foul words(cursing language) on each submitted feedback if any occurs"
+ },
+ {
+  "id": "T10177",
+  "title": "Empty space remove from a python list",
+  "tags": [
+   "python",
+   "python-3.x",
+   "list"
+  ],
+  "body": "From a text file I have generated this python list. [code] But I want to remove this empty spaces and ' ', from my list. I suggestions from your side. Expected output [code]"
+ },
+ {
+  "id": "T10178",
+  "title": "Amazon Seller Central SP API ERROR - &#39;code&#39;: &#39;InvalidInput&#39;, &#39;message&#39;: &#39;Invalid request parameters&#39;, &#39;details&#39;: &#39;&#39;",
+  "tags": [
+   "python",
+   "amazon-selling-partner-api"
+  ],
+  "body": "Updating inventory in the seller central, using their API, suddenly stopped working for Japan and Australia. I was told by the account holder that Amazon's response to this problem was to just look at the documentation which doesn't help at all since the documentation hasn't changed. The request body that is failing is ... [CODE] After editing the [code] library so the request would match the documentation exactly I sent the following request. [CODE] The response document for both requests is [CODE] This response is pretty useless since the details are empty. The documentation does say to send the file with content type [code] but when I did that they return an internal error, try again. This problem doesn't happen when I send content type [code] . Feeds for other countries are still working with this code, but this isn't working with Japan or Australia and Amazon support on this issue is useless! Is there any work-around to get this feed to be accepted by Amazon?"
+ },
+ {
+  "id": "T10179",
+  "title": "Problem: How to scrape dynamically loaded data table in Python?",
+  "tags": [
+   "python",
+   "pandas",
+   "selenium-webdriver",
+   "web-scraping",
+   "html-parsing"
+  ],
+  "body": "Python novice here. I have been learning how to scrape from various baseball sites (Fangraphs, Statcast, Rotowire). I have had success with a few different methods, but the Park Factors table on Statcast is giving me issues. I have tried using Selenium and I have tried saving a local html copy of the site on my computer to practice on without repeatedly sending requests to the Statcast server. The below script does scrape a table on the URL, but it’s the first I think, just a game score. [CODE] I want to scrape the larger “Park Factors” table that lists all the team stadiums and has stats for elements such as \"wOBACon\" and \"BACON\". I have attempted this by referring to “table” tag and it never seems to recognize that table. I have attempted indexing the tables but it send me an error that my index is out of range. I have also attempted using ID instead of TAG_NAME and referencing “parkFactors” to no avail. It just says it finds no object with that attribute (does not recognize a table that exists). I have tried to get around that by increasing the length of time it implicitly waits for the dynamically-loaded table to load, without success). I have also attempted referring to class “article-template” and “table-savant” tags with no luck. Any assistance is greatly appreciated!"
+ },
+ {
+  "id": "T10180",
+  "title": "How can I convert cumulative values to incremental values to a pandas dataframe with null values?",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "group-by",
+   "cumulative-sum"
+  ],
+  "body": "I have a pandas dataframe which has cumulative values like this: [CODE] How can I convert the cumulative values to incremental values if the dataframe has null values? I have tried incremental values conversion solution but it does not produce the desired result."
+ },
+ {
+  "id": "T10181",
+  "title": "How to extend predicted value?",
+  "tags": [
+   "python",
+   "scikit-learn",
+   "jupyter-notebook",
+   "regression"
+  ],
+  "body": "This is the sample code which I got from this link [CODE] This code predicts only one value forward but I want to predict five values forward. [CODE] [CODE] How can I do this? I use jupyter notebook. Thank you."
+ },
+ {
+  "id": "T10182",
+  "title": "Creating a Counter Column Comparing Column Values in Python",
+  "tags": [
+   "python",
+   "pandas",
+   "loops",
+   "counter"
+  ],
+  "body": "I am trying to create a counter for a dataset using managers and their employees below is a sample of what I have: [CODE] And this is what I want: [CODE] so far my code looks like this [CODE] If I run this I get all 0s, I am assuming this is because it is running row by row. But I am just guessing. I updated the table to a more accurate visual. I apologize for the change."
+ },
+ {
+  "id": "T10183",
+  "title": "How print li strong without class or id in beautifulsoup",
+  "tags": [
+   "python",
+   "web-scraping",
+   "beautifulsoup"
+  ],
+  "body": "I have this code for scrap '1.6.3' [CODE] I havent id or class in li or strong. This is my code. [CODE]"
+ },
+ {
+  "id": "T10184",
+  "title": "Get values of columns in df according to an index list",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "i have a list of indexes: [0,0,0,3,1,0,4,2,1] and a dataframe (this is just an example, the real dataframe is bigger...): [CODE] i want to get the snr values according to the index list. each index is 1 snr values from a column: first index is the first snr column, 2nd index is the second snr column and the 3rd is the 3rd column. the 4th index is again the 1st snr column. the output should be: [CODE] any ideas? thanks"
+ },
+ {
+  "id": "T10185",
+  "title": "Django-crontab, setting cronjobs",
+  "tags": [
+   "python",
+   "django",
+   "docker",
+   "cron",
+   "django-crontab"
+  ],
+  "body": "I'm currently developing my Django app with various notifications. To avoid frequently querying DB I tried to make cron jobs with an hour intervals, that query for all planed for next hour notifications, count delays, orepare personalized messages etc. For end it should iterate over QuerySet send some tasks to celery queue by apply_async on task. I am working with django = \"==4.2.1\", django-crontab = \"==0.7.1\" and docker-compose. Whenever I build a container I make a rescheduling of all tasks. By this lines in docker-compose.yml: [CODE] and Dockerfile: [CODE] As a result I have a couple of active crons. The problem is, all works fine when I run cronjobs manually by commands: [CODE] But trying by run all at once without optional argument of hash I get: [CODE] And with all active jobs, tasks do not run. I only receive feedback in logs when I run a single job with a command. It ignores the schedule applied in settings.py. Can you lend me some help and advice?"
+ },
+ {
+  "id": "T10186",
+  "title": "Extract text from htm in python where the tags aren&#39;t consistent",
+  "tags": [
+   "python",
+   "web-scraping",
+   "beautifulsoup"
+  ],
+  "body": "I need to extract a section of the SEC filings. Unfortunately these are filed differently by different companies so the source code is different on every page and it doens't look like I can pull outdata by tag. I was trying the code below but I can't get it to work. Does anyone know how I can get it to find the text correctly so I can return the right string please? At the moment it doesn't find the strings and so returns everything or nothing depending on the URL. I think the problem might be the spaces in the formatting which is preventing it finding the keywords in the code and bringing back the right part. Different URLs have different formating return different start and end values e.g. https://www.sec.gov/Archives/edgar/data/0000731766/000073176624000085/unh-20240221.htm It also might not be followed by Item 9.01. So, if anyone knows how to extract the section following Item 7.01 only that would be incredibly helpful. [CODE] I've tried changing the URL to string, 'string', \"string\" in case that helps, but it didn't. I'm not sure what else to try."
+ },
+ {
+  "id": "T10187",
+  "title": "redirect a POST to GET request",
+  "tags": [
+   "python",
+   "flask",
+   "http-redirect"
+  ],
+  "body": "I'm trying to understand what is the best way a POST request can be redirected to a GET request. for example - [CODE] and i've created the following flask to help me with that : [CODE] the \"issue\" in my case, is that the request that is being sent to [CODE] is also a POST request which is not what i wanted. Consider that I don't \"care\" about the body that needs to be sent to the [CODE] endpoint, what is the best way to do so without any user intervention (meaning that I'm aiming for an auto redirect). Note: I've tried to do it via PHP but I can't seem to figure it out. Apologies if something is not clear."
+ },
+ {
+  "id": "T10188",
+  "title": "Google Drive API not working after using pyinstaller",
+  "tags": [
+   "python",
+   "google-api",
+   "google-drive-api",
+   "pyinstaller",
+   "google-api-python-client"
+  ],
+  "body": "I wrote some code that downloads a zip file from a google drive and then extracts the contents. It works fine when I run it normally from vs code, but when I build it to an application with pyinstaller, I get an error saying [CODE] I have a cacert.pem file, but it is not in the location specified. I don't want to access it from there first of all, and even if I wanted to it won't let me paste it in there. I'm not sure what the problem is so help is appreciated. Pyinstaller command I use: [CODE] Main Code [CODE] This is the Google File [CODE]"
+ },
+ {
+  "id": "T10189",
+  "title": "Generate all binary strings with n-bit?",
+  "tags": [
+   "python",
+   "recursion"
+  ],
+  "body": "I am reading a book in which following code is given- [CODE] Then book says \"T(n)=2T(n-1)+ d, for some constant d and hence by Master theorem we get T(n)=O(2^n)\" But I think complexity should be O(n2^n) when I try to solve it making recursion tree as when we move to the bottom of the tree we are solving similar problem exponential times. What I think should be the corrected solution [CODE] This will give me complexity of O(2^n). Am I missing something here?"
+ },
+ {
+  "id": "T10190",
+  "title": "undetected_chromedriver error: Too many open files",
+  "tags": [
+   "python",
+   "selenium-webdriver",
+   "undetected-chromedriver"
+  ],
+  "body": "I am running this selenium-script on my Linux server. After 10 hours I see an error Too many open files My code: [CODE] Full trace: [CODE] Update1 -- created instance of Display object only once, but it didn't help (still have the same error)"
+ },
+ {
+  "id": "T10191",
+  "title": "How to filter rows in a Dataframe(df) where df[list] has all values less than specific float value",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "jupyter-notebook"
+  ],
+  "body": "I want to return only those rows of the Data frame df, where ALL values of df[list of column names] are less than user input float value . Note- df[list of column names] is a Data frame containing list of specific columns, that we can not hard-code. eg.. First we filter specific columns start with D_BALANCE: cols= list(df.loc[:,df.columns.str.startswith(\"D_BALANCE \")]) Then we select all columns except end column (list): rest_except_end_col= cols[0:-1] Our main master data frame is df, NOW i want to check if df[rest_except_end_col] < 1000.0 , IF ALL ROWS OF THESE COLUMNS ARE LESS ONLY THEN I WANT TO GET THAT RECORD(complete row) FROM df."
+ },
+ {
+  "id": "T10192",
+  "title": "Detecting audio transcoding with ffmpeg",
+  "tags": [
+   "python",
+   "audio",
+   "ffmpeg",
+   "signal-processing",
+   "audio-processing"
+  ],
+  "body": "I'm building a small CLI tool for myself to help me find transcoded audio files. The idea is to detect \"fake\" high-bitrate files that have actually been transcoded from a lower-quality source. Signal processing is outside my expertise, so I'd love feedback: - Is this approach sound, or are there obvious mistakes in my analysis? - Are there faster / more efficient ways to do this? (Without parallelization) - Are there edge cases that this approach misses? [CODE] (Don't mind the excessive commenting, I left it for future me who will likely have completely forgotten why any of this works)"
+ },
+ {
+  "id": "T10193",
+  "title": "Inaccessible class via &quot;manage.py&quot;",
+  "tags": [
+   "python",
+   "django",
+   "class",
+   "pickle"
+  ],
+  "body": "Class used to create pickled object in another module is inaccessible via running \"python manage.py runserver\". How do I point \"manage.py\" to that class (Classify)? Here's my stack trace below: [CODE] Here's an image of my project file structure P.s: The class is in the \"mnist_classifier_scratch.py\" file and I'm unpickling the object instantiated from that class in the models.py file."
+ },
+ {
+  "id": "T10194",
+  "title": "How to prevent py4j from resurrecting an older version of my JAR?",
+  "tags": [
+   "python",
+   "java",
+   "py4j"
+  ],
+  "body": "I'm running a basic py4j program as follows: [CODE] Originally, my java program looked like this [CODE] Environment details: I'm running the python program via asdf+poetry python and building the java jar with maven. Python version 3.9.17, Java version 17. After building and running my server a few times, I realized I needed a new method, so got rid of [code] , replacing it with [code] . So now my program looks like the following: [CODE] However, now after rebuilding and relaunching my java jar for [code] , I'm seeing the following results in my python program: [CODE] Note that these results persist, even if I locally kill all processes with \"java\" in the name, delete the original JAR, or anything else. Somehow py4j seems to have learned the first ever JAR I presented it with and will never let go. How do I kill the deprecated java code and prevent python from speaking to it ever again?"
+ },
+ {
+  "id": "T10195",
+  "title": "The conditional edge in LangGraph causes the reduce function to be invoked twice",
+  "tags": [
+   "python",
+   "langgraph"
+  ],
+  "body": "I am a beginner with LangGraph and am learning to create a graph to compute the Fibonacci sequence. The program has two nodes: one responsible for updating the Fibonacci sequence, and the other for controlling the loop. The complete code is as follows: [CODE] The n1 node is responsible for computing the latest value in the Fibonacci sequence and returning updates to the graph state. The append_to_list function is intended to add the newly generated fibonacci_list value to the fibonacci_list list in the graph state. I originally thought that append_to_list would be called only once after the n1 node finishes execution, and that the final result would be a complete Fibonacci sequence. However, in reality, the append_to_list function is also called every time the CN node finishes executing, and the arguments passed to it are the same as those passed after the n1 node finishes. This results in duplicate values being added to the Fibonacci sequence. For example, I expected to get [1, 1, 2, 3, 5, 8, 13], but instead I got [1, 1, 2, 2, 3, 3, 5, 5, 8, 8, 13, 13]. How can I prevent the conditional edge from triggering the reduce function?"
+ },
+ {
+  "id": "T10196",
+  "title": "How to read path with arabic characters in python?",
+  "tags": [
+   "python",
+   "opencv"
+  ],
+  "body": "I'm trying to access to a folder with arabic characters in name and read the images with CV2 but got issue that's my code: [CODE] But as shown at my screenshot the path2 is good and the arabic letter has been read but at opencv I got error"
+ },
+ {
+  "id": "T10197",
+  "title": "Problems with numpy in Tensorflow",
+  "tags": [
+   "python",
+   "pandas",
+   "numpy",
+   "neural-network",
+   "tensorflow2.0"
+  ],
+  "body": "[CODE] That is my code and I need help. I expect the normal thing that some graphs show up and it says tht everything has worked finde. But it does not. Error code: [CODE]"
+ },
+ {
+  "id": "T10198",
+  "title": "I want to select data from different df, how can I speed it up?",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "I want to take the last data before the specified time from different time intervals df, my code is as follows: [CODE] On my computer, the running time of [code] is [code] , how can I speed up the running speed of [code] ? [CODE] I optimized it, and the running time was reduced to [code] . Is there any room for improvement? [CODE] [CODE] Answers to my questions on code view SE: [CODE]"
+ },
+ {
+  "id": "T10199",
+  "title": "PyPI package name similar to existing project",
+  "tags": [
+   "python",
+   "pypi",
+   "python-packaging",
+   "python-poetry"
+  ],
+  "body": "Is it possible to check whether the name of my project will be available on PyPI? Recently I got this error: [CODE] So it looks like it is not only a problem of exact name match. Is there some way to check if the name will be unique enough for PyPI other then just preparing everything and then getting error like this?"
+ },
+ {
+  "id": "T10200",
+  "title": "How to extract intraday stock data from onvista with python and playwright/selenium?",
+  "tags": [
+   "python",
+   "macos",
+   "selenium-webdriver",
+   "playwright",
+   "playwright-python"
+  ],
+  "body": "Using 3.9.6 and playwright on MacOS 14.7.5 I am trying to extract the public available intraday stock data from a webpage like [CODE] To make the Intraday data load you have to click the \"Intraday\" button. Here is a script I tried but it seems it did not click the Intraday button [CODE] The output is [CODE] Is there a way to fix that script? Or would selenium be the better choice?"
+ }
+]

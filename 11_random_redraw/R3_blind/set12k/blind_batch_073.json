@@ -1,0 +1,1211 @@
+[
+ {
+  "id": "T08641",
+  "title": "How to use seaborn.clustermap with large (20 000 entries) data sets?",
+  "tags": [
+   "python",
+   "seaborn",
+   "cluster-analysis"
+  ],
+  "body": "I'm working a lot with [code] and I'm quite enjoying it as an easy tool to get an overview over a large amount of data (time series data in my case, a few hundred entries mostly). So I figured I'll enjoy it with some larger data too, but well, not so much... I don't mind that it takes about 6 hours to calculate on my machine, but not getting any output for those 6 hours is rather annoying. I does show the dendrogram, but the field that should contain the matrix just remains empty. Now, assuming that seaborn doesn't have inbuilt routines that deal with interpolating between pixels, this kinda makes sense. Assuming a 1 px height of a row, the matrix alone should be 20 000 pixels high with a 20 000 entries dataset. But if I increase my [code] to say [code] it takes a whole day and then crashes because it's out of memory and/or because my figure is too big (apparently, there's hard limit to how big a png file can be). Is there any way to produce a clustermap with such large data sets? When I run it with a small image size, I can produce the shown, empty picture, e.g.: [CODE] With [code] being a pandas Dataframe with [code] = [code] . Since it takes quite some time and doesn't produce an error, I assume [code] contains, well, the clusterplot, but how can I get to it? Assuming there is a way, can I also calculate the clustermap without any output? I.e. something like [code] to save s"
+ },
+ {
+  "id": "T08642",
+  "title": "For loop iteration on pandas dataframe - improve time",
+  "tags": [
+   "python",
+   "pandas",
+   "for-loop",
+   "optimization"
+  ],
+  "body": "I have table similar to this tabke, which shows the payments individuals. I have already built a script to create my required output table, but I would like optimize my script to run more efficient and faster. This is my original table: [CODE] I have written a script that runs on this table and does the following steps: Gets unique list of cities get list of unique names for loop- get only specific name each time get list of unique dates (ignore hours) of each person nested for loop- get dataframe of specific person in specific date calculate for the filtered dataframe: maximum daily spent, minimum daily spent and average daily spent. append these values for list create dataframe with columns: person name, date, max,min and mean. The code I use for this is the following: [CODE] My end goal is to optimize this for loop to make it run faster and maybe write it more estetically."
+ },
+ {
+  "id": "T08643",
+  "title": "How to parse audio.cdindex",
+  "tags": [
+   "python",
+   "xml",
+   "dtd"
+  ],
+  "body": "Some audio CDs have a file called audio.cdindex with artist, album and a list of the titles. I have a python tool to copy my CDs on the NAS and if I don't find the ID of a CD on musicbrainz or cddb I try to parse audio.cdindex to name the files correctly. Fortunately the file is xml, so xml.etree.ElementTree usually does a good job. But now I have a CD that references http://www.musicbrainz.org/dtd/CDInfo.dtd as dtd and this file has disappeared. Usually a missing dtd is ignored by the python lib, but on this CD the tracks reference an entity [code] and so the parsing fails. I tried to replace the dtd with a copy of http://www.w3.org/TR/xhtml1/DTD/xhtml-lat1.ent where the entity is defined, but it seems this dtd is never apllied. Here is the audio.cdindex I am using: [CODE] The python code Iam using is this one: [CODE]"
+ },
+ {
+  "id": "T08644",
+  "title": "find the button with a specific aria-label attribute",
+  "tags": [
+   "python",
+   "selenium-webdriver"
+  ],
+  "body": "I would like to use Selenium to click on a button on a Linkedln web page to activate the \"Easy Apply\" filter. I want to find a button with a specific aria-label attribute and at the same time use Linkedln's Easy Apply feature. The following HTML element represents the button to activate the \"Easy Apply\" filter: [CODE] When I ran the following Python code, I could not find such an attribute. This is my Python code. [CODE]"
+ },
+ {
+  "id": "T08645",
+  "title": "Maximum recursion depth exceeded issue in Postman",
+  "tags": [
+   "python",
+   "flask",
+   "postman"
+  ],
+  "body": "[CODE] This is the code I'm trying to run, whenever I run this code normally without any flask or postman, I get a proper output. But whenever I try to run it through postman, I get the following error : [CODE] Please let me know what should I do to avoid getting this error. Let me know if more info is needed."
+ },
+ {
+  "id": "T08646",
+  "title": "Changing legend format for float numbers",
+  "tags": [
+   "python",
+   "matplotlib",
+   "windrose"
+  ],
+  "body": "The following sample code from Windrose ax plot creates a legend which I want to control the number of decimal and fraction digits considering that data are shown in float. [CODE] How can I do that?"
+ },
+ {
+  "id": "T08647",
+  "title": "Count NaNs in window size and min_periods of rolling Pandas function",
+  "tags": [
+   "python",
+   "pandas",
+   "numpy"
+  ],
+  "body": "We have the following pandas dataframe: [CODE] I want to compute the rolling mean of column 'U', with a window size = 5 and min_periods = 4. Pandas built-in rolling function considers only non-NaN values both for window size and min_periods. Instead, I would like to consider NaN values both for window size and min_periods, without affecting the calculation of the mean. This is the expected output: [CODE] Any way to accomplish this without loops? Thanks"
+ },
+ {
+  "id": "T08648",
+  "title": "merging columns from two different data frame",
+  "tags": [
+   "python",
+   "pandas",
+   "replace",
+   "merge",
+   "concatenation"
+  ],
+  "body": "I have two different dataframe as shown in the images below. I will like to merge column (C-ORG_PC) in the first dataframe with column (C-ORG_PC) in the second dataframe such that when the SAMPFROM column in both dataframe are equal, It will replace the -99 value at that point in the first dataframe with the corresponding value in the second dataframe. data1: SAMPFROM SAMPTO C-ORG 0 5 -99 5 10 -99 10 15 -99 15 20 -99 20 25 -99 25 30 -99 30 35 -99 35 40 -99 40 45 -99 data2: SAMPFROM SAMPTO C-ORG 0 20 2.5 20 40 7 40 60 7 60 80 9 [CODE]"
+ },
+ {
+  "id": "T08649",
+  "title": "Xarray combine_by_coords runs OOM when loading several dimensions",
+  "tags": [
+   "python",
+   "python-xarray"
+  ],
+  "body": "I have a script to load individual files into [code] for a custom data format which works fine when loading in individual files, however the moment I try to either load using [code] or [code] it falls over. Here's the minimal example I can produce: [CODE] There are quite a lot of coordinates in each file: [CODE] Each of these dimensions is no more than 20kB on average. Each file is approximately 314MB and I'm only loading in 2 files in this example. How can I load in these files and combine across these dimensions without them ballooning in size and leading to out of memory issues? Running this on my supercomputing cluster leads to the error: [CODE]"
+ },
+ {
+  "id": "T08650",
+  "title": "Training tff metrics on federated training data of clients",
+  "tags": [
+   "python",
+   "tensorflow",
+   "tensorflow-federated"
+  ],
+  "body": "I am following this tutorial . Here I perform training on federated train data: [CODE] and then evaluate the testing set. How can I get the tff training (accuracy/loss) metrics in custom code of federated learning? Earlier, I was using: [CODE] and then I was able to print tff metrics: [CODE] But I don't understant how I can show tff metrics in my custom tensorflow federated training process."
+ },
+ {
+  "id": "T08651",
+  "title": "Show execution time for every script that imports a specific module (without defining it inside the script)",
+  "tags": [
+   "python",
+   "python-3.x"
+  ],
+  "body": "so I have a lot (thousands of single scripts) that use the same library (self-developed) by importing *. Is there a way for me to see/print the execution time for each script without modifying every single script, probably define at the library but expecting it to print before the code ends?"
+ },
+ {
+  "id": "T08652",
+  "title": "How do I request and download a CSV of email activity from the SendGrid API?",
+  "tags": [
+   "python",
+   "sendgrid",
+   "sendgrid-api-v3"
+  ],
+  "body": "I want to get a CSV of email activity from the SendGrid v3 Email Activity API. I tried to use the API to request a CSV export of email activity , like so: [CODE] This successfully makes a POST request to [code] , but the response simply says the CSV will be emailed to the administrator of our SendGrid account: [CODE] That is, it does not provide a link to the CSV. The only way I can find to download it is through a link emailed to the administrator a few minutes after the request was sent. I want the export to be automated so that the admin doesn't need to be involved. SendGrid's documentation mentions an endpoint for downloading a CSV , but it requires a [code] that isn't in the response from the initial request. SendGrid has an API to \"Filter all messages\" , but it is limited to a maximum of 1,000 messages and doesn't support pagination for receiving more entries beyond that. In contrast, the CSV export supports up to 1,000,000 events and contains more information about the messages. How can I retrieve the generated CSV of email activity through the SendGrid API in a way that doesn't require the admin to receive and forward an email?"
+ },
+ {
+  "id": "T08653",
+  "title": "How do I change the case using csv",
+  "tags": [
+   "python",
+   "python-3.x",
+   "csv"
+  ],
+  "body": "It is necessary to change the case of the first column in the CSV file to lower case using the csv module by writing to the same file. [CODE] Is it possible to do this with a single command? Not using Pandas."
+ },
+ {
+  "id": "T08654",
+  "title": "How to shutdown flask server?",
+  "tags": [
+   "python",
+   "flask"
+  ],
+  "body": "I've tried using signals, keystroke logging, multiprocessing to shutdown the servers but am not having any luck. I want this flask app to run, return the code from the redirect_uri and then exit the server and continue with the main flow. Here is what I have so far. [CODE]"
+ },
+ {
+  "id": "T08655",
+  "title": "LightGBM Classifier faster on CPU than on GPU",
+  "tags": [
+   "python",
+   "gpu",
+   "nvidia",
+   "lightgbm"
+  ],
+  "body": "I've followed instructions in official documentation of LightGBM. I followed each step and when I tried to make the speed test on both GPU and CPU I noticed that CPU computation is faster than GPU . However, computer recognizes the GPU and complains about nothing. Any clue about why is this happening? According to the tutorial, GPU should be at least three times faster. I tried with my own dataset and Sklearng API (LightGBMClassifier) and it happens the same. I'm working on a Debian 11, with a Nvidia GPU Tesla T4. I installed the drivers 470.182 and [code] works properly. It's a Google Cloud Virtual Machine. Already check similar questions (like this one ), but no answers found. Thanks in advance."
+ },
+ {
+  "id": "T08656",
+  "title": "Is it possible somehow without refreshing the pages on Django to send a request via SSH to a virtual machine running Ubuntu?",
+  "tags": [
+   "python",
+   "django",
+   "ssh"
+  ],
+  "body": "Good afternoon, I have a frequently asked question, for example, [CODE] Is it possible somehow without refreshing the page to send a request via SSH to a virtual machine running Ubuntu? For example: [CODE] The csgo server is started with \"./csgoserver start\" . Is it possible somehow to send a request with \"./csgoserver start\" to the local machine, on the click of a button on the page, to start the server? I searched for information and did not find it. With the help of ajax, if I understand correctly, it is possible to send a request only if there are servers on the same machine, right? I would be grateful for the answer where should I look, what to study, so that I can implement this idea. One guy suggested that you can look towards REST, but I can't figure out how to implement what I need through REST."
+ },
+ {
+  "id": "T08657",
+  "title": "Articles matching query does not exist",
+  "tags": [
+   "javascript",
+   "python",
+   "html",
+   "css",
+   "django"
+  ],
+  "body": "I have just started working in Django. My problem in addressing with slug I get an error when sending a request to Slug. This is my error: [code] I also get an error when migrate. This is my error: [code] [CODE] my view: [CODE] my urls: [CODE] Error after sending request: [code]"
+ },
+ {
+  "id": "T08658",
+  "title": "chaquopy and android: interactive dialog",
+  "tags": [
+   "python",
+   "java",
+   "chaquopy"
+  ],
+  "body": "I have been trying to implement this functionality for a while, but all my approaches failed. I would like to have some python code opening a dialog in the android app and wait for the user to click on the ok button (this is the first step I want to complete before I can create more complex YES/NO dialogs). So far the only behavior I'm able to obtain is a non-blocking dialog, not matter what I try (signals, sockets, shared variables) but it seems like that the dialog is not shown until the python code has ended its execution. here is my example that uses a global variable to confirm the user has dismissed the dialog: Python [CODE] Java [CODE] few notes: with this code, no print is ever executed, it is as if [code] is never called in the first place, no chances that anything is displayed. If I remove the [code] loop all the prints are executed in the following order: [CODE] Is there a way to create a blocking dialog that interface with python directly? indirect solutions are welcomed as well, but even with java callbacks I get the same behavior. SOLUTION by @mhsmith: [CODE]"
+ },
+ {
+  "id": "T08659",
+  "title": "Connecting Python app to Crate-DB Docker container",
+  "tags": [
+   "python",
+   "sql",
+   "docker",
+   "cratedb"
+  ],
+  "body": "I am using docker compose to set up a python app and connect it to Crate DB which is also in a container. Everything works smoothly if I connect with localhost:4200 from my local terminal, but when I add the python script to the container, it cannot reach the DB anymore. This is the docker-compose file: [CODE] The Python script connects as follows: [CODE] I tried basically any combination of localhost, 0.0.0.0, \"crate-db\", 172.18.1.0, 172.18.1.4 (the crate db endpoint) as hosts and 4200, 4300 and 5432 as ports. The Grafana service which is also in the docker compose connects to the Crate DB on host:\"crate-db\", port: \"5432\" (which still does not work). All fails with error: raise ConnectionError( crate.client.exceptions.ConnectionError: No more Servers available, exception from last server: HTTPConnectionPool(host='172.18.1.4', port=4200): Max retries exceeded with url: /_sql (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fbaf0419460>: Failed to establish a new connection: [Errno 111] Connection refused')) As mentioned above, when I run the app out of the container it connects simply with localhost:4200. I am probably missing something crucial here so I hope anybody could give me a hand, it would be really appreciated."
+ },
+ {
+  "id": "T08660",
+  "title": "Is one way of returning a user-input value, using a try-except clause, better than the other?",
+  "tags": [
+   "python",
+   "try-except"
+  ],
+  "body": "For context, I am new to Python, and somewhat new to programming in general. In CS50's \"Little Professor\" problem ( details here, but not needed: https://cs50.harvard.edu/python/2022/psets/4/professor/ ) my program passes all correctness checks; but, unfortunately, programs aren't checked for efficiency, style or \"cleanliness\", making those details harder to learn... Therefore, using the function below as an example, I am trying to grasp how to think about choosing an implementation when there are multiple options. In the code below, I have a function that prompts the user to input an int(). If the user inputs 1, 2 or 3, return that value. Otherwise, if the user does not input 1, 2 or 3, or the input is not even an int(), re-prompt the user. The first includes the conditional within the try block, and breaks if the condition is met, returning the value once out of the loop. [CODE] In the second, once the input has met the int() condition, if the value is 1, 2 or 3, it breaks out of the loop by returning the value of level, similarly re-prompting if not. ( Note : I noticed the below also works without the \"else:\" statement, which is a little confusing to me as well, why isn't it needed?) [CODE] Is one of these examples better to use than the other, and if so, why? Any help is greatly appreciated, but if there is not a specific answer here, thoughts on the overall concept would b"
+ },
+ {
+  "id": "T08661",
+  "title": "How can I get the iframe src?",
+  "tags": [
+   "python",
+   "selenium"
+  ],
+  "body": "its iframe code [CODE] its my code [CODE] I want to get src link inside iframe"
+ },
+ {
+  "id": "T08662",
+  "title": "Adding videos to playlist - YouTube API SERVICE_UNAVAILABLE error during execution of a Python batch HTTP request",
+  "tags": [
+   "python",
+   "youtube-api",
+   "httprequest",
+   "playlist",
+   "batch-request"
+  ],
+  "body": "I've been experimenting with the YouTube API client for a few days now and managed to upload single videos to a YouTube playlist. I'm now trying to batch-add multiple videos to a playlist through the use of batch http requests ( [code] ). I'm aware that the alternative is to just loop through a list of videos and, for each, execute an individual request, but I read that I may be able to reduce quota usage using batch requests. I've read conflicting views on whether or not this is actually true, but I'm hoping to get to a point where I can see this for myself. The issue I'm having is that when executing the batch request, only 1 of the videos is actually added, and the other ones return an exception: <HttpError 409 when requesting https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json returned \"The operation was aborted.\". Details: \"[{'domain': 'youtube.CoreErrorDomain', 'reason': 'SERVICE_UNAVAILABLE'}]\"> One of the videos in a list would consistently be added, and it would not even necessarily be the first or last in the list used. The code used: [CODE] I've considered this might be a quota issue, but it's not. I tried looking for different variations of the specific error, but came up empty handed. I'm not sure if this is a limitation of playlistItems().insert when using batch requests. EDIT : Concerning the suggested question that has already been aske"
+ },
+ {
+  "id": "T08663",
+  "title": "web scraping with python/beautiful soup",
+  "tags": [
+   "python",
+   "beautifulsoup"
+  ],
+  "body": "So i am learning how to web scrape. I am currently trying to find all of the social links in this code [CODE] It is clearly the links in the anchor tags but i am having issues with the find_all command and when i try to use it i am only getting back one of the social links. The code im putting in is [CODE] and the out put is [CODE] I am not exactly sure on what i am doing wrong. I thought that if i targeted the href that it would grab all of the hrefs..Any hints or direction would be greatly appreciated."
+ },
+ {
+  "id": "T08664",
+  "title": "Why does appending data with PySpark raise a &quot;SQLServerException: CREATE TABLE permission denied&quot; exception?",
+  "tags": [
+   "python",
+   "sql",
+   "sql-server",
+   "pyspark",
+   "databricks"
+  ],
+  "body": "In my Databricks cluster I'm trying to write a DataFrame to my table with the following code: [code] And this line fails with Py4JJavaError: An error occurred while calling o53884.jdbc. : com.microsoft.sqlserver.jdbc.SQLServerException: CREATE TABLE permission denied in database '[REDACTED]'. at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:265) at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1676) What I don't understand is, I'm not trying to create a table, I'm trying to append data to a table that already exists . ( EDIT: The table did not, in fact, exist.) In this example, the user I specified in [code] has SELECT, INSERT, UPDATE and DELETE rights on the destination schema."
+ },
+ {
+  "id": "T08665",
+  "title": "Why is the output of &quot;complex(20+10j,5+5j),complex(10+10j,5+5j)&quot; as &quot;(15+15j),(5+15j)&quot; and explain with more examples?",
+  "tags": [
+   "python",
+   "spyder"
+  ],
+  "body": "Why is output of (31+5j.real) as 31.0 and (31+5j.imag) as 36.0? Why is output of (42.real) as 42 and (42.imag) as 42? Why is output of (complex(20+10j,5+5j)) as ((15+15j) and (complex(10+10j,5+5j)) as (5+15j)? I would like to know the answer as I am confused as how complex relation functions work."
+ },
+ {
+  "id": "T08666",
+  "title": "Pip install pycryptodome returns: Is not a supported wheel on this platform",
+  "tags": [
+   "python",
+   "pycryptodome"
+  ],
+  "body": "I am trying to install [code] and [code] on Windows 11 and Python 3.10 in venv. Whl files were downloaded from pypi manually: [CODE] Trying to install any of them I have an error: [CODE] But why? There are most suitable whls availavle on pypi Whls are for windows and for python 3.10. Why it can't be installed?"
+ },
+ {
+  "id": "T08667",
+  "title": "Looping over unique ID and plotting the variables of those unique ID individually",
+  "tags": [
+   "python",
+   "pandas",
+   "loops"
+  ],
+  "body": "I have the panel dataset of multiple countries with ISO3 based IDs and their respective macroeconomic indicators. The data looks like the following, where the number of unique IDs equal to 142 (countries): [CODE] I want to split dataset by unique country IDs, store it and do the plotting and running a regression on each country based on its macroeconomic variables with a certain loop. For example, I have been able to split the dataframe to the following shape, where each df belongs to a particular country, e.g. df1 is Angola: [CODE] And, having those dataframes, I want to construct a loop, using those dataframes (df1, df2, df3, df4 and so on till df142) to iterate over each country to plot their macro variables (x1 and x2) separately. Thank you in advance!"
+ },
+ {
+  "id": "T08668",
+  "title": "Adjust the position of the gridlayout in kivy",
+  "tags": [
+   "python",
+   "kivy"
+  ],
+  "body": "I create an UI displaying 6 states (cols:3 /rows:2). I'm using the GridLayout feature and 6 MDCard equalivents for 6 states I ưant want to display to the user. The problem I met is that I cannot adjust the position of these states in the middle of the screen. I'm using the Kivy framework [CODE] Image description here"
+ },
+ {
+  "id": "T08669",
+  "title": "Error in calculating bbox coordinate Y when uploading a background image",
+  "tags": [
+   "python",
+   "pyqt"
+  ],
+  "body": "I am writing a script that loads an image and we can draw bboxes on it by pressing the key B and then dragging the mouse. However for some reason the calculation of the bboxes coordinates (specially the Y coordinate) gets wrong. I have managed to get a minimal reproducible code. Here it is [CODE] To run it, just run python on it (I use a image, so you must replace this with a jpg you have) , then press B and draw the image. check the box and save the image. If you do this, you will get an image and a text file. Then with this simple script [CODE] I get The results are the blue ones. You obviously see it is wrong. However if in the first script you comment the [code] and uncomment the [code] and run the same, you will see that this time it works. As you can see the blue bboxes work here. How can I correct the part where an image is loaded? The original image is I can see clearly that the script is modifying the size of the images which is undesirable. How can I correct this script"
+ },
+ {
+  "id": "T08670",
+  "title": "Socket server displaying wrong IP",
+  "tags": [
+   "python",
+   "sockets",
+   "ip"
+  ],
+  "body": "Im making a chat app with sockets and Im having a small issue. Im running the server off my laptop and then I connect to the server from a client running inside of a virtual machine on the same laptop. chat_server.py [CODE] chat_client.py [CODE] Whenever a connection is made to the server from a client, the server is supposed to display the IP of the client that has connected, but it keeps displaying the IP of the server. example [CODE] Ive run ifconfig on the virtual machine to get its IP, and as far as im concerned the server should be showing this when the client connects: [CODE] How can I make the the IP address of the connected client be displayed instead of the servers IP."
+ },
+ {
+  "id": "T08671",
+  "title": "run python script in VS code works with run python file button, but not F5 key",
+  "tags": [
+   "python",
+   "vs-code"
+  ],
+  "body": "I can run a python script by pressing the run python file button: but unable to run the same when pressing the F5 key or run from the dropdown menu. I can also run in the interactive window fine: And likewise i can run a notebook fine. other checks: I can verify that it doesn't debug by adding a breakpoint and running. Would there be a key-binding that is missing perhaps ? What is causing this and how can one fix the issue please ?"
+ },
+ {
+  "id": "T08672",
+  "title": "I am having problems displaying python code because I get _tkinter.TclError",
+  "tags": [
+   "python",
+   "tkinter",
+   "turtle-graphics",
+   "python-turtle",
+   "x11-forwarding"
+  ],
+  "body": "I want to run a python code that will use the Turtle graphics module to make a graphical presentation of my code. I'm doing this in a Linux guest (VM) and windows host using vagrant. In my vagrantfile, I have added: [code] I have uncommented line in /etc/ssh/ssh_config that said # ForwardX11 no and changed no to yes. I even installed and ran vcXsrv and tried to start the VM with it running. Didn't work. I still get: [CODE] I then exported DISPLAY=localhost:0.0 and got: [CODE] I know there are many Qs&As that address similar issues eg if you are using WSL but none covers what I should do if I'm using a VM."
+ },
+ {
+  "id": "T08673",
+  "title": "Multinomial regression with statsmodels.formula.api is not working for me",
+  "tags": [
+   "python",
+   "logistic-regression",
+   "statsmodels",
+   "multinomial"
+  ],
+  "body": "Whenever I try to build a multinomial regression using the R-style formula approach in [code] in Python, I get [code] Here's a minimal test case: [CODE] This is with Python 3 and recent versions of pandas and statsmodels. I have tried various transformations to the y-variable (set it to type category, use a number instead, etc) but nothing has helped. Any advice appreciated - thank you"
+ },
+ {
+  "id": "T08674",
+  "title": "How to efficiently extract variables from a python function into an r dataframe using dplyr?",
+  "tags": [
+   "python",
+   "r",
+   "dplyr",
+   "reticulate",
+   "best-practices"
+  ],
+  "body": "I have a dataframe called Profile_1_2 of data that is formatted like this: Profile_number chl_z Cphyto_z 1 0.2 10 1 0.6 100 2 0.1 20 2 0.5 90 Profile_number denotes a group, each profile contains 200 rows. I implemented a model from a python script using reticulate [CODE] cbmp_argo is function with input of 5 variables: [CODE] and output of 7: [CODE] when I use the function in a profile-wise basis it outputs a list of 7 elements without naming them: [CODE] I want the model output to be added to the initial dataframe as additional columns, which I have done simply using square brackets, resulting in a dataframe with 9 columns as intended: [CODE] However this seems incredibly long winded and (I think) requires repeated use of the function for a single profile. Is there a more concise way of extracting the model output into the dataframe. for those interested I am using a slightly altered version of the scripts listed by Lionel Arteaga https://zenodo.org/records/6599224#23.YqJZFC1h3uM"
+ },
+ {
+  "id": "T08675",
+  "title": "Connection between Backend and Frontend Issue",
+  "tags": [
+   "javascript",
+   "python"
+  ],
+  "body": "I have an app that converts pdf files to csv files. I receive the following error when I press submit with my files [code] . On my console, it reads [code] . It seems that the front end and back end are running on different servers even though I told JSON to go to the same server (port 5000) but the html/js is going to the original JSON script of PORT 5502. Here is my python file [CODE] And here is my html file [CODE] and here is my js file [CODE]"
+ },
+ {
+  "id": "T08676",
+  "title": "How to compute cityblock for N dimention matrice?",
+  "tags": [
+   "python",
+   "pytorch"
+  ],
+  "body": "I am going to compute the Manhattan distance for two [4,12,64,32]matrices using scipy.spatial.distance.cdist. However, cdist(x,y,'cityblock') does not support to compute cityblock distance for >3d matrices. I manually implement it like [CODE] , which runs very slowly. I would like to ask how I can use cuda() to compute the Manhattan distance for the two [4,12,64,32]matrices parallelly."
+ },
+ {
+  "id": "T08677",
+  "title": "Stuck trying to figure out the issue with my nested loop",
+  "tags": [
+   "python",
+   "loops",
+   "nested"
+  ],
+  "body": "I've tried various ideas and I always come back to 2 main results that are wrong. I don't know where I'm going wrong. [CODE] Prints out: The problem here is that it only prints out the last team's name over and over again. [CODE] If I push the print into the for team in teams loop I get this: I get all the team names, but every points and placing is repeated over i times [CODE] I should be getting: [CODE]"
+ },
+ {
+  "id": "T08678",
+  "title": "why are these strings being considered equal ? python",
+  "tags": [
+   "python",
+   "string",
+   "if-statement"
+  ],
+  "body": "Don't know what else to say. running this code: [CODE] getting this output (note the [code] printed in the output. it is clearly not equal to the two urls i am checking against in my [code] statement. what am I doing wrong ? [CODE]"
+ },
+ {
+  "id": "T08679",
+  "title": "How reload plugin automatically after installing in the startup.py script",
+  "tags": [
+   "python",
+   "qgis",
+   "pyqgis"
+  ],
+  "body": "In my startup.py script I run code to install a plugin based on a zip file and the plugin is extracted succesfully to the path location where QGIS looks at to find plugins. During the same QGIS session, the button for the plugin is not shown and based on qgis.utils.active_plugins it appears that the plugin is not yet active. When I close the current QGIS session and open a new QGIS session, the plugin is now active and shown as a button. However, it would be less confusing to the user to if the plugin is simply already shown, since I write log messages that the plugin is installed. So some users might start looking for the plugin, while the plugin is not yet available. Are there PyQgis functions that automatically update the active plugins and reload plugins? Below is my current startup.py script [CODE]"
+ },
+ {
+  "id": "T08680",
+  "title": "very strange Json need to be formatting",
+  "tags": [
+   "python",
+   "json"
+  ],
+  "body": "i got a json feed like this: [CODE] it is very strange format: Without KEYS Used \"=\" to be separators Two sets of data in one json array With a prefix at the begginning(i am not sure the \"OUT\" isn't the prefix? maybe) I want the output result like this with indicated Key: The First Json: [CODE] The Second Json (After\"#Needs\"): [CODE]"
+ },
+ {
+  "id": "T08681",
+  "title": "How do I collect task garbages in Python asyncio?",
+  "tags": [
+   "python",
+   "python-asyncio"
+  ],
+  "body": "Sorry for the bad English, but I'll try my best. Consider the following code: [CODE] Yes, [code] is not yet used. Now I want to invoke [code] when I see some types of messages from the stream. If I can accept that the stream waits [code] is done to continue, I can write something like this: [CODE] But I can't, so I must write at least: [CODE] But if the stream is long enough, [code] would become really big, even if many [code] (s) are in fact already done. So I would want them to be removed as soon as they are done. I don't know how to write this from now on. Can I remove that task within [code] ? The execution of [code] won't be earlier than [code] is invoked, but would it be later than [code] returns? Documentation does not seem to guarantee that. Although I found some says that it is guaranteed by the current implementation. I can't simply discard the task reference, right? As the doc of [code] says: Important: Save a reference to the result of this function, to avoid a task disappearing mid execution."
+ },
+ {
+  "id": "T08682",
+  "title": "How to label multigraph edges with different weights in networkx?",
+  "tags": [
+   "python",
+   "networkx"
+  ],
+  "body": "I'm trying to write a script that prompts a user to input a transition probability matrix for a Markov chain, and then displays the associated transition diagram. Here's the relevant code: [CODE] The problem is that when there are two opposite directional edges between two nodes, it labels both with just one of the weights, see below: The weight of the edge from 2 to 1 is indeed 0.33, but the weight of the edge from 1 to 2 is supposed to be 0.25. I think the problem is how I define edge_labels, but this is my first time working with networkx and I'm fairly lost."
+ },
+ {
+  "id": "T08683",
+  "title": "NaN values in Pandas are not being filled by the interpolate function when it&#39;s applied to a full dataframe",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "So, i'm a beginner at the Pandas Python and noticed the interpolate function is pretty interesting, but i have one problem when using the line: [CODE] I found out that even though it did filled a lot of the NaN's in 'df', the four first NaN's of Ambient_temp and the first NaN on the Intake_temp column are not filled the way i wanted. Any hints on how to get this working? The interpolation worked very well with every other column besides those two. Image of said dataframe Example: [CODE] (it's not exactly the same dataframe, but encapsulates the same problem. I got this one based off and example on 'geeksforgeeks' and used numpy.nan to simulate the absence of data.)"
+ },
+ {
+  "id": "T08684",
+  "title": "Python slice data from multiple child column",
+  "tags": [
+   "python",
+   "pandas",
+   "slice"
+  ],
+  "body": "Its possible to slice my data where I have the main key for all child codes, considering the main code will be duplicate in some moments, so i have year column to support the data slice. Thats my current data and I need to transform it cod child code year text M01Q00500 M01Q00800 2018 text01 M01Q00800 M01Q00830 2018 text02 M01Q00830 M01Q00810 2018 text03 M01Q00810 M02Q00150 2018 text04 M01Q00810 M02Q00170 2018 text04 M02Q00150 null 2018 text05 M02Q00170 null 2018 text06 And that is what i looking cod child code year text M01Q00500 M01Q00800 2018 text01 M01Q00500 M01Q00830 2018 text01 M01Q00500 M01Q00810 2018 text01 M01Q00500 M02Q00150 2018 text01 M01Q00500 M02Q00170 2018 text02 M01Q00800 M01Q00830 2018 text02 M01Q00800 M01Q00810 2018 text02 M01Q00800 M02Q00150 2018 text02 M01Q00800 M02Q00170 2018 text02 M01Q00830 M01Q00810 2018 text03 M01Q00830 M02Q00150 2018 text03 M01Q00830 M02Q00170 2018 text03 M01Q00810 M02Q00150 2018 text04 M01Q00810 M02Q00170 2018 text04 M02Q00150 null 2018 text05 M02Q00170 null 2018 text06"
+ },
+ {
+  "id": "T08685",
+  "title": "How to fix mamba install timeout error on ubuntu",
+  "tags": [
+   "python",
+   "timeout",
+   "conda",
+   "environment",
+   "mamba"
+  ],
+  "body": "I am using a bash script to create a conda environment for a project. The bash script uses [code] command. I have installed mamba using their official guide . However, when I run the script, I get an error saying that; [CODE] Here I have attached the output from my terminal. Please note the list of packages section was removed to make it shorter. [CODE] I have tried reinstalling conda as well. But I could not get this resolved. Anyone knows why it is occuring and how to solve?"
+ },
+ {
+  "id": "T08686",
+  "title": "Hw can I close a session using Python aiohttp?",
+  "tags": [
+   "python",
+   "aiohttp"
+  ],
+  "body": "I am totally new to async. I'm having trouble closing connections when trying to make async requests. Here is my code: [CODE] I get this error: [CODE] I thought the solution must be to add [code] , which I tried on the line before [code] , but this didn't make any difference. How can I fix it?"
+ },
+ {
+  "id": "T08687",
+  "title": "Web Socket connection failed",
+  "tags": [
+   "python",
+   "django",
+   "nginx",
+   "websocket"
+  ],
+  "body": "On my website i am using Django, the WebSocket works fine on localhost but when i push it to VPS (Virtual private server) i get the error of [code] . this is my asgi.py: [CODE] and my routing.py: [CODE] I read some solutions that says you need to configure the Nginx to forward port and here is my configuration: [CODE] and then i try it i get the same issue."
+ },
+ {
+  "id": "T08688",
+  "title": "Multithreading/processing for loop not working or slower than original def",
+  "tags": [
+   "python",
+   "multithreading",
+   "multiprocessing"
+  ],
+  "body": "First off, this is my first attempt to multithreading or multiprocessing (outside of tutorials). I am trying to speed up some initializations in my class by using multithreading or multiprocessing, not sure which one makes more sense yet. My code goes something like this [CODE] This seems to take twice as long compared to when I just run the [code] function. The [code] takes about 1.5 seconds to run but when I have about 40 files to load, it adds up. I attempted to try the same thing with multiprocessing and it didn't seem to work at all. As far as multiprocessing goes, I have not had any luck making anything work. This is close to what I've used. [CODE] This took about the same amount of time. So I'm not sure where to go from here. Long story short, I have a list of files I want to load into my [code] and I'm looking for ways to speed it up. I appreciate any help and please be nice to a nooby! I've tried the above code chunks with multithreading and multiprocessing. I was able to get them to work, but I saw no improvement in speed of completion. Some methods were in fact longer."
+ },
+ {
+  "id": "T08689",
+  "title": "Does python throw away unused expressions?",
+  "tags": [
+   "python",
+   "syntax",
+   "expression"
+  ],
+  "body": "In pyhon3.10, I can run this code snippet without raising any errors: [CODE] which creates an empty dictionary, and then accesses the 0 key. However, the [code] that follows is what I would consider an invalid syntax. And indeed, if I try to determine the type of the result: [CODE] a syntax error gets raised. A similar behavior occurs whenever I try to work with the result, such as [code] . Why does this happen? I am assuming that the interpreter recognizes the expression as not being assigned and does not compile it. And therefore you can run your code with the [code] line being present. However, this is not consistent with other syntax errors being raised by different syntactically invalid code (such as [code] which raises an error)."
+ },
+ {
+  "id": "T08690",
+  "title": "Find center of bounding box",
+  "tags": [
+   "python",
+   "opencv",
+   "math",
+   "geometry"
+  ],
+  "body": "So I was trying to extract center of this bounding box, Here is the example of what I get [CODE] Output [CODE] I want to find the center of the dst variable, thanks for the help mate!"
+ },
+ {
+  "id": "T08691",
+  "title": "Display all compatible versions of a package",
+  "tags": [
+   "python",
+   "uv"
+  ],
+  "body": "The [code] package drops wheels for Windows after [code] , but only newer versions have wheels for Apple Silicon. I am using features that still work across versions, so I want to pin the package to different versions for different platforms/architectures. For example, in my [code] I do: [CODE] Ideally, I would not specify a range and hope that one of them is compatible. Generally speaking, how do I ask uv to list all compatible versions of a package given specific os/arch constraints?"
+ },
+ {
+  "id": "T08692",
+  "title": "How do I use elements of list to set the key and value of dictionary?",
+  "tags": [
+   "python",
+   "list",
+   "dictionary"
+  ],
+  "body": "I have to use element 0 of [code] as a dictionary key and set the value of [code] for that key to [code] element 1. I have this: [CODE] nato-alphabet is a text file that looks like this: [CODE] My code returns a list of dictionaries instead one dictionary."
+ },
+ {
+  "id": "T08693",
+  "title": "Graphql query constructing in python",
+  "tags": [
+   "python",
+   "graphql",
+   "shopify"
+  ],
+  "body": "[CODE] I try to send a simple query. The [code] field can be empty. [CODE] However this gives me the [CODE] Even if I discard the a bit complicated part with [code] , the problem continues. Do you have any suggestions?"
+ },
+ {
+  "id": "T08694",
+  "title": "if command &#39;activating&#39; (for lack of vocabulary) when it shouldnt",
+  "tags": [
+   "python",
+   "if-statement"
+  ],
+  "body": "I have this code [CODE] however no matter what I enter it will only do the if where_to_go_in_your_house == \"bedroom\" or \"Bedroom\": command. (i want in the end to do the outside code thats why its slightly different) can anyone tell me why"
+ },
+ {
+  "id": "T08695",
+  "title": "How to make work javascript in template in django",
+  "tags": [
+   "javascript",
+   "python",
+   "django"
+  ],
+  "body": "I'm trying to use js to save values in selected options. It works if js put it in my HTML template. Like this: [CODE] But if I put the script in a separate file: [CODE] select.js: [CODE] it doesn't work. He doesn't understand what event he reacts to? I tried to add the name of the function and call click on the event. Nothing helps What am I doing wrong?"
+ },
+ {
+  "id": "T08696",
+  "title": "How to insert data into a mysql database from user input using a python app?",
+  "tags": [
+   "python",
+   "mysql",
+   "mysql-connector-python"
+  ],
+  "body": "I am trying to add data based on information the user inputs using a Python application. I keep getting errors with my code. The field the view takes inside the database are: dependent_id, first_name, last_name, relationship, and employee_id. The program asks the user for the first, last name, relationship, and employee id. The program should then add the dependent to the database. The dependent ID should increment up by one each time a dependent is added. [CODE] I was expecting to be able to insert the data into the database but I am getting the error: [CODE]"
+ },
+ {
+  "id": "T08697",
+  "title": "Python requests put to update image always give a 400. Im following the documentation",
+  "tags": [
+   "python",
+   "python-requests",
+   "shopify-app"
+  ],
+  "body": "im having this issue: My code is this [CODE] But im always getting this error: 400 b'{\"errors\":{\"image\":\"Required parameter missing or invalid\"}}' Failed to update alt text for image 9190309691717. Response: {\"errors\":{\"image\":\"Required parameter missing or invalid\"}} What am i missing? Do you see any errors?"
+ },
+ {
+  "id": "T08698",
+  "title": "Wagtail(Django) ModelAdmin Button view action",
+  "tags": [
+   "python",
+   "django",
+   "wagtail"
+  ],
+  "body": "i want to put a button into wagtail admin for inspect in view mode, by default edit and delete are shown, but i don't know what need to do for call a view that contain only view of a model here is my code: products.models.py [CODE] wagtail_hooks.py [CODE] how i can achieve this approach? i need to do a custom view and insert into wagtail admin model if is this, how can i do that ? can i make a model form like popup showing custom actions for models? something like change his state or some value"
+ },
+ {
+  "id": "T08699",
+  "title": "Multiplying the same column number for two different data frames single expression",
+  "tags": [
+   "python",
+   "pandas",
+   "multiplication"
+  ],
+  "body": "Is there a way to multiple the 1st column from one df to the 1st column in a second df, then the 2nd column from one df to the 2nd column in a second df, so on so forth? I can do it in a for loop, but was wondering if there was a way to do it in a single expression.. Thank you! This is what I have so far that isn't working, just get nan's [CODE]"
+ },
+ {
+  "id": "T08700",
+  "title": "How would one access an Inner class from outside of all classes?",
+  "tags": [
+   "python",
+   "tkinter",
+   "inner-classes"
+  ],
+  "body": "I have a class (MainApplication) that envelopes all my other classes, and an if statement that is outside of the outer class. I'm struggling to figure out how to access 'Start' from that if statement, so the program will start. [CODE] I've tried getting rid of the MainApplication, and it works great. Other than that, I'm not sure what else I can do. I read from another post that the MainApplication code would work for organizing objects (I'm not quite sure what I'm doing) but I was trying to make this part of the code open a screen that would allow you to input a character name, then (in different code) choose race, class, and other necessities for creating a DnD character, with code to organize where the buttons are. Also, sorry that this post is so long. I'm new to python (and this) and am not quite sure that I know what I'm doing, what's needed or what's not. Thanks for your patience. [CODE]"
+ },
+ {
+  "id": "T08701",
+  "title": "How I can extract the text in the blurb below?",
+  "tags": [
+   "python",
+   "text",
+   "rtf"
+  ],
+  "body": "Any suggestions on how I can extract the text in the blurb below? It's from a SQL database. This is just 1 field from a csv export. I just need the text starting from Column 14457 to 14528 where it says HelloWorld, HelloWorld, HelloWorld. HelloWorld, HelloWorld, HelloWorld! It's close to the bottom. [CODE] I've tried making a python program with not luck."
+ },
+ {
+  "id": "T08702",
+  "title": "Pandas - How to Save A Styled Dataframe to Image",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "I have styled a dataframe output and have gotten it to display how I want it in a Jupyter Notebook but I am having issues find a good way to save this as an image. I have tried https://pypi.org/project/dataframe-image/ but the way I have this working it seem to be a NoneType as it's a styler object and errors out when trying to use this library. This is just a snippet of the whole code, this is intended to loop through several 'col_names' and I want to save these as images (to explain some of the coding). [CODE] [OUTPUT]"
+ },
+ {
+  "id": "T08703",
+  "title": "Django Operational Error : No Such Column",
+  "tags": [
+   "python",
+   "django",
+   "django-models",
+   "django-rest-framework",
+   "django-unittest"
+  ],
+  "body": "I have a test case using Django MigratorTestCase. Previously the test case was working fine but then I had to add a column called updated and I made migrations to the project but ever since then the unit test case has been failing and I am not sure why. When debugging the code I have realized that the error is from the line [code] in Unit Test Case The column well exists since I am able to perform SQL actions on the column I apologize if I posted a bunch of unnecessary info. Thanks in advance guys. Unit Test Case: [CODE] Exception Stack Trace: [CODE] 0038_update_dataset_permission.py [CODE]"
+ },
+ {
+  "id": "T08704",
+  "title": "Fill in missing values in data table with linear interpolation? (python)",
+  "tags": [
+   "python",
+   "list",
+   "for-loop",
+   "interpolation"
+  ],
+  "body": "Say I have a data set like this: [CODE] And I would like to fill in the nan values in the DATA column with the y = mx+b line connecting the two nearest non-nan values on either side. For instance, days 5, 6, and 7 would have the values 5, 4, and 3 respectively, and 10 would have the value 5. How could I do this with a for loop, for instance? Or any other way? It seems pretty simple, here is what I have tried so far: [CODE] I am just trying to get it to print the two values on either side of the nan sequences (to start), but that does not work, instead it gives me the first of the nan sequence then every other number after the nan sequence until then next nans, etc..."
+ },
+ {
+  "id": "T08705",
+  "title": "How do I check if one number is evenly divisible by another in Python, while handling invalid inputs?",
+  "tags": [
+   "python"
+  ],
+  "body": "I’m writing a simple Python function that checks if one number divides another evenly. If any input isn’t a valid number (e.g., a string or a complex number), I want to return None [CODE] This works for integers, but fails for strings and complex numbers. How can I check the data type before doing the modulus operation?"
+ },
+ {
+  "id": "T08706",
+  "title": "PCA in Python: Reproducing pca.fit_transform() results using pca.fit()?",
+  "tags": [
+   "python",
+   "scikit-learn",
+   "pca"
+  ],
+  "body": "I have a data frame called [code] with dimensions (306x21154), so 306 observations and 21154 features. Using PCA, I want to project the data into 10 dimensions. As far as I understand, the following code does this. The resulting matrix ( [code] ) has a dimension of (306x10). [CODE] To better understand how the code works, I wanted to reproduce the result of [code] manually. Based on my research, I found the following steps: [CODE] Now, as I understand, one can calculate the loadings using the following code based on the formula $\\text{loadings} = \\text{eigenvectors} \\times \\sqrt{\\text{eigenvalues}}$ : [CODE] After obtaining the loadings with dimensions (21154x10), I wanted to use them to obtain the projected values with $ \\text{Actual values} \\times \\text{loadings}$ resulting in dimensions (306x21154) $\\times$ (21154x10) = (306x10): [CODE] However, when I compare [code] to [code] , the values differ substantially. Where am I wrong? EDIT I found this way to extract the loadings. However, I still want to derive them semi-manually, can somone help?: [CODE]"
+ },
+ {
+  "id": "T08707",
+  "title": "python logging formatter order and formating record",
+  "tags": [
+   "python",
+   "python-3.x",
+   "logging"
+  ],
+  "body": "I have a custom formatter for my Python console log. Can someone help me how the whole thing could look nicer and maybe in a for loop? I get a long log in the class with a lot of keys and values that I don't need for the console. I want to filter and sort 4 or if available 5 values out of the object. This is my code: [CODE] Sorted and formatted then come back that: [CODE]"
+ },
+ {
+  "id": "T08708",
+  "title": "Django ORM filter by lowercase only",
+  "tags": [
+   "python",
+   "django",
+   "django-orm"
+  ],
+  "body": "How do I use Django ORM to filter objects that only show the lowercase only? For example in my case, I want to update all emails that has \"non-lowercase\" objects to \"lowercase\". [CODE]"
+ },
+ {
+  "id": "T08709",
+  "title": "Is there a faster way to compress files/make an archive in Python?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "shutil"
+  ],
+  "body": "I'm making archive of a folder that has around ~1 GB of files in it. It takes like 1 or 2 minutes but I want it to be faster. I am making a UI app in Python that allows you to ZIP files (it's a project, I know stuff like 7Zip exists lol), and I am using a folder with ~1GB of files in it, like I said. The program won't accept files over 5GB because of the speed. Here is how I compress/archive the folder: [code] I know I can change the format but I'm not sure which one is fast and can compress well. So, my end goal is to compress files fast, whilst also reducing size."
+ },
+ {
+  "id": "T08710",
+  "title": "How to find deprecated APIs",
+  "tags": [
+   "python",
+   "deprecated"
+  ],
+  "body": "My organization is a startup that has a microservice architecture (Python). There are several services that expose some endpoints. The problem is that, as the startup grew, many things were dynamic, code changed and people came and went... and we are certain for a fact that there's more than a few endpoints that aren't used anymore and we want to find what those are and delete them. We're just not sure what the approach to such a problem should be, because we don't want to break things... but on the other hand, the code is becoming bloated and filled with garbage... Any known solution or tools for such a problem?"
+ },
+ {
+  "id": "T08711",
+  "title": "with pd.Series method how to set column datatype as mutable datatype, such as list with str element",
+  "tags": [
+   "python",
+   "pandas",
+   "types",
+   "series",
+   "dtype"
+  ],
+  "body": "I want to create a empty pandas dataframe, [CODE] pddata = pd.DataFrame(dictdata) create a empty dataframe data successfully with listfield(list of str element)"
+ },
+ {
+  "id": "T08712",
+  "title": "How to subset a dataframe iteratively based on all unique values within a column?",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "Say I have a dataframe [code] as per the below. Each ticker has a value for all months, and I am wanting to subset this big dataframe into 12 dataframes for each month. [CODE] I know I can just do something simple like [code] and repeat it 11 more times, but I am wanting to do something that can iterate on its own and output these dataframes independently. Any suggestions on this? It would be preferable if this can be done in a for-loop, because as I understand, the dataframes produced wouldn't be stored in memory so I can perform further analysis on them and then save down the final result for a faster-performing code."
+ },
+ {
+  "id": "T08713",
+  "title": "Performance of reversed() function compared to reversing slice",
+  "tags": [
+   "python",
+   "performance"
+  ],
+  "body": "This is very similar to this question but there's a slight difference in my question. I have two functionally identical functions as follows: [CODE] I would not expect count2() to perform as well as count1() on the grounds that there's no new list created - just an iterator. I have determined empirically that this is true for short strings. However, as the length of the strings increase, the performance characteristics seem to change. Here's the test rig: [CODE] Now consider the output and note that count1() is faster than count2() for string lengths less than 12. As the string length increases count2() runs faster. The differences are minimal and unlikely to ever be critical. It is however intriguing and I'd like to understand why this might be the case. Output: [CODE] Notes: [CODE]"
+ },
+ {
+  "id": "T08714",
+  "title": "Is it possible to store bytes in raw format with no space overhead?",
+  "tags": [
+   "python"
+  ],
+  "body": "I am using heapq and would like the values to be raw bytes to be compared alphabetically. I want to use as little space as possible. Strings, even byte strings, unfortunately come with a space overhead. For example, take this MWE with fake data: [CODE] This outputs 565176 bytes. I would really like it to take closer to 120000 bytes. Is this possible?"
+ },
+ {
+  "id": "T08715",
+  "title": "How do I select a recursive entity in sqlalchemy",
+  "tags": [
+   "python",
+   "sqlalchemy",
+   "aiosqlite"
+  ],
+  "body": "I am saving a graph to a database. It has a structure like: [CODE] FYI: I am using sqlalchemy 2.0 with aiosqlite Now, I have trouble creating a statement that will get be a SuperNode by id, and then the entire hierarchy of [code] their [code] s the [code] of those... etc. as well as all children of every node, their subnodes their nodes, their children, etc. so I get everything in the hierarchy of a SuperNode when I select it. I've been playing with CTE's, but with that I can end up getting tonnes of rows, and I have to rebuild the structure (which is acceptable as plan B, but I still have issues getting [code] and so on), the other option would be using selectinload, but that will get me only a fixed number of layers, which is just not good enough. CTE's seems like a way to do this, perhaps the best way? But I can't quite seem to understand how to use them in a case like this, and I have not been able to find any good examples. Just a small EDIT: I have a solution that uses recursion in python coupled with lazyloading to do this, but I do not want to used lazyloading. Any sort of depth and it takes seconds to make a query. So if you can tell me how, what, and why, I would be very happy indeed :D"
+ },
+ {
+  "id": "T08716",
+  "title": "Get first and last occurrence of duplicate value",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "I have a [code] like this [CODE] Here [code] has a same value (duplicated based on value). I [code] [code] from rows based on the [code] value. So in this case I do [CODE] But with this approach I get [CODE] I would like to be able to preserve first occurrence of duplicated value's [code] (11/20) and last occurrence of [code] (11/27), so the final product would looks like [CODE]"
+ },
+ {
+  "id": "T08717",
+  "title": "How to make the unit show up at the result after square root calculation using handcalcs and forallpeople Python libraries?",
+  "tags": [
+   "python",
+   "jupyter-lab"
+  ],
+  "body": "I am using forallpeople Python library within handcalcs Python library. After performing square root calculation, the unit is not showing up at the calculation result: [CODE] And here is the calculation: [CODE] And here is the output: I wonder whether there is a way of making the unit show up, i.e. [code]"
+ },
+ {
+  "id": "T08718",
+  "title": "LoadLibrary fails when called from .pyd file, succeeds when called from python",
+  "tags": [
+   "python",
+   "c++",
+   "dll"
+  ],
+  "body": "I have a python module [code] written in C++ using [code] . This module exports function [code] : [CODE] This function is then called from python: [CODE] This code prints [code] . However, if I load the library from python prior to calling [code] : [CODE] subsequent [code] call will succeed. [code] depends only on CRT and libraries located in the same folder. Why python can successfully load the library, but module one can not?"
+ },
+ {
+  "id": "T08719",
+  "title": "Python: Inheriting a class sets the generic type hinting",
+  "tags": [
+   "python",
+   "inheritance",
+   "generic-type-parameters"
+  ],
+  "body": "I have a [code] with attribute [code] I have 4 categories of cars: TravelStyle: what is the car purpose Race: All of the attribute of child class of Race should be [code] Pleasure: All of the attribute of child class of Pleasure should be [code] All children class of Pleasure should have method [code] Note : There will always be only these 2 TravelStyles FruitStyle: What is the cars fruit Strawberry: They have specific [code] attribute Bananas: They have specific [code] attribute Note : In the future, there WILL be the need to add new fruits, like [code] . From this I can only create these objects: RaceStrawberryCar: a Strawberry car with Race style PleasureStrawberryCar: a Strawberry car with Pleasure style RaceBananaCar: a Banana car with Race style PleasureBananaCar: a Banana car with Pleasure style Here is a sample code of an exhaustive way to write these 4 classes: [CODE] However, here there are few flaws: Code repetition Hard to extend: Every time we need to add a new fruit ( like Cherry ), we'll need to recreate 2 classes. My question is therefore: do you have any idea of a design to make this class construction more consistent, and easily extendable ? I set the requirements above. For now, my first intent was the use of the generic types and inheritance. Here is the sample of code: [CODE] What I don't like about this approach, is that to set a car of [code] type, we nee"
+ },
+ {
+  "id": "T08720",
+  "title": "python polars numerous joins crashing",
+  "tags": [
+   "python",
+   "python-polars",
+   "polars"
+  ],
+  "body": "This is for a POC to see if polars can do some things faster/better/cheaper than a current SQL solution. The first test case involves a count(*) over an eight-table join. The eight tables are loaded into lazy dataframes and then the following code is run: [CODE] The right answer is ~30m. But the above code runs out of memory and crashes on a 4-core 16GB system with an NVIDIA L4 GPU. This is larger than the test SQL platform currently in test. Most of the tables are narrow (<10 columns) but a few are wider (>30 columns). We've tried limiting to only the columns needed for the joins but that hasn't helped. Is there a solution here or is this not a good use case for polars? UPDATE: removing the collect(engine=\"gpu\") option prevents crashing and returns the execution plan (as expected). Turning this into a 2-3 table join also prevents crashing. The crashes begin as the larger tables are incorporated into the statement. UPDATE2: Apologies for using the word \"crash\". Nothing is crashing in the technical sense, the process is being killed for running out of 16GB system memory (not 64GB GPU memory - to @ritchie46 question). I agree that I don't need the gpu, but I have the same result if I use: [CODE] I think the datatypes are compacted as much as possible - although there are many String types, unfortunately. I'm using 1.24 in python but when I try new_streaming=True I get the \"not im"
+ },
+ {
+  "id": "T08721",
+  "title": "compare two dataframes original and output and return rows from output that do not have matching in original",
+  "tags": [
+   "python",
+   "pandas",
+   "pyspark"
+  ],
+  "body": "i have two dfs original , output with same number of columns but different number of rows. [CODE] original [CODE] output [CODE] i want to compare output with original and get the extra rows(last two rows in this example) from output that do not have matching in original. diff_df [CODE] i have tried few stackoverflow suggestions using concat, merge etc, but not getting what i want, can someone help? tried some stuff using pyspark as well but no luck, any solution using pyspark or pandas is fine"
+ },
+ {
+  "id": "T08722",
+  "title": "Adding Lists to DataFrame as rows",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "I have a program that calls yfinance to get some stock data for a list of ticker symbols. I use ThreadPoolExecutor to process the yfinance call and a list of data is returned for each ticker. [CODE] When I execute the above code I get the following output: [CODE] Checking the suggestion found here https://stackoverflow.com/a/48440126/21926611 I'm not sure why I get the above output instead of the desired output [CODE]"
+ },
+ {
+  "id": "T08723",
+  "title": "Error importing langchain modules: No module named &#39;langchain.chains&#39;",
+  "tags": [
+   "python",
+   "langchain",
+   "modulenotfounderror"
+  ],
+  "body": "I am trying to code a FastAPI RAG application with Google Cloud and Vertex AI with python3.12 using the LangChain library. However, when I try to import the LangChain library into my project, I keep receiving the same error repeatedly: from langchain.chains import create_retrieval_chain ModuleNotFoundError: No module named 'langchain.chains' Here is my import code: [CODE] Here are the LangChain libraries I have installed: [CODE] I installed the requirements in a virtual enviroment using [code] and also tried using Python [code] ."
+ },
+ {
+  "id": "T08724",
+  "title": "cannot import matplotlib because it resolves to its containing file",
+  "tags": [
+   "python",
+   "matplotlib",
+   "pycharm"
+  ],
+  "body": "I was just about to try out matplotlib for the first time, but I've run into a problem before I've even gotten started. I copied this code: [CODE] as a sort of hello world to see how things work, but PyCharm is showing a red error in the import statements: When I try to run the code I get [CODE] I have no idea how this could be happening, and I didn't even write this script myself, so I thought maybe it was an issue with the package installation, but I uninstalled and reinstalled it and nothing changed. It seems to resemble this and this , but both cases use Visual Studio not PyCharm, the answer to the first one seems to be specific to Visual Studio and the second one I can't understand enough to tell if it's a match. I have never had this issue importing other packages."
+ },
+ {
+  "id": "T08725",
+  "title": "Discord.py How do I check which roles has a user in a certain Server from DM?",
+  "tags": [
+   "python",
+   "discord",
+   "bots",
+   "roles"
+  ],
+  "body": "I need bot which can detect the user's role in Direct Message. I was able to do it from the server chat, but i need it to be done in direct messages too. My current code simplified: [CODE]"
+ },
+ {
+  "id": "T08726",
+  "title": "Utilizing a loop or automated approach to join all possible elements in one dataframes together based on defined criteria",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "function",
+   "pyspark"
+  ],
+  "body": "Summary: I want to be able to recreate my SQL code via Python such that I dont have to manually type out each join for situations when the combinations get too large to handle I have one table [CODE] df_table_one below [CODE] Assume all items are unique per store so store A will only have one red car but store B can also have a red car . I want to be able to get the latest new_item based on max change_date and the first previous_item based on min change_date until all items are traced back. The desired output is red car joins to green car, red boat to green boat, red bike to green bike, and red plane to yellow plane since yellow plane first joins to green plane and then green plane joins to red plane Desired Output [CODE] I can currently do this via SQL (Redshift) but the issue is that this quickly becomes unscalable if there is more than one join or if the amount of joins needed is not known so code will have to be manually updated each time i.e in December 2025 its one join but in January 2026 it can be two joins [CODE]"
+ },
+ {
+  "id": "T08727",
+  "title": "pybind11 shared_ptr to Python-implemented class calls pure virtual instead of override",
+  "tags": [
+   "python",
+   "c++",
+   "pybind11"
+  ],
+  "body": "I have a ScriptFactory system in which I have an object that creates instances of custom objects created in Python, which are derived from an abstract base class in C++. The objects are created correctly, but when I try to use the override python function, it calls the base C++ pure virtual function. This is the simplest example with the structure I need: Here is the C++ full code (compiled into MyTest.pyd) [CODE] And here the Python code that uses it: [CODE] From all the tests I have been doing, it looks like the C++ side loses the link to the Python override, but I’m not completely sure."
+ },
+ {
+  "id": "T08728",
+  "title": "Iterate list on query string element by element",
+  "tags": [
+   "python",
+   "rest",
+   "loops",
+   "for-loop",
+   "iteration"
+  ],
+  "body": "I have a list of elements I want to put into a url individually, read the download as csv and name it based on the element. Then proceed to the next element on the list. For example (made up address): Input [code] Output I would like is [code] I assume a for loop is neccessary but unsure how to complete the process for the first element before moving onto the next as it current creates: [code] which creates an error particularly as the list is 100 elements Any help is hugely appreciated or resources to learn more, please feel free to connect as I want to grow my coding community! :)"
+ },
+ {
+  "id": "T08729",
+  "title": "How to combine columns with extra strings into a concatenated string column in Polars?",
+  "tags": [
+   "python",
+   "dataframe",
+   "python-polars"
+  ],
+  "body": "I am trying to add another column that will contain combination of two columns (Total & percentage) into a result column(labels_value) which look like: [code] . Basically to wrap [code] strings on [code] column and add [code] string at the end of combination of these two columns. [CODE] I have tried below three ways and none of them worked: [CODE] Desired result would be to add a new column like: [CODE]"
+ },
+ {
+  "id": "T08730",
+  "title": "How do i execute the python function using decorator metadata without calling original function. is it possible?",
+  "tags": [
+   "python",
+   "python-3.x"
+  ],
+  "body": "here is my python code i am trying. I am expecting Stored Metadata list. Memory Decorator Purpose is the code where functions are \"decorated\" to store metadata. [CODE]"
+ },
+ {
+  "id": "T08731",
+  "title": "JAX VMAP Parallelization Details",
+  "tags": [
+   "python",
+   "vectorization",
+   "jax"
+  ],
+  "body": "I was wondering how vmap's internals work. When I vectorize code using jax.lax.map, I know that each element is executed consecutively. However when I use vmap I execute the vectorized operation apparently in parallel. Can someone provide me with a more detailed explanation of how the parallelization works? How does Jax determine the number of parallel processes, and can this behaviour be influenced by the user? Thanks in advance."
+ },
+ {
+  "id": "T08732",
+  "title": "How do I fill out a PDF form containing text and dropdown fields using Python&#39;s pypdf module?",
+  "tags": [
+   "python",
+   "pypdf",
+   "pdf-form"
+  ],
+  "body": "Though I am not technically new to [code] , I have not used it in five years, so I may as well call myself a novice. I picked it back up because I need to bulk fill [code] forms. I am working in a contained environment, therefore I have to work with packages and versions that I already have. I have [code] , [code] . I do not have [code] or [code] and cannot import them. I am following an example from [code] documentation here: https://pypdf.readthedocs.io/en/stable/user/forms.html . However, the fields are not being populated for some reason. I have discovered by accidentally running a previous command [code] before [code] that this works though all my pages are duplicated (my three page doc turned into six pages but the fields are populated.) Running either of those lines without the other resuts in an unpopulated form. [CODE] I could do this to fill out the form and then go back and delete the extra pages programmatically like this: How to delete pages from pdf file using Python? . I would however prefer a cleaner solution. My other issue is, there are a couple of drop-down fields. [code] documentation does not provide any code examples for this fairly common scenario. I was looking at the following question: PyPDF2 change field value without dictionary where the author answers his own question. The solution is to edit the dropdown object to be plain text [code] . What would "
+ },
+ {
+  "id": "T08733",
+  "title": "Cannot upload YouTube video with thumbnails and tags",
+  "tags": [
+   "python",
+   "youtube",
+   "youtube-api",
+   "youtube-data-api"
+  ],
+  "body": "This is the code that I used to upload a video with its title, description, thumbnails, and tags. While the video and its title and description were successfully uploaded, the thumbnails and tags were not. As a result, the video has no thumbnails and tags [CODE] I am using the JSON structure format for video uploading from the following link: https://developers.google.com/youtube/v3/docs/videos . maxres - The highest resolution version of the thumbnail image. This image size is available for some videos and other resources that refer to videos, like playlist items or search results. This image is 1280px wide and 720px tall. The size of the image is 1280x720px What is wrong with this code? Help find the error."
+ },
+ {
+  "id": "T08734",
+  "title": "Perfect Power algorithm loop is too long",
+  "tags": [
+   "python"
+  ],
+  "body": "I am working on a \"Perfect Power\" algorithm and seem to be running into memory issues. I have a solution outlined as follows which should give me the right answer, but it's possible I am looping through too many iterations. Not sure how to get around this. This code will not even finish running when I try to run it. Here is the problem text: \"A perfect power is a classification of positive integers: In mathematics, a perfect power is a positive integer that can be expressed as an integer power of another positive integer. More formally, n is a perfect power if there exist natural numbers m > 1, and k > 1 such that m k = n. Your task is to check wheter a given integer is a perfect power. If it is a perfect power, return a pair m and k with m k = n as a proof. Otherwise return Nothing, Nil, null, NULL, None or your language's equivalent. Note: For a perfect power, there might be several pairs. For example 81 = 3 4 = 9 2 , so (3, 4) and (9, 2) are valid solutions. However, the tests take care of this, so if a number is a perfect power, return any pair that proves it.\" [CODE]"
+ },
+ {
+  "id": "T08735",
+  "title": "Django `Not Found: /payment_getway/` Error - URL Path Not Resolving",
+  "tags": [
+   "python",
+   "html",
+   "django",
+   "django-views",
+   "django-templates"
+  ],
+  "body": "I’m encountering a [code] error in my Django application. Despite setting up the URL path and view function, Django cannot find the specified URL. I’ve provided all relevant code snippets and configurations below. I’m not sure what might be causing this issue. Here’s a brief overview of what I’ve done: URL Configuration: In my app's [code] , I have defined the path for the [code] view function: [CODE] View Function: The view function [code] is defined as follows: [CODE] Template: The [code] template is designed as follows: [CODE] Troubleshooting Steps Taken: Verified the URL pattern in [code] . Checked the view function in [code] for errors. Confirmed that the template [code] exists and is in the correct directory. Restarted the Django development server. Questions: Why is Django not finding the [code] URL? Is there a potential issue with how the URL is defined or how the view function is set up? Are there any additional checks I should perform to ensure that the URL routing is configured correctly? Any guidance or suggestions would be greatly appreciated! Thank you!"
+ },
+ {
+  "id": "T08736",
+  "title": "Azure API python SDK error &quot;PrivateIPAddressIsBeingCleanedUp&quot;",
+  "tags": [
+   "python",
+   "azure"
+  ],
+  "body": "Im trying to configure a network interface in Azure with an IP address and I'm seeing this error code as response: [CODE] When I do a GET API on the interface there are no IP addresses assigned to it, but the PUT API throws this error code. Does anyone have any idea what is the reason here?"
+ },
+ {
+  "id": "T08737",
+  "title": "How do I reference the author name column from the Author table in my InsertBook function?",
+  "tags": [
+   "python",
+   "django",
+   "postgresql"
+  ],
+  "body": "( https://i.sstatic.net/EiBqboZP.png ) In the browser, I'm trying to add a new book to my books table but I keep receiving a Value error from django where for example I can't assign \"'Virginia Woolf'\": \"Book.author\" must be a \"Author\" instance. After I enter all the fields to add a new book and then click the Insert button in the browser, I receive the Value error. Below is the structure of my sql table as well as related python scripts for reference: [CODE] views.py: [CODE] urls.py: [CODE] models.py: [CODE] admin.py: [CODE] book_list.html [CODE] To resovle the issue I've tried changing the reference in the views.py Insertbook function from saverecord.author=request.POST.get('author') to saverecord.author.name=request.POST.get('author') which shows another error that author is not a column in the books table."
+ },
+ {
+  "id": "T08738",
+  "title": "pre commit raises pylint errors on push but not when executing",
+  "tags": [
+   "python",
+   "pylint",
+   "pre-commit",
+   "pre-commit.com"
+  ],
+  "body": "So i have this pre-commit file: [CODE] and now when I want to push my code i get this error on push: [CODE] But whenever i run this command: [CODE] everything is passed and there are no errors! and when i run this: [CODE] I get some new errors on other files. Why [code] stage is not working? Why am i getting different outputs for the same command? ( [code] ) and how can i reproduce the errors so i can fix them before committing or pushing UPDATE: The error that is raising by pre-commit on push doesn't mean anything to me, the is the tree of my folders and files: [CODE] The error is raising from [code] for this line: [CODE] and i have added the module in [code] : [CODE] Could this be a problem related to pylint itself?"
+ },
+ {
+  "id": "T08739",
+  "title": "Selenium/Python - cannot find an element",
+  "tags": [
+   "python",
+   "selenium-webdriver",
+   "selenium-chromedriver"
+  ],
+  "body": "Python 3.11 Selenium 4.38 For the following URL: https://www.amazon.es/-/en/Womens-Lace-up-Comfortable-Anti-Slip-SDMB2203W/dp/B0B5CX9VZY On the right hand side of the page it says \"Dispatches From\" and \"Amazon\". I'm writing a Selenium script to try to find pages where that field doesn't say Amazon, however Selenium cannot find that element in order to read it. Class: [code] << that space in 'small offer' causes a compound class name error, which does not resolve by inserting a period. CSS Selector: [code] << does not find element. XPath: [code] << does not find element. Full XPath: [code] << does not find element. There doesn't appear to be a relevant iframe in play (there are iframes but I don't see that they apply to this element), and I don't see any shadow DOM. How can I grab this element via Selenium? EDIT: Request for more code. Below are many of the things I have tried: [CODE] EDIT 2: My comments button on answers isn't working (I think it's a low karma thing) - to respond to @Corey Goldberg, I tried both of those suggestions and got the associated messages: [CODE]"
+ },
+ {
+  "id": "T08740",
+  "title": "How to fix pyenv on windows 11?",
+  "tags": [
+   "python",
+   "windows-11",
+   "pyenv"
+  ],
+  "body": "On windows 11 I use pyenv to be able to select a specific python version. I want to select python 3.11.9, and the output of [CODE] is: [CODE] However, the installed python version is 3.10.11: [CODE] How to fix this issue?"
+ },
+ {
+  "id": "T08741",
+  "title": "TypeError: bad operand type for unary +: &#39;str&#39; when I give the command",
+  "tags": [
+   "python",
+   "python-3.x",
+   "string",
+   "discord",
+   "discord.py"
+  ],
+  "body": "I am trying to run the command [CODE] A month ago it worked, but now it doesn't. I don't know what happened. Here's the relevant code: [CODE] Here's the error I'm getting: TypeError: bad operand type for unary +: 'str'"
+ },
+ {
+  "id": "T08742",
+  "title": "Can a user cause a SyntaxError?",
+  "tags": [
+   "advice",
+   "python",
+   "error-handling"
+  ],
+  "body": "I am currently learning the basics of python and I am the beginning of my programming journey. I was doing a course and came across the following problem. I initially picked TypeError and ValueError but that was incorrect. From what I understand a SyntaxError occurs when you violate the programming language. For example if the coder forgets the close the parentheses, but how can a users input cause a SyntaxError. It’s not really clear to me because a user can’t change the code can they?"
+ },
+ {
+  "id": "T08743",
+  "title": "How do you import financial data from yahoo",
+  "tags": [
+   "python",
+   "pandas-datareader"
+  ],
+  "body": "I have been using the following code to retrieve data from yahoo finance for stock. I have been using the following code: [CODE] But instead of receiving the financial data. I am getting an attribute error. Can somebody tell me what I am doing wrong"
+ },
+ {
+  "id": "T08744",
+  "title": "Plotly/Dash rangeselector &quot;All&quot; button extends x-axis into future despite no data",
+  "tags": [
+   "python",
+   "plotly",
+   "range",
+   "rangeslider"
+  ],
+  "body": "I'm building a time series plot using Plotly with Dash , and I'm running into a frustrating issue with the x-axis. Python Version: 3.10.16 Plotly Version : 6.0.0 Pandas Version : 2.2.3 My setup: The x-axis is based on a [code] column. Data is weekly , specifically on the last day of each week . The latest date in the dataset is sometime in 2026 . I use [code] buttons to allow quick zooming ( [code] , [code] , [code] , etc.). The issue: When I click the \"All\" button in the [code] , the x-axis extends all the way into 2027 , even though: The data ends in 2026. There are no NaNs , [code] s, or future dates in the dataframe. I've set [code] explicitly in the layout based on [code] and [code] . I've also tried [code] , no luck. This only happens when [code] is used; other buttons behave as expected. Here's a Minimal Reproducible Example: [CODE] What I've tried: Validated that all dates in [code] are correct and within range. Sorted the dataframe by date. Tried removing all unused traces (only one visible trace currently). Set [code] and [code] manually - still doesn't affect \"All\". No [code] , padding, or empty points being added. My question: Why does [code] extend the axis far beyond the actual data? Is there a clean way to force Plotly to respect the actual data range when \"All\" is clicked? I believe it might be because plotly is just adding extra padding and dates in the data is"
+ },
+ {
+  "id": "T08745",
+  "title": "How to determine if checksums are present in parquet file?",
+  "tags": [
+   "python",
+   "pyspark",
+   "parquet",
+   "pyarrow"
+  ],
+  "body": "I recently came across an error when reading a parquet table in pyspark: [CODE] This table was transferred over FTP. The error was resolved when I deleted the table in the destination and transferred it again from the source. Therefore, one if not more of the parquet files must have been corrupted when transferring over the network during the first attempt. I am concerned that the generic job used to transfer this table is not robust to data corruption in transit. I want to inspect other tables that were transferred using this same generic job. However, I suspect that the underlying parquet files of most of these tables do not contain checksums. Otherwise chances are that my team would have run into this error before. Sources I have come across lead me to believe that checksums in parquet page headers are optional and not enabled by default. If a checksum is present in the file it would be an integer and otherwise [code] https://www.waitingforcode.com/apache-parquet/data-storage-apache-parquet/read https://nanoparquet.r-lib.org/reference/parquet_pages.html https://lists.apache.org/thread/16oqolrntt6qgf4nksc62smzc8m6ln0k Is there any way in python to read the crc of parquet pages directly or at least determine if one is present indirectly? The stackoverflow question and answer below seems to suggest it cannot be done in [code] , unfortunately. How do I get page level data of a p"
+ },
+ {
+  "id": "T08746",
+  "title": "Convert XML to CSV using Pandas having multiple tag",
+  "tags": [
+   "python",
+   "pandas",
+   "xml",
+   "csv"
+  ],
+  "body": "There is a requirement to flatten XML file into CSV using python (Pandas) or any other libraries. i have multiple child tags underneath and one single header to be copied across child elements. This is my first programe in Python and unable to execute it successfully. Appreciate any direction here please - Expected Output from my input data. [CODE] Input data [CODE] [CODE]"
+ },
+ {
+  "id": "T08747",
+  "title": "How to &#39;check&#39; a value in a radio button by default in Django?",
+  "tags": [
+   "python",
+   "django",
+   "django-models",
+   "django-forms",
+   "django-widget"
+  ],
+  "body": "I wrote a model form. I used widgets to make radio buttons and I want a particular radio button to be checked by default while rendering the form in my html file. Model: [CODE] The following is my model form based on the above model. Form: [CODE] Here is the views: [CODE] I rendered the form like this in my html file. [CODE] I read somewhere that I can use 'initial' keyword in my views.py file but I don't understand how can I use it. Can someone please help me with it?"
+ },
+ {
+  "id": "T08748",
+  "title": "Python(flask) PUT TypeError: Todo.put() got multiple values for argument &#39;todo_id&#39;",
+  "tags": [
+   "python",
+   "reactjs",
+   "flask",
+   "put"
+  ],
+  "body": "I am creating a todo list app using React and Python. But the update todo function is not working properly and gave me [code] . [CODE] This is my Python handling method and from React I am sending: [CODE] It gave me a 422 HTTP status code. I have no idea how to fix it. Can anyone help me please? [CODE] I kept changing the schema and parameter to send, but nothing is working."
+ },
+ {
+  "id": "T08749",
+  "title": "Find all duplicates in a list and populate them in same order in a new list",
+  "tags": [
+   "python"
+  ],
+  "body": "I have found the following code on Stack Overflow for creating new list of unique values recursively, but it doesn't work for me no matter how I tweak it for my requirement in the title. What is wrong here? My requirement is for input [code] the output should be [code] or for the input [code] the output should be [code] . The code I am trying is as below: [CODE]"
+ },
+ {
+  "id": "T08750",
+  "title": "Obtaining diff for multiple columns in pandas",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "i have a pandas dataframe with multiple columns (on which I am computing the cumulative value). I would like to get the incremental value for the same now. This is my current dataset: [CODE] My desired result is: [CODE] I've tried the following methods (but to no avail): [CODE] I've also tried this: [CODE] Is there any other methods I can use to obtain this?"
+ },
+ {
+  "id": "T08751",
+  "title": "How to get the largest streak of negative numbers by sum?",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "This is my DataFrame: [CODE] Expected output: [CODE] Logic: I want to return the largest streak of negative numbers in terms of sum of them. In other words I want AT LEAST two consecutive negative rows and then I want the sum of it to be the largest in terms of absolute value: My attempt based on this answer : [CODE] It gives me an empty dataframe"
+ },
+ {
+  "id": "T08752",
+  "title": "discord.ext.commands.errors.CommandInvokeError: Command raised an exception: KeyError: &#39;media&#39; when implementing a gif generator for my discord bot",
+  "tags": [
+   "python",
+   "keyerror"
+  ],
+  "body": "I am currently attempting to implement a discord bot into my server through Visual Studio Code as an extracurricular project of mine and I want to add a command that allows the bot to generate gifs. I am doing this through a tenor API, and I have followed a few other tutorials and have seen similar stack overflow questions to mine. After looking over them this is what I've worked out so far. [CODE] After running my bot in my server, I will type in my command and an error will return telling me [code] I can't seem to find any tutorials using ctx or the ones that do don't apply to what I'm trying and at the moment I am somewhat lost as to what I need to do next. Help would be much appreciated."
+ },
+ {
+  "id": "T08753",
+  "title": "is there a way to declare a temp var in an if statement?",
+  "tags": [
+   "python",
+   "python-3.x"
+  ],
+  "body": "I have the following: [CODE] I don't really want to declare a variable before to hold [code] nor repeat it twice in the [code] is there a way to hold it inside of the [code] something like: [CODE]"
+ },
+ {
+  "id": "T08754",
+  "title": "Weird trough in histogram of hypotenuse calculated using hypot()",
+  "tags": [
+   "python",
+   "c",
+   "floating-point",
+   "histogram",
+   "precision"
+  ],
+  "body": "I use a third party computer vision library to detect objects from stream of images. That library use [code] to store dimensions of bounding boxes and it doesn't provide bounding boxes dimensions in higher precision (e.g., [code] ). I'm interested in the diagonals of bounding boxes enclosing detected objects. I used the [code] function in [code] to calculate the diagonal of bounding boxes from their heights and widths. I save my outputs (height, width, diagonal of bounding boxes) to [code] files. I plot histograms of dimensions of bounding boxes (read from saved [code] files), but I keep getting a weird trough in the resulting histograms of diagonals at a specific bin: Sample 1: The trough is the bin range between 1.19 and 1.26 in Figure 3. Sample 2: The trough is the bin range between 1.19 and 1.26 in Figure 8. I suspect the troughs is caused by how I calculate diagonal from height and width because histograms of height and width doesn't have those troughs. So I plot the height and width of bounding boxes in those troughs to check if there is any abnormality (infinity, subnormal) but there isn't any: Sample 1: Sample 2: I appreciate any pointer to how I should go about investigating those weird troughs. Update 1 : Add code and data Code to calculate diagonal of bounding boxes and write outputs to json files, the steps are: Get the height and width (data type is [code] , unit i"
+ },
+ {
+  "id": "T08755",
+  "title": "Xampp on windows server trying php run a python script",
+  "tags": [
+   "python",
+   "php"
+  ],
+  "body": "I am trying to execute a python script from php on windows server. I have read tutorials and answers here in SO but I can not make it work. My Script is: [CODE] But it does not work. I also tried [CODE] also moved the python file where php.exe and tried [CODE] and also [CODE] But nothing of the above works. Any help is appreciated."
+ },
+ {
+  "id": "T08756",
+  "title": "Value Error and dimensionality problem using the Iris Data Set with Tensorflow",
+  "tags": [
+   "python",
+   "tensorflow",
+   "multidimensional-array",
+   "scikit-learn",
+   "dimensions"
+  ],
+  "body": "I am attempting to practice classification with neural networks and just the old Iris Dataset imported from scikit-learn, but am running into a dimensionality problem I'm not sure how to solve. I realize also that there are other ways, including tensorflow itself, to retrieve the iris data, that might already be in a better format to use the data, but just for the sake of understanding want to keep to using the data imported from scikit-learn. [CODE] The above code resulted in the following error message: [CODE] It's not clear how I should resolve this."
+ },
+ {
+  "id": "T08757",
+  "title": "How to create calculated columns (based on user input) on Streamlit",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "numpy",
+   "streamlit"
+  ],
+  "body": "Please assist - new to pycharm/streamlit. I created a dataframe using pandas which has calculated columns. However, the dataframe is editable and the calculated columns use the user inputs. However, the columns don't calculate on streamlit/web app. I've added comments to describe what each line of code is meant to achieve Please see below: [CODE] '# The following function should do the following -> '# if user selects option A from dropdown in col_b, then it should return a negative of the value in col_a '# and if user selects option B in col_b then it should return the value of col_a as it is '# The value from the two lines above (i.e. either negative or positive of col_a will be called current - see below '# if current - (x+y+z) is positive then this function must return A, otherwise it must return B [CODE] '# This function is similar to the above but is used to calculate a value which is the sum of current and x,y and z please see below [CODE] '# The following columns must return the values calculated from the functions defined above - i.e. they are based on user inputs [CODE]"
+ },
+ {
+  "id": "T08758",
+  "title": "How do I drop specific NaN values while keeping others based on a pattern of NaNs in the dataframe in Pandas?",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "nan",
+   "data-cleaning"
+  ],
+  "body": "I have a dataframe like this: The pattern it follows is that if the first n rows of Column A are populated, then the next n rows will be \"populated\" (populated cells could have NaN values as well, but I call them \"populated\" because I'd like to keep those) for Column B i.e. rows 'n+1' to '2n'. And Column C will have the next n rows i.e. '2n+1' to '3n' \"populated\", and so on for the rest of the columns. So in the above example, Column A has the first 3 cells populated, Column B has the next 3 cells (cells 4 to 6) populated, and Column C has the next 3 cells after that (cells 7 to 9) populated. Important: When certain cells for a column are populated, the corresponding cells in the same rows will be empty for ALL other columns. After this pattern continues for all columns, it loops back and Column A is populated again, in this case it's 4 cells that are populated this time. So the next 4 cells of Column B are what I want to keep and the next next 4 cells of column C are what I want to keep. Ending up with a dataframe like this: Initially, I tried dropping all NaN cells but realized that NaN cells that I wanted to keep got dropped too. Then I thought of dropping just the NaN cells that are not in between 2 non-NaN cells but the NaN cells I want to keep won't necessarily be between two non-NaN cells like in the example. I guess the only way I can think of is counting the non-NaN va"
+ },
+ {
+  "id": "T08759",
+  "title": "How can I make a TTS bot similar to KDBot with discord.py?",
+  "tags": [
+   "python",
+   "discord.py",
+   "text-to-speech"
+  ],
+  "body": "Hi I am a begginer and i have a problem with my code. when I use the command for the first time the bot enters the voice channel and it works perfect, but when using the command again it no longer works. I have tried disconnecting the bot every time I use the command and it works, but it is not what I really want, if the bot is already connected to the channel I need it to play the audio as kdbot does. Can somebody help me? [CODE]"
+ },
+ {
+  "id": "T08760",
+  "title": "Find amount by group",
+  "tags": [
+   "python",
+   "pyspark"
+  ],
+  "body": "Please help me understand PySpark I have a dataframe, how can I find the sum of each parameter by PySpark? [CODE] How to find the sum of all occurrences of c1 and so on. How would you get a pivot table of this type? [CODE] If there were fewer columns, then I would easily do the [code] , but there are a lot of columns (a lot more), and I don’t understand how you can group everything without using python loops, which will significantly reduce the speed of the code. [CODE] Are there more elegant solutions?"
+ }
+]

@@ -1,0 +1,1221 @@
+[
+ {
+  "id": "T03361",
+  "title": "What are some alternatives to using classmethod and property decorators together?",
+  "tags": [
+   "python",
+   "decorator",
+   "circular-dependency"
+  ],
+  "body": "What are some alternatives to using classmethod and property decorators together? In python 3.11 and later, combining them is no longer supported per: https://docs.python.org/3.11/library/functions.html#classmethod I have code like so: [CODE] tire_type import must be last because it has a cyclic dependency on the current module. What are some options for providing the tire property in the Bike class that does not combine the two decorators? I also want the tire_type type hint to show up correctly in vscode."
+ },
+ {
+  "id": "T03362",
+  "title": "Convert category structure to merge with other df",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "I have 2 dfs, the first df has transactions that each have a category id, the categories are multi layered and the number of layers varies. The 2. df has the categories. for each category it has the category id and the parent id. I would like to prepare df 2 in such a way that i can merge it with df 1 and then have all the layers of the categories in df1. DF1: Transaction ID Category_id 1 Apples 2 Garlic 3 Car DF2 category_id parent_id Apples Fruit Garlic Veg Fruit None Veg None Car None Desired Result Transaction ID | Category_0 | Category_1 | 1 | Apples | Fruit | ... 3 | None | Car representation of the dfs I have tried different ways matching the dfs but each time i got to a solution where i have too loop over df1 and then loop over df2 which seems very inefficient."
+ },
+ {
+  "id": "T03363",
+  "title": "How do you convert 1 minute open-high-low-close (OHLC) data to another timeframe like 15 minutes, 30 minutes, 1 hour in python?",
+  "tags": [
+   "python",
+   "excel",
+   "pandas",
+   "dataframe",
+   "currency"
+  ],
+  "body": "Before I ask the question, I wish you all a Happy New Year. I am a quite new to python and pretty much any computational work using computers. A similar question has been asked before but the answer does not seem to work now that is for me at least. I have a dataframe with attributes DateTime, open, high, low and close recorded in 1-minute intervals. How does one convert the 1-minute dataframe into say, a 30-minute dataframe? An extract of the data is shown below [CODE] meanwhile the desired output is something like [CODE] The later 30 minute intervals could be aggregated as follows; Open is the first price in the timeframe, high is the highest price in the 30 minute timeframe, low is the lowest price in the 30 minute timeframe, close is the last price before a new timeframe. I tried to do this in Microsoft excel by using the following formula; =INT(A3) + TIME(HOUR(A3), MINUTE(A3)+30 ; 0) because cell A2 had the DateTime 2017-01-02 02:00:00 and so cell A3 produced 2017-01-02 02:30:00 but when I drag all this down, it is not taking account of the change into a new day, only the time keeps changing correctly. On top of that, I could not find a formula I could use to aggregate the attributes in the way I have described it above. Performing this in either Microsoft excel or Python will be greatly appreciated."
+ },
+ {
+  "id": "T03364",
+  "title": "GCP Python ID Token Authentication with Impersonated Service Account without Downloading Credentials File",
+  "tags": [
+   "python",
+   "authentication",
+   "google-cloud-platform"
+  ],
+  "body": "As in the question, how can I retrieve an impersonated service account's id token without downloading the service account credentials file from the GCP IAM console. The point is to test a service code on my local machine by authorizing GCP client libs & authenticating external iap services through the impersonated service account such that the very same code must also work on the deployed environment on GCP (whose metadata server is available). Retrieving the access token (you can skip reading this part) I recently found out the solution, but for the access token; here is the steps: Grant your user account the Token Creator role on the service account (namely [code] ) Run this on your terminal and login [CODE] Here you can see that the credentials in the path [code] will now be the impersonated credentials: [CODE] Instead of the plain old user account credentials like this: [CODE] Set the env var [code] to the recently logged in path (or alternatively using dotenv libs in your project) [CODE] This code will now recognized the impersonated service account and retrieve its access token: [CODE] Retrieving the id token (the question) Such steps for the access token does not work when retrieving its id token, I'm not really sure if I'm using the right function ( [code] ) or if I'm missing something. Here is the code: [CODE] Here's the error: [CODE] I imagine it might be that the cre"
+ },
+ {
+  "id": "T03365",
+  "title": "FastAPI PyJWT module cannot be resolved even though it is installed",
+  "tags": [
+   "python",
+   "python-3.x",
+   "pip",
+   "jwt",
+   "fastapi"
+  ],
+  "body": "I'm using JWT for a test project with FastAPI, and have encountered an odd problem with JWT, both my IDE and FastAPI says the jwt module could not be found even though it is listed in the .venv Lib file and on pip. Any ideas on how to fix it? I cannot find similar problems online. [CODE]"
+ },
+ {
+  "id": "T03366",
+  "title": ".venv not activating on Visual Studio Code Linux",
+  "tags": [
+   "python",
+   "linux",
+   "bash",
+   "virtualenv"
+  ],
+  "body": "[CODE] I tried to include some libraries in my Python project, but couldn't install them because of my .venv error. Why does this happen?"
+ },
+ {
+  "id": "T03367",
+  "title": "python giving AttributeError",
+  "tags": [
+   "python",
+   "attributeerror"
+  ],
+  "body": "this is my problem : [CODE] My platform is Windows 10 I used IDE VS Code I was defining an object called Student for my class and I wanted to define the print method for this object as private, but I cannot call this method and when executing the command, Python gives me AttributeError."
+ },
+ {
+  "id": "T03368",
+  "title": "pandas read_csv() change the index values",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "enter image description here List item This is a question of how to use pandas read_csv() I want to ask all of you a favor that how to change the index values please"
+ },
+ {
+  "id": "T03369",
+  "title": "Specify custom errorbar values in Seaborn",
+  "tags": [
+   "python",
+   "seaborn",
+   "bar-chart",
+   "errorbar"
+  ],
+  "body": "I have the following dataframe: [CODE] I'm trying to display it with a bar plot using seaborn, however no matter what I try I keep getting the error [code] or similar, how should I proceed? This is the code I'm using: [CODE] Also I imagine I would have to compute y_err1 and y_err2 as values relative to accuracy and not absolute ones, but just getting the errorbars to plot would be great!"
+ },
+ {
+  "id": "T03370",
+  "title": "Add two arrays with incompatible dimensions that can&#39;t be broadcast",
+  "tags": [
+   "python",
+   "numpy"
+  ],
+  "body": "This seems like it should be a simple operation, but for the life of me I can't figure it out. I have two arrays of incompatible shape that can't be broadcast together. [CODE] I would like to add the two arrays along the first dimension, so that the result is an array with shape: [CODE] In other words: [CODE] Can I do this vectorised, without resorting to looping?"
+ },
+ {
+  "id": "T03371",
+  "title": "Trying to go back one loop but not to main parent loop",
+  "tags": [
+   "python",
+   "loops",
+   "if-statement"
+  ],
+  "body": "This game requires two inputs from the user: \"user_choice\" and \"player_choice\". I get the user_choice input first. The final issue I am running into is on the 2nd input (player_choice). If the user enters something invalid it is making them reselect user_choice, and I just want them to have to reselect player_choice. [CODE] '''"
+ },
+ {
+  "id": "T03372",
+  "title": "Python Script to extract data from Database and use it to email",
+  "tags": [
+   "python",
+   "oracle11g",
+   "cx-oracle",
+   "python-oracledb"
+  ],
+  "body": "I am trying to write a python script which reads filenames for example (COD_044916.pdf) here after \"COD_\" and before \".pdf\" rest of the text is the customer number, the script should find this customer number in a table in a oracle database. Upon finding the row at which this customer number is it should then get the email id of that customer from the email column of that row in that table in database. Then send this file on that email. This is what I've tried but I guess it's not working for Oracle 11g. [CODE]"
+ },
+ {
+  "id": "T03373",
+  "title": "Caching derived properties of typing.NamedTuple",
+  "tags": [
+   "python",
+   "namedtuple"
+  ],
+  "body": "I've got a [code] : [CODE] Assume my derived property is just a costly computation on immutable values of my tuple. For illustrations, I tried to provide the most naive implementation of the prime factor decomposition of [code] . Usage of [code] fails: [code] Usage of [code] fails: [code] Can it be done; is there a way to add a cached derived property to a [code] ? Adding a regular property [CODE] does not count. If unpacking the tuple, it should only contain the real properties, no derived properties or helpers."
+ },
+ {
+  "id": "T03374",
+  "title": "Is there anything I need to do to make session data persistent across routes in Flask",
+  "tags": [
+   "python",
+   "flask",
+   "session",
+   "flask-session"
+  ],
+  "body": "I am working with a Flask project with React as front-end. I just completed the authentication work. When i tried to access the user_id which i stored in session as 'user_data' from another route via an 'axios' request, I wasn't able to access it as it said 'No data found in session'. I have encountered some like these before which will resolve if I add 'withCredentials: true' along my 'axios' request. I tried it too but nothing worked. So i even made a custom flask route that just gets the session and if there is no data it prints something like 'No_data'. As i expected it printed 'No_data'. Now I tried to print the session data in the login route itself right after creating it and it works there but it won't in other route. So the session is being created and stored but not shared across routes... I will also share my required code. [CODE] Is there anything I am missing ??"
+ },
+ {
+  "id": "T03375",
+  "title": "Get image or screen capture in PyWinAuto",
+  "tags": [
+   "python",
+   "pywinauto",
+   "uia",
+   "inspect.exe"
+  ],
+  "body": "I'm currently using PyWinAuto to get the data from a FileEditor like this. [CODE] The problem I'm facing is the data I get must be verified, which has a little checkmark icon like this. But I'm unable to find the checkmark icon in the Inspect.exe, when I hover in the icon, it show in the Inspect.exe as a DataGridCell with no children or parent. Here is the image of the dataframe with the checkmark . And here is the output on Inspec.exe when I hover in the Icon. [CODE] I have tried Screencapture and tooltip text but still nothing work. Any help would be appreciated."
+ },
+ {
+  "id": "T03376",
+  "title": "DFS doesn&#39;t stop after finding desired item",
+  "tags": [
+   "python",
+   "depth-first-search"
+  ],
+  "body": "I have a class [code] , which keeps a list of its neighbors. I'm trying to implement DFS in order to find the path from node X to node Y by recurrent asking if they happen to have the ending node as their neighbor and if not, asking their children (and if not asking their children and so on). While it seems to be able to find that ending node and path to it (it does indeed print the path when I want it to), it doesn't end after finding it - using [code] or [code] doesn't do anything actually. DFS keeps searching other paths and I'm really stuck here - it looks like it queued those other DFS runs but I might be wrong. I want it to just stop searching when it's done. [CODE]"
+ },
+ {
+  "id": "T03377",
+  "title": "Evaluating the goodness of a fit with uncertainties",
+  "tags": [
+   "python",
+   "curve-fitting",
+   "gaussian"
+  ],
+  "body": "I have many arrays of (very) noisy data, and I am trying to fit each with a double gaussian. Some of the arrays don't have nearly a high enough signal/noise to properly fit the data, and I wish to cut those out. Since I am fitting around 2500 arrays, I wish to automate this and not pick by hand. I am having trouble evaluating whether the model has successfully fit the data or not. I have included the x data and some good data (want to keep) here , and some bad data (want to discard) here . The gaussians I am trying to fit are at x = 0.671644 and x = 0.673081. I am fitting each array with scipy curve_fit, with this code: [CODE] The parameters for bounds and guesses are given by [CODE] where [code] and [code] are given by the max value between 0.6709-0.67275, and 0.67275-0.675 respectively. My issue is that I cannot figure out a way to automatically evaluate how good these models are fitting the data (strictly the gaussians, the noise of course does not matter for the fit) reliably. I have tried to use [code] , however I either get an error such as [CODE] or I get a p-value of 1 (some are ~0, but it is very unreliable), even with a bad fit. Is there a better way to evaluate the fit?"
+ },
+ {
+  "id": "T03378",
+  "title": "Dismiss a kivy popup thats created outside the function thats dismissing it",
+  "tags": [
+   "python",
+   "kivy"
+  ],
+  "body": "Im creating a kivy popup with all available drives. The idea is to click a drive button and than have that directory open in filechooser widget. The only issue is I need to dismiss the drive popup once the directory is opened but I cant reference that popup within my drive function. I have tried to create the popup at the top of the class but that did not work either. [CODE]"
+ },
+ {
+  "id": "T03379",
+  "title": "I&#39;m working on a Python script that controls an LED light based on object detection results from a subprocess",
+  "tags": [
+   "python"
+  ],
+  "body": "I'm working on a Python script that controls an LED light based on object detection results from a subprocess. The goal is: Turn the LED red when a face is detected. Turn the LED another colour (turquoise) when only a person is detected. Face detection should have priority over person detection. So if both a face and a person are detected, the LED should be red. Issue: I'm having trouble with the loop logic that processes the detection outputs. The LED keeps switching between red and turquoise when both a face and a person are detected. I've tried using timestamps and flags to manage the state, but the behavior isn't what I want—the LED sometimes holds on red even when no face is present. I've sought help from ChatGPT, but the code suggestions haven't resolved the issue. What I've Tried: Using Timestamps: I attempted to use timestamps to add a delay, but the LED sometimes stays on red even when no face is present. Using Flags: I tried using flags to manage the state, but I still can't get the loop to prioritize face detection properly. Consulted ChatGPT: I sought assistance, but the suggested code didn't resolve the issue and sometimes made it more complicated. Question: How can I modify my loop logic so that: The LED turns red and stays red when a face is detected, regardless of person detection. The LED turns turquoise only when a person is detected, and no face is detected. "
+ },
+ {
+  "id": "T03380",
+  "title": "&#39;method&#39; object does not support the context manager protocol error in FastAPI with Dependency Injector",
+  "tags": [
+   "python",
+   "database",
+   "dependency-injection",
+   "sqlalchemy",
+   "fastapi"
+  ],
+  "body": "I'm working on a FastAPI application where I'm using Dependency Injector to manage my dependencies. I have a JobService that interacts with the database through SQLAlchemy. I'm encountering an error when trying to create a new job: 'method' object does not support the context manager protocol. Here is the structure of my code: Database Module (database.py) [CODE] Job Service (jobs_service.py) [CODE] Dependency Injection Setup (containers.py) [CODE] Router (router.py) [CODE] When I try to create a new job, I get the following error: [CODE] I am not sure what is causing this issue. Any guidance on how to resolve this would be greatly appreciated."
+ },
+ {
+  "id": "T03381",
+  "title": "Issue with Implementing a Recursive Function in Python to Calculate Factorials",
+  "tags": [
+   "python",
+   "function",
+   "debugging",
+   "recursion",
+   "factorial"
+  ],
+  "body": "I am trying to implement a recursive function in Python to calculate factorials, but I am facing some issues with the code. When I input a positive integer, the function is not returning the correct factorial value. I have checked the logic and syntax, but I can't seem to identify the problem. Here's the recursive function I implemented: [CODE]"
+ },
+ {
+  "id": "T03382",
+  "title": "Persist Package Installations in Python-based Docker Container",
+  "tags": [
+   "python",
+   "docker"
+  ],
+  "body": "I have a Python app running in a Docker container. I want to have the flexibility of installing new packages while the container is running. Eventually, I want to do this via the GUI, but right now I am doing it using the following commands, [CODE] This is fine for now, but I want these package installations to persist across stops and restarts of the container. How can I do this?"
+ },
+ {
+  "id": "T03383",
+  "title": "How to make my Program Display Always on top",
+  "tags": [
+   "python",
+   "linux",
+   "ubuntu",
+   "pygame"
+  ],
+  "body": "Program Info & Problem I have created a Python Program Using Pygame Module which displays the Ads on the monitor. It shows The Ad on screen But as soon as I launch different applications like kodi or vlc or chrome, etc. It goes behind those applications. The Problem is: The program runs but behind those applications if these applications are launched after my Ad Program. Ideal Working Program Laucnhed Ad Displayed on screen Launched Other Application The Program still displayes the ad on top of screen. System Info OS : Linux - Ubuntu 20 Language : Python Module : Pygame, Pymovie, GTK3+ Architecture : amd64 Desktop Enviroment : OpenBOX Code Launch : CLI using a bash script which launches the python program of advertisment. Sample Screenshot of Advertiesment Please Help! Thank you."
+ },
+ {
+  "id": "T03384",
+  "title": "&quot;django.db.utils.NutSupportedError: extension &#39;postgis&#39; not available&quot; error being thrown despite having postgis installed in Python virtualenv",
+  "tags": [
+   "python",
+   "django",
+   "postgresql",
+   "windows-subsystem-for-linux",
+   "postgis"
+  ],
+  "body": "I am attempting to migrate model changes I have made to my codebase to a PostgreSQL server (PostgreSQL 18.1 on x86_64-linux, compiled by gcc-11.4.0, 64-bit), but every time I do this error is thrown. Specifically, the migrate sequence throws the error when reading the file [code] on [code] . (Note: the system environment is Linux DESKTOP-7C9U6H4 6.6.87.2-microsoft-standard-WSL2). The function called looks like this: [CODE] In my project settings my Databases dictionary looks like the following: [CODE] When I try to enter the command CREATE extension postgis; on the database side (the server is located at [code] ), I get the following error thrown: [code] I am unclear why the extension is not available because I have already run (in my project's local virtualenv) [CODE] When I run [code] , these items appear for postgresql-18 [CODE]"
+ },
+ {
+  "id": "T03385",
+  "title": "How to prevent black adding parentheses for chain of code",
+  "tags": [
+   "python",
+   "python-black"
+  ],
+  "body": "Given code: [CODE] How can I prevent black wrapping it in parentheses? [CODE] What rule enforces that?"
+ },
+ {
+  "id": "T03386",
+  "title": "I am learning the Python programming language",
+  "tags": [
+   "python",
+   "python-3.x"
+  ],
+  "body": "I am a complete beginner in programming and need advice on where to start learning the Python programming language. 1. Where to find information 2. What to pay attention to Starting from scratch so that I can master this language"
+ },
+ {
+  "id": "T03387",
+  "title": "Find number of clusters in time series frequency table",
+  "tags": [
+   "python",
+   "time-series",
+   "cluster-analysis",
+   "data-analysis",
+   "frequency"
+  ],
+  "body": "So I want to be able to know how many clusters are in a time series frequency table. Input would be a date index with the frequency. The kind of output you would get when using .resample('D').sum() Input Example: Index Count 01-01-2022 3 02-01-2022 4 03-01-2022 2 04-01-2022 2 05-01-2022 2 .... ... 27-01-2022 5 28-01-2022 4 29-01-2022 2 30-01-2022 3 31-01-2022 2 Assume the dates not shown (... on table) are all frequency 0. So essentially there is two clusters in the month of January 2022. First cluster is at the beginning of the month and the second cluster is at the end of the month. Cluster 1 is between date range 01-01-2022 and 05-01-2022. Cluster 2 is between date range 27-01-2022 and 31-01-2022. Do you know which clustering algorithm would allow me to get the # of clusters with this type of data? or is a clustering algorithm even necessary? Thank you for your help"
+ },
+ {
+  "id": "T03388",
+  "title": "Azure OpenTelemetry Exporter duplicates logs",
+  "tags": [
+   "python",
+   "azure",
+   "logging",
+   "open-telemetry"
+  ],
+  "body": "I have a simple python script to export logs into an app insights trace table by following this example , however, the log entries get duplicated. What could be the reason? [CODE] I also already tried to disable propagation on the Azure/Otel libs, but nothing worked [CODE]"
+ },
+ {
+  "id": "T03389",
+  "title": "python sending mail email.message read textfile to body",
+  "tags": [
+   "python",
+   "email",
+   "logfile"
+  ],
+  "body": "I have a following python script that sends email when a linux machine restarts. It works but a tiny modification is needed. I need to read a log file and include the contents as body in the mail....not as an attachment. A lot of suggestions show only how to implement attachments of files csv, excel and jpg. I need to read textfile to body of the email. My code is: [CODE]"
+ },
+ {
+  "id": "T03390",
+  "title": "How do I deploy a service using deepface without reloading the model?",
+  "tags": [
+   "python",
+   "deepface"
+  ],
+  "body": "I want to load the model first. Then, every time I input an image, I can perform the inference without having to reload the model every time. For example, I will use verification： [CODE] However, I found that it takes about 20 seconds each time because the model has to be reloaded every time. How can I preload the model once and only calculate the inference when I input a new image?"
+ },
+ {
+  "id": "T03391",
+  "title": "Cannot create already existing resource – when creating a ContainerApp in 2 steps (bootstrap + final) with system-assigned managed identity",
+  "tags": [
+   "python",
+   "azure-managed-identity",
+   "azure-container-apps",
+   "pulumi-python"
+  ],
+  "body": "Context I'm using Pulumi (Python) with [code] and [code] to deploy an Azure Container App with a system-assigned managed identity , where that identity must be a member of an existing Entra ID group (which already has [code] on an ACR and [code] on a Key Vault). Because the managed identity's [code] only exists after the Container App is created, and because the ACR registry config requires the identity to already have [code] before the app can pull the private image, I'm trying a three-step approach : Create the Container App with a system-assigned identity and a public bootstrap image (no ACR config). Add the identity's service principal to the existing Entra group. Update the Container App with the private image and [code] . I modelled steps 1 and 3 as two separate [code] Pulumi resources targeting the same Azure resource name, with [code] and [code] on the final resource. Problem [code] fails on the second [code] resource with: [CODE] This makes sense: Pulumi tries to create [code] as a new resource, but the Azure resource already exists (created by [code] ). The [code] resource never makes it into the state. Code [CODE] Error messages The [code] command failed with the following message: [CODE] Here is the detail of the stack after the error: [CODE] What I've considered Using a single [code] resource with [code] on a [code] — but I can't add the identity to the group befor"
+ },
+ {
+  "id": "T03392",
+  "title": "Speed Detection using TensorFlow Lite in a Raspberry pi 4B",
+  "tags": [
+   "python",
+   "opencv",
+   "raspberry-pi",
+   "object-detection",
+   "tensorflow-lite"
+  ],
+  "body": "i'm trying to create a vehicle collision detection system for my thesis project but i need to detect the speed of objects and distance to calculate the possible collisions. i'm trying to create it using tensorflow lite and deploy it on a raspberry pi with webcam. i used the examples from tensorflow and i'm trying to modify it but does not seem to work. what's wrong with my code?i tried using AI's to help me with this but it's not much oh an help [CODE] i tried adding a simple detection system using tensorflow lite but it does not seem to appear in my screen [CODE]"
+ },
+ {
+  "id": "T03393",
+  "title": "pd.to_datetime() with the same arguments returns error when Pandas is updated from 1.5.3 to 2.2.2. What exactly changed?",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "I'm trying to convert the contents of a str timestamp column to datetime. The input timestamp string differs from the [code] , but Pandas 1.5.3 is able to do the conversion just fine: [CODE] In our code, we were using Pandas 1.5.3 with Python 3.8, but now we're updating to 2.2.2 with Python 3.12. With 1.5.3 + Python 3.8, there seems to be some kind of format auto detecting, even though it's not being explicited in the function arguments. With 2.2.2 + Python 3.12, I get the following error from the code snippet above: [CODE] In 2.2.2 + Python 3.12, in order for this to work I need to fix [code] to match the input timestamp str. I went on to read the function reference documentation but, in 1.5.3, all parameters that would somehow affect this outcome are all correctly set by default already: [code] and [code] . I'll be fixing the format, but I'd like to know exactly what changed from 1.5.3 to 2.x.x in this aspect."
+ },
+ {
+  "id": "T03394",
+  "title": "When using pip install and pip uninstall, is the package name always the same?",
+  "tags": [
+   "python",
+   "installation",
+   "pip",
+   "uninstallation"
+  ],
+  "body": "For example, when installing the [code] package: [CODE] Do you use always the same name when uninstalling it? [CODE] The following three cases can be disregarded： Version specification: For example, if you want to install a specific version, you would use something like [code] , but for uninstalling, simply [code] will work. Dependencies: [code] only removes the target package, so any dependent packages may remain. If you want to remove these dependencies as well, you’ll need to check the dependencies and uninstall them individually. The extras option during installation: When using [code] to install with additional features, you should uninstall the package without specifying the extra part. Instead, execute the uninstall command with only the base package name."
+ },
+ {
+  "id": "T03395",
+  "title": "Error while deploying, but not in local: &quot;crewai Failed to upsert documents: &quot;Expected IDs to be unique, found 28 Duplicate IDs&quot;",
+  "tags": [
+   "python",
+   "large-language-model",
+   "agent",
+   "crewai"
+  ],
+  "body": "When I initialize a Crew in Azure, I get an error: crewai Failed to upsert documents: \"Expected IDs to be unique, found 28 Duplicate IDs\" followed by lots of uuids. [CODE] Apologies in advance, the error log is not super easy to read. I can see the error has something to do with the knowledge sources I've added to the agents, but I never got the error in my local system. [CODE]"
+ },
+ {
+  "id": "T03396",
+  "title": "Formatting a tweet from python using tweepy",
+  "tags": [
+   "python",
+   "twitter",
+   "tweepy",
+   "feedparser"
+  ],
+  "body": "I'm trying to tweet my movie reviews from Letterboxd using python's tweepy but I can't format the tweet. I tried printing the tweet without the square brackets or printing the title and link to the full review in different lines, but couldn't achieve either. Is it possible to do either thing? Here's the code I'm using: [CODE]"
+ },
+ {
+  "id": "T03397",
+  "title": "python-try block does the same thing whether the condition it&#39;s false or true",
+  "tags": [
+   "python"
+  ],
+  "body": "I have this code: [CODE] I am absolutely certain that condition2 is not True but is False. but still i get printed \"ok\", same thing happens even if i replace [code] with [code] I've tried several times, I've done more tests using other methods. I even thought it might be a bug in the Python version I use because it's absurd.How is it possible? what could this be due to? EDIT: if I use an IF statement , it works!!!"
+ },
+ {
+  "id": "T03398",
+  "title": "how to convert panda date time to particular date format and then extract substring out of it",
+  "tags": [
+   "python",
+   "pandas",
+   "datetime",
+   "substring"
+  ],
+  "body": "I have this date time column in panda. I am converting it to specific date format. i want to convert this date into string and extract the substring out of it. I am finding it hard to do it. does anyone know how. data in my datetime column looks like follows: [CODE] I have converted it to date column using following statement: [CODE] Now my data looks like following: [CODE] Note this is in date format. I want to extract year and month and from it. for that i have to convert it into string which is not giving me expected results. expected output: [CODE] Any help would be greatly appreciated. Thanks in advance."
+ },
+ {
+  "id": "T03399",
+  "title": "Bot Framwork - How to pass parameter to promptValidator or add values in the promptValidatorContext- python",
+  "tags": [
+   "python",
+   "botframework"
+  ],
+  "body": "I have waterfall steps. say welcome step, collect data step, validation step. in collect data step i make a call to db, fetch all the results and save them in step_context.values[\"Value1\"]. Now in validation step, prompt goes to validator which is configured in add_dialog [CODE] my validator function, [CODE] Now, here i need to access Value1 which was taken in \"collect data step\" which I have saved in step_context.values[\"Value1\"]. How to pass parameters to the validator function?"
+ },
+ {
+  "id": "T03400",
+  "title": "Why can&#39;t I implement ENERGYM?",
+  "tags": [
+   "python",
+   "python-3.7",
+   "reinforcement-learning",
+   "gymnasium"
+  ],
+  "body": "I am trying to implement the ENERGYM library in Python as per the following paper: https://www.mdpi.com/2076-3417/11/8/3518 and https://bsl546.github.io/energym-pages/sources/install_min.html After successfully having gone through the path in the second link (minimal installation of energyplus and adding it to the path), I am now able to run the following [CODE] The next step is the following loop: [CODE] However, this gives a long loop of error: starting with about a million lines that look like this: [CODE] enter image description here Then, after a countless number of iterations virtually indistinguishable from that, it gives the following finally: [CODE] What might be the issue? ChatGPT is not able to figure it out, and neither am I."
+ },
+ {
+  "id": "T03401",
+  "title": "Keras Loss from multiple output layers",
+  "tags": [
+   "python",
+   "tensorflow",
+   "keras"
+  ],
+  "body": "I have a Keras model with multiple output layers. I want to have a loss function, that computes a loss based on two of the model output layers. Can I do this in a simple way, without using a custom train loop or adding a layer for this?"
+ },
+ {
+  "id": "T03402",
+  "title": "removing item from list of list is removing entire list not just item",
+  "tags": [
+   "python"
+  ],
+  "body": "I'm trying to remove value \"0\" from my list of list a subset of that list is: [CODE] so I expect the result to be [CODE] But instead it's removing the entire list instead of just \"0\" I have tried the following: [CODE] and [CODE] which give me: [CODE] basically removing all the lists that have it instead of just item in the list I have also tried doing a nested for loop for this. I removed the code but the logic was something like: [CODE] which basically complained \"ValueError: list.remove(x): x not in list\". Which from what I understand means it did not find the value. I might be missing something obvious or misunderstanding something but I can't seem to figure out what this is. Please point me to the obvious thing that I'm missing. Thanks"
+ },
+ {
+  "id": "T03403",
+  "title": "Unable to start Django app, error related to what seems like a circular import?",
+  "tags": [
+   "python",
+   "django",
+   "django-models",
+   "django-admin"
+  ],
+  "body": "I'm currently attempting to build my first django app, a resume website. I get this error when trying to start the app. [CODE] This is what I have in my models.py file related to \"certificate\" (comments included): [CODE] And this is what I have in my admin.py file: [CODE] ChatGPT has been no help so far, only circular answers to make sure 'is_active' is properly called, I'm not sure it is, it seems like it (I'm sort of a beginner). I'm following instructions from a youtube video (yes, I have been learning python and django since last year, did not follow THAT blindly!), the \"is_active\" part is supposed to be there, as per chatgpt I tried removing it and that made the app start, but had other errors (the page didn't display, and yes, I have all the css and html files in place)."
+ },
+ {
+  "id": "T03404",
+  "title": "How to fix DpiAwarenessContext Qt error in the context of pytest on Windows 11?",
+  "tags": [
+   "python",
+   "windows",
+   "qt",
+   "pytest",
+   "python-poetry"
+  ],
+  "body": "On Windows 11 I am trying to run pytest using Poetry and a very complex test setup, which uses Qt for some things. However, when running this complex test (which worked before, and seems to work for everyone else) I get an error: [CODE] As the web page suggests I added the text [CODE] to a newly created file [code] in the folder I am starting the test as [CODE] However, that does not solve the issue. The error is still there and the test does not run. Is there a way to solve this problem? Setting an environment variable [code] does not solve the problem. Running this as admin might work, but I would prefer to run a test as simple user. Or do I have to run Qt applications always as admin on windows...?"
+ },
+ {
+  "id": "T03405",
+  "title": "Use attrs or_ validator with mypy",
+  "tags": [
+   "python",
+   "python-typing",
+   "mypy",
+   "python-attrs"
+  ],
+  "body": "I'm trying to use attrs to define a class that has an attribute that can be either a [code] or an [code] . The or_ validator see;s to be exactly what I need but mypy throws an error when using the exact pattern used the doc (modified slightly for my purpose [CODE] It works just fine and as expected at runtime, but mypy throws the following error: [code] Any idea of how I can typehint differently or chain the validators to keep type safety but also satisfy mypy?"
+ },
+ {
+  "id": "T03406",
+  "title": "Add layout inside QFrame()",
+  "tags": [
+   "python",
+   "pyqt5"
+  ],
+  "body": "I am beginner in the PyQt5 in my application I need to make (buttons, line edit, labels ...) in QVBoxLayout then puts everything on QFrame. My Question: Is It possible to make a layout (QHBoxLayout, QVBoxLayout, QFormeLayout ....) inside a QFrame ? If possible, please tell me how to do ."
+ },
+ {
+  "id": "T03407",
+  "title": "Dataframe column doesn&#39;t sort",
+  "tags": [
+   "python",
+   "python-3.x"
+  ],
+  "body": "Trying to sort the dataframe to show the highest value rows first but no matter what I try, nothing changes [CODE] What it's showing: 'Count' should be sorted in descending order by highest value to lowest and then obviously the equivalent row data should follow [CODE]"
+ },
+ {
+  "id": "T03408",
+  "title": "assign row of pandas dataframe to another row in another dataframe",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "I have two dataframes df1 and df2. df1 has 10 columns, where column 0 includes the original image names and the remaining columns including their features and the target variable. df2 has one column that include the augmented image names. I want to pick the values in each row of df1 and assign them to each row in df2 if the original image name in column 0 in df1 is a substring of the augmented image name in column 0 of df2, assuming that the original image name is '29703_left', while the augmented image name is: '/29703_left.jpg_0_722.jpeg' How can I do that? Thank you"
+ },
+ {
+  "id": "T03409",
+  "title": "Tkinter error - bitmap &quot;c:/Users/User/Desktop/assignment testing/week8/2810 lab/gui&quot; not defined",
+  "tags": [
+   "python",
+   "tkinter"
+  ],
+  "body": "The error [CODE] The code: [CODE]"
+ },
+ {
+  "id": "T03410",
+  "title": "How to calculate the WPM when using a stopwatch to time words?",
+  "tags": [
+   "python",
+   "math",
+   "wpm"
+  ],
+  "body": "I am doing a typing speed test, however, instead of waiting to 60 seconds, I am using a specific amount of words and a stopwatch to time it. My recent calculation is: [CODE] However, if I spend 13 seconds typing 8 words, then my WPM is around 37. I tested this line of code on a real calculator, and it shows that this line is working, which means my formula is incorrect. Can someone help me with this?"
+ },
+ {
+  "id": "T03411",
+  "title": "Locate where a map boundary is in the world with my created shapefile",
+  "tags": [
+   "python",
+   "pandas",
+   "matplotlib",
+   "geopandas",
+   "shapely"
+  ],
+  "body": "I made a shapefile containing the boundaries of all the worlds countries and some of their regions (like the states in the US, Canadian provinces, etc). I've been trying to set a boundary box of my choosing and see if it can tell me exactly what region(s)/country(ies) it is in, but so far, I haven't been able to get the right command for it. I've been trying to use contain, but I expect it's actually looking for a lat/lon that is exactly on the line of one of the countries/regions. Here is my code with an example shapefile as of now with an arbitrary bounding box: [CODE] Out/In Type geometry In Continent POLYGON ((-171.2 83.3, -49 83.3, -49 6.6, -171.2 6.6, -171.2 83.3)) Out Country POLYGON((-141 83.3, -55 83.3, -55 45, -141 45, -141 83.3)) In Country POLYGON((-131.5 50, -67 50, -67 25, -131.5 25, -131.5 50)) Out Continent POLYGON (( -122.9 -60.2, -122.9 2, -28.7 2, -28.7 -60.2, -122.9 -60.2)) [CODE] I would like to see something like the following: [CODE] Unfortunately I'm just outputting the length of the entire shapefile and a blank every time."
+ },
+ {
+  "id": "T03412",
+  "title": "Is it possible to change proxy &quot;on fly&quot; with python playwright?",
+  "tags": [
+   "python",
+   "playwright",
+   "playwright-python"
+  ],
+  "body": "For some testing reasons i need to enter site with one socks5 proxy and then change proxy to another socks5 proxy without closing browser or page. Is it possible on playwright? Don't find any leads in documentation or stackoverflow."
+ },
+ {
+  "id": "T03413",
+  "title": "How connect TraCI client with the SUMO GUI using a server port?",
+  "tags": [
+   "python",
+   "sumo"
+  ],
+  "body": "When I try to connect TraCI with SUMO using the server port, it connects, but the SUMO config files do not load immediately. The files only load after the client is connected. This creates an issue where the Python code does not receive the [code] from SUMO. This is the code I am using: [CODE]"
+ },
+ {
+  "id": "T03414",
+  "title": "Making a flexible variable inside of an if statement",
+  "tags": [
+   "python"
+  ],
+  "body": "I'm currently creating a Python application to calculate financial statement ratios and am having notational issues with making a flexible variable based on user input. First, the program establishes acceptable stock ticker inputs and creates variables for 2 companies' annual revenues: [CODE] Then the program asks the user which stock ticker the user wants to learn more about: [CODE] Where I'm having issues is making the revenue_2019_FSLR be flexible based on the user input. So if the user types in JKS at the user prompt, the variable in the last line of my code would be revenue_2019_JKS, etc."
+ },
+ {
+  "id": "T03415",
+  "title": "Optimizing Model Parameters Issue with &#39;loss.backward()&#39; Function",
+  "tags": [
+   "python",
+   "machine-learning",
+   "optimization",
+   "chatbot",
+   "loss-function"
+  ],
+  "body": "[CODE] In my code above, the [code] function is not working as expected, resulting in a [code] consistently registering as [code] . This impedes the optimization of the model's parameters during each iteration. Any guidance or suggestions to rectify this matter? For reference, you can find the full source code of my model at: https://www.kaggle.com/code/cutedeadu943/transformerchatbot I've experimented with various combinations of hyperparameters and learning rates, but unfortunately, the issue persists. Additionally, I attempted to address it by employing [code] , but to no avail. All the relevant tensors and the model's parameters are set with [code] . Any insights or alternative approaches to resolve this?"
+ },
+ {
+  "id": "T03416",
+  "title": "Remove items within pandas DataFrameGroupBy groups",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "group-by"
+  ],
+  "body": "I have a dataframe [code] made up of n columns which are groups and one, \"data\". This dataframe is then grouped on the n group columns. [CODE] Then I have a list [code] which includes only some of the original dataframe indices e.g. [code] . Is there a way to filter [code] and keep only the data which initially had the indices in [code] ? My understanding of DataFrameGroupBy.filter is that it is not appropriate in that case as it uses an aggregate function and removes whole groups. I could filter [code] directly to get a [code] and do a [code] . However, In my process, I need both groups and groups_filtered so my goal is to avoid a second [code] to save some time. Is there an elegant/fast way to achieve that? Edit: I realise that I should have had given some more info as I received good answers which did not work for my case. My end goal is to compare [code] and [code] . In the example, using [code] , [code] , and [code] , [code] but [code] because \"c\" was the only member of its group. However, if [code] , [code] because \"b\" was part of a group containing \"a\" and \"b\". So potentially, there is another approach to do that than the one I thought about."
+ },
+ {
+  "id": "T03417",
+  "title": "How can I transfer data from NodeJS to Python script",
+  "tags": [
+   "python",
+   "node.js",
+   "child-process"
+  ],
+  "body": "I have to use Python script in my NodeJS project, but I don't quite understand how to send data from Node to Python. In the Internet I've found information about child_process. So, I want to send an object and then get message that it has been proceed. NodeJS: [CODE] Python: [CODE]"
+ },
+ {
+  "id": "T03418",
+  "title": "subprocess.call for sed inside python script with a variable passed to sed",
+  "tags": [
+   "python",
+   "sed",
+   "yaml",
+   "subprocess"
+  ],
+  "body": "I am in need to edit yaml file using a script for that I am trying to call a sed command inside python script using subprocess.call(), in that sed command i need to use a user input python variable here ip is a variable , say for ex ip=\"check\" when I run the above script , instead of value for variable ip(that is \"check\" as per example) , I am getting >+ip being replaced What should be written in the script in the place of >'+ip' , to get this done ? [CODE]"
+ },
+ {
+  "id": "T03419",
+  "title": "escape circular imports with fastapi",
+  "tags": [
+   "python",
+   "fastapi"
+  ],
+  "body": "i am learning fastapi and i structure an app like this app in FastAPI: models.py file to hold database and other python important methods routes.py file to hold the routes (URLs) schemas.py file to hold different schemes as needed for the routes now i created an app users with its models like so [CODE] Notice here i have a relationship with WAMessage and because of Mapped i have to add the class to it. now in another folder for WAMessage.models, i added code like so [CODE] and now with this file i have a circular imports error, and i think i will have lots of other tables that needs a user relationship. when using Django there was a helper function `from django.contrib.auth import get_user_model` that can take a string location of the user app so you can import it instead using the AUTH_USER_MODEL=\"users.User\" but that function is hard for me to understand but someone may find a way to get the model from string (this can be very useful) else is there a way to escape this circular import issue"
+ },
+ {
+  "id": "T03420",
+  "title": "Python in Conda env is not execute",
+  "tags": [
+   "python",
+   "conda"
+  ],
+  "body": "I try install Python v3.12 in a Conda env; however, when I typed Python in the terminal, it only opens that Python 2.7 that is shared on a HPC. I try python -V. It shows /usr/bin/python2.7. I checked [code] , it shows both python2.7 and .conda/envs/testing/bin/python3.12"
+ },
+ {
+  "id": "T03421",
+  "title": "Tkinter call another window with a button",
+  "tags": [
+   "python",
+   "tkinter"
+  ],
+  "body": "Good evening, I would like to build a tkinter interface with several buttons leading to differents script. Those script are functions in another folder. In the example I built to explain my problem, the main script is test.py in the working folder and it calls the Test.py file in the BFoctions subfolder. the test.py: [CODE] just create a button that calls the Affich function in the BFonctions/Test.py the function: [CODE] create a label and a checkbox. the checkbox is fonctionning correctly, however the label is not display I obtained a similar result with a tk.Toplevel widget exept there is an additional and unnecessary window displayed. Is there some change in my code that would allow to obtain the desired behavior? thank you per advance"
+ },
+ {
+  "id": "T03422",
+  "title": "Using matplotlib to build report of survey responses, what is the most efficient way to tally likert scores?",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "matplotlib"
+  ],
+  "body": "I am building out functionality in an existing app for a user to upload an excel file to plot out responses for survey questions. There are 4 likert questions with 2 comment response question. The relevant data is organized as such: [CODE] Currently, I do the following to build a list of all the questions, their listed responses, the 'type' of likert scale it is, and the amount each response is recorded per question. [CODE] This loops through the dataframe, skips the first few columns of system generated information, and then starts to count the values of each individual value in each row and assigns its count to separate a separate list which later get sent off to matplotlib for plotting along with each columns header to use as the title. In the end, this gets passed to my plotting function: [CODE] The type is determined based on the following function, which compares the first value to a value in a list containing lists of all potential likert types. If that value is not in one of the list of types, its assumed to be a question which takes a text comment as a response [CODE] From there, I send it to a function to plot onto a pdf using pdfPages and plt. I feel like this is already pretty lean, but I want a sanity check to see if there is a more established to generally accepted way to go about evaluating surveys?"
+ },
+ {
+  "id": "T03423",
+  "title": "Error: &quot;&#39;Listbox&#39; object is not callable&quot;&quot; using the ACTIVE",
+  "tags": [
+   "python",
+   "tkinter"
+  ],
+  "body": "I'm trying to make songs in a playlist of a listbox become active when i select they, but i get a error \"File \"c:/Users/User/Documents/Python-testes/teste-2.py\", line 21, in play filenames = Playlist_box(ACTIVE) TypeError: 'Listbox' object is not callable\" this is my code: [CODE] Can someone show me whats wrong? it's not 'ACTIVE' or it's something with the \"filenames\"?"
+ },
+ {
+  "id": "T03424",
+  "title": "python in snowflake - UDF with aggregation seemingly not working",
+  "tags": [
+   "python",
+   "snowflake-cloud-data-platform"
+  ],
+  "body": "I am trying to do some aggregations with pandas df groupby/transform inside UDF, using python with snowflake. I come across incorrect results - when I do aggregations outside of UDF, all works well, but it does not work when executed inside the function body. Let's register simple UDF for demonstration: [CODE] Now here's what I try to execute: [CODE] When executed in Snowflake Worksheet, here's what is seen in \"Results\" in web GUI - like no aggregation happened in 'teh_sum' column A B TEH_SUM 1 c 1 2 c 2 3 c 3 4 d 4 5 d 5 6 d 6 7 e 7 8 e 8 9 e 9 10 e 10 However, in \"PY Output\" tab in web GUI, I see correct results: A B TEH_SUM 1 c 6 2 c 6 3 c 6 4 d 15 5 d 15 6 d 15 7 e 34 8 e 34 9 e 34 10 e 34 Does anybody know why this inconsistency and error in \"Results\" tab? Especially that I would like to materialize results of such aggregation as a table, and then what I get as table is \"Results\" tab i.e. incorrect rows. When I do the same aggregation but without UDF call, the results are OK: [CODE] Sorry for mistakes, if there are any, I am quite new to all this."
+ },
+ {
+  "id": "T03425",
+  "title": "grid_search.fit() report exception with RAPIDS api",
+  "tags": [
+   "python",
+   "rapids"
+  ],
+  "body": "Got exceptions from the code. Develop enviroment is: win10, WSL2, RAPIDS 24.02. Please help to check. I have puzzled for long time. Implicit conversion to a host NumPy array via array is not allowed, To explicitly construct a GPU matrix, consider using .to_cupy() To explicitly construct a host matrix, consider using .to_numpy(). [CODE]"
+ },
+ {
+  "id": "T03426",
+  "title": "PyVista axis labels failing to show with show_bounds()",
+  "tags": [
+   "python",
+   "visualization",
+   "pyvista"
+  ],
+  "body": "I found while visualizing a dataset that subplots sometimes fail to show bounds/axis titles under the conditions I'm plotting in. Minimal reproducible code is: [CODE] Both axis titles should show by default. In the [code] , [code] , and [code] camera positions, this seems to break down. This appears to be the case regardless of the aspect ratio of the dataset and the size of the subplots/plotter. Why is this, and is it fixable without changing something in the underlying PyVista or VTK libraries (barring screwing with manual labeled points)? The axis labels do appear after interacting with the plots and changing the camera position somewhat. My conda environment is in Python 3.13.7, and I'm on a system with an Apple M1 and macOS 15.2. PyVista version is 0.46.3."
+ },
+ {
+  "id": "T03427",
+  "title": "Memory leak in python-igraph with induced_subgraph function?",
+  "tags": [
+   "python",
+   "memory",
+   "igraph"
+  ],
+  "body": "I'm working with igraph in Python and encountered a problem when calling induced_subgraph function a million times - the problem is, there is a consumption of memory. [CODE] Output: [CODE] Zeros are from gc.collect() function. Based on output, the induced_subgraph function consumes 4752 kilobytes every 100000 calls. Printed memory is increasing with each print statement. This is a dummy case, but I call induced_subgraph function many million times and it breaks my script due to memory error. What is a possible workaround and what is actually reason for such behavior? Also keep in mind that I am on beginner level, so keep answer as simple as possible. Thank you for help!"
+ },
+ {
+  "id": "T03428",
+  "title": "Is there a way to disable Click options from prompting via a global flag?",
+  "tags": [
+   "python",
+   "python-click"
+  ],
+  "body": "I'm using click to implement a command-line interface in Python. Click has a feature that can prompt for a value if one isn't specified . Like so: [CODE] This is great when a CLI is being used interactively, but prompting during a non-interactive run is bad (can hang a shell script, for example). I'd like to add a [code] flag that would globally disable prompting for every other option. Is there a straightforward way to do this?"
+ },
+ {
+  "id": "T03429",
+  "title": "Transferring items from one dictionary to another",
+  "tags": [
+   "python",
+   "function",
+   "dictionary"
+  ],
+  "body": "I'm working on a college assignment and need to figure out how to transfer an item from one dictionary (item) to another (inventory). This needs to be done by finding an item in a room, using the search_for_items function. Here's the code I have thus far: [CODE] So, I need to figure out how to map each item to each room, and I need to find a way to have the search_for_items function transfer an item from the list of items to the player's inventory."
+ },
+ {
+  "id": "T03430",
+  "title": "Error: No file or directory found, Visual Studio Code, Tkinter. Python Image, ImageTk",
+  "tags": [
+   "python",
+   "tkinter"
+  ],
+  "body": "[code] the error says \"No such file or directory found.\" will update when i find a fix, or someone replies with a successful fix. thank you everyone. The error is that the file is not in the same area as the project file, so the solution was to insert the full directory. Thank you!"
+ },
+ {
+  "id": "T03431",
+  "title": "Expand dict to dataframe with one value of key is list",
+  "tags": [
+   "python",
+   "list",
+   "dataframe",
+   "dictionary"
+  ],
+  "body": "I am new to python and try to figure out this one, can't find this anywhere please help! I have a dictionary like the following: [code] I know how to expand first list in 'item' to dataframe into one row, my code are as follow: [CODE] note that I have to turn dict1 to df first because dict1 is from larger dict and the result will be [CODE] but I want [CODE] and I cant simply write [code] because my loc i is written as range and I have multiple dict. anyway I can turn the dict in same row into two or multiple row to dataframe? please let me know if my question is not clear or need any additional info! thank you guys so much! I had already tried to find answer and I am fresh to python. Thanks UPDATE: I have no idea how many dict will be in the list 'item', if 'item' contain 4 {} I would like to separate into 4 row with same 'id' and 'col'."
+ },
+ {
+  "id": "T03432",
+  "title": "Starting django with python manage.py runserver and getting ModuleNotFoundError: No module named &#39;_msi&#39;",
+  "tags": [
+   "python",
+   "django"
+  ],
+  "body": "[code] was working fine my venv got corrupted and I rebuilt it from [code] now getting [CODE] went to [code] and got the installer [code] to noeffect. Then [code] also no effect."
+ },
+ {
+  "id": "T03433",
+  "title": "cupy.var (variance) performance much slower than numpy.var trying to understand why",
+  "tags": [
+   "python",
+   "cupy"
+  ],
+  "body": "I am hoping to move my custom camera video pipeline to use video memory with a combination of numba and cupy and avoid passing data back to the host memory if at all possible. As part of doing this I need to port my sharpness detection routine to use cuda. The easiest way to do this seemed to be to use cupy as essential all I do is compute the variance of a laplace transform of each image. The trouble I am hitting is the cupy variance computation appears to be ~ 8x slower than numpy. This includes the time it takes to copy the device ndarray to the host and perform the variance computation on the cpu using numpy. I am hoping to gain a better understanding of why the variance computation ReductionKernel employed by cupy on the GPU is so much slower. I'll start by including the test I ran below. [CODE] The output of this script is as follows [CODE] I also tried using float16 and float32 instead of uint16 (as it looks like the reduction kernels used by cupy work with floats but it didn't change the disparity in any meaningful way for me). https://github.com/cupy/cupy/blob/04bf15706474a5e79ba196e70784a147cad6e26e/cupy/_core/_routines_statistics.pyx#L542 Here are some versions associate with my working environment. [CODE] Any tips about what might be causing cupy to perform so poorly would be appreciated. Also if there are any things that can be done to improve the performance I'de "
+ },
+ {
+  "id": "T03434",
+  "title": "AttributeError: module &#39;jax.tree_util&#39; has no attribute &#39;PyTreeDef&#39; when import haiku",
+  "tags": [
+   "python",
+   "jax",
+   "dm-haiku"
+  ],
+  "body": "I'm trying to use the Jax library with haiku on python3.6 at conda env, I met the below error and am stuck. I have tried to update my Jax version but nothing changed how can I fix it? [CODE]"
+ },
+ {
+  "id": "T03435",
+  "title": "Python script to loop through column to select specific cell ranges and paste special transpose on next sheet",
+  "tags": [
+   "python",
+   "range",
+   "cell",
+   "transpose",
+   "paste"
+  ],
+  "body": "I am new to scripting and get the basic ideas of looping and the such. I want to loop through a column of a worksheet selection specific cell ranges and paste special transpose on the next sheet. I found a script to select a range and do the transposing part, I'm just having difficulty figuring out the looping and adding to the cell start. In my head I want to loop through column B starting at 2(bx) to 19(by) to copy. The next set of cells I would add 6 to x to start the copy for 17 rows This example may be way off but: [CODE] I appreciate any and all help on solving this. Thanks Images of Sheet 1 and 2 enter image description here enter image description here"
+ },
+ {
+  "id": "T03436",
+  "title": "Implementing TTL-based in-memory cache for macOS activity tracking",
+  "tags": [
+   "python",
+   "python-3.x",
+   "caching"
+  ],
+  "body": "I'm building a local-first macOS productivity tracker that reads from the system's KnowledgeC database to analyze focus time and context switches. Since querying this SQLite database can be expensive for aggregations, I implemented a simple in-memory cache with TTL. Context: The application serves a web dashboard showing daily/weekly metrics, and users might refresh frequently. The data doesn't need to be real-time (1-2 minute staleness is acceptable). Here's my in-memory only cache implementation: [CODE] My specific concerns: Is using a dict with manual TTL checking too simplistic? Should I use [code] or similar? Should I add L-2 cache at file dir level? Thread safety - the FastAPI app is async, but the cache operations aren't locked Memory management - there's no max size limit, just TTL-based eviction The full project is available here if more context is needed, but I'm primarily interested in feedback on this caching approach. Current behavior: Cache hits reduce query time from ~50ms to <1ms TTL of 60 seconds works well for my use case No observed memory issues with daily/weekly queries only"
+ },
+ {
+  "id": "T03437",
+  "title": "Is there &quot;on_getattr&quot; equivalent functionality for attrs package?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "oop",
+   "python-attrs"
+  ],
+  "body": "I use attrs package for my entities and it works like a charm in most cases. An issue I faced is in defining getter for attributes (generally in pure python @property is the goto) for setter [code] has a handy parameter [code] that works like: [CODE] and it relieves us from using [code] virtually in any scenario (at least in my experience) but still, when we have some logic in times of returning the attributes, of course, we cannot use: [CODE] because it will override the original definition of our attrs' name. So I want to know if there is any way builtin in [code] for such a case or if not what are other solutions besides defining another attribute with a different name i.e. [CODE] Update A solution would be using/overriding [code] of attr to add logic something like: [CODE] but eventually, it gets polluted with a lot of if/switch blocks and more importantly will mess with builtin [code]"
+ },
+ {
+  "id": "T03438",
+  "title": "Why won&#39;t Pydantic print the id as &quot;_id&quot;?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "mongodb",
+   "pydantic"
+  ],
+  "body": "[CODE] Hi everyone, I have been wanting to have my own [code] for a class, and I wanted to dump this into [code] . So when I call [code] , I want it to convert the [code] field to [code] . That way when I push it to Mongo, it will take my [code] that I have created instead of the one auto-created by Mongo. How do I do this? I have also tried using [code] and [code] . but they don't seem to work either."
+ },
+ {
+  "id": "T03439",
+  "title": "Why does Python attempt item assignment after in-place += on a mutable element inside a tuple?",
+  "tags": [
+   "python",
+   "tuples",
+   "immutability",
+   "python-internals",
+   "augmented-assignment"
+  ],
+  "body": "Context In Fluent Python (2nd ed.) by Luciano Ramalho, Example 2-16 shows that: [CODE] results in: [code] becoming [code] a TypeError being raised: [code] Ramalho explains (as I understand it) that the augmented assignment is executed in roughly these steps: Load [code] onto the top of the stack ( [code] ). Perform [code] . This succeeds because [code] refers to a mutable object (a list). Attempt to assign the result back with [code] . This fails because t is immutable (a tuple). Question For a list l, the operation: [code] mutates the list in place and does not change its identity ( [code] remains the same). Given that, why does the interpreter still attempt step 3 ( [code] ) as if a new object were being assigned? More specifically: Why doesn’t Python check whether the object identity remains unchanged and skip the assignment in that case? Is this simply a performance or implementation-complexity tradeoff for a case that is rare in practice, or is there a more fundamental reason?"
+ },
+ {
+  "id": "T03440",
+  "title": "simpler method for finding word associations?",
+  "tags": [
+   "python"
+  ],
+  "body": "I am trying to build a word finder where when I input a word, it will search for an associated word from my list of words and return it. the idea is that any word can be input and any which closely relate an item in the list will have output. My first thought was to use cosine similarity and a sentence transformer to map the trajectories. code [CODE] while this works and does what I want, I can see that this would become a very slow process if my reference list grows. I considered building a prediction model using one of the modules from scikit learn but going through the different methods, it seemed like my question might not be best answered here. I also thought about an LLM or looking into building a specialized version."
+ },
+ {
+  "id": "T03441",
+  "title": "Error message when scraping website via selenium",
+  "tags": [
+   "python",
+   "selenium-webdriver",
+   "selenium-chromedriver"
+  ],
+  "body": "The Python code: [CODE] How can I solve the following error message by modifying the above Python code? [CODE]"
+ },
+ {
+  "id": "T03442",
+  "title": "Why is linear iteration (using any()) significantly slower for Python set than list?",
+  "tags": [
+   "python",
+   "set",
+   "large-data"
+  ],
+  "body": "Background: I am comparing the performance of [code] when used on a [code] versus a [code] for finding a known element. My initial assumption was that since [code] short-circuits, the performance would be comparable, but my benchmarks show the [code] is consistently much slower. The code: [CODE] What I understand so far: I know that [code] in [code] is O(1) and is the \"correct\" way to check for membership. I understand that [code] forces a linear scan, making it O(n) for both structures. Question: What specifically causes the performance gap when iterating ? Is it due to the internal memory layout of a hash table (pointer chasing) compared to the contiguous memory of a list, or is there a specific overhead in the set's iterator implementation?"
+ },
+ {
+  "id": "T03443",
+  "title": "FastAPI and unclosed connection",
+  "tags": [
+   "python",
+   "fastapi"
+  ],
+  "body": "I have a FastAPI app which (for some reason) throws a lot (!) of warnings [code] and [code] I have checked that everywhere I do some kind of database manipulation i.e load models/write models etc. is within a context-manager i.e [CODE] and [CODE] where [code] is [CODE] thus I simply cannot figure it out what else it should be. It seems to be rather random and come in chunks - it is not like after each request it comes."
+ },
+ {
+  "id": "T03444",
+  "title": "tf.data.Dataset.from_generator long to initialize",
+  "tags": [
+   "python",
+   "tensorflow",
+   "tf.data.dataset",
+   "tf.dataset"
+  ],
+  "body": "I have a generator that I am trying to put into a tf.data.dataset. [CODE] When running by hand it works and takes 6 seconds to output and compare two instances of the generator (to makes sure random seeding is working): [CODE] However, when I try to instantiate a tf.data.Dataset.from_generator it takes forever to initalize (actually don't know if it finishes, on minute 15 currently). [CODE] Anyone have any suggestions or see what I am doing wrong?"
+ },
+ {
+  "id": "T03445",
+  "title": "Cumulative sum with group_by",
+  "tags": [
+   "python",
+   "dataframe",
+   "window-functions",
+   "python-polars"
+  ],
+  "body": "Suppose I have the following DataFrame of the number of births in each state in each year: [CODE] Suppose the population in 2009 is 0 in all states. Assume the number of deaths is 0 in all states for all years as well. I would like to calculate the population in each state for each year, using the state-level year-by-year cumulative sum of births. I came up with: [CODE] But that requires adding back the year column from the previous dataset, which is not very clean. Is there a better, cleaner way? The documentation for [code] don't provide an example with [code]"
+ },
+ {
+  "id": "T03446",
+  "title": "Problem with horizontal collision in tile-based platformer",
+  "tags": [
+   "python",
+   "game-development"
+  ],
+  "body": "I'm developing a tile-based game. I encountered some unexpected behaviour in my collision code. I don't want to post the whole code here. Because it's too long and might be painful to read (I am very sorry). Basically, to detect and resolve collisions, I do this: pseudocode: [CODE] When I land on top of the platform, I got stuck a little bit, pressing A and D randomly teleport the player to the left side of the platform instantly. I expect the player to be standing on top of the platform, but still move left and right normally. I think the issue is the way I handle horizontal collisions, which makes the player's x velocity become zero and therefore make the player stuck. Also, I think when my player gets stuck and then I pressed A or D, it will actually push my player back or forward because of those lines: [code] and [code] . This is making me confusing, because I tried adding different checks (only push the player up if he was falling, etc.) but nothing works. I appreciate all your response."
+ },
+ {
+  "id": "T03447",
+  "title": "Removing nested dictionary and reordering keys?",
+  "tags": [
+   "python",
+   "dictionary",
+   "key"
+  ],
+  "body": "I have nested dictionaries and I am trying to remove some of them while reordering the keys after removing. [CODE] The returning dictionary is [code] I need to reorder the keys so that I end up with [code]"
+ },
+ {
+  "id": "T03448",
+  "title": "msvcp140.dll conflict with SciPy",
+  "tags": [
+   "python",
+   "dll",
+   "scipy"
+  ],
+  "body": "I'm using a python program that uses SciPy and a custom library written in C++. That custom library is compiled in Visual Studio 2022 on a Windows 11 machine and uses msvcp140.dll. When I try to execute the python program, I get a null pointer exception in my custom library when trying to aquire a lock on a mutex. The mutex itself does exist and is valid. I noticed that SciPy ships with it's own MSVCP140.dll. When I delete/rename this dll, my system MSVCP140.dll is loaded and the program works just fine. It also works if I load the dll manually in the python script before doing anything else with: [CODE] The Version of the msvcp140.dll in SciPy is 14.00.24210.0 and my version is 14.42.34438.0. Is there a better solution, or am I stuck with this?"
+ },
+ {
+  "id": "T03449",
+  "title": "Merge Dataframe based on substring column labeld while keep the original columns label",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "sorting",
+   "merge"
+  ],
+  "body": "I have a dataframe having columns with the a label pattern (name/startDateTime/endDateTime) [CODE] I would like to merge the columns (summing its values) having same name and start date (without the time), the column name should be the orignal one (First to be used) This should give the following result [CODE] In my example, every column has one raw, but in reality it has multiple based on datetime index"
+ },
+ {
+  "id": "T03450",
+  "title": "What is making &quot;RecursionError: maximum recursion depth exceeded in comparison&quot; happen?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "pygame",
+   "stack-overflow"
+  ],
+  "body": "I am making a 2048 game in python and I am using def functions to execute a certain chunk of my code whenever I want to. But I've run into a problem while trying to generate the random numbers that spawn at the start of the game and whenever you make a move. RecursionError: maximum recursion depth exceeded in comparison . I have no idea what this means and how it happened. This is a chunk of the code simplified: [CODE] This is not my actual code but a simplified version to get rid of things that I don't think affect the error, but if that is not true, here is my real code: [CODE]"
+ },
+ {
+  "id": "T03451",
+  "title": "Amazon s3 folder structure and crawler setup to create table with partitions",
+  "tags": [
+   "python",
+   "amazon-s3",
+   "aws-glue",
+   "amazon-athena",
+   "partitioning"
+  ],
+  "body": "I have s3 folder which is created manauly using Python shell script My s3 folder looks like this [CODE] I given two tables as example i have many tables under each date (consider 10 tables for each date) I need to setup one crawler to scan all tables Currently I tried to create crawler With this path [CODE] It created tables sales, account but partitions are not recognized. In my catalog I expect table name as last folder name like sales, account and other key value pairs as partitions (year,month, date) I can't change folder structure, but if no solutions give me the folder I should follow. Is this achievable, how? Thanks for solutions."
+ },
+ {
+  "id": "T03452",
+  "title": "What is a temporary object in python 3?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "object",
+   "oop",
+   "super"
+  ],
+  "body": "I am learning about what the [code] method does, and I came across the term [code] . I do not understand what it means. I've heard that it is an object that you are meant to throw away after a bit but I have no idea what that also means. So, what is a [code] ?"
+ },
+ {
+  "id": "T03453",
+  "title": "How to demote an Endorser from Hyperledger Indy?",
+  "tags": [
+   "python",
+   "hyperledger-indy"
+  ],
+  "body": "I am currently using the example of Hyperledger Indy of Write a DID and Query Its Verkey to dive deep into DID creation. After generating a DID and a verkey for a TRUST_ANCHOR, I sign and submit it to the ledger as: [CODE] I wanted to demote this TRUST_ANCHOR from the ledger, removing its rights and making it disappear, is it possible? Reading the AUTH_RULES it seems possible as there are many lines in this table about demoting roles. But I don't see how to implement it on Python."
+ },
+ {
+  "id": "T03454",
+  "title": "why does jupyter notebook print such an output?",
+  "tags": [
+   "python",
+   "set",
+   "tuples",
+   "jupyter"
+  ],
+  "body": "enter image description here I used a set to assign values to names. jupyter notebook gave this output. Can anyone explain this? I expected {\"aaa\", \"bbb\", \"ccc\"} as the output. is *names a tuple?"
+ },
+ {
+  "id": "T03455",
+  "title": "Should I use Django&#39;s `FloatField()` or `DecimalField(`) for audio length?",
+  "tags": [
+   "python",
+   "django"
+  ],
+  "body": "I use: [CODE] I collect an audio/video's length and want to store it using my models. Should I use [code] or [code] ? I use it to calculate and store a credit/cost in my model using [CODE]"
+ },
+ {
+  "id": "T03456",
+  "title": "Docker ModuleNotFoundError : No module named vcolors",
+  "tags": [
+   "python",
+   "python-3.x",
+   "docker",
+   "dockerfile"
+  ],
+  "body": "I'm new to docker, I've tried several fixes that I found here on Stack Overfow but wasn't abe to sove the issue. I'm getting this error when I try to: [CODE] My Dockerfile looks like this: [CODE] My requirements.txt: [CODE] And this is my folder structure: [CODE]"
+ },
+ {
+  "id": "T03457",
+  "title": "Python language construction when filtering the array",
+  "tags": [
+   "python",
+   "pandas",
+   "numpy"
+  ],
+  "body": "I can see many questions in SO about how to filter an array (usually using pandas or numpy). The examples are very simple: [CODE] Intuitively I understand the [code] statement. But it confuses me from the syntax point of view. In other languages, I would expect a lambda function instead of [code] . The question is: Why this style is possible and what is going on underhood? Update 1: To be more clear about the confusing part: In other languages I saw the next syntax: [CODE] I understand here what is going on under the hood: For every iteration, the lambda function is called with the [code] as an argument and returns a boolean value. But here [code] doesn't make sense to me because [code] looks like a [code] . Moreover, I can write [code] and it will be compiled and executed successfully. And it makes me crazy because I don't understand how a DataFrame object can be compared to a number."
+ },
+ {
+  "id": "T03458",
+  "title": "Launch suprocesses in Python by chunks and wait until end for start the next chunk",
+  "tags": [
+   "python",
+   "parallel-processing"
+  ],
+  "body": "I need to launch a Python script lots of times from a Python script. Suppose I have a machine with 10 cores and I need to run my script 100 times, so I could divide the total in 10 chunks of 10 executions. I have this code: [CODE] The idea is that the internal loop launches the calls in a chunk and then the external loop waits for all processes end in order to launch the next chunk. But testing on a machine with more than 10 cores and using a number of executions equal to 10 I can see all cores are working, so my code is not working as expected. But I can't find the bug. Can anyone help, please?"
+ },
+ {
+  "id": "T03459",
+  "title": "Chroma db reset enabling issue",
+  "tags": [
+   "python",
+   "chromadb"
+  ],
+  "body": "I am just trying to reset a database hosted on a docker container: [CODE] But, the above code throws the following exception: [CODE] I am not sure why it is causing this issue, any help would be appreciated!"
+ },
+ {
+  "id": "T03460",
+  "title": "ActiveMQ Artemis with STOMP: Same message from a queue is consumed by two consumers",
+  "tags": [
+   "python",
+   "activemq-artemis",
+   "stomp"
+  ],
+  "body": "ActiveMQ Artemis version 2.27 Consumers spin up as pods automatically by KEDA when it sees unread messages in the activemq broker. One consumer process one message, send ACK and disconnect. More frequently than always, I am seeing the same message is read by 2 or more consumers even though ACK is sent. What settings should I enable on the broker side so that every consumer gets a different message? ActiveMQ is deployed as a pod in Kubernetes. The [code] is always the same. Here is my consumer side code to connect to the broker: [CODE] This method is called after STOMP listener is initialized. And, this is how a message is consumed. Sample code: [CODE] Here is the broker.xml: [CODE] Application Logs: Consumer 1: [CODE] Consumer 2 comes up after 6 seconds and gets the same message: [CODE] There are checks within the application code to see if the job is in a desired state to process the message. If not, I am sending a NAck. This is saving me. I expected that activemq will keep a track of messages sent to which consumers. But, looking at the behavior, it's not the case. Please advise. UPDATE: This is the STOMP listener's [code] method that receives the messages. It forks a process to call [code] . Since Since [code] bails out in a second. Hence to process a long running operation, a python process is spawned. Does this help you? [CODE]"
+ },
+ {
+  "id": "T03461",
+  "title": "Python Pandas check dataframe groupby, how many people have the same book combinations",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "logic"
+  ],
+  "body": "So I have a list of people, each of them are given more than 2 books, 4 books are possible. I want to do a groupby and check frequency of combination of book received such as [ID, books] such ID: 1, he has Books: A, B I want to know how many people had received book combination of A and B. Technically if someone has books A,B,C; he will have combination of (A,B),(A,C),(B,C),(A,B,C). Input: [CODE] enter image description here"
+ },
+ {
+  "id": "T03462",
+  "title": "Create recursive TypeAlias at runtime",
+  "tags": [
+   "python",
+   "python-typing",
+   "pydantic"
+  ],
+  "body": "For use with pydantic , I want to create recursive type aliases at runtime. \"Normal\" type aliases are possible like this: [CODE] But now I want to create a recursive type alias like this one: [CODE] This includes a forward reference , which I found impossible to emulate at runtime. There is [code] , but besides being discouraged it did not work for me: [CODE] How can I declare such a recursive type alias during runtime? I am aware of how to do it statically as in this question . Because the list of allowed types (the [code] in my example above) is not fixed, but can be expanded dynamically, this is not possible here. More context: I have a pydantic model inside some package that offers support for plugins. This model has some fields like [code] , where [code] describes a union of allowed types. The plugins are now supposed to expand this list of allowed types with their own models. The solution I am aiming for is to collect this list and replace all occurences of [code] with the updated union. This works well, except for the recursive types mentioned here. Other options to manually mark all such occurences (which are many) would decrease readability in the models of the main package, so I chose this approach."
+ },
+ {
+  "id": "T03463",
+  "title": "Why do I get an empty list after a recursive function?",
+  "tags": [
+   "python",
+   "list",
+   "recursion"
+  ],
+  "body": "[CODE] This is supposed to store all of the nonempty subsets of [code] in the list [code] . I got that [code] is a list of empty lists, but I expected subsets to be a list of all nonempty subsets of [code] . I also tried to place the [code] keyword in before the function. Am I doing something wrong? (I know that in Java the problem was solved by adding the [code] keyword in front of the subset, so I would use [code] . But in python, I don't think this problem exists)"
+ },
+ {
+  "id": "T03464",
+  "title": "unpacking * is throwing syntax error on leetcode",
+  "tags": [
+   "python",
+   "algorithm",
+   "iterable-unpacking"
+  ],
+  "body": "I am solving the coin change problem. I run code on jupyter-notebook with the given example on leetcode and it works. The same code does not work on leetcode. causing syntax error: Here is the code to copy: [CODE]"
+ },
+ {
+  "id": "T03465",
+  "title": "Generate the all possible unique peptides (permutants) in Python/Biopython",
+  "tags": [
+   "python",
+   "data-science",
+   "computer-science",
+   "bioinformatics",
+   "biopython"
+  ],
+  "body": "I have a scenario in which I have a peptide frame having 9 AA. I want to generate all possible peptides by replacing a maximum of 3 AA on this frame ie by replacing only 1 or 2 or 3 AA. The frame is CKASGFTFS and I want to see all the mutants by replacing a maximum of 3 AA from the pool of 20 AA. we have a pool of 20 different AA (A,R,N,D,E,G,C,Q,H,I,L,K,M,F,P,S,T,W,Y,V). I am new to coding so Can someone help me out with how to code for this in Python or Biopython. output is supposed to be a list of unique sequences like below: CKASGFTF T , C TT SGFTFS, C T ASG K TFS, C T AS A FT W S, C TR SGFTFS, CKAS E FTFS ....so on so forth getting 1, 2, or 3 substitutions from the pool of AA without changing the existing frame."
+ },
+ {
+  "id": "T03466",
+  "title": "Python creating file outside of Working Directory",
+  "tags": [
+   "python",
+   "readfile",
+   "writefile"
+  ],
+  "body": "As the title describes, I am not sure why, but the same code was working fine before I tested on reading/writing a file outside of the directory. I was testing on the desktop folder and got it to read and write fine so I switched the file back in the working directory and changed the code accordingly back to \"file.txt\" which in theory should just create/read the file in the same directory as my main.py file. But when I run the code it seems to create the file one folder out. I even tried \"./file.txt\" see if that fixed the issue and it did not. The directory is Python Projects Day 24 main.py and when the code runs, instead of creating file.txt in Day 24 folder it makes it under the python projects folder."
+ },
+ {
+  "id": "T03467",
+  "title": "Properties vs. generic setter/getter and descriptor",
+  "tags": [
+   "python",
+   "class",
+   "oop",
+   "python-descriptors"
+  ],
+  "body": "I can't seem to find a definitive answer on the matter and I guess the reason is because it depends on the situation. a, b and c (and d, e, f... as only 3 attributes are listed in this example for simplicity purposes, which probably tells that the approach is wrong if a class needs that many attributes) are different attributes but have some similarities, which probably means that splitting them in other classes would be the better choice. Which one of the following options is the most \"Pythonic\" or efficient when creating a class with multiple \"private\" attributes? Or would a different approach (e.g. grouping similar attributes in separate classes) be better? How'd that look if, let's say, b and c are the same \"kind\" of attribute? (e.g. b being an input path and c being an output path). Multiple property decorators and setters: [CODE] or multiple setters/getters with \"private\" attributes: [CODE] or generic setters/getters: [CODE] or a Python Descriptor? (How'd that'd look like if b and c were to be moved to a separate class as they share some similarities?). Thanks!"
+ },
+ {
+  "id": "T03468",
+  "title": "Azure function visibility",
+  "tags": [
+   "python",
+   "azure-functions",
+   "azure-http-trigger"
+  ],
+  "body": "I have created an HTTP trigger function that sends a message to a Service Bus queue in Azure. Below, I will attach the function code as well as the binding files. The issue is that sometimes the function is no longer visible in Azure Functions, even though no configuration changes have been made. What do you think could be the issue? function_app.py code : [CODE] function.json: [CODE] host.json: [CODE] local.setting.json: [CODE] The issue is that sometimes the function is no longer visible in Azure Functions, even though no configuration changes have been made. What do you think could be the issue?"
+ },
+ {
+  "id": "T03469",
+  "title": "Running a python script with a Azure SQL connection on Heroku",
+  "tags": [
+   "python",
+   "heroku",
+   "azure-sql-database"
+  ],
+  "body": "I have this simple python script, which works fine on local with either ODBC Driver 17 or ODBC Driver 18, the database is a Azure SQL db. [CODE] when I deploy the script to Heroku, and run it, I get this Error en la conexión: ('08001', '[08001] [Microsoft][ODBC Driver 17 for SQL Server]SSL Provider: [OpenSSL library could not be loaded, make sure OpenSSL 1.0 or 1.1 is installed] (-1) (SQLDriverConnect)') I added these buildpacks but I got the same error enter image description here Any ideas? I ran it, I should expect to get results back from the database, but looks like I'm getting errors trying to connect the DB."
+ },
+ {
+  "id": "T03470",
+  "title": "I try to use scrapy playwright to scroll through a web shop in order to scrape all products but it doesn&#39;t work",
+  "tags": [
+   "python",
+   "web-scraping",
+   "scrapy",
+   "playwright",
+   "playwright-python"
+  ],
+  "body": "I am trying to click on the load more button until it disappears and all products are loaded. Then I want to click on all individual products to scrape the data I need from the products individual site. I have tried multiple ways of scrolling down and rearranged the code and syntax a few times using chat gpt and gemini. However, I still get returned an empty json file. [CODE]"
+ },
+ {
+  "id": "T03471",
+  "title": "Surrounding whitespace-separated URLs with quotes using sed",
+  "tags": [
+   "python",
+   "regex",
+   "windows",
+   "sed"
+  ],
+  "body": "Problem I was trying to get [code] command to do the same thing I could do with Python regex flavour, but I encountered some problems Python regex example: (tested it on regex101 and it was working fine) find: [code] replace: [code] Unsuccessful code: [CODE] elenco.txt file: [CODE] Expected output: [CODE] Actual output: [CODE] Info OS Name: [code] Version: [code] installed [code] through [code] I've always avoided using POSIX regex etc, as I found it unnecessarily complicated / limited compared to using perl/python etc. and the regex flavour available there. Any other options than to install Perl/Python? 200MB for StrawberryPerl (Perl on Windows) seems to be quite overkill and useless bloat just to have access to perl flavour regex, and [code] unlike [code] doen't support 'easy' regex... https://askubuntu.com/questions/1050693/sed-with-pcre-like-grep-p"
+ },
+ {
+  "id": "T03472",
+  "title": "How to change Label according to user input in tkinter app?",
+  "tags": [
+   "python",
+   "tkinter"
+  ],
+  "body": "I am creating a planning app and I want it to be personalized by having a title that says [Name]'s Planner. The user can enter their name into a text entry widget, press Submit , and then it will be displayed in the label. My application also has multiple pages, so the text entry will be on the start page and the label will be on the home page. I have named the text entry widget [code] and have created a function that takes the data from [code] and displays it in the label [code] , however, I am getting an error message when I try to call the function by clicking the Submit button which says [code] . I am confused as I believe I have already defined [code] by saying it equals the text entry widget. [CODE]"
+ },
+ {
+  "id": "T03473",
+  "title": "Generator expression must be parenthesized if not sole argument: using join",
+  "tags": [
+   "python",
+   "django"
+  ],
+  "body": "I'm getting following exception while run the server:- SyntaxError: Generator expression must be parenthesized if not sole argument to the following line: [CODE] I'm using a Python 3 version. I also tried to upgrade the django but still it returns same exception. Can anyone help me to solve this problem? Thanks in advance."
+ },
+ {
+  "id": "T03474",
+  "title": "ModuleNotFoundError: No module named &#39;bs4&#39; but in pip list is already installed",
+  "tags": [
+   "python",
+   "python-3.x",
+   "beautifulsoup",
+   "pip",
+   "modulenotfounderror"
+  ],
+  "body": "in here try to install beautifulSoup using pip, but the module is not found, I try to verify python path and pip on my computer here us the result [CODE] and here is my pip list [CODE] the [code] is already install on my computer but the module is still not found [CODE] anyone can help?, form beautifulsoup I refer to this docs Thanks!"
+ },
+ {
+  "id": "T03475",
+  "title": "Why is openCV moveWindow function not working?",
+  "tags": [
+   "python",
+   "opencv"
+  ],
+  "body": "Below, I have a python script. The part that is not working is the function cv2.moveWindow(\"TrackBars\", WIDTH, 0). I haven't a clue why it isn't working because I can use the moveWindow function on my other \"my Cam\" window. I initialized the \"TrackBars\" window and resized it before I try to use the moveWindow function. The point of the script is to make a camera window and have another window with inputs that change the position of a circle that is drawn on the camera window. [CODE]"
+ },
+ {
+  "id": "T03476",
+  "title": "How to create a exception for a while loop to repeat a input",
+  "tags": [
+   "python"
+  ],
+  "body": "I am trying to get this bit of code to work to validate the following input. I want to only accept inputs 1,2,or 3. Here is what I have so far: [CODE] The expected out put that I want if the input to loop until I get either 1,2, or 3. Right now it won't do anything to when I input something greater than three. I want to use this number as an input to another function. Any help would be great of if you need more information please let me know!"
+ },
+ {
+  "id": "T03477",
+  "title": "Running 10,000 SELECT queries against SQLite takes hours",
+  "tags": [
+   "python",
+   "sql",
+   "sqlite"
+  ],
+  "body": "I am using Python and the [code] lib to run around 10,000 SELECT queries against a single table. Running it locally on my not-high-spec-but-not-ancient laptop this is taking six or seven hours to complete. I created a composite index on the fields but that didn't make any difference. Here's the table and the query (the table is geolocation data for IP addresses, with the \"addresses\" being ints made by stripping the full stops): [CODE] [CODE] I'd expect it to take a while but not this long. Does the problem lie with Python, SQLite, me? Thanks. [EDIT] Looking at the query plan revealed that my index wasn't being used. I made separate indexes and that solves the problem. Thanks."
+ },
+ {
+  "id": "T03478",
+  "title": "How do I implement ECDSA with a P256 curve, so that I can verify a signature in python?",
+  "tags": [
+   "python",
+   "digital-signature",
+   "ecdsa",
+   "elliptic-curve",
+   "secp256r1"
+  ],
+  "body": "I've been playing around with cryptography and using elliptic curve cryptography for digital signatures. I've been signing data in javacard, then transmitting the signed data, original data and W (the point on the curve). I've then used W to reconstruct the public key and verify the signature (constrained by javacard). So far I've been using Bouncy Castle to do this in Java, but I wondered if there was a best practise way of doing this in python? I've done some googling, and found PyCryptodome https://pycryptodome.readthedocs.io/en/latest/index.html and ecdsa https://ecdsa.readthedocs.io/en/latest/ but I'm struggling to find examples that can help me understand how to do the second part - the reconstructing of the public key and verification of the signature, without the private key."
+ },
+ {
+  "id": "T03479",
+  "title": "Applying torch.combinations on multidimensional tensor or tuple of tensors in PyTorch?",
+  "tags": [
+   "python",
+   "pytorch"
+  ],
+  "body": "Using PyTorch, [code] will only take a 1D tensor as input but I would like to apply it to each 1D tensor in a multidimensional tensor. [CODE] The result is an error saying I can't apply it to that shape but I want to apply it to [code] and [code] individually. I can't do it one by one because the idea is to apply this to large sets of data. [CODE] I also tried unbinding the tensor and applying it to the tuple of tensors but it gives an error saying it can't be applied to a tuple. Is there any way that I can get [code] to automatically apply to each individual 1D tensor in a multidimensional tensor or each tensor in a tuple of tensors? If not are there any alternatives to achieve all combinations of each individual part of a multidimensional tensor?"
+ },
+ {
+  "id": "T03480",
+  "title": "Pyspark - Column transformation causes data shuffle",
+  "tags": [
+   "python",
+   "pyspark",
+   "concatenation"
+  ],
+  "body": "I am trying to transform data in Pyspark dataframe in order to export it. I have arrays like \"[1,2,3]\", and I need to transform it to a string like \"(1;2;3)\". Array need to be concatenated, and parenthesis should be added at beginning and end of the array. I also need to apply some regex. Sample input would be like : col1 array1 col2 \"First\" [1,2,3] \"a~\" \"Second\" [4,5,6] \"b\" Excepted output : col1 array1 col2 \"First\" \"(1;2;3)\" \"a\" \"Second\" \"(4;5;6)\" \"b\" Actual wrong output : col1 array1 col2 \"First\" \"(4;5;6)\" \"a\" \"Second\" \"(X;X;X)\" \"b\" where \"(X;X;X)\" would be data from another row. I tried the following code : [CODE] I make a loop on every column of the Pyspark Dataframe. If the column is an array, I concatenate it and apply the regexp. If not, I only apply the regexp. The issue is, after those operation, data is shuffled in my columns, and I don't have the data excepted. For example, if column d had \"b\" as a value for a given row, it would now be \"c\" or \"d\" for the same row. How can I apply those transformations without \"shuffling\" the data ? I am not sure that the way I actually loop on each column is a great practice with PySpark, but I really need to apply my function on every column, and check if it's an array or not to adapt the processing."
+ }
+]

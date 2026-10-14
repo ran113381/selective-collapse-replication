@@ -1,0 +1,1235 @@
+[
+ {
+  "id": "T04801",
+  "title": "Why do AWS Lambdas created from a non-Amazon image fail to return a dictionary?",
+  "tags": [
+   "python",
+   "dictionary",
+   "aws-lambda"
+  ],
+  "body": "I have an image [code] created by AWS Imagebuilder that uses [code] as the base, and then runs [code] . In the main file, among other things, I call [code] . If I call [code] from the \"Test\" tab in the AWS console, the function succeeds as expected; however, if I call it from the function URL in my browser (ie, [code] ), I get an 502 - \"Internal Server Error\" message. Looking at Cloudwatch tells me that the error is with the [code] call, as it results in a [code] . However, it seems that this log is not related to 502 error I received --- if I add a print line under the supposedly erroneous [code] call, the function returns the string. This seems to be because I am returning a dictionary as a payload (ie, [code] , as described here: https://docs.aws.amazon.com/lambda/latest/dg/python-handler.html#python-handler-return ) --- if I modify the function to return anything else, like a string or a list, the function is able to execute successfully. I can not replicate this with another Lambda that uses the default AWS Python base image (ie, a code editor window appears in the \"Image\" tab) --- while the same line appears in the error log, the function is able to return the dictionary successfully. Why does this only happen with non-Amazon images?"
+ },
+ {
+  "id": "T04802",
+  "title": "Is there a faster way of evaluating every combination of booleans in an if statement in python?",
+  "tags": [
+   "python",
+   "if-statement",
+   "boolean-expression"
+  ],
+  "body": "If I have 4 booleans e.g [code] then I want to do something different for each combination including when only 3 of them are true (including which ones), 2..., then only each 1... etc... Is there a quicker way than writing a bunch of elifs? Possibly using a loop"
+ },
+ {
+  "id": "T04803",
+  "title": "Data stream with confluent-kafka python giving error - TypeError: You must pass either str or Schema",
+  "tags": [
+   "python",
+   "apache-kafka",
+   "data-ingestion",
+   "confluent-kafka-python"
+  ],
+  "body": "I am trying to build Stream-Table Join Operations in Kafka python and below is the code that performs join operation on data sent from producer stream_table_join.py [CODE] There exists a part as shared below [code] That taps into the data object sent from producer and converts into the [code] class object with the help of [code] , this is done so that additional field can be joined, but everytime the code file is executed, it just shows the error [CODE] I tried running it both times 1. with Producer running and 2. without producer running, both times I am having the same error and there is not enough explanation on what exactly the error is about or how to solve this Below is the sample data that is coming from [code] [CODE] I tried running the code with producer and without the producer running, both times I received the same error, even checked the documentation and tried to find solutions for the error but found none"
+ },
+ {
+  "id": "T04804",
+  "title": "Debugging Pandas to_sql function",
+  "tags": [
+   "python",
+   "sql-server",
+   "pandas",
+   "sqlalchemy",
+   "pyodbc"
+  ],
+  "body": "I use the following code to insert a DataFrame into an MS SQL Server database. [code] is a pd.DataFrame that has the same columns as the database. [CODE] The code passes and I dont receive any error. However, the database does not change even though it should. How can I debug this code?"
+ },
+ {
+  "id": "T04805",
+  "title": "python parsing url parameters into a dictionary with urllib",
+  "tags": [
+   "python",
+   "parsing",
+   "url",
+   "parameters",
+   "urllib"
+  ],
+  "body": "I am trying to get the parameters of a url using urllib. After revisiting some StackOverflow Q&A there are answers under these lines: from urllib.parse import urlparse [CODE] The result is: [CODE] In order to get all the parameters I might used: [CODE] Result: [CODE] My questions: a) why params is nothing? b) Is there any function to get the results in form of a dictionary without having to parse the strings? c) Why is fragment treated differently as query if both are meant to pass parameters?"
+ },
+ {
+  "id": "T04806",
+  "title": "Identical tkinter text widgets when font style and size is changed",
+  "tags": [
+   "python",
+   "tkinter"
+  ],
+  "body": "I have a program that uses tkinter. There are two tkinter text widgets where the first one contains a sample text and the second one takes in a user input so that the user can type out the same sample text that is in the first text widget. In this program, I am also trying to automatically insert a [code] in the string of the sample text every certain number of characters, in this case every 10 characters, in such a way that the first text widget that contains the sample text does not have any words overlapping between two lines. So I used the [code] method like so: [CODE] Which gives the following after the user types the same text in the second widget (Note the text in both widgets below are not 100% identical because there is “ further” in the first widget whereas there is “further” in the second widget): Now, when I change the font style and size of both text widgets like so: [CODE] The number of characters per line in both widgets are no longer the same since the second widget takes in more than 10 characters per line even though I specified the width of both text widgets to be 10: So my question is: how can I ensure that both widgets have exactly the same amount of characters per line and look exactly identical even if the font style and size is changed?"
+ },
+ {
+  "id": "T04807",
+  "title": "Python subprocess with apostrophes, removes them",
+  "tags": [
+   "python",
+   "docker",
+   "subprocess",
+   "hbase",
+   "docker-exec"
+  ],
+  "body": "I'm running a command to my containerized Hbase DB from the [code] function: [CODE] It seems that the command runs as I expected, it opens the HBase shell and then trying to execute the next command but without apostrophes: [code] The error I get: [CODE] HBase expects apostrophes around [code] and [code] . I tried to run the same command prefixing the apostrophes with : [CODE] But I get the same results. Any idea how can I prevent it from deleting the apostrophes? Thanks in advance!"
+ },
+ {
+  "id": "T04808",
+  "title": "Built in way to convert this data to dict or json in python",
+  "tags": [
+   "python"
+  ],
+  "body": "So I have an input of [CODE] and i want to end up with a python dict like [CODE] The question I have is : Is there a pre built way to achieve this, similar to json.loads? I understand I could do something like: [CODE] but why would someone store it like that and require such wrangling ... :/"
+ },
+ {
+  "id": "T04809",
+  "title": "How to add item last and remove first item in python dataframe?",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "My dataframe is like this: [CODE] I want to add new item at the end of this dataframe, and remove the first item. I mean cont will be 3 each addition. New item add [CODE] and last stuation will be: [CODE] Is there a short way to do this?"
+ },
+ {
+  "id": "T04810",
+  "title": "Curl completing too late for following instruction",
+  "tags": [
+   "python",
+   "python-3.x",
+   "curl"
+  ],
+  "body": "I updated my Fedora OS for the first time in many years, and the python version updated as well. This necessitated some minor changes to my existing code (naked print no longer allowed, [code] deprecated). One piece of code that I'd relied on for many years stopped working, however, and I struggled to fix it. Its purpose was to download a page of text from the internet using curl and grep out various keywords. (In the example below, I've cut out everythimg except the problematic part and changed the website to a fixed academic website). [CODE] I found that the temptext.txt contained the expected text, but the output.txt was empty. After a bit of testing I realised that the grep was being effected BEFORE the download was complete. If I put a big sleep between the steps, it worked fine (though, obv, slower). I ultimately just rejigged the code completely to do these tasks in separate runs. Like I say, this code worked fine in Python 2. My OS is Fedora 42, Python version is 3.13.7. Any advice appreciated! Edit: per wjandrea's advice, I'm adding an explicit question. Q. How do I modify this code to avoid this problem? Although I've worked around it by running two scripts, I don't want to do this."
+ },
+ {
+  "id": "T04811",
+  "title": "Is this BLE Advertisement packet out of spec? How can I emulate it?",
+  "tags": [
+   "python",
+   "bluetooth",
+   "bluetooth-lowenergy",
+   "wireshark",
+   "wireshark-dissector"
+  ],
+  "body": "I'm working on a project to emulate some BLE packets from a lamp that has Bluetooth functionality. To do so, I'm capturing packets via Wireshark + nRF52840 dongle. I've dissected most of the packet, and was starting to work on emulating the packet , however BlueZ and HCI seem to refuse to want anything to do with my crafted packet. Is this packet out of spec, or am I misunderstanding it? Here's a sample packet: [CODE] The data payload starts at 0020 and goes for 32 bytes. My limited understanding of a BLE ADV_IND packet is that the payload can only be 31 bytes. Things that lead me to think it's not in spec: The packet doesn't have any of the standard company identifiers, or correct lengths. I can't pick it up on other sniffers like Packet Logger on OSX or nRF connect on Android. BlueZ and HCI won't accept it as valid while trying to transmit As for emulating the packet, I'm using Linux -- I'm under the impression that hci sockets were \"old\" and so was first trying via python , then attempting using [code] instead just to prove the packet could be sent, resulting in (not the same packet as above): [CODE]"
+ },
+ {
+  "id": "T04812",
+  "title": "Protobuf compiler that injects deprecation warnings for `[deprecated = true]` fields",
+  "tags": [
+   "python",
+   "python-3.x",
+   "protocol-buffers",
+   "protoc",
+   "tooling-recommendation"
+  ],
+  "body": "Are there any protobuf compilers out there that make use of the `[deprecated = true]` tag to automatically build deprecation warnings into the compiler Python source code? The current approach I'm taking is to detected deprecated fields at runtime and then monkey-patch an [code] method that injects a deprecation warning, but this feels a bit clunky."
+ },
+ {
+  "id": "T04813",
+  "title": "Redirect TCP traffic of a third-party libary",
+  "tags": [
+   "python",
+   "network-programming",
+   "tcp",
+   "portforwarding"
+  ],
+  "body": "Szenario: Can I force the TCP traffic of a libary (not Python, f.e. a database client) through a Python socket I created? The Background is, that I create this socket to connect through a SOCKS5 Proxy to the remote host. A solution I read about is SSH tunneling, but this would require the remote host to be ssh enabled. Due to security considerations this might not be given in an production environment. Is there a solution that I can realise directly in Python? I am thinking of a \"Internal Port Forwarder\" that listens on say localhost:4444 - I tell the libary to send the traffic to localhost:4444 - but the \"Internal Port Forwarder\" just sends the traffic via the open socket. [CODE] What did I think of: I looked at SSH Tunneling using paramiko and creating a own TCP server with the socket module. The latter looks promising, but I am not sure if this is the most elegant way to achive this. Here is a link to a working gist of the custom port forwarder , but I imagine that this will be quite unstable (maybe the libary creates more than one connection and the connection is long lasting etc.)."
+ },
+ {
+  "id": "T04814",
+  "title": "Common non standard MIME types",
+  "tags": [
+   "python",
+   "mime-types",
+   "content-type"
+  ],
+  "body": "I am looking for some common non standard MIME types like: audio/mp3 These are the standardized MIME types. https://www.iana.org/assignments/media-types/media-types.xhtml Because while using the mimetypes module in python I stumbled upon the aforementioned audio/mp3 MIME type, which is quite common, but wrong the correct MIME type is audio/mpeg. As discussed here Which mime type should I use for mp3 . I wasn't able to find a good list of common non standard MIME types, if someone could point me in the right direction I would be grateful. Thx in advance"
+ },
+ {
+  "id": "T04815",
+  "title": "Implementing toy model as linear programming problem",
+  "tags": [
+   "python",
+   "optimization",
+   "scipy",
+   "interpolation"
+  ],
+  "body": "I am trying to implement the following toy model as linear programming problem, and look forward to hearing whether I missed anything. Consider the following toy model, with three factories A, B, and C, producing products foo and bar. foo bar A 80 20 B 20 40 C 10 5 We want to increase the total output of foo and bar system by 50 and 25. Factories cannot reduce their output. The ratio of foo and bar per factory is fixed (e.g. factory A produces 80 units of foo per 20 units of bar). We want to minimize the relative change in output per factory. If I understand correctly, I can solve this question with linear programming. The objective function is : [code] , where [code] is the new output per factory, and [code] is the baseline output per factory. Note that [code] is a variable, and [code] is fixed. Next, to implement this objective function in [code] , we need to rewrite the objective function in the form of [code] : [code] ,such that [code] , and [code] . Furthermore, we need to add the constraint that the new output is [code] and [code] . For this, we transpose the initial table, to obtain the form: [code] Note that since we need to match this new output exactly, we use [code] and [code] (instead of [code] and [code] . Moreover, note that we do not have to define a constraint that the ratio of [code] and [code] is fixed, since the decision variables concern the total output per"
+ },
+ {
+  "id": "T04816",
+  "title": "Delaunay triangulation on a cube",
+  "tags": [
+   "python",
+   "matplotlib",
+   "3d",
+   "delaunay"
+  ],
+  "body": "I have to create a 3d cube with a set of points for school. But when I'm trying to use Delaunay triangulation I'm getting a bad result. Does anyone has any idea how to fix that ? I'm truly a beginner with this kind of tools, sorry if it's an obvious mistake. [CODE] Cloud point: Once triangulated: I already tried changing some parameters in the Delaunay function but nothing seems to work."
+ },
+ {
+  "id": "T04817",
+  "title": "How to delete/not save files when Jupyter notebook in ran with plotly pio.renderers.default = &quot;iframe&quot;?",
+  "tags": [
+   "python",
+   "jupyter-notebook",
+   "plotly"
+  ],
+  "body": "I am plotting a plot using plotly python (inside jupyter notebook) like below- [CODE] and I have imported and setup plotly like below [CODE] Without [code] jupyter notebook does not even render the plot. By using [code] I can render the plot, but it starts saving every plot as HTML file with average of 3-4 MB in size on my local machine. How can I avoid that? Is there any better way to render plotly charts which will spare me all other things to deal with? Thanks!"
+ },
+ {
+  "id": "T04818",
+  "title": "Ignoring a specific undefined variable with pyright",
+  "tags": [
+   "python",
+   "visual-studio-code",
+   "salt-project",
+   "pyright"
+  ],
+  "body": "When writing custom SaltStack modules/states using VScode and linting with pyright, I get the following error all over the place: [CODE] It's not a killer, because I can put the following on the end of every line that references it: [CODE] But what I would rather do is tell my project that [code] is a known variable, and don't report on that variable. Is this possible?"
+ },
+ {
+  "id": "T04819",
+  "title": "How can I change the values in the tensor using dictionary?",
+  "tags": [
+   "python",
+   "dictionary",
+   "pytorch"
+  ],
+  "body": "when I have a tensor and dictionary as below, how can I map the dictionary to the tensor? For example, [CODE] I tried this code and [code] , but it didn't work well."
+ },
+ {
+  "id": "T04820",
+  "title": "ImportError: cannot import name &#39;NUMPY&#39; from &#39;openpyxl.compat.numbers&#39;",
+  "tags": [
+   "python",
+   "numpy",
+   "openpyxl"
+  ],
+  "body": "Successfully installed [code] with no errors When I try to initialize with [CODE] I get the following import error [CODE] I did a completely new install of python 3.12.0 and it seems like the [code] has not been updated to work with 3.12.0. When I mess with the source code in the [code] module I can get it to go the next step of the import. But I don't really want to go that route. Any and all assistance would be great appreciated"
+ },
+ {
+  "id": "T04821",
+  "title": "How can I properly utilize seaborn with matplotlib",
+  "tags": [
+   "python",
+   "matplotlib",
+   "seaborn"
+  ],
+  "body": "I get an error code file not found when i try to use \"seaborn on jupyter notebook. Here is my code [CODE] Error message [CODE] I try to install seaborn module but keeps getting an error"
+ },
+ {
+  "id": "T04822",
+  "title": "Python socket.gethostbyaddr throwing error",
+  "tags": [
+   "python",
+   "sockets",
+   "lookup"
+  ],
+  "body": "I am reading IP addresses from a CSV file into a pandas data-frame, then extracting the IP(column) from the row. Then I try to do a lookup to get the PTR record, but I am getting the following error: [CODE] Here is the code: [CODE] Here is what the CSV looks like: [CODE]"
+ },
+ {
+  "id": "T04823",
+  "title": "Python: Handle different datetime format dynamically",
+  "tags": [
+   "python",
+   "algorithm",
+   "datetime",
+   "python-datetime",
+   "python-dateutil"
+  ],
+  "body": "I have a different DateTime format coming in for Day, Week, Month, and Quarter. I would like to know if there is a way to handle it or I have to maintain a map of all possible DateTime formats. [CODE] I know the [code] function from [code] library. Using that I don't need to know what format of datetime string is, and it'll convert the string into datetime object. But that doesn't work here. So, if anyone knows any in-built function which I can use please let me know."
+ },
+ {
+  "id": "T04824",
+  "title": "How to test if an object is Annotated in Python?",
+  "tags": [
+   "python",
+   "python-typing"
+  ],
+  "body": "Consider the following code: [CODE] I want to test if type of [code] field in a [code] is [code] type but it always return [code] . What's wrong and how to fix?"
+ },
+ {
+  "id": "T04825",
+  "title": "Optimize search of a point(latitude,longitude) in a set of polygon(state polygon)",
+  "tags": [
+   "python",
+   "list",
+   "sorting",
+   "geolocation",
+   "point-in-polygon"
+  ],
+  "body": "I stored the polygon data of all the states of USA in a custom object [CODE] Now I want to check for a given point which is of type [code] it is inside which state. Initially I am using this loop : [CODE] This is a linear search and is working perfectly as expected. But I want to implement a better approach to use this search. A much efficient and faster method. Can someone please help me with that?"
+ },
+ {
+  "id": "T04826",
+  "title": "Python dataframe - resample timestamps, group by hour, but keep the start and end datetime",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "time",
+   "resampling"
+  ],
+  "body": "I have a DataFrame containing timestamps and values. [CODE] I want to resample by data : group the timestamps by hour and sum the values. It can easily be done via the Pandas function resample: [CODE] The problem is that this methods losses the original start and end time. If my first hour started at 13:29, the first aggregated hour will appear as 13:00 to 14:00. Which is \"wrong\" because there was no record between 13:00 and 13:28 Is there an existing function grouping by hours but respecting start and end time, and if possible, displaying the start and end time of the intervals? Displaying start and end time would allow to avoid the confusion on the last aggregation. If my last hour ends at 15:36, the aggregated hour will appear as 15:00 and if the end time is not specified, one can assume that it means 15:00 to 15:59, which is \"wrong\" as there is no data beyond 15:36. Before coding something myself I waned to see with the community if something exists out of the box. I tried the options of Pandas Resampling and failed to find a similar function. Thanks for any help"
+ },
+ {
+  "id": "T04827",
+  "title": "How to read a list of h5 objects in a dictionary and assign them to the names said dictionary?",
+  "tags": [
+   "python",
+   "dictionary"
+  ],
+  "body": "If I have the following dictionary: [CODE] How can I create the variables [CODE] where [code] is the object created by reading [code] , etc. I've tried this but get an error: [CODE] TypeError: expected str, bytes or os.PathLike object, not list"
+ },
+ {
+  "id": "T04828",
+  "title": "Django Admin behaves weirdly",
+  "tags": [
+   "python",
+   "css",
+   "django",
+   "django-rest-framework"
+  ],
+  "body": "I have this Django app running perfectly but sometimes Django Admin works oddly, because If I click on any model, instead of taking me to the list of registries in that model, It takes me to the same model list but with a weird css. Here is the picture of the normal model list Here is the picture after clicking any model I can't add information to models or anything."
+ },
+ {
+  "id": "T04829",
+  "title": "In Python is there a way to format the output of a list?",
+  "tags": [
+   "python",
+   "list"
+  ],
+  "body": "I have a list of characters; is there a way to print this list such that the list prints without the default square brackets and commas? For instance: [CODE]"
+ },
+ {
+  "id": "T04830",
+  "title": "Insert an element into an array of nested model Mongodb with PyMongo on FASTAPI",
+  "tags": [
+   "python",
+   "mongodb",
+   "pymongo",
+   "fastapi"
+  ],
+  "body": "Recently I stuck on inserting an element into an array that held by a parent document. Basically, my model represents a train that can have many wagons. The wagons is an array that hold a wagon. Here is my database model [CODE] I was using [code] to attach the newly created wagon to the train. However, I got no luck to attach the model but a new wagon was created as shown in the function below. [CODE] The model was served as an API with FASTAPI. The operation above was done using PUT method with the route as shown below. [CODE] Is my [code] is wrong ? or is the way I use [code] as exact equality match is incorrect ?"
+ },
+ {
+  "id": "T04831",
+  "title": "Make a Python process that communicates with itself over a PTY",
+  "tags": [
+   "python",
+   "pty"
+  ],
+  "body": "I'm attempting to write tests using Pytest for an application that, among other things, checks to see if its standard input is connected to a terminal and changes its behavior if so. The application is structured such that the code is in a Python module that provides a [code] function, then an executable exists that simply imports the module and calls [code] . When testing, the test suite imports the same module, then calls [code] with various mocks set. stdin is, as far as I can tell, usually a [code] object when running the application normally, so I've been mocking stdin like this: [CODE] This works quite well, but now I need to be able to mock [code] with a pty. The idea I had for doing that was to just open a PTY pair, wrap the slave pty in an [code] object, then wrap that in a [code] object, and be done. If that worked, I'd be able to write to the application's stdin by writing to master_pty in the test suite, then the application would read [code] and get whatever I wrote. That doesn't seem to work though. From looking at https://man7.org/linux/man-pages/man7/pty.7.html and https://docs.python.org/3/library/pty.html , it seems like I should be able to do something like this in the interactive console: [CODE] What I expect to have happen is [code] should output [code] What actually happens is the interactive session hangs until I press Ctrl+C. Clearly I'm missing somethin"
+ },
+ {
+  "id": "T04832",
+  "title": "Can Python install packages on a shorter path on Windows?",
+  "tags": [
+   "python",
+   "windows"
+  ],
+  "body": "I am attempting to install the grpcio package, and seeing the following error: [CODE] My pip version is [CODE] Unfortunately I do not have the option to request Administrator access on my work laptop, so the option of reinstalling Python with the 260 char MAX_PATH limitation is not there. Moreover I cannot set the registry to accept Long Paths. Can I change the environment variables to make Python choose a smaller Temp folder? I have changed the following: [CODE] but I still see the error above."
+ },
+ {
+  "id": "T04833",
+  "title": "download not working and image not showing",
+  "tags": [
+   "python",
+   "html",
+   "django"
+  ],
+  "body": "I want to create a download link using the anchor tag but it is not working and the image is not showing either [CODE] models.py [CODE]"
+ },
+ {
+  "id": "T04834",
+  "title": "Django : pre-filled forms by database",
+  "tags": [
+   "python",
+   "django",
+   "django-views",
+   "django-forms"
+  ],
+  "body": "I created travels (pretty much like products) for my site and I want an admin to chnage some informations about those. So I created a form to change the informations. But I want the form to be pre-filled with the actual informations so the admin just have to change what he wants to change. I've been trying different ways to do it but it never worked. Here is my form : [CODE] Here is my view : [CODE] The template is : [CODE] To access to this page, there is a button on the previous template : [CODE] I've tried the view : [CODE] I've tried the view : [CODE]"
+ },
+ {
+  "id": "T04835",
+  "title": "I&#39;m trying to solve this Python exercise but I have no idea of how to do it: get first character of a line from a file + length of the line",
+  "tags": [
+   "python"
+  ],
+  "body": "I am learning Python on an app called SoloLearn, got to solve this exercise and I cannot see the solution or see the comments, I don't need to solve it to continue but I'd like to know how to do it. Book Titles : You have been asked to make a special book categorization program, which assigns each book a special code based on its title. The code is equal to the first letter of the book, followed by the number of characters in the title. For example, for the book \"Harry Potter\", the code would be: H12, as it contains 12 characters (including the space). You are provided a books.txt file, which includes the book titles, each one written on a separate line. Read the title one by one and output the code for each book on a separate line. For example, if the books.txt file contains: Some book Another book Your program should output: S9 A12 Recall the readlines() method, which returns a list containing the lines of the file. Also, remember that all lines, except the last one, contain a \\n at the end, which should not be included in the character count. I tried: [CODE] I also tried with [code] and [code] but I don't know how to solve it"
+ },
+ {
+  "id": "T04836",
+  "title": "Values aren&#39;t matching a list (python)",
+  "tags": [
+   "python",
+   "flask",
+   "lookup"
+  ],
+  "body": "I am trying to have a user type in a hostname and if it matches then return other items in the list I was able to append it to new list if item is online but I can't seem to return a match if they match and I have verified that the host is in this list (its pointed via another api route) [CODE]"
+ },
+ {
+  "id": "T04837",
+  "title": "Creating a custom mock object with internal state in Python",
+  "tags": [
+   "python",
+   "mocking",
+   "magicmock"
+  ],
+  "body": "I am trying to create a mock class which mocks an interface to some hardware which is not always available. I want to be able to emulate the hardware when it's not available. The real class which interfaces the hardware has read/write methods I wish to mock. It also has many other methods whose behaviour I am uninterested in. I want my mock class to have read and write functions which allow me to read and write back values - so the class has some internal state. When I call a method that's not been explicitly defined by my mocked object, I don't want it to throw an exception. I want undefined methods to either return a [code] or possible return a fixed known integer value like [code] . This is because the other method calls primarily change other hardware behaviour and outputs which the software can not probe. Here is a non working example of the sort of thing I am after. Does anyone know how I can modify my template class to achieve the desired behaviour? [CODE] The Application code [CODE]"
+ },
+ {
+  "id": "T04838",
+  "title": "Searching for multiple strings over multiple columns in Python",
+  "tags": [
+   "python",
+   "pandas",
+   "string",
+   "numpy"
+  ],
+  "body": "I am trying to find multiple patterns (the first 3 elements of a string) over multiple columns. Up till now, I am able to find one pattern over multiple columns with the following code: [code] In this case, it looks for the string C07 in all the columns with locations. However I have 30 of these locations I want to look for, which looks something like this: [code] This is an example of what the original dataset looks like: [CODE] I would like to create a new column for each unique location, with the end result looking like this: [CODE] Any guidance in the right direction is much appreciated!"
+ },
+ {
+  "id": "T04839",
+  "title": "Ajax POST request to Flask",
+  "tags": [
+   "python",
+   "json",
+   "flask",
+   "post"
+  ],
+  "body": "I am new to Flask and JavaScript and wanted to create a simple web application. It is almost done, but I just need to complete the last functionality. I use a stopwatch written in JavaScript and after clicking a button (it is nested inside a form, but I want to pass the variable from JavaScript (that creates this stopwatch and return time) to Flask via JSON. For now I tried the following: [CODE] I call this function after clicking this button: [CODE] So I also pass the id of an button as an argument that is a unique task id, because this data is represented as a table and I need to know for which task the time needs to be updated. Here is my Flask route function: [CODE] The result is that I get the 400 Bad request and the print function returns something like this: \"b'time=3&id=9\". I was looking for a way to send JSON in a different way, or pass two variables (as this would give be two variables, task_id and time, but other errors occurred). How can I get this right? Most of the answers are related to using Ajax as with a form from the HTML side, but I cannot nest them, because one is taking the whole table for another purpose."
+ },
+ {
+  "id": "T04840",
+  "title": "You did not supply a value for binding 7",
+  "tags": [
+   "python",
+   "sqlite"
+  ],
+  "body": "I am having \"You did not supply a value for binding 7\" error, however, I have checked similar questions already but none of them seemed to have the same issue that I am facing. [CODE]"
+ },
+ {
+  "id": "T04841",
+  "title": "apend method is not working in python code",
+  "tags": [
+   "python"
+  ],
+  "body": "Inside the below code, the [code] method is not working, line number is 10 [CODE] Below is the error message. [CODE] I am trying to save the output inside the file, which is file.txt. The old element should not be overwrite with new element. The old element and new element should be saved in the file.txt - this is what I am expecting."
+ },
+ {
+  "id": "T04842",
+  "title": "Not able to use pickle load() with Keras 3",
+  "tags": [
+   "python",
+   "keras",
+   "deep-learning",
+   "pickle",
+   "keras-3"
+  ],
+  "body": "Whenever I run the following code: [CODE] I get an error like this: [CODE] Even though I have installed Keras 3.3.3 and have Tensorflow 2.16.1 with Python 3.10 , even if I use [code] , I'm still getting the same error: [CODE] If there is an alternative way to load my pickle model along with Keras 3.3.3 please tell !! I am expecting for an solution about how to load the pickle model that I have saved but showing different error with keras library, hope i get a good answer."
+ },
+ {
+  "id": "T04843",
+  "title": "can I run a shell task in VSCode that uses a specific shell for a python virtualEnv?",
+  "tags": [
+   "python",
+   "vs-code",
+   "virtualenv"
+  ],
+  "body": "I'm writing some python to render stuff that I tweak and run a lot, and that runs inside a virtual env. I would like a keyboard command to run a bash script (that launches python) inside the known terminal and virtual env. I played a bit with setting up a shell script and a custom task, but entering the virtual env is always a bit tricky. I don't need a debugger or anything complicated, just a way to run the python code and attach a keystroke to it. https://code.visualstudio.com/docs/editor/debugging#_launch-configurations https://code.visualstudio.com/docs/python/jupyter-support-py"
+ },
+ {
+  "id": "T04844",
+  "title": "Python threading overkill?",
+  "tags": [
+   "python",
+   "multithreading"
+  ],
+  "body": "I'm writing a streaming radio program for use on a raspberry pi which uses an IR remote control. The remote control logic is uses time.sleep() and blocks the main program thread, hence why I've started to use threads. I feel like I'm going down a rabbit hole with this code, as I'm using multiple globals and queues to manage the state of the remote control and actions that need to be performed. I don't particularly like using globals, so would be interested to know how I could refactor these out. I'm also firing off new threads for every remote keypress, when viewing the active threads I can see they are being closed, but the thread id is incremented on subsequent threads - is this normal? I would have assumed that if a thread is closed the next id would use one of the previous ids. Any help would be appreciated. Code is below - I've excluded the remote control code due to size and have simulated the keypresses instead. [CODE] Updated code based on Async IO: [CODE]"
+ },
+ {
+  "id": "T04845",
+  "title": "need to render python in html using flask",
+  "tags": [
+   "python",
+   "flask"
+  ],
+  "body": "this is the 1st time I am rendering HTML using python and flask so my concepts are very new.. I tried the [code] in Project and my issue is if I change return \"Hello, World!\" in the hello() python function to say return \"ABC XYZ\" and do a refresh of the browser url( http://127.0.0.1:5000/ ), the new value (ABC XYZ) doesnt get rendered immediately; so how do I make it to render upon a browser refresh?"
+ },
+ {
+  "id": "T04846",
+  "title": "How does numpy handle array and tuple addition？",
+  "tags": [
+   "python",
+   "numpy"
+  ],
+  "body": "The beginning of the problem： I am trying to learn about the broadcast mechanism in numpy when adding two arrays. I created two arrays, with [code] and [code] . I wanted to print the shape of the result when adding, but instead of [code] I wrote [code] , which is equivalent to [code] . [CODE] The output of the above code is： [CODE] My thoughts: I took a closer look at numpy's documentation based on the suggestions of my friends, Where The add function description \"The + operator can be used as a shorthand for np.add on ndarrays. \"means that the + operator is actually used in NumPy for ndarray objects np.add function. You can use + directly to perform array addition without explicitly calling the np.add function. Specifically, both sides of the + operator do not have to be ndarray, but when at least one side is ndarray, the other side is automatically converted to ndarray. numpy can compute the array_like of a shape, that is, the Series or DataFrame of ndarray, list, tuple, Pandas, etc. And any other object that can be converted to a NumPy array can be added. So we didn't make a mistake when we incorrectly evaluated the tuple (3,) with a ndarray. My question： How does numpy handle this operation between an ndarray and a tuple, is there an implicit type conversion or something? I looked it up and it showed that \"add in numpy.core.umath is actually executed by ufunc implemented in"
+ },
+ {
+  "id": "T04847",
+  "title": "Sphinx doc toctree click &quot;jumps&quot; to nav anchor instead of top",
+  "tags": [
+   "python",
+   "python-sphinx",
+   "restructuredtext"
+  ],
+  "body": "When I click a toctree (navbar) item, the page \"jumps/jolts\" to the toc element instead of the top of the new page as if it's aligning with the toctree anchor (instead of the body h1 or just generally to the top page): This makes an unstable feeling for the page causing sudden jumps down the page. If I'm scrolled all the way up before clicking and the body is a 1-pager, you can't repro this. However, if your body has a scrollbar, this is easily repro'd. Expected: Clicking a toctree element should bump me to the top of the new page Actual: I'm unexpectedly bumped down the new page to where the toctree element was anchored. New pages never start at the top, but 1/2 way down (unless it's a 1-pager doc). Is there a way to stop navigating to the toctree anchor on click? I was expecting it to bump to the h1 or page top. __ EDIT 1: TL;DR using this site as an example: When I click on StackOverflow \"Questions\" section, I can still see \"Home\" above (the body moved, but the navbar didn't move -- expected). In my Sphinx build, if I were to dupe StackOverflow's navbar and clicked \"Questions\", I could no longer see \"Home\" since the navbar would anchor down. (CC'd from comment that felt important enough to edit in here) EDIT 2: Here's a GIF showing what I mean: https://i.imgur.com/oE25Siw.gif"
+ },
+ {
+  "id": "T04848",
+  "title": "How to dynamically inspect a GenericAlias (Type) object to determine the types it contains?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "python-typing"
+  ],
+  "body": "I have a dataclass with typed [code] fields, and I'd like to dynamically see the types of their elements. When I print the types, I see them as containers (whose contents are exactly what I want): [CODE] but when I try to iterate through or index into [code] I get [code] or [code] . It really seems like this ought to be possible, but I've had no luck reading the PEPs or docs."
+ },
+ {
+  "id": "T04849",
+  "title": "How to obtain 2 sets of key,value pair in each iteration of for-loop?",
+  "tags": [
+   "python"
+  ],
+  "body": "I know I can use this to print key/value pair in each iteration. Can I obtain two sets of key/value pair in single iteration? [CODE]"
+ },
+ {
+  "id": "T04850",
+  "title": "Django framework: unable to load &#39;services&#39; page",
+  "tags": [
+   "python",
+   "django",
+   "django-views",
+   "django-templates"
+  ],
+  "body": "I'm working on a Django project. I think there is some problem with the use of ' services ' word in the django project. Please see if you can find some corrections required in the project. The project name is Hello . There is one additional app ' home '. When I navigate to the index, contact, or about page, all of them are working (loading) as expected. I'm using following list item (in base.html ) to navigate to the ' services ' page: [CODE] But services page is not loading. If I change ' services ' to ' service ' everywhere, then it works as usual. It's giving the following error: Following are some of the file contents: Hello->urls.py [CODE] home->urls.py [CODE] home->views.py [CODE] templates->index.html [CODE] templates->about.html [CODE] templates->services.html [CODE] templates->contact.html [CODE] templates->base.html [CODE]"
+ },
+ {
+  "id": "T04851",
+  "title": "reading function arguments from array or dict",
+  "tags": [
+   "python",
+   "arrays",
+   "function",
+   "dictionary"
+  ],
+  "body": "I want to define a function with a lot of arguments. I do not know what is the best way not to write the argument directly and to read the function arguments from something like an array or anything else that works well. here is an example to convey my meaning in a better way: [CODE] I want to call A, B, C, D form something like an array if possible (like what I have done for bin, for example bin[0] instead of 4 ). I mean something like this: [CODE] so that I can simply write for example array[0] or something like that instead of writing directly A. Is that possible at all? if yes, any suggestion would be appreciated. *****Edited I did what you suggested, there is no problem with the function definition, but when I want to use the function for curve fitting I get an error. This is what I have done: [CODE] and this is the error: [CODE] Many thanks in advance for any help!"
+ },
+ {
+  "id": "T04852",
+  "title": "Problem with nested loop logic and indentation in python",
+  "tags": [
+   "python",
+   "for-loop",
+   "while-loop",
+   "nested-loops"
+  ],
+  "body": "I am trying to re-run a nested for loop within a while loop if the while condition is not met. If the condition is met then I want the inner loop to terminate and proceed to the next iteration of the outer loop. I want to try the inner loop 10 times before preceding to the next i of the outer loop. I've tried various variations of the following (psuedocode) but am unsure exactly what the if / else statements at the end the function should say, break/continue? And where they should be indented to accomplish this. I've appended the indentation lengths to each part of the code. I would be grateful if anyone can help explain if it's possible to do this and how to do it. Thanks in advance. [CODE]"
+ },
+ {
+  "id": "T04853",
+  "title": "input commands after opening a shortcut?",
+  "tags": [
+   "python",
+   "cmd",
+   "anaconda",
+   "subprocess",
+   "miniconda"
+  ],
+  "body": "I am using Python 3.10.6 and Miniconda 3 What I'm trying to do is write a python script which will open a .cmd file. simple enough, but the problem is it has to be opened in anaconda. I've been able to have my script open the .cmd through the standard command line, and I've been able to have the script open anaconda. But I'm unable to do both in sequence, open the anaconda terminal and then pass a command to it, instructing it to open the .cmd opening anaconda: [CODE] this works properly when i open either anaconda path or test.cmd directly using the subprocess.run function. but when I attempt to open test.cmd as a command argument in the anaconda terminal, it doesn't work [CODE] I believe this is the relevant part of the error code it returns [CODE] I feel like I am missing something obvious here, perhaps about the syntax or limitations of subprocess. Any guidance would be appreciated"
+ },
+ {
+  "id": "T04854",
+  "title": "How can I map a list consisting of 136 rows to 7 columns",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "I can't seem to find a way of doing the following: I have a list of values consisting of 136 rows that looks like this [CODE] Now I want to create a pandas DataFrame of 7 columns with the column names [code] with each 7 row mapped under the columns like [CODE] UP TO THE 136th row"
+ },
+ {
+  "id": "T04855",
+  "title": "How to Write a Pandas DataFrame to CSV With Strings Quoted and Integers/Empty Cells Unaltered Without Adding Escape Characters for Commas?",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "csv",
+   "export-to-csv"
+  ],
+  "body": "I am working on a Python script to write a DataFrame to a CSV file. My goal is to: Enclose all string values in double quotes (\"). Keep numeric values unchanged (no quotes). Leave empty cells as they are. Here’s the code I’m currently using: [CODE] The problem I face is that when a string contains a comma (e.g., \"hello, world\"), the CSV writer adds an escape character () before the comma, resulting in an output like this: [CODE] I want to avoid this behavior and have the output directly include the comma within the quoted string, like so: [CODE] I have tried csv.QUOTE_MINIMAL: When I set quoting=csv.QUOTE_MINIMAL, quotes are only added around strings containing commas, and other strings are left unquoted, which does not meet my requirement. Custom Logic Issue: When combining csv.QUOTE_MINIMAL with my custom logic to quote all strings, the resulting output has extra double quotes, like: [CODE] I need a solution that: Quotes all string values consistently, including those with commas, without adding escape characters or extra quotes. Keeps numeric values and empty cells unaltered."
+ },
+ {
+  "id": "T04856",
+  "title": "Passing variables between PY and HTML using Flask",
+  "tags": [
+   "python",
+   "html",
+   "variables",
+   "between",
+   "transfer"
+  ],
+  "body": "Passing variables between PY and HTML using Flask I need to pass a text input from browser to PY and back to browser. But it does not work. main.py [CODE] index.html situated in subfolder template [CODE] Below Input field appears {% if result %} {{ result }} {% endif %} Screen Shot: ( https://i.sstatic.net/7hv6s.png ) and submitting a value does not cause any reaction. Please help ... I expected: That {% if result %} {{ result }} {% endif %} does not appear That input text is returned capitalized"
+ },
+ {
+  "id": "T04857",
+  "title": "Matplotlib contourf input array shapes error",
+  "tags": [
+   "python",
+   "matplotlib",
+   "contourf"
+  ],
+  "body": "I'm trying to plot pressure contours of exported CFD data. I created a rectangular grid, filtered it based on the imported coordinates and interpolated imported data on the filtered mesh. I then used the filtered grid and the interpolated pressure data with the [code] function to plot the contours. However I always get the \"TypeError: Input z must be 2D, not 1D\" error. I checked the shapes and number of dimensions of X,Y and Z inputs in contourf and they are all 2D and the same shape. Does anyone know where this error comes from? EDIT: the problem was with original data, the meshgrid + interpolate works fine (see comments). The next problem is now how to structure filtered data in a way that it will be in 2D shape. Sample code: [CODE] Data Sample: nodenumber, x-coordinate, y-coordinate, z-coordinate, pressure,velocity-magnitude 1,-2.745435307E-02, 2.104994697E-03,-2.185633883E-02,-8.094133146E+03, 4.686428765E+01 2,-2.738908254E-02, 3.158549336E-03,-2.185629997E-02,-8.104864467E+03, 4.606212337E+01 3,-2.757460451E-02, 5.167262860E-03,-2.185623337E-02,-8.093051020E+03, 4.495193692E+01 4,-2.733931890E-02, 5.656880572E-03,-2.185622490E-02,-8.116433300E+03, 4.405860916E+01 5,-2.759126430E-02, 6.070293390E-03,-2.185618260E-02,-8.084872243E+03, 4.428866265E+01 6,-2.737704207E-02, 6.507508463E-03,-2.185627796E-02,-8.106663765E+03, 4.361527022E+01 7,-2.762655064E-02, 0.000000000E+00,-2"
+ },
+ {
+  "id": "T04858",
+  "title": "&#39;list&#39; object has no attribute &#39;add_subplot&#39; in matplotlib",
+  "tags": [
+   "python",
+   "matplotlib"
+  ],
+  "body": "I have followed the suggestions from another threat, but this code still gives me the list object has no no attribute error - what is the correction? [CODE]"
+ },
+ {
+  "id": "T04859",
+  "title": "cannot import name &#39;type_spec_registry&#39; from &#39;tensorflow.python.framework&#39;",
+  "tags": [
+   "python",
+   "tensorflow",
+   "rllib"
+  ],
+  "body": "I am working on my Master's project with MARL, and i decided to use RLLib. I created a conda environment for my project and installed RLLib: [code] Later on, i tried to run one experiment: [code] But got the following error: \"ImportError: cannot import name 'type_spec_registry' from 'tensorflow.python.framework'\" I am using Tensorflow 2.11. Thanks in advance! I was trying to run one experiment from RLLib library in order to test if the library is correctly installed."
+ },
+ {
+  "id": "T04860",
+  "title": "How to annotate with label in middle?",
+  "tags": [
+   "python",
+   "matplotlib",
+   "plot",
+   "matplotlib-animation"
+  ],
+  "body": "When I plot the following code with 3 subplots using matplotlib, [CODE] I was not able to : embbed the label within xAxis & yAxis make the spline visible make extra tick-labels appear along y direction add a footer description of the figure I'm lost with which API might be of use here! - any help I would appreciate!"
+ },
+ {
+  "id": "T04861",
+  "title": "Is it possible to pass in the base object when calling a sub function?",
+  "tags": [
+   "python"
+  ],
+  "body": "I had a bug with the following code and figured out the reason: [CODE] list.sort() is an in-place sort with no return value, and this is passing the return from the sort() call to print; which is why this code doesn't work. To fix it, I can obviously use the sorted function or write my own: [CODE] Is there any way to do this along the lines of the original buggy inline implementation, i.e. use sort() on the temporary list from the cast, but pass in/return the temporary (sorted) object?"
+ },
+ {
+  "id": "T04862",
+  "title": "Generate constraints in pyomo with a loop and changing inputs",
+  "tags": [
+   "python",
+   "pyomo"
+  ],
+  "body": "As an input for my optimization model I have a node structure that links variables with each other as in (simplified version): [CODE] I need to iteratively generate constraints that are able to capture the relationships between the variables. I have tried the following (dummy model for the purpose of this question, constraints dont really make sense): [CODE] Nevertheless, I guess because of the way pyomo constructs models, I end up generating the same constraint three times: [CODE] I've tried saving the constraint functions to an external dict, but that hasn't worked either. Any ideas?"
+ },
+ {
+  "id": "T04863",
+  "title": "pyside6-uic : The term &#39;pyside6-uic&#39; is not recognized as the name of a cmdlet in windows 11 and VSC",
+  "tags": [
+   "python",
+   "vs-code",
+   "qt-designer",
+   "pyside6"
+  ],
+  "body": "I am learning to create GUI interfaces using Qt designer and I am trying to convert my .ui file to a .py file. I have attempted to install pyside6 using pip3 install pyside6 - and pyside6 essentials in the power-shell on VSC. It still produces the same error. I also installed QT for python as an extension on VSC but I am still unable to fix the issue of it not being recognised I tried installing pyside through the powershell and the pyside essential package and that didnt fix it I also installed Qt for python as stated above."
+ },
+ {
+  "id": "T04864",
+  "title": "Want to convert degrees to radians and have the answer output symbolically",
+  "tags": [
+   "python",
+   "sympy",
+   "symbols",
+   "trigonometry",
+   "radians"
+  ],
+  "body": "I am using the Sympy library in Python, and I'm trying to convert degrees to radians, and have the output rendered symbolically. Sympy does not have a function for converting degrees to radians, but the Sympy docs recommend using mpmath . I tried the following code: [CODE] The output is 2.19911485751286, which is correct, but computed numerically rather than symbolically. I would like it to be rendered as [code] (symbolic computation). The google AI guidance was convoluted and actually incorrect. Is there an easy way to do this?"
+ },
+ {
+  "id": "T04865",
+  "title": "Trigger a mapper event in SQLAlchemy for a &quot;soft delete&quot; feature mixin class",
+  "tags": [
+   "python",
+   "sqlalchemy"
+  ],
+  "body": "I'm implementing a [code] mixin so that whenever I call [code] it doesn't actually delete it, but rather sets a [code] column to the current time. Even though nothing actually gets deleted, I would like the app to act as if a deletion occurred and trigger [code] events. The idea is that by doing so, my hooks could handle all of the waterfall of operations that need to occur after a delete (even thought nothing truly was deleted). Say this is the soft delete Mixin: [CODE] Let's say I have some class that inherits this Mixin [CODE] I want the following event to get triggered by [code] [CODE] Is there any way to achieve this?"
+ },
+ {
+  "id": "T04866",
+  "title": "AudioSegment unable to find ffmepg and ffprobe",
+  "tags": [
+   "python",
+   "python-3.x",
+   "audio",
+   "ffmpeg",
+   "ffprobe"
+  ],
+  "body": "I am attempting to load an mp3 file in jupyter notebooks using AudioSegment in python. I have already tried following the instructions from this link and this link but I am still running into the following problems. Here is my code and the corresponding errors: [CODE] Trying to import AudioSegment gives this error: [CODE] [CODE] Trying to load the audio file gives this erorr: [CODE] [CODE] I am unsure how to troubleshoot this further. I am running on macOS Big Sur Version 11.1. Would really appreciate some help."
+ },
+ {
+  "id": "T04867",
+  "title": "Exclude untracked files from ty check",
+  "tags": [
+   "python",
+   "pre-commit",
+   "astral-ty"
+  ],
+  "body": "We use the ty type checker in a Python project. It's part of our pre-commit checks. I often create small scratch files to experiment with something. [code] or [code] where I try some API before I start putting the implementation into the proper files. These scratch files are not added to git. My issue is that ty still checks them, and of course finds a lot of issues. I have to either delete the scratch files or bypass the pre-commit check. Is there a way to tell ty to only check files under version control?"
+ },
+ {
+  "id": "T04868",
+  "title": "How to reverse iterate a nested for loop in python?",
+  "tags": [
+   "python",
+   "string",
+   "substring",
+   "reverse",
+   "palindrome"
+  ],
+  "body": "There exists a string s = \"abcd\" How do I iterate through the string such that it produces the following output for its index: [CODE] I have written the following code: [CODE] It gives me the output: [CODE] How do I achieve the desired output?"
+ },
+ {
+  "id": "T04869",
+  "title": "ignore security dependency if environment is set to local or dev",
+  "tags": [
+   "python",
+   "fastapi"
+  ],
+  "body": "I have this dependency in my REST endpoint definition [CODE] This [code] function has its own dependency [CODE] The thing is that I want to skip this validation when the environment is [code] , so I won't need to decode the token. [code] is function, that I cannot change. What can I do? I tried this [CODE] But it did not work. I also tried to call [code] but then I get the error [CODE]"
+ },
+ {
+  "id": "T04870",
+  "title": "CalledProcessError: Command &#39;[&#39;ninja&#39;]&#39; returned non-zero exit status 1",
+  "tags": [
+   "python",
+   "pytorch",
+   "pytorch-geometric"
+  ],
+  "body": "I'm trying to import spconv.pytorch in my project, but I encounter a compilation error related to TensorView. Here’s the error output I’m getting: [CODE] Here are some details about my environment: Python version: 3.10 CUDA version: 11.7 spconv version: 2.3.6 tried with tensorview version: 0.4.0 and 0.2.0 I have tried reinstalling the spconv package and ensuring that all dependencies are met, but the issue persists."
+ },
+ {
+  "id": "T04871",
+  "title": "Failed to detect the name of this notebook, you can set it manually with the WANDB_NOTEBOOK_NAME env",
+  "tags": [
+   "python",
+   "vs-code",
+   "wandb"
+  ],
+  "body": "In Visual Studio Code, first I encounted issues logging into wandb. I’ve tried specifying the entity as ‘myusername’, but it hasn’t resolved the problem. I’ve also confirmed that I’m using the latest version of wandb. My project folder is located on the Desktop. [CODE] when I run wandb.init I get this error [CODE] Then I decided to run it on terminal insisted of jupyter notebook cell but I got this error [CODE]"
+ },
+ {
+  "id": "T04872",
+  "title": "How to save python result as excel xlsx",
+  "tags": [
+   "python",
+   "excel",
+   "txt"
+  ],
+  "body": "This code below read .txt files and print the results, but I need save the results as .xlsx, I searched the internet but I didn't get any solution, can someone help me? [CODE] the data format in .txt files is like this: [CODE] them are registration data from images uploaded to an e-commerce."
+ },
+ {
+  "id": "T04873",
+  "title": "Spotify API repeated http 429 error using spotipy",
+  "tags": [
+   "python",
+   "spotify",
+   "rate-limiting",
+   "spotipy"
+  ],
+  "body": "I am working on a project using Spotipy that makes a lot of requests. ~18 hours ago, I presume that I hit the rate limit because I was sending a lot of requests and the code started to just stop and hang forever once it got to a line that made an API reference. After that I gave up and went to bed. ~12 hours ago I decided to rewrite the whole project since it was a mess, and so I could implement spacing out of the API requests. I also learned that I could set [code] so it would throw an error rather than indefinitely hang the program. I was rewriting the project, I was only able to make 1 API request before I started getting [code] errors every time. I left it alone for another couple of hours, until now when i tried troubleshooting some more, and the same thing happened where I was able to make one success and then it would throw errors. [code] : [CODE] I my rewritten code, all requests are separated by 1 second at a minimum (though it doesn't even matter because I cant get past 1 request anyways). Additionally, upon recieving an [code] error, it will wait an exponentially increasing amount of time before retrying. It has no effect. I have run it up to until there was 2 minutes in between attempts, and it still threw the error. What doesn't make sense to me is that the rate limit only applies to the number of requests made in any 30 second window. If I am waiting up to 2 minut"
+ },
+ {
+  "id": "T04874",
+  "title": "Summation of multiple calculations",
+  "tags": [
+   "python",
+   "loops",
+   "sum",
+   "iteration"
+  ],
+  "body": "I'm trying to make the calculation you can see in the screenshot more compact. Is there a way I can write the calculation in only one line? My problem is that I don't know how to make the summation with all these different frequencies in just one line."
+ },
+ {
+  "id": "T04875",
+  "title": "How to message using zmq with remote machines",
+  "tags": [
+   "python",
+   "tcp",
+   "client-server",
+   "zeromq"
+  ],
+  "body": "I was planning to use zmq to communicate between a personal laptop and a remote machine. I plan to use the laptop as the server and the remote machine as a client. Currently, I use a vpn to get into the remote machine's network and use ssh to access the machine. I was trying to use some of the tutorial code on the zmq documentation to see if the messages sent are received and that doesn't work. Server code: [CODE] Client code: [CODE] I tried looking into ssh tunneling and I was confused as how to set it up for my use case."
+ },
+ {
+  "id": "T04876",
+  "title": "Cannot get functions to execute in the Python setup.py in spite of following all the instructions",
+  "tags": [
+   "python",
+   "package"
+  ],
+  "body": "I have followed all the instructions outlined here for executing a function during the installation of a pip package but I still cannot get the function to execute up using `pip install <my_package>. I have no [code] file in the [code] folder. My [code] file has the same format as the file mentioned in the aforementioned site as follows: [CODE] On downloading the package I am not even getting the reading: [code] which leads to believe that the function [code] is not being executed. What am I doing wrong?"
+ },
+ {
+  "id": "T04877",
+  "title": "Improving lookup time on Python dictionaries with string keys",
+  "tags": [
+   "python",
+   "string",
+   "performance",
+   "dictionary",
+   "hash"
+  ],
+  "body": "I'm working on a project that involves generating random data according to a wide variety of specific distributions. The number of sample points to generate can go up to hundreds of thousands, millions or even be processed continuously, one sample at a time, for arbitrarily long times, so optimizing performance in the generation process is appreciated, as every marginal improvement may add up to a significant performance gain over so many samples. As part of that optimization process, I ended up using many dictionaries in my data generators, in order to map inputs/outputs, numerical parameters, subcomponents, or to cache some useful values. Almost all of these dictionaries have string keys , some of which we know ahead of time , and others we don't. These string-keyed dictionaries get accessed at every iteration, and profiling execution using libraries like [code] shows that dictionary lookups do stack up to a significant portion of the execution time, so I've been wondering: is there a way to optimize dictionary lookup in Python when all of its keys are strings? I am already aware of some other ways to slightly improve performance, such as pre-allocating the structure using [code] when the keys are known in advance in order to prevent collisions, and some pages online recommend using shorter keys to reduce the overall hashing time. Reflexively, I'd think it'd be possible to sp"
+ },
+ {
+  "id": "T04878",
+  "title": "cURL automatically replacing alternates to functional characters with underscore?",
+  "tags": [
+   "python",
+   "windows",
+   "curl",
+   "encoding"
+  ],
+  "body": "In installing and utilizing cURL (specifically [code] ; previously I said it was [code] but I was mistaken) to download .htm files in conjunction with/subordinate to a mass media-file downloading program called gallery-dl, I ran into a filenaming problem regarding how cURL deals with \"weird\" characters. Basically, it seems that at least for my version or install of cURL, when I try to use some kind of alternate version of a symbol such as Big Solidus [code] slash instead of normal slash in the filenaming command, cURL will create the .htm file but will replace that alternate symbol with an underscore. I know this isn't a problem with cURL interpreting the Big Solidus as a normal slash, since when I try to instead use a Fullwidth Solidus [code] slash it errors out the same way it would with a normal [code] slash. As a simple example, try running something like [code] or [code] yourself. For me, it outputs [code] . Is there anything I can do, anything I can attach to the \"weird\" characters to get cURL to avoid changing them to underscores? Or is this something version-related?"
+ },
+ {
+  "id": "T04879",
+  "title": "Containerizing Python script with read and write access to local files not in project folder",
+  "tags": [
+   "python",
+   "docker",
+   "docker-compose",
+   "dockerfile"
+  ],
+  "body": "I store some files in a Google Drive folder and have been running my scripts locally, so that the scripts read files from the GDrive folder and then save some outputs to the GDrive folder. I now want containerize a script with the function [code] so that it can access the [code] to both read data and write to it. [CODE] The error message I get looks like this, even though when using Windows Explorer I can copy paste that exact path and find the file I'm looking for. [CODE] All the scripts are in a folder called [code] . I'm trying to use [code] and I've tried storing different variables like the folder locations to a [code] file without success. So far my docker file looks like this [CODE] [code] looks like this [CODE]"
+ },
+ {
+  "id": "T04880",
+  "title": "How to input mutilple data types (int, float, string) in a loop and sort it into different lists in python?",
+  "tags": [
+   "python"
+  ],
+  "body": "I want input multiple data types and put them into lists. Sample inputs of : [code] would lead to a final output of: A= [code] , B= [code] , C= [code] I try to do it but every element is placed into list [code] My code: [CODE]"
+ },
+ {
+  "id": "T04881",
+  "title": "Program that reads a file and displays the sum and average of the numbers in the file",
+  "tags": [
+   "python",
+   "python-3.x"
+  ],
+  "body": "I'm trying to solve the following problem: Write aprogram that reads the random numbers from the file random_numbers.txt, displays the numbers, then displays the following data: a. The total (sum) of the numbers b. The number of random numbers read from the file c. The average value of the numbers read from the file Here's what i Have so far [CODE] I don't know why the sum displays 0?"
+ },
+ {
+  "id": "T04882",
+  "title": "`Error: MLIR Pass Manager Failed&#39;: TensorFlow on MacBook Pro M1 Max",
+  "tags": [
+   "python",
+   "tensorflow",
+   "keras",
+   "apple-m1",
+   "apple-silicon"
+  ],
+  "body": "I'm running Python 3.9.7 and TensorFlow 2.5 on my MacBook Pro with M1 Max chip, in a virtual environment managed through MiniForge. (Setup due to Jeff Heaton ). I have a custom loss function in the model. This code runs fine on my other machine, which is Ubuntu-based Pop!OS. When I run model.fit from Keras, I occasionally get the following errors. Sometimes it runs just fine. Any idea what's causing it, why it only happens sometimes, and how to fix it? In addition, it only produces this error from my custom loss function. Not from any Keras-native. Thanks! [CODE]"
+ },
+ {
+  "id": "T04883",
+  "title": "How to insert values form sqlite to excel without brackets and in specific column (Python)?",
+  "tags": [
+   "python",
+   "excel",
+   "sqlite"
+  ],
+  "body": "I am new to Python. I want to know how to add values into an excel file. I did some research on google but I still can't find the way to make it. This is what I have: [CODE] With these code, it shows all the values in column B14 with brackets. What I want is Each value in a column within B14 to B33 The value without brackets Anyone help with this?"
+ },
+ {
+  "id": "T04884",
+  "title": "pandas group by date in pandas 2.0",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "i have this dataframe [CODE] the idea is to grouping by weeks. in the past the software use pandas=0.24.2, but i need to change to pandas 2.0, so for pandas 0.24.2 i have this [CODE] but running on pandas 2.0 i have the next error: [CODE] i tried to convert first the date column to datetime but i obtain the same error"
+ },
+ {
+  "id": "T04885",
+  "title": "How to make tables with relationships in SQLAlchemy in different files",
+  "tags": [
+   "python",
+   "import",
+   "sqlalchemy",
+   "orm",
+   "python-import"
+  ],
+  "body": "I have many-to-many connection in my database and trying to make tables with ORM. Now I have 3 tables (one is secondary) [CODE] [CODE] [CODE] They're all in different files and when I trying to select all with CategoryOrm I have an error: [CODE] I also tried to import annotaions from _ future _ but that didn't work that is how to I trying to use it (in one more file with import only TableA): [CODE] Do somebody knows how to fix it?"
+ },
+ {
+  "id": "T04886",
+  "title": "ValueError: Input 0 of layer &quot;sequential_3&quot; is incompatible with the layer: expected shape=(None, 128, 1280), found shape=(None, 1280)",
+  "tags": [
+   "python",
+   "tensorflow",
+   "keras",
+   "deep-learning",
+   "conv-neural-network"
+  ],
+  "body": "I am building a 1d CNN model which can input 10 second long ecg frames and detect a specific heart disorder. I have 130,464 training data and 32,616 testing data. My input data is of the shape (num_samples, 1280) [CODE] I had commented out a lot of the layers hoping that it would help me pinpoint the error. However, the error thrown is the same. [CODE] I followed the advice from previous questions posted of similar issues. It didn't help. I also tried changing the batch sizes and input shapes, didn't help. My next step is to try reshaping the input since the error says it received (None, 1280) instead of (None, 128, 1280). But I don't know how to. Any help on this?"
+ },
+ {
+  "id": "T04887",
+  "title": "Copy file from file storage to blob storage using python",
+  "tags": [
+   "python",
+   "azure",
+   "azure-functions",
+   "azure-blob-storage"
+  ],
+  "body": "I am trying to copy an image from file storage to blob storage using python but unable to get it to work. I have based it on this node.js example Copy Azure File Share to Blob with node.js . The exception I get when running the python code locally is shown below. azure.core.exceptions.ResourceNotFoundError: This request is not authorized to perform this operation using this resource type. Here is a snippet of the python code. [CODE] The source url created using the SAS token is shown below. [CODE]"
+ },
+ {
+  "id": "T04888",
+  "title": "Django-allauth - Make phone number optional for SocialLogin",
+  "tags": [
+   "python",
+   "django",
+   "django-allauth"
+  ],
+  "body": "I am using django-allauth in my project and I have configured Google as a SocialAuth provider. I have a custom signal receiver that updates the phone number on the SocialAuthAccount after the user signs up. But currently the system throws an error when the user logins via SocialAuth if they do not have a public phone number on their account. I am getting an error - KeyError 'phone' at - allauth/account/internal/flows/phone_verification.py - line 46. This is my relevant settings.py: [CODE] How can I tell the SocialAuthAdapter that phone number is optional and might not be there?"
+ },
+ {
+  "id": "T04889",
+  "title": "How to combine async functions with callbacks in python?",
+  "tags": [
+   "python",
+   "django",
+   "django-rest-framework",
+   "async-await",
+   "callback"
+  ],
+  "body": "If I have an async view in Django, can I have it await a callback? Pseudocode: [CODE] I would like to avoid having to implement the second part of [code] inside [code] , but rather have an async function that returns the result in the original view as soon as the callback is executed."
+ },
+ {
+  "id": "T04890",
+  "title": "Update a raspberry pi to python 3.9",
+  "tags": [
+   "python",
+   "python-3.x"
+  ],
+  "body": "Been attempting to update a 2 year old, untouched raspberry pi to be able to run a pip module that only runs on 3.6+. I updated the operating system and I've been attempting to update python following this guide but I get to the last stage and it returns python 3.5.3. (note: i added the line to the bottom of the file because i couldn't find it) I also tried [code] but it returned [code]"
+ },
+ {
+  "id": "T04891",
+  "title": "Fuzzywuzzy to compare two lists of strings of unequal length and save multiple similarity metrics",
+  "tags": [
+   "python",
+   "pandas",
+   "string-comparison",
+   "fuzzywuzzy",
+   "fuzzy-comparison"
+  ],
+  "body": "I'm trying to compare two lists of strings and produce similarity metrics between both lists. The lists are of unequal length, one is roughly 50,000 the other is about 3,000. But here are two MWE data frames that are similar to my data: [CODE] Here's how I produce similarity metrics. I'm using two for loops to calculate the similarity between each possible combination of strings, which with my actual data is: 50,000 * 3,000 = 150 million. That's a lot and I feel like there's a smarter way of doing this but don't know what that is. Here's my implementation: [CODE]"
+ },
+ {
+  "id": "T04892",
+  "title": "Does python shelve module allocate space in chunks of a certain size?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "shelve"
+  ],
+  "body": "I stored some pandas dataframes in a shelve and then stored the same dataframes but potentially containing a bit more data (maybe a few % more). The second shelve is about twice the size of the first one. Does the [code] module pre-allocate space in chunks by any chance? My first shelve is ~ 100MB the second one is ~ 200MB. The increase in the size of the shelves does not correspond to the increase in the size of the underlying data. Could it be that [code] can only allocate in multiples of 100MB? So if I need 90MB it will allocate 100MB and if I need 110MB, it will allocate 200MB?"
+ },
+ {
+  "id": "T04893",
+  "title": "How to get different paths with same start and same end in a digraph(directed graph)?",
+  "tags": [
+   "python",
+   "networkx",
+   "digraphs"
+  ],
+  "body": "giving a digraph like this: [CODE] It`s easy to see there are 3 circle-like in graph. [CODE] It`s just what I want.Sometimes the digraph has 300 nodes and more, so need a effective algorithm."
+ },
+ {
+  "id": "T04894",
+  "title": "How to add a column of sequential run numbers based on time gaps in another pandas dataframe column without iterating over rows",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "I often have large datasets of time ordered data that represent manufacturing operations. But the machines stop. Then restart. I might define a \"run\" as the period where there is no gap in the data. And for large datasets there might be many runs. But I cannot find an elegant way in Pandas to add the run column based on time gaps. Here is simplified example of my code: [CODE] Because of this excellent post: How can I iterate over rows in a Pandas DataFrame? I am thinking there is probably a better way -- one that does not require iterating over the rows. Is there? After searching through the various pandas time series and other functions I cannot find it. I can create a boolean column this way, but I still cannot use it to create a numerical index that repeats between True values: [CODE] In my actual code I do sort before proceeding as I cannot assume the SQL query I use returns an ordered set."
+ },
+ {
+  "id": "T04895",
+  "title": "Cannot connect to MySQL database using SQLAlchemy",
+  "tags": [
+   "python",
+   "mysql",
+   "sqlalchemy",
+   "pyodbc",
+   "pymysql"
+  ],
+  "body": "I have a Python program which is trying to connect to a MySQL 8.31 database. This is the code I am using. [CODE] I get this exception sqlalchemy.exc.OperationalError: (pyodbc.OperationalError) ('08001', '[08001] [Microsoft][ODBC Driver 17 for SQL Server]Named Pipes Provider: Could not open a connection to SQL Server 1 . (2) (SQLDriverConnect); [08001] [Microsoft][ODBC Driver 17 for SQL Server]Login timeout expired (0); [08001] [Microsoft][ODBC Driver 17 for SQL Server]A network-related or instance-specific error has occurred while establishing a connection to SQL Server. Server is not found or not accessible. Check if instance name is correct and if SQL Server is configured to allow remote connections. For more information see SQL Server Books Online. (2)') (Background on this error at: https://sqlalche.me/e/14/e3q8) I have researched this exception and most people recommend using SQL Server Configuration manager which I do not seem to have on my system. Not in Computer Management Not in C:\\Windows\\SysWOW64 Others have said to ensure Named Pipes are allowed which they are And finally I've ensured Ports 3306 and 1433 are open Yet I still get this exception. For the record I am able to connect using this code [CODE] However this gives me a warning and tells me to use SQLAlchemy: userwarning: pandas only support SQLAlchemy connectable(engine/connection) ordatabase string URI or sq"
+ },
+ {
+  "id": "T04896",
+  "title": "Why do these bits of code not work the same? (python list comprehension question)",
+  "tags": [
+   "python"
+  ],
+  "body": "Shouldn't these two functions return the exact same thing? [CODE] [CODE] Context I'm doing some python exercises on an educational IDE that 'tests' my code by passing various inputs to it. The 1st version of the function is the provided solution which passes all the tests. The 2nd version is mine and it passes most of the tests but fails some hidden test that I can't see. My understanding is that these two functions should do exactly the same thing. What am I not understanding? Here are some examples of test inputs that the 2nd function passed: [CODE] Sorry that I can't provide details of the input it's failing. I can't actually see it because it's a \"hidden test\"."
+ },
+ {
+  "id": "T04897",
+  "title": "Defining the argument number in discord.py, sending a picture",
+  "tags": [
+   "python",
+   "discord.py",
+   "replit"
+  ],
+  "body": "The problem is on the 10th line, (don't mind the 9th) I want the discord bot to send back a message with arguments like this .../arg1/arg1.arg2.png after they send in the command !maps arg1 arg2 [CODE] [code] Won't send to the channel https://ants-api.qwq.xyz/static/antmaps/Common/Common.ant.png after receiving the command !maps Common ant It only does send in https://ants-api.qwq.xyz/static/antmaps/0/0.1.png"
+ },
+ {
+  "id": "T04898",
+  "title": "How to see input prompt before requesting it in python3",
+  "tags": [
+   "python",
+   "input"
+  ],
+  "body": "I've been having trouble taking input and no matter what I look at, it shows it should work, so I'm wondering what I'm doing wrong here. [CODE] This is all I have in my test.py, and when I run it, it shows me nothing, then when I enter a prompt and hit enter, it shows the input prompt (My terminal) python -3 test.py a (I input this) enter first numa (what I receive back) But what I see everywhere shows that I should be getting that prompt first! What am I doing wrong?"
+ },
+ {
+  "id": "T04899",
+  "title": "TensorFlow Custom Loss Function Error: Node: &#39;gradient_tape/contrastive_loss/mul/BroadcastGradientArgs&#39; Incompatible shapes [0,1] vs. [32,1]",
+  "tags": [
+   "python",
+   "tensorflow",
+   "keras",
+   "loss-function",
+   "siamese-network"
+  ],
+  "body": "I'm working on a Siamese network using TensorFlow and Keras. As the data is huge I am also trying to use the generator for batch loading. I have a custom contrastive loss function that I'm using for training, but I'm facing an error during the gradient calculation. Error: [CODE] Data Generator: [CODE] Model Training Code: [CODE] I've verified that both [code] and [code] have the shape [code] during the forward pass as it can be seen from my print messages output in the above error. I'm unsure why I'm seeing a shape of [code] in the error. Does anyone have any ideas on what might be causing this or how to resolve it? I have tried using print messages in the loss function to determine the shape, double checked the shapes generated by my generator function which seems right. I expected to find the shape mismatch for [code] and [code] but it was same. This puzzled me. I looked for solutions throughout internet but couldn't resolve it. UPDATE : Issue fixed. The issue was with generator method where i was updating the [code] internally because of which in the second iteration there were no labels returned and thus the shape mismatch error. The line [code] should be changed to [code]"
+ },
+ {
+  "id": "T04900",
+  "title": "List values from dynamic aria-label inside HTML span",
+  "tags": [
+   "python",
+   "selenium"
+  ],
+  "body": "I need 5-min prices for some small stocks (yfinance doesn't have them in 5-min increments). Robinhood displays 5-min prices when you mouse hover over the graph. These values are stored in as follows: HTML span element I hoped this might return a list of values, but no luck: [CODE] Thanks in advance."
+ },
+ {
+  "id": "T04901",
+  "title": "Why Google Translator API is not outputting accurate translation",
+  "tags": [
+   "python",
+   "google-translate",
+   "google-translation-api"
+  ],
+  "body": "I am trying to use the google translator API for translating non-english words ( transliterated words ) to english word. For example, the word \"Xingbie\" is a Chinese transliterated word which is \"Gender\" in english word. Now, when I tried to use the API using I do not get back the translated text. [CODE] Output: [CODE] The translated text should be \"Gender\" which is exactly from the browser I can see. However, the API returns the same string. What am I missing here?"
+ },
+ {
+  "id": "T04902",
+  "title": "How to emit keyed records for a compacted topic (SimpleStringSchema ClassCastException)?",
+  "tags": [
+   "python",
+   "apache-flink",
+   "flink-sql",
+   "pyflink"
+  ],
+  "body": "I'm upgrading a PyFlink job to 2.0 and want to write to a Kafka compacted topic using the new KafkaSink. The stream produces (key, value) tuples (key is a string, value is a JSON payload). I configure the sink exactly as the docs show: [CODE] When the job runs, it fails with: [CODE] It looks like the Row(key, value) element is passed as-is to both serializers; the key serializer receives the whole Row instead of just the first field. I tried Python tuples vs. Row, different Types hints, but PyFlink 2.0 still hands the entire element to the serializer. Returning just the payload string works, but then Kafka writes null keys, which breaks the compaction requirement. Is there a supported way in PyFlink 2.0 to send keyed records (key and value strings) using the new DataStream KafkaSink? Do I need to provide a custom SerializationSchema to unwrap the tuple manually, or is there an API like KafkaRecord.of(key, value) on the Python side that I’m missing? Any guidance or sample code for keyed writes to compacted topics in PyFlink 2.0 would be appreciated."
+ },
+ {
+  "id": "T04903",
+  "title": "How to read a jpeg from disk and instantiate it as &#39;werkzeug.datastructures.FileStorage&#39;?",
+  "tags": [
+   "python",
+   "file",
+   "werkzeug"
+  ],
+  "body": "[CODE] I have a jpeg in [code] I want to write unit test for a method, which has [code] as input, and behavior is save it to a path. I try to instantiate it with codes below: [CODE] The ipython instance output are: [CODE] How to make the [code] file can be saved outside the scope of [code] ?"
+ },
+ {
+  "id": "T04904",
+  "title": "Class as dictionary key not recognizing duplicates",
+  "tags": [
+   "python",
+   "dictionary",
+   "hash",
+   "key"
+  ],
+  "body": "I am wanting to use a class as a dictionary key and have implemented the [code] function and it appears to work. However, when I have a different instance of a class that has the same hash value, it is not recognized as being contained within the dictionary. MWE: [CODE] Can someone explain this behavior? I expected the hash value to also be used to determine whether an object is contained within the dictionary. Running on Python 3.12.2 on Windows 10."
+ },
+ {
+  "id": "T04905",
+  "title": "Do I *Always* Need to Access GUI Elements from External Threads Using Signal/Slot in PyQt5?",
+  "tags": [
+   "python",
+   "multithreading",
+   "pyqt5",
+   "signals-slots"
+  ],
+  "body": "While developing a Windows-based program using PyQt5, I encountered issues where the GUI was not updating in a timely manner due to long computation or wait times. To resolve this, I moved some computations to multiple threads. These computations included not only methods that directly modify GUI elements, such as [code] , [code] , and [code] , but also methods that retrieve the state of GUI elements, like [code] and [code] . Although the program ran without any errors, ChatGPT advised me that directly controlling GUI elements from threads other than the main thread could cause problems. As a result, I started converting all these methods to use signal/slot mechanisms. Consequently, the following additional dumb code was added to the MyWindow class, making it quite annoying to handle: [CODE] Is this really necessary? Even if it is required, do methods that merely read the current state of GUI elements, such as [code] and [code] , also need to be implemented using the signal/slot mechanism? Despite taking these precautions, I have never encountered any specific issues or errors related to direct access to GUI elements from threads other than the main thread. This makes me wonder if my efforts were unnecessary."
+ },
+ {
+  "id": "T04906",
+  "title": "Reading files faster in python",
+  "tags": [
+   "python",
+   "performance",
+   "file"
+  ],
+  "body": "I'm writting a script to read a TXT file where each line is a Log entry and I need to separate this log in different files (for all Hor, Sia, Lmu). I'm reading each line and dividing in new files with no problem when using my test file (80kb), but when I try to apply to the actual file (177MB - around 500k lines) it takes too long. Took more than an hour and it was still at 80K lines read. The lines are like this: Crm|Hor|SiebelSeed Crm|Sia|SiebelSeed Crm|Lmu|LMU| Is there anyway I can make it run faster? My code [CODE]"
+ },
+ {
+  "id": "T04907",
+  "title": "How should I understand this boolean negation in Python?",
+  "tags": [
+   "python",
+   "logic",
+   "boolean-logic"
+  ],
+  "body": "The problem : \" Fix the program. Line 13 should only run when [code] and [code] are [code] and [code] and [code] are [code] .\" [CODE] The solution : On line 12, [code] is replaced by [code] . I am having trouble understanding the logic of changing [code] to [code] . On line 9, [code] is already set to [code] , which means this hypothetical account is unlocked . Wouldn't changing [code] to [code] mean that the account is now considered locked since the negation of [code] is [code] ?"
+ },
+ {
+  "id": "T04908",
+  "title": "Batch size for custom Collate Function with variable input sizes",
+  "tags": [
+   "python",
+   "pytorch",
+   "computer-vision",
+   "pytorch-dataloader"
+  ],
+  "body": "I am writing a multi-class image classification and distance estimation network. The dataset I am using consists of images and their corresponding annotation file (containing class id, bbox, distance) as shown below. [CODE] I have written custom dataloader for this task as presented below. [CODE] Since, the length of objectLabels, bboxes and distances vary with image (due to objects present in the image), I had to write a custom collate function as below. [CODE] It works fine for batch size of 1. But I am failing to understand how I can extend it for larger batch sizes. Of course, I can pass any batch size as an argument, but how can the model differentiate among different different images and their corresponding annotation for multiple batch size. The source for collate function is here ."
+ },
+ {
+  "id": "T04909",
+  "title": "Getting [SSL: CERTIFICATE_VERIFY_FAILED] even after adding the installing the certificates to the docker",
+  "tags": [
+   "python",
+   "docker",
+   "ssl",
+   "pip",
+   "ssl-certificate"
+  ],
+  "body": "I am getting SSL error when I am trying to build the container. I have company.cert file which I've installed on the docker container still I am getting that error. I was getting this error while using [code] library and turns out I had to install the certificates inside docker container too. My [code] . [CODE] error I am getting after I do the [code] [CODE] What am I doing wrong here ?"
+ },
+ {
+  "id": "T04910",
+  "title": "cannot install tensorflow-gpu==2.3.0rc0",
+  "tags": [
+   "python",
+   "tensorflow",
+   "conda"
+  ],
+  "body": "conda install tensorflow-gpu==2.3.0rc0 not work python version Python 3.7.0 I get the following error when trying to install tensorflow-gpu in version 2.3.0rc0: [CODE]"
+ },
+ {
+  "id": "T04911",
+  "title": "Django : How to filter in between 2 same objects in 2 different models?",
+  "tags": [
+   "python",
+   "django",
+   "ms-access",
+   "django-models",
+   "microsoft-graph-api"
+  ],
+  "body": "Please also read my NOTE at the end of my question. Question : I have integrated Microsoft Graph API with my django project and after login in successfully, I am storing both access and refresh token in 2 different models. the models are [code] and [code] . Assume that microsoft organisation account holders get their access and refresh token saved in [code] . The [code] includes the following attributes: [CODE] and microsoft personal accounts holders get their access and refresh tokens saved in [code] . The [code] includes the following attributes: [CODE] What I want to Achieve? I want to open a docx file using either microsoft organisation or personal account. before opening the file, I want to let the user open the file according to their account type. If a account type is personal, then it should use [code] 's [code] or [code] . If an account type is organisation then it should use the [code] 's [code] or [code] . This is what I am doing right now. according to my current logic, it always calls ModelA despite of getting user type. [CODE] ` NOTE: It works fine when there is no data in either model. but it always calls the model that I call first when there is access and refresh token in both models at the same time. Is there anyone who can help me out?"
+ },
+ {
+  "id": "T04912",
+  "title": "No overlapping Scheduling using CP-SAT in OR-Tools",
+  "tags": [
+   "python",
+   "algorithm",
+   "or-tools",
+   "cp-sat",
+   "constraint-satisfaction"
+  ],
+  "body": "can anyone help me on how can I prevent overlapping in my scheduling, the scheduling must be no overlap in terms of room assignment [CODE] I tried this but it only constraints for time [CODE] this is the output C:\\Users\\Admin\\project\\last>python main.py (0, 0): Instructor: 0 Schedule 1 - Room: 0, Day: 0, Time: 3-6 Schedule 2 - Room: 1, Day: 3, Time: 0-2 (0, 1): Instructor: 0 Schedule 1 - Room: 1, Day: 0, Time: 6-8 Schedule 2 - Room: 1, Day: 3, Time: 5-6 (1, 2): Instructor: 1 Schedule 1 - Room: 0, Day: 0, Time: 0-3 Schedule 2 - Room: 1, Day: 3, Time: 2-4 (1, 3): Instructor: 1 Schedule 1 - Room: 1, Day: 0, Time: 8-10 Schedule 2 - Room: 1, Day: 3, Time: 4-5 (2, 0): Instructor: 0 Schedule 1 - Room: 0, Day: 0, Time: 3-6 Schedule 2 - Room: 1, Day: 3, Time: 0-2 (2, 1): Instructor: 0 Schedule 1 - Room: 1, Day: 0, Time: 6-8 Schedule 2 - Room: 1, Day: 3, Time: 5-6 (3, 2): Instructor: 1 Schedule 1 - Room: 0, Day: 0, Time: 0-3 Schedule 2 - Room: 1, Day: 3, Time: 2-4 (3, 3): Instructor: 1 Schedule 1 - Room: 1, Day: 0, Time: 8-10 Schedule 2 - Room: 1, Day: 3, Time: 4-5"
+ },
+ {
+  "id": "T04913",
+  "title": "Is there a way of generating 3 letters codes / abbreviations for time zones in python?",
+  "tags": [
+   "python",
+   "datetime",
+   "timezone"
+  ],
+  "body": "Obviously, printing now time, date and time zone is possible by using datetime and time module (one of many ways): [code] However I need to get 3 letter code for this specific time zone - not knowing beforehand in which time zone we are located in. I checked many libraries (timezone, time, pytz etc.), however all of them base on either passing the time zone by oneself or generating the whole time zone name - not the abbreviation. I wonder, is there any way of achieving that in python? Thank you for any help! Of course the simplest way is extracting capitalized letters, but it is not so elegant: [code]"
+ },
+ {
+  "id": "T04914",
+  "title": "How to print argparse help message when parser is declared in function?",
+  "tags": [
+   "python"
+  ],
+  "body": "I am using following code, I want to show help message if no argument is used. But when I use [code] the compiler returns [code] . If I use [code] the compiler returns [code] . [CODE] I am expecting a way to print help message if no argument is provided."
+ },
+ {
+  "id": "T04915",
+  "title": "Locust webui is not overriding the default values if any defaults are provided (Locust 2.43.0 / Python 3.14.2)",
+  "tags": [
+   "python",
+   "locust"
+  ],
+  "body": "I'm new to both Python and Locust, so I might be doing something wrong. If I define custom parameters like this: [CODE] Then try to get the values like this: [CODE] If I change the values in the web UI between runs, [code] will always be [code] , no matter what I change it to in the web UI. [code] is changeable and will take whatever value I set in the web UI. This means I can't provide the user or test with default values. Am I doing something wrong?"
+ },
+ {
+  "id": "T04916",
+  "title": "Reversing list in place in python with O(1) extra memory",
+  "tags": [
+   "python"
+  ],
+  "body": "I came across the problem of reversing a list in place in python with O(1) extra memory. [CODE] But I was guessing even if this is O(1)? I just tried this: [CODE] So, I just realize, even doing [code] will create a new instance and hence cannot be in-place or have O(1) space complexity. In fact any solution with slicing operation wont be O(1), right? Q1. Am I right with these? A side question: I tried following: [CODE] Q2. Why [code] is same as [code] ?"
+ },
+ {
+  "id": "T04917",
+  "title": "Looping nested JSON object in python to collect selected fields and save to use in another request",
+  "tags": [
+   "python",
+   "json"
+  ],
+  "body": "I am trying to iterate the response from a API call but having issues collecting all the data. I need to use the IDs with another requests call so I can get access to individual race data. This is the code so far: [CODE] This code returns [CODE] so that works ok, but I need to loop through all race meetings for the day. ['Thoroughbred'][0] <---- can I use a wildcard for the 0? so it loops all the race meetings? The number of races changes each day, so it can't be any set number. when i try to use the same code with out the [0] i get the following error [CODE] This is the JSON response (not all of it, just what could fit here) from the API request: [CODE] this image shows the full object and all of the levels."
+ },
+ {
+  "id": "T04918",
+  "title": "How to fill values in a Dataframe depending on values around it",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "I have a dataframe that looks something like this: [CODE] And I want to change the Xs and Ys (put here just to visualize) to the value corresponding to the same column when the last column = 'String'. So, the Xs would become a 3, and the Y would be 7: [CODE] The reference value is the same until another 'parent' row comes around. So the first 3 remains until there comes another 'String' parent round. I tried generating another dataframe containing where there's 'String' and filling from idx to idx+1 with the value, but it's too slow. This is really similar to a forward fill (pd.ffill()), but not exactly, and I don't really know if it's feasible to turn my problem into a ffill() problem."
+ },
+ {
+  "id": "T04919",
+  "title": "Running a Python script echoing the command that is run",
+  "tags": [
+   "python"
+  ],
+  "body": "Consider the following script, let's save it in a file [code] . [CODE] I would like to run it from a console such that the output is something like: [CODE] That is, each line is run, the output printed, and then we move onto the next line. If I just copy the file's contents, open the console (Windows Console or WezTerm), and paste them into the console, the entire script is pasted (with a non-running carriage return), and then when I press Return twice, the entire script is executed. Thus, I obtain the entire source code first and the console output second. I would like into run it in this way because it is an example for a library of mine and I would like to paste the output into the README of the library."
+ },
+ {
+  "id": "T04920",
+  "title": "Unable to comprehend a list comprehension with two loops",
+  "tags": [
+   "python",
+   "list-comprehension"
+  ],
+  "body": "The solution that is working for me for this problem ( https://leetcode.com/problems/flipping-an-image/ ) here is [CODE] However , and I feel like I dont understand something about list comprehension here, the following gives me an error: [CODE] Why am i getting this error ?, and similarly this does not work either. [CODE]"
+ }
+]

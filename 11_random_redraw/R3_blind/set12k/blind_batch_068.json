@@ -1,0 +1,1219 @@
+[
+ {
+  "id": "T08041",
+  "title": "Trouble combining two saved Keras models",
+  "tags": [
+   "python",
+   "tensorflow",
+   "keras"
+  ],
+  "body": "I am loading in two saved functional models with shapes ((28, 28, 1) -> (28, 28, 1)) and ((28, 28, 1) -> (10, 1)). I need to combine them sequentially but I can not use Sequential(), since I want to admit a loss on one of the intermediate layers (the outputs of the first model). This is what I am trying. The model compiles fine but .fit() throws the following error: [code] [CODE] I have never had this issue with this exact data since it's just a numpy array, so I am unable to diagnose the issue here. The model compiles fine from what I understand: Edit: It seems that I am able to train either of the outputs individually by compiling single-output models, but it seems that I am both unable to repeat the same output (experimentally, has worked before in my experience) or get both outputs as a list."
+ },
+ {
+  "id": "T08042",
+  "title": "0/1 Knapsack Problem with Dynamic Programming",
+  "tags": [
+   "python",
+   "recursion",
+   "dynamic-programming"
+  ],
+  "body": "This is my attempt at the problem asked in this thread . When I try to run it with input [code] and [code] , it seems to run into an infinite loop. The code seems to give the correct answer for smaller [code] , albeit very slowly. What went wrong here? [CODE] Here's the code that was provided for testing purpose. [CODE]"
+ },
+ {
+  "id": "T08043",
+  "title": "Index not found. (Exception from HRESULT: 0x80131124)",
+  "tags": [
+   "python",
+   "vs-code"
+  ],
+  "body": "[CODE] I keep getting this error when I'm trying to run a basic Python for loop that we did in class [CODE] I have already tried to reinstall vs code reinstall python used the .net repair tool and also did a sfc scan of my PC"
+ },
+ {
+  "id": "T08044",
+  "title": "Conversion from HuggingFace dataset to Pandas DF causing dropped &#39;string&#39; columns",
+  "tags": [
+   "python",
+   "pandas",
+   "huggingface-datasets"
+  ],
+  "body": "I am attempting to convert a dataset loaded from HuggingFace into a pandas DF so I can process the data. However, despite having no null values (as many prior issues point to) , all non-numeric columns are being dropped in the dataframe. I have confirmed this by using [code] on my data after the conversion and can note that the features exist in the loaded dataset using [code] . They are large datasets so I need to convert them as the [code] object does not provide the performance I need. This is the flow I have followed: [CODE]"
+ },
+ {
+  "id": "T08045",
+  "title": "Pandas: how to set column values to np.NaN if they don&#39;t match a list of strings",
+  "tags": [
+   "python",
+   "pandas",
+   "numpy",
+   "nan"
+  ],
+  "body": "I have a dataframe [code] that looks like this: [CODE] I'd like to be able to set up a list and then set any values in the [code] column not in that list to NaN (along with any values that are originally blank or NaN). The desired df would look like this: [CODE] How would I do this? Thanks!"
+ },
+ {
+  "id": "T08046",
+  "title": "cupy runtime compilation failed",
+  "tags": [
+   "python",
+   "cupy"
+  ],
+  "body": "I'm new to cupy and try to learn it. This following code provides an error using cuda11 [CODE] RuntimeError: Runtime compilation failed How can I resolve this? I was waiting for pi value (monte carlo GPU)"
+ },
+ {
+  "id": "T08047",
+  "title": "How to get the generic type at runtime",
+  "tags": [
+   "python",
+   "python-typing"
+  ],
+  "body": "In this snippet below, I want to get the inferred type of the generic at runtime to validate the data. How can I make the [code] so that I can get the type correctly? [CODE] I tried doing the suggestions in How to access the type arguments of typing.Generic? , but it returns either [code] , [code] , or an empty tuple . Also, [code] does not seem to exist any more in 3.13."
+ },
+ {
+  "id": "T08048",
+  "title": "Why TFlite python api is faster than C++ one?",
+  "tags": [
+   "python",
+   "c++",
+   "tensorflow",
+   "tensorflow-lite"
+  ],
+  "body": "I am working on a project where I need to use TFlite C++ api. I have done it before, using Python. However, the problem is that inference from model using C++ api is almost 5 times slower than the Python one. The models are mediapipes hand and palm tflite models. Can I learn the reason why C++ inference is slower than Python? Is there any solution to make it faster? Below I have attached both Python and C++ code of the relevant part. Thank you very much. Python inference: [CODE] C++ inference: [CODE] Note: The part that takes a lot of time is [code] command. In both cases images are reshaped to correct size of (224, 224, 3) and they are in CV_32FC3 type. CMakeLists.txt content (I am using cmake to build my project in Visual Studio Code environment.): [CODE]"
+ },
+ {
+  "id": "T08049",
+  "title": "Converting tensorflow model using tensorflowjs",
+  "tags": [
+   "javascript",
+   "python",
+   "tensorflow",
+   "tensorflow.js",
+   "tensorflowjs-converter"
+  ],
+  "body": "Trying to convert a simple CNN using tfjs. The model gets converted, however it does not get loaded in properly. Error: 'An InputLayer should be passed either a [code] or an [code] .' [CODE] I have tried converting the model from both .h5 and .keras formats. Sometimes I get a different error on the model configuration. A few months ago I converted some similar models and never had any problems. Anyone got an idea?"
+ },
+ {
+  "id": "T08050",
+  "title": "Old python program no longer works after updating from Pi3 to Pi4 - reworked question",
+  "tags": [
+   "python",
+   "matplotlib",
+   "tkinter",
+   "raspberry-pi4",
+   "pysimplegui"
+  ],
+  "body": "Attached is my code with edits reflecting what I've tried so far to get it to run. The app is supposed to show a window with real-time readings of two temperature sensors and a Hall-effect flow sensor. Buttons allow setting a desired temp, like a thermostat, and a subroutine turns on and off a circuit for applying external heat. A real-time plot in this app window displays the current temps and flow and the thermostat set temp. Meanwhile, a data logging file is updated. This code was cobbled together from various examples from the web. It worked on my Pi3 before I tried to upgrade both hardware and software. I use Spyder for my IDE. When run in Spyder, the main window displays, but without any sensor values and the buttons don't work. A beginning plot is generated but not updated. I get the following error: [CODE] EDIT: more info. In line 144, if I comment out \"photo = draw(fig, canvas)\" the program will run, but the plot does not show in the main window. The buttons in the main window work as expected. When I close the main window, the program stops and a plot is generated. When line 144 is not commented out, spyder reports that \"local variable photo is assigned to but never used\" (and the program sortof hangs when executed and the error messages are generated.) Maybe I need some other way of embedding the plot in the window and having it update in real time? Maybe using \"anim"
+ },
+ {
+  "id": "T08051",
+  "title": "Pandas Handling overflows without a loop",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "I have a device that collects data. Type of values are 64 bit unsigned integers in two columns of this data (col1, col2). These values may overflow in some extreme cases and I need to handle them, but with conditions. There are 4 columns: uptime, type, col1, col2. The conditions will be checked on uptime and type columns. The overflows will be handled on col1 and col2 . uptime is the time in seconds since the device rebooted, col1 and col2 holds values up until that time. Example Data: [CODE] As you can see when the type change or uptime decrease, the col1 and col2 values resets too. So I only need to handle the overflow when neither the type change nor the uptime decrease. I managed to do this with a loop by iterating through rows, as you can see below: [CODE] Integers in Python has no limit, so I changed the data type to Python integer beforehand. The conditions are basically: if the value in uptime higher than previous value AND the value in type is same with previous value: if value in col1 lower than previous value: add 2^64 to value in col1 continue to add 2^64 until both conditions in the first if are true if value in col2 lower than previous value: add 2^64 to value in col2 continue to add 2^64 until both conditions in the first if are true I know that updating a Pandas Dataframe by iterating isn't healthy but I couldn't manage to do it without it. I wonder if this is p"
+ },
+ {
+  "id": "T08052",
+  "title": "opening privatekey from string rather than file in python 3?",
+  "tags": [
+   "python",
+   "snowflake-cloud-data-platform"
+  ],
+  "body": "I found some python code to read a private key from a file to connect to Snowflake and it works fine [CODE] However, I would like to use the actual string rather than reading from a file, so I tried replacing key.read() by the actual string [CODE] But this gives me this error TypeError: from_buffer() cannot return the address of a unicode object Could this be a generic python error?"
+ },
+ {
+  "id": "T08053",
+  "title": "Foreign Key is not deleted mapped table&#39;s row",
+  "tags": [
+   "python",
+   "sqlite",
+   "sqlalchemy",
+   "foreign-keys"
+  ],
+  "body": "I use sqlalchemy with sqlite and aiosqlite driver. I created two tables as the follows: [CODE] Engine: [CODE] Query: [CODE] When I execute the query from above, I see this output: [CODE] CREATE statements: [CODE] I found similar questions on stackoverflow, but still didn't understand what's wrong with my code. I will be glad for any help, thanks."
+ },
+ {
+  "id": "T08054",
+  "title": "TypeError: img should be PIL Image. Got &lt;class &#39;dict&#39;&gt;",
+  "tags": [
+   "python",
+   "machine-learning",
+   "deep-learning",
+   "pytorch",
+   "computer-vision"
+  ],
+  "body": "I am trying to train my model on my local GPU and it gives an error while the same code runs properly on Google Colab. [CODE] It gives the error on the last line [code] It says [CODE] Full Traceback: [CODE]"
+ },
+ {
+  "id": "T08055",
+  "title": "How to ignore `ModuleNotFoundError` when using mypy for github actions?",
+  "tags": [
+   "python",
+   "mypy"
+  ],
+  "body": "I’m integrating [code] into my GitHub Actions workflow to check only the changed files in my django project: [CODE] However, I’m encountering [code] which would require installing all dependencies with [code] . This process significantly slows down the workflow. Is there a way to skip these errors and still get useful feedback on type checks without installing the full set of dependencies? [CODE]"
+ },
+ {
+  "id": "T08056",
+  "title": "Retrieve job metadata like job run id and name in a databricks job run",
+  "tags": [
+   "python",
+   "pyspark",
+   "databricks",
+   "advice"
+  ],
+  "body": "We are using databricks to execute our code. I am trying to make logs that are stored in a table. Amongst other things I also want the job run id and the job/task name so I can go back and check the job based on the logs and vice versa. Does databricks offer this info inside a job run? I found an example where this info is retrieved inside a notebook but I can find anything for databricks. Example for notebooks: [CODE]"
+ },
+ {
+  "id": "T08057",
+  "title": "Matplotlib and TKinter - Is there a way to have a graph update dynamically with button presses?",
+  "tags": [
+   "python",
+   "matplotlib",
+   "tkinter"
+  ],
+  "body": "I am attempting to follow a tutorial that uses TKinter and Matplotlib to produce graphs on a frame of a tkinter app. A problem that I have run in to is that the graph is not reloaded when I press the button. The command starts as soon as the program starts and does not run again upon being pressed. Below is the code that I run: [CODE] The button for viewing the plot screen does not dynamically create the plot, pressing the button fails to update anything."
+ },
+ {
+  "id": "T08058",
+  "title": "PLY Error: Symbol &#39;NOT&#39; used, but not defined as a token or a rule",
+  "tags": [
+   "python",
+   "parsing",
+   "ply"
+  ],
+  "body": "I'm encountering an issue with PLY (Python Lex-Yacc) where it's failing to recognize a token in the parser that I've defined. This error is preventing the parser from being built. I'm using PLY 3.11 (the latest available on PyPI) I'm using Python 3.13 When trying to build the parser, I receive the following error: [CODE] Here is the relevant code for my lexer: [CODE] Here is my precedence table in parser.py: [CODE] And here is the code from my parser which generates the error: [CODE] I've confirmed that the lexer is producing the expected tokens when run separately on a piece of test input. Question: Why is PLY unable to recognize the 'NOT' token despite it being defined in the reserved dictionary, especially given that I can replace it with any other reserved keyword and have it work fine? How can I resolve this issue and successfully build the parser? Any help or insights would be greatly appreciated."
+ },
+ {
+  "id": "T08059",
+  "title": "How can add the positional argument :UnitedStates.__init__() missing 1 required positional argument: &#39;m&#39;?",
+  "tags": [
+   "python",
+   "quantlib"
+  ],
+  "body": "In the article \"Automating Option Pricing Calculations\",https://sanketkarve.net/automating-option-pricing-calculations/,chapter \"Calculation of Implied Volatility via Stock Prices\": [CODE] It get the type error info: [CODE] How can add the positional argument then?"
+ },
+ {
+  "id": "T08060",
+  "title": "How do I map query results to an HTML table in python?",
+  "tags": [
+   "python",
+   "html",
+   "django",
+   "postgresql",
+   "psycopg2"
+  ],
+  "body": "I have two tables : Driver and Car [CODE] And here is the data inside the tables: [CODE] It doesn't matter what type of query I do, I would like to display an empty html table, and depending on the query the results get populated [CODE] And here is the html: [CODE] I'm coming from Node/Express, the way I would do it there is with an array.map(), but how do go about doing this in python/django? I'm not sure how to use {% ... %}"
+ },
+ {
+  "id": "T08061",
+  "title": "Count the number of character that occur at same index after reversing the string",
+  "tags": [
+   "python",
+   "string",
+   "substring",
+   "logic"
+  ],
+  "body": "[CODE] I am able to pass 15/16 test case can someone please help me that where I am left which edge case I am missing Count the number of character that occur at same index after reversing the string"
+ },
+ {
+  "id": "T08062",
+  "title": "Python flask_socketio + pty recieve handler not being called",
+  "tags": [
+   "python",
+   "flask-socketio",
+   "pty"
+  ],
+  "body": "So, I have some code for a flask_socketio virtual console. I can see the output, but when to send in a command, recv isn't called. Code: [CODE]"
+ },
+ {
+  "id": "T08063",
+  "title": "How to filter array in Pandas dataframe?",
+  "tags": [
+   "python",
+   "arrays",
+   "pandas",
+   "jupyter-notebook"
+  ],
+  "body": "Is it possible to filter array without creating new columns? For example i have this dataframe: [CODE] How to filter array by digit \"3\" in column \"goalsID\"? I need this result: [CODE] I was trying to transfer data to new columns, but i want to know - is it possible to filter array?"
+ },
+ {
+  "id": "T08064",
+  "title": "Using grad cam with 2 inputs",
+  "tags": [
+   "python",
+   "tensorflow",
+   "keras"
+  ],
+  "body": "I have a model with 2 inputs, image and metadata. I want to do the Grad_Cam method to see which features are being selected in the image but I can't seem to do it. I use the Gram_cad functions of the keras examples, https://keras.io/examples/vision/grad_cam/ . This is my model: [CODE] When I try to run the code below the error [code] appears. [CODE] If I change the layer name to \"resnet50\" a different error appears: [code] ~´ What am I doing wrong? Is it impossible to do this method since it has 2 inputs?"
+ },
+ {
+  "id": "T08065",
+  "title": "How can I know if a lambda is an coroutine function?",
+  "tags": [
+   "python",
+   "python-asyncio"
+  ],
+  "body": "TIL that you can use lambda to call coroutine functions. You don't even have to add await in the lambda. Great! (Using Python 10). But... although the lambda can be awaited (after being called), it doesn't seem to be an [code] : [CODE] What magic is happening here? Is the lambda a coroutine function or not? Because of this, I can't easily write: [CODE] ... as I'll be sad because [code] sees a callable, not an [code] . A sad thing for decorators. Related: What mechanism makes Python lambdas work without await keyword?"
+ },
+ {
+  "id": "T08066",
+  "title": "Multiple versions of Sqlite3 for Python on the same server",
+  "tags": [
+   "python",
+   "sqlite",
+   "python-venv"
+  ],
+  "body": "On a Linux server, I have some Python scripts using the built-in [code] module (+ some Sqlite extensions built from source, as detailed in Upgrade Python's sqlite3 on Debian ). For another Python script, I need a newer version of the Sqlite shared library than the one I already have on the system. Reason: I need Sqlite higher than 3.25.0 for Window Functions . If I install it from source here and do [code] and [code] , it will probably overwrite previous versions of this library on the server, and could potentially break other OS tools using it. How do you handle the general problem of having multiple versions of the Sqlite shared library? I don't think Python virtual environments can be used for this context, or would it be possible? Note: [code] does not exist: we cannot upgrade Python's built-in [code] package like this. And by the way we probably should not, since it could break some OS tools using Python + sqlite3."
+ },
+ {
+  "id": "T08067",
+  "title": "python 3.14 shared mutex lock",
+  "tags": [
+   "python",
+   "multithreading"
+  ],
+  "body": "I'm trying to create a shared mutex in python (ala C++ shared_mutex ) so I can have multiple threads read a variable while one thread can acquire an exclusive lock (blocking all readers) while it changes the variable(s), then allowing the reader threads to all access the variable for reading. I'm not finding anything much with AI, and the python documentation doesn't seem to say this is a possibility. Is there some workaround or some way to 'fake' a shared mutex? The pseudo code would look something like this (in separate threads) - [CODE]"
+ },
+ {
+  "id": "T08068",
+  "title": "Getting unexpected poor performance in influxDB with 17,280,000 records",
+  "tags": [
+   "python",
+   "influxdb-2"
+  ],
+  "body": "I have the following setting: I expect data from a combined sensor at a rate of 200/s. The record consists of acceleration data (a.X, a.Y) and GPS- data (Lat, Lon). In addition there is data from two force sensors, giving data each from two force components (Fle, Fri). I set the timestamp of the records while writing to InfluxDB, because it is not sure, that the latency of data is always constant. For testing purpose I set the starttime 24 hours in the past and increment the timestamp with everey record with 5 milliseconds. This means, I write 12,280,000 records to the freshly declared bucket. This takes a lot of time, but is faster than realtime (this means, I write more than 200 records/s). The python code is shown below: [CODE] When testing the query- performance, I used the following code: [CODE] With this I am querying 3 minutes in the middle of the data bucket, filtering for a certain tag. But this query takes InfluxDB 27s: [CODE] The machine is a Windows10 computer, Intel(R) Xeon(R) CPU E5-1620 0 @ 3.60GHz 3.60 GHz, 8 GB RAM. I didn't expect this to be so slow . So I assume, my too naive approach doesn't use the full capabilities of InfluxDB. I would like the query time to be less than a second. How can I achieve this?"
+ },
+ {
+  "id": "T08069",
+  "title": "How to cache a mutable instance attribute?",
+  "tags": [
+   "python",
+   "properties",
+   "memoization"
+  ],
+  "body": "I can cache an instance attribute like so: [CODE] I want to have the calculation applied to [code] every time I call it, using a cached result for subsequent calls to avoid unnecessary computations. But I also want to change [code] . While [code] works with the code above, many places say that [code] is meant for immutable values. And in my actual, more complex code, it gives me strange, inscrutable results. I chalked this up to surprising behaviour when the decorator is used with mutable attributes (even though I don't fully understand what's happening). What's the proper way to cache an instance attribute that changes throughout its lifetime?"
+ },
+ {
+  "id": "T08070",
+  "title": "How to get EBS gp3 IOPS &amp; Througput pricing using api?",
+  "tags": [
+   "python",
+   "amazon-web-services"
+  ],
+  "body": "I can only seem to get the volume price per GB through the pricing api provided by AWS. In the AWS service index file for EC2, I can see only the volume pricing and IOPS but there is no pricing information regarding throughput. Tried using the boto3 pricing client and adding filters for volumeType and volumeApiName."
+ },
+ {
+  "id": "T08071",
+  "title": "tf.data.Dataset - behavior of map() and cache() methods",
+  "tags": [
+   "python",
+   "tensorflow",
+   "tensorflow-datasets"
+  ],
+  "body": "Questions wrt. Tensorflow Datasets https://www.tensorflow.org/api_docs/python/tf/data/Dataset#map https://www.tensorflow.org/api_docs/python/tf/data/Dataset#cache How does the map function actually work ? The [code] in [code] prints just one value but [code] prints values as expected Why does the map function behave differently compared to python map() function [code] prints only 1 value [code] prints 4 values When I get same result for x and y below, what is purpose of using [code] ? [CODE] vs [CODE]"
+ },
+ {
+  "id": "T08072",
+  "title": "Sum of individual labels over a month of granular data",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "datetime"
+  ],
+  "body": "I have a dataframe which contains life logging data gathered over several years from 44 unique individuals. [CODE] The [code] column contains granular datetimes of the format [code] , in intervals of 30 minutes. The [code] column has 14 different categories. [CODE] Here's a sample user's head, which is [code] and spans from 2020 to 2021. There are also gaps in the data, occasionally. [CODE] I want a sum of each unique [code] per user per month, but I'm not sure how to do this. I would first split the data frame by [code] , which is easy. But how do you split these [code] datetimes when it records every 30 minutes over several years of data— and then create 14 new columns which record the sums? The final data frame might look something like this (with fake values): user month SLEEP ... WATCH TV 486 jun20 324 ... 23 486 jul20 234 ... 12 The use-case for this data frame is training a few statistical and machine-learning models. How do I achieve something like this?"
+ },
+ {
+  "id": "T08073",
+  "title": "Method to Sort 3d data",
+  "tags": [
+   "python",
+   "numpy"
+  ],
+  "body": "Is there a method in numpy that allows me to sort these 3d vectors in ascending order? For example; I have the following input array and I'd like the following output: [CODE] I have tried the below but it does not produce the result I wanted above. Instead it produces the below. [CODE]"
+ },
+ {
+  "id": "T08074",
+  "title": "Colour code a variable where the value is dependent on previous user input",
+  "tags": [
+   "python"
+  ],
+  "body": "I want to colour code the output on DefDuelsPercentile0dp red if <=49, orange if between 50 and 69, and green if >=70. How do I go about doing this? (ignore 'example values', the list of values was too long to post) [CODE]"
+ },
+ {
+  "id": "T08075",
+  "title": "Python data scrapping from Truecaller",
+  "tags": [
+   "python",
+   "python-requests"
+  ],
+  "body": "I have a Python script to retrieve the names of phone numbers, but I am getting errors at the output. Here is my code: [CODE] And here is the error: [CODE]"
+ },
+ {
+  "id": "T08076",
+  "title": "error 111- Connection refused for cassandra",
+  "tags": [
+   "python",
+   "cassandra",
+   "datastax-astra",
+   "astradb"
+  ],
+  "body": "I am learning to use Datastax AstraDB to vector storage. I am trying to follow a tutorial. I am using [code] to connect with astraDB using the following code: [CODE] There seems to be no warning or error for the above code. But when I try to store the vectors, I get the error [CODE] Here is the full error: [CODE]"
+ },
+ {
+  "id": "T08077",
+  "title": "Querying Sqlalchemy-utils EncrytedType directly as an SQL query",
+  "tags": [
+   "python",
+   "postgresql",
+   "encryption",
+   "sqlalchemy",
+   "sqlalchemy-utils"
+  ],
+  "body": "I have a 'User' table with the email as encrypted type, [CODE] And I need to query this table for migration without changing the python code and I cannot find anywhere on the internet how do to the same, we use postgres db so I tried the following queries with pgcrypto extension and it doesn't seem to work. [CODE] Running the above queries gives me the following error [code] . Any help would be much appreciated, thank you."
+ },
+ {
+  "id": "T08078",
+  "title": "What is the fastest way to compute a filter in Fourier space?",
+  "tags": [
+   "python",
+   "performance",
+   "time",
+   "fft",
+   "convolution"
+  ],
+  "body": "I am currently working on a beam propagation code. The code basically consists of a transversal profile (a 2000x2000 array) which is propagated a small distance, then has its borders filtered, then propagated a small distance and so repeatedly. Here are two examples of filters I am using: I can provide code to the filters if needed, but the point is that they preserve the center of the images and absorb the borders of them; it is also important that they are continuous. Right now, what I am doing to apply the filters to an image [code] is: [CODE] The Fourier transforms are the slowest part of my code, and I think I can do something more efficient by applying the filter in Fourier space. What is in my mind is the convolution theorem , which states that the transform of a product equals the convolution of the transforms (F[f.g]=F[f]*F[g]). So I thought that I could precompute the transform of my filter and then do the convolution between my image and the filter after each step, but it turns out that this approach is very slow. Is there a better way to do this? I read that doing two 1D convolutions instead of one 2D one can be faster, but I am not sure how to do it in my case."
+ },
+ {
+  "id": "T08079",
+  "title": "Infinite sum involving a parameter",
+  "tags": [
+   "python",
+   "sum",
+   "sympy"
+  ],
+  "body": "How do I persuade SymPy to evaluate an infinite sum which converges and I know SymPy should be able to do? For example, the following just gives back the unevaluated infinite sum: [CODE] However, I can trick SymPy by replacing the parameter a with an internal constant, e.g. [CODE] Since the expected result does not contain exp(1), I can pretend exp(1) is a parameter. I can check the result SymPy gives me by using exp(2), exp(3), etc, instead of exp(1). But this approach seems ridiculous. I feel like I'm missing something!"
+ },
+ {
+  "id": "T08080",
+  "title": "How to vectorize the sum aggregation?",
+  "tags": [
+   "python",
+   "matlab",
+   "indexing",
+   "vectorization",
+   "graph-theory"
+  ],
+  "body": "I was trying to vectorize this piece of Python (or Matlab after some minor changes) code, which is the sum aggregation for a directed graph [CODE] I know how to drop one of the loops when it is [code] , but I failed to find a way to do it with this [code] case. The difficulty to do the same trick lies in that [code] could be the same value for different [code] and [code] s. Do anyone have some idea on how to do the vectorization in this case? Thanks a lot :)"
+ },
+ {
+  "id": "T08081",
+  "title": "ValueError: Data cardinality is ambiguous; Python; Model Comparison for Vulnerability Detection dataset",
+  "tags": [
+   "python"
+  ],
+  "body": "I am using Google Colab to train and test CNN and LSTM models. I keep getting this error. This is my code for CNN model [CODE] Output: ValueError: Data cardinality is ambiguous: x sizes: 2954 y sizes: 0 Make sure all arrays contain the same number of samples."
+ },
+ {
+  "id": "T08082",
+  "title": "Using @singledispatchmethod on __eq__(): Signature of &quot;__eq__&quot; incompatible with supertype &quot;object&quot;",
+  "tags": [
+   "python",
+   "mypy",
+   "python-typing"
+  ],
+  "body": "Here's a minimal reproducible example of what I'm trying to do ( mypy playground ): [CODE] [code] is actually irrelevant to the problem, but here it is if you need it: [CODE] mypy gives me the following error: [CODE] ...which makes no sense at all. What can I do, other than using a [code] comment? I have read this question , but it is not about type hinting, and the only answer there leads to the same error (assuming I did not do anything incorrectly)."
+ },
+ {
+  "id": "T08083",
+  "title": "When i try to run model.fit() i face this error. how do i solve it",
+  "tags": [
+   "python",
+   "tensorflow",
+   "keras",
+   "conv-neural-network",
+   "lstm"
+  ],
+  "body": "I am triying to follow a video and practice a lipnet Deep Learning Model that can LIP READ. The code i am trying to run Data Pipeline [CODE] Other model details [CODE] [CODE] [CODE] [CODE] [CODE] the error i am getting, [CODE] i dont quite understand the error, is there something wrong with the shape of the data i am trying to pass?? is that what that error means? I have tried searching google about the InvalidArgumentError: Graph execution error: but found no luck. Tried to run the code in cpu, gpu and tpu. Never worked with LSTM models before, is there any model layer errors?"
+ },
+ {
+  "id": "T08084",
+  "title": "Using numpy random and pandas sample to make a random choice from a DF, not random distribution of choices after 100k runs",
+  "tags": [
+   "python",
+   "pandas",
+   "numpy",
+   "random"
+  ],
+  "body": "I have made a small script for my D&D group that, when a spell is cast, chooses whether or not another random spell gets cast, the ordinal spell gets cast, or nothing happens (with a 50%, 25%, 25% ratio, respectively). In order to do this, I made a [code] of every possible spell in the game (using data from http://dnd5e.wikidot.com/spells ), and then appended two data frames (one that says \"Original Cast\" in the spell name and the other that says \"Nothing Happens\"), each with [code] so as to have a full [code] twice the size of the original, as shown in the code below. [CODE] [code] is shown below, for reference. [CODE] I then call the script below to get what happens when a spell is cast. [CODE] To test if this was giving me the distribution I wanted (50% of the time, there is a random spell cast, 25% nothing happens, and 25% the spell works as intended), I ran [CODE] And instead of getting 50/25/25 (for the things stated above), I get an extremely consistent 47/26.5/26.5. Does anyone know why this is happening? And does anyone have a better idea and random sampling so as to more consistently get the correct ratio?"
+ },
+ {
+  "id": "T08085",
+  "title": "Repeating each item a different number of times",
+  "tags": [
+   "python",
+   "dataframe",
+   "range"
+  ],
+  "body": "I have a dataframe with a column with item names and a column with a number. I would like to create a list with the item names repeated the number of times in the column. item number cat 2 dog 3 parrot 4 My desired output is item cat cat dog dog dog parrot parrot parrot parrot I feel like I'm quite close with this code: [CODE] However, I can't find a way to replace 2 in range with the number out of the dataframe. df.numbers doesn't seem to work."
+ },
+ {
+  "id": "T08086",
+  "title": "Created a fund manager program with python but .exe file wont work on another computer",
+  "tags": [
+   "python",
+   "tkinter"
+  ],
+  "body": "I hope you're doing well. I have a question. I created a fund manager program that keep track of investment accounts and profits. it works fine on one computer. I used the prompt --onefile to create a .exe file to use this program on other computers but its not working. When i try it, the terminal opens but it closes instantly. Would anyone be able to give me some recommendations? Thank you [CODE] I tried everything. shut off anti virus, changed path links, etc."
+ },
+ {
+  "id": "T08087",
+  "title": "How to solve this simple python problem, I don&#39;t know how to fix. There&#39;s some error I can&#39;t debug",
+  "tags": [
+   "python",
+   "while-loop"
+  ],
+  "body": "I'm trying to make a simple guess the number game which the computer would randomly pick a random number then the user would input the correct number between 1 and 10 and there's a guess limit of 6. [CODE]"
+ },
+ {
+  "id": "T08088",
+  "title": "How can one have PEP-342 style coroutines where suspending execution and moving to the other context looks like a function call on both ends?",
+  "tags": [
+   "python",
+   "generator"
+  ],
+  "body": "Python generators allow program flow to jump back and forth between two different places, with messages being passed between using [code] and [code] as per PEP-342 . For example: [CODE] Here, calling [code] will return [code] . Program flow begins in [code] but flips back and forth between the body of [code] and the body of [code] as the program continues in accordance with the semantics defined in PEP 342. Note that the word \"coroutine\" as used in that PEP (and in my example here) means something very different to modern awaitable coroutines; this functionality has been in the language since 2005, and involves no actual concurrency. I want a setup that will have this same effect semantically, but where the operation \"suspend execution and move to the other context, possibly with a message\" looks like a function call from both ends. For example: [CODE] What implementation of [code] and [code] will have the semantics I'm looking for? Is there a library somewhere that already does this?"
+ },
+ {
+  "id": "T08089",
+  "title": "All Elements in Dictionary have the same length, is there an easy way to work on all elements simultaneously",
+  "tags": [
+   "python",
+   "arrays",
+   "sorting",
+   "dictionary"
+  ],
+  "body": "(first question - constructive feedback on how to ask questions appreciated) In my new job I have taken over some code where data is stored columnwise as ndarrays in a dictionary. So its originally from a database, and each column is stored in an array, and the arrays are stored in a dictionary. Example with arbitrary data: [CODE] As far as I know, this was done for performance reasons. Now I need to perform some operations on this, like sorting and deleting \"rows\". the only way I can think of to do this is to either put it all into a DataFrame, do the operations there and then isolate the columns back into dict format, or to work with the index and do it on each array individually. Both do not seem ideal to me, so my question is: Is there a way to efficiently perform these actions on all elements in my dictionary? Many thanks in advance"
+ },
+ {
+  "id": "T08090",
+  "title": "Python OSError: [Errno 22] Invalid argument for datetime.timestamp()",
+  "tags": [
+   "python",
+   "timestamp"
+  ],
+  "body": "I got the issue in Python 3.9 under Windows, for datetime.timestamp(): [CODE] For this part of code: [CODE] The strange is, it works correctly under Linux. Did you solve the same issue?"
+ },
+ {
+  "id": "T08091",
+  "title": "Gunicorn flask app can&#39;t download file using playwright on linux",
+  "tags": [
+   "python",
+   "flask",
+   "gunicorn",
+   "playwright"
+  ],
+  "body": "I'm making a ReST API using Flask and Playwright to download some files on a server. Locally, it works but, in server (Linux), returns a permission error. [CODE] [CODE] Error occurs on [code] . I've tried to execute gunicorn3 with sudo but it doesn't find some modules and, when I fixed it, the script started to works on different folder."
+ },
+ {
+  "id": "T08092",
+  "title": "TA-lib is not properly detecting Engulfing candle",
+  "tags": [
+   "python",
+   "ta-lib",
+   "candlesticks"
+  ],
+  "body": "As you see in the attached image, there was a Bearish Engulfing candle on December 18. But when I see the same data and engulfing value, it shows something else, in fact [code] . Below is the function computing, detecting engulfing candle pattern: [CODE]"
+ },
+ {
+  "id": "T08093",
+  "title": "Function not Printing two separate print statements",
+  "tags": [
+   "python",
+   "function",
+   "printing",
+   "terminal",
+   "command-line-interface"
+  ],
+  "body": "I am new to personal projects and am working on a library book management system through the python terminal. I'm running into an issue that has had been stuck for a while. I'm trying to get my code to print out into the console ------ Main Menu ------ All Books Check In Check Out Look Up But instead it just gives me over and over again just \"Choose Option\". I'm not sure what I'm doing wrong as I've tried iterating a bunch of times over but I can't find the resolution. Source Code: Terminal Output:"
+ },
+ {
+  "id": "T08094",
+  "title": "How to install brownie on mac os running both python 2.7 and 3.9",
+  "tags": [
+   "python",
+   "macos",
+   "pip"
+  ],
+  "body": "I'm trying to install brownie on my mac (Catalina 10.15.7) using this tutorial. I tried this command: [CODE] I get this error: [CODE] Here are my Python versions: [CODE] How do I get this installed?"
+ },
+ {
+  "id": "T08095",
+  "title": "When does Python require parentheses around &quot;not x&quot;?",
+  "tags": [
+   "python"
+  ],
+  "body": "I get the following result in both Python 2.7 and Python 3.5. Why do the parentheses make a difference? [CODE]"
+ },
+ {
+  "id": "T08096",
+  "title": "SQL want efficient query to SELECT columnA, columnB FROM table1 WHERE both columnA, columnB are in columnC FROM table2 WHERE columndD &gt; value",
+  "tags": [
+   "python",
+   "sql",
+   "sqlite",
+   "group-by",
+   "count"
+  ],
+  "body": "I'm searching for a more efficient method to accomplish something that I've already solved with a few different SQL statements. The problem: I have two tables a transactions table, and an accounts table The [code] table has columns that look like: acct_sending acct_receiving amount tx_datetime 100 101 10 yyyy-mm-dd hh-mm-ss 101 100 5 yyyy-mm-dd hh-mm-ss 101 200 1 yyyy-mm-dd hh-mm-ss 200 101 11 yyyy-mm-dd hh-mm-ss 200 234 22 yyyy-mm-dd hh-mm-ss 234 567 24 yyyy-mm-dd hh-mm-ss 567 890 56 yyyy-mm-dd hh-mm-ss 890 100 73 yyyy-mm-dd hh-mm-ss The [code] table has columns that look like: account balance last_tx 100 10 yyyy-mm-dd hh-mm-ss 101 100 yyyy-mm-dd hh-mm-ss 102 100 yyyy-mm-dd hh-mm-ss 200 1000 yyyy-mm-dd hh-mm-ss 234 10000 yyyy-mm-dd hh-mm-ss 567 1000 yyyy-mm-dd hh-mm-ss 890 100 yyyy-mm-dd hh-mm-ss I want to create a query that returns a list of transactions where both [code] and [code] are in the [code] table AND have a [code] greater than some value. Bonus points if the query result has a [code] column that holds the total number of transactions between those two accounts. Given the [code] and [code] tables above, if we ran this query with [code] then the result would be: acct_sending acct_receiving count 101 200 2 200 234 1 234 567 1 567 890 1 --- My Solution First, create a temp table with transactions where [code] and [code] [CODE] Then, create a new temp table using the la"
+ },
+ {
+  "id": "T08097",
+  "title": "Split a txt file into two files using first column value in Python",
+  "tags": [
+   "python",
+   "file-io"
+  ],
+  "body": "I would like to split a INPUT.txt file into two .txt files(Header & Data) by the value of the first column. Data before \"H1000\" will save in a header.txt file and after/equal to \"H1000\" will save in data.txt file. INPUT.txt [CODE] With the output files being: header.txt [CODE] data.txt [CODE] Couple of problem that I am facing: \"H1000\" position is dynamic in different txt files. If you see another input file see \"H1000\" position is different(Check Input File2 ). So my python code is first finding the position of H1000. I am using the position of H1000 for separating Header & Data file. Logic is not working correctly in separating the files. My python code: [CODE] None of my logic is working. Any help as I have stuck how to work this logic. InputFile2 [CODE] Python code and txt file attached here"
+ },
+ {
+  "id": "T08098",
+  "title": "Regex to substitute the next two words after a matching point",
+  "tags": [
+   "python",
+   "python-3.x",
+   "regex"
+  ],
+  "body": "I'm writing a Regex to substitute the maximum of the next two words after the matching point. Expected prefixes: dr, doctor, pr, professor Sample text: Examination carried out in agreement with and in the presence of Dr John Doe (rhythmologist). Expected outcome: Examination carried out in agreement with and in the presence of Dr [DOCTOR_NAME] (rhythmologist). Here is my current Regex: [CODE] However, it doesn't account for an ending parenthesis , as shown in the following image: Really appreciate the help to improve the Regex. Thank you!"
+ },
+ {
+  "id": "T08099",
+  "title": "Problem faced in CP-SAT when using OnlyEnforceIf",
+  "tags": [
+   "python",
+   "or-tools",
+   "boolean-expression",
+   "cp-sat"
+  ],
+  "body": "I have the following excerpt from my Python code [CODE] It is my understanding that if d120 is False then d121 has to be True and the other way around. I am finding that both variables are False. What am I missing?"
+ },
+ {
+  "id": "T08100",
+  "title": "Python C extension compiled with nvc++ OpenMP offloading cannot run on GPU",
+  "tags": [
+   "python",
+   "openmp",
+   "nvidia",
+   "offloading",
+   "pgi-accelerator"
+  ],
+  "body": "I have a Python extension in C/C++ that I want to use OpenMP offloading with. Using NVIDIA's nvc++, compiling works out as well as using/running the extension in python. The problem ist that it's not using the GPU by default. Setting $OMP_OFFLOAD_TARGET=MANDATORY leads to following error: [CODE] Using the same OpenMP directives in a pure C/C++ version works out well. The output during compiling btw looks promising: [CODE]"
+ },
+ {
+  "id": "T08101",
+  "title": "Issue adding a reaction to an embed message in Discord. (Discord.py 2.2.2)",
+  "tags": [
+   "python",
+   "discord.py"
+  ],
+  "body": "I have been trying to solve this problem for the last 3 hours now. [CODE] Here is the context of the command: [CODE] This is the output I keep getting. I'm not sure what I'm doing wrong here. [CODE] I've revised the code several times whilst referencing the libraries in Discord.py but I don't understand the context very well. Other stack overflow posts regarding this don't seem to be updated or aren't using the same context that I am. Thoughts would be appreciated."
+ },
+ {
+  "id": "T08102",
+  "title": "How to override inherited Odoo method?",
+  "tags": [
+   "python",
+   "odoo"
+  ],
+  "body": "I'm trying to override a method that is inherited like this example [CODE] But the [code] of [code] are never inherited and the [code] are still using [code] of [code] . Am I using the wrong way to override? What should be the correct way to override [code] method?"
+ },
+ {
+  "id": "T08103",
+  "title": "adding chatter on res.users",
+  "tags": [
+   "python",
+   "xml",
+   "odoo",
+   "odoo-14"
+  ],
+  "body": "I'm curious how to add chatter to res.users in Odoo14.I keep trying but keep getting error. [CODE] What's wrong with this code and is anyone ever succesed adding chatter to res.users? Thanks"
+ },
+ {
+  "id": "T08104",
+  "title": "pyexiv2 blocks on some images",
+  "tags": [
+   "python",
+   "freeze",
+   "pyexiv2"
+  ],
+  "body": "I use pyexiv2 (2.15.4, python 3.8, Windows 8.0) to read EXIF and IPTC from my JPEGs. On very few images (1 on 5000), it blocks and hangs python. My code is : [CODE] There is no accentued characters in IPTC, EXIF of path_ima. The image size is 800x600. The image is correctly read by Irfanview, EXIF and IPTC display correctly. There is no runtime exception I could catch, it just blocks and I have to stop python. I tried to install py3exiv2, but unsuccessfully (too difficult, Microsoft Visual C++ is needed to build the wheel). How can I manage with pyexiv2 that is suitable to my needs to both read EXIF and IPTC ?"
+ },
+ {
+  "id": "T08105",
+  "title": "Why is the code not working, even after import ing it",
+  "tags": [
+   "python",
+   "import",
+   "tooling-recommendation"
+  ],
+  "body": "[CODE]"
+ },
+ {
+  "id": "T08106",
+  "title": "Find employees with overlapping wortktime hours",
+  "tags": [
+   "python",
+   "algorithm",
+   "data-structures",
+   "combinatorics"
+  ],
+  "body": "Given StartTime and endTime for N employees, an employee can form a team if his working hour overlaps with other employees' (both startTime and endTime inclusive). Find the maximum team size. Example: startTime = [2,5,6,8] endTime = [5,6,10,9]: answer is 3. emp1 works from 2-5 emp2 works from 5-6 emp3 works from 6-10 emp4 works from 8-9 - emp1 can overlap only with emp2 at 5th hour, so max team size for emp1 is 2 - emp2 can overlap at 5th hour with emp1 and 6th hour with emp3, so max team size is 3 - emp3 also 3 - emp4 - 2 So answer is 3. I have a working solution, but it is not optimized and all test cases are not passing (not failing but timeout). Whatever solution you try to bring, verify that output is 3 for above test case. [CODE]"
+ },
+ {
+  "id": "T08107",
+  "title": "How to run scheduler job daily with start and end time using AsyncIOScheduler in FastAPI?",
+  "tags": [
+   "python",
+   "python-asyncio",
+   "fastapi",
+   "apscheduler"
+  ],
+  "body": "I am using FastAPI and using [code] . My scheduler condition is: Run the task everyday at 6 am, with [code] being 6 am and [code] 8 am. I have added scheduler code in lifespan in which your code is executed only once when the application started. Please refer code where I have added [code] to get start and end time but it will execute only once because added it in lifespan so how can I execute job everyday. [CODE]"
+ },
+ {
+  "id": "T08108",
+  "title": "LeRobot SO101 Camera getting ConnectionError when trying to connect",
+  "tags": [
+   "python",
+   "opencv",
+   "lerobot"
+  ],
+  "body": "When I try to detect my camera using [code] I get a ton of errors like [code] . After that it still outputs [CODE] But if I try using it like: [CODE] I get an ConnectionError. (P.S.: I'm on Win11. Webcam does work when using Camera App from Windows. Webcam also works when using normal OpenCV Lib like that: [code] )"
+ },
+ {
+  "id": "T08109",
+  "title": "How to get info of class call order in Python?",
+  "tags": [
+   "python"
+  ],
+  "body": "How to get the classes information of [code] and [code] and the order of their invocations [code] followed by [code] in the following Python code: [CODE] Given, [code] , how to find out that the two module 'C() [code] A [code] B [code] A [code] B`?"
+ },
+ {
+  "id": "T08110",
+  "title": "Tkinter center Label in the GUI",
+  "tags": [
+   "python",
+   "tkinter"
+  ],
+  "body": "[CODE] Above is my Code for a Tkinter GUI but I want the have the label at the center of the root/window how do I do that? Currently its sitting on top of the buttons everything else is fine the button events and such works"
+ },
+ {
+  "id": "T08111",
+  "title": "Conda install pip does not show up in venv in ubuntu",
+  "tags": [
+   "python",
+   "ubuntu",
+   "pip",
+   "anaconda"
+  ],
+  "body": "[CODE] I'm unable to get pip for my venv or conda even after manual installation. How to set up pip for my venv"
+ },
+ {
+  "id": "T08112",
+  "title": "How to read information off of website using selenium, python, and MS edge",
+  "tags": [
+   "python",
+   "selenium-webdriver"
+  ],
+  "body": "I am trying to learn how to use selenium. To do this I am trying to search the toronto stock exchange and get the dividend yield. I need to know how to use MS Edge to do it, other browsers won't work. I am able to get to the website and search for and successfully navigate to the XIC webpage. However, when I try to get the dividend, it doesn't work. I am using: [CODE] On the website I inspect the dividend, and it gives me: [CODE] It gives the error (I replaced some numbers and letters with X): [CODE] I've been looking for how to do it, but I'm not sure what I'm doing wrong. Does anyone know?"
+ },
+ {
+  "id": "T08113",
+  "title": "sway exec doesn&#39;t do the same as the same command in cli",
+  "tags": [
+   "python",
+   "notifications",
+   "execution",
+   "archlinux",
+   "window-managers"
+  ],
+  "body": "I have written an python program to handle sending notifications to dunst with notify-send. i am aware that there are better alternatives, but i wanted to make it on my own. This is my program located in /home/theo/Repos/volumebar-dunst [CODE] When I run the program from the command line, for example: [code] a notification pops up saying what it should say. But if I try to trigger it with the keybind set in [code] which is: [CODE] it just gets to the part of the python script where the command to the cli to for example with raise to raise the volume is sent [CODE] after this it seems to have an error or to just exit the program. the last adjustment is still made though. what disturbs me is that the same command executed from me and from sway seem to do different things and i don't understand why. For trying to solve it I tried logging what the program from sway executed does, and it sends notifications up until the point where [code] is executed. after that the program seems to crash. Unfortunately I didn't find anything about it online."
+ },
+ {
+  "id": "T08114",
+  "title": "Minimizing a list of parameters using &#39;scipy.optimize.minimize&#39; instead of individual parameters",
+  "tags": [
+   "python",
+   "scipy",
+   "scipy-optimize-minimize"
+  ],
+  "body": "I am looking for a way to fit a pseudovoigt synthetic profile to an observed spectral profile. The general approach is that there are theoretical lines at given wavelengths that contribute to the profile. In the case of multiple overlapping profiles, the sum of all the profiles is the result. Each profile is described by a Gaussian width, Lorentz factor, wavelength shift and amplitude. Overlapping profiles have all the parameters the same apart from the amplitude. So far, I made separate functions for each case of the number of contributing lines (1-12), and those work without issues as I know the exact number of parameters and specify them one by one. However, this led to a lot of lines of code and a lack of generality. I want to make one function that can fit the parameters for an arbitrary number of contributing lines. The only approach I can think of using is putting all the parameters in one list and passing their initial values to the minimizer. I think this is the least amount of code I can provide that describes the problem, even though it's still quite long. Please disregard some weird variable names (they are the same as the one my boss uses in his code, for consistency). [CODE] I assume that the problem is that I'm passing the initial parameters as a list of 4 values (could be more if it were multiple lines), but would need to pass one value which is a list itself (I"
+ },
+ {
+  "id": "T08115",
+  "title": "403, Error: User does not have sufficient permission for site---Google Search Console OAuth access token",
+  "tags": [
+   "python",
+   "oauth",
+   "http-status-code-403",
+   "google-search-console",
+   "google-api-webmasters"
+  ],
+  "body": "We have been using OAuth 2.0 for authenticating google search console webmasters API. we are mainly hitting two endpoints [code] and [code] to fetch sites and sitemaps data. Interestingly, the access_token which got generated using refresh_token is able to retrieve data for sites but not for sitemaps. For sitemaps it's throwing error: HTTP-error-code: 403, Error: User does not have sufficient permission for site https://www.example.com See also: https://support.google.com/webmasters/answer/2451999 This behaviour has started since June 4, 2022. Prior to that it's been working perfectly fine."
+ },
+ {
+  "id": "T08116",
+  "title": "PySerial Read.line() not printing",
+  "tags": [
+   "python",
+   "python-3.x",
+   "serial-port",
+   "pyserial"
+  ],
+  "body": "I am having trouble to print whatever I write to the serial port. It doesn't display or only outputs: 'b ' I have tried so many different things, but cannot get it read and print. [CODE] I tried read line decode with “utf-8”, “ascii”, etc. Nothing has worked. Am I forgetting to include something? I have also tried readlines(), read(), etc. Is the data even sending to the port?"
+ },
+ {
+  "id": "T08117",
+  "title": "How to override QMessageBox blocking behavior?",
+  "tags": [
+   "python",
+   "pyqt5"
+  ],
+  "body": "I have 2 blocking actions, one of them being QMessageBox [code] method. Second one is a [code] function that when it's executed it waits until user puts an item on a scale. What I'm trying to accomplish is to inform the user with [code] that he needs to do put an item on a scale and then get the weight of the item via [code] . My problem is if I execute [code] first, I'm unable to call [code] in parallel since [code] is blocking. I could run [code] 1st in a separate thread, and then call [code] , but I have no idea how to programatically close [code] when a certain event happens."
+ },
+ {
+  "id": "T08118",
+  "title": "i can not find the solution with this task (fastapi and sql)",
+  "tags": [
+   "python",
+   "json",
+   "orm",
+   "psycopg2",
+   "pydantic"
+  ],
+  "body": "[CODE] can you help me to solve the error. there i want it to return proper json where will be information about post and user (owner). for better understanding what i want to do, my friend used orm and added this to his database from python to get the exact same result i want: [CODE] but i don't use orm because i use psycopg2. is it possible to solve this problem effectively without orm, or am i better start using it soon? is it okay to work with psycopg2 with orm? how to solve this specific task? kind of result i need: [CODE]"
+ },
+ {
+  "id": "T08119",
+  "title": "How to install langchain-openai that is compatible with existing openai installation?",
+  "tags": [
+   "python",
+   "openai-api",
+   "langchain",
+   "pipenv",
+   "py-langchain"
+  ],
+  "body": "I am migrating to [code] version 0.2 in my project, which now requires installing LLM models separately. I attempted to install [code] using: [CODE] However, this conflicts with another package in my environment: [CODE] It seems I need to find a compatible version of [code] that works with [code] or consider upgrading [code] without breaking my current code. How can I determine which version of the [code] SDK is compatible with specific versions of [code] ? I've checked PyPI, but I couldn't find detailed information about dependencies between these packages. Terminal output: [CODE]"
+ },
+ {
+  "id": "T08120",
+  "title": "What is the difference between astype(&#39;category&#39;) and astype(CategoricalDtype())?",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "Learning Data Science and need to convert 'object' values to 'categorical' values. While I was studying somebody's code I encountered that there are two possible ways to do that. So my question is when we have to use them? [CODE]"
+ },
+ {
+  "id": "T08121",
+  "title": "How to return combobox item to main window when item is selected",
+  "tags": [
+   "python",
+   "combobox",
+   "pyqt"
+  ],
+  "body": "New to Qt. I'm trying to create a general purpose ComboBox that can be used in multiple situations. This code works when the Save button is pressed. However I would like to dispense with the save button and have the combobox selected item returned to the main window when the item is selected. I have been unable to figure this out and none of the examples I've seen help. Grateful for any suggestions. [CODE]"
+ },
+ {
+  "id": "T08122",
+  "title": "How to return DataFrame from flask view function and to another python request",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "flask"
+  ],
+  "body": "Python 1 app is calling url to receive DataFrame. [CODE] Another python 2 app flask view function is supposed to reurn Dataframe . How to do because falsk function is not able to return Dataframe."
+ },
+ {
+  "id": "T08123",
+  "title": "Encountering issue with installing tensorflow-text in Both Jupyter Notebook and Google Colab",
+  "tags": [
+   "python",
+   "tensorflow",
+   "machine-learning",
+   "jupyter-notebook",
+   "google-colaboratory"
+  ],
+  "body": "I'm facing a ERROR: No matching distribution found for tensorflow-text Jupyter Notebook when i try to insatll it. In Google Colab when im loading tensorflow_hub, so when i install tensorflow-text then tensorflow_hub not working & when install tensorflow_hub then tensorflow-text not working. Jupyter Notebook image Google Colab image 1 Google Colab image 2 I tried installing tensorflow_text using pip install tensorflow_text in both Jupyter Notebook and Google Colab. I expected the library to be imported successfully in my code. Additionally, I experimented with installing specific versions of tensorflow_text but still encountered the same error."
+ },
+ {
+  "id": "T08124",
+  "title": "How to build strong fundamentals of programming without using AI",
+  "tags": [
+   "python",
+   "java"
+  ],
+  "body": "I am currently learning programming and I want to build strong fundamentals in subjects like logic building, problem solving, and understanding how programs actually work. However, I have noticed that many learners today rely heavily on AI tools to generate code or solve problems, which sometimes prevents them from fully understanding the concepts themselves. Because of this, I would like to know how a beginner can develop solid programming fundamentals without depending on AI tools. I am interested in learning effective methods such as practice strategies, learning resources, or study approaches that help improve programming logic and conceptual understanding. What are some recommended ways to learn programming deeply and build strong fundamentals while avoiding reliance on AI-generated solutions?"
+ },
+ {
+  "id": "T08125",
+  "title": "hi how do get the user to responed back,printstatment but its not allowing me to responed back",
+  "tags": [
+   "python",
+   "string",
+   "variables",
+   "input",
+   "comments"
+  ],
+  "body": "print(\"hello!\\n\") user_name = input(\"what is your name?\\n\") print(\"hello, \" + user_name + \"\\n\") print(\"how are you doing?\\n\") print(+ user_name + \"\\n\") good = \"happy\" good = \"sad\" good = \"suicide\" if good != \"happy \": print(\"thats aswesome,\"+ user_name + \"\\n\") elif good == \"sad\": print(\"Am sorry but am a botnet,\"+ user_name + \"\\n\") elif good == \"suicide\": print(\"1-800 ('national Suicide Prevention')\"+ user_name + \"\\n\")"
+ },
+ {
+  "id": "T08126",
+  "title": "Is it possible to change - for example the logo or text - on the FastMCP auth pop up page",
+  "tags": [
+   "python",
+   "model-context-protocol"
+  ],
+  "body": "I'm currently working on a test MCP server using FastMCP that has auth set up. I was wondering if the auth popup that occurs when you connect to the MCP server could be edited? For example, changing the FastMCP logo to something else or adding additional text in the pop up? Checked the FastMCP auth documentation but didn't find much."
+ },
+ {
+  "id": "T08127",
+  "title": "Get nearest low and high values across multiple dataframe columns",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "I have a dataframe similar to this: [CODE] id a b c d value 1001 156 131 97 68 71 1002 224 203 165 122 180 1003 67 61 54 50 66 For each row, I would like to evaluate columns a-d and within them identify the next lowest and next highest values, as compared to value . So in this example, the expected result would look like: id a b c d value nxt_low nxt_high 1001 156 131 97 68 71 68 97 1002 224 203 165 122 180 165 203 1003 67 61 54 50 66 61 67 I have tried creating a single column with a numpy array from a-d and trying to do some operations that way, but I'm not applying it correctly and have been unable to get the desired result. Any help is greatly appreciated."
+ },
+ {
+  "id": "T08128",
+  "title": "Save text as variable on class&#39;s instances pygame/ python",
+  "tags": [
+   "python",
+   "class",
+   "text",
+   "pygame",
+   "save"
+  ],
+  "body": "I am trying to do a to-do list. That I can input text and the text stay there for the next time I open the app or until I change it. I figure that I should save the text in a .txt file but there are 16 instances/ input boxes. If I save the text in a txt file, how can I recall the text in order( like input_box1 = line 1, input_box2 = line 2). Or if I create a txt file for every instance, how can I put it in my class. I want the text to be saved when I click enter and can be blitted when I open the application. Here is the code: [CODE]"
+ },
+ {
+  "id": "T08129",
+  "title": "How can I get my code to iterate through the list?",
+  "tags": [
+   "python",
+   "list"
+  ],
+  "body": "The question is: For every five numbers in the following list from left to right, calculate the means of every five numbers. For example, the first five numbers are 2, 1, 3, 5, and 2, and the mean is 2.6 inputList = [2, 1, 3, 5, 2, 7, 3, 7, 4, 6, 9, 1, 0, 2, 4, 8, 9, 2, 0, 1, 3]. This is what I have so far: [CODE] I'm able to get the mean of the first 5 elements on the list but I can't get the code to keep going after that."
+ },
+ {
+  "id": "T08130",
+  "title": "Is it possible to implement parallel timer in python for async task?",
+  "tags": [
+   "python",
+   "python-asyncio"
+  ],
+  "body": "I'm studying asyncio in Python. A question came up: If I want to run a task in the background (add it to the event loop queue), I use [code] . At the same time, if that task contains a long operation, I want to switch back to the current coroutine where the task was launched, continue doing useful work in that coroutine, but pause it when the timeout I set for the task expires, handle that case, and then resume the useful work from where it left off. Is this possible to implement in Python? It seems [code] won’t work here (since it waits for the timeout to expire, blocking execution). [CODE] I've tried to find the solution in asyncio library but nothing found"
+ },
+ {
+  "id": "T08131",
+  "title": "Using datagen.flow_from_directory with image segmination and number of classes",
+  "tags": [
+   "python",
+   "tensorflow",
+   "keras",
+   "image-segmentation"
+  ],
+  "body": "I used \"flow_from_directory\" but my \"lose\" is not decreasing. I notice When I run \"fit_generator\". Its says there is 1 classes, even though my mask have 3 classes. My question is, do we need to indicate in the \"datagen.flow_from_directory\" how many number of classes? do yo see any mistake in the \"datagen.flow_from_directory\" call: My directory structure as shown below: My code is shown below: [CODE]"
+ },
+ {
+  "id": "T08132",
+  "title": "Python returns an empty list during web scraping using BeautifulSoup",
+  "tags": [
+   "python",
+   "beautifulsoup"
+  ],
+  "body": "[CODE] [1]: https://i.sstatic.net/WLuxV.png , Here is the link to the img which show the name and class of the element"
+ },
+ {
+  "id": "T08133",
+  "title": "How to cross compile OpenVINO for limited ARM platform",
+  "tags": [
+   "python",
+   "openvino"
+  ],
+  "body": "I want to run OpenVINO with Neural Compute Stick 2 on an embedded linux system with Cortex-A53 and 2GB RAM. But, when I build OpenVINO by this tutorial BuildingForLinux on this platform, building process is always failed. (I think problem is small RAM size) I had built OpenVINO on Raspberry Pi 4B (8G RAM) and x86_86 linux system (13G RAM), and run program successfully. Can I build OpenVINO and it's Python API wrapper on other system and run it on embedded system? Target Platform CPU: Cortex-A53 Operating System/Platform => Ubuntu 18.04 RAM => 2GB GCC => 7.5 Python => 3.6.9 Build Platform (1): Desktop CPU: x86_64 Operating System / Platform => Ubuntu 18.04 GCC => 7.5 Python 3.6.9 Build Platform (2): Raspberry Pi 4B Operating System/Platform => Ubuntu MATE 20.04 RAM: 8GB GCC: 7.5 python 3.6.15"
+ },
+ {
+  "id": "T08134",
+  "title": "Debian packaged python does not latest scikit-learn",
+  "tags": [
+   "python",
+   "scikit-learn",
+   "raspberry-pi",
+   "debian"
+  ],
+  "body": "My python program depends on scikit-learn - when I run this on ubuntu I get an an error [CODE] I then reinstalled the package with [CODE] This works perfectly. Now I run this on RaspberryPi 5, which runs a version of Debian bookworm, ( Linux ha 6.1.0-rpi7-rpi-v8 #1 SMP PREEMPT Debian 1:6.1.63-1+rpt1 (2023-11-24) aarch64 GNU/Linux ). I run into the same error, so I try [code] - this fails with an error [CODE] So I try [code] but this fails with [code] . I then ran [CODE] and got this [CODE] It appears that the Debian managed python does not have any versions of this package after 1.2.1. Am I reading this correctly? How can I get version 1.3.0 of scikit-learn on the raspberry pi?"
+ },
+ {
+  "id": "T08135",
+  "title": "Windows cannot access the specified device, file... error when running exe made using PyInstaller",
+  "tags": [
+   "python",
+   "kivy",
+   "pyinstaller"
+  ],
+  "body": "I am facing an issue while converting my kivy app to an executable file using PyInstaller. While building the exe and running it on my device, I don't face any kind of issue, but when I move it to another device it is throwing following error: Windows cannot access the specified device, path or file. You may not have the appropriate permission to access the item. [CODE] Here are the commands I am using to create the exe file: [CODE] I don't know why this issue started occurring right now, as I am using the same commands to make the exe in past and those are working perfectly fine. Also the strange thing is that when earlier I used to make these exes, it would be significantly larger (145 MB) but now it is much smaller (87 MB), but I can't be sure if this is related to the issue at hand, because I have done different changes in the app which can cause this size reduction. The things I have tried till now is: Adding [code] in the first command Removing [code] Removing [code] None of this helped me thus far, so if anyone has any idea, then please help."
+ },
+ {
+  "id": "T08136",
+  "title": "Having problems using dictionaries keys and values within a while loop conditions",
+  "tags": [
+   "python",
+   "dictionary",
+   "slice"
+  ],
+  "body": "I want to create a little program that after obtaining the user's age it will tell them the relative cost for a movie ticket for the age range they fall within. This is easy to do with a few age ranges, but I just wanted to train a bit and work with dictionaries. So I made the following code, with the idea that in the future maybe I will change idea about the ranges and will only have to change within the dictionary and not everywhere in the code. [CODE] I know this is not the way, I have tried calling keys and values even with for loops, using them directly in the if... Can someone help me understand how to make conditions work in checking dictionary keys?"
+ },
+ {
+  "id": "T08137",
+  "title": "Python regex: re.findall method throwing list index out of range error",
+  "tags": [
+   "python",
+   "json",
+   "web-scraping"
+  ],
+  "body": "I'm learning web scraping using python regular expression and practicing the following script source but when I run, it's throwing [code] [CODE]"
+ },
+ {
+  "id": "T08138",
+  "title": "Unique combinations of length 2^N of four elements with constraints",
+  "tags": [
+   "python",
+   "combinatorics"
+  ],
+  "body": "I'm trying to generate lists of length 2^n of all the unique combinations of the following elements: A, B, X, Y. This in and of itself is trivial. However, I have constraints! The elements are grouped into two sets: (A, B) and (X, Y). The order of the sequence must alternate choosing an element first from (A, B) and then from (X, Y). For example, for n=3, \"A X B Y A X B Y\" is allowed, but \"A B X Y A B X Y\" is not. I see how I can brute-force this. I'm wondering if there's an elegant way to do this. This would also make a fun code golf exercise."
+ },
+ {
+  "id": "T08139",
+  "title": "calling of function of a class by using its name",
+  "tags": [
+   "python",
+   "object",
+   "reflection"
+  ],
+  "body": "I'm trying to simplify this code, which when I look at other methods to do this, is way less shorter, and my solution could be error prone as there could be no module or class level in the function string definition [CODE] How would you address this matter?"
+ },
+ {
+  "id": "T08140",
+  "title": "Pass dataframe cells as variables",
+  "tags": [
+   "python",
+   "pandas",
+   "eval"
+  ],
+  "body": "I have the folowing input CSV file: [CODE] As you can guess, I want to pass them into my Python script such that, for example, the variable bemsurface is a list composed of all the 'PCOMP PID...' you see in the first line of my CSV extract. I believe the easiest way to get those variables is going through pandas, so I coded something like: [CODE] This gives me a nice dataframe with, on one column the names of the variables I want and on the other column their values. [CODE] Now I know the eval() function is to be avoided at all cost, so how would you go through the dataframe and assign the values on the right to variables named from the left column? Thank you in advance for your help :)"
+ },
+ {
+  "id": "T08141",
+  "title": "Filter a dataframe based on string column",
+  "tags": [
+   "python",
+   "jupyter-notebook"
+  ],
+  "body": "I have read a text file in jupyter notebook and want to fetch some sentences containing particular words. My code: [CODE]"
+ },
+ {
+  "id": "T08142",
+  "title": "Testcases skipped:Issue on applying Pytest-dependency and Pytest-Ordering",
+  "tags": [
+   "python",
+   "selenium-webdriver",
+   "pytest",
+   "pytest-dependency",
+   "pytest-order"
+  ],
+  "body": "Tried intergrating pytest-dependency and pytest-ordering in my testcases that are in different python files and issue below rises where dependent testcases are skipped. Seen similar issues here in stackoverflow but this could be a unique one. test_mod_01.py [CODE] test_mod_02.py [CODE] Conftest [CODE] Error [CODE] Even when i combine the test_mod_01 with test_mod_02 in one class, the independent testcase runs and other two are skipped. Tried to initialize the test_mod_01 class in test_mod_02 and run, but still wont work."
+ },
+ {
+  "id": "T08143",
+  "title": "Not able to return source code of any function",
+  "tags": [
+   "python"
+  ],
+  "body": "I am not able to get the source code of any function in python. Do I need to reinstall python? Does python looks OK in this case? [CODE] Update: Here is the module that I am trying to use and getting the above error: [CODE]"
+ },
+ {
+  "id": "T08144",
+  "title": "How to make a python typechecker point to a correct function signature",
+  "tags": [
+   "python",
+   "python-typing"
+  ],
+  "body": "I want to make a database agent that has multiple calls in separate classes. Here is a simplified example of what I want to do: [CODE] While the code works the type checker makes the agent.insert function signature shows [code] instead of [code] I don't know much about ParamSpec but I made an honest attempt in using it in my case"
+ },
+ {
+  "id": "T08145",
+  "title": "I am trying to take image input in html file and display and i am using flask as a server . but i am not able to display the image",
+  "tags": [
+   "python",
+   "html",
+   "flask"
+  ],
+  "body": "After uploading the image and clicking submit , it is giving me output as Method Not Allowed The method is not allowed for the requested URL. instead of displaying image this is my python code [CODE] and this is my html code [CODE] After uploading the image and clicking submit , it should display the image at view_report"
+ },
+ {
+  "id": "T08146",
+  "title": "Pyspark dataframe sum variable up to the current row&#39;s month",
+  "tags": [
+   "python",
+   "sql",
+   "dataframe",
+   "pyspark"
+  ],
+  "body": "I have a pyspark dataframe that looks as follows: [CODE] I would like to have the fact that they took out a loan in month 4 to reflect on the other later months as well. So the resulting dataframe would be: [CODE] Is there any simple way to do this in pyspark? Thanks."
+ },
+ {
+  "id": "T08147",
+  "title": "How to add the instana span context to HTTP headers?",
+  "tags": [
+   "python",
+   "open-telemetry",
+   "instana"
+  ],
+  "body": "Service A got an instana span (say [code] ) and I need to send this spanX to service B via an HTTP call to make a child span (say [code] ) out of it. I read through and found that in OpenTelemetry [code] can be used to inject span to HTTP headers. But couldn't find a doc or code snippet of it. [CODE] How to do Part1 and Part2 is what I am exactly looking for. Any help is greatly appreciated. Thanks in advance"
+ },
+ {
+  "id": "T08148",
+  "title": "How do I get it so when I double click a py file it opens up Idle to edit without a console window temporarily coming up?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "python-idle"
+  ],
+  "body": "I've been trying to search stack overflow and Reddit to find out how to do it as I did it years ago, where if I double-clicked on a py file, it would open in idle without a console window temporarily opening up and closing. I tried to follow the steps in this video, but the registry seems to have changed so can't. https://www.youtube.com/watch?v=l370kEUhXko&ab_channel=JaradPython any advice on how to do this? I seem to have lost the \"edit with idle\" option on the right-click menu as well once I changed it to open with idle.bat. Not sure how this affects everything. I am using the latest Python 3.11.4 Thank you"
+ },
+ {
+  "id": "T08149",
+  "title": "How to get the list of dates or global min/max timestamp from an openEO DataCube without downloading all data?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "sentinel2"
+  ],
+  "body": "I'm working with openEO Python client and a multi-temporal satellite DataCube. I want to extract either: The list of all timestamps in the cube, or The global minimum and maximum dates across the temporal dimension. So far, I've tried: [code] But these only collapse the temporal dimension and return a DataCube, not the actual dates. Moreover, when I visualize the results, it seems min and max might not correspond to chronological min/max: for example, in 2025 it shows more vegetation in the “min” result than in the “max”, when in Northern Hemisphere min should be in the winter and max for today (Oct2 2025) should be in September. I also checked: [code] But it returns something like ['2015-07-04T00:00:00Z', None] — just the declared collection bounds, not the actual dates present. What I want: A way to get all timestamps in the cube, or at least the earliest/latest date, without downloading all the raster data. Environment: Python 3.x openEO Python client 0.29+ Backend: openeo.dataspace.copernicus.eu/ Question: How can I get the actual list of time steps or global min/max timestamp from an openEO DataCube without downloading the full dataset? max image min image"
+ },
+ {
+  "id": "T08150",
+  "title": "How do i import obj models in python and be able to view them in mesh form",
+  "tags": [
+   "python",
+   "3d",
+   "visualization"
+  ],
+  "body": "Although i know i can do this already using libraries like vedo, what i want is to be able to view the individual vertices of the model (kind of like the edit mode in blender) and be able to assign labels to certain parts of the model. I am having a hard time even being able to find a direction to proceed in with if this is even possible in the first place or not, was hoping someone here could guide me. I have tried importing the models using vedo and pyvista (which works), but could not figure how i can label individual parts of the model."
+ },
+ {
+  "id": "T08151",
+  "title": "How to play video file with audio with DearPyGUI (Python)?",
+  "tags": [
+   "python",
+   "audio",
+   "video",
+   "ffmpeg",
+   "dearpygui"
+  ],
+  "body": "I'm using DearPyGUI to make a simple media player that can play video file (mp4, etc.) together with it's audio. The pre-requisite is that DearPyGUI is a must, however video feature will not exist until v2.0, which is still far in the future. Currently, I can only render the frames using OpenCV library for Python, however, the problem is how can I play the audio as well as play it in sync with the output video frames? For context, I'm quite new to Python, and I don't know much about video and audio streaming, but I've thought of some approaches to this problem by looking through help posts online (However, I still have no idea how I can implement any of these seamlessly): OpenCV for video frames, and audio??? some libraries like ffmpeg-python or miniaudio to play sound... (How...?) Extract video frames and audio here and then use the raw data to play it (How...?) This example here is pretty close to what I want excluding the playing video and audio part, but I have no idea where to go from there. The video stream and the audio stream are instances of ffmpeg.nodes.FilterableStream, and they appear to hold addresses to somewhere. (No idea...) Another very close idea is using ffpyplayer I was able to get the video frame. However, the below code yields a blueish purple color tint to the video, and the frame rate is very slow compared to original (So close...) [CODE] I still need to"
+ },
+ {
+  "id": "T08152",
+  "title": "Pydantic object self-validation",
+  "tags": [
+   "python",
+   "validation",
+   "pydantic"
+  ],
+  "body": "I am trying to understand the way validation works in pydantic. I create a class and three objects: [CODE] One may see that first object is totally valid, second semivalid, and third one definitive not, that's why I omit the validation using [code] . Now I want to validate the objects, as [code] suggests: [CODE] The problem is that NONE of the lines rises [code] ! I found a clumsy way around it, namely transforming objects to [code] s: [CODE] This code does raise the [code] in the second and third lines. I cannot understand why does it behave in such a funny way? I expected something like [code] , but can't find anything like this. So, my question: if I create an object without validation (with [code] ), what is the right way to do the validation afterwards?"
+ },
+ {
+  "id": "T08153",
+  "title": "Error while starting Jupyter Notebook on Fedora Linux",
+  "tags": [
+   "python",
+   "jupyter-notebook",
+   "jupyter",
+   "fedora",
+   "jupyter-lab"
+  ],
+  "body": "I just did an upgrade of my Fedora from 41 to 43 version and got the following error message while starting Jupyter Notebook: [CODE] How can I fix it? Please let me know if there is any other output I should provide."
+ },
+ {
+  "id": "T08154",
+  "title": "In polars, can I create a categorical type with levels myself?",
+  "tags": [
+   "python",
+   "dataframe",
+   "python-polars",
+   "categorical-data"
+  ],
+  "body": "In Pandas, I can specify the levels of a Categorical type myself: [CODE] This means that I can make sure that different columns and sets use the same dtype I can specify an ordering for the levels. Is there a way to do this with Polars? I know you can use the string cache feature to achieve 1) in a different way, however I'm interested if my dtype/levels can be specified directly. I'm not aware of any way to achieve 2), however I think the categorical dtypes in Arrow do allow an optional ordering, so maybe it's possible?"
+ },
+ {
+  "id": "T08155",
+  "title": "scVI (single-cell Variational Inference)",
+  "tags": [
+   "python",
+   "model"
+  ],
+  "body": "I am trying to get latents variables after training a scvi model and I am having this error message [CODE] Please have someone come across this error or please can someone assist? I want to do cell annotation [CODE]"
+ },
+ {
+  "id": "T08156",
+  "title": "Transfer learning from a custom model trained with different image sizes",
+  "tags": [
+   "python",
+   "tensorflow",
+   "keras",
+   "conv-neural-network",
+   "transfer-learning"
+  ],
+  "body": "I have a custom model trained initially on VGG16 using transfer learning. However, it was initially trained on images with a smaller input size. Now, I am using images with bigger sizes, therefore I'd like to grab the first model and take advantage of what it has learned but now with new dataset. More specifically: [CODE] The problem is that this model already includes an input layer of 128x160, and I'd like to change it to 384x288 for transfer learning. The above is my first model, I now would like to do transfer learning again but with a different dataset that has an input of size 384x288 and I'd like to use a softmax for two classes instead. So, what i want to do is a transfer learning from the custom model on a different dataset, So I need to change the input size and retrain the new model with my own data How can I do a transfer learning on the model above but with a new dataset and different classification layer in the output?"
+ },
+ {
+  "id": "T08157",
+  "title": "How to remove the title bar of a tkinter application without making it full-screen or removing the taskbar icon?",
+  "tags": [
+   "python",
+   "tkinter"
+  ],
+  "body": "I'm developing a tkinter application and would like to remove the title bar while keeping the window border intact and preserving the taskbar icon. Setting the window to full-screen or hiding the taskbar icon isn't desirable for my application. I've tried solutions involving [code] , but this removes both the title bar and the window border. Is there a way to achieve this on Windows (and ideally cross-platform) while still allowing the window to be resizable and draggable? Edit: [CODE]"
+ },
+ {
+  "id": "T08158",
+  "title": "Python click a tab on Excel ribbon",
+  "tags": [
+   "python"
+  ],
+  "body": "After I open my Excel file, I would like to use python to \"click\" on a tab, say data tab, and click on \"Data Analysis\" icon. Can you please help me to do so? Thank you, HHC"
+ },
+ {
+  "id": "T08159",
+  "title": "FOR loop in app.py just prints out last result. SQLAlchemy and Flask FOR Loop problem",
+  "tags": [
+   "python",
+   "sqlalchemy"
+  ],
+  "body": "I am trying to show how much staff assigned for an upcoming Event. For that I have a simple list with the eventname and the .count() of all the assignments from the specific event. In the app.py I have the following code: [CODE] In the .HTML File I have the following code: [CODE] In the Browser it looks like this: enter image description here Now as you see, every Event has one assignment, but that's totally wrong. Further investigation, I found out, that it prints the LAST result from the query to every event: enter image description here It goes tru and prints for every event the last result from the query... Why doesn't it print the result from every event for the specific event itself? And how can I make it doing it what I want? Staff, Events and Assignments are different tables in one database) Assignments is connected with a ForeginKey to the Staff and Events tables (One to Many Relations)"
+ },
+ {
+  "id": "T08160",
+  "title": "How to add an object as a field of another in python",
+  "tags": [
+   "python",
+   "oop"
+  ],
+  "body": "I am trying to make the player able to equip an amulet. only problem is, I've made the amulet an object and I'd like the player.bracelet1 field to store an object... Which is a string in the shop system :( Shoul I just use lots of if loops? Or is there some kind of method? Here is the necessary code. THere might be some holes cause my code is very long and I tried just to put the essential: [CODE] So this is just a piece I cut out of my function, if there needs to be something else, please tell me :D PS: I didn't put it here but each amulet (Small/Medium/Large Strength/Defense/Health) has three fields so I cant really do without objets..."
+ }
+]

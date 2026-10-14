@@ -1,0 +1,1232 @@
+[
+ {
+  "id": "T00241",
+  "title": "Finding non-unique rows in Pandas Dataframe",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "runtime"
+  ],
+  "body": "Say I have a pandas dataframe like this: Doctor Patient Days Aaron Jeff 23 Aaron Josh 46 Aaron Josh 71 Jess Manny 55 Jess Manny 85 Jess Manny 46 I want to extract dataframes where a combination of a doctor and a patient occurs more than once. I will be doing further work on the procured dataframes. So, for instance, in this example, dataframe Doctor Patient Days Aaron Josh 46 Aaron Josh 71 would be extracted AND dataframe Doctor Patient Days Jess Manny 55 Jess Manny 85 Jess Manny 46 would be extracted . In accordance with my condition, dataframe Doctor Patient Days Aaron Jeff 23 will not be extracted because the combination of Aaron and Jeff occurs only once. Now, I have a dataframe that has 400000 rows and the code I have written so far is, I think, inefficient in procuring the dataframes that I want. Here is the code: [CODE] As you can see, this is already verging on O(n^2) runtime(I say verging because there are not 400K unique values in each column). Is there a way to minimize the runtime? If so, how can my code be improved? Thanks! Umesh"
+ },
+ {
+  "id": "T00242",
+  "title": "vectorize numpy array multiplication",
+  "tags": [
+   "python",
+   "numpy",
+   "vectorization",
+   "multiplication"
+  ],
+  "body": "[CODE] using the second column in [code] , I want to get [CODE] I want to do this for each column in [code] . For 1-d array of [code] , I can do [code] . How can I vectorize the multiplication here without using loop?"
+ },
+ {
+  "id": "T00243",
+  "title": "Running Visual Studio Code Python debugger in Pixi shell",
+  "tags": [
+   "python",
+   "visual-studio-code",
+   "vscode-debugger",
+   "pixi-package-manager"
+  ],
+  "body": "I'm using Pixi to set up a Python environment that a python project needs to run in. So I first do [code] , which sets several environment variables defined in the [code] file and also runs a [code] script. After this I run [code] to run the application. I'm using Visual Studio Code as IDE, so I'm running this in its Terminal view. But when I try to use the debugger in Visual Studio Code, I run it from the IDE instead of launching [code] from the terminal view. But for this Visual Studio Code creates a new Terminal session \"Python Debug Console\", for which [code] has not been run, and so it will not work correctly. When launching the debugger from the Visual Studio Code IDE, it runs [code] in that session \"Python Debug Console\". Running this manually in the \"pixi\" shell also does not work, because then the Python debugger will not connect to the IDE because the IDE is not waiting for a connection from a Python debugger. Is there a way to run a Python debugging session with the Visual Studio Code IDE, such that it is launched in a Pixi environment? One solution would be if I could set up the IDE to wait for a connection from the debugger, and then manually run [code] in the Pixi shell, but this does not seem possible. Another way would be if it could be set to run [code] . But this seems also problematic, because [code] does not only set environment variables, but also launches "
+ },
+ {
+  "id": "T00244",
+  "title": "Measuring the width of each part of a mask in an image which has a circular shape",
+  "tags": [
+   "python",
+   "opencv",
+   "image-processing",
+   "computer-vision"
+  ],
+  "body": "I have one mask: According to this method After coding, I get the result as below: Since this is a new circular shape rather than a straight line, measuring the width using the rotation method above seems to be inaccurate. Is there a better way to measure width of each part of one mask？ Update: I didn't describe it clearly. My goal is to accurately measure the width of each part of the curve. As indicated by the red line in the following image."
+ },
+ {
+  "id": "T00245",
+  "title": "Incorrect PieceWise result of integration in Sympy",
+  "tags": [
+   "python",
+   "sympy",
+   "integration",
+   "piecewise"
+  ],
+  "body": "Result of integrating a function [CODE] in second case of PieceWise doesn't include the multiplier ( exp(px*x) ) In the first case, PieceWise contains it; in the second, it does not. Why?"
+ },
+ {
+  "id": "T00246",
+  "title": "Not all files have gcno with bazel --coverage",
+  "tags": [
+   "python",
+   "code-coverage",
+   "bazel"
+  ],
+  "body": "NB I have the custom targets which run by python scripts. So I couldn't use [code] directly for this one. 1. I defined in [code] [CODE] In the root BUILD [CODE] In the [code] wrapper I use [CODE] where [CODE] and run this python script (from bazel) like this: [CODE] But for some mystical reasons I have a lack of [code] files. although there are these [code] 's for neighboring files from the same library. Grepping for [code] indicates the presences of [code] flag for this cpp file. I did [code] - same result."
+ },
+ {
+  "id": "T00247",
+  "title": "Infer generic type from metaclass argument",
+  "tags": [
+   "python",
+   "python-typing",
+   "metaclass"
+  ],
+  "body": "I have a metaclass which creates a generic class parametrized by a type var [code] . It also needs to know the same type at runtime, which I currently achieve by providing it as an additional argument . Both types must be the same always. Currently, when creating an instance class, I have to specify the type twice, once for the type checker and once for runtime use. I would like to avoid this. I think as generic arguments should not be used at runtime, the solution would be to infer the generic type from the metaclass argument. Is that even possible? Or is there another solution, that allows to specify the type just once? MWE: [CODE] More context what I am trying to achieve: I have multiple classes for which I am writing wrappers. The wrappers need to always have parity with the wrapped classes, because either could be given as parameters to other functions. The metaclass is supposed to ensure this. The generic argument is needed for the type checker to know which class is wrapped. I am aware that subclassing the wrapped class would achieve about that. However, when the wrapped class obtains new attributes, they must not be accessible by default (the wrapper is part of a permission system), instead the wrapper should raise an exception when trying to access them (or implement the intended behaviour). This is very hard to detect when the wrapper is a subclass, so my current appr"
+ },
+ {
+  "id": "T00248",
+  "title": "Biphasic pulses in Python",
+  "tags": [
+   "python"
+  ],
+  "body": "How can I modify my code to get biphasic pulses with 1 us long pulses and 1 us long pauses between each pulse. What ever I try, I am not able to generate such short pulses.. I managed to make it in Matlab but in Python I can't seem to make it work. Can someone help please? MAIN PROBLEM: I need to have code where I can set my own duration of pulse and pause (which are 1 us - 0.1 ms). Right now my code is giving me too long pulses and I can't directly set for instance pulse_width=0.001 and break_width=0.001. [CODE]"
+ },
+ {
+  "id": "T00249",
+  "title": "loading multiple images at a time in a scroller",
+  "tags": [
+   "python",
+   "tkinter"
+  ],
+  "body": "I'm new to Python, and basically, what I'm trying to make is an image scroller that shows 3 images at a time. I thought that putting them into multiple lists would make it work, but it doesn't. I'll try to clarify if it doesn't make sense, but here is my code: [CODE] I think it's an issue with sublists, but I'm not sure about it."
+ },
+ {
+  "id": "T00250",
+  "title": "Using a model property (list of dictionaries) as an input to django&#39;s format_html_join() yields KeyError",
+  "tags": [
+   "python",
+   "html",
+   "django",
+   "django-reversion"
+  ],
+  "body": "I am attempting to use Django's [code] util to return an html formatted version history for one of my models. But I cannot get [code] to accept my list of dictionaries. Here is what the documentation suggests: [CODE] That third argument is intended to be: args_generator should be an iterator that yields arguments to pass to format_html(), either sequences of positional arguments or mappings of keyword arguments. I have tried different ways to get this to work and I'm not getting it, so I'm asking for help. I thought a list of dictionaries is iterable. I'm also thinking there has to be a way to use a list of dictionaries in a util that is expecting a list of dictionaries without having to re-create the list of dictionaries. Here is the model method I have to get the version history: [CODE] That method returns something like this: [CODE] Now I am trying to return an html formatted version of that list of dictionaries: [CODE] The above code returns this error: [CODE] I have tried various things for the third argument, all with various errors: [CODE] Now I'm just thrashing."
+ },
+ {
+  "id": "T00251",
+  "title": "Missing &#39;numpy._core.numeric&#39; when loading pandas df from pickle",
+  "tags": [
+   "python",
+   "pandas",
+   "numpy",
+   "pickle"
+  ],
+  "body": "A pandas dataframe was pickled on another machine via [CODE] I tried loading that pickle both through [CODE] and [CODE] both yielded [CODE] Both computers run pandas 2.2.2 and numpy 1.26.4, going to these versions worked for some others that faced this error, not me."
+ },
+ {
+  "id": "T00252",
+  "title": "Cannot install discord.py using pip",
+  "tags": [
+   "python",
+   "discord.py"
+  ],
+  "body": "I tried to install [code] using: [CODE] I got this: [CODE] I then tried to run a piece of code that came from a tutorial which involved [code] . The code itself is veeery long, so I won't include it here. When I try to run it, (using [code] ) I find that [CODE] I would like to know if I am installing [code] incorrectly and that is the problem, or otherwise how to make the code run correctly."
+ },
+ {
+  "id": "T00253",
+  "title": "Is there an agreed upon convention for whether to return objects that are modified in place?",
+  "tags": [
+   "python"
+  ],
+  "body": "Suppose I a function whose goal it is to modify a list in place (it doesn't just happen to modify the list in place, it's purpose is to do so). Is there a mostly agreed upon convention for which of these patterns to follow? If not, is there a mostly agreed upon convection for which of these patterns NOT to follow? Option 1: Don't return anything [CODE] Option 2: Return the list [CODE] Option 3: Return a list, but because it's being returned, explicitly copy the list [CODE]"
+ },
+ {
+  "id": "T00254",
+  "title": "Would a class iterating over a file system be a good or bad candiate for Pythons Iterator protocal?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "iterator"
+  ],
+  "body": "I understand how to turn a class into a Iterator by implementing a [code] and a [code] . There are loads of resources online on how to do this like : https://www.w3schools.com/python/python_iterators.asp My question is more on when should you not make a class an iterator? In particular if you have a class that iterates over a collection that is : Not predetermined even after the iterator is made Not generated within the iterator Not iterating over a fixed index Even if the class has a \"next\" function would this be a good or bad \"Iterator.\" A more specific example, and the underlying reason I ask this question, would be class that if given a path to a file system can retrieve the \"next logical\" directory within that path (including its subpaths) if you call its next function. It does not store a physical collection of all directories within it for efficiency purposes. Something like, what I current have called DirectoryIterator, below: [CODE] This comes from a project I am making at https://github.com/CoryBond/PAIID/blob/main/src/repoManager/DirectoryIterator.py . Its \"next\" method is effectively get_next_time_prompt_directories . Apologies for the documentation having awkward wording and typos. With just a few modifications like: Removing direction from the \"next\" method and moving it to the constructor Raising a StopIteration when the directories are exhausted Adding or replac"
+ },
+ {
+  "id": "T00255",
+  "title": "Why is DecisionTree using same feature and same condition twice",
+  "tags": [
+   "python",
+   "machine-learning",
+   "scikit-learn",
+   "classification",
+   "decision-tree"
+  ],
+  "body": "When trying to fit [code] on my data, I am observing some weird behavior. [code] (a boolan feature) is used to break the [code] samples into [code] and [code] on top left node. Then again, the same feature with exact same condition appears again in its [code] branch. This time it again has [code] and [code] branches leading to leaf nodes. I am using [code] for deciding the split. My question is, since we are in [code] branch, how can same boolean feature generate non-zero entropy or impurity at all? After all the new set can only have [code] for that feature. So there should not be any posibility of split. What am I missing."
+ },
+ {
+  "id": "T00256",
+  "title": "AWS CDK use api gateway in a nested stack",
+  "tags": [
+   "python",
+   "aws-cloudformation",
+   "aws-api-gateway",
+   "aws-cdk"
+  ],
+  "body": "I have this api gateway in my main stack: [CODE] passing the [code] to the nested stack is not working, and also using [code] in the nested stack is not working ( git issue ). I tried to create a separate api_gateway but I can't use the same authorizer and I don't want to authorize the user twice. Any idea how I can add more methods to the original api gateway in a nested stack, so I can avoid the 500 resources limit?"
+ },
+ {
+  "id": "T00257",
+  "title": "How to iterate over documents in MongoDB",
+  "tags": [
+   "python",
+   "database",
+   "mongodb",
+   "pymongo"
+  ],
+  "body": "The format of the database is as follows: [CODE] It is data from the election, where each document corresponds to a different timestamp for each precinct. Precinct is repeated at different timestamps, where the votes for Biden, Trump, and TotalVotes are updated. Therefore, the precinct timestamp combo is unique. Let totalIncrement be the change in votes for all precincts between two Timestamps. Every precinct has a record at any certain timestamp that exists. I am trying to find the timestamp that has the largest increase in totalvotes, and what that increase is. I tried sorting by timestamp and iterating over the number of votes at each timestamp, but the problem I have is the database is 486k documents, so I an unable to sort as I have the free version of Atlas and cannot use allowDiskUse."
+ },
+ {
+  "id": "T00258",
+  "title": "grid arrange tsne plots from a for loop in scanpy using matplotlib",
+  "tags": [
+   "python",
+   "grid",
+   "visualization",
+   "scanpy",
+   "tsne"
+  ],
+  "body": "I want to pu together generated tsnes from the loop below: [CODE] I have three condition, like this [CODE] But in the output only the first tsne is drawn and the last two are empty plots. What is the problem?"
+ },
+ {
+  "id": "T00259",
+  "title": "Django can not send mail but smtplib can",
+  "tags": [
+   "python",
+   "django",
+   "email"
+  ],
+  "body": "I was trying to use django's accounts system and configured some templates. When i tried to do password reset it said \"SMTPRecipientsRefused at /accounts/password_reset/\". But it works when i send an email with [code] . In django settings: [CODE] And the error: [CODE] But i knew i used the same mail before with smtplib and tried again, and it worked. [CODE] I tried adding [code] to the [code] but it didn't make any difference. I tried adding [code] but it said: [CODE]"
+ },
+ {
+  "id": "T00260",
+  "title": "Coqui-ai TTS in Jenkins job",
+  "tags": [
+   "python",
+   "jenkins",
+   "artificial-intelligence",
+   "text-to-speech",
+   "coqui"
+  ],
+  "body": "Trying to use Coqui-ai TTS in Jenkins job, and Im getting below err: [CODE] This is the code which i use: [CODE] At the same time the code is working normally when i trigger it from the cmd, just when i use jenkins the issue show up. Not able to find any proper workaround for this."
+ },
+ {
+  "id": "T00261",
+  "title": "Center one or both axis to center the &quot;view&quot; around a specific plot",
+  "tags": [
+   "python",
+   "matplotlib",
+   "axis"
+  ],
+  "body": "Let's say the point (10, 50) divides my plot of a 2d coordinate system in four sections: top left, top right bottom left, bottom right This point is fixed and I know its location in advance. Task: Always keep this point in the middle of the by matplotlib displayed coordinate system. Sure I can achieve this by for example setting [CODE] This perfectly centers mentioned point in the middle of the graph. The problem with this approach is, that I do not know in advance about my dynamic scatter data that I also want to visualize within this plot. Sometimes it might be [CODE] This would work with my previously set [code] and [code] but sometimes the data might be: [CODE] This data would not show up because it is outside of set [code] and [code] . Question: Can I keep the default dynamic expanding of the axis so every point of my data is included and still somehow center the point in \"the middle\" of the graph? Different phrasing: Can I specify the center of an axis without specifying its min and max and still keep the auto scaling so \"every point\" that is to scatter is included?"
+ },
+ {
+  "id": "T00262",
+  "title": "Is there a way to specify default dependencies, or dependencies installed only if an extra is not specified, in pyproject.toml?",
+  "tags": [
+   "python",
+   "python-packaging",
+   "pyproject.toml"
+  ],
+  "body": "I have a library mylib that depends on OpenCV. There are 2 distributions of OpenCV, opencv-python and opencv-python-headless. Either one works for mylib but only one can be installed, so for downstream code that uses OpenCV it is important for consumers to be able to choose which they are getting. This can be done using 2 optional-dependencies. But then users cannot just install mylib, they must install mylib[opencv-python] or mylib[opencv-python-headless]. The semantics are poor. [CODE] Is there a way I can have a default and say, only install if the extra is not specified? This has good semantics and would better guide naive consumers to what they should use. [CODE] Although the specification's CFG is very dense, after reviewing environment markers , I have some hope: Marker Python equivalent Sample values [code] An error except when defined by the context interpreting the specification. [code] Does that mean that this idea is left to build backends? I'm using hatchling, but am open to using anything that supports this."
+ },
+ {
+  "id": "T00263",
+  "title": "Read and extract information from 3 files (python)",
+  "tags": [
+   "python"
+  ],
+  "body": "I'am designing a code in python for extract information from a xml file with a function with two variables. The code is working with one file: [CODE] On the other hand, I want to read more files (tree xml in the code) in a same time but it give me error. Thank for your help."
+ },
+ {
+  "id": "T00264",
+  "title": "Suddenly got Spotipy exception, HTTP status 403, reason: None",
+  "tags": [
+   "python",
+   "flask",
+   "spotify",
+   "recommendation-engine",
+   "spotipy"
+  ],
+  "body": "I'm creating a Spotify recommendation system using Flask and Spotipy. I have a feature where the system can generate 20 song recommendations based on the artists that the user has inputted in an HTML form. Everything was able to run a week ago without errors. However, as I continued to work on this system these past few days, I've been getting the SpotifyException and wasn't able to get past it. I have NOT made any changes to my code since the day it was working. What appears in my browser: [code] I got this error in the console: [code] I got this when I clicked on the API call link: [CODE] What's in my app.py: [CODE] This is the route that has to do with the music recommendation: [CODE] The traceback mentioned that the error lies here though I'm unsure about this: [CODE] I have tried deleting the app and creating a new one on Spotify Developers, then replacing the client ID and secret, but this still doesn't work."
+ },
+ {
+  "id": "T00265",
+  "title": "at make 3d play at ursina my enemies dont movement in play",
+  "tags": [
+   "python",
+   "3d",
+   "game-development",
+   "playback",
+   "ursina"
+  ],
+  "body": "althuogh i definition to corecce create and movement for enemies at game but it dont show enemies and but if it show the enemies but enemies dont movement what do i should enemies make movement at game What can I do to make enemies move in the game? [CODE]"
+ },
+ {
+  "id": "T00266",
+  "title": "How do I properly import a self-written module which depends on a third-party module within a program?",
+  "tags": [
+   "python",
+   "function",
+   "module",
+   "namespaces"
+  ],
+  "body": "I am writing (in Python) a function for import and use in another program. This function takes standard Python data structures as input, e.g., list of strings, and outputs a numpy array based on the inputs. Here is what it essentially looks like: [CODE] Then, I want to include this function in another program that say produces the list of strings and converts it to a numpy array, e.g., [CODE] What is the best practice (in general software engineering/Python) to do something like this? Is there a way of ensuring that numpy is included in my_program.py when the function is imported even if the user does not import it? Also, when the module is imported, what if the user imports numpy with [code] without the alias? Will Python import it again within a different...namespace? I am not sure if I used namespace correctly there. P.S. I am a mathematics Ph.D. student trying to learn proper software engineering techniques solo for context."
+ },
+ {
+  "id": "T00267",
+  "title": "Version mismatch between Numpy and Python?",
+  "tags": [
+   "python",
+   "numpy"
+  ],
+  "body": "I use Linux to learn reinforcement learning, but found that something went wrong with different versions of Numpy and Python... My old project uses python=3.7, numpy=1.18.2 and that's OK. However, since wandb has renewed, so I have to abandon my old conda environment (python 3.7 doesn't support new versions of wandb, which is required for me) and use new conda environment with python=3.9. However, seemingly I cannot install numpy=1.18.2 with python=3.9? the error is like this: [CODE] So what's wrong and what can I do with that?"
+ },
+ {
+  "id": "T00268",
+  "title": "Is there any way to edit the metadata attributes of a video with python? (mov, mp4, etc.)",
+  "tags": [
+   "python",
+   "video",
+   "package",
+   "metadata"
+  ],
+  "body": "I am trying to create a script that allows me to edit the fields contained within the video metadata. I am able to open the file with the MediaInfo library, but I am unable to save the edit to the video metadata. Can anyone recommend a py library that allows me to read and edit the metadata of a video? This is my code: [CODE] Thank you all in advance. I have tried using the mutagen library, its problem is that it can only return me the filename and no other attributes. I tried several libraries but they can only read the metadata but not edit it."
+ },
+ {
+  "id": "T00269",
+  "title": "Jupyter Interactive Notebook Not Running Python Visualizations in vscode",
+  "tags": [
+   "python",
+   "visual-studio-code",
+   "jupyter-notebook",
+   "jupyter"
+  ],
+  "body": "Instead of returning the plot, my interactive window now returns an exit message, describing the visualization? If I do plt.plot, it runs the python app and it lags out while generating the visualization. Tried to test viz, didn't appear in the window."
+ },
+ {
+  "id": "T00270",
+  "title": "python compile with multiple functions",
+  "tags": [
+   "python",
+   "compilation",
+   "metaprogramming"
+  ],
+  "body": "(edit: simpler example with functions) I'm having trouble compiling a python AST with functions that call each other. A minimal example: [CODE] Error: [CODE] When I add the function to the original file, it works: [CODE] But, that is not my goal :-) I'm working on a source-to-source compilation project that spews out a number of functions that call each other. Clearly, there are some inner workings of compile that I am unaware of. I'm hoping someone with metaprogramming experience in python will be able to shed some light!"
+ },
+ {
+  "id": "T00271",
+  "title": "What is exactly the difference between method and function in Python language?",
+  "tags": [
+   "python",
+   "function",
+   "methods"
+  ],
+  "body": "I do not know the difference between Method and function in Python Language, for example, the difference between len() and string.upper(), I mean len and.upper I would be delighted if someone could help me in this case."
+ },
+ {
+  "id": "T00272",
+  "title": "Why does my for loop stop working when it shouldn&#39;t?",
+  "tags": [
+   "python",
+   "password-generator"
+  ],
+  "body": "I'm learning python and new to coding. I am trying to code a password generator which picks random letters, symbols and number and combining in random order but it doesn't work properly. You can see that i have tried to add all random elements into one list and randomize again in it. However it stops at some point, for example if we answer as 2 for each question it will pick 6 random elements in total and it adds all these into one list. After that it picks 1 on element, adds it to password and deletes from list. After 6 times, password should be ready and code should stop because there is no more elements in list. However, it should create 6 figure password but it stopped at 3 figures and there is still 3 element in list. Example: [CODE] Code is here: [CODE]"
+ },
+ {
+  "id": "T00273",
+  "title": "search two lists and fill with None for each pair in correct order",
+  "tags": [
+   "python",
+   "python-3.x",
+   "list",
+   "dictionary"
+  ],
+  "body": "This is a continuation from this . Right now, the result is: [CODE] I want, if a key is not found, to insert a [code] in the results. So, I want: [CODE] If I try: [CODE] just to append [code] , we receive [code] for each one element of the pairs: [CODE] I want to receive [code] in the correct position for each pair not each element in the pair."
+ },
+ {
+  "id": "T00274",
+  "title": "TypeError: Object of type DataFrame is not JSON serializable",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "I'm trying to make telegram alarm bot but encountered error such as \"TypeError: Object of type DataFrame is not JSON serializable\" Here is my code: [CODE] And here is the error: [CODE] I tried TypeError: Object of type 'DataFrame' is not JSON serializable this method but had a problem making a column. Any help would be appreciated."
+ },
+ {
+  "id": "T00275",
+  "title": "How can I update the capacity of a finetuned GPT model on Azure using Python?",
+  "tags": [
+   "python",
+   "azure",
+   "azure-openai",
+   "gpt-4"
+  ],
+  "body": "I want to update the capacity of a finetuned GPT model on Azure. How can I do so in Python? The following code used to work a few months ago (it used to take a few seconds to update the capacity) but now it does not update the capacity anymore. No idea why. It requires a token generated via [code] : [CODE] What's wrong with it? It gets a 200 response but it silently fails to update the capacity: [CODE]"
+ },
+ {
+  "id": "T00276",
+  "title": "How to get the number of total scattergather items in Snakemake scatter/gather?",
+  "tags": [
+   "python",
+   "bioinformatics",
+   "snakemake"
+  ],
+  "body": "I'm trying out Snakemake's scatter/gather inbuilts but am stumbling over how to get the number of total splits configured. The documentation doesn't mention how I can access that variable as defined in the workflow or passed through CLI. Docs say I should define a scattergather directive: [CODE] But how do I get the value of [code] which is [code] in this case inside my split rule where I would assign it to [code] ? [CODE] This fails with: [code] Am I missing something obvious? This is the docs I'm looking at: KeyError in line 48 of /Users/corneliusromer/code/ncov-ingest/workflow/snakemake_rules/curate.smk: 2 'scattergather'"
+ },
+ {
+  "id": "T00277",
+  "title": "Save integers into an output file using python",
+  "tags": [
+   "python",
+   "file-io",
+   "kali-linux"
+  ],
+  "body": "I am using python to develop a basic calculator. My goal is to create an output file of results for a series. I've tried looking for the correct command but haven't had any luck. Below is my current code. I believe all i need it to finish the \"def saveSeries(x):\" but I am not sure how to. I have created the input file already in the respective folder. [CODE]"
+ },
+ {
+  "id": "T00278",
+  "title": "With google-cloud-bigquery, how can I create table and soon after that, insert rows?",
+  "tags": [
+   "python",
+   "google-bigquery"
+  ],
+  "body": "I'm using google-cloud-bigquery, [code] , on Python. I want to write a code that if there is table already, it insert rows and if not, it creates table and insert rows. I tried several codes but apparenlty, on the step of row insertion, the table is not detected. These are the code I tried. [CODE] This code shows part of the errors below if I call the [code] method. The part of [code] actually has the project, dataset and table id. If we call [code] method again, on the second time, the already existing table is properly detected ant insertion succeeds. [CODE] What is the expected way to do this? Thank you."
+ },
+ {
+  "id": "T00279",
+  "title": "Creating an editable library in Python",
+  "tags": [
+   "python"
+  ],
+  "body": "Using Python 3.11 and I'm following this guide https://setuptools.pypa.io/en/latest/userguide/development_mode.html and https://setuptools.pypa.io/en/latest/userguide/package_discovery.html#src-layout in which I have a project and I can use it as an editable library. The library has this structure: [CODE] pyproject.toml looks like this [CODE] Then I have a test venv environment that I activate then cd to \\library and I can call [CODE] I and get it successfully installed; however, in the test venv I have a testLibrary.py that can't reference the library. I try: [CODE] No matter what I tried I can't get the ry referenced in the test venv. Any idea what's wrong? Thanks"
+ },
+ {
+  "id": "T00280",
+  "title": "How to use the python-flask server generated by swagger-codegen?",
+  "tags": [
+   "python",
+   "swagger-codegen"
+  ],
+  "body": "I have a simple open-api-definition that can used by swagger-codegen to generate a client and server application. While using the client is not a problem, I find no information how to use the server. So far I can see, that the server is based on connextion. There is also a setup.py from setup-tools. The readme tells me to use [code] to run the sever. This ends in a error message [code] . My first goal is to get it to run in some way. But after that, there is another question, how to extend it for you application and how to deal with new api-versions."
+ },
+ {
+  "id": "T00281",
+  "title": "Can I improve my Numpy solution to an exercise?",
+  "tags": [
+   "python",
+   "numpy",
+   "vectorization"
+  ],
+  "body": "I have been asked to use the following set of column indices: [code] to turn into 1 all the elements in the following matrix: [code] that have y as starting column and rows given by the position of y. Just to be clear. The final result has to be the following: [CODE] For example: [code] , then row 0, columns 3 and 4 need to be equal to 1. I did it like this: [code] Can this result be written differently and/or improved by using other Numpy functions (for example, using vectorization)?"
+ },
+ {
+  "id": "T00282",
+  "title": "How to pass inputs for my triton model using tritionclient python package?",
+  "tags": [
+   "python",
+   "tritonserver",
+   "triton"
+  ],
+  "body": "My triton model config.pbtxt file looks like below. How can I pass inputs and outputs using tritonclient and perform an infer request. [CODE] Any help is appreciated as I am very new to using tritonclient python package please"
+ },
+ {
+  "id": "T00283",
+  "title": "Splitting long text dataframe column into multiple columns with matched pharases",
+  "tags": [
+   "python",
+   "regex",
+   "nlp",
+   "spacy"
+  ],
+  "body": "I Have dataframe with column having a very long text per row, looks like this: ID text id1 DIAGNOSTIC CEREBRAL ANGIOGRAM DATE: 8/26/2005 INDICATION: 78-year-old man with a history of shunted normal pressure hydrocephalus who more recently has been managed for a right-sided subdural hematoma. This was initially managed conservatively in the acute phase but progressed to an enlarging chronic subdural hematoma that was ultimately treated with burr hole drainage. Middle meningeal artery embolization was recommended to minimize the risk of future recurrence. COMPARISON: CT brain 8/24/2003 and CT brain MEDICATIONS: 1. Heparin 3500 units IV. 2. Nitroglycerin 200 mcg IA. 3. Verapamil 5 mg IA. 4. See anesthesia records for additional medications administered. CONTRAST: 150 mL Visipaque RADIATION DOSE: 16.3 min; 587.7 mGy IMPRESSION: Successful particle and coil embolization of the parietal branch of the right middle meningeal artery for treatment of a right-sided chronic subdural hematoma. I would like to split this columns into multiple columns Phrases to split on Starts with “DATE:” Starts with “Medication:” Starts with “ IMPRESSION:” Starts with “ INDICATION:” Starts with “ COMPARISON:” I need the final dataframe to look like this id DATE INDICATION COMPARISON MEDICATIONS IMPRESSION id1 8/26/2005 78-year-old man with a history of shunted normal pressure hydrocephalus who more recentl"
+ },
+ {
+  "id": "T00284",
+  "title": "Python comparing array to zero faster than np.any(array)",
+  "tags": [
+   "python",
+   "arrays",
+   "numpy",
+   "boolean"
+  ],
+  "body": "I want to test whether all elements of an array are zero. According to the StackOverflow posts Test if numpy array contains only zeros and https://stackoverflow.com/a/72976775/5269892 , compared to [code] , [code] should be the both most memory-efficient and fastest method. I tested the performance with a random-number floating array, see below. Somehow though, at least for the given array size, [code] and even casting the array to boolean type appear to be slower than [code] . How comes? [CODE]"
+ },
+ {
+  "id": "T00285",
+  "title": "OpenCV imshow/waitkey hangs Python without errors",
+  "tags": [
+   "python",
+   "opencv",
+   "ros"
+  ],
+  "body": "I'm using ROS to get a stream of images from a camera and after processing them I show them using this code: [CODE] This works for about 30 seconds and then stops working without any errors, apart from the OS(Linux) saying that the window is not responding. EDIT: I noticed that Python uses 100% of the CPU all the time. Maybe imshow can't keep up?"
+ },
+ {
+  "id": "T00286",
+  "title": "What is the actual difference in using composition versus inheritance?",
+  "tags": [
+   "python",
+   "django",
+   "best-practices"
+  ],
+  "body": "I am trying to learn inheritance versus composition the hard way. So far, I have understood that composition involves using object reference inside a class. So I asked myself, why did not we choose to use composition in Django for, say, ModelViewSet, like: [CODE] and then, any get request will be redirected to MyViewSet.list(self) having a call to self.viewset.list(self)?"
+ },
+ {
+  "id": "T00287",
+  "title": "Python Max retries exceeded with url while using request",
+  "tags": [
+   "python",
+   "python-3.x",
+   "request"
+  ],
+  "body": "I was working on urls using request library. so I can check that if the URL is working or not using get method. The Script works fine for the rest of URLs but for one url it took a lot of time and then this error occur: [CODE] Now all I want to skip url when timeout occur. I tried continue pass so that somehow I move forwad but it still fails below is the code: [CODE] the base class has database creation and selenium driver nothing else. #database connection data comming from data base so i removed it the line of code will exceed too much. but it's working."
+ },
+ {
+  "id": "T00288",
+  "title": "ImportError: cannot import name &#39;RelationshipPath&#39; from &#39;featuretools.entityset.relationship&#39;",
+  "tags": [
+   "python",
+   "import",
+   "importerror"
+  ],
+  "body": "I'm attempting to just import featuretools but I get this error. [CODE] I haven't had much luck finding a solution to this or any mention of this after a number of google searches. I have reviewed the documentation on https://featuretools.alteryx.com/en/stable/generated/featuretools.EntitySet.html#featuretools.EntitySet but cannot find what's going on exactly. I'm a few months into learning python so this is probably over my head."
+ },
+ {
+  "id": "T00289",
+  "title": "Bazel read temporary dynamically added file",
+  "tags": [
+   "python",
+   "bazel"
+  ],
+  "body": "I have a python script that downloads some json data and then uploads it somewehere else. The project is build and run using bazel and has the following simplified structure. [CODE] My issue is that when it comes to reading the exported files and loading them in memory, those files cannot be found using: [CODE] If I manually add a json file to the project structure, declare it in the BUILD file to be visible, do a bazel build then it works fine [CODE] But how would one handle the case when your files are added dynamically?"
+ },
+ {
+  "id": "T00290",
+  "title": "AWS Lambda Python Serverless error: &quot;unable to import module ... cannot important name &#39;etree&#39; from &#39;lxml&#39;",
+  "tags": [
+   "python",
+   "amazon-web-services",
+   "aws-lambda",
+   "scrapy",
+   "serverless"
+  ],
+  "body": "\"Unable to import module 'launcher': cannot import name 'etree' from 'lxml' (/var/task/lxml/ init .py)\" I have been trying to schedule a Python scraper to run and drop data to AWS S3 using AWS Lambda and Serverless. I have successfully deployed a function within AWS Lambda via Serverless, but I'm getting the error referenced above when I go to run it. I've already worked through troubleshooting steps referenced here: https://aws.amazon.com/premiumsupport/knowledge-center/lambda-import-module-error-python/ Th result of this troubleshooting was setting up a Cloud9 IDE that allowed me to create a Python package with lxml installed among other modules. I created a layer on my Lambda function with that package hoping it would pick up the module, but I got the same error. I am now wondering if the problem is that the Python scraper was built locally and Serverless was deployed locally. Would I be better off migrating my code to Cloud9 and trying to deploy the job from there? Any help would be appreciated."
+ },
+ {
+  "id": "T00291",
+  "title": "Is it possible to force scipy.optimize.minimize_scalar to look only in the specified interval",
+  "tags": [
+   "python",
+   "numpy",
+   "scipy"
+  ],
+  "body": "I want to find a minimum of a function on a given interval [code] and tried out [code] with [code] and [code] . The problem is that it returns solutions outside the given interval [code] . Is there some way to force the interval or some other scipy/numpy method that can be used?"
+ },
+ {
+  "id": "T00292",
+  "title": "How to load a huggingface dataset from local path?",
+  "tags": [
+   "python",
+   "huggingface",
+   "huggingface-datasets",
+   "huggingface-hub"
+  ],
+  "body": "Take a simple example on Hugging Face: Dahoas/rm-static If I want to load this dataset online, I just directly use: [CODE] Now I want to load dataset from local path, so firstly I download the files and keep the same folder structure from Hugging Face [code] tab: [CODE] Then, put them into my folder, but it shows error when loading: [CODE] It shows: FileNotFoundError: No (supported) data files or dataset script found in /data/coco/dataset/Dahoas/rm-static."
+ },
+ {
+  "id": "T00293",
+  "title": "How to write low quality video without anti-aliasing?",
+  "tags": [
+   "python",
+   "opencv",
+   "video-processing",
+   "codec",
+   "scikits"
+  ],
+  "body": "I have [code] array of [code] pictures with shape (30,30). The problem is that, when i write it with [code] or [code] My squence of images becomes from that. to that: So I want my video without any interpolation. I know about resizing(for example [code] ), but in this case it is not an option. How to write raw images in video fromat? Does [code] player affects on video reading?"
+ },
+ {
+  "id": "T00294",
+  "title": "How to make the LLM call MCP functions hosted on Google Cloud Run with Python",
+  "tags": [
+   "python",
+   "https",
+   "google-cloud-run",
+   "large-language-model",
+   "model-context-protocol"
+  ],
+  "body": "I have hosted a function on Google Could run and am able to call it with FastMCPClient. Thank you for the help with my earlier question . This is my MCP Server code. This is deployed as a docker image on Google Cloud Run. [CODE] The below code works and I am able to call the MCP tool to add 2 numbers. [CODE] My intention was to expose this tool to my llm so it can decide when to call the tools at it's disposal. For example, if I say \"add 5 and 4\" in the prompt, the LLM should call the add function and return 9. Just using the call_tool() function does not add much value when unstructured data is involved. I could use the below code to make the LLM access the mcp tools when the MCP server was a local .py file. [CODE] Is there a way to expose the tools from my Google Cloud MCP server (called in my first code) to the LLM python Client using the Cloud Run URL and secure json Key ? Like how it is done in the second code with local .py file. This might be a basic question but I could not find any answers so far. Any help will be really appreciated. Due to scalability concerns I do not want to use local Cloud proxies for authentication."
+ },
+ {
+  "id": "T00295",
+  "title": "PyQt5 how to make QTableView fill Qdialog",
+  "tags": [
+   "python",
+   "pyqt5"
+  ],
+  "body": "Preface Hello, babies, I some question about PyQt5. I create a QTableView in QDialog, and I want to set the QTableView fill up the QDialog, and I don't know how to accomplish it.(PS: I haven't learned Pyqt5 for a long time. I used tkinter to implement UI interface. If there are errors in the code, please point out) To better show my question, I change the background of QDialog to white, you can see that there are some space between QTableView and the border of QDialog, and I want to delete these space.) Pictures After changed Run in Windows system [CODE]"
+ },
+ {
+  "id": "T00296",
+  "title": "Scrapy Cant Found the Login Form Error: raise ValueError(f&quot;No &lt;form&gt; element found in {response}&quot;)",
+  "tags": [
+   "python",
+   "web-scraping",
+   "scrapy",
+   "web-crawler"
+  ],
+  "body": "I tried logging in using Scrapy on the website: https://starngage.com/plus/en-us/login . But it seems that Scrapy can't find the login form, even though when I inspect the login form elements it's there login form in the inspect element below is my code: [CODE] I get this error: [CODE] I have tried to monitored my login process in dev tool, and this is the result playload from my manual login when I filled out the form : Login PlayLoad Login Headers can someone help me?, i really appreciate and respect whatever the answer is"
+ },
+ {
+  "id": "T00297",
+  "title": "Replace values ​in a column with similar values ​in another column with different size - Python",
+  "tags": [
+   "python",
+   "levenshtein-distance"
+  ],
+  "body": "I have a dataframe with different values ​​in a column (about 6,000 rows), which I need to replace with similar (but differents) values ​​found in another dataframe, which has fewer rows. Store Values to replace Store A 05/15/21 Store A The Store B 04/01/21 Store B Store letter B 11/12/21 Store C Store C 10/24/21 Store D Store D 09/30/21 the Store C 05/13/21 Store letter D 07/01/21 Store letter A 08/29/21 The goal is for the final dataframe to look like this: Store Store A Store B Store B Store C Store D Store C Store D Store A"
+ },
+ {
+  "id": "T00298",
+  "title": "How to read a text file partially in Python and join the parts to analyze and plot a histogram efficiently?",
+  "tags": [
+   "python",
+   "text",
+   "readlines"
+  ],
+  "body": "I'm facing a problem to read a file with txt format. The file contains a huge amount of data (88604154 lines, 2695.7893953323364 MB) and I have to analyze the data then plot a histogram of them. The problem is that it takes ages for the computer to read that much data, so I thought I could read the data partly and add the parts together. I did a little search and came up with this code: [CODE] With this I can have the lines in the certain amount (for example from line one to 50000), but I want to repeat the code for like 1775 times in order to read all the data and then append them all in one list. How can I write a function for this?"
+ },
+ {
+  "id": "T00299",
+  "title": "ImportError: cannot import name &#39;create_tool_calling_agent&#39; from &#39;langchain.agents&#39;",
+  "tags": [
+   "python",
+   "langchain"
+  ],
+  "body": "[CODE] I am trying to use a supervisor agent, but get the following error: [CODE] How can I import [code] ?"
+ },
+ {
+  "id": "T00300",
+  "title": "How to find the exact function annotations of Python&#39;s builtin `collections.abc` Protocol types?",
+  "tags": [
+   "python",
+   "python-typing"
+  ],
+  "body": "Python's standard library comes with a bunch of [code] types in [code] like [code] , [code] , or [code] . The documentation contains a nice overview here . What the documentation is missing though is exact type annotations of these methods. Take for instance the [code] method. I would like to see its exact type signature. Does it for instance return a [code] or is it [code] . How can I quickly look up these type signatures? Trying to following the types in the IDE seems to lead to a dead-end due to a bunch of re-export barriers."
+ },
+ {
+  "id": "T00301",
+  "title": "Why I did not get two None statements here since both x and y are void functions?",
+  "tags": [
+   "python",
+   "function"
+  ],
+  "body": "[CODE] output : [CODE] I was expecting None to be printed after the function x calls y since y is a void function expected output: [CODE]"
+ },
+ {
+  "id": "T00302",
+  "title": "PyCharm Code Inspection warns about tkinter constants",
+  "tags": [
+   "python",
+   "tkinter",
+   "pycharm",
+   "python-typing"
+  ],
+  "body": "Using PyCharm (and Python), my code runs fine, but PyCharm gives me warnings that I'd like to avoid. In this example code: [CODE] the option inside [code] gets highlighted as \"incorrect type\". The full warning states: \"Expected type 'Literal[\"left\", \"right\", \"top\", \"bottom\"]', got 'str' instead\". PyCharm is not happy with the tk constant, which I understood to exist for this very use. Funny enough, when using an actual literal string (the string stored in the above constant), I get no warning: [CODE] Both code examples behave exactly the same and as expected. I only wonder about the warning about the tk constant. This happens on Windows and Linux with different versions of Python and PyCharm. Is this not the intended use for tk-constants? Is there a simple trick to avoid this?"
+ },
+ {
+  "id": "T00303",
+  "title": "Detect 2 XML files",
+  "tags": [
+   "python",
+   "xml",
+   "flowchart",
+   "draw.io",
+   "tooling-recommendation"
+  ],
+  "body": "I have some SOP flowcharts files in draw.io which usually updated. The files contains before and after sheets. Is there a way to compare the before and after file in XML files then capture the difference and generates an image of difference part? I am thinking using python but I dont know how. Note: the flowchart is quite complex Example: Before: flowchart before any update After: flowchart after update (the blue highlight is the updated part) Desired Output: Illustrate how the system can automatically capture the differences and generate before after image. Is it possible to do it?"
+ },
+ {
+  "id": "T00304",
+  "title": "Accelerating slow MySQL import using python connector",
+  "tags": [
+   "python",
+   "mysql",
+   "mysql-connector-python"
+  ],
+  "body": "I'm writing a python script which imports a large database into MySQL. So far I used this approach, and it works, but it is slow: [CODE] According to this and similar posts, import can be faster if default settings are changed before import: [CODE] The issue is that those settings are relevant only for specific connection. As I am using python script, I see two options, and in both I am failing to find a working solution: Use os.system and add SET commands - I tried to separate commands with ; but it seems to stop executing them after first ; #doesn't work [CODE] Use import mysql.connector and add import statement: SET commands work, but not importing #doesn't work [CODE] I'm stuck and I don't know how to move further, all help will be appreciated... EDIT & SOLUTION On the basis of @mrrobot.viewsource answer below, the solution was to modify imported db with commands above. It decreased importing time of test database from 73 min to 2 min. My code: [CODE]"
+ },
+ {
+  "id": "T00305",
+  "title": "My program that counts the number of times a character appears in a string does not work for 1 input I am trying. It works on all other ones",
+  "tags": [
+   "python"
+  ],
+  "body": "when I enter \"n Monday\" it gives me the right output but then when I try something like \"n Nothing\" it gives me an error saying 'num_occur' is not defined. How can I fix this code without using the for statement. [CODE] I tried adding str() in the if statement but that did not do anything."
+ },
+ {
+  "id": "T00306",
+  "title": "Understanding File Access in Databricks File System (DBFS) versus Volumes with Python and Spark",
+  "tags": [
+   "python",
+   "apache-spark",
+   "file-io",
+   "filesystems",
+   "databricks"
+  ],
+  "body": "I am currently trying to read and display a file from the Databricks File System (DBFS), but I encountered an issue. Here is the code I was using: [CODE] However, interestingly I get the following error: [CODE] As you can see the path did not match the original input. In the end, I was able to correctly read and display the log file content with the following code: [CODE] Questions: Why does the first code snippet produce an error referring to the volume path? What does it mean in the documentation that DBFS provides a scheme for volumes ? Shouldnt the first snipped work then? Why can the file only be read using Spark and not with the standard Python open function? Thank you for your assistance."
+ },
+ {
+  "id": "T00307",
+  "title": "Change time format from one to another",
+  "tags": [
+   "python",
+   "datetime"
+  ],
+  "body": "I need to covert time that is in this format: 2021-10-20T09:35:06.615-07:00 to this format: 10/20/2021:09:35:06 I have been playing around with datetime.datetime.strptime() since I am using Python 2.7, but I have had no luck. Which method will help me do the conversion?"
+ },
+ {
+  "id": "T00308",
+  "title": "Polars: out-of-memory problem of groupby-max",
+  "tags": [
+   "python",
+   "out-of-memory",
+   "python-polars"
+  ],
+  "body": "I have several ndjson files that are nearly 800GB. They come from parsing the Wikipedia dump. I would like to remove duplicates html. As such, I group by [code] and pick the json with the most recent [code] . [CODE] However, I encounter the out-of-memory (OOM) error: the RAM usage increases gradually until my laptop crashes: [CODE] How can we resolve the OOM problem? Thank you for your elaboration."
+ },
+ {
+  "id": "T00309",
+  "title": "Finding an element in an ordered list slicing list into smaller arrays",
+  "tags": [
+   "python",
+   "list",
+   "function",
+   "search"
+  ],
+  "body": "I'm trying to write a function on python where, given an ordered list 'arr', we want to find an element 'target'. The idea is to take the middle element 'A_m' in the list and compare it with the 'target'. If 'target' < A_m then we know that it will be in the fist A_m elements, if 'target' > A_m, then we know that it will be between A_m and the last element. We can do this until A_m = 'target'. And return the index of this element in the list. My code is this: [CODE] However this doesn't work, what am I missing? Any help would be appreciated."
+ },
+ {
+  "id": "T00310",
+  "title": "what is the difference between axes.patch.set... and axes.set... in matplotlib?",
+  "tags": [
+   "python",
+   "matplotlib"
+  ],
+  "body": "I just learn how to use matplotlib in python.I want to know the diffence of plot set use or not use 'patch'.I have tried the bellow code ,from the pics they seem no differences. [CODE] [CODE] I have searched google but i find some people use patch while others not ,they don't why. I want to know the difference and how to use both forms. Thanks a lot!"
+ },
+ {
+  "id": "T00311",
+  "title": "FastAPI-Login optional dependency always returns None even with a valid token",
+  "tags": [
+   "python",
+   "authentication",
+   "jwt",
+   "fastapi"
+  ],
+  "body": "I'm building a login system with [code] and [code] . I already have a [code] route working. My goal is: If a valid token is present, allow access to certain routes. If no token or an invalid token is present, force a fresh login. The problem is: Even when a valid token exists, calling [code] always returns [code] . This breaks my logic because it always triggers a fresh login instead of recognizing the valid token. My Code: [CODE] Expected behavior: If the token is valid, [code] should return the user. If the token is invalid or missing, it should return [code] . Question: Why does [code] always return [code] even when I send a valid token? How can I make it properly detect a valid token and only force login when needed?"
+ },
+ {
+  "id": "T00312",
+  "title": "How to display json details in a webpage using Django?",
+  "tags": [
+   "python",
+   "json",
+   "django"
+  ],
+  "body": "I want to create a search bar on a webpage that searches for an ID in a JSON file and displays its data in a table. My JSON file looks like this. [CODE] Thanks."
+ },
+ {
+  "id": "T00313",
+  "title": "How do I convert this nested json to CSV using Python and Panda?",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "So I am fairly new to python and panda, and I am trying to convert these json files to CSV The json file I have managed to flatten: [CODE] I have no trouble converting these through reset index: [CODE] The double nested json I am having trouble with: [CODE] How do I flatten these out with 2 level of indexes? My desired output is: [CODE]"
+ },
+ {
+  "id": "T00314",
+  "title": "Annotation of getter/setter methods in stub files",
+  "tags": [
+   "python",
+   "python-typing"
+  ],
+  "body": "I am working on documentation on some Python wrapper code for a .NET library. For explicitly getting and setting of .NET properties I am using getter and setter methods. For code readability I am using type hinting throughout the code. For resolving multimethods and making context help available I am maintaining stub files in parallel. And here I am running into some problems. I have a Python file [code] which contains [CODE] and I have a stub file [code] with contents: [CODE] PyCharm is throwing: Expected type 'int', got 'None' instead. for the setter method return type in the Python file: It seems like PyCharm is just evaluating the getter method of the stub file. I could do: [CODE] in the stub file, which is resolving the error thrown, albeit this does not seem to be the correct way to do this. What is the appropriate way to annotate getter and setter methods in stub files?"
+ },
+ {
+  "id": "T00315",
+  "title": "Static variable declaration in python classes",
+  "tags": [
+   "python",
+   "static-variables"
+  ],
+  "body": "What is the difference in the following two examples? [CODE] How does [code] vary between the two examples? Is [code] a static variable or is it an incorrect use of a variable declaration as a static variable?"
+ },
+ {
+  "id": "T00316",
+  "title": "pymc3 TypeError: Unsupported dtype for TensorType: object",
+  "tags": [
+   "python",
+   "statistics",
+   "pymc3"
+  ],
+  "body": "I am trying to determine the parameters mu1, mu2, sigma1, sigma2, and w of a bimodal distribution using pymc3. I use the following code: [CODE] The following is the error stack trace: [CODE] Updated the code as per accepted answer. Crash no longer happens but I do not get a convergence towards the solution: [CODE] Output: [CODE]"
+ },
+ {
+  "id": "T00317",
+  "title": "Inserting the very special unicode character &quot;Left Half Black Star&quot; (aka U+2BE8) in text",
+  "tags": [
+   "python",
+   "unicode",
+   "special-characters"
+  ],
+  "body": "I built an app in Python - though this might be a more general question - writing stars into a text. I can write ☆ and ★ easily but I need the half-star, too. So far all my efforts have been a failure, so I ask. Here is a table of the most important information about these characters. Black Star ★ White Star ☆ Left Half Black Star Code 2605 2606 2BE8 utf-8 code E2 98 85 E2 98 86 E2 AF A8 Unicode version 1.1 (1993) 1.1 (1993) 11 (2018) This works for simple stars: [CODE] This almost works for simple stars (would be nice if somebody could explain though why the black star text is converted to [code] .) [CODE] This is a total failure resulting in the general character of non-recognized situations: ⯨ instead of my expectation of the half-full star. [CODE] Same error on the console and writing into the [code] file. I think it might be the version of the Unicode, but I am not sure. I guess what is written is the correct character but the display of it fails. Is it? Whatever, the question is how can I actually make it work?"
+ },
+ {
+  "id": "T00318",
+  "title": "in Tkinter i am facing problem of opening extra small blank tk frame",
+  "tags": [
+   "python",
+   "tkinter"
+  ],
+  "body": "[CODE] please solve this:"
+ },
+ {
+  "id": "T00319",
+  "title": "Why wont my image load in the bottom middle of the screen?",
+  "tags": [
+   "python",
+   "pygame"
+  ],
+  "body": "I'm following a book to create a space invader game as I started learning python recently. I can't make the ship appear at the bottom middle of the screen. I have code that should do that but it starts the ship at the bottom left. If I move the code further down then the ship goes to the right place but it then won't move when the game is run. Here is the code I am using. I have put two comments in the ship file that show the two places I have tried the code: this is a file called alieninvasion [CODE] settings file [CODE] ship file, theres 2 comments for where I've tried this line: self.rect.midbottom = self.screen_rect.midbottom [CODE]"
+ },
+ {
+  "id": "T00320",
+  "title": "How would I return to the start of a while statement instead of just straight breaking",
+  "tags": [
+   "python",
+   "loops",
+   "while-loop"
+  ],
+  "body": "When I try to use a break statement to go back to the start of the infinite loop, it breaks right back to the first while loop asking for pie_type. Shown Here ."
+ },
+ {
+  "id": "T00321",
+  "title": "PySpark Production Container based best practices",
+  "tags": [
+   "python",
+   "docker",
+   "apache-spark",
+   "pyspark"
+  ],
+  "body": "I'm quite new to PySpark and was looking for some advice on how to kit production environments with docker. I'm building an ML pipeline that continuously consumes events from Kafka. I mention this in passing to emphasise that (a) there will be many dependencies for my main.py file and (b) the job will be running on the cluster at all times. In digging around there seems to be quite a few options (couple mentioned below), but was looking for guidance on best practices. Build the PySpark worker container images with the dependencies installed (pip install requirements.txt etc) then copy main.py in. Tar the dependencies and run a spark-submit with the relevant files Seems to be a spark-extension lib that can be used to load dependencies at run time Airflow submitted method I was also wondering whether it would be possible to mount a volume on the container and have the dependencies and main.py present on the docker host system I quite like the last option, but haven't actually seen anyone implement it, which makes me think it may be a non-option. Anyways ... experience and thoughts much appreciated. This more a philosophy and experience question."
+ },
+ {
+  "id": "T00322",
+  "title": "Clipping raster by bounding box with gdal",
+  "tags": [
+   "python",
+   "gis",
+   "raster",
+   "gdal",
+   "wgs84"
+  ],
+  "body": "I've been trying to clip a raster file(.tif) with gdal. But getting Error: \"Attempt to create 0x0 dataset is illegal,sizes must be larger than zero\". Can anyone tell me what is wrong with the code ? Edit : Below are my GetGeoTransform() and GetGeoProject() outputs of my tif file, in case it's needed. PROJCS[\"WGS 84 / UTM zone 44N\",GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4326\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",81],PARAMETER[\"scale_factor\",0.9996],PARAMETER[\"false_easting\",500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH],AUTHORITY[\"EPSG\",\"32644\"]] [CODE]"
+ },
+ {
+  "id": "T00323",
+  "title": "How can I limit the screen in pygame?",
+  "tags": [
+   "python",
+   "pygame"
+  ],
+  "body": "I just started trying out pygame, so I watched a tutorial. When the guy showed, how to create edges left and right from the screen, it just didn't work when I did it, even though I've written it 100% equal as the tutorial guy. The tutorial is already two years old, so maybe pygame just has changed. Can somebody help me? That's my code: [CODE]"
+ },
+ {
+  "id": "T00324",
+  "title": "Google OR-Tools CP-SAT: Slot Rotation constraint bypassed by parallel assignments in Roster",
+  "tags": [
+   "python",
+   "scheduling",
+   "or-tools",
+   "constraint-programming",
+   "cp-sat"
+  ],
+  "body": "I am building a guard scheduling system using Google OR-Tools (CP-SAT). I have a \"Slot Rotation\" constraint designed to ensure that the same user doesn't work consecutive shifts. The Setup: I have two assignments (Patrol and Checkpoints) running in parallel. The shifts are hourly. Assignment A (Patrol): 08:00, 09:00, 10:00... Assignment B (Checkpoints): 08:00, 09:00, 10:00... The Problem: Even with a \"Strict Rotation\" constraint enabled, the solver is assigning the same user to back-to-back hours (e.g., [code] works 09:00–10:00 in Patrol and then 10:00–11:00 in Patrol). My Constraint Logic: My compiler sorts all slots in the roster by [code] . When assignments are parallel, the sequence looks like this: [code] I am using a [code] of 2 for my rotation, which logic suggests should prevent a user from appearing in \"the next slot.\" Python [CODE] The Loophole: Because the assignments are parallel, [code] (index 2) and [code] (index 4) are not adjacent in the sorted list. [code] (index 3) is between them. With a [code] of 2, the solver: Prevents User A from working [code] AND [code] . Allows User A to work [code] AND [code] because they are 2 indices apart, effectively \"skipping\" over the rotation check. The Results I'm getting: JSON [CODE] Question: How should I structure my constraint or my slot compilation to ensure that \"Rotation\" accounts for actual temporal adjacency across par"
+ },
+ {
+  "id": "T00325",
+  "title": "SqlAlchemy: Any way to rewrite models metadata?",
+  "tags": [
+   "python",
+   "sqlalchemy"
+  ],
+  "body": "I have some baseline code that uses several SqlAlchemy Models from a path j_gen/models/ I want to use that baseline, and almost everything is useful except a file, a sqlalchemy model. I couldn't just do an monkey patch like [code] can i use the base class metadata from SqlAlchemy to replace that interest model? or any other way i could solve this? A way to face sqlalchemy overriding"
+ },
+ {
+  "id": "T00326",
+  "title": "I am trying to add variables into a new DB row using Python. The code I have written gets no error but doesn&#39;t write the new row. into the table?",
+  "tags": [
+   "python",
+   "database",
+   "row"
+  ],
+  "body": "Connection to database [CODE] Define variables for the table row [CODE] SQL statements to add row [CODE] Check to see if variables were properly defined [CODE]"
+ },
+ {
+  "id": "T00327",
+  "title": "Combine date and time from two separate columns in a csvreader generator object",
+  "tags": [
+   "python",
+   "generator",
+   "python-datetime",
+   "csvreader"
+  ],
+  "body": "I have a CSV file like this: [CODE] I'd like to extract all the timestamps into one list so that I can perform the evaluation function below (ie evaluating if [code] is true). Problem is also taking the date into account, not just the time. What's the most efficient way of combining the two separate columns (date and time) from the [code] so that it can be compared with [code] ? [CODE]"
+ },
+ {
+  "id": "T00328",
+  "title": "is it possible to build a tree form expanded Airflow DAG tasks? (dynamic task mapping over dynamic task mapping output)",
+  "tags": [
+   "python",
+   "airflow",
+   "airflow-2.x"
+  ],
+  "body": "I want to generate dynamic tasks from the dynamic task output. Each mapped task returns a list, and I'd like to create a separate mapped task for each of the element of the list so the process will look like this: Is it possible to expand on the output of the dynamically mapped task so it will result in a sequence of map operations instead of a map and then reduce? What I tried: In my local environment, I'm using: [CODE] For the sake of the experiment, I'm using three tasks with a single string as an input and a string list as an output. 1. Expand over a group with expanded task (map over a group with mapped tasks): [CODE] but it causes [code] 2. expand over the expanded task result (map over a mapped tasks): [CODE] but the result of [code] dag is not expanded, and [code] task input is a string list instead: [code] task log: [code] 3. Expand over the expanded task with const input (to test if the structure is possible): [CODE] It looks like the mapped tasks can be expanded over a constant list passed to [code] , but [code] value is a nonexpanded list: [code] task log: [code]"
+ },
+ {
+  "id": "T00329",
+  "title": "Displaying images from static folder in Django",
+  "tags": [
+   "python",
+   "django",
+   "image"
+  ],
+  "body": "We have a problem with displaying images on html pages. We create graph, save it and then pass it's url to html page via context, but django can't find the picture (Error 404 Not Found). There's no model to store urls as there's no need to access them later. Here's our [code] : [CODE] Function [code] : [CODE] Function [code] : [CODE] Html document [code] : [CODE] Static/media urls: [CODE] We've tried passing picture different ways: Writing full url [code] and with static directory [code] but these don't work. We are pretty sure the problem lies in [code] , because when we pass image name from the same folder manually (typing its name like [code] ), it displays fine. Any ideas why that happens?"
+ },
+ {
+  "id": "T00330",
+  "title": "how to merge many tables (having same columns) into one table with adding new index column in python",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "I have many tables in a sqlite DB file using python with same name and number of columns. and trying to make them into one single table with adding new column in it as indexing purpose. example is as below. Is there anyway to add like 30 tables into one in python? enter image description here"
+ },
+ {
+  "id": "T00331",
+  "title": "Parameterizing an entire Pytest session",
+  "tags": [
+   "python",
+   "pytest"
+  ],
+  "body": "I'm looking to test a Python module using [code] which uses data from an external git submodule. I want to include an (eventually opt-in) option to test my code against many different versions of this submodule automatically, or in other words running all of my tests against each git tag >= [code] . Essentially I would like calling [code] once to expand to the following commands: [CODE] Where the number of tests run in that session is [code] . After taking a look at the documentation for pytest hook functions, I found [code] , and I am able to dynamically pick a git version tag before running the suite: [CODE] But this will only allow me to checkout one version per [code] invocation."
+ },
+ {
+  "id": "T00332",
+  "title": "Getting an error while running an odoo-bin in odoo 15",
+  "tags": [
+   "python",
+   "odoo",
+   "python-babel"
+  ],
+  "body": "Getting an error as ModuleNotFoundError: No module named 'babel.dates'; 'babel' is not a package while running an odoo-bin I have clone odoo 15.0 repostiorary i have tried to run requirement file and tries to install babel"
+ },
+ {
+  "id": "T00333",
+  "title": "How to install PyQt4 in 2024 on Ubuntu (to run an old project)?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "pyqt",
+   "pyqt4",
+   "python-3.4"
+  ],
+  "body": "In 2016/2017, when PyQt4 was still supported, I made a project based on Python 3 (not sure about the exact version, maybe 3.4), PyQt4 , Numpy , and Matplotlib (Unfortunately I didn't even include a [code] file at that time). I want to run this code again on my Ubuntu system (Kubuntu 22.04, to be specific), but I cannot figure out how to run PyQt4 apps nowadays. PyQt4 is no longer installable through [code] in Python 3.10 that I have on my system. I tried to look for random Docker images that includes PyQt4 , but no success, as they are mostly designed for Python 2 and not 3, and I do not really know how to run a GUI app from a Docker container. I tried to convert my project into PyQt5 using a tool , but it introduced a lot of errors and I have no time to debug them all, especially that most of them happened in the code that was generated from the [code] files. So, I need to run the project as-is. If you have any ideas on how to run my project, so I can at least take some screenshots of it, please let me know."
+ },
+ {
+  "id": "T00334",
+  "title": "How to type hint overload Callable and type differently?",
+  "tags": [
+   "python",
+   "python-typing",
+   "mypy"
+  ],
+  "body": "How to type hint overload the return type of a Callable and type differently and safely? The problem I'm having is that the [code] doesn't support [code] , so I can't use that to enforce [code] and [code] , in the same way as as [code] . [CODE] As you can see that [code] passes with no errors, even though [code] is suppose to take in a [code] argument. I'm expecting [code] to require a [code] argument, similar to how [code] requires the second parameter [code] . I understand that this is because [code] is a [code] , which doesn't have [code] to type the [code] and [code] , but is there a way to achieve this in a type-safe way? Note that I haven't used [code] and [code] in the example for simplicity, but they are meant to be used inside of the [code] classes."
+ },
+ {
+  "id": "T00335",
+  "title": "Python Gurobi not able to get optimize solution",
+  "tags": [
+   "python",
+   "gurobi",
+   "vehicle-routing"
+  ],
+  "body": "I'm working on a Gurobi optimize question but can't not find the solution I want. This question is trying to find the best path for picking materials in warehouse. Here is the current solution. [CODE] Here is my code. [CODE] I would like to have the solution go as 0-5 locations-0 as 1 big circle. But now it's two circel (0-5-0 / 1-2-3-4-1), as below. How can I modify the code to solve this issue?"
+ },
+ {
+  "id": "T00336",
+  "title": "Why the path is different between Python terminal in code editor vs after compiled into exe",
+  "tags": [
+   "python"
+  ],
+  "body": "So I have this simple code in [code] [CODE] When I run this file from code editor (VSCode), the output in the python terminal is [CODE] Then I compiled it into exe but when I run it the output is Why is it different between the exe output vs python terminal in vscode? I'm kind of confused what's happening here"
+ },
+ {
+  "id": "T00337",
+  "title": "ModuleNotFoundError: No module named &#39;flask_debugtoolbar&#39;",
+  "tags": [
+   "python",
+   "docker",
+   "flask"
+  ],
+  "body": "I've got a basic Flask app running on Docker. Running docker-compose up --build finishes with no errors; everything in the requirements.txt appears to have downloaded. Running [CODE] gives a traceback of: [CODE] E ModuleNotFoundError: No module named 'flask_debugtoolbar' Here are all the relevant files: app.py [CODE] extensions.py [CODE] requirements.txt [CODE] I have tried upgrading to the newest version of debug_toolbar, still with the same results. I also have the nagging feeling that this affects the rest of my extensions as well. Such a simple traceback, so much heartbreak. Thanks for your time in advance!"
+ },
+ {
+  "id": "T00338",
+  "title": "got an error at __geo_interface__ geopandas choropleth map, anyone know?",
+  "tags": [
+   "python",
+   "geopandas",
+   "choropleth",
+   "geopy"
+  ],
+  "body": "[CODE] Choropleth(geo_data=prov1['geometry']. geo_interface , AttributeError: 'NoneType' object has no attribute 'get the map can works fine if i delete area formula"
+ },
+ {
+  "id": "T00339",
+  "title": "Why does Python&#39;s multiprocess use all cores if I am telling it not to?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "multiprocessing",
+   "python-multiprocessing"
+  ],
+  "body": "I am running a script that includes [CODE] There are 128 cores in my server. However, even though I create a pool with just 50 of them, when I run [code] in the terminal I see that all 128 cores are being used by my script, and each at 100% usage. Why is this happening? I thought only [code] cores could be used my script. Or does this depend on what [code] is actually doing?"
+ },
+ {
+  "id": "T00340",
+  "title": "Memory bloat issue in my matplotlib function that displays a graph on a tkinter window",
+  "tags": [
+   "python",
+   "matplotlib",
+   "tkinter"
+  ],
+  "body": "So I'm trying to make a confidence graph using this as my base: https://www.pythoncharts.com/python/line-chart-with-confidence-interval/ In my code I have the user choose a folder with correctly formatted files that are then made into one big dataframe and passed to the function [code] . The problem I have is that whenever I call my function [code] again the amount of memory usage spikes a lot (with over 100k+ data points across 100+ files it rises ~30MB each time it is called). I have tried clearing the sublots and everything else related to the graphing, but to no avail. Also tried seeing if the problem was actually made in the function where all the data from the files is clumped into one dataframe, but everything there was cleared perfectly and calling it multiple times, didn't cause a memory bloat. I'm not very confident in my Python skills so hopefully someone can point out what the problem might be. [CODE]"
+ },
+ {
+  "id": "T00341",
+  "title": "Access expected type in Pydantic within a field wrap validator using the annotated pattern",
+  "tags": [
+   "python",
+   "validation",
+   "python-typing",
+   "pydantic",
+   "pydantic-v2"
+  ],
+  "body": "I'm using a field wrap validator in Pydantic with the Annotated pattern, and I want to access the expected/annotated type of a field from within the validator function. Here's an example of what I want: [CODE] I would have expected [code] to include the expected data type of [code] , but it doesn't seem to. Another option is to go through the model fields. Something like this: [code] . However, this wrapper is applied to multiple models, so I can't just reference [code] explicitly like that. And again [code] doesn't seem to include any reference back to the model. I noticed that [code] . Is there a way to get the [code] class from the [code] string, and is this a reliable means of finding the model? This is not a duplicate of this question , which concerns the decorator pattern for validators, not the annotated pattern, and also uses old syntax from v1."
+ },
+ {
+  "id": "T00342",
+  "title": "Trying to static link with a Python3 Cython C extension",
+  "tags": [
+   "python",
+   "c",
+   "compilation",
+   "cython",
+   "libraries"
+  ],
+  "body": "So, i am trying to static link a cython app so that i can deploy it on my server clusters without having to install a lot of libraries. I can compile the binary fine, but when i run it on another machine i get this message prompted: [CODE] This error indicates that the application is actually not statically linked, causing it to error because it cant find the required libraries. When compiling i run this command (which succeeds fine): [CODE] And on the compiling machine it does run fine, without any problems. I hope anyone can help me, i tried to provide as much info as possible but since im new on this forum please notify me if you need more context. I have tried minimizing my application, to the point of only using standard python libraries, but sadly it resulted in the same error, giving me indication that it is not a code issue, but a compiling issue."
+ },
+ {
+  "id": "T00343",
+  "title": "Remove &quot;)&quot; from cells in list if &quot;)&quot; exists",
+  "tags": [
+   "python",
+   "list",
+   "data-cleaning",
+   "parentheses",
+   "code-cleanup"
+  ],
+  "body": "Could you please tell me how can I remove \")\" from strings in a list without converting the list to a string? Example: Input: [CODE] Expected output: [CODE] I know how to do it by converting list to str like following: [CODE] However, since I need convert it to a dataframe later... I want to keep it as list. Please let me know if you need any clarificaiton for my question. This is my first time to post a question."
+ },
+ {
+  "id": "T00344",
+  "title": "How do I replace an element with another new element in the same index and move the previous element to the next index",
+  "tags": [
+   "python",
+   "python-3.x",
+   "list",
+   "numpy"
+  ],
+  "body": "I have this problem where I want to replace an element with a new element, and instead of removing the element I replaced, I just want it to move to the next index. [CODE] I don't know the right syntax for this but I just want to replace element 3 with 4 [CODE]"
+ },
+ {
+  "id": "T00345",
+  "title": "Concatenate muliple images with pillow in python",
+  "tags": [
+   "python"
+  ],
+  "body": "I have searched for this topic of how to merge or concatenate multiple images using python. [CODE] How can I loop through a folder that has multiple images (Say 9 images) and merge every four images into one image? So the final folder should have three images (the first image would contain 4 images, the second image would contain 4 images, the third image would contain 1 image)"
+ },
+ {
+  "id": "T00346",
+  "title": "Using RPi touchscreen in bash",
+  "tags": [
+   "python",
+   "bash",
+   "unix",
+   "raspberry-pi"
+  ],
+  "body": "I have an Raspberry Pi with dietpi rom flashed on SDcard and waveshare 3.5 display with touchscreen. I want to read touch signal from bash using python 3.9. Technically touchscreen is just a reimagination of mouse, but any module that i have used for reading mouse signal didn't work properly. For example python module pynput requires X server running, means i need a \"desktop\" to run scripts with pynput module. Edit: python module mouse actually can read USB mouse input, but still touchscreen is unreachable for me."
+ },
+ {
+  "id": "T00347",
+  "title": "&lt;aside&gt; tag blocking web scraping",
+  "tags": [
+   "python",
+   "web-scraping",
+   "python-requests-html"
+  ],
+  "body": "I have been trying to scrape a website that shows every football match that will be played on a specific field. The site is dynamic and I have tried several things to conquer my problem. I tried to use the requests_html library and it renders every HTML element until it gets to [code] tag. After that, it just renders \"none\". Can [code] tag prevent web scraping or is my code otherwise flawed? This is the code I tried to use. [CODE] [CODE] When I use a different xpath that isn't inside the [code] tag it renders the element properly: [CODE] [CODE] Is there something I can do to avoid this issue?"
+ },
+ {
+  "id": "T00348",
+  "title": "Conda doesn&#39;t upgrade to the latest version and CondaValueError: Key &#39;subdir&#39; is not a known primitive parameter",
+  "tags": [
+   "python",
+   "anaconda",
+   "conda"
+  ],
+  "body": "My ultimate goal is to run the following command lines so that I can install numpy in my Mac M1 chip computer which has been problematic for many people \"note: This error originates from a subprocess, and is likely not a problem with pip\" message when trying to install spacepy : [CODE] However, when I run \"conda config --env --set subdir osx-64\" I got this error message: [CODE] So I am trying to upgrade my Conda to the latest version or at least [code] so that I can run [code] following the instructions below How do I update Anaconda? But no matter what I did, [CODE] My conda still got stuck at [code] and [code] still gives me the error [code] could some help?"
+ },
+ {
+  "id": "T00349",
+  "title": "Replace None with &#39;N/A&#39; in dictionary",
+  "tags": [
+   "python",
+   "dictionary"
+  ],
+  "body": "I need to replace [code] to [code] in list in dictionary please see the below code: [CODE] I unable to replace the [code] with [code] in list in dictionary"
+ },
+ {
+  "id": "T00350",
+  "title": "Raspberry Pi Zero W RTSP Video Stream using OV5647 Camera Module",
+  "tags": [
+   "python",
+   "video-streaming",
+   "rtsp",
+   "raspberry-pi-zero",
+   "libcamera"
+  ],
+  "body": "I am attempting to stream video from a Raspberry Pi Zero W with OV5647 Camera Module in H.264 via Real Time Streaming Protocol (RTSP). On the receiving end, I will be using a laptop with Ubuntu 24 to view the stream. I am doing an experiment to mimic offloading computational tasks from a drone camera and using an edge node to preprocess and request cloud-based computer vision services. Therefore, it is necessary that I utilize RTSP to create the stream and highly preferable that the video be encoded in H.264. Python Script on the Raspberry Pi Zero W: [CODE] Output When I run the script on the Raspberry Pi, I get the following outputs [CODE] I also tried: [code] Output [CODE] I can get the camera to show video on the raspberry pi by calling libcamera show. However, IT seems I'm having the most trouble with creating the RTSP stream. Anyone with enough expertise know what to try next?"
+ },
+ {
+  "id": "T00351",
+  "title": "Django forms not returning result or errors",
+  "tags": [
+   "python",
+   "django",
+   "django-forms"
+  ],
+  "body": "I am trying to use a Django form for a login page, but the form is returning False whenever I call form.is_valid(). I tried to print the errors in the console and in the HTML file but there's nothing displaying. I tried to get data from the form with form[\"email\"].value() and it's returning None, even when I input data into the email field. Here's views.py: [CODE] Here's my forms.py: [CODE] Here's my login.html: [CODE]"
+ },
+ {
+  "id": "T00352",
+  "title": "How to use multiple conditions, including selecting on quantile in Python",
+  "tags": [
+   "python",
+   "pandas",
+   "numpy",
+   "select"
+  ],
+  "body": "Imagine the following dataset [code] : Row Population_density Distance 1 400 50 2 500 30 3 300 40 4 200 120 5 500 60 6 1000 50 7 3300 30 8 500 90 9 700 100 10 1000 110 11 900 200 12 850 30 How can I make a new dummy column that represents a 1 when values of [code] are above the third quantile (>75%) AND the [code] is < 100, while a 0 is given to the remainder of the data? Consequently, rows 6 and 7 should have a 1 while the other rows should have a 0. Creating a dummy variable with only one criterium can be fairly easy. For instance, the following condition works for creating a new dummy variable that contains a 1 when the Distance is <100 and a 0 otherwise: [code] . However, I do not know how to combine conditions whereby one of the conditions includes a quantile selection (in this case, the upper 25% of the variable [code] . [CODE]"
+ },
+ {
+  "id": "T00353",
+  "title": "pip keep collecting many Tensorflow versions when installing alibi==0.5.5",
+  "tags": [
+   "python",
+   "installation",
+   "dependencies"
+  ],
+  "body": "I'm using a python project and installing its dependencies. The following are all the packages I need to install. [CODE] I put them in a [code] file. Then I run [code] . The problem happens that, I can install everything successfully before the last one, [code] . When installing it, it seems require a tensorflow >= 2.0. That's okay. But when the installation starts, it keeps collecting all tensorflow versions >= 2.0, as is shown in the figure. Why does this happen? How can I deal with it? Thank you all for helping me!!!"
+ },
+ {
+  "id": "T00354",
+  "title": "Deploying a Python HTTP function to Google Cloud run from source",
+  "tags": [
+   "python",
+   "google-cloud-platform",
+   "google-cloud-run",
+   "google-cloud-deploy"
+  ],
+  "body": "I'm trying to deploy a Python HTTP function to Google Cloud Run from source. However, I'm facing a weird issue, where deploying it from source somehow creates a broken deployment, but when (re-) deploying the already deployed source code through the Cloud console buttons, it starts working. This is what I'm doing: The app: [CODE] and [CODE] Both of these files are in the root as they should. Now, when I run [code] , I get a successful deployment to the cloud run function (called [code] ). However, when I try to trigger the function (call the function's URL), the request fails and in the logs I see that it [CODE] Now, if I navigate to source -> edit source -> save and redeploy (see image below) and just hit save without changing anything, I get a new deployment, in which the endpoint actually works. I'm pretty sure this is related to the function's entrypoint, and I've read this document: https://cloud.google.com/docs/buildpacks/python#entrypoint But I just can't put the pieces together. I've tried the [code] argument on the [code] , but I haven't been able to figure out a working value for that."
+ },
+ {
+  "id": "T00355",
+  "title": "How to show dictionary data in table format in terminal",
+  "tags": [
+   "python",
+   "dictionary",
+   "for-loop"
+  ],
+  "body": "I am trying to solve the simple usecase where I need to show data in terminal in tabular style not needed fancy table but somehow that emits like table. here is my code. [CODE] currently my output is as follows [CODE] I am trying to include [code] dict value unders [code] column and similary [code] for [code] like this and if possible sum of each row [CODE] I really tried some for loop concepts but can't figure out how I do it as I am really beginner in python any help will be really great."
+ },
+ {
+  "id": "T00356",
+  "title": "Loop inside of a loop in Python",
+  "tags": [
+   "python",
+   "function",
+   "loops",
+   "matplotlib",
+   "physics"
+  ],
+  "body": "The below is code for the modelling of a cannoball's movement with drag, where solve_euler is a predefined function, that produces an array of arrays (like a table) of values. Of these values the xs and the ys are exported for this bit of code and are called xs_euler and ys_euler. These values are the x and y coordinates of the cannonball until time t1 (some defined number used in the solve_euler function, in this case t1 = 300). What I am trying to now do, is plot a graph of the new x and y values (by multiplying by velocity and time), showing how the paths differ depending on the launch angle. The following is what I have at the moment: [CODE] Here it should be pretty obvious that I don't know how to use xs_euler and the ys_euler, in the loop, whilst also being able to do a loop on the time and on the launch angle (theta). Can someone show me where I am going wrong and how to fix it?"
+ },
+ {
+  "id": "T00357",
+  "title": "How to convert larger size dataset (20GB csv file) into hdf5 format using python and R?",
+  "tags": [
+   "python",
+   "r",
+   "pandas",
+   "hdf5",
+   "vaex"
+  ],
+  "body": "I want to convert csv file with larger size into hdf5 format. I am working with vaex library and it only accepts hdf5 extension to load the dataset. I also need the solution for the above problem in R."
+ },
+ {
+  "id": "T00358",
+  "title": "Condition in python lists comprehensions",
+  "tags": [
+   "python",
+   "if-statement",
+   "list-comprehension"
+  ],
+  "body": "friends-coders! Help with condition in lists comprehensions at python code, please. Where are mistake in that syntax? [CODE] Don’t know how to resolve this problem."
+ },
+ {
+  "id": "T00359",
+  "title": "pandas causing NoneType error in matplotlib plt.savefig() and plt.show()?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "pandas",
+   "matplotlib"
+  ],
+  "body": "I want to read a csv file using the read_csv method, and then plot the data using matplotlib. However, I cannot seem to create a simple matplotlib plot (even without using the data from the file), after I use pandas to read in some csv data. It gives the error: 'NoneType' object is not callable. Any idea what's going on here? [CODE] I have tried using plot.savefig instead of plot.show() and this produces the same error. If I move the plotting block of code before the pd.read_csv line, it plots just fine. The error only seems to occur after pandas is used. This is occuring in Visual Studio. Not occuring in IDLE. [CODE]"
+ },
+ {
+  "id": "T00360",
+  "title": "How to use private enum values that are not accessible by Enum.__members__?",
+  "tags": [
+   "python",
+   "enums",
+   "private"
+  ],
+  "body": "With an Enum object as such: [CODE] when we try to check its member: [CODE] we get all possible Enum values. Is there a way to declare private vs public enums where some specific values are private and not accessible by [code] ? It's possible to do this: [CODE] Usage: [CODE] Are there some other way to have restricted members access? Are there examples of private vs public members in Python's Enum?"
+ }
+]

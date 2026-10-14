@@ -31,6 +31,14 @@ analysed are public and were retrieved from the Stack Exchange API.
 10_shap_transparency/           the surrogate-model (SHAP) analysis of Section 6.3:
                                 pre-registered design note and its hash, script,
                                 results, run log, and the data rows behind two figures
+11_random_redraw/               the random redraw and same-panel re-rating of 12-13
+                                October 2026 (Section 7.1 of the manuscript): draw,
+                                blind batches and labels, instruction, session checks,
+                                analysis; a 400-question trial rating
+AUDIT_TRAIL.md                  process record: run dates and provenance, start-up
+                                content of the session runs, how the scripts were
+                                written, coding history, earlier criterion rounds,
+                                pipeline failures, the October 2026 rounds
 ```
 
 **Read this first.** The python panel was classified twice. The labels in
@@ -44,7 +52,7 @@ later re-run blind on the same batches as a check
 (`07_blind_reclassification/same_model_sonnet46/`, Section 4.2 and Table 4 of the manuscript);
 no estimate rests on that run.
 
-Total size 68.5 MB, 1,343 files.
+Total size 68.5 MB, 1,343 files (directories 01 to 10 and the two top-level files, as of the September package). Directory 11_random_redraw/ was added in October 2026 and holds 554 files, 29.4 MB.
 
 ---
 
@@ -232,7 +240,8 @@ blinding (Section 4.2 of the manuscript).
   timestamps; `identification_rules_zh.md`, in Chinese, is the identification rule
   written before the first export, with its four amendments appended.
   The list covers tool calls only; what each session received at start-up,
-  before any tool call, is described in Section 4.3 of the manuscript.
+  before any tool call, is stated in Section 4.3 of the manuscript and recorded
+  in full in `AUDIT_TRAIL.md`, section 2.
 - `same_model_sonnet46/` — the blind re-run of the earlier classifier, Claude
   Sonnet 4.6, registered in the design document's thirteenth entry and carried out
   under its fifteenth (Section 4.2 and Table 4 of the manuscript). No estimate in the manuscript
@@ -365,6 +374,19 @@ percentage changes of Section 5.1 recomputed before Figure 4 is drawn); Figure 4
 monthly counts in `04_crosssite_engine/data/so_monthly_panel.csv`. The directory has its own
 README.
 
+### 11_random_redraw
+
+The random redraw and same-panel re-rating of Section 7.1 (12-13 October 2026): the month-uniform
+draw (seed 20261012) of 100 python questions for each of 60 months, the 12,000 blinded questions (the
+python panel's 6,000 and the 6,000 newly drawn) with their 100 batch files and the verbatim instruction for each batch,
+the labels as returned, the model and effort check of the 100 rating sessions, the audit of what those sessions
+received and did, and the analysis scripts with their logs and outputs. It also holds a trial rating of
+400 questions made on 12 October (two rounds, effort `high` and `xhigh`), which the manuscript does not report. The panel
+mapping is not in the package; `11_random_redraw/derived/` holds the labels joined to it, one row per
+question, and the directory's README states what that table does and does not disclose, what was withheld, and what was
+changed in `analyze_full12k.py` and `windows.py` to run them without the mapping.
+The directory has its own README.
+
 ---
 
 ## What a replicator should know before starting
@@ -380,8 +402,8 @@ and their outputs in `05_additional_checks/glm_relabel/`. Language-model endpoin
 and are retired on roughly annual cycles. The package therefore ships the model
 outputs themselves rather than only the prompts that produced them, and a fresh
 run would draw different outputs rather than recover these. The provenance record
-is the month of each run and the model named for it in Section 4.3 of the
-manuscript, together with the verbatim instruction and run log shipped with the
+is the month of each run and the model named for it, set out in `AUDIT_TRAIL.md`,
+section 1 (Section 4.3 of the manuscript states it in brief), together with the verbatim instruction and run log shipped with the
 sampling-window test and the verbatim dispatch log in `07_blind_reclassification/`.
 
 **The numbers have not been regenerated end to end by re-running every script.**
@@ -395,7 +417,7 @@ Some scripts carry absolute paths from the machine they were written on. Adjust
 the path constants at the top of a script before running it.
 
 **The analysis code was written with an AI coding assistant.** As Section 4.3 of
-the manuscript states, the scripts in this package were written with Claude Code
+the manuscript and `AUDIT_TRAIL.md`, section 3, state, the scripts in this package were written with Claude Code
 (Anthropic) at the author's direction, running
 Claude models of the Opus, Sonnet and Fable families. Which model version wrote a
 given script was not recorded. Comments and docstrings are working notes from
@@ -496,7 +518,7 @@ labels, used for javascript and java). The long names below are the files in `09
   and `09_downstream_rerun/blind/logs/cross_family_analysis.log` for the GLM-4.6 rows. The 200-question Opus 4.8 row:
   `03_validation/second_rater_kappa/kappa_results.json`. Agreement with the human consensus: `09_downstream_rerun/results/R2d_gold_result.json`
   (`09_downstream_rerun/scripts/R2d_gold.py`; `03_validation/gold_standard/score_gold_v2.py`, `score_adjudication.py`); GLM-5.3 and the
-  bootstrap intervals: 存疑 (not traced to one file; see `05_additional_checks/glm_relabel/gold_labels_glm-5.3.jsonl` and `R2d_kappa_result.json`).
+  bootstrap intervals: not traced to a single script (see `05_additional_checks/glm_relabel/gold_labels_glm-5.3.jsonl` and `R2d_kappa_result.json`).
   Date-visible minus blind block: `07_blind_reclassification/results/R2v_result.json` (`R2v_analyze.py`) for Sonnet 5 and
   `R2s46_numbers_result.json` for Sonnet 4.6.
 - **Table 5** (criterion validity). Panels A to C: `08_criterion_round3/results/R2c_result.json` (`08_criterion_round3/scripts/R2c_analyze.py`,

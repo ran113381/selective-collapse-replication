@@ -1,0 +1,1250 @@
+[
+ {
+  "id": "T11401",
+  "title": "Factory Boy Base64 Encoded String Faker",
+  "tags": [
+   "python",
+   "django",
+   "django-rest-framework",
+   "factory-boy"
+  ],
+  "body": "Is it possible to fake a base64 encoded string within factory-boy? For example, in a given factory, I'm able to fake (generate) a random name by doing [code] . In addition, I can fake an email by doing [code] . However, I'm not sure how to fake a base64 encoded string. In my model, I have a field which is a simple [code] as such: [code] . How can I go by faking this within my factory? I have tried several options, but they all result in errors. [code] results in: UnicodeDecodeError: 'utf-8' codec can't decode byte 0xb5 in position 3: invalid start byte Doing [code] results in: UnicodeDecodeError: 'utf-8' codec can't decode byte 0x95 in position 5: invalid start byte Doing [code] results in: binascii.Error: Invalid base64-encoded string: number of data characters (25) cannot be 1 more than a multiple of 4"
+ },
+ {
+  "id": "T11402",
+  "title": "How do I fix an error when installing scikit-image Python Library?",
+  "tags": [
+   "python",
+   "scikit-image",
+   "python-3.10"
+  ],
+  "body": "I am try to install scikit-image package in python 3.10 and I use vscode . this is my command: [code] but I see this error: [CODE] vc++ is installed on my windows 8.1"
+ },
+ {
+  "id": "T11403",
+  "title": "How can i understand Python about list. help me please",
+  "tags": [
+   "python",
+   "list",
+   "function"
+  ],
+  "body": "[CODE] I expected this code snippet to print [code] . Instead, it printed out [code] . Why is this so?"
+ },
+ {
+  "id": "T11404",
+  "title": "Is there a way to combine multiple models into the Sklearn PMML Pipeline function?",
+  "tags": [
+   "python",
+   "pmml"
+  ],
+  "body": "I have a series of models that are generated based on Company and Product. and am using the following code: [CODE] sklearn2pmml(pipeline_obj2, 'MODEL_NAME.pmml', with_repr = True) I get the following error which I assume means that it can only handle one input : TypeError: The pipeline object is not an instance of PMMLPipeline. Use the 'sklearn2pmml.make_pmml_pipeline(obj)' utility function to translate a regular Scikit-Learn pipeline or estimator to a PMML pipeline Is there any way to do this?"
+ },
+ {
+  "id": "T11405",
+  "title": "Pandas - inconsistent join behaviour for NaN keys depending on Index or Multiindex",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "join"
+  ],
+  "body": "I have a simple [code] dataframe and I'd like to left join a [code] dataframe to it using their indexes. [code] dataframe (Multiindex consisting of [code] and [code] ): key_1 key_2 a a NaN NaN [code] dataframe ( [code] is index, [code] is a column) key_1 desired_column a desired_value_a b desired_value_b Expected output after the left join: key_1 key_2 desired_column a a desired_value_a NaN NaN NaN However, I get this: key_1 key_2 desired_column a a desired_value_a NaN NaN desired_value_a I get [code] where [code] , which seems wrong. I found that if the [code] table only uses [code] as its index instead of using [code] and [code] then I get the correct, expected output instead. Code to reproduce what I see, where the only difference between the code blocks is the index I set for [code] : [CODE] [CODE] Does anyone know what causes this behaviour and if it's intentional/by design or if it's possibly a bug? Any recommendations on how to make sure I get the expected behaviour (ie join returnin NaN for when the keys are NaN)? Again I could just use single index in THIS scenario, but what to do when I indeed need Multiindex? I am using Pandas version 1.4.3. Thanks!"
+ },
+ {
+  "id": "T11406",
+  "title": "&quot;TypeError: &#39;tuple&#39; object is not callable&quot; in Python while drawing a function and its derivative?",
+  "tags": [
+   "python",
+   "tuples",
+   "typeerror",
+   "drawing"
+  ],
+  "body": "As the title question, I just encounter this problem while doing assignments, but have no idea what it is... Please can anyone help me with this?(I'm a TOTALLY newbie to this and I'm so sorry) My code is: [CODE] And the compiler just gave me this: [CODE] does anyone knows what on just happened to my code?"
+ },
+ {
+  "id": "T11407",
+  "title": "Not able to use Smartsheet python api when packaging project using Nuitka",
+  "tags": [
+   "python",
+   "python-module",
+   "python-packaging",
+   "smartsheet-api",
+   "nuitka"
+  ],
+  "body": "I wrote a python project that automates tasks and makes use of the smartsheet api but when I package this project into an executable with nuitka I get the error: [CODE] this is the piece of code that throws this error [CODE] This error makes me believe that the smartsheet client is not being created due to an import error of some sort when packaging the project. This is my yaml file for reference: [CODE] And this is the command I'm running [CODE] Note: Everything works perfectly when running the project from my editor"
+ },
+ {
+  "id": "T11408",
+  "title": "Selenium Discord channel select last message",
+  "tags": [
+   "python",
+   "html",
+   "selenium"
+  ],
+  "body": "I am trying select last message on discord channel with selenium I can't find xpath. xpath is changing every time for last message. I just want copy last message on the channel. Last message id changing. Please help me. This code is logging and goes rotate to chanel. [CODE]"
+ },
+ {
+  "id": "T11409",
+  "title": "Maximizing TCP/IP speed with python driver",
+  "tags": [
+   "python",
+   "sockets",
+   "tcp",
+   "esp32",
+   "ethernet"
+  ],
+  "body": "I am working on fairly complex project that involves data transfer from ESP32 to PC via TCP/IP protocol. Both codes (I guess) are not worth to investigate on the spot, however, I will provide it down bellow. The main algorithm is as follows: ESP32 constantly sampling a signal of interest via ADC12020 converter. When ESP32 receives an interrupt (meaning the signal has reached threshold level) it accumulates and forms 256 byte data packet and sends it to the PC via TCP/IP (ESP32 acting as client). This operation continues untill the ESP32 is powered down. On the PC side I have wrote a python script that emulates a TCP server. Server is listening for incoming data. As soon as it receives a data packet from the client it assigns a timestamp to it and does minimal data processing steps (some bitwise operations) Then it forms some kind of a data unit (with correct formating, timestamp, number format etc.) and stores it in a 100 MB internal buffer. When the ESP32 ends its operation and disconnects, it indicates that there will be no more incoming data packets and the server should write all the accumulated results to a textfile. All this is achieved successfully, except for the fact that I only get maximum of around 170 voltage pulses per second registered (judging on the timestamps and the result file data.) while the test conditions easily reach 10000 pulses per second. So 170 pulse"
+ },
+ {
+  "id": "T11410",
+  "title": "Adding new data to class in a Django model",
+  "tags": [
+   "python",
+   "html",
+   "django",
+   "django-models",
+   "django-forms"
+  ],
+  "body": "I have a form which requires adding a standard name and if there is an option to add additional names to be added I want to create another input for it. I am not sure how to do that in regard to the Models, and migrating and creating the html related to the new name to take in the input. I have created the form with the following models: [CODE] I added in the HTML template a button to add a new shareholder if available so I want if the button is clicked to create the following in the models.py [CODE] and if pressed one more time the number changes to 3 and so on. Subsequently in needs to be updates in the form: [CODE] Here is an example of the form: [CODE] I want to know what I can do in this situation how should I proceed?"
+ },
+ {
+  "id": "T11411",
+  "title": "How can I update values in a nested JSON file using Python?",
+  "tags": [
+   "python",
+   "json",
+   "dictionary",
+   "data-structures"
+  ],
+  "body": "I have a JSON file with nested objects, and I want to update specific values inside it using Python. The structure can vary, but it usually looks something like this: [CODE] I want to change the \"city\" value to \"Antigua\" and save the updated JSON back to the same file. I tried this code: [CODE] It works, but I’d like to know if there’s a more dynamic way to update values when I don’t know exactly how deep the key is nested (for example, when \"city\" could appear in multiple places). What’s the best way in Python to search for a key in a nested JSON and update its value dynamically?"
+ },
+ {
+  "id": "T11412",
+  "title": "How to deploy ML trained model?",
+  "tags": [
+   "python",
+   "html",
+   "machine-learning",
+   "flask"
+  ],
+  "body": "I am working on a ML project Credit Card Fraud Detection . I have trained the model using Random Forest Classifier . The dataset used in this project is taken from Kaggle. It contains 31 features, the last feature is used to classify the transaction is fraud or not. Now I want to deploy the model using flask. For which I am following this tutorial. But instead of entering data into input fields, I want the user to upload a CSV file with a single record. So, what changes should be made in the code? [code] [CODE] [code] [CODE]"
+ },
+ {
+  "id": "T11413",
+  "title": "How to put a condition on a result directly in a filter in SQLalchemy?",
+  "tags": [
+   "python",
+   "sqlalchemy"
+  ],
+  "body": "I have a table like this: [CODE] I would like to be able to retrieve the list of my Continents according to the creation date. So, I will spend a year and a season (example, date: 10, and a season: 1) I would like to get all the dates that are older than the past date. So I would do this: [CODE] But, I still have to check that if the year of the result is the same as the year requested, I have to check the seasons, to make sure that the season requested, is older than the season of the data. So my question is: How can I check with a condition DIRECTLY during my query?"
+ },
+ {
+  "id": "T11414",
+  "title": "Django positive validation not checking python",
+  "tags": [
+   "python",
+   "django",
+   "django-models",
+   "django-forms"
+  ],
+  "body": "But with my below code it is not checking the validation rule and allowing the positive start and positive end values in the conjunction. my code in django form.py [CODE]"
+ },
+ {
+  "id": "T11415",
+  "title": "How to get the column and row number of a cell in Excel Python using xlwings?",
+  "tags": [
+   "python",
+   "excel",
+   "openpyxl",
+   "xlwings"
+  ],
+  "body": "I'm trying to get the column number and row number of the cell from which the function was called or of the cell which was passed inside the function code in Excel. If I'm calling a user defined function(UDF) in excel like, [code] and at the backend, i.e. where the definitions of this function are written in python using xlwings, I want to get the cell row number and column number from which this function was called or maybe get that using the range passed as argument. I'm unable to figure out how to do this. Please help! Or if it's possible using some other tools like openpyxl, etc, do tell."
+ },
+ {
+  "id": "T11416",
+  "title": "How to remove letters from the end of numbers e.g., 115b, 225c, 19j in a special column in pandas dataframe so they become 115, 225, 19?",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "I am trying to remove the lowercase letters at the end of numbers in a column [code] with data like [code] . I want them to be [code] . I have tried the following: [CODE] But it returns [code] values within the column. These [code] values are not related to the cells that contain numbers with letters. input example: df12['hole_ID_MWD'] 0 115b 1 225c 2 19j 3 490 4 500 5 600 desired output after using one of the three scripts: 0 115 1 225 2 19 3 490 4 500 5 600 However, What I get is: 0 115 1 225 2 19 3 nan 4 nan 5 600"
+ },
+ {
+  "id": "T11417",
+  "title": "Python -- tkinter window label not displaying correctly with &quot;relief&quot; option enabled",
+  "tags": [
+   "python",
+   "macos",
+   "tkinter",
+   "label",
+   "window"
+  ],
+  "body": "I'm trying to put a label (including a few words of text + 1 image) in a window. As a learning process, I also used the \"relief\" option within the label to put a nice border around the label. But this \"relief\" doesn't seem to be working as intended: If I use RAISED or SUNKEN for the \"relief\" option, then the window just shows the border, but no label (no text, no image). If I use GROOVE or RIDGE for the \"relief\" option, then the label (text + image) both display perfectly. Quick info about my software versions: [CODE] The following is my code. There's so little in there. [CODE] In my research I came across potential macOS issues with tkinter, including several questions & answers here on Stack Overflow, but found no solutions. Would you happen to have any suggestions as to how I might be able to fix my problem? It must be so simple, but I'm just not seeing it, and it's driving me crazy."
+ },
+ {
+  "id": "T11418",
+  "title": "My code is very long. Is there a way to shorten it?",
+  "tags": [
+   "python",
+   "advice"
+  ],
+  "body": "I was writing code to generate a random area for a game I'm making with python. Currently, the code looks like this: [CODE] I was wondering if there is an easier way to do the same thing that doesn't require so much code, especially if the system will eventually become more and more complicated. I'm fairly new to python, so I don't know if this is possible or not."
+ },
+ {
+  "id": "T11419",
+  "title": "Pymodbus library communication delay",
+  "tags": [
+   "python",
+   "usb",
+   "communication",
+   "pymodbus"
+  ],
+  "body": "I have the following example code. This code updates the frequency setting of the motor currently in use and gives it a forward movement command. I also add a specific waiting time in seconds while performing these operations. [CODE] When I run this code continuously on the system, after a certain period of time, the stop command to the motor is delayed. (This situation is not very stable. For example, the code ran without problems 5 times, but on the 6th run, the stop command was delayed. This could also happen if it runs without problems 10 times and the stop command is delayed on the 11th run.) I'm curious about the answers to two questions here: 1. Is the problem of the commands not functioning after a certain period of time due to the continuous rerun of this script code? If so, what can I do? 2. Will I experience this problem in a large project where, after establishing a connection only once, the motor is repeatedly prompted to \"go forward and wait 3 seconds\"? Version --------- pymodbus : 3.8.6"
+ },
+ {
+  "id": "T11420",
+  "title": "My Kivy code doesn&#39;t detect checkbox selection",
+  "tags": [
+   "python",
+   "checkbox",
+   "kivy",
+   "selection"
+  ],
+  "body": "I have recently been trying Kivy for a personal project I wanted to do: an app that lets you create a DnD character with a few details. That character would store on a JSON file and load up on the main screen. The problem is, when using checkboxes for the gender selection, it doesn't work at all and I can't find the problem. Here is the [code] file: [CODE] And my Kivy file: [CODE] I would like the app to let you check and uncheck the checkboxes, but restricting the selection to only one box (only one gender). The code itself might also be very messy, but for now it was working fine XD"
+ },
+ {
+  "id": "T11421",
+  "title": "&#39;BpeTrainer&#39; object cannot be converted to &#39;Sequence&#39; when training Bpetokenizer",
+  "tags": [
+   "python",
+   "nlp",
+   "tokenize"
+  ],
+  "body": "I found this class on [CODE] But when I try to use it like this [CODE] I get the error in the train function where it says TypeError: argument 'files': 'BpeTrainer' object cannot be converted to 'Sequence' Now I am new to this topic and am not rly sure how to fix this problem or what mistake I made"
+ },
+ {
+  "id": "T11422",
+  "title": "How to link stock.picking to account.move (invoice) in Odoo 17",
+  "tags": [
+   "python",
+   "odoo"
+  ],
+  "body": "I'm working on an Odoo customization where I want to automatically create a stock.picking record when an account.move (invoice) is posted. After creating the stock.picking, I need to link it to the account.move so that the smart button for the delivery appears. I know that this is a default feature in Odoo, but for some reason, they are not linked, and I can't find the field that links them. Even when I try to create the field manually, the problem persists, and the smart button still doesn't appear. Here’s my code: [CODE]"
+ },
+ {
+  "id": "T11423",
+  "title": "Prepping data for sankey plot in plotly",
+  "tags": [
+   "python",
+   "plotly",
+   "sankey-diagram"
+  ],
+  "body": "I have a data as follows: [CODE] I want to prepare this for a sankey plot using plotly. I am not sure how to do the same. What I want to plot is essentially, Id's as bases and the column values as levels in the data. Added the image for reference."
+ },
+ {
+  "id": "T11424",
+  "title": "Pymongo: automatic IP",
+  "tags": [
+   "python",
+   "mongodb",
+   "ip"
+  ],
+  "body": "I am writing an application using Pymongo to access a database on MongoDb Atlas using some basic syntax such as: [CODE] My problem is that every time I connect from a different IP I need to login manually to the mongoDB Atlas panel and add the new IP. Is there a pymongo function able to add the user IP automatically ? Sorry if the question is trivial, I am still new to the mongoDB world. Thank you!"
+ },
+ {
+  "id": "T11425",
+  "title": "Fixing No Reverse Match in a Django Project",
+  "tags": [
+   "python",
+   "django",
+   "django-views"
+  ],
+  "body": "I am getting the following error: [code] I am not sure exactly what is the reason for it. Here is the model: [CODE] Here is the views.py [CODE] Here is the urls.py [CODE] Here is the businessplan.html snippet of the template: [CODE] I can access the pdf from the admin but I am trying to access to add this button for easier functionality. I have tried changing the [code] to [code] it didn't work. What is the reason for this error? Here is the traceback: [CODE]"
+ },
+ {
+  "id": "T11426",
+  "title": "How to rasterize an implicit function",
+  "tags": [
+   "python",
+   "algorithm",
+   "math",
+   "rendering",
+   "rasterize"
+  ],
+  "body": "For minecraft building, I am rasterizing some shapes. How to simulate a shape with blocks. There are many shapes, such as circular rings, ellipsoids, hyperbolic circular towers, etc. Of course, the functional expressions of these geometries are known, which may be ordinary functions: [code] , parametric equations: [code] , and implicit function equations: [code] . Both ordinary functions and parametric equations can be transformed into implicit function equations, but the reverse may not work, so I am trying to write an algorithm that can rasterize implicit function equations as long as they can be written out. Currently the explicit functions of the two&three-dimensional coordinate system have been prepared. Show my implementation method of three-dimensional: [CODE] Implemented explicit functions rasterization . Grid a sphere using the same method How to rasterize an implicit function? This problem must have a solution, because this website Desmos can implement it, but I don't know the specific implementation method. The reason why it must have been implemented is that my screen is 1920 * 1080 pixels, so this love graphic must be displayed in some squares instead of curves in mathematics. Implemented on the Desmos website I want to complete this def, but I've been thinking for a long time. I want to find ideas from two-dimensional functions, perhaps extending them to three-dim"
+ },
+ {
+  "id": "T11427",
+  "title": "How to provide encoded json data to resources in cdktf for grafana",
+  "tags": [
+   "python",
+   "grafana",
+   "terraform-cdk"
+  ],
+  "body": "I appear to be an early adopter of cdktf for grafana using python. The following config is successfully transmitted and accepted by grafana [CODE] The documentation is unclear on how to provide [code] and [code] . I have a working terraform config: ( terraform grafana_provider datasource_influx2 encode not working? / How to provide an influx2 token? )"
+ },
+ {
+  "id": "T11428",
+  "title": "Selecting permutationally-unique elements of a symmetric tensor",
+  "tags": [
+   "python",
+   "arrays",
+   "numpy",
+   "indexing",
+   "combinatorics"
+  ],
+  "body": "I have a code which creates a numpy array [code] of shape [code] where there are [code] copies of [code] . By construction, this array is a symmetric tensor (in the mathematical sense), meaning that [code] , where [code] is a permutation of [code] . We may define the permutationally-unique elements of [code] as the set of entries in [code] whose corresponding indices are not equivalent to one another by permutation. For example, in a matrix with shape [code] , the permutationally-unique indices are [code] . For a general symmetric tensor [code] , how can I extract all of its permutationally-unique elements, as well as their corresponding indices? ( [code] doesn't work, in the case where two elements [code] and [code] are equal by coincidence, but [code] is not a permutation of [code] .)"
+ },
+ {
+  "id": "T11429",
+  "title": "cupy kernel template for elementwise reductions",
+  "tags": [
+   "python",
+   "cuda",
+   "cupy"
+  ],
+  "body": "I want to get the kernel template that cupy uses for its [code] function to compare with my (really simple) kernel: [CODE] Even if it is working, its does not address over/underflow and there are maybe some optimizations missing that are used in cupy. (Also I found a simple case in which it does not work whereas [code] works). I tried to use the [code] variable to get the kernel in the temporary folder but to no avail."
+ },
+ {
+  "id": "T11430",
+  "title": "Issue when doing float(input()) in python",
+  "tags": [
+   "python",
+   "input"
+  ],
+  "body": "I have a small issue that I \"understand\" but cannot fix. Imagine you have [CODE] When on a linux terminal the user types [code] and press enter: Everything is okay and s is equal to [code] When the user enters [code] , sees it is wrong, deletes the [code] and types [code] instead and I have an error ValueError: could not convert string to float: '0.4\\x083' It seems like it is an address instead of a string. If I ask the [code] , it says it's a string. But if I [code] , I get the string containing the address. But if I print it, I have the correct answer. Is there any easy fix for this ?"
+ },
+ {
+  "id": "T11431",
+  "title": "how can my code print only one character uppercase in a list",
+  "tags": [
+   "python",
+   "error-handling"
+  ],
+  "body": "[CODE] With the code like this it prints the following [CODE] I understand that the upper and swapcase function arent being read but I dont know why"
+ },
+ {
+  "id": "T11432",
+  "title": "Is there a way to iterate through rows of a DataFrame and append some to a separate DataFrame?",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "concatenation"
+  ],
+  "body": "What I want to do is something like: [CODE] I can't seem to get this to work with the row object. It won't append like this, and it won't concatenate right with [code] Iterating through the rows creates a Series object, which is different from a DataFrame object, so it makes sense that it won't concatenate properly. Anyways, I'm looking for some method to be able to accomplish what the above pseudocode should."
+ },
+ {
+  "id": "T11433",
+  "title": "How to modify and save already opened Excel file",
+  "tags": [
+   "python",
+   "openpyxl"
+  ],
+  "body": "I have Python script which use data from a [code] file and also write to this file. I'm looking for a solution how to proceed script and keep open a [code] file. Description: User has opened [code] Start Python script which reads, writes and saves data to [code] After the script finishes, the user sees the updated [code] [CODE] I'm useing openpyxl to manage [code] file and if I save it [code] I get this error: [CODE]"
+ },
+ {
+  "id": "T11434",
+  "title": "Iterate over rows and update column values based on conditions in Python Pandas DataFrame",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "numpy"
+  ],
+  "body": "I have database for the changes made for given issue Id at any given date . The values in changed_parameter are the parameters for which the changes were made . Its old value and new value for the changed parameter are updated in old_value new_value columns respectively Issue_Id Due_Date status estimation_hour changed_date changed_parameter old_value new_value 101 1/31/2023 closed 40 1/10/2023 status Defined Accepted 101 1/31/2023 closed 40 1/15/2023 estimation_hour 0 20 101 1/31/2023 closed 40 1/16/2023 estimation_hour 20 30 101 1/31/2023 closed 40 1/16/2023 Due_Date 1/20/2023 1/31/2023 101 1/31/2023 closed 40 1/20/2023 status Accepted InProgress 101 1/31/2023 closed 40 1/25/2023 estimation_hour 30 40 101 1/31/2023 closed 40 1/30/2023 status InProgress Closed 102 2/28/2023 closed 50 1/10/2023 status Defined Accepted 102 2/28/2023 closed 50 1/15/2023 estimation_hour 0 30 102 2/28/2023 closed 50 1/20/2023 status Accepted InProgress 102 2/28/2023 closed 50 1/25/2023 estimation_hour 30 50 102 2/28/2023 closed 50 1/30/2023 status InProgress Closed So now I have to create a snapshot of the issues id at changed dates based on above data So my final table should look like this Issue_Id Due_Date status estimation_hour changed_date changed_parameter old_value new_value 101 1/20/2023 Accepted 0 1/10/2023 status Defined Accepted 101 1/20/2023 Accepted 20 1/15/2023 estimation_hour 0 20 101"
+ },
+ {
+  "id": "T11435",
+  "title": "pyenv fails to install tkinter with python3.11+ on MacOS",
+  "tags": [
+   "python",
+   "macos",
+   "tkinter",
+   "homebrew",
+   "pyenv"
+  ],
+  "body": "So I ran into this issue about a year ago, but the app I was writing didn't depend on anything in 3.11 or higher specifically so I was okay just running on 3.10.14. Unfortunately, Apple decided to release MacOS15 Sequoia and now 3.10 tkinter just refuses to load some tk widgets on my app so I'm now forced to refactor everything for a newer version of python. This is where I run into the issue with pyenv is failing to install tkinter into any version of python later than 3.10. The steps I'm following to get tk are the following: [CODE] and then I get this output for the last install command: [CODE] This happens for 3.11, 3.12 and 3.13 with the exact same error message I am pretty sure that I have setup all my pathing and env variables correct although this should not required any more for tkinter per Unable to install tkinter with pyenv Pythons on MacOS : [CODE] I've also already attempted this fix: https://github.com/pyenv/pyenv/issues/3041 but it hasn't resolved my issue nor any of the related pages referenced in there. I'm at a loss... NOTE: username in all outputs was manually changed to $USER on this post for security purposes EDIT: I get the same error if do: [CODE] instead of [code]"
+ },
+ {
+  "id": "T11436",
+  "title": "Error Message in regards to Python code in databricks",
+  "tags": [
+   "python",
+   "pyspark"
+  ],
+  "body": "Trying to analyze tables in databricks for work, and I keep getting the same error message. [CODE] As soon as I add the filters for my tableA, I keep getting this error message py4j.Py4JException: Method or([class java.lang.String]) does not exist. Any help would be appreciated."
+ },
+ {
+  "id": "T11437",
+  "title": "Difference between pandas &lt;NA&gt; and NaN for numeric columns",
+  "tags": [
+   "python",
+   "pandas",
+   "numpy",
+   "null",
+   "na"
+  ],
+  "body": "I have a data frame column as float64 full of [code] values, If I cast it again to float64 they got substituted for [code] values which are not the same. I know that the [code] values are [code] , while [code] values are [code] , so they are different things. So why casting an already float64 column to float64 changed [code] to [code] ? Here's an example: [CODE] it seems [code] and [code] are two different things. And [code] (np.nan) is the null value for [code] while [code] (pd.NA) is the null for [code] Is this correct? And if so, what's under the hoods?"
+ },
+ {
+  "id": "T11438",
+  "title": "newline is missing after the result of &quot;\\n&quot;.join(list) inserted into cells using openpyxl",
+  "tags": [
+   "python",
+   "beautifulsoup",
+   "openpyxl"
+  ],
+  "body": "I am using [code] and [code] to get some web links; My code is; Use [code] to get the [code] of a tag, and append them to a list use [code] to concatenate the multiple web links of the list to a string joining with [code] insert that concatenated string to a cell I am confused, don't know what happened. Here is a reproducible example, [CODE]"
+ },
+ {
+  "id": "T11439",
+  "title": "Why does asyncio.gather() not cancel pending tasks when one task fails?",
+  "tags": [
+   "python",
+   "python-asyncio",
+   "coroutine"
+  ],
+  "body": "I'm using [code] to run multiple coroutines in parallel. When one coroutine raises an exception, I expect the remaining tasks to be cancelled. However, they continue running. [CODE]"
+ },
+ {
+  "id": "T11440",
+  "title": "Why does spotify give me a 403 error when trying to create a playlist?",
+  "tags": [
+   "python",
+   "spotify",
+   "spotipy"
+  ],
+  "body": "I have this error when I am trying to create a playlist using my account. When I try to launch the code with the command [code] it gives me this error: [CODE] This is my code: [CODE]"
+ },
+ {
+  "id": "T11441",
+  "title": "Looping through a list of functions in python:",
+  "tags": [
+   "python"
+  ],
+  "body": "The following code works perfectly for function df.max(axis=1) as shown below. Please see Passing a function method into a class in python: for background. [CODE] I would like to generalize this by looping through a list of functions. My attempt below fails: [CODE] Any comments or suggestions appreciated."
+ },
+ {
+  "id": "T11442",
+  "title": "How to estimate standard deviation in images with speckle noise?",
+  "tags": [
+   "python",
+   "math",
+   "image-processing",
+   "statistics",
+   "noise"
+  ],
+  "body": "I am using this function that I found on the web, to add speckle noise to images for research purposes: [CODE] My issue is that I want to estimate/define the speckle noise I add as a standard deviation(sigma) parameter, and this function that I found depends on the gamma distribution or random.gamma() which it depends on the k,theta(shape,scale) parameters, which you can see in the gamma pdf equation down below: according to my knowledge, the variance can be calculated in gamma distribution as follows: so standard deviation or sigma is equivalent to: I want to add speckle noise as sigma dependent, so am saying there should be a way to estimate that sigma from k,theta(shape,scale) that we make the input with, so the speckle_adding() function would look like something like this: [CODE] edited : for the answer in the comments : [CODE] thanks sir for your help, but i really understand why k,theta values changes each time i change values of mean while sigma is constant, i think it must not changes??"
+ },
+ {
+  "id": "T11443",
+  "title": "Why does python allow for multiple methods with the same name",
+  "tags": [
+   "python"
+  ],
+  "body": "Python does not allow overloading. I therefore expect it to only allow a single class method with the same name. This is not the case. This code runs without issue. [CODE] This code produces a TypeError about the wrong number of supplied parameters. [CODE] Calling dir(test) shows me that there is only 1 _generate_thing method. But why am I allowed to define it twice and how did it choose which one to use?"
+ },
+ {
+  "id": "T11444",
+  "title": "How to pair the items from 2 lists?",
+  "tags": [
+   "python",
+   "list",
+   "for-loop"
+  ],
+  "body": "CODE: [CODE] RESULT: [CODE] I want to generate the result as: [CODE]"
+ },
+ {
+  "id": "T11445",
+  "title": "pdfplumber only extracting the first row of data of every page in 300+ page document",
+  "tags": [
+   "python",
+   "extract",
+   "pdfplumber"
+  ],
+  "body": "I'm trying to extract all the rows of data from the following pdf: https://www.seguridadaerea.gob.es/sites/default/files/aeronaves_inscritas.pdf I've written a Python script that uses the [code] library to try and extract the data. I've cropped the page so that its only focusing on the rows of data and not all the header/footer info. The script is shown below: [CODE] The issue I'm having with the script is that it's only extracting the first line of every page and I just can't work out why. Can anyone help me work out why? I've tried using other pdf extraction libraries in Python but they don't seem to extract the rows of data very cleanly as [code] does."
+ },
+ {
+  "id": "T11446",
+  "title": "Trying to add data to Postgresql database using psycopg2",
+  "tags": [
+   "python",
+   "django",
+   "postgresql",
+   "psycopg2"
+  ],
+  "body": "I was able to create the script to add data straight into Postgresql table. The only problem is ManyToManyFields. While I'm able to add the data, I am not able to link to the ManyToMany. Here is my [code] [CODE] In another file, I created another code to add information into the database: [CODE] I know that I can manually link items if I am using [code] . But, is there a way to add a [code] and connect it with the proper [code] ? Thanks in advance."
+ },
+ {
+  "id": "T11447",
+  "title": "What is required in my code to make my scatter_matrix appear?",
+  "tags": [
+   "python",
+   "pandas",
+   "plot",
+   "scatter-matrix"
+  ],
+  "body": "I'm just getting into some basic machine learning and I'm trying to graph out my data points with pandas.plotting.scatter_matrix. However, whenever I put in the code for it, nothing shows up so I'm not sure what I'm missing in my code. [CODE] I copied this code from online to make sure it wasn't just a problem with my code, and it still doesn't work and all it says is \"Process finished with exit code 0\" and nothing is displayed on when I run it. I am running the program on pycharm, not sure if that changes anything. Thanks in advance!"
+ },
+ {
+  "id": "T11448",
+  "title": "Identifying minor swings with major swings - Price charts",
+  "tags": [
+   "python",
+   "trading",
+   "algorithmic-trading",
+   "candlestick-chart",
+   "backtrader"
+  ],
+  "body": "I am developing a stock analysis program in Python One of the fundamental things I need to is to recognise swings from price feed (open, high, low, close data) Price data is fractal by nature - smaller structures are found within larger structures. In my case I am looking for small swings within large swings. I.e. minor swings within major swings. The above example chart depicts my goal. A few definitions to get out of the way. Each swing is made of two legs / parts - impulse leg and reaction leg Impulse leg will be in the direction of flow of the the market Reaction leg is against the direction of the impulse Both impulse and reaction legs can be either up or down depending on the flow of the market Below models illustrate this definition. If there is no direction in the price, its known to be a ranging market The next important definition is the understanding of highs and low. A new high confirms a new low while a new low confirms a new high This is illustrated by the below model The below is how I have approached the matter in Python [CODE] For simplicity I will be passing a flattened 1d [code] array into the above function. [code] helps be identify where pivots are. I.e. identfies where the price turns. I am wondering how I could find the nesting of pivots to form minor and major swings. I am looking to produce a list that loosely resembles this structure. [CODE] Sample dat"
+ },
+ {
+  "id": "T11449",
+  "title": "Pyproject.toml: declare a Github artifact as build dependency",
+  "tags": [
+   "python",
+   "github",
+   "python-wheel",
+   "pyproject.toml"
+  ],
+  "body": "I wrote pybind11 bindings for my C++ library Uno and I'd like to distribute the Python package. Uno has as (optional) dependency BQPD, written in Fortran, that is only available as precompiled static library. There's about 50 artifacts to choose from, depending on the OS/architecture/instruction set. BQPD declares an undefined symbol that should be defined by the calling library, so (I've been told) it's not an option to generate shared libraries that could be detected via dynamic loading. My goal is to link the static BQPD library. Is there any way in my pyproject.toml to declare BQPD as dependency? I know we can use Github repos , but what about Github artifacts? Thanks, Charlie"
+ },
+ {
+  "id": "T11450",
+  "title": "How to simply YAML file",
+  "tags": [
+   "python",
+   "python-2.7",
+   "yaml",
+   "pyyaml"
+  ],
+  "body": "I have some repeated key, values in my yaml file. [CODE] I read this yaml in my python application to get the URL. Is there a way to simplify this yaml using variables so that I don't repeat the urls and keys in all environment"
+ },
+ {
+  "id": "T11451",
+  "title": "How do I save custom functions and parameters in PyTorch?",
+  "tags": [
+   "python",
+   "pytorch"
+  ],
+  "body": "Firstly, the network function is defined： [CODE] Then update the function parameters by training [CODE] Finally, the function is saved and loaded for prediction [CODE] The prediction results show that the updated parameters W and b are not saved and loaded. What is the correct way to save custom functions and updated parameters ?"
+ },
+ {
+  "id": "T11452",
+  "title": "Adding code into another window in tkinter",
+  "tags": [
+   "python",
+   "tkinter"
+  ],
+  "body": "I have managed to create a new GUI (zoom_menu), but when I open it, it does not have any code. How do I insert all of the code below into the new GUI? [CODE]"
+ },
+ {
+  "id": "T11453",
+  "title": "Llama_cookbook: why are labels not shifted for CausalLM?",
+  "tags": [
+   "python",
+   "large-language-model",
+   "llama",
+   "attention-model",
+   "fine-tuning"
+  ],
+  "body": "I'm studying the llama_cookbok repo, in particular their finetuning example . This example uses [code] model and [code] (input: dialog, output: summary). Now, looking at how they process the dataset , if we look at the \"labels\" part: For prompt tokens, every label is [code] For summary tokens, we have [code] Code: [CODE] I also see this when printing the actual samples with the Dataloader they create (Note: if you want to reproduce the behavior, you'll have to change the path to the dataset to [code] in the package internals; or maybe use a different dataset): [CODE] Why is the summary part correct? I thought that for [code] we must have [code] for every label we want to predict."
+ },
+ {
+  "id": "T11454",
+  "title": "SSL certificate issues with certificate generated by python script and used in mosquitto",
+  "tags": [
+   "python",
+   "ssl",
+   "mosquitto"
+  ],
+  "body": "I am trying to use ssl with mosquitto. I am generating certificate with python script: [CODE] then I am trying to use them in a virtual machine (debian12 on hyperv) [CODE] then when I do [CODE] I have the following error: [CODE] COMMON_NAME are probably wrong but I am not sure what I should use"
+ },
+ {
+  "id": "T11455",
+  "title": "How does BaseHTTPRequestHandler send HTTP headers and JSON response body in Python?",
+  "tags": [
+   "python",
+   "json",
+   "rest",
+   "server",
+   "web-development-server"
+  ],
+  "body": "I am learning backend development and REST APIs. I created a very small HTTP server in Python using [code] . Here is my code: [CODE] When I test it with: [CODE] I get a response like this: [CODE] And the body is: [CODE] I understand that: [CODE] sets the HTTP status code, [CODE] adds headers, and [CODE] writes the response body. But I am confused about the exact order and internal flow. My questions are: Does [code] immediately send data to the client, or does it store the status line temporarily? Are headers actually sent only when [code] is called? Why do we need to encode JSON using [code] before writing it? Why does the response show [code] even though I am using [code] and the request says [code] ? Is this similar to what frameworks like FastAPI do internally, but with more abstraction? I am trying to understand the low-level HTTP response flow before moving to FastAPI. What is the correct way to think about this process?"
+ },
+ {
+  "id": "T11456",
+  "title": "Add text on image in python",
+  "tags": [
+   "python",
+   "python-imaging-library"
+  ],
+  "body": "I am creating barcodes in python using Barcode library like the following: [CODE] Now in the items list we have dictionaries which consists of two parts [code] and [code] . how can I add the name in the image created by ImageWriter? I tried: [CODE] But the text add is way too small and have totally different font from the one in the barcode. Something like this"
+ },
+ {
+  "id": "T11457",
+  "title": "How to add authentication to a Django custom admin view?",
+  "tags": [
+   "python",
+   "django",
+   "django-models",
+   "django-views",
+   "django-admin-actions"
+  ],
+  "body": "I created a custom admin view in django for one of the models. But the url is available to anyone who is not logged in. I want only the staff user to be able to access the url. [CODE] I tried adding the [code] decorator but there is an error message saying [code]"
+ },
+ {
+  "id": "T11458",
+  "title": "Cython unable to properly access data from file containing shared data in python",
+  "tags": [
+   "python",
+   "numpy",
+   "class",
+   "cython"
+  ],
+  "body": "I have two Cython functions that access data from a shared class in python both functions use the same method to gather the data from the class but only one works. Function 1 (gathers data without any problems) [CODE] Function 2 (WeightVals.Weights returns a [] even though no modifications to the list have been made) [CODE] I've tried allocating weights just to the \"back_propagate\" function and edited the imports [CODE] I expected WeightVals to have the value of whatever the weights are but it returns an empty list."
+ },
+ {
+  "id": "T11459",
+  "title": "Why I am unable to close the A Tkinter frame and create another one?",
+  "tags": [
+   "python",
+   "tkinter"
+  ],
+  "body": "I made this tkinter app: [CODE] I am implementing a wizard that allows me to select a value from aggregate. My issue is when I click [code] Button I get this: Annd frame is not destroyed properly. How I can fix this?"
+ },
+ {
+  "id": "T11460",
+  "title": "TypeError: argument 1 must be pygame.surface.Surface, not str",
+  "tags": [
+   "python",
+   "compiler-errors",
+   "pygame"
+  ],
+  "body": "I keep getting this error message when trying to run my code in pygame, it allows me to open to window but when I try to input a direction key it gives me this error code. [CODE] it is giving the error for the code [code] which is under the elif right statement, but I imagine that it will have the same issue under the if left statement since they are identical [CODE] in a other project I have practically identical code and it runs perfectly fine, I've compared the two projects to see any differences but I can not find a solution, I am newer to pygame and coding in general so I appreciate any help I can get. the definition of walk left is the sprite animation for walking left, and it is all one line. [CODE]"
+ },
+ {
+  "id": "T11461",
+  "title": "AWS Glue python script create multiple files of a specific size not working",
+  "tags": [
+   "python",
+   "amazon-s3",
+   "aws-glue"
+  ],
+  "body": "I have below [code] script where currently it generates several gz files with size [code] in [code] . Its bydeafult what [code] has created. But now i want to create multiple files of specific size around [code] in [code] . I have tried below logic in python script but it did not work and still creates several gz files with size [code] . [CODE]"
+ },
+ {
+  "id": "T11462",
+  "title": "AWS preassigned url as eks token is giving unauthorized",
+  "tags": [
+   "python",
+   "amazon-web-services",
+   "kubernetes",
+   "authorization",
+   "amazon-eks"
+  ],
+  "body": "I am using below code to interact with EKS apiserver with preassigned url created with my service account credentials. But it's giving unauthorized: [CODE] I just want to create eks token so that I can use that to communicate with eks cluster. And here I don't want to use aws cli. This is the error response: kubernetes.client.exceptions.ApiException: (401) Reason: Unauthorized HTTP response headers: HTTPHeaderDict({'Audit-Id': '<audit_id>', 'Cache-Control': 'no-cache, private', 'Content-Type': 'application/json', 'Date': 'Wed, 31 Jan 2024 11:09:47 GMT', 'Content-Length': '129'}) HTTP response body: {\"kind\":\"Status\",\"apiVersion\":\"v1\",\"metadata\":{},\"status\":\"Failure\",\"message\":\"Unauthorized\",\"reason\":\"Unauthorized\",\"code\":401}"
+ },
+ {
+  "id": "T11463",
+  "title": "Why do i get &quot;maximum recursion depth exceeded&quot; in my code for the Collatz sequence?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "collatz"
+  ],
+  "body": "Just started learning Python from Automate the Boring Stuff and would like some clarity about why this specific code I made for Chapter 4 Collatz Sequence doesn't work, but this other code does. I'm having issues understanding how the code is called and why it seems for my code I get an error of maximum recursion depth exceeded. I will post the other code that is correct, so can anyone explain the difference between both codes? Is there any way to modify my code so it works, or do I have to do what the other code says where I need to define the function and the while loop can't be inside the function? Because to me that's what seems like what the issue is. My code: [CODE] Correct code: [CODE]"
+ },
+ {
+  "id": "T11464",
+  "title": "Python can&#39;t display data on widgets from inside on_message websocket function",
+  "tags": [
+   "python",
+   "websocket"
+  ],
+  "body": "I was successfull retrieving data and displaying it using print but somehow I am unable to load it into a table widget. self.ui.tableWidget.setItem ( 0, 1, QTableWidgetItem(current_price)) and self.ui.tableWidget.setItem ( 1, 1, QTableWidgetItem(current_price)) don´t display data. I don't know if I am doing something wrong , I just started with python and websockets [CODE] I don,t know what to try , I am stuck"
+ },
+ {
+  "id": "T11465",
+  "title": "Problem installing GeoIP on my NetHunter with pip 23.3 an python 3.11.6",
+  "tags": [
+   "python",
+   "python-3.x",
+   "pip"
+  ],
+  "body": "When I am going to install the GeoIP package I have this problem [CODE] I tried to install the GeoIP on my no rooted NetHunter phone and I get an error. My requirements: pip 23.3 python 3.11.6"
+ },
+ {
+  "id": "T11466",
+  "title": "Unable to acquire impersonated credentials",
+  "tags": [
+   "python",
+   "google-cloud-platform",
+   "google-iam",
+   "google-cloud-iam"
+  ],
+  "body": "Im trying to generate signed urls, so i followed the official guide but im getting this error: [CODE] I have done: Enable the Service Account Credentials API Create a Service Account and grant Storage Object User role and Service Account Token Creator role. Set up authentication for Cloud Storage and Service account impersonation [CODE] Run the example code [CODE] I also checked the assigned permissions of Service Account Token Creator UPDATE: I tried a more minimal case: [CODE] And i get this error: [CODE] The bucket exists and there is no typo error"
+ },
+ {
+  "id": "T11467",
+  "title": "Finding the right exception in python",
+  "tags": [
+   "python"
+  ],
+  "body": "[CODE] Here is a list of all the exceptions in python https://www.pythonforbeginners.com/error-handling/pythons-built-in-exceptions"
+ },
+ {
+  "id": "T11468",
+  "title": "Showing two model in same page Django",
+  "tags": [
+   "python",
+   "django",
+   "django-models",
+   "django-views",
+   "django-queryset"
+  ],
+  "body": "I have two models: [CODE] I want to show both of them in my home.html [CODE] url.py [CODE] ] I'm new to django and not sure how to show case two model in one template. I did put the post.body and other tags in my html but it not showing the About me part."
+ },
+ {
+  "id": "T11469",
+  "title": "How Do Machine Learning Algorithms Improve Accuracy Over Time?",
+  "tags": [
+   "javascript",
+   "python",
+   "java",
+   "tensorflow",
+   "scikit-learn"
+  ],
+  "body": "I recently started learning Python and machine learning. I noticed that many developers use libraries like TensorFlow and Scikit-learn for predictive modeling. What are the main advantages of using supervised learning algorithms compared to unsupervised learning algorithms in real-world applications?"
+ },
+ {
+  "id": "T11470",
+  "title": "What is the documented behaviour (if any) when someone imports `pkg.__init__[ as pkg]` instead of `import pkg`?",
+  "tags": [
+   "python",
+   "python-import",
+   "python-packaging",
+   "cpython",
+   "python-internals"
+  ],
+  "body": "To be clear, I'm not suggesting anyone actually should [code] directly. This is to understand potential pitfalls if someone decides to convert a module-only distribution into a package, because the current typing specifications cannot bundle static typing information with module-only distributions . So, when someone converts [CODE] into [CODE] a third party user can do this: [CODE] I'm already aware of the following if you [code] : Both [code] and [code] appear in [code] . [code] runs twice , and Python will create a different module object in each run. So [code] and most objects defined directly within [code] will not compare identity across these 2 versions of the module. I'm looking for other differences that would make [code] behave differently to [code] (e.g., differences in available [code] names, differences in behaviour of relative imports). I can't seem to find any (let alone official) references on this. If the answer is the obvious \" [code] is not actually special, treat it as any other named [code] file\", I'm happy with that as an answer. If an answer specific to CPython can be found in its source code, that would also be helpful. (I'm not looking for alternatives to package typing information, such as distributing a single [code] stub and/or publishing to typeshed - I already know of such alternatives.)"
+ },
+ {
+  "id": "T11471",
+  "title": "Typing a restricted wrapper of isinstance",
+  "tags": [
+   "python",
+   "python-3.x",
+   "pycharm",
+   "python-typing",
+   "advice"
+  ],
+  "body": "I have a function [code] currently implemented as such [CODE] Where [code] is a class that has multiple child classes. The function's first argument [code] is supposed to behave like a restricted ininstance wrapper, that is [code] can be a subclass of [code] or a tuple of subclasses of [code] . The function should return a pair of values: A list whose elements are instances of the type or types passed into [code] ; And the final token encountered(this value isn't particularly relevant to this question). The exact implementation of [code] shouldn't matter, but in the event it does, the function can be found at this github repository. The issue I'm having is pycharm says [code] is correct, but gives a typing error for [code] so clearly the type hints I provided are incorrect. The error description is [CODE] Any help would be appreciated."
+ },
+ {
+  "id": "T11472",
+  "title": "Does file_obj.close() nicely close file objects in other modules that have been set equal to file_obj?",
+  "tags": [
+   "python",
+   "module",
+   "global-variables",
+   "text-files"
+  ],
+  "body": "I have a file [code] that creates a global variable [code] by opening a text file and imports a module [code] which has functions that write to this file and therefore also has a global variable [code] which I set equal to [code] in [code] : main_file.py [CODE] imported_module.py [CODE] If I close [code] in [code] as above, does this also nicely close [code] in [code] ? (In the MRE above, I could add [code] to [code] just to be sure. However, a generalization of this explicit approach does not appear possible if [code] imports a second module [code] which also has a global variable [code] and sets this variable to its own copy of [code] with a command like [code] .)"
+ },
+ {
+  "id": "T11473",
+  "title": "Why is this function not returning the list of values?",
+  "tags": [
+   "python",
+   "linked-list"
+  ],
+  "body": "By printing the array \"total\", I can see that the values are appending correctly. And yet when I print(linked_list_values(a)), it returns None. [CODE]"
+ },
+ {
+  "id": "T11474",
+  "title": "Throttle keypresses in pygame",
+  "tags": [
+   "python",
+   "pygame"
+  ],
+  "body": "I was recently coding a platformer game, when I faced into a problem: The user could spam space to jump infinitely. Here is my code: [CODE] I tried several things, such as implementing a [code] boolean, set to [code] , at the [code] method that turns into [code] when the space key is pressed, and then turns [code] again after the jump method, or turning the [code] method into a coroutine to make an asyncio loop, but none of them worked."
+ },
+ {
+  "id": "T11475",
+  "title": "How use more indexed in an array 2D?",
+  "tags": [
+   "python",
+   "arrays"
+  ],
+  "body": "I´m trying to simplify my script using more indices for array; however, always get an IndexError. This is part of my script: [CODE] Well, I think that these lines could be more simplified. For example, using: [CODE] Where the y-axis has the range 0-9; however, when I tried to made that I have the error: [CODE] I understand the error partially; however, my question for this post is: Is there a way to fix that problem to use in one line the ...[1,2]set_ylim...? Or there is no way to do that?"
+ },
+ {
+  "id": "T11476",
+  "title": "Trying to find Mantissa in IEEE 754 in python",
+  "tags": [
+   "python",
+   "ieee-754"
+  ],
+  "body": "I am having a conceptual issue trying to understand IEEE-754 mantissa. I used the following code to extract the mantissa from a float. [CODE] However when I process this in a value like [code] I get [code] If I use the code below to perform the mathematical conversion from base 10 to base 2, I get a different value [CODE] [code] Should these numbers be the same? Even ignoring the decimal location they are not the same. value extracted by packing bytes: [code] mathematical value: [code]"
+ },
+ {
+  "id": "T11477",
+  "title": "Jinja templating with recursive in dict doesn&#39;t works",
+  "tags": [
+   "python",
+   "dictionary",
+   "recursion",
+   "jinja2"
+  ],
+  "body": "I'm stuck in a Jinja implementation problem. Here is my little python script: [CODE] And here is my template for jinja: [CODE] The execution returns this error: [CODE] As the [code] value of first loop is [code] , it must work, but it doesn't. Is Jinja unable to recursively loop in dictionaries ?"
+ },
+ {
+  "id": "T11478",
+  "title": "stored updates or inserts in sqlite",
+  "tags": [
+   "python",
+   "sqlite",
+   "pyodbc"
+  ],
+  "body": "I saw this question here Run the query saved in MS Access with required parameters through Pyodbc? and wonder if this is also possible with a sqlite database and stored insert or update queries."
+ },
+ {
+  "id": "T11479",
+  "title": "My fastapi app getting crushed on production server but also working on localhost",
+  "tags": [
+   "python",
+   "python-3.x",
+   "fastapi"
+  ],
+  "body": "After every one or two hours my fastapi app getting crushed. I can see those log from my server. [CODE] I have others python app running on my server without any issue. After every one or two hour my fastapi app getting crushed. here is my database.py code [CODE] main.py [CODE]"
+ },
+ {
+  "id": "T11480",
+  "title": "error extra data reading json file in python",
+  "tags": [
+   "python",
+   "json"
+  ],
+  "body": "I want to read a json format file in python like the following code: [CODE] and the format of data in json file is like the following: [CODE] however I just get the following error: [CODE]"
+ },
+ {
+  "id": "T11481",
+  "title": "Is it possible to take arbitrary number of elements from array in PySpark?",
+  "tags": [
+   "python",
+   "apache-spark",
+   "pyspark"
+  ],
+  "body": "My dataframe has two array columns. I want to take elements from first column whose indices are in the second column. For example, I have the following dataset [CODE] So I want to have columns with value `['0', '2', '4]. Is it possible to achieve this without writingUDF?"
+ },
+ {
+  "id": "T11482",
+  "title": "How to get Tkinter and Pygame windows to run at the same time?",
+  "tags": [
+   "python",
+   "tkinter",
+   "pygame"
+  ],
+  "body": "I've looked up on Internet but what I found doesn't really apply to my problem specifically I'm trying to make a game. There's a menu, made with Tkinter, with a \"Start\" button that closes this window and opens a Pygame window to run the actual game. When the game ends I'd like the Pygame window to stay open while a Tkinter window with a \"Back to menu\" button opens. Pressing this button would close the two windows and reopen the menu window. To run simultaneously a Pygame and a Tkinter loop, I'm using the multiprocess module I've written a code to achieve this, but I keep getting this error when clicking \"Back to menu\" : [CODE] I've come up with a (very ugly) minimal reproductible example (the \"game\" ends when we click the cross of the Pygame window) : [CODE] How could I fix this ? Is even multiprocessing the best way to get my problem solved ?"
+ },
+ {
+  "id": "T11483",
+  "title": "Azure databricks PySpark custom UDF ModuleNotFoundError: No module named",
+  "tags": [
+   "python",
+   "pyspark",
+   "databricks",
+   "azure-databricks"
+  ],
+  "body": "I was checking this SO but none of the solutions helped PySpark custom UDF ModuleNotFoundError: No module named I have the current repo on azure databricks: [CODE] On the [code] notebook I have this [CODE] On the [code] I have a function called basic_clean that will run something like this: [CODE] When I do [code] on the [code] notebook, I get this error message: [CODE] Shouldnt the imports work? Why is this an issue?"
+ },
+ {
+  "id": "T11484",
+  "title": "PNG image to vector graphic conversion method with recognition of 1px lines?",
+  "tags": [
+   "python",
+   "opencv",
+   "vector-graphics",
+   "potrace"
+  ],
+  "body": "I am trying to find a way to convert a .png image with 1px lines to a vector file. The issue I am having is that my approaches are very inconsistent due to the thin lines I am trying to recognize. One idea was to use potrace, but I get very blobby results. The other was to use OpenCV, with the result that OpenCV does not recognize all lines. An example file I am trying to convert is this: https://geoservices.bayern.de/od/wms/alkis/v1/parzellarkarte?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=by_alkis_parzellarkarte_umr_schwarz&STYLES=&FORMAT=image/jpeg&CRS=EPSG:4326&BBOX=48.140000,11.560000,48.145000,11.565000&WIDTH=2048&HEIGHT=2048 Is there any other way to convert this to a vector file automatically? i gave opencv another try and made it much further: [CODE] but now i am struggling with the way pixels are represented: source: result: any idea how i could make these lines straight lines? Thanks a lot!!"
+ },
+ {
+  "id": "T11485",
+  "title": "AttributeError when Initializing a Custom Decoder Class in TensorFlow with Non-Default Tokenizer",
+  "tags": [
+   "python",
+   "python-3.x",
+   "tensorflow",
+   "nlp",
+   "huggingface-transformers"
+  ],
+  "body": "I'm encountering an AttributeError while trying to create an instance of a Decoder class in Python with TensorFlow. The error message I'm getting is as follows: [CODE] I suspect that the error is related to the usage of the [code] layer, which expects a 'size' attribute in the vocabulary. However, I'm not using the default TensorFlow tokenizer; I'm using the RobertaTokenizer from the Transformers library. I tried manually adding variable to tokenizer but it doesnot work. This code is adapted from the NNCourse , and I've made some modifications to it. Here is my decoder code: [CODE] Specs: Python = 3.8 tensorflow = 2.14.0 transformers = 4.34.0"
+ },
+ {
+  "id": "T11486",
+  "title": "how to remove duplicate entries from json file using python?",
+  "tags": [
+   "python",
+   "json",
+   "python-3.x"
+  ],
+  "body": "How to remove duplicate entries from a JSON file using python? I have a JSON file that looks like this: appreciate some one can help to provide a solution for fixing it [CODE] I would like to remove duplicate entries from the list and expected result should be looks like this: Appreciate you can help to provide a solution for fixing it [CODE]"
+ },
+ {
+  "id": "T11487",
+  "title": "Inceptionv4 got wrong shape from CustomDataGenerator of keras",
+  "tags": [
+   "python",
+   "tensorflow",
+   "keras",
+   "deep-learning"
+  ],
+  "body": "I'm using InceptionV4 and my data is 8-channel npy file so I create a customdatagenerator to read my file But when I training ,I got this error message [CODE] As far as I know InceptionV4 accept data shape is(batch_size, height, width, channel), in customdatagenerator I use same shape too and convert label_image to one_hot. Here is my datagenerator , and I used same datagenerator in Unet few dats ago,there isn't any problem. [CODE] [CODE] [CODE] How to fix this problem? Should I modify shape in Inceptionv4 or in customdatagenerator?"
+ },
+ {
+  "id": "T11488",
+  "title": "How to get data from nested lists recursively?",
+  "tags": [
+   "python",
+   "list",
+   "nested-lists"
+  ],
+  "body": "I have a nested array of arbitrary length and trying to retrieve data from it in the following order: items in the [code] element of the array form somewhat like a tree and as a result I should return all possible combinations with them. For example: [CODE] the result should be: [CODE] I tried loops but they do not seem a good decision. I think it should be recursion, but don't know how to apply it."
+ },
+ {
+  "id": "T11489",
+  "title": "Download Excel data using python",
+  "tags": [
+   "python"
+  ],
+  "body": "I would like to use python to download data from this link: https://go.microsoft.com/fwlink/?LinkID=521962 Then turn this data into dataframe. I don't think my code is working. Can you please help me to do it? Thank you, Hong [CODE]"
+ },
+ {
+  "id": "T11490",
+  "title": "Given a name, return a string with the message: One for X, one for me.Where X is the given name.I wote code and got error while not passing any arg",
+  "tags": [
+   "python",
+   "string"
+  ],
+  "body": "Given a name, return a string with the message: One for X, one for me. Where X is the given name. However, if the name is missing, return the string: One for you, one for me. Here are some examples: [CODE] [CODE]"
+ },
+ {
+  "id": "T11491",
+  "title": "How to convert a convolutional to a fully connected ones in PyTorch with integrated bias",
+  "tags": [
+   "python",
+   "machine-learning",
+   "pytorch"
+  ],
+  "body": "How to add a bias to the Toepletiz matrix? The following approach just shows how to convert the kernel matrix such that [CODE] But I want something like [CODE]"
+ },
+ {
+  "id": "T11492",
+  "title": "Failed loading libmpg123-0.dll",
+  "tags": [
+   "python",
+   "linux",
+   "vs-code",
+   "raspberry-pi"
+  ],
+  "body": "I am making a python mp3 player for fun (I'm 12 don't judge the code) and I get this error: [CODE] How do I fix it? I tried re-installing pygame but it did not help. I also Re-installed python and tried to get the Github Copilot to help. I'm using vscode. Is it my windows or vscode? anything helps What else should I try? My code: [CODE] Also does anyone have any screen recommendations for raspberry pi? And also a row of four buttons or like a ipod click wheel thing? I'm trying to make a raspberry pi mp3 player using my old raspberry pi3.I'm in NZ so only things I can get here."
+ },
+ {
+  "id": "T11493",
+  "title": "I can`t find my problem in a Tkinter Python code",
+  "tags": [
+   "python",
+   "tkinter"
+  ],
+  "body": "Hey, I am an student and have the exersice to put the following choosing-menu in a tkinter GUI interface. I have started coding, but I don`t find my problem! Can you help me?(This is my first question on this platform, that means, that it can be differently.) The code: [CODE] And this is my try with tkinter: [CODE] Thank you for your help and I hope you can find the problem!"
+ },
+ {
+  "id": "T11494",
+  "title": "Adding an image as background in a Tkinter Window",
+  "tags": [
+   "python",
+   "user-interface",
+   "tkinter",
+   "tkinter-canvas",
+   "tkinter-layout"
+  ],
+  "body": "I have a Python script that creates three Tkinter windows. I want to add an image as the background and display all other widgets on top of it. Can anyone suggest how to achieve this in Tkinter? [CODE] The output of the code is: I have tried putting the canvas, then the image in it, ad then other widgets in it, but that won't also work."
+ },
+ {
+  "id": "T11495",
+  "title": "Odoo 18: How to filter analytic accounts in analytic_distribution widget programmatically?",
+  "tags": [
+   "python",
+   "analytics",
+   "purchase-order",
+   "odoo-18"
+  ],
+  "body": "I'm working on Odoo 18 Enterprise and I'm struggling to filter the analytic accounts displayed in the analytic_distribution widget on purchase order lines. The Setup Model A: global.budget contains a list of allowed account.analytic.account. Model B: purchase.order has a field overall_budget_id pointing to Model A. Goal : When clicking the analytic_distribution widget on a PO line, the \"Analytic Account\" search/selection should only show accounts defined in the linked budget. The Problem In Odoo 18, the analytic_distribution widget seems to bypass standard Python hooks for searching. I have tried the following without success: What we tried Context injection in XML: [CODE] Overriding _search and name_search on account.analytic.account: I added print statements in _search and name_search to catch the filter_budget_id from context. However, these methods are never triggered when searching for an account inside the distribution widget popup. [CODE] My Question The analytic_distribution widget (which uses a specific OWL component in v18) seems to use a different RPC call or a specific route to fetch accounts. Which method should I override in Odoo 18 to filter the accounts suggested by this specific widget? Is there a specific options key in the XML to pass a domain to the sub-fields of the distribution widget? Environment: Odoo 18.0 Enterprise. Any help or pointer to the right met"
+ },
+ {
+  "id": "T11496",
+  "title": "Why doesn&#39;t my obstacle sprite appear on the screen?",
+  "tags": [
+   "python",
+   "pygame"
+  ],
+  "body": "I want the obstacle sprite, which are asteroids, to fall from the top of the screen to the bottom. I havent added any code to mess with the collisions of the asteroids, gravity, etc. because I can't even get the sprite to appear on the screen. Here is my code below (I tried using sprite classes but for me personally it made it a lot more confusing and difficult, so I chose not to.) [CODE]"
+ },
+ {
+  "id": "T11497",
+  "title": "How to download protected PDF (ViewDocument) using Selenium or requests?",
+  "tags": [
+   "python",
+   "selenium-webdriver",
+   "web-scraping",
+   "pdf",
+   "python-requests"
+  ],
+  "body": "I'm trying to download a protected PDF from the New York State Courts NYSCEF website using Python. The URL looks like this: [CODE] When I try to use [code] or even navigate to the page with Selenium, I either get: A [code] response (via [code] ) Or a blank page with no [code] tag (via Selenium) Here’s what I’ve tried: Using requests: [CODE] And using SeleniumBase: [CODE] Nothing works. Full code for reference: [CODE] Response: [CODE]"
+ },
+ {
+  "id": "T11498",
+  "title": "Removing signs from price dataset, but keeping the correct sum",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "enter image description here I have the dataset above. I use: [CODE] I get prices: 400000, 500000 etc. I need to remove the last two zeros - how can I do this?"
+ },
+ {
+  "id": "T11499",
+  "title": "How can I export an encoder-decoder PyTorch model into a single ONNX file?",
+  "tags": [
+   "python",
+   "pytorch",
+   "huggingface-transformers",
+   "onnx",
+   "machine-translation"
+  ],
+  "body": "I converted the PyTorch model [code] (HuggingFace), which is an encoder-decoder model for machine translation, to ONNX using this script: [CODE] The output folder containing the ONNX files is: [CODE] How can I export an opus-mt-fr-en PyTorch model into a single ONNX file? Having several ONNX files is an issue because: The PyTorch model shares the embedding layer with both the encoder and the decoder, and subsequently the export script above duplicates that layer to both the [code] and [code] , which is an issue as the embedding layer is large (represents ~40% of the PyTorch model size). Having both a [code] and [code] duplicates many parameters. The total size of the three ONNX files is: [code] : 346,250,804 bytes [code] : 333,594,274 bytes [code] : 198,711,098 bytes Total size = 346,250,804 + 333,594,274 + 198,711,098 = 878,556,176 bytes That’s approximately 837.57 MB , why is almost 3 times larger than the original PyTorch model (300 MB)."
+ },
+ {
+  "id": "T11500",
+  "title": "BLE: Measure Respiratory rate or breathing rate from bluetooth low energy Device",
+  "tags": [
+   "python",
+   "android",
+   "ios",
+   "bluetooth",
+   "bluetooth-lowenergy"
+  ],
+  "body": "I want a Bluetooth low energy device that measures Respiratory rate (Breathing rate) in breaths per minute. I don't see any Service or characteristic in Bluetooth SIG assigned numbers and no resources. Some article suggests to calculate it from heart rate monitor but I don't see anything that tells how to do it. Any help is appreciated."
+ },
+ {
+  "id": "T11501",
+  "title": "Pandas isn&#39;t showing all the rows I have set with max_rows",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "display"
+  ],
+  "body": "Pandas isn't showing all the rows I have specified with display.max_rows I have specified 100 rows for pandas to show using: [CODE] But when I display the DataFrame, it only shows 10 rows. I tried using [code] but it's deprecated (in the past this solved the problem). When I set the option to show all rows, they are displayed correctly. It shows these 10 rows only: [CODE] Note: The DataFrame's shape is (1460, 80). Why is [code] being ignored? How can I fix this to show exactly 100 rows?"
+ },
+ {
+  "id": "T11502",
+  "title": "How to manage delay in loading from kafka topic into table using table api in pyflink",
+  "tags": [
+   "python",
+   "join",
+   "apache-flink",
+   "pyflink",
+   "flink-table-api"
+  ],
+  "body": "i am loading data from two kafka topics into tables using table api in pyflink and going to do join operation what will happen if the data from one of the kafka topics loaded into the corresponding table with a delay? if delay happens , how can i manage? so we have tried windows and it is not working properly so the problem arises is we have to first find the delay happpen while loading data from kafka topic to table and then if the delay happen then how can we manage that delay in table api pyflink. how to find the delay and manage?"
+ },
+ {
+  "id": "T11503",
+  "title": "Create a row in a in a multiindex dataframe",
+  "tags": [
+   "python",
+   "dataframe"
+  ],
+  "body": "original DF [CODE] This is a multi index DF. Both the index and columns have two levels. What I need to do is add in a row for the Total. Example Below: Desired DF: [CODE] I tried this: [CODE] This received an error: [CODE] Any suggestions in creating the \"Total\" row in the desired DF example above? Thanks!"
+ },
+ {
+  "id": "T11504",
+  "title": "Module loading logistics failed: file logistics/security/ir.model.access.csv could not be processed:",
+  "tags": [
+   "python",
+   "exception",
+   "odoo",
+   "odoo-17"
+  ],
+  "body": "[CODE] my [code] [CODE] [code] [CODE] [code] [CODE] [code] [CODE] model names [CODE] I tried a lot of solutions like this or this but nothing works for me."
+ },
+ {
+  "id": "T11505",
+  "title": "How to save an Astropy QTable with a galactocentric skycoord to a FITS file?",
+  "tags": [
+   "python",
+   "astropy"
+  ],
+  "body": "Creating a SkyCoord object: [CODE] and attempting to put this into an Astropy QTable with other parameters: [CODE] Yet I'm getting this error: yaml.representer.RepresenterError: ('cannot represent an object', <ICRS Coordinate: (ra, dec) in deg (266.4051, -28.936175)>) which is suspicious as these are the exact coordinates of the galactic centre in the icrs frame. Any thoughts how to overcome this? I've previously done something similar but with a SkyCoord in the ICRS frame, which worked without issue. I tried converting to ICRS and saving that but it gives the same error. To obtain the error you can run this minimum reproducible example. [CODE] Results in the following output when run with astropy 7.1 Failed to write FITS: ('cannot represent an object', <ICRS Coordinate: (ra, dec) in deg (266.4051, -28.936175)>)"
+ },
+ {
+  "id": "T11506",
+  "title": "Forecasting : FB Prophet function doesn&#39;t start from last datapoint in python",
+  "tags": [
+   "python",
+   "pandas",
+   "time-series",
+   "forecasting",
+   "facebook-prophet"
+  ],
+  "body": "I've noticed that Facebook's Prophet function does a good job with forecasting. However, for my data, it never starts at the last value of [code] . As you can see in the image, the last value of [code] is 168, but the function predicts that the next value is 143. Is there a way to enable a \"cumulative\" option so that the predictions never decrease in value? [CODE]"
+ },
+ {
+  "id": "T11507",
+  "title": "How to turn off linting in ipynb notebooks?",
+  "tags": [
+   "python",
+   "vs-code",
+   "jupyter-notebook"
+  ],
+  "body": "Is it possible to turn off the squiggly underline linting in notebooks but not other (Python) scripts?"
+ },
+ {
+  "id": "T11508",
+  "title": "How to Handle Both Encoding and Decoding with Custom Error Handler in Python?",
+  "tags": [
+   "python",
+   "error-handling",
+   "encoding",
+   "decoding",
+   "codec"
+  ],
+  "body": "I'm working on a scenario where I need to handle encoding and decoding of strings using custom error handling in Python. Specifically, I want to create an error handler that can deal with both encoding and decoding exceptions. The encoding process: I have implemented a custom error handler [code] that converts characters which can't be encoded in a specified encoding to their UTF-8 hex representation. This works fine when encoding a string like [code] into an ASCII byte string, and the non-ASCII characters are replaced by their corresponding UTF-8 hex values. Here's the code I currently have: [CODE] This results in: [CODE] The question: Can I extend this [code] function to handle decoding as well? I would like to decode the byte string [code] back into the original string [code] . Specifically, I want to add an [code] branch in [code] that can catch [code] and decode the hex-encoded values back to their original characters. Is this possible with the current approach, or is there a better way to handle both encoding and decoding in this case? Any guidance or examples would be greatly appreciated!"
+ },
+ {
+  "id": "T11509",
+  "title": "Create Quadrants and annotate - seaborn scatterplot",
+  "tags": [
+   "python",
+   "matplotlib",
+   "seaborn",
+   "data-visualization"
+  ],
+  "body": "I have a seaborn scatterplot with data below. I'd like to create quadrants and annotate each quadrant with what it represents. [CODE] Is there a way to do this in seaborn / matplotlib without just adding vertical and horizontal line?"
+ },
+ {
+  "id": "T11510",
+  "title": "The chromedriver version cannot be discovered selenium python",
+  "tags": [
+   "python",
+   "selenium-webdriver"
+  ],
+  "body": "I was using the following code in selenium Python: [CODE] Everything was running fine but Suddenly I see the following error after upgrading google chrome. The chromedriver version cannot be discovered I am using selenium 4.14.0 version. How do i solve this problem?"
+ },
+ {
+  "id": "T11511",
+  "title": "Specifying local relative dependency in requirements.txt",
+  "tags": [
+   "python",
+   "pip",
+   "requirements.txt"
+  ],
+  "body": "I'd like to import a local package with a relative path in Python 3.12. When I do so I get this error: [CODE] The local package is properly set up. Project structure: [CODE] [code] : [CODE] Steps to reproduce: [CODE]"
+ },
+ {
+  "id": "T11512",
+  "title": "Why is the greyscale &amp; B&amp;W images created by Pillow giving a numpy.ndarray that has a 3D shape?",
+  "tags": [
+   "python",
+   "numpy",
+   "python-imaging-library"
+  ],
+  "body": "Input: [CODE] Output: [CODE] Question: Why is the shape of [code] not [code] or [code] ? I was expecting a 2D greyscale image but it gave a shape of [code] indicate that it is still a RGB image. Also, [code] had the same outcome. Why are they not shaped [code] ?"
+ },
+ {
+  "id": "T11513",
+  "title": "Conda proxy problem when using home wifi network",
+  "tags": [
+   "python",
+   "proxy",
+   "anaconda",
+   "http-proxy"
+  ],
+  "body": "I installed anaconda in my work laptop and used the solution in this post to solve the proxy problem encountered when using the company's wifi network to update/install packages with [code] or [code] . However, that solution (adding proxy to the condarc file) didn't work when I tried to update/install packages when using my home's wifi network. This is a typical output when trying to install packages with home network regardless of with or without proxy setting in the [code] file, or disabling the proxy in internet connection setting [CODE] Could someone please explain what happened here? Thanks."
+ },
+ {
+  "id": "T11514",
+  "title": "Generate logs as the function&#39;s caller",
+  "tags": [
+   "python"
+  ],
+  "body": "Is there a way to log messages as if they originated from the current function's caller? I have a very simple global logging facility that gets initialized by means of [code] as [CODE] All functions then use the same global logger directly by means of [CODE] Some utility functions emit logs, but it is rather unhelpful that [code] resolves to [code] , while the caller of [code] that triggered the log is the interesting part. Is there a way to log messages inside [code] so that [code] and friends automatically resolve to the caller of [code] ? Ideally, I'd decorate [code] with something to the tune of [code] ... There is [code] which seems to be purposefully designed for this, I can't deduce from the docs how it's supposed to be used, though."
+ },
+ {
+  "id": "T11515",
+  "title": "ValueError: Failed to convert a NumPy array to a Tensor (Unsupported object type list) (I have created a eclipse first)",
+  "tags": [
+   "python",
+   "numpy",
+   "tensorflow",
+   "keras",
+   "distilbert"
+  ],
+  "body": "When I'm passing freq_representation in the .predict function,its giving me error ValueError: Failed to convert a NumPy array to a Tensor (Unsupported object type list).How to solve it? (Look at the bottom half of the code). I have attached the full code,so that,people can interpret better. [CODE]"
+ },
+ {
+  "id": "T11516",
+  "title": "Qt: Replacing deprecated pos() methods",
+  "tags": [
+   "python",
+   "qt"
+  ],
+  "body": "I have a simple app (a piano keyboard which receives midi and shows which keys are pressed) with a frameless window that I can drag around with the left mouse button. This works: [CODE] But [code] is deprecated and I can't figure out what to replace it with."
+ },
+ {
+  "id": "T11517",
+  "title": "How can I add a clickable web link in html table of the python script while dealing with prettytables",
+  "tags": [
+   "python",
+   "html",
+   "hyperlink",
+   "prettytable"
+  ],
+  "body": "I am trying to add the web URL to the prettytable of python and generate this in an HTML table... As I am a Linux user, the terminal automatically detects the link present in the table but it is not in the case of HTML ... and also I am trying to use the same to generate a hyperlink in the table... but I was not able to do it as I am getting many blockages... my code to generate prettytable in python [CODE] here I am getting output as the same string as click here and I am generating the html report for this table by : [CODE] Here I cannot make a link clickable and how to make the link clickable in Html format and also how to create a hyperlink or is that possible to manipulate all the columns of the HTML table --> to make it clickable?"
+ },
+ {
+  "id": "T11518",
+  "title": "A probabilistic data structure based on flipping bits with probability `1/2^x` for counting",
+  "tags": [
+   "python",
+   "algorithm",
+   "data-structures",
+   "probability",
+   "probability-theory"
+  ],
+  "body": "How does this data structure work and what is its application? [CODE] The [code] function is a random function that returns 1 with probability [code] and 0 otherwise. I suspect that this data structure is somehow related to R. Morris's probabilistic counting algorithm. The question also mentions that this inequality might be helpful: [code] where [code] denotes the expected value. I would greatly appreciate any assistance or guidance."
+ },
+ {
+  "id": "T11519",
+  "title": "Clip a rectangle defined in epsg:4326 from a dataset with another coordinate system with rasterio",
+  "tags": [
+   "python",
+   "gis",
+   "rasterio"
+  ],
+  "body": "I'm trying \"clip\" or only load a part of a larger dataset. The coordinates of the bounds are in epsg:4326, the dataset is not. I have tried various calculations but I can't get the right window. Current code: [CODE]"
+ },
+ {
+  "id": "T11520",
+  "title": "Pandas mean() how to force export full",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "I want to ask how to force several function in pandas to export fully results for each columns although some columns are object. For example: [CODE] Here, [code] will give result of column [code] and [code] only and skip column [code] . What I want to give the result for all columns (column [code] can make it as [code] , for example). This is big problem because some function it gives results for full columns, while some are not so it creates the inconsistency when indexing for further calculation. Thank you"
+ }
+]

@@ -1,0 +1,1542 @@
+[
+ {
+  "question_id": 79918291,
+  "ym": "2026-04",
+  "creation_date": 1775038527,
+  "title": "Python treemap with first level as color and legend rather than labels",
+  "tags": [
+   "python",
+   "plotly",
+   "treemap",
+   "squarify",
+   "tooling-recommendation"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I would like to try and create treemaps in Python that look similar to these ones : First example of what I'm aiming for Second example of what I'm aiming for (These examples come from this webpage ) Or similar to what you can make in R using the treemap package : https://r-graph-gallery.com/235-treemap-with-subgroups.html What I like about those is that the colors allow to easily see the first level and its size, but only the 2nd level squares are represented. I feel it makes for easier reading than what i am currently able to make (see below) [CODE] I tried using plotly : [CODE] Treemap using plotly I don't like the style of this treemap, with the first level shown and the 2nd level smaller inside it. I would like the second level to completely fill the area of the first level. I also tried using squarify, with the color set as the first level (squarify only allows for 1 level if I understand correctly) : [CODE] Treemap using squarify What I don't like here is that the color groups are not rectangle-shaped and ordered : the elements of the group (the \"second level\") can be all over the place. It makes it harder to see which group is bigger, which for me is the point of using a multi-level treemap. What tools would you recommand to achieve a similar look ? I do not need the treemap to be interactive, I'm going to export it as a static image. I also don't care much about how th"
+ },
+ {
+  "question_id": 79918389,
+  "ym": "2026-04",
+  "creation_date": 1775048341,
+  "title": "Sklearn Pipelines, adding features and column transformers",
+  "tags": [
+   "python",
+   "scikit-learn",
+   "data-science"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm just trying out/experimenting with sklearn. I'm using the California housing dataset, and I'm trying to make a pipeline to create some additional features, then take the logarithm of some features, then scale all of the numerical features. It's pretty quick and dirty, but here's what I have so far. [CODE] After I fit my training data [code] (that seems to go fine), I try to transform my test data [code] , but it gives an error: [CODE] [CODE] It doesn't fit \"add_combo_cols\". [CODE] This prints: [CODE] I know it probably has something to do with the way I have hardcoded the columns and how [code] works and hands off the information, but I don't completely understand it or how to fix it and prevent it from happening in the future. Edit: Here's the rest of the code from data.py. [CODE]"
+ },
+ {
+  "question_id": 79918442,
+  "ym": "2026-04",
+  "creation_date": 1775053324,
+  "title": "How to validate attribute relative to another when instantiating class",
+  "tags": [
+   "python",
+   "class",
+   "validation",
+   "object"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "From this answer and similar blog posts I've used the decorator method to do data validation when creating a class. But now I need to validate one attribute relative to another. E.g.: [CODE] However this will give an error [code] I've tried [code] , [code] and [code] as well, but they all give the same attribute error. Is it possible to reference another attribute when using this validation method?"
+ },
+ {
+  "question_id": 79919189,
+  "ym": "2026-04",
+  "creation_date": 1775149179,
+  "title": "Custom PyEnvironment time_step and time_step_spec do not match",
+  "tags": [
+   "python",
+   "tensorflow",
+   "reinforcement-learning",
+   "tensorflow-agents"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm creating a custom PyEnvironment in TensorFlow Agents to simulate the track and field decathlon. I've managed to create a functioning environment in the sense that I can use [code] and [code] , but when implementing a reverb-based replay buffer, I get the following issue: [CODE] This are my specs: [CODE] This is my training script: [CODE] I know what the field types should be for each of the components of my state, I'm just not certain how to nest them appropriately so that the structures and data types of each field match. I'm assuming that it has to do with the return value of [code] or [code] , insofar as they provide the next time step. Any help would be greatly appreciated!"
+ },
+ {
+  "question_id": 79919352,
+  "ym": "2026-04",
+  "creation_date": 1775177391,
+  "title": "Exceeded max user connections in python / flask / mysql",
+  "tags": [
+   "python",
+   "mysql",
+   "flask",
+   "heroku",
+   "connection"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to run a Python / Flask / MySQL app but whenever I try to run it (using the command \"python -m flask run\"), it gives me this error: mysql.connector.errors.ProgrammingError: 1226 (42000): User [username] has exceeded the 'max_user_connections' resource (current value: 10) But I haven't even tried to make any connections yet. Since this error happened, I've tried adding try / except / else / finally blocks in my code to kill the connections, but it still doesn't work. Here is a sample of code, including my database setup: [CODE] Here is what I have tried so far to fix the problem: Increasing the \"pool size\" to be bigger than 10 Using MySQL Workbench, clicking on my database (this works) and querying \"SHOW PROCESSLIST\" and \"KILL [id]\" Restarting all dynos in my heroku dashboard Running the command \"heroku restart --app [appname]\" in visual studio code But nothing is working. How can I get the app to start running again?"
+ },
+ {
+  "question_id": 79919400,
+  "ym": "2026-04",
+  "creation_date": 1775192456,
+  "title": "Handling Unexpected Disconnects in DLMS",
+  "tags": [
+   "python",
+   "kubernetes",
+   "iot",
+   "meter",
+   "dlms"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am using the Gurux DLMS pyton client inside a Kubernetes pod to connect to a DLMS meter using HLS SHA256 authentication. The client is able to successfully establish a connection and read data from the meter under normal conditions. However, I am facing an issue after the Kubernetes pod restarts: Once the pod restarts, the client tries to reconnect to the meter. The connection attempt fails consistently. The error I receive is: \"Failed to receive reply from the device in given time.\" Is there a recommended way in Gurux to handle abrupt disconnections (e.g., pod crash/restart)?"
+ },
+ {
+  "question_id": 79919502,
+  "ym": "2026-04",
+  "creation_date": 1775208892,
+  "title": "Camera with Isaac Sim 5.1",
+  "tags": [
+   "python",
+   "camera",
+   "simulator",
+   "nvidia-isaac",
+   "omniverse"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have created an USD file with camera and other object. I also used BasicWriter to write the current image seen from the camera to the disk. It seeem that there is no way to grab the image seen from the camera, to avoid to write in the disk. In Isaac Sim 5.1, there is no omni.replicator.core.capture or similar attributes in this version. Is there another way to grab the image, without writing it on the disk?"
+ },
+ {
+  "question_id": 79919603,
+  "ym": "2026-04",
+  "creation_date": 1775219291,
+  "title": "Why does a function seem to be executed more times than the number of elements passed to np.vectorize(function)?",
+  "tags": [
+   "python",
+   "numpy"
+  ],
+  "score": 7,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am looking into numpy.vectorize . I define a function [code] , which takes an input, prints [code] , and returns the input unmodified. [CODE] When I call: [CODE] I expect to get: [CODE] However, I get: [CODE] It seems that [code] is executed twice, despite the [code] receiving a list of length 1. How do I explain the seemingly too many executions of the vectorized function? In other, words, more specific to this exact scenario: I'd like to know why I get [code] twice."
+ },
+ {
+  "question_id": 79919695,
+  "ym": "2026-04",
+  "creation_date": 1775228409,
+  "title": "Styling widgets inheriting from ttk.Frame or ttk.Labelframe - ok to add your own custom options?",
+  "tags": [
+   "python",
+   "tkinter",
+   "ttk",
+   "advice"
+  ],
+  "score": -1,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "Something I never realized about ttk styles.. You can apparently add custom options to them for whatever purpose you want. My question is... is this against any best practices? Here's a simple example: [CODE] I'm adding 4 custom options to Test.TLabelframe and using them in my TestWgt to configure the colors of the sub-widgets. It seems to work very well. Ok or no?"
+ },
+ {
+  "question_id": 79919712,
+  "ym": "2026-04",
+  "creation_date": 1775229495,
+  "title": "Why does np.vectorize(function) avoid an integer overflow which the function itself encounters when not wrapped in np.vectorize?",
+  "tags": [
+   "python",
+   "numpy"
+  ],
+  "score": 4,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I know that [code] results in [code] . I understand that [CODE] results in [code] . So, it is also not surprising that: [CODE] outputs [code] . What is more surprising however, is that [CODE] outputs: [CODE] Based on this thread , my best belief on what's going on is that [code] is called once to determine the data type of the output, an overflow is encountered (hence the warning). The output data type is determined to be [code] . [code] is called again, this time to determine the actual output, and we get [code] . It seems that somehow the input [code] is turned to [code] , and only then 80 is subtracted, so we get -40 instead of 216. I would expect the same output if I manually specify the data type of the output. So, this: [CODE] I hope would produce, according to the reasoning above, [code] . Output data type already known ( [code] ), turn the input into [code] , subtract 80, multiply by 1.0, return -40. However, I get: [CODE] So my belief presented above on what's going on is wrong. Why does [code] avoid the integer overflow which [code] and [code] do not avoid?"
+ },
+ {
+  "question_id": 79919811,
+  "ym": "2026-04",
+  "creation_date": 1775240869,
+  "title": "Why does summing a complex and a np.float64 value give a complex value instead of a np.complex128 value suggested by the Numerical promotion rules?",
+  "tags": [
+   "python",
+   "numpy",
+   "python-internals",
+   "type-promotion"
+  ],
+  "score": 3,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am reading about Numerical promotion in numpy . I copy the main graph here: Based on the graph, this explanation: The input dtype with the higher kind determines the kind of the result dtype. The result dtype has a precision as low as possible without appearing to the left of either input dtype in the diagram. and the fact that we need to choose a yellow-bordered field when combining an integral value with something else (see text in top right corner of plot), we can expect the output type of the following operations to be [code] . I tested them, the expectation is correct. [CODE] For these operations below, we can expect the result to be of type [code] (we are above the dashed line now, so no need to stick with the yellow-bordered fields). Again, expectation met. [CODE] However, it's not clear to me why [CODE] returns [code] , with type [code] . [code] is a Python scalar, not a numpy dtype. Based on the graph, I expected the result to be of type [code] . Why does summing a complex and a [code] value give a complex value instead of a [code] value? The plausible explanations I can think of now is 1) I'm doing something wrong, i.e., not testing what I think I'm testing 2) I misunderstand the graph or there is more nuance to it than I am aware of now 3) the graph is wrong (extremely unlikely)."
+ },
+ {
+  "question_id": 79919891,
+  "ym": "2026-04",
+  "creation_date": 1775250507,
+  "title": "Why does np.vectorize promotes np.uint8 elements of a 1-d array to int, but leaves types of list elements unchanged?",
+  "tags": [
+   "python",
+   "numpy"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have this Python function: [CODE] It takes a value, informs us of its type and its [code] attribute, or lack of such, and then returns the value. I wrap it using np.vectorize . I call: [CODE] This call prints: [CODE] I understand the first two lines. Before actually executing the function for every element of the input array, ie [code] , it takes the first element of it (ie [code] ), runs the function to check the output type and size. More info in this thread or in the docs . After having run the function for the first element, it iterates over all elements. So, it takes the first element again. My surprise is that now the first element is an [code] , not a [code] value, as per the third line of the above print. (This one: [code] ). Of course, no dtype exists on an int, because its not a numpy dtype, but a Python scalar (that's why the 4th line is [code] ). This behaviour does not happen when the input [code] is not the element of a [code] , but is a list or not even an iterable. These two lines below: [CODE] both result in these prints: [CODE] The third line is remarkably different compared to the case above. Why does np.vectorize promotes np.uint8 elements of a 1-d array to int, but leaves types of list elements unchanged?"
+ },
+ {
+  "question_id": 79919975,
+  "ym": "2026-04",
+  "creation_date": 1775272566,
+  "title": "Why does removing elements from a list in a for loop in Python skip values?",
+  "tags": [
+   "python",
+   "list",
+   "loops",
+   "advice"
+  ],
+  "score": -1,
+  "answer_count": 3,
+  "is_answered": false,
+  "body_excerpt": "I'm new to Python and I'm trying to write a script that removes all even numbers from a list. My logic was to loop through the list and, if a number is divisible by 2, remove it. Here is my code: [CODE] Problem: Instead of the expected [1, 5, 9], I get [1, 4, 5, 8, 9]. For some reason, the program \"skips\" some numbers (for example, 4 and 8), even though they are clearly even. What I've tried: I tested the if num % 2 == 0: condition separately; it works correctly. I noticed that if the list doesn't contain any consecutive even numbers, the code sometimes works, but I'm not sure. Can you please tell me why the iteration is behaving so strangely and how to properly remove elements from the list without crashing the loop? Thanks in advance!"
+ },
+ {
+  "question_id": 79920096,
+  "ym": "2026-04",
+  "creation_date": 1775303403,
+  "title": "Wake-on-lan script working but browser jumps to 404 after execution",
+  "tags": [
+   "python",
+   "php",
+   "html",
+   "apache",
+   "wake-on-lan"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I built an HTML page on Apache that contains a python script called from PHP to wake-on-lan my domain devices. The script works fine and the devices start as designed, but after clicking on the wake-on-lan button the html page jumps to a 404 error page. Is there a way to avoid this? html snippet: [CODE] PHP code: [CODE] Python: [CODE]"
+ },
+ {
+  "question_id": 79920136,
+  "ym": "2026-04",
+  "creation_date": 1775312714,
+  "title": "python trying to plot a DFA with networkx and matplotlib",
+  "tags": [
+   "python",
+   "matplotlib",
+   "plot",
+   "networkx",
+   "dfa"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Hi I was trying to implement a plot function for a DFA class, using networkx in python. [CODE] When I make the following DFA : The plot looks like this : The edges are overlapping and it is also in an annoying shape. Does everybody know how to plot a directed multigraph in networkx such that the edges don't overlap? Thanks in advance."
+ },
+ {
+  "question_id": 79920255,
+  "ym": "2026-04",
+  "creation_date": 1775334906,
+  "title": "Querying pandas with SQL, not returning new dataframe",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to make a small application that loads CSV and parquet files into a pandas dataframe, and allows me to query them with SQL and create graphs using matplot. However whenever I query it, it doesn't return a new dataframe. And if I remove the if data is none statement from the display_data function, I get the error: AttributeError: 'NoneType' object has no attribute 'columns' [CODE]"
+ },
+ {
+  "question_id": 79920642,
+  "ym": "2026-04",
+  "creation_date": 1775422213,
+  "title": "How to secure encryption key",
+  "tags": [
+   "python",
+   "pyside6"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am building an open-source desktop app, it work offline using pyside6. I build and deployed it on linux with \"pyside6-deploy\" everything work well but on Windows both \"nuitka deployment\" and \"pyside6-deploy deployment\" result to keyring backend issues. The purpose of the keyring is to generate a key to encrypt the app database. Since keyring backend issues keep happening on Windows OS deployment I switched to enable user to enter their preferred password, encrypt it and save it a file. Store it at AppData location. Since the app is open-source and the source code is available to the public it is easy for temper with file. Which way round can I solve this keyring backend issues with nuitka deployment or make it work on Windows deployment?"
+ },
+ {
+  "question_id": 79920650,
+  "ym": "2026-04",
+  "creation_date": 1775423877,
+  "title": "WTF Flask dynamically built forms. How to deal with name attribute",
+  "tags": [
+   "javascript",
+   "python",
+   "flask-wtforms"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have build a web page that dynamically creates a form of inputs that has always different names. I achieved this by adapting the individual input field name attribute so I managed assosiate the value with the name. So when I send the form to python, I can splice the name and I associate the name and the value. However I find it difficult to achieve with WTFs. Below is generated by Javascript. The name consists of slots-(index) which is used by the 'FieldList' and the suffix unique_info_x . [CODE] PYTHON: [CODE] What I am looking is someway I am able to iterate form details in a way that I would have the validation done on the inputs and also unique_info_x suffix available as data together with the actual value. I found some information over adapting more information on the name attribute as described. But I am having trouble understanding how to iterate it when it is sent to flask for validation. Maybe there is someway I can hide the unique_info_X? Maybe using labels? Can you help?"
+ },
+ {
+  "question_id": 79920675,
+  "ym": "2026-04",
+  "creation_date": 1775429390,
+  "title": "Water sewage demand",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "statistics",
+   "tooling-recommendation"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "Any suggestions on what approach to use when trying to normalize a set of 75 CSV files that contain an average of 300.000 rows with \"water flow\"? The problem is the frequency of the meter (some of them measure each minute, other each 5 other 15 min) etc, and also the unit it uses (some of them Cubic feet, other gallons), so for example, I want to standardize all units to Gallons per minute (GPM) and also instantaneous readings measured each 15 min."
+ },
+ {
+  "question_id": 79920702,
+  "ym": "2026-04",
+  "creation_date": 1775441853,
+  "title": "How to properly use the Decorator pattern to add Memoization to recursive algorithms in Python?",
+  "tags": [
+   "python",
+   "algorithm",
+   "python-decorators"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am learning about Dynamic Programming and I've implemented a recursive algorithm to solve the \"Climbing Stairs\" problem (which is essentially finding the N-th Fibonacci number). The basic recursive version works for small inputs, but it becomes extremely slow for $N > 35$ due to redundant calculations. I know that I can use Memoization to optimize this, but I want to keep the core logic of my algorithm \"clean\" without mixing the caching logic with the calculation logic. Research I've done: I found that [code] exists in Python and it solves the problem perfectly. However, for educational purposes, I want to implement my own Decorator to understand the Architectural Pattern behind it. I've seen examples of function decorators, but I'm confused about how they handle the scope of the [code] dictionary across multiple recursive calls. Here is my current \"clean\" but slow implementation: [CODE] What I'm trying to achieve: I want to create a decorator called [code] so I can just write: [CODE] The Problem: I've tried writing a simple decorator, but I keep getting [code] or the cache seems to reset on every call because I'm not sure where to store the dictionary. Should the cache be a global variable, or is there a way to encapsulate it within the decorator's closure to follow better Software Architecture principles? Could someone show the \"correct\" way to implement this architectural "
+ },
+ {
+  "question_id": 79920733,
+  "ym": "2026-04",
+  "creation_date": 1775452434,
+  "title": "Failing to check",
+  "tags": [
+   "python",
+   "discord.py"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to make a whitelist where only certain roles can use this command, and it logs a role as being \"theirs\", I have tried debugging by printing roles and stuff and now It is not even going through the check, like it will print the admin table, but then doesn't move onto the check where it adds to the db/sends a message, it does nothing. cogs/roles.py [CODE] utils/variables.py [CODE]"
+ },
+ {
+  "question_id": 79920823,
+  "ym": "2026-04",
+  "creation_date": 1775466070,
+  "title": "Multiple workers using the same log file",
+  "tags": [
+   "python",
+   "docker",
+   "logging",
+   "log-rotation"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a FastAPI service which is using granian with 6 workers. I noticed that I'm losing information from logs, there are requests being made, however the rotated logs are missing records for these requests. My service is running inside a docker container on my server, here I will send you the log configuration, the docker CMD and the compose. [CODE] [CODE] Logger configuration file: [CODE] I tried asking the AI what might be the issue. It told me that the problem might be the multiple workers writing into the same file, or when rotating."
+ },
+ {
+  "question_id": 79921515,
+  "ym": "2026-04",
+  "creation_date": 1775563471,
+  "title": "How to change QML&#39;s import directory when in a Python based QtQuick project?",
+  "tags": [
+   "python",
+   "c++",
+   "qt",
+   "qml"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm developing a Qt Quick application using Python ( [code] ) and QML. I want to use [code] and [code] , but Qt Creator's QML language server ( [code] ) throws the following error in the editor: [CODE] Environment: OS: Windows 11 Python: 3.12.10 (venv/conda/system: venv generated by qt creator) IDE: Qt Creator 19.0.0 What I've verified: [code] and [code] are installed via the Qt Maintenance Tool. When I create a C++/MinGW Qt project , the modules resolve correctly and point to [code] When opening the QML file in a Python/PySide6 context , Qt Creator only shows [code] in the import paths. The application runs fine at runtime (no Python import errors), but [code] /Qt Creator shows red squiggles and disables autocompletion. What I've tried: Setting [code] in Qt Creator's run environment Reinstalling PySide6 via [code] How can I configure Qt Creator/qmlls to recognize PySide6's QML modules (including [code] and [code] ) without breaking the Python workflow?"
+ },
+ {
+  "question_id": 79921779,
+  "ym": "2026-04",
+  "creation_date": 1775588511,
+  "title": "Remesh a surface while preserving exact boundary vertex positions and count in Python (preferably PyVista / trimesh), open to alternate libs",
+  "tags": [
+   "python",
+   "c++",
+   "algorithm",
+   "advice"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have a triangulated surface mesh in Python (PyVista Polydata) and a set of pre-defined boundary points — four ordered arrays defining lead edge, trail edge, root, and tip. I want to remesh the surface so that The output mesh should have the same input boundary points as its boundary vertices, so the resurfaced mesh should have the same position, count, and order of the pre-defined boundry points. The interior vertices are redistributed uniformly across the surface (algorithm should automatically determine interior vertex count based on boundary pts count) No clean or welding operation is ever applied to the boundary vertices after insertion Vertex indices 0 through N-1 in the output are always the boundary points in input order — this must be consistent across multiple meshes of the same wing in different deformation states Base mesh with target vertices, aka the inputs for the remeshing script/algorithm/function My current approach uses edge-splitting to insert boundary points onto the mesh, followed by Laplacian smoothing with boundary vertices frozen. The problem is that [code] and [code] after smoothing collapse nearby boundary vertices, reducing the boundary count. I tried: Inserting boundary points by edge-splitting. It works but clean() after smoothing merges close boundary vertices Appending new vertices and rebuilding faces, but [code] still merges them Skipping [cod"
+ },
+ {
+  "question_id": 79921931,
+  "ym": "2026-04",
+  "creation_date": 1775613322,
+  "title": "Type of the Variable to Store a Type Information of Another Variable",
+  "tags": [
+   "python",
+   "python-3.x",
+   "types",
+   "advice"
+  ],
+  "score": 0,
+  "answer_count": 3,
+  "is_answered": false,
+  "body_excerpt": "What is the type of the variable which stores a type information (such as 'int', ...) of Another Variable?"
+ },
+ {
+  "question_id": 79921992,
+  "ym": "2026-04",
+  "creation_date": 1775627328,
+  "title": "Odoo 18: How to filter analytic accounts in analytic_distribution widget programmatically?",
+  "tags": [
+   "python",
+   "analytics",
+   "purchase-order",
+   "odoo-18"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm working on Odoo 18 Enterprise and I'm struggling to filter the analytic accounts displayed in the analytic_distribution widget on purchase order lines. The Setup Model A: global.budget contains a list of allowed account.analytic.account. Model B: purchase.order has a field overall_budget_id pointing to Model A. Goal : When clicking the analytic_distribution widget on a PO line, the \"Analytic Account\" search/selection should only show accounts defined in the linked budget. The Problem In Odoo 18, the analytic_distribution widget seems to bypass standard Python hooks for searching. I have tried the following without success: What we tried Context injection in XML: [CODE] Overriding _search and name_search on account.analytic.account: I added print statements in _search and name_search to catch the filter_budget_id from context. However, these methods are never triggered when searching for an account inside the distribution widget popup. [CODE] My Question The analytic_distribution widget (which uses a specific OWL component in v18) seems to use a different RPC call or a specific route to fetch accounts. Which method should I override in Odoo 18 to filter the accounts suggested by this specific widget? Is there a specific options key in the XML to pass a domain to the sub-fields of the distribution widget? Environment: Odoo 18.0 Enterprise. Any help or pointer to the right met"
+ },
+ {
+  "question_id": 79922227,
+  "ym": "2026-04",
+  "creation_date": 1775653868,
+  "title": "Is train_test_split always necesary to Principal Component Analysis?",
+  "tags": [
+   "python",
+   "best-practices"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I am trying to do a PCA analysis with Kmeans but different types of examples are confusing me: https://www.geeksforgeeks.org/data-analysis/principal-component-analysis-with-python/ https://plotly.com/python/pca-visualization/ https://www.geeksforgeeks.org/machine-learning/kmeans-clustering-and-pca-on-wine-dataset/ Some use train_test_split, while some just use the data straight. My data is a rather large set, with \"X\" dataset being 100 columns and 3000+ rows, while the \"y\" contains over 10 different variables. Rather different from examples that two or three y-variables. Given so large data set, should or shouldn't I use the train_test_split?"
+ },
+ {
+  "question_id": 79922241,
+  "ym": "2026-04",
+  "creation_date": 1775655645,
+  "title": "Django multitenancy",
+  "tags": [
+   "python",
+   "django",
+   "multi-tenant"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm working on a SaaS project using Django Tenants and I'm having trouble maintaining the user session when redirecting to a subdomain. My configuration: Custom User model: [code] (in an application account located in [code] ). Business logic: The [code] model has a OneToOne relationship with [code] . Authentication flow: The user logs in to the primary domain (localhost:8000). The backend authenticates the user via login(request, user). I retrieve their associated domain and redirect to http://tenant1.localhost:8000 . The problem: Once redirected to the subdomain, the user is considered anonymous ( [code] ). The session doesn't seem to be passed or recognized between the primary domain and the subdomain. What I've already configured in settings.py: [CODE] My question: Is there a specific configuration for django-tenants or session middleware that I might have missed to ensure the session cookie is valid across all my schemas/domains? Thanks in advance for your help!"
+ },
+ {
+  "question_id": 79922249,
+  "ym": "2026-04",
+  "creation_date": 1775655868,
+  "title": "How to test langgraph Functional API entrypoints",
+  "tags": [
+   "python",
+   "testing",
+   "langgraph",
+   "best-practices"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "In the official docs they only show how to test Graph API (StateGraph): https://docs.langchain.com/oss/python/langgraph/test#getting-started Our team is discussing alternatives to write such tests for the Functional API , especially regarding checkpointer injection. 1. Use builder to pass checkpointer To test entrypoints with [code] I decided to wrap each entrypoint function into a builder function like this: [CODE] This way I can test them like this: [CODE] I think that this approach is analogous to the example tests that official docs show for Graph API. 2. Substitute checkpointer using copy If I define the entrypoint at 1st level, I could substitute the checkpointer e.g. with [code] , although I don't like it because it looks like a hack. [CODE] [CODE] [CODE] 3. Initialize checkpointer depending on environment By defining a different global checkpointer depending on environment (test/prod), both entrypoint definitions and tests look cleaner. Although I still don't like it, due to using global variables. [CODE] [CODE] [CODE] Can you tell me how this is suggested from official sources? Or how it is done in any production project that seems a good example to follow?"
+ },
+ {
+  "question_id": 79922326,
+  "ym": "2026-04",
+  "creation_date": 1775663708,
+  "title": "How to make a 2 Label Confusion Matrix and exporting into a json file?",
+  "tags": [
+   "python",
+   "machine-learning",
+   "scikit-learn",
+   "pytorch"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have to train a convolutional neural network on a dataset. The NN itself works and does what it's supposed to but now I want to make a confusion matrix and export it into a json file for further viewing. I tried using the [code] function from both sklearn and torchmetrics however I could get neither one to work with both giving me different errors. Sklearn Error: [CODE] Torchmetrics Error: [CODE] I havent been able to find a working solution for either of these unfortunately [CODE] The .ecg just builds my Model but it doesnt do anything out of the ordinary. Though if it is necessary I can show the code for that as well. Im pretty new to pytorch so I do not know how to proceed."
+ },
+ {
+  "question_id": 79922348,
+  "ym": "2026-04",
+  "creation_date": 1775665526,
+  "title": "How can I format a private SSH key as an environment variable for an Azure Function?",
+  "tags": [
+   "python",
+   "ssh",
+   "azure-functions",
+   "paramiko"
+  ],
+  "score": -2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have an Azure Function, written in Python, that copies a file via SFTP using paramiko and loads data from that file to a database. The private key file that I use to authenticate the connection was provided to me by my org. When testing the function locally, I was able to do the authentication by including the contents of the key file in my [code] file, formatted like this: [CODE] I then make the connection in a function that is called in [code] . Here is the relevant chunk of code (based on this answer on a similar question): [CODE] Locally, this works perfectly. However, I run into an issue when deploying the function to Azure: I don't have the option to include multi-line values in Azure Function environment variables. Just copying and pasting the key in its entirety into an environment variable looks like this: When I then run the function in Azure, I get this error: \"not a valid RSA private key file\". How can I format my private key to work as an environment variable in an Azure function? I've tried editing the environment variable (in Azure) in the following ways, none of which have worked or produced a different error: Wrapping the key string in single quotes Adding \\n at the end of each line Wrapping the key string in single quotes AND adding \\n at the end of each line Omitting the begin and end delimiters I've also come across the following similar questions while tr"
+ },
+ {
+  "question_id": 79922469,
+  "ym": "2026-04",
+  "creation_date": 1775683222,
+  "title": "How to remove the white background of a symbol when outputting using OpenCascade&#39;s AIS_Textlabel?",
+  "tags": [
+   "python",
+   "rendering",
+   "render",
+   "opencascade"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm implementing a program for working with shapes using OpenCascade. Please help me remove the white background around a symbol when outputting symbols using OpenCascade's AIS_Textlabel. How can I remove the white background around a symbol? Or is there another way to display text on the stage so that it lies in the plane of the size and does not turn towards the camera when the camera rotates and does not change size when zooming? This is my code: [CODE] I want to remove the white rectangle around the number one: enter image description here"
+ },
+ {
+  "question_id": 79922538,
+  "ym": "2026-04",
+  "creation_date": 1775704656,
+  "title": "Subtracting a blank spectrum from a sample in Raman spectroscopy data",
+  "tags": [
+   "python",
+   "numpy",
+   "data-processing",
+   "advice"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have two sets of Raman spectroscopy data: Orange: the blank (background signal) Blue: the actual sample (contains both sample signal and blank signal) I am not very familiar with Python. I was able to align the blank with the sample, but I am unsure how to perform the subtraction to isolate the important peaks. My questions: How can I subtract the blank spectrum from the sample spectrum in Python? Are there any recommended libraries or tutorials for this type of spectral data processing? Any ideas or website recommendations would be appreciated."
+ },
+ {
+  "question_id": 79922604,
+  "ym": "2026-04",
+  "creation_date": 1775719920,
+  "title": "Pandas isn&#39;t showing all the rows I have set with max_rows",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "display"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Pandas isn't showing all the rows I have specified with display.max_rows I have specified 100 rows for pandas to show using: [CODE] But when I display the DataFrame, it only shows 10 rows. I tried using [code] but it's deprecated (in the past this solved the problem). When I set the option to show all rows, they are displayed correctly. It shows these 10 rows only: [CODE] Note: The DataFrame's shape is (1460, 80). Why is [code] being ignored? How can I fix this to show exactly 100 rows?"
+ },
+ {
+  "question_id": 79922800,
+  "ym": "2026-04",
+  "creation_date": 1775735528,
+  "title": "Solving maximal set packing using OrTools in Python",
+  "tags": [
+   "python",
+   "linear-programming",
+   "or-tools",
+   "np",
+   "advice"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have a list of sets which I need to group into pairwise disjoint families. I know this is a set packing problem akin to the maximum independent set and thus NP-hard. One way to solve it is to convert it into an interference graph so that each set is a vertex and there is an edge between vertices if the sets intersect. Then the problem reduces to graph coloring. However, the interference graph for my problem instances are much to big, making this approach infeasible. Here is my greedy Python solution: [CODE] It is fast enough but the quality of the solutions are quite bad. Can someone help me rewrite it using OrTools which, I believe, should produce much better solutions?"
+ },
+ {
+  "question_id": 79922888,
+  "ym": "2026-04",
+  "creation_date": 1775744484,
+  "title": "How to read custom extras / user data from a GLB file using pythonOCC",
+  "tags": [
+   "python",
+   "opencascade",
+   "pythonocc"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm exporting a 3D model to GLB format using pythonOCC. During export, I store custom metadata on each face using [code] : [CODE] This correctly saves as [code] on each GLB node. Now when I try to read it back using [code] and [code] , the attribute is never found. [CODE] Questions: Does [code] actually import [code] ? If not, what is the correct way to read back GLB [code] / user data in pythonOCC, along with the shape at the same time."
+ },
+ {
+  "question_id": 79923258,
+  "ym": "2026-04",
+  "creation_date": 1775790028,
+  "title": "Why does PyQt5 block write access to another program (&quot;server-based&quot;)?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "pyqt5"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have been working to integrate a PyQt5 GUI with a third-party software from HighFinesse (makes wavemeters). I am using the minimal Python library here on Python 3.9 on a Windows 11 computer. In terms of the \"server-based\" claim, \"HighFinesse employs a fairly unique control system. First, one needs to install the control software, which is uniquely tied to a particular wavemeter and is supplied with it. In theory, software from another wavemeter might still work, but the results are not guaranteed. Second, this control software runs an application server which processes all requests from third-party software. This means, that the main application needs to be running to perform any device communication from the code. The code has an option of automatically starting it, but on some occasions it might fail, in which case it is necessary to either manually start it, or supply the location of the executable file.\", as stated on the pyliblabs website . When I run the following code in a .ipynb with the control software running locally (which is only shipped with the device), the code functions perfectly and switches the exposures as desired. [CODE] It returns: [CODE] When I instead run this in the most bare-bones PyQt5 setting (I have stripped the GUI away; just running the code inside a QMainWindow): [CODE] I instead get: [CODE] More confusing is that if I run the commented out lin"
+ },
+ {
+  "question_id": 79923665,
+  "ym": "2026-04",
+  "creation_date": 1775840265,
+  "title": "How to convert query results into dict using Python?",
+  "tags": [
+   "python",
+   "postgresql"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I need to convert the query output into dictionary, currently the output type is tuple. There is 3 Table output, how to convert into a single Dictionary output with the Column name respectively. I tried zip and dict to covert but it gives error. [CODE]"
+ },
+ {
+  "question_id": 79923862,
+  "ym": "2026-04",
+  "creation_date": 1775875995,
+  "title": "Programmer owns the architecture, AI implements crate-level modules in Rust — how does this compare to other languages?",
+  "tags": [
+   "python",
+   "go",
+   "rust",
+   "artificial-intelligence",
+   "best-practices"
+  ],
+  "score": 0,
+  "answer_count": 4,
+  "is_answered": false,
+  "body_excerpt": "After working on several Rust projects with AI assistance, I want to share a division of responsibility that has worked well in practice, and ask whether others have found the same — or a better approach in other languages. The core model: The programmer owns the world-view of the project — module boundaries, crate structure, system architecture, and design trade-offs. The AI implements the flesh — concrete trait implementations, error handling, boilerplate, and module-level logic. The programmer owns the architecture; the AI owns the implementation. And the Rust compiler makes sure the two stay honest with each other. In practice, I have found that AI can already generate crate-level Rust code that compiles, runs correctly, and is architecturally sound — requiring only minor adjustments. Occasionally it produces solutions I would not have thought of myself. Why Rust works particularly well for this model: The borrow checker and type system act as a verification layer between the programmer's intent and the AI's output. If the AI misunderstands the architecture, the compiler rejects it. This means the programmer does not need to read every line of generated code — the compiler enforces the contract. This is not just about safety. It also forces the AI to produce code that is structurally honest. There is no way to paper over a bad design with runtime workarounds. Comparison wit"
+ },
+ {
+  "question_id": 79923865,
+  "ym": "2026-04",
+  "creation_date": 1775877557,
+  "title": "OpenCV unable to read uncompressed AVI video files in python even though it can open and read metadata",
+  "tags": [
+   "python",
+   "opencv"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am unable to use opencv [code] on .avi files since it crashes there. There seems to be some problem with fourcc since it returns 0.0 and cap.IsOpened returns true. The fps, width, height are returned correctly as well. I can play the .avi files without a problem using IINA and I cannot convert to any other video file format. [CODE] The error in python I get is \"zsh: segmentation fault python3 t.py\" (t.py is the above files name) Running [code] gives: [CODE] Running [code] gives the below print and the expected first frame in /tmp/test_frame.png: [CODE] Just found that it is probably with my video since it is uncompressed .avi file created from MATLAB's videowriter. I created a Grayscale AVI from MATLAB and it is working fine. Not sure what is happening Attached the video link which doesnt work: Jumpshare link and the video link which works: File examples"
+ },
+ {
+  "question_id": 79923877,
+  "ym": "2026-04",
+  "creation_date": 1775883707,
+  "title": "Polars expr: rolling_mean with chained .over() yields inconsistent results compared to step-by-step execution, while sum works fine",
+  "tags": [
+   "python",
+   "dataframe",
+   "window-functions",
+   "python-polars"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I found that in Polars, when using a single expression with multiple chained [code] calls, [code] behaves differently from [code] . The following expression returns all [code] (expected non-null values): [CODE] However, if I split it into two steps (first store [code] in a temporary column, then apply [code] on it), the result is correct. [CODE] When replacing [code] with [code] , the single expression and the step-by-step approach give consistent correct results: [CODE] Is this a known limitation or a bug in Polars? How can I guarantee the correct evaluation order without introducing temporary columns?"
+ },
+ {
+  "question_id": 79923946,
+  "ym": "2026-04",
+  "creation_date": 1775903082,
+  "title": "Why can’t Google Colab kernel (via VS Code) access files from my local machine?",
+  "tags": [
+   "python",
+   "vs-code",
+   "google-colaboratory"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I was trying to connect Google Colab to my VS Code and I successfully did that but when connected to Colab kernel, I can't read files that are in my local machine. But in local Python environment the code can successfully read the file [CODE] The code is fine. It run in totally fine in the local python environment, but not in colab ipkarnel."
+ },
+ {
+  "question_id": 79924063,
+  "ym": "2026-04",
+  "creation_date": 1775928392,
+  "title": "Issue running facebook prophet model",
+  "tags": [
+   "python",
+   "dataframe",
+   "facebook-prophet"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am using the Jupyter notebook to run the Facebook Prophet model using Python code. Below are the steps I followed: 1. Import Libraries [CODE] 2. Import data into data frame [CODE] instant dteday season yr mnth holiday weekday workingday weathersit temp atemp hum windspeed casual registered cnt 0 1 1/1/2011 1 0 1 0 6 0 2 0.344167 0.363625 0.805833 0.160446 331 654 985 1 2 1/2/2011 1 0 1 0 0 0 2 0.363478 0.353739 0.696087 0.248539 131 670 801 2 3 1/3/2011 1 0 1 0 1 1 1 0.196364 0.189405 0.437273 0.248309 120 1229 1349 3 4 1/4/2011 1 0 1 0 2 1 1 0.200000 0.212122 0.590435 0.160296 108 1454 1562 4 5 1/5/2011 1 0 1 0 3 1 1 0.226957 0.229270 0.436957 0.186900 82 1518 1600 3. Set up data frame Change the time series variable name [CODE] Change 'ds' into format YYYY-MM-DD [CODE] Prepare the weather situation variable [CODE] Rename variables 2 and 3 [CODE] Drop variable that are not needed [CODE] Check the holidays in our data frame [CODE] Holidays [CODE] Combine all the holidays [CODE] 4. Apply Prophet Model Import model [CODE] Remove any NAs [CODE] [CODE] Then: When I type: [CODE] It is giving me the following error message: [CODE] I used the anaconda prompt to uninstall and re-install prophet using these lines of code: [CODE] After re-installing prophet, restarting jupyter notebook, I run the same lines of codes I outlined above, and it is giving me the same error message. I am not"
+ },
+ {
+  "question_id": 79924149,
+  "ym": "2026-04",
+  "creation_date": 1775946192,
+  "title": "Organizing elements in a frame w/ tkinter",
+  "tags": [
+   "python",
+   "user-interface",
+   "tkinter"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am a novice Programmer learning GUI and Tkinter for the first time, attempting to make a productivity app for myself. I am trying not to use AI as much as possible. I have created a Frame within the root window, and in it I am attempting to place a Label, and two Buttons. The problem that I am trying to solve is that it appears the Label is on top of both of the Buttons, and if I make the label take up more than 1 line or row, then the buttons below no longer fit. I have attempted to add this code: [CODE] But it appears to overwrite the pack method above where I've anchored to buttons to the right. So I've removed the .grid code for now Here is my code for this Frame: [CODE]"
+ },
+ {
+  "question_id": 79924283,
+  "ym": "2026-04",
+  "creation_date": 1775988977,
+  "title": "Can I install mathutils on Python 3.14?",
+  "tags": [
+   "python",
+   "pip"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Mathutils is a Python library maintained by ideasman42. I have been using it on older versions of Python and want to update an old project to a more recent version of Python. When I try to install mathutils on 3.10 or later, I get a load of errors like Problem installing python mathutils on windows which appears to be due to the project not being maintained to support newer versions of Python/pip. Recently the project was updated to 'Update to Blender 5.1, support Python 3.14' however when I try to [code] on Python 3.14 I still get a lot of errors: [CODE] I'm unclear as to whether it's because the update is unfinished, I'm picking up an old version or I'm doing something else wrong. Is there some way I can get mathutils installed on 3.14 without creating a painful dependency for other people working on my project?"
+ },
+ {
+  "question_id": 79924492,
+  "ym": "2026-04",
+  "creation_date": 1776026092,
+  "title": "How can I prevent Dash reloader from re-running database connection on every file save?",
+  "tags": [
+   "python",
+   "plotly-dash",
+   "advice"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I'm building a Dash dashboard that loads data from a remote database (Redshift) on startup. The loading takes ~2 minutes. When I use [code] , every time I save any [code] file in the project (including layout files), the reloader restarts the entire process and reconnects to the database. What I want: Edit layout files ( [code] , [code] ) and see the changes reflected without reconnecting to the database. Minimal reproduction: [CODE] [CODE] What happens: Every time I save [code] , the terminal shows [code] again — even though I only changed the layout."
+ },
+ {
+  "question_id": 79924520,
+  "ym": "2026-04",
+  "creation_date": 1776031271,
+  "title": "Why does this work on windows but not mac?",
+  "tags": [
+   "python",
+   "html",
+   "flask"
+  ],
+  "score": -2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I'm using flask to run a website, working across my personal imac (running macos 26) at home, and a windows PC (running win11) at college to code, storing all the code in github. I run [code] from the windows PC and it loads the page perfectly fine without issues. However, if I come home, pull the code down from github onto my mac, and run it, I get a 404 error in my browser. (Flask is running but can't find any pages.) For reference, below is my [code] and [code] in case that helps at all. app.py: [CODE] routes.py: [CODE] I tried a third machine (running linux mint), and that worked fine as well. I can't tell if it's an issue with macos, or just my mac in general, or if it's the code."
+ },
+ {
+  "question_id": 79924609,
+  "ym": "2026-04",
+  "creation_date": 1776061049,
+  "title": "What is the best way to modify values in a slice of a column with .iloc in Pandas",
+  "tags": [
+   "python",
+   "pandas",
+   "best-practices"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "With ChainedAssignmentErrors being enforced in Pandas 3.0 I was wondering what the best way to modify values in a slice of a column where the slicing is done with .iloc[] is. For example this causes a ChainedAssignmentEror: [CODE] The recommendation to fix this when using .loc[] is to just use [code] which works well. However, if I only have the row indices that I want to slice I would need to use .iloc[]. Doing this: [CODE] gives a [code] . So my question is, what is the best way of performing this operation?"
+ },
+ {
+  "question_id": 79924846,
+  "ym": "2026-04",
+  "creation_date": 1776091566,
+  "title": "How to type a decorator as a callable on Python",
+  "tags": [
+   "python",
+   "python-typing",
+   "mypy"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I want to type a decorator, that is a callable that returns a callable. I want to type this on a way that validate at the moment of decoration that the args and returns type are correct, but also validate at the call moment. This could be fixed adding a [code] method to ProtocolCallable, but I have to define the args and response again, and could be very verbose if there are a lot of args. This is an example that is working at runtime but failing in call to my_method on mypy (Argument 1 has incompatible type \"Callable[[MyClass, int], Coroutine[Any, Any, str]]\"; expected \"MethodCallable) [CODE] I want that mypy warns if I do: [CODE] and [CODE] A fix could be: [CODE] but this will require to define two times the args and the response, and there is no validation that are the same, so this will pass mypy and fail on runtime [CODE]"
+ },
+ {
+  "question_id": 79924848,
+  "ym": "2026-04",
+  "creation_date": 1776091996,
+  "title": "How do I tell Claude Code about my Hatch environment?",
+  "tags": [
+   "python",
+   "hatch",
+   "claude-code"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I tend to prefer Hatch as my Python environment manager. The one challenge with Hatch is that it keeps its per-project virtual environments in a non-obvious system directory. Working standalone, I've gotten used to prepending most Python commands with [code] and that's fine for me. Working in Claude Code, though, the tooling itself wants to run core diagnostic tools like [code] , [code] , and [code] . It doesn't seem to be able to find the Hatch environment on its own. I've written a rule to tell it that [code] will give the virtual environment directory and it can [code] it from there, but Claude seems to take that overly literally, and now on every command it reports [CODE] I don't really want to suppress the check, but I also don't really want to separately include both [code] and [code] in my [code] . Is there a better way to set this up that can both manage isolated per-project (per-worktree) virtual environments, and also avoid not-quite-totally-trusted shell patterns?"
+ },
+ {
+  "question_id": 79925113,
+  "ym": "2026-04",
+  "creation_date": 1776141511,
+  "title": "Appium Android: How to scroll down only (prevent scrolling up) to find an alement",
+  "tags": [
+   "python",
+   "uiscrollview",
+   "appium",
+   "appium-android",
+   "best-practices"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm new to Appium automation on Android and running into a scrolling performance issue. My current code: python [CODE] Problem: Every time [code] runs, it scrolls up to the top first , then scrolls down to find the element. This makes my tests very slow, especially when the target element just needs to scroll down. What I've already tried: Replacing [code] with [code] — this did not work. What I want: Scroll downward only , without resetting to the top, until the target element is found. Is there a way to configure [code] to scroll in one direction only, or an alternative approach that achieves the same result?"
+ },
+ {
+  "question_id": 79925463,
+  "ym": "2026-04",
+  "creation_date": 1776179857,
+  "title": "Pygame performance troubleshooting",
+  "tags": [
+   "python",
+   "pygame"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I've been making this frogger clone in PyGame. So far I have created my own pixel art, implemented a tilemap and a couple sprites. The issue is performance, when having my car sprite move across the screen, it's very jittery, hitches up, and in general stutters a lot! You can find a link to my Github here if you want to check out the assets: https://github.com/rf19rr/OpenFrogie Normally I would want to use OOP Concepts, but I am creating this an example of Procedural / Functional coding practices for grade 11 students, as per their curriculum. It's also been a bit fun to challenge myself in this way too. I've tried to implement delta time, made sure everything is being converted with alpha, etc. Not sure what else is causing this slow down. Am I simply drawing too much to the background and overloading the processing queue? Let me know your thoughts, thank you in advance! See code here: [CODE]"
+ },
+ {
+  "question_id": 79925508,
+  "ym": "2026-04",
+  "creation_date": 1776184305,
+  "title": "How to calculate percentage change in pandas data frame for multiple rows at once?",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "advice"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "by default pct_change on data frame will calculate pct change for immediate above (or the row number given via periods). I am looking to calculate pct_change w.r.t say current row and all N rows above it. i.e. I want current rows to have N columns where each column represent pct_change for N above rows. For first N rows in data set, I will have NaN as there are not enough rows but from N+1 'th rows onward I expect each of N columns to have pct_change. Is there any direct way in pandas or do I have to write code to calculate this myself? Something like in this screenshot where I have used N=4 as an example i.e. I expect 4 columns to get generated in data frame (A, B, C and D) and values for these columns will be expected to be populated from 5'th row onward. For example for 5'th row where Data is 110, A = 1-106/110=0.0364 B = 1-104/110=0.0545 C = 1-103/110=0.0636 D = 1-100/110=0.0909"
+ },
+ {
+  "question_id": 79925632,
+  "ym": "2026-04",
+  "creation_date": 1776199624,
+  "title": "Pytorch engine saves the batch size : how do I save the model in a way allowing me to input one image at a time?",
+  "tags": [
+   "python",
+   "pytorch",
+   "pytorch-ignite"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm using pytorch ignite to be able to get metrics easily, so I'm using their checkpoint system to save my model. I want to be able to test one image at a time for a user interface, but when I try to do that I get a [CODE] which when I input a full batch. How can I save / load the model to be able to input one image at a time ? Model code : [CODE] Saving : [CODE] Loading : [CODE] Minimal reproducible example (colab file) [CODE] Part 2 : [CODE]"
+ },
+ {
+  "question_id": 79926268,
+  "ym": "2026-04",
+  "creation_date": 1776285756,
+  "title": "waiting for asyncio.Task completion, propagate exceptions",
+  "tags": [
+   "python",
+   "asynchronous",
+   "async-await",
+   "python-asyncio",
+   "best-practices"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "For asyncio workloads there's this convenience function that executes passed list of [code] s until either a timeout is hit; first Task raises an exception; or all tasks succeed First two cases should always cause an exception to be (re-)raised: [CODE] Then I realized [code] won't raise on timeout, so caller ends up assuming tasks finished successfully. From other SO answers stitched together following fix (verifying [code] tasks length, also awaiting on cancelled tasks): [CODE] Is this a reasonable implementation? Can't help but wonder if there are other gotchas I'm not covering. Is the [code] task cancellation logic robust enough? Why is it needed to await on cancelled tasks? Is it so the reference to task is not lost so GC doesn't get to it before it's finalized ( relevant post )?"
+ },
+ {
+  "question_id": 79926296,
+  "ym": "2026-04",
+  "creation_date": 1776290024,
+  "title": "How do I check if a deviation has a &quot;Created using AI tools&quot; disclaimer with the DeviantArt API?",
+  "tags": [
+   "python",
+   "deviantart-api"
+  ],
+  "score": 4,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to use the DeviantArt API to check if a deviation has a \"created using AI tools\" disclaimer. ( Example ). I wrote Python code that authorizes and retrieves a deviation's extended metadata, but the response doesn't include the AI notice disclaimer. Code: [CODE] Response: [CODE] Is there a different API endpoint to check if a deviation has the \"created using AI tools\" disclaimer?"
+ },
+ {
+  "question_id": 79926675,
+  "ym": "2026-04",
+  "creation_date": 1776345767,
+  "title": "Changing Sizes on px.scatter",
+  "tags": [
+   "python",
+   "plotly",
+   "scatter-plot",
+   "advice"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I'm new to programming and I wanted a map where the capital cities were bigger than the ones that are not. I did this but it only returns me the capitals. What am I doing wrong? enter image description here [CODE]"
+ },
+ {
+  "question_id": 79926943,
+  "ym": "2026-04",
+  "creation_date": 1776376234,
+  "title": "Ways for hosting web UI dashboard",
+  "tags": [
+   "python",
+   "html",
+   "amazon-web-services",
+   "flask",
+   "tooling-recommendation"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am designing a web-based dashboard that serves as an orchestration interface for a collection of Python scripts and AI agents responsible for performing lightweight automation tasks. The front-end is built using HTML and Flask, and the dashboard must support concurrent access by multiple users via a web browser. As I have limited experience with hosted and managed services, I would appreciate guidance on the most efficient architecture to deploy this solution with a focus on maintainability, resilience, and scalability. I have access to AWS services and can provision infrastructure using Terraform. Additionally, since this project is intended for a corporate environment, the solution must align with enterprise standards (security, compliance, CI/CD practices, etc.). Do you have any recommendations on the most suitable AWS services and architectural patterns for this use case?"
+ },
+ {
+  "question_id": 79926987,
+  "ym": "2026-04",
+  "creation_date": 1776385522,
+  "title": "How should one implement ternary (3 valued) logic in python?",
+  "tags": [
+   "python",
+   "best-practices"
+  ],
+  "score": 0,
+  "answer_count": 4,
+  "is_answered": false,
+  "body_excerpt": "See wiki article . I have a class that very naturally wants properties which are True, False, or ??. (this matches, for example, a boolean field in SQL, which can be True, False, or NULL). The truth tables for AND, OR follows: p q p and q p or q T T T T T N N T T F F T N T N T N N N N N F F N F T F T F N F N F F F F I would like to: use logical operators [code] , [code] , [code] , and [code] as usual stay relatively self-contained, ideally standard lib I expected to be able to use None, but unfortunately [code] and [code] evaluate to different things (only one of which is what I wanted). What can I do? I've considered creating a custom 'unknown' class, but I can't overwrite the logical operator behavior. I've found external libraries like trinary , but they use the [code] syntax instead. This is the logic of a [code] value in SQL, so presumably practices to mimic that behavior would work here."
+ },
+ {
+  "question_id": 79927354,
+  "ym": "2026-04",
+  "creation_date": 1776426467,
+  "title": "Efficient, parallelized graph6 parsing with numpy or SIMD?",
+  "tags": [
+   "python",
+   "numpy",
+   "simd",
+   "directed-graph",
+   "best-practices"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I have a multigraph class in Python that is used as a base for simple undirected, unlooped graphs. I wrote my own graph6 parser based on the advice in the SO post. NetworkX implements it in a similar manner. However, both read the graph6 format sequentially (unless Python does vectorize loops somehow, which I doubt). Decoding (Di)Graph6 essentially does the following; Create a row vector v based on the char values (Conditionally) subtract -63 (can be vectorized) Unpack the bytes into bits (preferably into groups of six) Use the bit vector to add the edge [i,j] value to the A numpy array. [CODE] I have failed to do 3 and 4 efficiently. I know that one can use SIMD instructions to do exactly ( AVX parsing ). Where should I start? Edit: the code is awful but at least it's not AI generated."
+ },
+ {
+  "question_id": 79927378,
+  "ym": "2026-04",
+  "creation_date": 1776428854,
+  "title": "Legends and handles not showing correctly in subplots",
+  "tags": [
+   "python",
+   "matplotlib"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have some figures with subplots where I compare various parameters from two tests (excel files Testdata1 and Testdata2) . Since the same two test is in all the subplots I use legend on the figure and not on the subplots. The core of the code is probably at some time copied from web and modified several times, but works fine. However sometimes it is a problem with the legends. Legend is added with fig.legend. [CODE] Normal and correct legend for this at top of figure is Dataset1 with red line and round circles marker, and Dataset2 with black line with square marker. However sometimes the Dataset2 shows up with red line and round circles . I have tried to extract the handles from the axes, but it returns empty values. [CODE] Is there a way of making sure the correct legend appears? I found the reason. Inputfiles is large measurementfiles, which contains identical names for some measurementparameters. If the first plot in the subplot is a parameter that is multiple times in the inputfile, the legend becomes wrong. I have made a short version with dataframe instead of excel-input that reproduces the problem. I have included \"A-data\" several times. If A_data is first subplot, the legend gets wrong. If B_data is plotted first, legend is correct. My solution to the problem will be to make sure the first subplot is a parameter that is only given once in the inputfiles. [CODE]"
+ },
+ {
+  "question_id": 79927393,
+  "ym": "2026-04",
+  "creation_date": 1776430049,
+  "title": "Calculate how many days passed since the last played match for each team",
+  "tags": [
+   "python",
+   "pandas",
+   "date",
+   "date-difference"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am trying to create two columns in my dataframe, with the days passed since the last match played from both the home team and the away team. This is what my dataframe looks like: [CODE] and I would like to have this: [CODE] This is because for example West Ham played the 2026-05-11 before the 2026-05-13 so there are 2 days difference between the dates. I am struggling to put this into code so I have not been able to come up with anything at yet."
+ },
+ {
+  "question_id": 79927467,
+  "ym": "2026-04",
+  "creation_date": 1776437766,
+  "title": "After upgrading pandas from 0.25.1 to 2.1.4, group by user and ffill by month is way slower",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have monthly data in [code] format totaling around 10 million rows. I am creating a requisite dataframe from it and I noticed that the runtime to create that df increased from some 20 min to 8 hours with the upgrade of pandas version from 0.25.1 to 2.1.4 as I had reinstalled Anaconda . It may or may not have anything to do with the upgrade of pandas, but the issue started after the upgrade. For the sake of illustration, let's say that I have following 3 .csv files for Jan-26, Feb-26, Mar-26. Jan-26 : [CODE] Feb-26: [CODE] Mar-26: [CODE] Every row corresponds to a particular user at a customer. For example, for customer [code] there are 2 users [code] and [code] . If a particular user didn't log into the system in a particular month, there will be no entry for it in that month. For example, user [code] of customer [code] didn't login in Feb-26, so that's why it's absent from the data. The data has a column [code] in it and that counts the number of times a user has ever logged into the system. Now, if a user has not logged into the system in a particular month, the [code] remains same. Thus, I want to add a row for that user with the same [code] and [code] from previous/latest month where there was a login. First, I append all the data files: [CODE] The data looks like this: The following code adds the missing month with the data from last active month: [CODE] Now, this code h"
+ },
+ {
+  "question_id": 79927710,
+  "ym": "2026-04",
+  "creation_date": 1776472409,
+  "title": "Google drive api v3 transfering ownership keeps stated that i don&#39;t have permission",
+  "tags": [
+   "python",
+   "python-3.x",
+   "google-drive-api"
+  ],
+  "score": -4,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I'm want to transfer files quickly to my other account using python. But I get a problem whenever I tried, it always returns [CODE] which clearly I have on the other account. I already give editor permission. here is my code. Note this is from AI [CODE] My permission is already editor, idk whats wrong this. I just want to transfer quickly."
+ },
+ {
+  "question_id": 79927842,
+  "ym": "2026-04",
+  "creation_date": 1776505631,
+  "title": "How to create a comprehension where items are lambda functions with a single argument?",
+  "tags": [
+   "python",
+   "closures",
+   "list-comprehension"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I want to unwrap an iterable with functions [code] , [code] , [code] returning the 3 first items of [code] iterable. I can define the function with a comprehension, but because of the closure problem, I need to add a fake argument with a default value, [code] : [CODE] This works as expected: [CODE] However I don't want to add the possibility of using this second argument in the call, e.g. I don't want to allow this call which changes the behavior of [code] : [CODE] [code] must be a function with only one argument. How to adjust the list comprehension to meet the two constraints: single argument but also default value for [code] ?"
+ },
+ {
+  "question_id": 79928370,
+  "ym": "2026-04",
+  "creation_date": 1776617317,
+  "title": "Why there are empty spaces in the middle of the string returned by re.split()?",
+  "tags": [
+   "python",
+   "regex",
+   "string"
+  ],
+  "score": 2,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "Consider [CODE] which returns: [CODE] why the third element is an empty string? In the question \"Why are empty strings returned in split() results?\", this answer says that this allows [code] to revert the split. For instance: [CODE] But this is not the case here, because here we are using capturing groups to preserve the delimiters: [CODE] Notice the question is not how to get rid of the empty string. The question is why there is an empty string in the first place. The question is also not a duplicate of \"Why are there extra empty strings at the beginning and end of the list returned by re.split?\" since in that case the empty strings are effectively needed to recover the original string, as the OP of that question did not use capturing groups and so the delimiters were not preserved, while here we are using the capturing group to preserve the delimiters."
+ },
+ {
+  "question_id": 79928780,
+  "ym": "2026-04",
+  "creation_date": 1776686074,
+  "title": "Improving Arabic OCR results from Surya (handling bad fonts / post-processing with LLM)",
+  "tags": [
+   "python",
+   "artificial-intelligence",
+   "tooling-recommendation"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am extracting Arabic text from PDFs and images using Surya OCR. It works well in general, but when the PDF has poor font quality or complex styles, the extracted text contains many errors. I tried to use Ollama with models like Mistral and Aya to post-process and correct the extracted text, but it does not improve the results. The same errors remain. My questions are: How can I improve the accuracy of Arabic text extraction when the source PDF has low-quality fonts? Is there an effective way to post-process OCR output (for Arabic) using an LLM or another tool? Should I preprocess the PDF (e.g., convert fonts, enhance image quality) before applying OCR? If yes, what tools or methods would you recommend? Any suggestions or best practices for handling Arabic OCR in difficult cases would be very helpful."
+ },
+ {
+  "question_id": 79928840,
+  "ym": "2026-04",
+  "creation_date": 1776691329,
+  "title": "Get a datetime object to specify an instant for every timezone",
+  "tags": [
+   "python",
+   "datetime",
+   "timezone",
+   "advice"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "How do I make a datetime object that doesnt convert the instant itself instead it adapts to the timezone and shows the equivalent of an instant with only a single datetime object on a fixed timezone. Exmple: a person in +6hrs UTC sees this \"6:00:00\" and a person in +0hrs sees \"0:00:00\""
+ },
+ {
+  "question_id": 79928949,
+  "ym": "2026-04",
+  "creation_date": 1776704939,
+  "title": "Python ast.literal_eval: raw strings recommended?",
+  "tags": [
+   "python",
+   "abstract-syntax-tree",
+   "best-practices"
+  ],
+  "score": 0,
+  "answer_count": 5,
+  "is_answered": false,
+  "body_excerpt": "If I do something like [CODE] Is it therefore recommended or necessary (or safe?) always to use raw strings?"
+ },
+ {
+  "question_id": 79929101,
+  "ym": "2026-04",
+  "creation_date": 1776726696,
+  "title": "In Python while using the PIL pillow library. When I open an image and call load on it do it still need to close it?",
+  "tags": [
+   "python",
+   "python-imaging-library",
+   "advice"
+  ],
+  "score": -2,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "EDIT: It seems like i was confusing closing of the image file with [code] destroying the image data. Memory shouldn't be the problem rather properly closing the file. When opening a image in Python using the PIL pillow library, assuming the image does not contain multiple frames with (e.g. a simple \"jpeg\") and then call [code] on it: [CODE] Can I just delete/reassign the reference to it and let the garbage collector take care of it instead of calling [code] on it? As instead of doing [code] could i just do: [CODE] And the memory will still be released via the garbage collector? The documentation states: Proposed file handling [code] should close the image file, unless there are multiple frames. [code] should never close the image file. Users of the library should use a context manager or call [code] on any image opened with a filename or Path object to ensure that the underlying file is closed. EDIT: It says [code] should close the file as long as it contains one frame. So I assume that that means that [code] does not need to be called if no context manager is used, the image is only one frame and [code] has been called. But most examples i have seen call [code] anyways. Thats why I am confused."
+ },
+ {
+  "question_id": 79929553,
+  "ym": "2026-04",
+  "creation_date": 1776784414,
+  "title": "Regrid swath satellite data",
+  "tags": [
+   "python"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am currently working with GPM DPR data. I am trying to regrid the irregular swath data to a 0.5°x0.5° grid using the conservative method to preserve the total amount of precipitation. However, I have read that in order to apply the conservative method directly from swath data, you'd need to know exactly the bounds of each swath pixel. Because they are irregular, I though about first going to a grid with similar resolution to the original data (0.05°x0.05°) using the \"nearest neighbour method\" via pyresample and then upscale to the coarser grid. Since I am using the nearest neighbour method to move to a finer grid then I am already facing the problem of not being sure the conserve the total mass, correct? If this is the case, what should be the approach? This is my current code: [CODE]"
+ },
+ {
+  "question_id": 79929748,
+  "ym": "2026-04",
+  "creation_date": 1776808463,
+  "title": "Loop ends at the start of 3rd iteration",
+  "tags": [
+   "python",
+   "game-development"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Hi whom ever is reading this, I am currently debugging my code and I am stuck on a weird bug. I am using two main files for the project, one called [code] and one called [code] . The entire game loop depends on two variables being true, [code] and [code] . I ensure these values are set to True within the continue playing prompt, yet on the third loop of the program, it runs [code] then ends the program. See below for intended result, I have the code on my GitHub here via the bin folder. As well as a paste bin link here --> https://paste.pythondiscord.com/7RKQ I can post a video of what the debugger says tonight. I have posted the main parts of the code that are causing problems below, I fully know that my game loop code is really sloppy . I want to know why my code doesn't return to the while loop, [CODE] [CODE] Expected Result: The program is meant to keep running until the user answers \"N\". Meaning, the program will constantly return to the while loop located line 53 in logic.py. What Happens: The program ends early and doesn't jump back to line 53 after running through the if statement on line 103. If anyone can help that'd be great, I asked for help on the Python discord and got met with some confusing responses."
+ },
+ {
+  "question_id": 79930024,
+  "ym": "2026-04",
+  "creation_date": 1776856131,
+  "title": "The multiple choices in a database",
+  "tags": [
+   "best-practices",
+   "python",
+   "sql",
+   "postgresql"
+  ],
+  "score": 1,
+  "answer_count": 3,
+  "is_answered": false,
+  "body_excerpt": "I'm building a web application that has ~34 independent dropdown lists (e.g. currency codes, country names, user types, example statuses, etc.). Each list has no relation to the others — they're purely used to populate [code] elements in forms. Which approach is standard for admin-managed dropdown lists? Would it be good to create a single table that have all this options or what."
+ },
+ {
+  "question_id": 79930079,
+  "ym": "2026-04",
+  "creation_date": 1776861538,
+  "title": "I try to set a value to an Entry, but Entry just receives PY_VAR",
+  "tags": [
+   "python",
+   "tkinter",
+   "tkinter-entry"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a problem where I set a value to a StringVar, and the entry that is associated with the StringVar doesn't display any value (it's just empty). If I debug, then the var variable (that is a StringVar) only shows \"PY_VAR\" instead of the value I set. I tried both Set a value to the StringVar [code] , and also [code] . Neither of them works, the entry fields remains empty. The data that should be entered into the Entry is from a json file, that looks like the following: [CODE] Python code like the following: [CODE]"
+ },
+ {
+  "question_id": 79930154,
+  "ym": "2026-04",
+  "creation_date": 1776868722,
+  "title": "Best way to render text with Pygame?",
+  "tags": [
+   "python",
+   "pygame",
+   "best-practices"
+  ],
+  "score": 0,
+  "answer_count": 3,
+  "is_answered": false,
+  "body_excerpt": "I'm making a small game using Python and Pygame and I was wondering what the best way to render font is. I'm not that experienced with Pygame, which is why I'm asking. I'd also like to use a custom font, how can I load that?"
+ },
+ {
+  "question_id": 79930157,
+  "ym": "2026-04",
+  "creation_date": 1776868876,
+  "title": "How to delete every widget in Tkinter?",
+  "tags": [
+   "python",
+   "tkinter"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to make an app in python with Tkinter, and I need to clear the GUI screen (destroy every object/widget). I already tried to do this I saw in other post: [CODE] but after I run and try to create a new widget like this: [CODE] it errors out with: _tkinter.TclError: bad window path name \".!application\" Is there a better way to do it, or do I need to run another command to get it to work?"
+ },
+ {
+  "question_id": 79930169,
+  "ym": "2026-04",
+  "creation_date": 1776870364,
+  "title": "Python polars script leaks memory and crashes (scans CSV to lazyframes - writes to database)",
+  "tags": [
+   "python",
+   "postgresql",
+   "csv",
+   "python-polars"
+  ],
+  "score": 3,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I wrote a small script to scan a CSV in Python polars, select specific columns/filter specific rows in lazyframes and upload the result to a Postgres DB. The script works with a smaller test CSV but, when I try to run it with a \"real\" CSV in my dataset, Python's process keeps accumulating memory until it crashes. I've tested it both on Windows and macOS, the first computer has 64 GB of RAM and the latter has 32 GB so I'm pretty sure it's not a hardware problem. No matter the number of searches I've done online, nothing seems to fix my issue. Setting low_memory to true, collect(engine='streaming') or using sink_csv didn't work either. Here is my code: [CODE] Here is the CSV file I'm using."
+ },
+ {
+  "question_id": 79930413,
+  "ym": "2026-04",
+  "creation_date": 1776907185,
+  "title": "What is the best way to convert a Python Lightgbm tree JSON dump into a VBA formula?",
+  "tags": [
+   "python",
+   "json",
+   "vba",
+   "lightgbm",
+   "advice"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I have a LightGBM model in Python that generates a decision tree–based model for a dataset with many predictors and one response variable. I exported the model to JSON using: [CODE] Here’s a simplified excerpt of one tree (the full output is HUGE): [CODE] I also have a variable [code] that contains a set of actual column names that could map these [code] names to the actual column names in an Excel table (these correspond to structured references like [code] ). Instead of trying to generate a single Excel formula (which would exceed Excel’s formula length limit for real trees), I want to generate a VBA user-defined function (UDF) that evaluates the tree for a given row. For the example above, the equivalent logic in VBA would look something like: [CODE] In the real model, the trees are deeper and involve many features, so this would need to be generated programmatically from the JSON. My questions: What’s a good approach to traverse the LightGBM JSON tree and emit equivalent VBA code (nested [code] )? Are there existing patterns or tools for converting tree-based models into VBA, or is this typically done with a custom code generator? Any pitfalls to watch for when mapping [code] indices to Excel inputs (e.g., passing values from a table row into the UDF)?"
+ },
+ {
+  "question_id": 79930892,
+  "ym": "2026-04",
+  "creation_date": 1776968457,
+  "title": "Playwright Automation Script",
+  "tags": [
+   "python",
+   "playwright",
+   "playwright-python",
+   "advice"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I need Swagger API automation done via Playwright Python automation script on Chrome browser Also need Python framework for Ansible tower automation Add your suggestions here with solution please."
+ },
+ {
+  "question_id": 79930987,
+  "ym": "2026-04",
+  "creation_date": 1776982836,
+  "title": "Convert Beautiful Soup .text to float",
+  "tags": [
+   "python",
+   "web-scraping",
+   "beautifulsoup",
+   "html-parsing"
+  ],
+  "score": -2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to create a float list from text derived from an HTML website, as I want to check if the list has a price at my budget or lower. I am using [code] from Beautiful Soup 4 to retrieve the text without tags: [CODE] Results: [CODE] There are two separate price variables because the website uses two different tags for the price depending on location, with the class tag being the one that has the majority of prices and the amount of them is constantly changing. However, if I try to print [code] separately from the [code] function, it only prints the last [code] ."
+ },
+ {
+  "question_id": 79931483,
+  "ym": "2026-04",
+  "creation_date": 1777052817,
+  "title": "Fastest rolling window method for datetime",
+  "tags": [
+   "python",
+   "pandas",
+   "datetime",
+   "optimization"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm currently trying to apply a bit of a convoluted function to a rolling window of 30 minutes on time data within a loop, and I'm finding that it's taking too long to be reasonable. I've included a minimal example below that's currently coming in at 94 ms, which with the actual size of the dataset and the loop is unfortunately not feasible. [CODE] My Python knowledge is limited and I know it's complicated, but are there any ways I can speed this up? I've read through questions like the following: Most computational-time efficient/fastest way to compute rolling (linear) regression in Python (Numpy or Pandas) but I'm having a hard time finding a solution for datetime-based windows. I can't code under the assumption that my sampling frequency is constant, so I'd prefer to do this using datetime rather than integer indexing."
+ },
+ {
+  "question_id": 79932041,
+  "ym": "2026-04",
+  "creation_date": 1777204664,
+  "title": "Disable Main Window while TopLevel window still running",
+  "tags": [
+   "python",
+   "tkinter"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "What I am trying to do is: Main Window - user click [Load file] Open dialog box, user choose excel file A mini TopLevel Window appear, asking user to choose sheet from Combobox, click select mini TopLevel Window closes, Main Window shows Excel on a Treeview Portion 1, 2, 4 works. I am now trying to code Part 3. The issue I think I am encountering; when the mini TopLevel Window appear, the Main Window is still running, and is expecting a \"sheetname\" to display on TreeView. So it shows error that Sheetname is \"null\" before user can perform part 3. Below code is Part 1,2,4 [CODE] This code below is Part 3, causing the error [CODE] My console shows the following error after user choose the excel file: filepath = /ECS200 Serial No 2020-2023.xls List of sheets = ['2022', '2021', '2020', 'SAMPLE', 'Notes'] Chosen Sheet = As you can see, Chose Sheet = \"nothing\". But user didn't even get a change to choose sheet when the mini TopLevel window appear. How do I pause the Main Window and wait for the Mini Window to get input, then resume?"
+ },
+ {
+  "question_id": 79932107,
+  "ym": "2026-04",
+  "creation_date": 1777219052,
+  "title": "Why does spotify give me a 403 error when trying to create a playlist?",
+  "tags": [
+   "python",
+   "spotify",
+   "spotipy"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have this error when I am trying to create a playlist using my account. When I try to launch the code with the command [code] it gives me this error: [CODE] This is my code: [CODE]"
+ },
+ {
+  "question_id": 79932156,
+  "ym": "2026-04",
+  "creation_date": 1777230665,
+  "title": "Split integer into chunks to monitor workflow",
+  "tags": [
+   "python",
+   "python-3.x",
+   "advice"
+  ],
+  "score": -2,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I am using python and gspread to manipulate a google sheet and want to be able to track how many rows have been processed. I can pull then number of rows in the sheet by doing [code] . Now I want to take that integer and split it into even chunks of 500 (except for the final chunk) and iterate over those chunks so that I can print out the progress the code is making as it works. How would I do that?"
+ },
+ {
+  "question_id": 79932683,
+  "ym": "2026-04",
+  "creation_date": 1777313604,
+  "title": "How to add an assumption (about commutativity) to sympy&#39;s expression algebra?",
+  "tags": [
+   "python",
+   "sympy",
+   "assumption",
+   "advice"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Suppose I define [code] s as follows [CODE] and combine them as [CODE] [code] correctly does not reduce this to zero, since [code] and [code] were defined to be non-commutative. So far so good. But now I want to state that the particular symbols [CODE] whilst non-commutative with any other symbol commute, i.e. that [code] . How can I tell `sympy` that in any simplification, it may/should assume this?"
+ },
+ {
+  "question_id": 79932752,
+  "ym": "2026-04",
+  "creation_date": 1777323783,
+  "title": "Pillow shows empty square instead of parsed Font Awesome icon when drawing on image - how to properly render FA icon using Python?",
+  "tags": [
+   "python",
+   "python-imaging-library",
+   "font-awesome",
+   "tooling-recommendation"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I am parsing HTML pages containing Font Awesome some icons (e.g., [CODE] ). I need to render these icons as PNG images using Pillow, without requiring users to install system fonts. Convert the icon to SVG with a `<text>` element using the Font Awesome Unicode character, then render via cairosvg. The output is an empty square (⯀) instead of the actual icon. This happens on multiple operating systems (Windows/Linux/macOS). I need vector-quality icons that scale without pixelation, and I need full access to all Font Awesome 12 icons, not just the subset that have emoji equivalents. How can I properly render Font Awesome icons as PNG images using my current stack without requiring users to install system fonts? [CODE] [CODE]"
+ },
+ {
+  "question_id": 79932778,
+  "ym": "2026-04",
+  "creation_date": 1777329502,
+  "title": "Python SQLAlchemy dynamically build select statements",
+  "tags": [
+   "python",
+   "sqlalchemy"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am currently trying to write a function that takes arguments, if the arguments are not false then it builds the select statement with them in it. I am unable to get it to work unless I am too build the select statement as an object all in one line. Separating the select statement causes it to ignore and not even include it. Is there way to build select statements dynamically? [CODE]"
+ },
+ {
+  "question_id": 79932809,
+  "ym": "2026-04",
+  "creation_date": 1777338842,
+  "title": "Series cancelations accumulate errors, how to avoid?",
+  "tags": [
+   "python",
+   "numpy",
+   "math",
+   "best-practices"
+  ],
+  "score": 0,
+  "answer_count": 7,
+  "is_answered": false,
+  "body_excerpt": "[CODE] I wanted to investigate the relationship between the number of Taylor series terms and the x_i when it starts to diverge. I used 10^-4 as a threshold. For this one, the line looks pretty good enter image description here , but for higher threshold, like 10^-8 enter image description here , very weird behavior appears for larger n. I think it is due to cancelations of big terms for large n where \"big number\"-\"super big number\" ~= 1, as a consequence, Python cannot hold too many digits and drop them. So the question, how to make the code more capable for handling smaller thresholds."
+ },
+ {
+  "question_id": 79933084,
+  "ym": "2026-04",
+  "creation_date": 1777383123,
+  "title": "How to replace non-commutative products in SymPy with expressions?",
+  "tags": [
+   "python",
+   "sympy",
+   "substitution"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I want to work around [code] 's limitation of assuming partially commutative behavior. If I define the non-commutative symbols [CODE] then [CODE] gives [CODE] Now, [code] and [code] , while not commuting with other symbols, such as [code] , actually commute, i.e. I want the above to give zero. Apparently, I cannot make [code] to assume that. So, I try to work around this using replacement. With [CODE] I actually get [code] , as desired. So far so good. But now, I want this to also work in longer expressions. Let [CODE] gives correctly [CODE] But, since [code] and [code] commute, this actually vanishes. So, I tried as before to [CODE] but do not get [code] , but the same as before (no replacement). How can I replace all products [code] with the reverse?"
+ },
+ {
+  "question_id": 79933258,
+  "ym": "2026-04",
+  "creation_date": 1777401537,
+  "title": "Handling a cross-click to close an app on Pywebview",
+  "tags": [
+   "javascript",
+   "python",
+   "html",
+   "pywebview"
+  ],
+  "score": -4,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I recently ran into a problem: I needed to create a pywebview app, but I wanted to customize the top control bar where the buttons for minimizing and closing the app are located. First, to make sure it worked, I implemented it without hiding the top bar using arguments in window.start(). I created the following HTML file: [CODE] Then I created a JS file to handle clicks on cross, but it didn't work. [CODE] Next, I wrote an implementation for the close_window() function in a separate .py file, which I imported into the main file from which I launched the window. [CODE] main.py [CODE] If anyone knows what the problem is with my program, please let me know. Thanks in advance!"
+ },
+ {
+  "question_id": 79933363,
+  "ym": "2026-04",
+  "creation_date": 1777421532,
+  "title": "Issues with redirecting output text to a separate window in Python",
+  "tags": [
+   "python",
+   "tkinter",
+   "stdout"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am very, very new to programming having just finished a semester-long course on Python. I wanted to take an existing program I had written for my class and redirect all the output text to a separate window instead of the program terminal. I followed a tutorial , but I'm having issues with actually getting the output text to the created window. Both programs run fine separately, but just aren't connected. I was thinking the issue was that my original program involves user input, thus when running the full program, the original program must complete first in the terminal and then the window will open (still blank). This is the code I had written while following the tutorial linked above: [CODE] After this, my original program essentially is just a def main() function, with a while loop that runs through various print & input statements until finished. After that code is this: [CODE] Being very new to this i'm kind of just going by trial and error when following tutorials. Edit 5/15/26: Ultimately I ran into issues since my existing program required user input, but with the help given below, I was able to get the output text to redirect to the Tkinter window! For anyone else trying something similar that comes across this post in the future, here's the code that was ultimately working for me: [CODE]"
+ },
+ {
+  "question_id": 79933454,
+  "ym": "2026-04",
+  "creation_date": 1777443169,
+  "title": "numba unsupported opcode FORMAT_WITH_SPEC",
+  "tags": [
+   "python",
+   "optimization",
+   "numba",
+   "jit"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am getting an error when using numba/jit. Here's the function: [CODE] but I get this error [CODE] and this opcode I didnt find it mentioned in any page about troubleshooting numba/jit."
+ },
+ {
+  "question_id": 79933474,
+  "ym": "2026-04",
+  "creation_date": 1777446554,
+  "title": "Airflow use cases for different repos",
+  "tags": [
+   "python",
+   "r",
+   "airflow",
+   "tooling-recommendation"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am newbie in Airflow and I use currently task scheduler on remote desktop to automate our tasks but it is based on my credentials and I cannot share with other team members, so I clone all projects git repo into remote desktop and put path for task scheduler, but I want to move on Airflow that everyone will have their on access, but I have problem working with multiple repos Let say I have airflow hosted on https://github.com/Enefit/airflow-business-analytics/tree/test and I have script I want to run in https://github.com/Enefit/airflow-business-analytics/tree/testboss_product_plan/r_automate/boss_pp.R but Airflow doesnt have access to other repos, I wonder, how do other teams work use airflow? and any suggestions/hacks/solutions are more than welcome. FYI: airflow has access -- K:\\PROJECT\\DATA (it is shared drive with whole company) Thanks in advance."
+ },
+ {
+  "question_id": 79933586,
+  "ym": "2026-04",
+  "creation_date": 1777458272,
+  "title": "Error in calculating the RSI and SMA by the talib",
+  "tags": [
+   "python",
+   "ta-lib"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "An error occurs when executing the code. The [code] function is not executed. This is a snippet of code, I'm trying to repeat after the author from YouYube. I get this error: TypeError error occurs: Argument 'real' has incorrect type (expected numpy.ndarray, got DataFrame)/ I tried to submit only one column to function (closing prices - close). But another error occurs: Exception: input_arrays parameter missing required data key: close I don't understand how to fix this problem. [CODE]"
+ },
+ {
+  "question_id": 79933604,
+  "ym": "2026-04",
+  "creation_date": 1777460450,
+  "title": "Fusing row with previous row(s) depending on criteria",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "csv"
+  ],
+  "score": 3,
+  "answer_count": 5,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to fix a CSV file I received in which actual new lines were inserted throughout the data, effectively splitting one row of data into multiple ones with incomplete columns. The line breaks are placed instead of a blank space after a completed word. Due to the locale, decimal points are denoted as a comma (see columns E and F). Dates in column A are may appear as duplicates but need to remain separate. [code] , raw: [CODE] [code] : (index) A date B string C string D string E integer F integer 0 08.01.2026 a b c 3,7 1 d f 2 e 3 4 08.01.2026 g h i 2,11 5 j 6 k 7 31.01.2026 l m n 8,0 8 03.02.2026 o p q 4,9 9 r s Desired output (blanks in place of removed new lines): (index) A date B string C string D string E integer F integer 0 08.01.2026 a d e b c f 3,7 4 08.01.2026 g h i j k 2,11 7 31.01.2026 l m n 8,0 8 03.02.2026 o p r q s 4,9 [CODE] As long as I don't sort [code] , all data will more or less be in the correct position. I have two ideas on how to solve this: Iterate through all rows. If there is any value in the first column A, go to the next row. If there is also a value in column A, row i-1 was correct (see: row 7 is correct). If the value in column A is empty / \"\", row i-1 is incorrect and the missing data can be found in the current row. Join the data within row i with the corresponding columns within row i-1 and drop row i (see: row 0 is incomplete and rows 1 an"
+ },
+ {
+  "question_id": 79933687,
+  "ym": "2026-04",
+  "creation_date": 1777471394,
+  "title": "Extract game names and translate them to english from google sheet",
+  "tags": [
+   "python",
+   "google-sheets",
+   "artificial-intelligence",
+   "large-language-model",
+   "tooling-recommendation"
+  ],
+  "score": 0,
+  "answer_count": 3,
+  "is_answered": false,
+  "body_excerpt": "Here's example of my dataset I am working on a dataset (Excel / Google Sheets) where each row contains free-text answers about video games. The problem is that the data is very noisy : Some rows contain multiple games separated by different symbols ( [code] , [code] , text, etc.) Some rows contain no games at all (e.g., \"لا أحب\", \"ليس عندي\") Some game names are written with typos or Arabic variations Example: \"فريفاير\", \"فريفير\" → Free Fire \"منكرافة\", \"ماينكرافت\" → Minecraft Some entries include versions that I want to remove Example: \"FIFA 2019\", \"PES 2013\" → keep only \"FIFA\", \"PES\" Some entries are generic categories , which I want to keep Example: \"ألعاب السيارات\", \"ألعاب كرة القدم\" 🎯 Goal For each row, I want to: Extract only video game names or valid categories Normalize names (Arabic → consistent English or standard form) Remove versions (years, numbers) Ignore rows with no valid games Output a clean list like: [CODE] 📌 Example Input: [CODE] Expected output: [CODE] ⚠️ Challenges Text is unstructured (sometimes full sentences) No fixed separator Arabic + English mixed Infinite spelling variations Some answers are irrelevant ❓ Question What is the best approach to solve this problem efficiently for large datasets (5000+ rows)? Should I use rule-based methods (regex + dictionary)? Or NLP approaches (spaCy, transformers, etc.)? Any existing tools or libraries specialized for "
+ },
+ {
+  "question_id": 79933889,
+  "ym": "2026-04",
+  "creation_date": 1777493392,
+  "title": "Why is the code not working, even after import ing it",
+  "tags": [
+   "python",
+   "import",
+   "tooling-recommendation"
+  ],
+  "score": 0,
+  "answer_count": 3,
+  "is_answered": false,
+  "body_excerpt": "[CODE]"
+ },
+ {
+  "question_id": 79933928,
+  "ym": "2026-04",
+  "creation_date": 1777499922,
+  "title": "How to maintain scale when rotating?",
+  "tags": [
+   "python",
+   "opengl",
+   "glsl",
+   "python-moderngl"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I've been messing around with OpenGL/ModernGL in Python/Pygame, and after getting my images rendered to the screen, I have been having issues rotating them. I'm aware of the order that I need to translate, rotate and then scale, which works fine, however my problem stems from the scaling of images being a percentage of the screen resolution. My approach has been to create a shader that spans the screen and then when I need my image to fit, I scale it down to lets say 0.2 ( aspect ratio ) on the X and 0.1 on the Y. When the image is rotated by 0 degrees (i.e. horizontal) that 0.1 on the y-axis makes the image 0.1 of the height of the screen, however when it is rotated by 90 degrees (vertical) the same value of 0.1 now scales the image by 0.1 of the width of the screen instead. Due to this, when I rotate a square by 90 degrees it becomes stretched horizontally. Some attached images showing the problems below. The image used is just a start button from another old project of mine. The button is scaled to (0.5, 0.5) and initially rotated 0, then 90 degrees. rotated 0 degrees rotated 90 degrees I'm not quite sure if there is a common way to fix this or if my approach to rendering images is wrong. Below is the relevant code: Inside of [code] : [CODE] Inside of surface.vert: [CODE] Inside of [code] : [CODE] The code runs at 60 fps, and for every frame it updates each image, and render"
+ },
+ {
+  "question_id": 79933953,
+  "ym": "2026-04",
+  "creation_date": 1777506934,
+  "title": "How do I return a input value?",
+  "tags": [
+   "python"
+  ],
+  "score": -2,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to return the \"user_input\" variable in the while loop in the \"make_user_choice\" function. I don't know how I should go about this. Here's my code: [CODE] and here's the output: [CODE]"
+ },
+ {
+  "question_id": 79934260,
+  "ym": "2026-04",
+  "creation_date": 1777557253,
+  "title": "Can&#39;t pickle _thread.lock objects when using multiprocessing.Pool with a class-based Logger wrapper",
+  "tags": [
+   "python"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am trying to parallelize a data-processing task where I've wrapped my logic inside a class. Each instance of the class is supposed to log its own progress to a centralized log file. However, as soon as I call [code] , I get a traceback that I don't quite understand. I have a [code] class that holds a logger instance. I want to create several instances of this class and process them in parallel using a [code] . [CODE] When I run this, I get the following traceback: [CODE] What I've Tried I tried making the logger a global variable, but I need different configurations for different processors. I tried using [code] , which uses [code] , but I still get serialization issues or the logs simply don't show up. Why does the presence of [code] prevent the class from being sent to the pool, and what is the \"correct\" way to handle logging in a class that needs to be pickled for multiprocessing?"
+ }
+]

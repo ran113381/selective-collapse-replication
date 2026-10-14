@@ -1,0 +1,1540 @@
+[
+ {
+  "question_id": 79834523,
+  "ym": "2025-12",
+  "creation_date": 1764579010,
+  "title": "How to install locally built package with uv",
+  "tags": [
+   "python",
+   "uv"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am struggling a bit with [code] mental model and compatibility with existing tool. I have a project with a \"setup.py\", previously using [code] to run the build. I couldn't find a way to install \"build\" globally though, using [code] will try to literally use system's Python but won't install the package at user level outside of a virtual env ( [code] already creates a venv). Anway with [code] a simple [code] seems to be sufficient. But then documentation only deals with publishing the package but here I am building a CLI. [code] gives me an error [CODE] [code] gives me: [CODE] How to install the built wheel or tar.gz files globally, on my own machine?"
+ },
+ {
+  "question_id": 79834656,
+  "ym": "2025-12",
+  "creation_date": 1764584264,
+  "title": "Why different files produce same GNSS plots in my Python code?",
+  "tags": [
+   "python",
+   "matplotlib",
+   "hash",
+   "satellite",
+   "orbital-mechanics"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I wrote a piece of Python code to read different GPS observation files (.24o) and navigation files (.24p), and generate polar plots of satellite trajectories. The goal is that the RINEX file can be parsed and the sky plot of GNSS satellite positions can be drawn. However, during actual operation, even when completely different .24o and .24p files are used as input, the resulting satellite position sky maps are almost exactly the same. Python version: 3.11.9 Dependency library: numpy2.2.6; matplotlib: 3.10.7; cssrlib: 2021.08.21 Operating system: Windows11 I have tried printing the [code] value to confirm that the seeds generated from different files are indeed different. For example, the seed of file A is 0.123456, and the seed of file B is 0.789012. I also checked the track parameters by printing the [code] , [code] and [code] values of the same PRN in different files, and found that the differences are extremely small (for example, [code] differs by only 1e-5). I also adjusted [code] from 0.3 to 10, but there is still no significant difference in the resulting trajectory. [CODE] Why is the difference in [code] not reflected in the graph? Are the differences in the orbital parameters being \"offset\" by later calculations, or is the trajectory-drawing logic ignoring these parameter changes? How can modifications be made to generate significantly different satellite trajectories "
+ },
+ {
+  "question_id": 79834695,
+  "ym": "2025-12",
+  "creation_date": 1764586029,
+  "title": "Polars lazyframe update() silently failing in a serverless Cloud Function (OOM error)",
+  "tags": [
+   "python",
+   "dataframe",
+   "out-of-memory",
+   "serverless",
+   "python-polars"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am trying to apply changes from one dataframe (source file is a 7 MB .CSV) to a larger dataframe (source file approx. 3GB .CSV), e.g. update existing rows with matching IDs, while at the same time adding new rows with no pre-existing ID in the larger dataframe. I believe the correct way to do this is to use the Polars update() method with the \"how\" strategy set to \"full\" . Unfortunately, this works fine testing on my local machine but silently fails in a Cloud Function environment even with the container configured for 8G RAM. I am using scan_csv() with [code] to get LazyFrames (with only strings) of the two datasets before calling [code] , and tried logging intermediate results using [code] , which logs the dataframe stats just fine for each of the source datasets, but never is able to get past the update() to log the resulting dataframe describe(): [CODE] Am I doing anything wrong or inefficient here?"
+ },
+ {
+  "question_id": 79835026,
+  "ym": "2025-12",
+  "creation_date": 1764603651,
+  "title": "Can we edit .py files in VSCode and use Google Colab extension to run them on Google servers like Jupyter Notebooks?",
+  "tags": [
+   "python",
+   "vs-code",
+   "jupyter-notebook",
+   "google-colaboratory",
+   "vscode-extensions"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I have just get my hands dirty with VSCode's extension Google Colab (by Google) . While I can connect to google servers for running Jupyter Notebooks (.ipynb files), Is there a way to use VSCode directly on .py files of my project and execute them on Google servers. Note that I dont want to use the command [code] from my notebooks to run the .py files of my project, I want to run them directly with VSCode just like I am able to with Jupyter Notebook."
+ },
+ {
+  "question_id": 79835498,
+  "ym": "2025-12",
+  "creation_date": 1764651898,
+  "title": "How do I sort a Pandas DataFrame using a column name stored in a variable?",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "sorting"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am working with a Pandas DataFrame containing student data (GRE scores, TOEFL scores, etc.). I need to sort this DataFrame based on a specific column, but the column name is provided by the user as input (it is not hard-coded). I know how to sort by a specific column usually: [CODE] However, I am struggling to do this dynamically when the column name is read from [code] . My Code Attempt: [CODE] Is this the correct way to pass a variable into [code] , or is there a different syntax for dynamic column names?"
+ },
+ {
+  "question_id": 79836054,
+  "ym": "2025-12",
+  "creation_date": 1764689720,
+  "title": "FastAPI: /v1/modules returns {&quot;detail&quot;: &quot;Not Found&quot;} even though router is defined",
+  "tags": [
+   "python",
+   "module",
+   "fastapi"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have a FastAPI app that I start with: uvicorn app.main:app --reload In the code I have (simplified): [CODE] However, I always get: {\"detail\": \"Not Found\"} when I go to http://127.0.0.1:8000/v1/modules , and the endpoint does not appear in docs. Question: What could cause app.main:app to run without this router actually being registered, and what should I check (imports, paths, virtual environment, working directory, etc.) to make /v1/modules show up in Swagger and stop returning 404? GPT-5.1 (Preview) • 1x"
+ },
+ {
+  "question_id": 79836074,
+  "ym": "2025-12",
+  "creation_date": 1764691418,
+  "title": "asyncio freezes when spawning multiprocessing process on Windows but works fine on Linux",
+  "tags": [
+   "python",
+   "windows",
+   "concurrency",
+   "multiprocessing",
+   "python-asyncio"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I’m experimenting with mixing [code] and [code] in Python 3.12. On Linux, the following code works as expected — the event loop stays responsive and the child process prints normally. On Windows, the event loop freezes after the first [code] . Minimal code: [CODE] What happens: Linux: prints [code] , [code] , [code] , worker messages → works fine Windows: prints only [code] , then freezes indefinitely My questions: Why does the event loop freeze only on Windows? Is this expected because Windows uses the “spawn” start method? Is there a recommended workaround (e.g., using [code] , [code] , or setting a different start method)? Should [code] + [code] generally be avoided on Windows?"
+ },
+ {
+  "question_id": 79836234,
+  "ym": "2025-12",
+  "creation_date": 1764701257,
+  "title": "Why does asyncio.gather() not cancel pending tasks when one task fails?",
+  "tags": [
+   "python",
+   "python-asyncio",
+   "coroutine"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm using [code] to run multiple coroutines in parallel. When one coroutine raises an exception, I expect the remaining tasks to be cancelled. However, they continue running. [CODE]"
+ },
+ {
+  "question_id": 79836939,
+  "ym": "2025-12",
+  "creation_date": 1764768285,
+  "title": "Why is html files not being generated",
+  "tags": [
+   "python",
+   "scrapy"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "My version of scrapy is 2.11.0 I am learning scrapy and the code they give as an example to try is this: [CODE] If you run it the documentation says it is supposed to create html files but it does not. Why is it not creating the files? UPDATE I created a separate file called spider.py and placed the same code and ran it like this with the output displayed: [CODE]"
+ },
+ {
+  "question_id": 79837059,
+  "ym": "2025-12",
+  "creation_date": 1764776196,
+  "title": "&quot;TypeError: &lt;class&gt; is not reversible&quot; -- what does it mean?",
+  "tags": [
+   "python",
+   "data-structures"
+  ],
+  "score": -2,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "Something called [code] on an instance of a class of mine, which resulted in the error [CODE] What does it mean for an object to be reversible?"
+ },
+ {
+  "question_id": 79837134,
+  "ym": "2025-12",
+  "creation_date": 1764780558,
+  "title": "Integrate a chart into Kivy",
+  "tags": [
+   "python",
+   "kivy",
+   "kivy-language",
+   "kivymd",
+   "kivy-recycleview"
+  ],
+  "score": -3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'd like to add a Kivy chart. I already have part of it done, but I'd like to know how to implement it. I'm using .py for the logic and the Kivy language for the design. I have a main file that contains the logic, but the tab I'm working on is called \"Resumen\" it's for keeping track of a personal portfolio of stocks and stock market purchases. [CODE] And I have the code for the graph: [CODE]"
+ },
+ {
+  "question_id": 79837428,
+  "ym": "2025-12",
+  "creation_date": 1764807974,
+  "title": "FIX connection stop error when sending logon",
+  "tags": [
+   "python",
+   "quickfix",
+   "fix-protocol"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm building a project to get market data from Deribit FIX. I'm using QuickFIX for this. Here is my [code] and [code] block of code, which handles the logon connection logic: [CODE] When I run the project, I see this in my terminal: [CODE] So far, I've checked that my Deribit API credential are correct and have both read and write permissions."
+ },
+ {
+  "question_id": 79837569,
+  "ym": "2025-12",
+  "creation_date": 1764828611,
+  "title": "How to make hatch test install the whl instead of directly using project dir?",
+  "tags": [
+   "python",
+   "pytest",
+   "python-wheel",
+   "hatch"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "With the AI answers, I was recommended to do: [CODE] But when I try [code] I still get: [CODE] As you can see, it's still using the local files instead of installing the whl then use from env. What's the correct way to install my package as whl, not directly use it? Is hatch really the best tool? Or do other better/easier build systems exist? My goal is to bundle a binary and then on test install the whl to confirm its working. I like the hatch build hook, but the test is unsatisfactory as it tries to use the files directly instead of installing the whl then using it."
+ },
+ {
+  "question_id": 79837717,
+  "ym": "2025-12",
+  "creation_date": 1764838534,
+  "title": "Installing GitLab dependency without username/token",
+  "tags": [
+   "python",
+   "gitlab",
+   "pyproject.toml"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I can install my-package from the shell without providing a token, using pip install is OK: [CODE] I am trying to automate this into my pyproject file, but can't quite get it to work. I'm aware this should work if I had a URL ending in .git, i.e.: [CODE] However, my URL is different as can be seen above. I am aware that if I tried poetry, it should work without a .git URL and without providing a / (as in this post: How to add dependency in pyproject.toml from gitlab private package registry ). But I'm surprised I can't find any information on solving this as in my example, without poetry. It seems like a simple problem - What am I missing? The \"my-package\" is provided by a different group (who uses GitLab instead of GitHub), should I ask them to make the package accessible in a different way?"
+ },
+ {
+  "question_id": 79837806,
+  "ym": "2025-12",
+  "creation_date": 1764844145,
+  "title": "Including an executable python package into an uv project",
+  "tags": [
+   "python",
+   "dependencies",
+   "pypi",
+   "uv"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I want to publish a python executable that depends on the [code] CLI. I'd like to include it directly on installation without requiring the user to install the CLI utility separately. Since I'm using [code] as a package manager I can run [code] and then launch the utility in the project folder with [code] . I can also run the executable using [code] . Let's say I create the file [code] : [CODE] and run it with [code] . This correctly outputs [code] . However, if I package it as a project script in [code] , build it as a wheel and install it as a standalone application it doesn't recognize the executable anymore. What is the standard way of including executables from pypi as a project dependency?"
+ },
+ {
+  "question_id": 79837831,
+  "ym": "2025-12",
+  "creation_date": 1764845622,
+  "title": "Dash Plotly Flask Application randomly hangs for 1 minute",
+  "tags": [
+   "python",
+   "flask",
+   "plotly",
+   "plotly-dash"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have build a simple application with two pages (a multi-page Dash app) which I am running locally using Gunicorn with two workers and four threads. It's a simple dashboard application. When I refresh the page in the browser and inspect the network tab, it usually takes 800ms to fetch the data and render it to the chart. The [code] typically takes about 800ms to respond and finish. However, there are instances when I reload the page and the same process suddenly takes about one minute. During this time, the page stays completely white and only shows the text \"Loading...\". This behavior is also visible in the Chrome network logs: Has anyone experienced this or have an idea what might be causing this?"
+ },
+ {
+  "question_id": 79837925,
+  "ym": "2025-12",
+  "creation_date": 1764851896,
+  "title": "Local package randomly becomes unimportable when using `uv run` in a project created with `uv init --package`",
+  "tags": [
+   "python",
+   "macos",
+   "import",
+   "python-packaging",
+   "uv"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm seeing non-deterministic import failures when using uv to manage a Python project created with [code] . After a fresh [code] , my local package is importable, but after running a few [code] commands it suddenly becomes un-importable with: [CODE] No files or config change between runs. Recreating \".venv\", deleting [code] , and running [code] fixes it temporarily — but the problem always returns. EDIT (root cause found): This was not a uv/uv_build/src-layout issue. The failures were caused by Python skipping the PEP 660 editable .pth file because it had the macOS hidden file flag (UF_HIDDEN). In [code] this shows up as: \"Skipping hidden .pth file: .../ editable ...pth\". Fix/workaround: create the venv as [code] (not [code] ) or clear the hidden flag (e.g. [code] ). I’m leaving the original repro/details below for context. Project Setup Project created using: [CODE] Project structure (standard src layout): [CODE] Example module: [CODE] Test: [CODE] pyproject.toml (relevant parts) [CODE] uv sync reports: [CODE] Minimal Reproducible Sequence Fresh reset: [CODE] Everything works: [CODE] Then, after repeating: [CODE] Eventually: [CODE] No code or config changes occur. Environment macOS Darwin 25.1.0 arm64 Python 3.12.7 uv 0.9.15 (5eafae332 2025-12-02) Reproducible with VS Code Things I've already checked init .py exists Not using pip manually Not modifying PYTHONPATH Issue appears"
+ },
+ {
+  "question_id": 79838094,
+  "ym": "2025-12",
+  "creation_date": 1764862667,
+  "title": "Unable to select inserted value in sqlalchemy",
+  "tags": [
+   "python",
+   "sqlalchemy"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have the following script that executes an insert statement and then tries to select the inserted value. [CODE] When running the script I get the following error. [CODE] However, when I change [code] to the following: [CODE] Then, the script runs just fine. I have found a workaround for this, but I'm curious as to what is cause of this issue. Does anyone know what causes this issue and why changing [code] like that solved the issue?"
+ },
+ {
+  "question_id": 79838096,
+  "ym": "2025-12",
+  "creation_date": 1764862948,
+  "title": "Error while deploying python code to linux based azure function",
+  "tags": [
+   "python",
+   "numpy",
+   "azure-functions"
+  ],
+  "score": 1,
+  "answer_count": 3,
+  "is_answered": false,
+  "body_excerpt": "I am trying to deploy python code to azure function (linux based, python 3.12). The app works if I exclude pandas (and other package dependency). However, I am getting the following error on azure if I include them: [CODE] Azure function app is using App Service plan. Please find below python code and other dependent files: function_app.py [CODE] requirements.txt [CODE] I am using windows so I build packages locally using the following command: [CODE] and create a zip file using the following files/folder: [CODE] Azure configuration (mandatory): [CODE] Azure hosting plan: App service plan - linux (Basic B1) Am I missing any steps?"
+ },
+ {
+  "question_id": 79838108,
+  "ym": "2025-12",
+  "creation_date": 1764863414,
+  "title": "Making an Ollama Model read dict/json data properly",
+  "tags": [
+   "python",
+   "json",
+   "ollama"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am using Big Query to pull SQL data from a certain database. I am having issues making an Ollama model, particularly the llama3.3 70B, making it read the SQL query data properly. It only just reiterates the given prompt and asks for more information. I convert the SQL data into a dictionary, and convert the dictionary to json data through the .jsondump(). If anyone has any suggestions so that I can make it read it properly. My main goal is for the model to be able to read the JSON formatted data and provide a summary on the query results. The results of the SQL entail certain parameters used for the Big Query, for example a Goldstein scale is a component of the query. My main goal is to have the model summarize what each query component entails, and give a snapshot of the overall query response. For example, SQL parameters below should be summarized by the model after the query response, then analyzed and used to forecast the current situation of the input. [CODE] [CODE] [CODE]"
+ },
+ {
+  "question_id": 79838348,
+  "ym": "2025-12",
+  "creation_date": 1764881771,
+  "title": "Using the query plan (lazy frame) as a cache key",
+  "tags": [
+   "python",
+   "caching",
+   "python-polars",
+   "lazy-evaluation",
+   "advice"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Consider the following situation: There is a complex (and time-consuming) query, which has some \"slowly changing\" parameters, i.e. the same query gets executed on the same data(-source) over and over again for a certain span of time. Then at some point both the source and the query get updated. Also assume that it is cheap (and fast) to determine whether the data(-source) has changed. Can I use the query plan together with a \"hash of the source\" as key for a lookup cache for pre-computed query results? Would that be \"safe\" in principle, i.e. with the same plan and the same source data I can be sure to always get the \"same\" result. Could the \"size\" of the plan become too-large for use in a key to the cache? I might be overlooking something obvious here, so happy to get feedback/suggestions about that idea in general also."
+ },
+ {
+  "question_id": 79838529,
+  "ym": "2025-12",
+  "creation_date": 1764907296,
+  "title": "For loop skipping the last index in each row of my 2D list",
+  "tags": [
+   "python",
+   "nested-loops"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "Basically what i'm trying to do is loop through the whole list and have each \"-\" symbol be replaced with a number that indicates the number of \"#\" symbols next to them similar to minesweeper with this being the code i'm using to perform the horizontal check. It sort of works but for some reason it skips the last index in a row (the far right side) and I can't figure out what i'm doing wrong with it. At first I thought it might be the -1 I added to the second for loop but I get an error saying it's out of range when I do. I also tried seeing if it might have had something to do with the conditional statement to skip over the hash symbols but I was still having the same issue. [CODE] [CODE] ^ That's what I get when I run it."
+ },
+ {
+  "question_id": 79838684,
+  "ym": "2025-12",
+  "creation_date": 1764923713,
+  "title": "Make a custom rust class input to polars expression plugin",
+  "tags": [
+   "python",
+   "rust",
+   "python-polars",
+   "rust-polars"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I want to make a custom polars plugin which takes a class defined in rust using pyo3. I have managed to create a class which can roundtrip pickle defined as: [CODE] such that running the following python succeds: [CODE] I have then defined the following expression plugin: [CODE] with matching python code: [CODE] If I use my expression in Python: [CODE] I get the error: [CODE] I think it should be possible to get to work since the following which takes a DataFrame as a kwarg does work (!): [CODE] with python side: [CODE] which works and gives the expected result when running: [CODE]"
+ },
+ {
+  "question_id": 79838908,
+  "ym": "2025-12",
+  "creation_date": 1764939785,
+  "title": "FastAPI-Login optional dependency always returns None even with a valid token",
+  "tags": [
+   "python",
+   "authentication",
+   "jwt",
+   "fastapi"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm building a login system with [code] and [code] . I already have a [code] route working. My goal is: If a valid token is present, allow access to certain routes. If no token or an invalid token is present, force a fresh login. The problem is: Even when a valid token exists, calling [code] always returns [code] . This breaks my logic because it always triggers a fresh login instead of recognizing the valid token. My Code: [CODE] Expected behavior: If the token is valid, [code] should return the user. If the token is invalid or missing, it should return [code] . Question: Why does [code] always return [code] even when I send a valid token? How can I make it properly detect a valid token and only force login when needed?"
+ },
+ {
+  "question_id": 79839367,
+  "ym": "2025-12",
+  "creation_date": 1764975312,
+  "title": "Make a Python process that communicates with itself over a PTY",
+  "tags": [
+   "python",
+   "pty"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm attempting to write tests using Pytest for an application that, among other things, checks to see if its standard input is connected to a terminal and changes its behavior if so. The application is structured such that the code is in a Python module that provides a [code] function, then an executable exists that simply imports the module and calls [code] . When testing, the test suite imports the same module, then calls [code] with various mocks set. stdin is, as far as I can tell, usually a [code] object when running the application normally, so I've been mocking stdin like this: [CODE] This works quite well, but now I need to be able to mock [code] with a pty. The idea I had for doing that was to just open a PTY pair, wrap the slave pty in an [code] object, then wrap that in a [code] object, and be done. If that worked, I'd be able to write to the application's stdin by writing to master_pty in the test suite, then the application would read [code] and get whatever I wrote. That doesn't seem to work though. From looking at https://man7.org/linux/man-pages/man7/pty.7.html and https://docs.python.org/3/library/pty.html , it seems like I should be able to do something like this in the interactive console: [CODE] What I expect to have happen is [code] should output [code] What actually happens is the interactive session hangs until I press Ctrl+C. Clearly I'm missing somethin"
+ },
+ {
+  "question_id": 79839404,
+  "ym": "2025-12",
+  "creation_date": 1764981145,
+  "title": "How do I resolve the ConnectionResetError and CondaHTTPError when attempting to update conda despite multiple retries and Anaconda reinstalls?",
+  "tags": [
+   "python",
+   "anaconda",
+   "conda"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "Error Screenshot I have been facing the following persistent issue while attempting to update conda (conda update --all) for the past few hours. EDIT: I am using my home network, and I am not using a proxy. I am only using the native Windows Firewall, which has not caused any problems when updating conda before. I have switched off Windows Firewall and also added https://repo.anaconda.com to the list of Trusted Sites in my Internet options. But this has not helped. [CODE] I have also attempted to uninstall and reinstall Anaconda various times. After every reinstall, I copied the files below from [code] and pasted them in [code] : [CODE] However, nothing has helped. EDIT: I don't feel safe to execute conda config --set ssl_verify no because it might make my system more vulnerable. Any advice/help would be greatly appreciated. Thank you."
+ },
+ {
+  "question_id": 79839438,
+  "ym": "2025-12",
+  "creation_date": 1764985844,
+  "title": "I have a problem with the request module in Automate Boring Stuff With Python - Chapter 13",
+  "tags": [
+   "python",
+   "python-requests"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am new to python and programming in general and I got to Chapter 13 of Automate The Boring Stuff With Python which teaches Web Scraping, I succeeded in some projects but I'm having trouble getting the HTML from pypi.org, the task is to get the response from a search page in there and open the first few links, I can do it if I manually download the page as a .html file but i can't do it through the URL. Here is the code that's supposed to work: [CODE] Here is what the beautiful soup object returns: https://pastebin.com/nkfPuh9h I turned off uBlock so judging by ` Failed to load script: ${src}, Please contact the service administrator. ` and: [CODE] Maybe it has something to do with Javascript? That code was fully provided by Automate the Boring Stuff so pypi.org could have changed something since then. I would just like to know if it is a mistake on my end or not so I can get this right because at the end I will have to write a script to download images from Imgur or Flickr, but I won't be able to do that if I can't do simple webscraping."
+ },
+ {
+  "question_id": 79839972,
+  "ym": "2025-12",
+  "creation_date": 1765057374,
+  "title": "Combining similar alternative grammar definitions",
+  "tags": [
+   "python",
+   "pyparsing"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am attempting to scan specific names from a CDL file (a variant of SPICE) which is a line oriented syntax. Superficially, regex would work, but is in fact more complex given the full language definition. The basic issue is that there are two types of line syntax which can yield the required name. However the grammar of the first is embedded in the grammar of the second. This gives false results. In the simplified example, I am attempting to parse [code] and [code] . It produces: [CODE] [CODE] The nub of the problem is look ahead : The language is parsed line by line. Detection of mname1 is ident followed by an assign. This is the only way to detect it. Detection of both mname1 and mname2 occur in the 2nd line. The parse needs to look ahead to mname2 detection to understand that mname2 detection takes precedence. Currently, I use regex to search for \"SUB\" and call differrent grammars accordingly. This works, but I am likely missing the pyparser way of doing it."
+ },
+ {
+  "question_id": 79840075,
+  "ym": "2025-12",
+  "creation_date": 1765082201,
+  "title": "Executed line confusion",
+  "tags": [
+   "python",
+   "code-coverage",
+   "slipcover"
+  ],
+  "score": -6,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "In the Python program below: [CODE] when I run formal code coverage tool SlipCover, when a is 3, the line 9 is not listed as missing line, but when it makes the previous conditionals evaluate to true such as a = 10, line 9 is listed as unexecuted line this time. I am really confused about this behaviour, in any case the body of else statement is not executed. Could you explain me the reason why else is in one case not listed as unexecuted, but in the second case listed as unexecuted?"
+ },
+ {
+  "question_id": 79840254,
+  "ym": "2025-12",
+  "creation_date": 1765114039,
+  "title": "How can I handle missing values in a large pandas DataFrame without running out of memory?",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "score": 2,
+  "answer_count": 4,
+  "is_answered": true,
+  "body_excerpt": "I’m working with a large pandas DataFrame (~5 million rows, ~40 columns) . When I try operations like: [CODE] my RAM usage spikes and sometimes my Jupyter notebook crashes. I understand that pandas tends to make a full copy of the DataFrame during operations. But in my case, even simple imputation is too expensive. What is the most memory-efficient way to handle missing values in very large datasets using pandas?"
+ },
+ {
+  "question_id": 79840266,
+  "ym": "2025-12",
+  "creation_date": 1765115160,
+  "title": "ResourceExhausted: 429 with &quot;limit: 0&quot; on Gemini API Free Tier (LangChain) even after new project",
+  "tags": [
+   "python",
+   "google-cloud-platform",
+   "google-api",
+   "langchain",
+   "google-gemini"
+  ],
+  "score": 7,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am trying to use the Google Gemini API with [code] in Python. I want to use the Free Tier, so I created a fresh project in Google AI Studio (without linking any billing account). However, I immediately get a [code] error that says my limit is [code] . [CODE] [CODE] What I have tried: Created a brand new project in Google AI Studio (no billing added) to ensure I am on the Free Tier. Generated a new API key. Tried changing the model name in the code to [code] and [code] . Issue: The error log specifically mentions [code] with [code] , even though I am trying to use other models in my code. Questions: Why does the error log show [code] for the Free Tier? Why does the error cite [code] even when I specify [code] in the LangChain constructor? Does LangChain default to an old model if the specified one isn't found? This is my api rate limit list [enter Any help on how to access the actual Free Tier would be appreciated."
+ },
+ {
+  "question_id": 79840862,
+  "ym": "2025-12",
+  "creation_date": 1765191483,
+  "title": "Why does my websocket connection get blocked?",
+  "tags": [
+   "python",
+   "websocket",
+   "python-asyncio",
+   "fastapi",
+   "event-loop"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I have a simple FastAPI server with just one WebSocket endpoint. It receives a terminal command, executes it locally, and broadcasts the stdout to the client every second: [CODE] [code] is my own process management class, built with Popen and threading. I also have a simple client script that sends a terminal command to the server and listens for the command's stdout: [CODE] The issue is this: when I use the synchronous [code] in my server loop, my client receives the entire stdout only after the command completes. However, when I use the asynchronous [code] , I get the expected behavior: the client receives chunks of stdout every second. I don't understand why this happens. My synchronous [code] blocks the event loop for only one second, but the command execution takes about 10 seconds in total."
+ },
+ {
+  "question_id": 79840888,
+  "ym": "2025-12",
+  "creation_date": 1765192769,
+  "title": "Bootstrap dbc.Input debounce not working when set to a number",
+  "tags": [
+   "python",
+   "plotly-dash",
+   "dash-bootstrap-components"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "The [code] [code] paramenter works for me when set to [code] but it does not work for a number like [code] . Tried in Fedora 43 with both Firefox and Chromium. It works with [code] [CODE] [CODE] What am I missing?"
+ },
+ {
+  "question_id": 79841039,
+  "ym": "2025-12",
+  "creation_date": 1765202450,
+  "title": "ProjectEuler+ #21 Amicable Numbers Sum: Logic error or Time Limit exceeded when using Sieve with O(N log(N)) complexity on HackerRank",
+  "tags": [
+   "python"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am new here so I'm not sure if I'm doing this correctly, but can someone help me? [CODE] Problem description Let [code] be defined as the sum of proper divisors of [code] (numbers less than [code] that divide evenly into [code] ). If [code] and [code] , where [code] isn't equal to [code] , then [code] and [code] are an amicable pair and each of [code] and [code] are called amicable number. Evaluate the sum of all the amicable numbers under [code] . Input format The first line contains an integer [code] , the number of test cases. The next [code] lines each contain an integer [code] . Constraints [CODE] Output format Print the value corresponding to each test case. I tried PyCharm's debugger and tested it myself multiple times. The program works correctly for me. I don't get any errors, even with inputs that exceed the constraints. I only get errors on HackerRank, where it says 2 of the 4 test cases have failed. One of them is \"Wrong Answer\" in a hidden test case (it doesn't show me the input nor the output, I only know that it is wrong), and the second one is \"Time Limit Exceeded\" which, also a hidden test case. When I tested the code for edge cases I did not encounter any errors including the amicable pair 220,284 that's given as an example in the original question. The HackerRank problem reference: https://www.hackerrank.com/contests/projecteuler/challenges/euler021/problem"
+ },
+ {
+  "question_id": 79841071,
+  "ym": "2025-12",
+  "creation_date": 1765204263,
+  "title": "I&#39;m encountering an error in helpdesk.ticket when calling a custom method within a scheduled action",
+  "tags": [
+   "python",
+   "odoo",
+   "action",
+   "schedule"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "This is my scheduled action in Odoo: action image and this is my code: [CODE] I encountered an error in the container logs: error image"
+ },
+ {
+  "question_id": 79841144,
+  "ym": "2025-12",
+  "creation_date": 1765209548,
+  "title": "How can can i optimize my python code so the runtime would be faster?",
+  "tags": [
+   "python",
+   "optimization",
+   "advice"
+  ],
+  "score": -1,
+  "answer_count": 3,
+  "is_answered": false,
+  "body_excerpt": "My python script is seperated into different files , each one asks to an api for datas , analyze them and write text on a powerpoint and an excel Since theres is a lot of datas , and at least 7 files going through the powerpoint and the excel , the script is pretty slow, i can't make the functions async since they are all reading/writing in the powerpoint/excel I would also want to test my code but since the datas are super large it is impossible to write a mock data to try it , and also the api can give me unpredictable data (which is also what i want to try) The excel /powerpoint arent sent at the end of the script to the front so the user can use them My question is : do you have any advices on how i could approve the runtime of my scripts ? and how i could test it to improve it ? Sorry my post is quite messy ,if you have any question feel free to ask them !"
+ },
+ {
+  "question_id": 79841220,
+  "ym": "2025-12",
+  "creation_date": 1765215166,
+  "title": "Sphinx-apidoc and &#39;src&#39; layout",
+  "tags": [
+   "python",
+   "python-sphinx"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I want to document my code using sphinx but I'm using the 'src' layout for my structure. Below is an example: [CODE] The rst file contains the bare minimum: [CODE] Calling apidocs to generate the class documentation is not working. It does produce documentation that is within [code] but not the other files in the directory. [CODE]"
+ },
+ {
+  "question_id": 79841326,
+  "ym": "2025-12",
+  "creation_date": 1765225916,
+  "title": "PyCharm and PyTorch - Not able to run CUDA",
+  "tags": [
+   "python",
+   "pycharm",
+   "cuda"
+  ],
+  "score": -6,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have CUDA installed via the regular Windows downloadable installer via the official website, and am trying to use PyTorch in the PyCharm program using CUDA as kernel. PyTorch now works fine, however I am unable to run CUDA in PyCharm. I have additionally, upon investigation, installed the packages cuda-python and nvidia-cuda-runtime-cu12, however it is unclear to me how I 'start' these packages as importing them in command line in python does not work. [CODE] In Anaconda, I remember I can set the actual kernel to CUDA (runtime), which makes it work automatically. However in PyCharm I am not able to set the kernel to another version. I can select a 'server' but this a kind of dummy server, and the only other option is to use an External server, which I do not know how it works. Is there an option to set the kernel to CUDA like in Anaconda? Thanks."
+ },
+ {
+  "question_id": 79841700,
+  "ym": "2025-12",
+  "creation_date": 1765270258,
+  "title": "Why does my rotation (up / down) break when I rotate 90 degrees left or right, and how do I fix it?",
+  "tags": [
+   "python",
+   "arrays",
+   "numpy"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to make a simple 3d renderer in CMU Graphics using rotation matrices. When I rotate the camera 90 degrees (left or right), and I try rotating (up / down), it does a \"barrel roll\" when it should change the pitch. The camera starts aligned with the z axis, then rotating up / down rotates around the x axis, but when I rotate so that the camera is aligned with the x axis, it still rotates around the x axis when it should rotate around the z axis. Here is my code: [CODE]"
+ },
+ {
+  "question_id": 79842324,
+  "ym": "2025-12",
+  "creation_date": 1765311208,
+  "title": "Unexpected shape in left hip flexion/extension angle during gait cycle normalization (biomechanics)",
+  "tags": [
+   "python"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am computing hip flexion/extension angles during gait using 3D marker data (Python + Moveck). I know that my dataset lacks a static calibration trial, so the absolute hip angles have an offset. However, what I don’t understand is the shape of the left hip angle. Indeed, the left hip angle shows an unexpected “double dip” (“bounce”) between ~20% and ~70% of the gait cycle, which is not physiologically expected. Here is the plot (Right = blue, Left = orange): Code used is available at: https://github.com/hugohaffad/gait_analysis/blob/main/scripts/main.py What could cause this abnormal shape only on the left hip angle?"
+ },
+ {
+  "question_id": 79842381,
+  "ym": "2025-12",
+  "creation_date": 1765315947,
+  "title": "How to see changes in django admin base.css",
+  "tags": [
+   "python",
+   "css",
+   "django"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I want to change some css in [code] After attempting some changes on base.css without any effect, I now fail to understand the static-file concept at all. As a matter of fact I can delete the whole static directory without any effect/error (browser CTRL + F5). [CODE] [CODE] Long story short; How to change [code] ?"
+ },
+ {
+  "question_id": 79842390,
+  "ym": "2025-12",
+  "creation_date": 1765316959,
+  "title": "Conditionnal IF use not working with PD.NOTNA",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "score": 1,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "Amateur programmer here, trying to make my working life bette. I am building a billing program, using selenium webdriver, to facilitate people entering their information into the more complex web-based \"official\" billing system. The user imports a .csv file containing the pertinent information, that is then used to feed the proper fields in the billing system. One column in the .csv file is used to determine which path the remainder of the billing needs to be done in ([path_decider]). The goal is that, if left empty, the \"regular\" path will be taken, but if not, it would go elsewhere. When empty, it is interpreted as \"nan\" by pandas. The program iterates through the dataframe, line by line, to bill every line. To check wether this column is empty in the specific row, I wrote this IF statement : [CODE] I get this error from pylance on the elif statement : [CODE] I understand that pd.notna is a dataframe operation that I am using on a single cell, but is still returning a dataframe/series. Since it is a single cell, can there still be issues ? Otherwise, is there an alternative way to separate with a boolean operator if the cell is not NaN ? Thanks !"
+ },
+ {
+  "question_id": 79842800,
+  "ym": "2025-12",
+  "creation_date": 1765361341,
+  "title": "Polars: out-of-memory problem of groupby-max",
+  "tags": [
+   "python",
+   "out-of-memory",
+   "python-polars"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have several ndjson files that are nearly 800GB. They come from parsing the Wikipedia dump. I would like to remove duplicates html. As such, I group by [code] and pick the json with the most recent [code] . [CODE] However, I encounter the out-of-memory (OOM) error: the RAM usage increases gradually until my laptop crashes: [CODE] How can we resolve the OOM problem? Thank you for your elaboration."
+ },
+ {
+  "question_id": 79844497,
+  "ym": "2025-12",
+  "creation_date": 1765503547,
+  "title": "Configure module-level logger as child of main program logger",
+  "tags": [
+   "python",
+   "logging",
+   "python-logging"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Python loggers can be organized in a namespace hierarchy (e.g. [code] ). If a python module uses the native [code] module, can I configure logging in my main program such that all logging messages generated from the module goes to a custom namespace that I define in my program? For example, if I have a program like this [CODE] I want all log messages generated by [code] to be output to a logger named [code] (instead of [code] , [code] , or whatever the default is for that module) so I can later define a handler for these messages at the [code] level. Most examples only show usage of this feature for submodules within a package, not for programs external to the package."
+ },
+ {
+  "question_id": 79844733,
+  "ym": "2025-12",
+  "creation_date": 1765532317,
+  "title": "What is the use of class?",
+  "tags": [
+   "python",
+   "advice"
+  ],
+  "score": -2,
+  "answer_count": 5,
+  "is_answered": false,
+  "body_excerpt": "I'm a newbie to Python. I am currently completing one of my assignments about classes, but I'm quite confused. Don't classes just do some sort of classification? Why is it said that classes are important in Python?"
+ },
+ {
+  "question_id": 79844800,
+  "ym": "2025-12",
+  "creation_date": 1765536760,
+  "title": "Is there a tkinter editor suitable for beginners",
+  "tags": [
+   "python",
+   "tkinter",
+   "tooling-recommendation"
+  ],
+  "score": 0,
+  "answer_count": 5,
+  "is_answered": false,
+  "body_excerpt": "I am a newbie in Python. My assignment requires me to use a graphical interface, and I plan to use tkinter for this purpose. However, I find manually typing code too complicated. Could any expert recommend an editor suitable for beginners. Thank you"
+ },
+ {
+  "question_id": 79844837,
+  "ym": "2025-12",
+  "creation_date": 1765539112,
+  "title": "How to calculate the gradient of a scatter graph?",
+  "tags": [
+   "python",
+   "numpy",
+   "scipy",
+   "finite-element-analysis"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have an arguably common problem, but I don't seem to find any instruction on the web. I have a 3D Numpy array containing the coordinates of N points: [CODE] So that the coordinates looks like this: [CODE] For every point in the list, I have an associated value (we can see it as a potential), that -generally- does not follow a mathematical function: [CODE] In the end, I have a sort of 3D-scatter plot where every point has an associated scalar potential. Now, I need to to calculate the gradient of this dataset in every point, for the 3 possible directions (let's call them X, Y and Z axis). I've read somewhere that it would be useful to use the scipy.spatial.KDTree function, but I can't manage to make it work: every time I try to check it out, i get or a random precision, or even an inconsistent one. Could someone explain me how to correctly use it? Or, maybe, does it exist a simpler and more \"direct\" way to do it?"
+ },
+ {
+  "question_id": 79844879,
+  "ym": "2025-12",
+  "creation_date": 1765542425,
+  "title": "How to make my TOTP generator work with other hashing algorithms (other than sha1)?",
+  "tags": [
+   "python",
+   "security",
+   "secret-key",
+   "totp",
+   "hmacsha512"
+  ],
+  "score": -3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm having trouble making my Python code generate the correct TOTPs using the test secret key [code] , the same one used in the RFC6238 appendix B examples. I was able to get the correct codes with [code] , but I could not do so with the other algorithms, [code] and [code] . I think the issue is with the secret key encoding. I currently use it raw: [CODE] Previously, I tried: [CODE] but that also produces incorrect codes. I'm not very experienced with security-related coding, so I don't fully understand the required format for the secret key. I suspect the problem is mostly related to how I initially encoded the secret key before using it in the HMAC function. I followed the algorithm closely, so I doubt there are issues in the code that generates the TOTP, especially since it produces correct codes for [code] . I would really appreciate any help with this!"
+ },
+ {
+  "question_id": 79844915,
+  "ym": "2025-12",
+  "creation_date": 1765545030,
+  "title": "I&#39;m a beginner learner and i&#39;d like some feedback on this really simple program calculating an employee&#39;s pay",
+  "tags": [
+   "python",
+   "advice"
+  ],
+  "score": 0,
+  "answer_count": 4,
+  "is_answered": false,
+  "body_excerpt": "[CODE] I had to make a program for the following exercises: Rewrite your pay computation to give the employee 1.5 times the hourly rate for hours worked above 40 hours. Rewrite your pay program using try and except so that your program handles non-numeric input gracefully by printing a message and exiting the program I'm a complete beginner and i want to learn python. This code works but i feel like there could be a much easier way to do this. I'm not sure but i feel like there is and i was wondering if anyone could help me with what i could do to make this more simple but still work properly. If this is a decent piece of code i'd be happy to hear that too :) Thank you."
+ },
+ {
+  "question_id": 79845225,
+  "ym": "2025-12",
+  "creation_date": 1765571332,
+  "title": "Postgres dump works with python os.system but not subprocess",
+  "tags": [
+   "python",
+   "postgresql"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "This runs successfully: [CODE] But doing it with subprocess gives an error: [CODE] method: [CODE] The error is [CODE] which implies that using subprocess means it can't find the database [code] and is looking for a default database with the username [code] . Why don't these have the same behavior?"
+ },
+ {
+  "question_id": 79846422,
+  "ym": "2025-12",
+  "creation_date": 1765610684,
+  "title": "How to reduce the size of a file after packaging it as an exe",
+  "tags": [
+   "python",
+   "exe",
+   "packaging",
+   "best-practices"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "enter image description here I had an assignment before to package a Python program, and there were four packaging methods. However, the size of the packaged file can reach up to over 200MB, while the smallest is around 50MB. My teacher said that under normal circumstances, this package should only be a few MB. I have also tried using artificial intelligence to help me with packing, but it usually fails. enter image description here"
+ },
+ {
+  "question_id": 79846429,
+  "ym": "2025-12",
+  "creation_date": 1765611237,
+  "title": "Is () a standard for starting a function?",
+  "tags": [
+   "python",
+   "function",
+   "advice"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "After learning Python for a while, I feel that () is a standard for starting functions. If I don't add () after the function, the function won't run even if it doesn't have parameter imports, so I feel like () is a standard for starting functions. I don't know if this understanding is correct."
+ },
+ {
+  "question_id": 79846548,
+  "ym": "2025-12",
+  "creation_date": 1765632053,
+  "title": "Python GC for ctypes memory / reference &quot;holding&quot;",
+  "tags": [
+   "python",
+   "arrays",
+   "c",
+   "ctypes"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I have written a CFD code which I POC'd in Python. In order to accelerate the computationally expensive parts, I have rewritten these methods in C. I am calling them using [code] which seems to work fine but occasionally I think the Python GC free's an array which is being used by the C library. Investigating the issue, I have been told I need to hold references to the objects allocated in Python and then passed to the C lib to prevent the GC from collecting these objects, however its not clear exactly to me what the correct way to do this. Some references say: holding a reference to the (numpy) array (in the Python), some say also its required to hold a reference to the ctypes pointer which is passed to the C lib Currently I am doing something like this: [CODE] The C arrays are flattened for speed, so I flatten the numpy arrays before passing to the library. Any memory I [code] in C I [code] in the library too. The only other \"memory thing\" I do in the C is a [code] to copy the cell volumes from the [code] struct into the [code] array ... otherwise its just accessing the flattened numpy arrays in C and updating the values ... The python ctype struct \"builder\" methods (ie [code] , [code] ) add each of the arrays included in the structs to the \"holder\" array (just [code] for the residual and volumes arrays, a few others for the data \"block\" struct). ' The code runs fast and well"
+ },
+ {
+  "question_id": 79846937,
+  "ym": "2025-12",
+  "creation_date": 1765703868,
+  "title": "How to write boring code that is still good?",
+  "tags": [
+   "python",
+   "performance",
+   "coding-style",
+   "code-cleanup",
+   "advice"
+  ],
+  "score": 0,
+  "answer_count": 6,
+  "is_answered": false,
+  "body_excerpt": "I am currently writing a large number of insert, delete, read, and update database statements in Python using SQLAlchemy for my MVP project. Naturally, all of these methods need to be thoroughly tested with pytest. The issue I’m facing is that writing and testing this kind of code is extremely repetitive and, frankly, boring. While repetition is somewhat expected in MVP projects, it still feels inefficient to write very similar code over and over again. Copy-and-paste might speed things up, but it can easily introduce subtle errors or lead to poorly structured tests, which then undermines test quality. My question is not about avoiding this code or making it reusable — I already follow the DRY principle where appropriate. Instead, I’m interested in how you personally deal with having to write and extensively test code that you simply find tedious but that must be written anyway. Do you have any mental strategies, workflows, or practical “tricks” to get through this? For example, do you rely on self-made templates, snippets, generators, or specific routines to stay productive and motivated?"
+ },
+ {
+  "question_id": 79846945,
+  "ym": "2025-12",
+  "creation_date": 1765704978,
+  "title": "Calls to Numpy routines from within multiprocessing tasks are very slow",
+  "tags": [
+   "python",
+   "numpy",
+   "python-multiprocessing",
+   "linear-algebra"
+  ],
+  "score": 3,
+  "answer_count": 3,
+  "is_answered": true,
+  "body_excerpt": "I am calling [code] from within a multiprocessing task forked from the Python multiprocessing module. I compare the Numpy routine to my own inverse routine [code] . What I see is that the Numpy routine is significantly faster than my routine when both are run in serial (as expected). However, when I use the same routines within a multiprocessing task, the Numpy routine is ~100x slower. And only with [code] do I see any parallel speedup. I would welcome any explanations - even obvious ones. [CODE] In both cases, I am using [code] to launch tasks (although the results are similar for other Pool routines`) Results using [code] : [CODE] and using [code] : [CODE] I see the same behavior for a range of matrix sizes. I've also tried [code] , which also slows down significantly, although I don't have a routine to compare it to. I have replaced Numpy's [code] with [code] in a much larger code and also see significant differences. So I don't think there is anything special about this test case. Here is [code] : [CODE]"
+ },
+ {
+  "question_id": 79847231,
+  "ym": "2025-12",
+  "creation_date": 1765744276,
+  "title": "convert a numpy array[N] of &#39;S{n}&#39; to an array[2*N] of &#39;S{n/2}&#39;?",
+  "tags": [
+   "python",
+   "string",
+   "numpy",
+   "advice"
+  ],
+  "score": 0,
+  "answer_count": 4,
+  "is_answered": false,
+  "body_excerpt": "I have some code where I read [code] strings of a given size [code] into an ndarray, which I would then like to cut in half to obtain a twice longer array of strings size [code] . Is there a numpy operation which does that for me (without casting the entire array to an actual string (of size [code] ) and then splitting that one into a new array? So something like [CODE] to [CODE]"
+ },
+ {
+  "question_id": 79847605,
+  "ym": "2025-12",
+  "creation_date": 1765796485,
+  "title": "Plotting Y data vs X data with alternating colors for each section in Python",
+  "tags": [
+   "python",
+   "matplotlib"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have what might be a simple problem. I have a dataset that looks like this: [CODE] My task is to plot [code] vs [code] , but whenever the [code] changes, the line should alternate between black and dark blue . I tried the following code: [CODE] However, the plot looks messed up because the colors don’t alternate correctly or the lines overlap strangely. What I want: A continuous plot for the first 100 m of depth. Each [code] is plotted in alternating colors (black / dark blue) . No breaks in the lines within a [code] . How can I correctly plot this in Python using Matplotlib? For additional questions whenever I just plot the data without the color separation the data look like this:"
+ },
+ {
+  "question_id": 79847865,
+  "ym": "2025-12",
+  "creation_date": 1765817549,
+  "title": "Tick direction of 3D plot in Matplotlib",
+  "tags": [
+   "python",
+   "matplotlib",
+   "plot",
+   "mplot3d"
+  ],
+  "score": 4,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "In Matplolib, it is possible to change the direction of the tick of 2D plots with [code] parameters [CODE] 2D plot However, it does not seem to work similarly in the 3D case (which is not surprising according to matplotlib website ): [CODE] 3D plot with regular inout ticks Is there a work around to achieve ticks inside the box only, in the 3D case, to obtain 3D plot with inside ticks ?"
+ },
+ {
+  "question_id": 79847882,
+  "ym": "2025-12",
+  "creation_date": 1765818992,
+  "title": "How to expand equal-aspect data limits in one direction only?",
+  "tags": [
+   "python",
+   "matplotlib"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I've been trying to set equal data aspect ratios in matplotlib with [code] (aka [code] ), while preserving lower bounds/limits, aka anchoring one side of the data and expanding the data limits only on the other side. In my case, the data is always positive, so I'd like to only expand on the top/right side. By default, [code] always expands the bigger data limit symmetrically, centering the data in the plot. [code] has an [code] parameter, which I'd expect to do exactly what I'm hoping to do, even without manually setting axes, by anchoring to [code] . While this works great with [code] , this doesn't have any effect with [code] . Here's a simple example of what I'd want, what I've tried and what hasn't worked: (using non-square plots to make the difference clearer) [CODE] Here's the results from that: I've been digging through Stack Overflow all day, but nothing has popped up."
+ },
+ {
+  "question_id": 79847899,
+  "ym": "2025-12",
+  "creation_date": 1765820645,
+  "title": "Whisper Ignore Fire Tones",
+  "tags": [
+   "python",
+   "openai-whisper"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am using Whisper to transcribe automated dispatches from an SDR. (SDR is essentially recording radio traffic from public safety radio and turning those broadcasts into a WAVE file that is then transcribed using Whisper.) The issue is that the tones and deeps at the beginning of the dispatches cause Whisper to miss the beginning of the transcript. This contains key details like the Incident Type. I cannot simply start at 2 seconds into the audio recording each time because the tone length can vary by the number of departments being dispatched to the call. I have tried various beam sizes with limited success. Perhaps, there is another utility that I can use to detect the tones. I am out of ideas! You can listen to a sample of the audio here . [CODE]"
+ },
+ {
+  "question_id": 79847990,
+  "ym": "2025-12",
+  "creation_date": 1765827901,
+  "title": "Python coding on SAS Viya",
+  "tags": [
+   "python",
+   "sas",
+   "analytics",
+   "sas-studio",
+   "sas-visual-analytics"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm using SAS Studio. I want to learn python coding on SAS Viya. If possible, would like to migrate my existing SAS codes to python but to start with I want to learn the basics. I tried a basic query - [CODE] but it is giving me error - ERROR: Unhandled python exception. Please help me with this. Thank you"
+ },
+ {
+  "question_id": 79848591,
+  "ym": "2025-12",
+  "creation_date": 1765893079,
+  "title": "How do I prevent an Enthought Traits/UI GUI application from growing in size beyond the screen bounds?",
+  "tags": [
+   "python",
+   "enthought",
+   "traitsui"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have an Enthought Traits/UI GUI application with some file path traits in the GUI. And, if the user selects a particularly long file path, then the width of my application window grows beyond the screen bounds. I would like to prevent that without \"hard-wiring\" the application window dimensions. I have tried limiting the length of the file path, using the [code] field of the [code] and/or its [code] . And that seems to be working correctly. (i.e. - I am seeing a truncated file path, now, in the GUI.) However, the width of that file path GUI item is still expanding by the same amount that it was before I introduced truncation! That is, there is now much white space to the right of the file path text, in the newly widened GUI text box. Since all my attempts at using the [code] attribute of the top-level enclosing [code] for my application have failed to solve this problem, I am now hunting for a way to limit the maximum width of a particular GUI [code] in the View (since I know which Item is causing the problem). Does anyone know if that's possible and how to do it?"
+ },
+ {
+  "question_id": 79849865,
+  "ym": "2025-12",
+  "creation_date": 1766008404,
+  "title": "python/numpy : generate sound from an inverse fft of a synthetic spectrum",
+  "tags": [
+   "python",
+   "numpy",
+   "fft",
+   "inverse-transform",
+   "advice"
+  ],
+  "score": 0,
+  "answer_count": 5,
+  "is_answered": false,
+  "body_excerpt": "I continue to tinker with some code I found for analysing/categorising sound in .wav files, among others with the amplitude-weighted average and std. deviation of the rfft spectrum (I know, the spectrum of a typical sound sample doesn't look like it's very well described by a gaussian bell... but I can always rectify that later). Just out of pure curiosity and mostly for \"fun\" I thought I'd generate a .wav file with a generated tone from a synthetic spectrum with this average and standard deviation. A quick test confirmed that I can create a .wav file with the reconstructed original sound by saving the output of a [code] on the array returned by [code] . So far so good. And then I got stuck. The seemingly evident thing to do, saving the output from [code] generates a sound file that is impossible to amplify despite the fact that I rescale the output from the IRFFT to the same range as the original sound data, and the spectrum doesn't have a peak at the expected [code] frequency (as far as it can be trusted). Writing this I realise I should be constructing an array of values that follow an actual gaussian curve rather than being random. That would explain the resultant spectrum being different from what I expect but not the power issue. Could that have to do with the fact that I'm feeding an array of purely real numbers into the IRFFT, instead of the complex numbers it might nee"
+ },
+ {
+  "question_id": 79850147,
+  "ym": "2025-12",
+  "creation_date": 1766048889,
+  "title": "Node.js / Python check AES-NI hardware acceleration support",
+  "tags": [
+   "python",
+   "node.js"
+  ],
+  "score": -1,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I want to check for AES-NI hardware acceleration support on the underlying CPU platform but programatically via Node.js OR Python code. Is this possible?"
+ },
+ {
+  "question_id": 79850256,
+  "ym": "2025-12",
+  "creation_date": 1766057393,
+  "title": "How to handle &quot;JSON payload&quot; templates for web requests to an API?",
+  "tags": [
+   "python",
+   "json",
+   "python-requests",
+   "best-practices"
+  ],
+  "score": 0,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "I'm working with a 3rd party API. The API uses an elasticsearch-like query language. So queries can get quiet complex. Often I have such a complex query (eg. long json string) which has 1 or maybe 2 variables (something like start and end date). it's usually easiest to just to a string replace for these 1 or 2 variables. What is kind of a best practice how to deal with this? hard-code the \"template string\" into the code (simple but \"ugly\") load it from an external file (once) always build the query from scratch (complex) Something else?"
+ },
+ {
+  "question_id": 79850496,
+  "ym": "2025-12",
+  "creation_date": 1766074340,
+  "title": "OSError: [WinError 1114] A dynamic link library (DLL) initialization routine failed when importing torch on Windows",
+  "tags": [
+   "python",
+   "dll",
+   "yolov8",
+   "uv",
+   "ultralytics"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am getting the following error when trying to use PyTorch-based libraries (YOLO / ultralytics) on Windows. The error occurs on import torch, so any torch-based library fails. System information OS: Windows 11 (64-bit) Python: 3.11.5 Package manager: [code] 0.8.4 Virtual environment: [code] Installation steps (clean environment) [CODE] [CODE] [CODE] These are also cause error cannot run. [CODE] What I’ve tried Recreating the virtual environment Reinstalling [code] and [code] Verifying Python version compatibility (Python 3.11.5) Running outside my project directory (same error) I cannot import torch at all , so any computer vision project depending on PyTorch fails. This happens only on Windows , and I’m using uv instead of pip ."
+ },
+ {
+  "question_id": 79850604,
+  "ym": "2025-12",
+  "creation_date": 1766082825,
+  "title": "Regex - How do I check for digits 01 to 52 in filenames?",
+  "tags": [
+   "python",
+   "regex",
+   "digits"
+  ],
+  "score": 4,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have found the answer :-) It is: ^ghf(0[0-9]|[1-4][0-9]|5[0-2])\\d{3}[A-Z]{2}_v\\d{2}.pdf$ I receive filenames from a client that are structured according to the following scheme: ghf50001BE_v02.pdf ghf (3) then the calendar week (2) then the page number (3) then the issue (2) and finally, after the underscore, the version (3) The calender week is (was) my Problem. The client send 53 for calender week and my output system run in trouble. How can I ensure that the two digits are not larger than 53? This is the actual regex: [code] I tried this, but it does not work: [code] I must use regexe because the outputsystem only accept regex in the GUI With CalendarWeekToDate(F1[3:5],0) (Its into the GUI) i set the calender week into a date and alwas on monday of the week. So for (KW)52 its 29.12.2025."
+ },
+ {
+  "question_id": 79850752,
+  "ym": "2025-12",
+  "creation_date": 1766102360,
+  "title": "Why does this Python Pillow script not adhere to the alpha value I&#39;ve specified to fade to the background colour?",
+  "tags": [
+   "python",
+   "python-imaging-library",
+   "alpha"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I've been trying to write a script to draw some arcs which fade out to the background colour (see sample below). [CODE] Gives me:"
+ },
+ {
+  "question_id": 79851281,
+  "ym": "2025-12",
+  "creation_date": 1766161781,
+  "title": "How do I add a Webots speaker node?",
+  "tags": [
+   "python",
+   "webots",
+   "node-speaker"
+  ],
+  "score": -2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I want to to add a speaker node in Python. I have make a robot node, then I add the speaker node in the robot's children. But when I run the code, it say this: [CODE] I think the problem lies at my sound part, how do I fix it? Here's my code: [CODE]"
+ },
+ {
+  "question_id": 79851453,
+  "ym": "2025-12",
+  "creation_date": 1766179803,
+  "title": "Count Common Values between Different 2D Arrays",
+  "tags": [
+   "python",
+   "arrays",
+   "numpy",
+   "performance",
+   "intersection"
+  ],
+  "score": 4,
+  "answer_count": 4,
+  "is_answered": true,
+  "body_excerpt": "I have 2 arrays 2d and I would like to compare both and count the common values between them, for instance here is my code: [CODE] As you can imagine I am comparing each of the subset between the two 2d arrays, the expected result is: [CODE] The first element is clearly 6 because arr1[0] is the same of arr2[0] and the others counts the same logic. It does not matter where in the location are them. Like the arr1[2] and arr2[2] that has 3 elements in common but not at the same position. My question is, as long as the arrays became bigger, in both dimensions, you can imagine that will take long time. So is this the fastest way of doing this or is there any other method that you guys recommend?"
+ },
+ {
+  "question_id": 79851475,
+  "ym": "2025-12",
+  "creation_date": 1766182363,
+  "title": "pyDatalog: Incorrect number of results when defining adjacency rule with logical operators",
+  "tags": [
+   "python",
+   "logic-programming",
+   "datalog",
+   "pydatalog"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I'm trying to define an adjacency relationship for cells in a NxM grid using pyDatalog. For example, for 2x2, the expected number of adjacent pairs is 12 (4^2 - 4, excluding self-pairs), but my rule only returns 1 result( [code] ). Additionally, a simpler rule for other cells, returns (NM)^2 results instead of (NM)(NM-1). [CODE] Issues: Rule 1 returns only 1 result instead of 12. The logic is intended to find all pairs where: Cells are not identical ( [code] ) They share a row or column with adjacency ( [code] ) Rule 2 for N=M=3 returns 81 results (all possible pairs) instead of 72 (excluding self-pairs). I've verified that [code] facts are correctly asserted. I've hecked pyDatalog documentation for logical operators. I've tested simpler rules (e.g., [code] which work correctly. Questions: Why does Rule 1 return only 1 result? Is the logical [code] or negation [code] incorrectly used? Why does Rule 2 include self-pairs despite the negation? What is the correct way to define adjacency in pyDatalog? Environment: Python 3.12"
+ },
+ {
+  "question_id": 79851506,
+  "ym": "2025-12",
+  "creation_date": 1766187747,
+  "title": "Cannot install Tensorflow GPU on Win 11",
+  "tags": [
+   "python",
+   "tensorflow",
+   "cuda",
+   "anaconda",
+   "advice"
+  ],
+  "score": -1,
+  "answer_count": 3,
+  "is_answered": false,
+  "body_excerpt": "i was training AI in my pc using tensorflow with CPU due i have a amd GPU, well i bought a Nvidia RTX 5060 TI 16GB and i couldn't make it work. First, i made a new environment with anaconda, installed tensorflow, matplolib, opencv, notebook, numpy normally, also installed cudatoolkit and cundnn (acording to copilot this necessary in order to training with the GPU), well the thing is when i started the training it was slow, and in the task manager i could see that the GPU wasn't being used, it was using CPU as before. I ran the command nvidia-smi command and the driver shows the GPU, with in the environment tensor flow doesn't do it, i keep trying to make it work and i ended that tensorflow last version wasn't supported in windows so i followed some instructions to use the ubuntu console and WSL, and still didn't work. My hardware is: Ryzen 7 5700x, 32GB RAM 3200, RTX 5060 TI 16GB, NVME Gen3 1TB, Windows 11 23h2, Python 3.10 Some errors i get: [CODE] This is the code i used to try to install and setup the enviroment: [CODE] The main problem is that the environment works but with the CPU no the GPU, i am here asking for help because i tried with AI chats like copilot and grok and they couldn't help me, also saw several yt videos and nothing, please help boys x.x"
+ },
+ {
+  "question_id": 79851547,
+  "ym": "2025-12",
+  "creation_date": 1766198638,
+  "title": "pywinauto is not seeing the Setup window after running an installer",
+  "tags": [
+   "python",
+   "pywinauto"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am trying to automate the installation of our software, but pywinauto fails to see the setup window. Here is the code in question: [CODE] Here is the output: TIMEOUT: Setup window did not appear within 30 seconds. I found a script that displays the active windows: [CODE] It outputs: Title: Install INtime, Class: #32770, Process ID: 15572 Spy shows the window, but pywinauto doesn't see it as either \"INtime 7 SDK Setup\" or as \"Install INtime\". What am I missing? Why is the window not being seen?"
+ },
+ {
+  "question_id": 79852236,
+  "ym": "2025-12",
+  "creation_date": 1766319292,
+  "title": "What is the difference between a Timeout from URLError and from TimeoutError",
+  "tags": [
+   "python",
+   "http",
+   "urllib"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "This is my Python3 code: [CODE] So, I have a single timeout of 1.0 sec defined, but sometimes the \"urlError\" fires, and sometimes the \"TimeoutError\": [CODE] and while \"URLError\" is always no more than a few ms away from 1.0 sec, the \"TimeoutError\" is much different and always a good chunk (20 ... 100 ms) above the 1.0 sec. What is responsible for firing either of the two timeouts, and why is TimeoutError always significantly higher than the set value?"
+ },
+ {
+  "question_id": 79852467,
+  "ym": "2025-12",
+  "creation_date": 1766350905,
+  "title": "faster methods to remove substrings stored in one column from strings stored in another column",
+  "tags": [
+   "python",
+   "pandas",
+   "string",
+   "dataframe"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "[CODE] I tried this to remove the date part from the timestamp. However, for some reason it took 2 minutes to execute on Google Colab. The dataset has 33164 rows. Are there any faster methods?"
+ },
+ {
+  "question_id": 79852510,
+  "ym": "2025-12",
+  "creation_date": 1766356855,
+  "title": "In QML, startSystemResize does not work on macOS",
+  "tags": [
+   "python",
+   "qt",
+   "qml",
+   "pyside6",
+   "qt-quick"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am developing a frameless window using QML and Python 3.13.8 , PySide6 and QtQuick . I work on macOs Sequoia 15.2. I want the borders of the content area to be shifted from the main window so I add margins of 20. I want to be able to resize my window by dragging the edges of my content area. To take advantage of the system resizing mechanisms, I'm adding a [code] in the empty areas around the content area, with a [code] inside that calls [code] when activated. Apparently that's a solution that works on Windows, but can't find a way to make it work on my macOs. The function [code] seems to keep returning [code] . Any ideas? Here is a test project. main.qml: [CODE] main.py: [CODE]"
+ },
+ {
+  "question_id": 79852880,
+  "ym": "2025-12",
+  "creation_date": 1766405845,
+  "title": "Python Tkinter &quot;tag mechanism&quot; broken - _tkinter.TclError: invalid boolean operator in tag search expression",
+  "tags": [
+   "python",
+   "tkinter",
+   "tcl"
+  ],
+  "score": 2,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "The following [mre]: [CODE] produces this error stack: [CODE] EDIT I edited the tag tcl since I'm unsure if the same mistake can happen in tcl as well. Please feel free to remove the tag again, if this is not the case. However, please leave a comment why this can't happen in tcl. The approximate script would seem like this [CODE]"
+ },
+ {
+  "question_id": 79853160,
+  "ym": "2025-12",
+  "creation_date": 1766430425,
+  "title": "Which shortest path algorithm should I use for a weighted city road network in Python?",
+  "tags": [
+   "python",
+   "algorithm",
+   "data-structures",
+   "shortest-path"
+  ],
+  "score": -4,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am working on a real-world navigation problem where a city road network is represented as a weighted graph (distances in kilometers). The task is to compute the shortest path from North Nazimabad (start) to Gulshan Iqbal (destination). I have implemented the graph using a class-based approach in Python, but I am confused about which shortest path algorithm I should select and how to justify its use for this scenario. Here is my current code (algorithm intentionally not implemented yet): class CityGraph: [CODE] Problem details: The graph is weighted with positive edge costs (kilometers) Single-source to single-destination problem (North Nazimabad → Gulshan Iqbal) Real-world logistics / navigation scenario where minimizing distance matters Algorithms under consideration: 1)Dijkstra’s Algorithm 2)Bellman–Ford 3)Floyd–Warshall 4)A* Search 5)Uniform Cost Search (UCS) 6)Greedy Best-First 7)BFS (if converted to an unweighted model) Questions: Q1)Which algorithm should be selected for this problem? Q2)Why is this algorithm suitable for finding the shortest path from North Nazimabad to Gulshan Iqbal in a weighted road network? Q3)How can the chosen algorithm be cleanly integrated into this existing class-based structure?"
+ },
+ {
+  "question_id": 79853450,
+  "ym": "2025-12",
+  "creation_date": 1766475925,
+  "title": "How to connect PyQt6 webchannel to webpage, and listen to js functions",
+  "tags": [
+   "python",
+   "pyqt6"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I’m building a PyQt6 application using [code] and [code] to send notifications from JavaScript to Python, Windows10 Python 3.13. My setup works fine with local HTML, but when I try to load an external URL (e.g., [code] ) the app immediately crashes with this error: [CODE] I’ve tried disabling GPU with environment flags: [CODE] And per-page settings: [CODE] But the crash still occurs when loading external URLs, though local pages work fine. Questions: Why does [code] crash when loading external URLs even with GPU/WebGL disabled? How can I safely use [code] for notifications with external websites without crashing PyQt6? Are there known workarounds for QWebEngine’s GPU context issues in virtualized or Windows environments? Any guidance or example setups would be appreciated!"
+ },
+ {
+  "question_id": 79853690,
+  "ym": "2025-12",
+  "creation_date": 1766496483,
+  "title": "Autogen- Unable to create the single conversational chat agent application",
+  "tags": [
+   "python",
+   "azure",
+   "artificial-intelligence",
+   "ms-autogen"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am trying to create a simple conversational AI using autogen. where user should able to continuesly interact with the agent Below is the code ~~~ [CODE] ~~~ what i can see when i am running this application ~~~ You: can you give some details about Goa ? \\>>>>>>>> TERMINATING RUN (ed46c20c-4cc3-48dc-8333-9e0aa4b0db69): Termination message condition on agent 'User' met You: hello ~~~ it seems planner not able to respond back to the user query even [CODE]"
+ },
+ {
+  "question_id": 79853742,
+  "ym": "2025-12",
+  "creation_date": 1766500618,
+  "title": "Zed Attack Proxy scan via Python script on Windows with Podman that outputs JSON file gives Job report failed to generate report",
+  "tags": [
+   "python",
+   "zap"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am creating a Python script that should do a Zed Attack Proxy Baseline scan. My setup is: Windows 11 Podman CLI My script works fine, but it does not create a JSON report: Job report failed to generate report: NoSuchFileException /zap/wrk/zap/wrk/zap_report.json cmd_baseline.py [CODE] It works fine however I cannot generate the report: [CODE]"
+ },
+ {
+  "question_id": 79853815,
+  "ym": "2025-12",
+  "creation_date": 1766505834,
+  "title": "Cannot Delete a Python Named Temporary File in Windows",
+  "tags": [
+   "python",
+   "windows",
+   "temporary-files"
+  ],
+  "score": 4,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I am running Python 3.13.9 and have a script that creates a temp file, reads data from a database and outputs it as CSV in to said temp file and then sends that file to a server. I am trying to then delete the temp file when it is done. [CODE] This always gives me the error \"PermissionError: [WinError 32] The process cannot access the file because it is being used by another process\" at the os.remove line. I have tried manually closing the file first and get the same error. I have tried setting delete=True but then I get a permission error. How do I delete this file once I'm done with it?"
+ },
+ {
+  "question_id": 79853854,
+  "ym": "2025-12",
+  "creation_date": 1766509966,
+  "title": "Colorbar tick locations not correct",
+  "tags": [
+   "python",
+   "matplotlib"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm making a protein secondary structure plot, at first with trivial data: [CODE] but the output: clearly shows that the ticks are not in the correct locations for the majority of the colored sections (all but first and last). [CODE] even shows the exact same numbers that I entered. How can I get the ticks to show up exactly in the middle of each colored section?"
+ },
+ {
+  "question_id": 79854234,
+  "ym": "2025-12",
+  "creation_date": 1766566561,
+  "title": "How to configure settings.json for Python, Vue, and Go in Zed editor on Windows?",
+  "tags": [
+   "python",
+   "vue.js",
+   "go",
+   "zed",
+   "advice"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I use the Zed editor for development on Windows 11, with my main technology stack being Python, Vue (including JavaScript/TypeScript), and Go. I have been trying to configure settings.json myself, but the configuration process often encounters issues. Therefore, I would like to seek help from the community: Is there anyone who can share a complete and working settings.json configuration file optimized for these three languages?"
+ },
+ {
+  "question_id": 79855363,
+  "ym": "2025-12",
+  "creation_date": 1766760323,
+  "title": "How to initialize and manage DB connections in a Livekit agent?",
+  "tags": [
+   "python",
+   "asynchronous",
+   "livekit",
+   "beanie"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I basically want to initialize some async DB connections in my Livekit agent. I use Beanie to manage my MongoDB database. Beanie initialization looks something like this (as per the docs): [CODE] The issue I face is that I can't find how to initialize my DB connections when setting up a Livekit agent. For example with a fastapi app, I could tie the DB initialization and shutdown to the FastAPI Lifespan like so: [CODE] The tricky thing with livekit is that since the agent service runs in its own async event loop, I would have to ensure that beanie is initialized within the same event loop as well. Also, I don't want to do the intialization within the entrypoint funnction as that would try to initialize the DB connections every time a new instance of the agent is created for a room."
+ },
+ {
+  "question_id": 79855374,
+  "ym": "2025-12",
+  "creation_date": 1766761544,
+  "title": "Fatal error postgres password authentication failed for user &quot;postgres&quot;",
+  "tags": [
+   "python",
+   "postgresql",
+   "sqlalchemy"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm unsure why this error is happening, with this project, I first initially have a yaml file which contains the database credentials: [CODE] The I created another file with a method to read these credentials, this worked since version was printing out [CODE] Then in another file I created classes for the tables I'm going to use currently have created one called airlines [CODE] Finally I wanted to read one table into the database and see if what I'm doing is going well however that is where the fatal error password authentication is not working [CODE] I am using PGADMIN4 the version I'm using is PostgreSQL 17.5 on x86_64-windows, compiled by msvc-19.44.35209, 64-bit and I am connected using the same password as my yaml file. If anyone can help on where I am going wrong?"
+ },
+ {
+  "question_id": 79855475,
+  "ym": "2025-12",
+  "creation_date": 1766773985,
+  "title": "How to fix &quot;requests.exceptions.ConnectionError&quot; when using requests library python?",
+  "tags": [
+   "python",
+   "python-3.x",
+   "web-scraping",
+   "python-requests"
+  ],
+  "score": 4,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "I have been trying to make a scraper that downloads comics from Poorly Drawn Lines but I keep on getting a [code] . I cannot figure out how to fix this. When I remove the header, I get '403 - Forbidden | Access to this page is forbidden.' instead. Here is my code: [CODE] And here is my terminal output: [CODE] And this is what happens if I remove the custom user agent header by deactivating line 4 and activating line 5: [CODE]"
+ },
+ {
+  "question_id": 79855548,
+  "ym": "2025-12",
+  "creation_date": 1766787204,
+  "title": "Why does Matplotlib DatetimeIndex plot misalign dates?",
+  "tags": [
+   "python",
+   "matplotlib",
+   "datetime"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": true,
+  "body_excerpt": "Why does matplotlib round to the nearest month sometimes and not other times depending on the order lines are plotted and which dates are used. [code] and [code] are particularly interesting because they are not on the edge of a new month border. How can I force the behavior of [code] without depending on the order of the plotting? [CODE]"
+ },
+ {
+  "question_id": 79855796,
+  "ym": "2025-12",
+  "creation_date": 1766844544,
+  "title": "Tuple behaving differently upon using id() on IDLE shell and .py file",
+  "tags": [
+   "python",
+   "python-3.x"
+  ],
+  "score": 1,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Suppose I give the exact same tuple value to 2 variables in IDLE shell and compare their id() [CODE] This gives false as expected but if I run its equivalent on a .py file [CODE] It giving the output [code] . Although if I compare sets, I get [code] as expected [CODE] Please explain why does comparing ids of 2 same tuples is giving different results on IDLE and a .py file (or is it something only I am facing). I am using Python 3.12.4"
+ },
+ {
+  "question_id": 79855982,
+  "ym": "2025-12",
+  "creation_date": 1766874442,
+  "title": "Is my use of tf.distribute.MirroredStrategy and strategy.scope() correct and safe for multi-GPU training in Keras?",
+  "tags": [
+   "python",
+   "tensorflow",
+   "keras",
+   "deep-learning"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I am training a model using Keras + TensorFlow with tf.distribute.MirroredStrategy on a multi-GPU setup. I would like to verify that I am using [code] correctly. [CODE] To avoid mistakes, I currently put almost everything related to training inside [code] , including some objects where I am not sure whether they create TensorFlow variables or not . Specifically, inside the scope I create: The model The optimizer The loss All training metrics A metric used by a custom validation callback Checkpoint objects ( [code] , [code] ) Callbacks that reference the model and metrics Datasets, paths, logging, and pure Python utilities are created outside the scope. My current understadining is: Objects that create TensorFlow variables (model, optimizer, metrics) must be created inside [code] . Objects that own or update metrics (e.g., custom callbacks that track validation scores) should also be created inside the scope. Checkpoint objects should be created inside the scope so they correctly track distributed variables. Dataset creation does not need to be inside the scope. So my maun concern is that there are some objects where I am not 100% sure whether they create shared TensorFlow variables internally (for example, custom callbacks or utility classes that accept metrics or models). Because of this uncertainty, I chose what seems like the safest option , which is putting everything I am "
+ },
+ {
+  "question_id": 79856151,
+  "ym": "2025-12",
+  "creation_date": 1766919959,
+  "title": "Solving a cubic polynomial using numpy",
+  "tags": [
+   "python",
+   "python-3.x",
+   "numpy",
+   "polynomial-math"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I intend to design the foundation of an elevated water tank, consisting of a raft with the shape shown in the image below. To do so, I need to determine the raft diameter [code] by solving the following inequality: [code] (where [code] and [code] are inputs in my code) Based on my hand calculations, after taking into account all the necessary parameters to evaluate [code] , the final equation to be solved is a cubic polynomial with the following expression: [code] I can easily solve this cubic polynominal equation by appling the following code which return the real solution [code] that match my hand calculation. [CODE] However, I would like to automatically determinate the polynomial coefficients instead of computing them manually. This would allow me to reuse the code later to design another raft based on different inputs, without having to manually recalculate these coefficients, for that I appied the code below which return a wrong results as you can see: Cubic polynominal equation: [code] Real solution: [code] [CODE] How to fix this code to return the right solution? Remark: I'm using Cpython3 engine within Dynamo for Revit to execute the code. Edit: According to my hand calculations, and in order to show how I arrived at the final expression of the polynomial equation, I'd like to highlight the following key points: [code] :Equilibrum inequality to be checked where [code] "
+ },
+ {
+  "question_id": 79856274,
+  "ym": "2025-12",
+  "creation_date": 1766937751,
+  "title": "Making igraph.Community_leading_eigenvector return a dendrogram/hierarchy of clustering",
+  "tags": [
+   "python",
+   "cluster-analysis",
+   "igraph",
+   "hierarchical-clustering",
+   "spectral-clustering"
+  ],
+  "score": 0,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "Is there a reason why https://python.igraph.org/en/main/api/igraph.Graph.html#community_leading_eigenvector does not reuturn a VertexDendrogram? Alternatively, is there a method of hacking it to do so? Background for question, I want to assess and use the hierarchy of clustering to see how nodes relate to each other."
+ },
+ {
+  "question_id": 79856763,
+  "ym": "2025-12",
+  "creation_date": 1767009718,
+  "title": "Cloud Run POST request fails with CORS preflight 405 (FastAPI backend)",
+  "tags": [
+   "python",
+   "firebase",
+   "fastapi",
+   "google-cloud-run"
+  ],
+  "score": 3,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "I have a FastAPI backend deployed on Google Cloud Run and a Vite + React frontend. I am calling a POST endpoint [code] from the frontend. The first problem is that Swagger UI in FastAPI is showing an old response: The Swagger UI shown above is served from the Cloud Run URL [code] , not from a local FastAPI instance. CURL command: [CODE] Request URL: [code] Response body: [CODE] Response headers: [CODE] However, it should show [code] , as defined in [code] : [CODE] I've tried things like [code] , [code] , and rebuilding the Cloud Run revision, but it still shows [code] instead. The repository structure looks like this: [CODE] The second problem is that the browser preflight OPTIONS request to [code] returns a 405 response, which results in a CORS error in the frontend: Cloud Run is deployed via a Cloud Build trigger connected to GitHub. The trigger is configured to use a Dockerfile, but I am not sure whether it is building from the repository root or from [code] . How do I fix these two problems?"
+ },
+ {
+  "question_id": 79857018,
+  "ym": "2025-12",
+  "creation_date": 1767033687,
+  "title": "Does a ModelSerializer catch &quot;django.core.exceptions.ValidationError&quot;s and turn them to an HTTP response with a 400 status code?",
+  "tags": [
+   "python",
+   "django",
+   "django-rest-framework"
+  ],
+  "score": 1,
+  "answer_count": 2,
+  "is_answered": false,
+  "body_excerpt": "Let's say this is my model: [CODE] And I have this serializer: [CODE] And this was my viewset [CODE] My question is: what should happen when a bad value is submitted for [code] ? Should it be caught by DRF and turned into an HTTP response with a 400 status code? Or should it be treated like a regular exception and crash the server? I'm asking this because when I submit invalid data in DRF's browsable API, instead of catching the [code] and returning an HTTP response, DRF stops the application entirely. Is that normal, or am I doing something wrong? I don't want to repeat my validation logic again in the serializer, so what's the correct approach here?"
+ },
+ {
+  "question_id": 79857277,
+  "ym": "2025-12",
+  "creation_date": 1767074941,
+  "title": "Strategy for Outlier Removal in Skewed Supply Chain Data",
+  "tags": [
+   "python",
+   "machine-learning",
+   "outliers",
+   "feature-engineering",
+   "advice"
+  ],
+  "score": 0,
+  "answer_count": 1,
+  "is_answered": false,
+  "body_excerpt": "I am working on a research project involving Supply Chain Forecast Matching , and I am stuck on the best strategy for handling outliers. I am seeking advice from a feature engineering perspective. 1. The Goal: I am building a classification model (XGBoost) to predict if a \"New Forecast\" matches an \"Existing Order\" based on historical behavior. The target is binary (is_match 1 or 0). 2. The Data: Volume: ~21,000 historical update pairs. Key Features: I am calculating deltas between the old and new orders: delta_days: Difference in delivery date (e.g., +5 days delay). delta_qty_pct: Percentage change in quantity (e.g., +0.10 for a 10% increase). Nature of Data: The data is heavily skewed (fat-tailed). Most updates are small (0-5 days), but legitimate business events can cause massive shifts (e.g., 60-day delays) that are not data errors. 3. The Conflict (The 50% Problem): I need to clean \"Garbage Data\" (e.g., typos causing 5,000-day delays) without removing valid business volatility. The Issue: When I applied the standard IQR Method (1.5 * IQR) globally, it removed ~50% of my dataset (dropping from 21k to 10k rows). Why: Because the interquartile range is very tight (most updates are 0), the IQR bounds became extremely narrow (e.g., -14 to +10 days). This essentially treated any \"major delay\" (e.g., 20 days) as an outlier, even though 20-day delays are valid scenarios in my domai"
+ },
+ {
+  "question_id": 79857538,
+  "ym": "2025-12",
+  "creation_date": 1767101000,
+  "title": "How do I resolve this circular import?",
+  "tags": [
+   "python",
+   "refactoring",
+   "python-typing",
+   "circular-dependency"
+  ],
+  "score": 2,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "Implementing a virtual file system I encounter a circular import problem. common.py: [CODE] archive.py: [CODE] directory.py: [CODE] util.py: [CODE] [code] solves part of the problem, but I'm unable to resolve the rest without concatenating all files into one. How do I refactor this? Typehint circular is not relevant here. Real circular is [code] calling [code] which references [code] and [code] also calls [code] which references [code] ."
+ },
+ {
+  "question_id": 79857826,
+  "ym": "2025-12",
+  "creation_date": 1767131182,
+  "title": "python 3.14 shared mutex lock",
+  "tags": [
+   "python",
+   "multithreading"
+  ],
+  "score": 5,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to create a shared mutex in python (ala C++ shared_mutex ) so I can have multiple threads read a variable while one thread can acquire an exclusive lock (blocking all readers) while it changes the variable(s), then allowing the reader threads to all access the variable for reading. I'm not finding anything much with AI, and the python documentation doesn't seem to say this is a possibility. Is there some workaround or some way to 'fake' a shared mutex? The pseudo code would look something like this (in separate threads) - [CODE]"
+ },
+ {
+  "question_id": 79857972,
+  "ym": "2025-12",
+  "creation_date": 1767160079,
+  "title": "Polars list aggregation: what are &quot;aggregation expression&quot;?",
+  "tags": [
+   "python",
+   "python-polars"
+  ],
+  "score": 2,
+  "answer_count": 0,
+  "is_answered": false,
+  "body_excerpt": "The documentation for polars.Expr.list.agg says: Run any polars aggregation expression against the lists’ elements. One would think that the \"aggregation expression\"s the documentation talks about are the ones listed under the \"Expression -> Aggregation\" section of the documentation. However, one of the example in the documentation for [code] is [CODE] and [code] is not in the list of aggregation expression previously linked. So, what are \"aggregation expression\"s exactly, and where can i find an exhaustive list of them?"
+ },
+ {
+  "question_id": 79858024,
+  "ym": "2025-12",
+  "creation_date": 1767169057,
+  "title": "How to auto-scale point image markers when the window is resized?",
+  "tags": [
+   "python",
+   "lightningchart",
+   "lightningchart-python"
+  ],
+  "score": 1,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I am using LightningChart Python and I am drawing a “body map” using a background image and multiple point-series markers that use custom images for chest, ankle and arm icons. The background image scales correctly when the window is resized, but the marker images keep their original size, so they look too big or too small after resizing. How can I make the marker images automatically scale to maintain correct proportions relative to the chart size? [CODE] https://lightningchart.com/python-charts/docs/features/chart-xy/point/#set-custom-point-shape"
+ },
+ {
+  "question_id": 79858423,
+  "ym": "2025-12",
+  "creation_date": 1767222883,
+  "title": "TextFSM parsing column-aligned CLI output where optional columns shift due to variable whitespace",
+  "tags": [
+   "python",
+   "text-parsing",
+   "string-parsing",
+   "python-textfsm"
+  ],
+  "score": 3,
+  "answer_count": 1,
+  "is_answered": true,
+  "body_excerpt": "I'm trying to parse output where the records are aligned via variable white space. Here is the output in question: [CODE] Specifically, the eth{0-4} columns. I'd like to match either [code] , [code] , or a single [code] white space per each eth{n} column. So the desired output would look something like this: [CODE] Also worth noting that I plan on doing some post processing to normalize this data into Python dataclasses or BaseModels. Just need the proper tagging status to match the correct port columns. I've tried making the eth{0-4} columns their own TextFSM Required values with the follow regexp: [code] and trying to match that value on every 7th whitespace between the eth columns as seen in the template here: [CODE] Current output: [CODE]"
+ }
+]

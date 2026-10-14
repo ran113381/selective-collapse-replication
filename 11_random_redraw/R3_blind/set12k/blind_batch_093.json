@@ -1,0 +1,1215 @@
+[
+ {
+  "id": "T11041",
+  "title": "Performance problem with automatic parallelization in `pytorch`",
+  "tags": [
+   "python",
+   "multithreading",
+   "pytorch"
+  ],
+  "body": "I'm having problems with python code that uses [code] . The details are a bit complicated (the code is part of a quantum mechanical calculation) but the code structure is very straightforward and looks more or less like this: [CODE] The same calculation [code] is performed for, say, a 100000 sets of momenta. Parallelizing this using Fortran would involve adding a simple [code] . I'm using python partially as a learning opportunity and partially because I wold later like to automatically calculate gradients with respect to some parameters. Unfortunately, when measuring the performance of the code I get the following relationship between execution time and number of cores used: Since memory is plentiful and the calculation can be easily parallelized along the first index of [code] I would expect that this relationship would instead be much more strongly decreasing. For instance at 20 threads I would expect the execution time to be around 7 seconds: 1/20 of the single thread time. I'm guessing the automatic parallelization of [code] is not optimal. Is it possible to specify explicitly, that the calculation needs to be performed in parallel for each [code] in [code] ? I could run 20 (or more) python threads and in each run [code] with [code] but I'm hoping there is a simpler / more elegant solution. Tips, comments would be greatly appreciated. PS For a single thread the performance"
+ },
+ {
+  "id": "T11042",
+  "title": "How to list all email IDs who have sent a mail to you on Mac?",
+  "tags": [
+   "python",
+   "macos",
+   "email"
+  ],
+  "body": "On Mac, How do we get the list of email ID's who have personally sent an email to me over the course of years by using the local copy of emails?"
+ },
+ {
+  "id": "T11043",
+  "title": "cannot import name &#39;_imaging&#39; from &#39;PIL&#39; in AWS Lambda",
+  "tags": [
+   "python",
+   "amazon-web-services",
+   "aws-lambda",
+   "python-imaging-library"
+  ],
+  "body": "This has driven me absolutley crazy - I know there are a few similar questions on here with a similar scenario - but I have tried mutliple solutions and nothing works - so I thought I'd request help myself and give full context. I am building a very simple process in AWS: upload image into bucket, lambda picks it up, processes it, dumps it in other bucket. Everything is set up, terraform, python code etc - however whenever the lambda is invoked, I always get the error: [CODE] Some important things to note: I am dev'ing on Windows (never doing this ever again!!!) I have tried multiple Python runtime versions (Python 3.13, Python 3.12, Python 3.10, Python 3.9 Lambda architecture is x86_64 My python code simply has the following line at the top of the file, which is what is causing me this problem: [CODE] What I have tried: Switching Python runtimes of course Creating a package folder, installing Pillow here, and then zipping up with my Lambda python code Using Lambda layers (which seems like the most popular, easiest and quickest solution) by grabbing my relevant arn [code] Using docker to run an amazon linux container ( [code] ), creating a package folder, installing the Pillow dependencies, and then zipping up with my python code No matter what, I always get the error mentioned above. Something else to mention is that this was only supposed to be a simple small project which wo"
+ },
+ {
+  "id": "T11044",
+  "title": "how to find how many common features that two columns share in a data frame in Python",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "Suppose I have the following dataframe where the first column is a facility and the second column is a product produced by the facility. [CODE] My goal is to figure out how many same product is produced by each pair of facility. For instance, for the given example, Facility A and Facility B produce both P1 and P2, thus, I would like to get two as a results. I have written the following code snippet, however, its execution is pretty slow. I was wondering if someone could show me a better way to achieve this. [CODE] Then, I accumulate each row and eliminate the duplicates. [CODE]"
+ },
+ {
+  "id": "T11045",
+  "title": "How to programmatically zoom in on a webpage and improve &lt;canvas&gt; resolution (like Ctrl + does)?",
+  "tags": [
+   "javascript",
+   "python",
+   "web-scraping",
+   "playwright",
+   "playwright-python"
+  ],
+  "body": "In some webpages where there is a [code] element, when i tried every single method of making the browser bigger, the page bigger... I did found some methods that will make everything big, but then I check the canvas element it's like it is still the same resolution ,just got bigger, and in some cases it even stays the same size. But when I try manual Keyboard shortcut [code] , the page zooms in and the canvas element get a good resolution even if its bigger (i don't know why, maybe it got reloaded in the backend). I also tried the built-in Keyboard actions in [code] , but seems to do nothing I don't know why. So after that I used [code] to simullate the user clicking [code] , but the disadvantage of this solution is the [code] will zoom in in whatever page your on, no matter if its chrome or no, so you need to stay on chrome when executing the scrapping code. Is there a reliable way to programmatically trigger the same effect as [code] —specifically one that improves the resolution of elements—using automation tools like [code] , or perhaps through browser APIs?"
+ },
+ {
+  "id": "T11046",
+  "title": "Adding together different numbers with respect to their units",
+  "tags": [
+   "python"
+  ],
+  "body": "I am currently working on my first hobby project in python where i am trying to generate a grocery list based on different recepies that I scrape from a website. The problem is that the recipe might include different units and different amounts needed. I ideally want to create and program that adds together the respective units and adds together groceries if their units match . I've tried to create a little example: Elements scraped from recipe 1: 500 grams of tomatoes 1 dl of olive oil 2 cucumbers Elements scraped from recipe 2: 2 avocados 200 grams of tomatoes 1 dl of olive oil 100 grams of cucumber Combined output from the program should be: 700 grams of tomatoes 2 dl of olive oil 2 cucumbers 2 avocados 100 grams of cucumber So if cucumber is in two different units it would just be presented twice where the two different units are used, however tomatoes and olive oil have been added together due to their units being the same. Thank you for your time!"
+ },
+ {
+  "id": "T11047",
+  "title": "Decoding hidden layer embeddings in T5",
+  "tags": [
+   "python",
+   "machine-learning",
+   "nlp",
+   "huggingface-transformers",
+   "transformer-model"
+  ],
+  "body": "I'm new to NLP (pardon the very noob question!), and am looking for a way to perform vector operations on sentence embeddings (e.g., randomization in embedding-space in a uniform ball around a given sentence) and then decode them. I'm currently attempting to use the following strategy with T5 and Huggingface Transformers: Encode the text with [code] . Run a forward pass through the encoder with [code] . Use the last hidden state as the embedding. (I've tried [code] as well, but it doesn't allow me to use the decoder separately from the encoder.) Perform any desired operations on the embedding. The problematic step: Pass it through [code] and decode with the tokenizer. I'm having trouble with (4). My sanity check: I set (3) to do nothing (no change to the embedding), and I check whether the resulting text is the same as the input. So far, that check always fails. I get the sense that I'm missing something rather important (something to do with the lack of beam search or some other similar generation method?). I'm unsure of whether what I think is an embedding (as in (2)) is even correct. How would I go about encoding a sentence embedding with T5, modifying it in that vector space, and then decoding it into generated text? Also, might another model be a better fit? As a sample, below is my incredibly broken code, based on this : [CODE]"
+ },
+ {
+  "id": "T11048",
+  "title": "PANDAS How to compare two files, json, xml to excel",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "compare"
+  ],
+  "body": "I have two files, for example Excel ID Price Status 1 1000 Free 2 2000 Option 3 3000 Reserved JSON [CODE] How I should compare these files? Which commands should be useful?"
+ },
+ {
+  "id": "T11049",
+  "title": "unable to import local package when renaming in setup.py",
+  "tags": [
+   "python",
+   "setuptools",
+   "packaging"
+  ],
+  "body": "I'm trying to set up an editable package following these instructions but I run into issues. I have the following folder structure: my_project/ my_project/setup.py my_project/my_package [core package-to-be. equivalent to [code] in other approaches] my_project/my_package/ init .py and then many modules and submodules inside [code] setup.py: [CODE] I then install the package in my virtual environment [code] and see it correctly listed as special_package when calling [code] . However, when trying to import it in Python using [code] , I get 'No module named special_package'. Testing a bit: if, in setup.py, I set [code] (so identical to the folder name containing the package), I can import with [code] . Why can't I import the package after giving it a different name? More broadly, what's the (intended) relation between the [code] argument of [code] , and the folder name pointing to the package? Are these supposed to be identical?"
+ },
+ {
+  "id": "T11050",
+  "title": "How to KMeans Cluster strings",
+  "tags": [
+   "python",
+   "machine-learning",
+   "k-means"
+  ],
+  "body": "I'm data engineer, who has limited understanding of ML methods and am trying to get a good strategy that i understand before I start coding. What i'm trying to do is create clusters out of key value pairs with the key being a name, and the value being some kind of list of strings. The goal is to create natural clusters of the names, based on the similarity of the respective list of strings. [CODE] For example in this dataset the natural grouping I would expect would be something like lion/leopard and racoon/possum because of the similarity of the words [code] One way i've done already is to compare one entry e.g. lion, iterate through each list and compare it the other values, if a value is found in another list it's assigned a similarity score. However I would love to use something like a k-means clustering algorithm to learn how to use it principally, but also as I think/ hope it will provide a more meaningful series of clusters. I think where i'm getting hung up is the conversion of the text to numerical representations and how best to do that, after that I feel like there are a few KMeans tutorials I could probably follow, but if anyone has any advice in how to approach this problem i'd be very interested."
+ },
+ {
+  "id": "T11051",
+  "title": "How can I put my columns in the same line?",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "jupyter-notebook",
+   "jupyter-lab"
+  ],
+  "body": "Im starting with python, Jupyterlab and pandas. So as you can see in the image, I created some new columns different from the imported from my csv files, but they are displayed like this, I want that all my columns are align with each other, to keep everything in order. Thanks for any help I dont really know a workaround for this problem. I also dont know know how I could find a direct answer in Google."
+ },
+ {
+  "id": "T11052",
+  "title": "How to train OpenAI model on your own dataset",
+  "tags": [
+   "python",
+   "python-3.x",
+   "openai-api"
+  ],
+  "body": "I am creating a OpenAI model, where I have train it on my own dataset. Dataset has two columns. First column has English queries and it's corresponding N1QL queries in second column. I have to train my model in such a way, so that whenever I ask English query, model should be able to return me the N1QL query for it. As of now I have written a sample code using examples on google like below: [CODE] This piece of code is working fine for me. But I ain't sure how I can use my dataset as I have dataset in a csv file. So please help me in modifying the generate_prompt function to utilize my dataset in queries.csv, which looks like below snapshot:"
+ },
+ {
+  "id": "T11053",
+  "title": "Why does str.split() without arguments collapse multiple spaces, but str.split(&#39; &#39;) produces empty strings?",
+  "tags": [
+   "python"
+  ],
+  "body": "I'm confused about the behavior of Python's [code] method. Consider this string with multiple consecutive spaces: [CODE] When I call [code] (no arguments), I get a clean list of words: [CODE] But when I specify a space as the delimiter with [code] , I get a bunch of empty strings where the multiple spaces were: [CODE] Why the difference? I expected [code] And how can I run it(the first one) for another char????? I mean run it with own split function, no join and ... ."
+ },
+ {
+  "id": "T11054",
+  "title": "RegEx to differentiate chemical compound names from pattern",
+  "tags": [
+   "python",
+   "regex"
+  ],
+  "body": "I have a RegEx problem with a string pattern that i used to extract data from them by breaking it. I am using Python. The string lines are, simplified, something like this (there are some lines in between but these are the problematic ones): Compound Name,RT,Score\\n 2,4,6-Cycloheptatrien-1-one, 3,5-bis-trimethylsilyl- ,8.705,626,Area,386902.453,tR (min),8.705 ['Compound Name', 'RT', 'Score', '2', '4', '6-Cycloheptatrien-1-one', ' 3', '5-bis-trimethylsilyl-', '8.705', '626', 'Area', '386902.453', 'tR (min)', '8.705', ''] Compound Name,RT,Score\\n Benzene, 4-ethenyl-1,2-dimethyl- ,11.682,600,Area,16289.239,tR (min),11.682 ['Compound Name', 'RT', 'Score', 'Benzene', ' 4-ethenyl-1', '2-dimethyl-', '11.682', '600', 'Area', '16289.239', 'tR (min)', '11.682', ''] Compound Name,RT,Score\\n 2-(p-Tolyl)propan-2-ol, TMS ,11.921,605,Area,17976.558,tR (min),11.921 ['Compound Name', 'RT', 'Score', '2-(p-Tolyl)propan-2-ol', ' TMS', '11.921', '605', 'Area', '17976.558', 'tR (min)', '11.921', ''] Compound Name,RT,Score\\n Tris(tert-butyldimethylsilyloxy)arsane ,12.036,685,Area,76702.743,tR (min),12.036 ['Compound Name', 'RT', 'Score', 'Tris(tert-butyldimethylsilyloxy)arsane', '12.036', '685', 'Area', '76702.743', 'tR (min)', '12.036', ''] Compound Name,RT,Score\\n Phenyl-pentamethyl-disiloxane ,13.646,656,Area,84633.281,tR (min),13.646 ['Compound Name', 'RT', 'Score', 'Phenyl-pentamethyl-disiloxane"
+ },
+ {
+  "id": "T11055",
+  "title": "How to enter a Hatch shell development environment in the VS Code debugger launch profile when debugging django",
+  "tags": [
+   "python",
+   "django",
+   "vs-code",
+   "hatch"
+  ],
+  "body": "I'm trying to launch my Django application using VS codes debugger. I need to run the command 'hatch shell' to enter my hatch development environment before running the server command 'py manage.py runserver'. I can't find out how to do this using the VS code debugger profile specified in the launch.json file below. [CODE] I tried to run 'hatch shell' as a preLaunchTask but that runserver command did not run in the shell environment. Helpful resources: https://code.visualstudio.com/docs/python/tutorial-django#_create-a-debugger-launch-profile https://code.visualstudio.com/docs/python/debugging"
+ },
+ {
+  "id": "T11056",
+  "title": "PyTorch is installed. But, When I&#39;m using BertModel, It is giving me following Import error:",
+  "tags": [
+   "python",
+   "error-handling",
+   "pytorch",
+   "importerror",
+   "bert-language-model"
+  ],
+  "body": "I installed and imported [code] . Still, I am getting this import error, while I'm using [code] . I need some help here. Error I'm getting is this: ImportError: BertModel requires the PyTorch library but it was not found in your environment. However, we were able to find a TensorFlow installation. TensorFlow classes begin with \"TF\", but are otherwise identica I tried this: [CODE] I'm getting this:"
+ },
+ {
+  "id": "T11057",
+  "title": "OpenCV: Unable to Stream from Webcam (Built-in and External Logitech C270)",
+  "tags": [
+   "python",
+   "windows",
+   "opencv",
+   "camera",
+   "webcam"
+  ],
+  "body": "I’m trying to test if I can stream my camera feed in OpenCV. I have two cameras connected to my laptop: The built-in webcam. An external Logitech C270 webcam. Both cameras work fine when I use them in VLC or the Windows Camera app. However, I’m facing issues with OpenCV: When I use [code] , I get the error: Error: Could not open webcam. When I use [code] , I don’t see any error, but the displayed frame is completely black. I suspect index 1 should be the correct index for my external camera. Additionally: When I run the code with index 1, the external camera becomes inaccessible in other programs, which makes sense since OpenCV takes control of the device. I’ve ensured that Python 3.11 has permission to access the camera under Windows settings, and the camera usage indicator confirms that the camera is being used. The issue doesn’t seem to be related to VS Code. I get the same behavior when running the script directly from the terminal. I can’t figure out: Why I can’t access my built-in webcam (index 0). Why my external camera (index 1) shows a black screen in OpenCV. Here’s my code: [CODE] I would appreciate any advice on how to debug or resolve this issue. Are there additional configurations I should be checking? Is there a better way to test both cameras? Thanks in advance! EDIT: I tried using ffmpeg to get more information about my camera. I installed the python-lib and run"
+ },
+ {
+  "id": "T11058",
+  "title": "Input audio from microphone not collected when audio is reproduced",
+  "tags": [
+   "python",
+   "audio",
+   "python-asyncio",
+   "real-time",
+   "python-sounddevice"
+  ],
+  "body": "I'm developing a simple real-time voice bot using the OpenAI real-time API, specifically integrating with Semantic Kernel. The code is written in an async manner, and it initially works well. However, I'm facing issues with task synchronization and the event loop, preventing me from interrupting the bot or audio playback until it finishes completely. When the application starts, everything works as expected: I ask a question, and the bot responds. But after this initial interaction, I can only pose another question once the bot has finished responding. Upon debugging, I noticed that writing the microphone's input stream to a file captures perfect audio initially. However, once the bot begins responding, the recorded audio becomes chopped and incomplete, only resuming full recording once the bot finishes playback. This leads me to believe there is a problem with my generators and their synchronization. When the OpenAI service sends events, the receive generator processes them, but the input generator stops working, failing to collect data, while the other generator plays back the response. Occasionally, the event loop returns to the microphone generator briefly, but it only captures incomplete audio. Ideally, I want the input audio stream to continuously record in parallel with the model's output being played through the speakers. I suspect multithreading might be necessary, but"
+ },
+ {
+  "id": "T11059",
+  "title": "Python pandas joining two dataframes duplicates rows",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "dfenter User Date Enter_Time A 2023-10-09 17:07:55 A 2023-10-09 08:09:37 dfexit User Date Exit_Time A 2023-10-09 22:32:57 A 2023-10-09 12:43:28 I want to join these two tables and want to have a table like the below: User Date Enter_Time Exit_Time A 2023-10-09 17:07:55 22:32:57 A 2023-10-09 08:09:37 12:43:28 with the code below: [CODE] but the result is duplicated: User Date Enter_Time Exit_Time A 2023-10-09 17:07:55 22:32:57 A 2023-10-09 17:07:55 12:43:28 A 2023-10-09 08:09:37 22:32:57 A 2023-10-09 08:09:37 12:43:28 how can i remove those duplicates; going to use it for larger scaled dataframes. I tried below code but that's only keeping first column. [CODE]"
+ },
+ {
+  "id": "T11060",
+  "title": "Add a library path for .whl files to sys.path via a commandline option for python",
+  "tags": [
+   "python",
+   "python-3.x",
+   "command-line",
+   "python-import",
+   "sys.path"
+  ],
+  "body": "Is it possible to add a library path for .whl files to sys.path via a commandline option for python executable to execute a python script file? [code]"
+ },
+ {
+  "id": "T11061",
+  "title": "Poker all existing flops generation using Python",
+  "tags": [
+   "python"
+  ],
+  "body": "First, I can already manage to do what I want, what I'm talking about here is optimisation. I've created a way to generate a DataFrame in Python that will contain all the different flops of poker. 22100 = ((52x51x50)/6) I did it first very roughly, I needed about 20 lines of code and 16 seconds for the generation. Then I improved my code and managed to do it in 15 lines for 80ms. That's already a good start, but as I want to improve my skills, I'm looking for a better / faster way. Here is my code: [CODE]"
+ },
+ {
+  "id": "T11062",
+  "title": "How to use If...else in lambda with gekko",
+  "tags": [
+   "python",
+   "if-statement",
+   "optimization",
+   "lambda",
+   "gekko"
+  ],
+  "body": "The scenario is the following: I want to minimalize the cost of the running motors. I have X number of motors, each have a lower and an upper bound. It can not go over the upper bound and it can't go lower than the lower bound, unless it goes with 0. i have to create a way to minimalize these motors costs when they have to reach an Y amount of power. Not every motor has to be active, but if it is active it has to reach its lower bound. I am trying to minimize the cost of the function and I have a code snippet. [CODE] } These are the Prices of given motor. And i would like to give a it a parameter that if the motor speed (y, z, a,b, etc) is 0 than I would like the cost to be zero. I have tried two differnt approach: The first one eas like this: [CODE] This returns the following error when it reaches the Gekko minimize method: TypeError: object of type 'int' has no len() The other one was the one with the model.if3/if2 Here that part looked like this: [CODE] i tried to change the order aswell inside the if3, if2 but it either gives that their is no optimal solution or it gives wrong solution. that 2.1 is the lower bound where the motor has to go if it is active. The txt-t contains a a^3 + b^2 + c^1 + Constant So my questions is, how can I use an if...else statement or any other method to solve this problem? Thank you in advance Edit1: Here is the full error trace: [CODE]"
+ },
+ {
+  "id": "T11063",
+  "title": "Conditional deduplication in polars",
+  "tags": [
+   "python",
+   "python-polars"
+  ],
+  "body": "I have a dataset i'm trying to remove duplicate entries from. The lazyframe i'm working with is structured like this: [CODE] I want to remove entries that have the same [code] , but there are actually different cases: The duplicates have the same [code] (e.g. 1001): keep the first one. The duplicates have a different [code] : discard the ones with an empty string (\"\") as type, and then keep only the entries that respect the following pairs of [code] and [code] : [CODE] Expected output id[i64] title[str] type[str] type2[i64] 1001 Research A journal article 35 1002 Research B book chapter 41 1003 Research C journal article 35 1004 Research D conference paper 42 1001: same type, keep the first one 1002: different type, keep the first occurrence of the entries with pair {'book chapter': 41} 1003: different type, discard the entries with an empty type and keep the first occurrence 1004: not a duplicate I've tried many things, mainly using the pl.when() expression, but I cannot work out a way to filter the groups. [CODE]"
+ },
+ {
+  "id": "T11064",
+  "title": "How can I keep grouped imports by module with isort for renamed imports?",
+  "tags": [
+   "python",
+   "isort"
+  ],
+  "body": "I have the following import: [CODE] I want to use isort and I want to keep the vertical hanging indent . It works fine for all other imports, but this one just always gets converted to: [CODE] How can I make isort keep / enforce this grouping by the module from which it was imported? Why is it even doing that with my given configuration? This is my [code] : [CODE]"
+ },
+ {
+  "id": "T11065",
+  "title": "Terminal on brand new macbook 2023 with Mac OSX Ventura 13.2 gives error &quot;zsh: command not found: python&quot;",
+  "tags": [
+   "python",
+   "macos-ventura"
+  ],
+  "body": "Terminal on brand new macbook 2023 with M2 chip and Mac OSX Ventura 13.2 gives error \"zsh: command not found: python\". Haven't been able to find answer on google."
+ },
+ {
+  "id": "T11066",
+  "title": "&quot;socketserver&quot; application not releasing socket upon exit",
+  "tags": [
+   "python",
+   "socketserver"
+  ],
+  "body": "I'm running the following program under python3 on my Debian 13 system in order to test the [code] package: [CODE] It works well, but when I exit this program via Control-C, the socket doesn't get immedately released. I need to wait a while before that socket actually gets closed. And it doesn't release the socket right away, either, if I uncomment the [code] statement and it exits after a single transaction. What can be done to cause this program to actually release the socket upon exit, whether the exit is caused by a signal or just simply via [code] ?"
+ },
+ {
+  "id": "T11067",
+  "title": "Cannot update llamaindex",
+  "tags": [
+   "python",
+   "pip",
+   "llama-index"
+  ],
+  "body": "After [code] introduced v0.10 in February 2024, it introduced a lot of breaking changes to imports. I am trying to update [code] within a [code] environment, but I receive the following error: [CODE] I have tried [code] but get the same error. I have also tried installing [code] but get this error: [CODE] How can I update [code] ?"
+ },
+ {
+  "id": "T11068",
+  "title": "How to auto-scale point image markers when the window is resized?",
+  "tags": [
+   "python",
+   "lightningchart",
+   "lightningchart-python"
+  ],
+  "body": "I am using LightningChart Python and I am drawing a “body map” using a background image and multiple point-series markers that use custom images for chest, ankle and arm icons. The background image scales correctly when the window is resized, but the marker images keep their original size, so they look too big or too small after resizing. How can I make the marker images automatically scale to maintain correct proportions relative to the chart size? [CODE] https://lightningchart.com/python-charts/docs/features/chart-xy/point/#set-custom-point-shape"
+ },
+ {
+  "id": "T11069",
+  "title": "Looking for a way to split strings in pandas dataframe depending on OR, AND and parentheses",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe"
+  ],
+  "body": "So I have a dataframe in pandas that consists of a column with Components, and a row with Constraints. These constraints decide in what category the components have to be filtered. Now these constraints are not very straight-forward, so I'm looking for a way to split them into multiple smaller, more readable constraints. So for example if a constraint is 'A and (B or C)', I want to split up into two rows 'A and B' and 'A and C'. Not all constraints are as easy as this example though. Here's what a small selection of the dataframe might look like: Componenent Constraint 123 A and (B or C) 456 ((MIRROR='ELECTRIC' and MIRRORCAMERA!='NO') or (MIRROR='MANUAL' and (MIRROR_RIGHT!='NO' or MIRROR_LEFT!='NO'))) and STEERWHEEL_LOCK='NO' 789 LENGTH='122' or (LENGTH='135' and BATTERY='551') or LENGTH='149' or (LENGTH='181' and (BATTERY='674' or (BATTERY='551' and CHARGER!='NO'))) or [CODE] Like I said, I'm hoping to split all these into multiple rows (if needed), depending on the and's and or's and parenthesis in the constraint. So I have the following result in mind: Component Constraint 123 A and B 123 A and C 456 STEERWHEEL_LOCK='NO' and MIRROR='ELECTRIC' and MIRRORCAMERA!='NO' 456 STEERWHEEL_LOCK='NO' and MIRROR='MANUAL' and MIRROR_RIGHT!='NO' 456 STEERWHEEL_LOCK='NO' and MIRROR='MANUAL' and MIRROR_LEFT!='NO' 789 LENGTH='122' 789 LENGTH='135' and BATTERY='551' 789 LENGTH='149' 789 LENGT"
+ },
+ {
+  "id": "T11070",
+  "title": "How does Diffusion based Neural Compression actually compress images?",
+  "tags": [
+   "python",
+   "deep-learning",
+   "neural-network",
+   "image-compression"
+  ],
+  "body": "I was reading a paper giving an overview on neural compression ( https://arxiv.org/pdf/2202.06533.pdf ) and it mentioned lossy image compression with diffusion models. I am confused because, from what I understood, diffusion models work by applying Gaussian noise to an image and then using a neural network to repetitively denoise it. I don't understand how this would \"compress\" the image, since wouldn't the noisy image be the same size/memory as the original? I tried reading a paper from Theis et al. ( https://arxiv.org/pdf/2206.08889.pdf ) to understand, and from what I gathered it seems that the bitrate (bits per pixel) decreases for more noisy images. I read an article from Synced ( https://syncedreview.com/2022/06/27/googles-novel-lossy-compression-method-targets-perfect-realism-with-only-a-single-diffusion-model/ ) that summarizes Theis et al.'s research, which states \"By introducing varying degrees of Gaussian noise, the model can flexibly communicate data at arbitrary bitrates\". From what I gather from all of this is that diffusion based neural compression works because the noisy image can be communicated at a lower bitrate than the original image, but what confuses me is why that is the case? Is there some algorithm that allows for images that have Gaussian noising applied to them to be communicated at a lower bitrate? Is there a way to implement this algorithm in Pytho"
+ },
+ {
+  "id": "T11071",
+  "title": "Pyinstaller images data put in the root file but error not found",
+  "tags": [
+   "python",
+   "path",
+   "pyinstaller",
+   "auto-py-to-exe"
+  ],
+  "body": "I created a one dir exe with pyinstaller from my Python source code. In my code, I use images with the images relative image path put next to the .py files. As I read the pyinstaller doc I tried 2 things: the official way with the -add data and another method where I copy the images directly next to the main.exe. With the 2 methods, I try to launch the main.exe and I get a not found error: couldn't open \"bdd_trans.png\": no such file or directory So I tried to see where was the current work directory while launching the exe with: [CODE] I then paste all the images in the printed directory and then the exe app worked. The problem is the directory I have to put the images on is on the windows users data which is not inside the build folder. So I can't send my app to someone and make it instantly work which is a huge deal. Do someone knows why the official methods didn't work for me? Here's the pyinstaller command I'm running: [CODE] Here's the output trying to run the exe: [CODE] Here's how I use the data images: [CODE]"
+ },
+ {
+  "id": "T11072",
+  "title": "I need help to finish this, I am stock for the month. Sorry, there is a bit of french",
+  "tags": [
+   "python"
+  ],
+  "body": "Hello stackoverflow community! I am stuck at finding the corresponding month to the highest or lowest price value in my txt file. Example: the dates in my txt file are formatted this way (dd-mm-yyyy): 06-01-2020:127.0 03-02-2020:117.7 02-03-2020:118.0 06-04-2020:86.9 04-05-2020:94.1 01-06-2020:102.2 06-07-2020:110.5 03-08-2020:107.4 07-09-2020:106.9 05-10-2020:106.5 02-11-2020:102.1 07-12-2020:106.9 My function get_highest(essence_list) go through my txt file and return the highest value which is 127.0. My function get_lowest(essence_list) go through my txt file and return the lowest value which is 86.9. I want to print the corresponding month to the highest and lowest value. Example: [code] function returns 127.0. I want to print the corresponding month which is 01 and display it in this format : 01 = \"January\", 02 = \"February\",... 12=\"December\". Same for get_lowest(essence_list), returns 86.9 and the corresponding month is 04. If 04 then \"April\",etc. I could then add this to my last lines of code, [CODE] Those are the lines : [CODE] Thank you for the help guys! [CODE]"
+ },
+ {
+  "id": "T11073",
+  "title": "XGBoost AFT survival model with external memory iterator",
+  "tags": [
+   "python",
+   "xgboost",
+   "survival-analysis"
+  ],
+  "body": "How to make XGBoost external memory and XGBoost survival AFT model work together? Background: I've written XGBoost iterator for batched training as in the linked example. Now I want to train an AFT model from the [code] library. The problem is the XGB [code] , for which we need to run [code] to set survival censoring intervals. For example: [CODE] Attached please find my redacted code (can't attach everything, but that's the problematic gist). I got the censoring time data in [code] , but I don't know how to \"attach\" it to [code] . [CODE]"
+ },
+ {
+  "id": "T11074",
+  "title": "Targetting a specific instance of an Azure Functions App",
+  "tags": [
+   "python",
+   "azure",
+   "caching",
+   "azure-functions"
+  ],
+  "body": "I am using HTTP triggered Python Azure Functions to build an API, which does some operations on a ~100MB data file and depending on the endpoint returns a different response. For performance reasons the data file needs to be cached in-memory (fetching from Blob Storage for every request is too slow). There would be around 15-20 users using the API at a given time, each processing a different data file. The idea was that each one of them would be communicating with one Functions instance, which would have his data cached in-memory. In order to achieve this, two things need to be possible: the HTTP request (function trigger) would need to specify which instance it is targetting, perhaps through instance's ID if it is the first request in a \"session\", meaning that the data file has not been cached yet I need to be able to spawn a new Functions instance I have looked through MS documentation and could not find anything so I assume it is not possible. However, I would also very much appreciate tips/guidance on alternative approaches to the problem."
+ },
+ {
+  "id": "T11075",
+  "title": "pyinstaller Error during converting py to exe error : Module &#39;pythoncom&#39; isn&#39;t in frozen sys.path",
+  "tags": [
+   "python",
+   "pyinstaller"
+  ],
+  "body": "I have created Tkinter Python Application. but during converting py to exc getting below error. Please help me with this issue. [CODE]"
+ },
+ {
+  "id": "T11076",
+  "title": "Screen reader fails to read correct list entries in Python textual app",
+  "tags": [
+   "python",
+   "screen-readers",
+   "python-textual"
+  ],
+  "body": "I'm trying to get a [code] app to work with [code] , but I came across a very strange behavior. This is a fully working example [CODE] This works fine with [code] and the correct line is audible. However, when I start adding nested layouts for the formatting [CODE] it suddenly seems to be reading the wrong line, it seems to be 1 entry behind no matter if navigating up or down. For the above example, it would be [CODE] [code] [CODE] [code] [CODE] Does anyone have an explanation for this behavior?"
+ },
+ {
+  "id": "T11077",
+  "title": "Multiple dictionaries in list don&#39;t properly work with pop method",
+  "tags": [
+   "python"
+  ],
+  "body": "With the following code I'm trying to append all cards form the deck to the hand that have the \"Cool\" Key in their dictionary. But for some some reason it only draws 2 out of 3 attacks. Can anybody explain to me what is happening? [CODE] I've also tried this with a while loop thinking that I have messed something up with the index logic but to no avail: EDIT: So thanks to @Chrispresso I was able to wrap my head around how to make the while loop work! I've edited that part in the code [CODE] Thanks so much for your help in advance! EDIT: So the desired output would be [CODE] but currently the output is: [CODE]"
+ },
+ {
+  "id": "T11078",
+  "title": "as.Date() R equivalent in Python",
+  "tags": [
+   "python",
+   "r",
+   "datetime"
+  ],
+  "body": "I'm trying to create a list of dates in Python. In R I have a list of values from 1:14975 that each represent a day, I would then use [code] to transform the values into dates. Is there a way to do this in python?"
+ },
+ {
+  "id": "T11079",
+  "title": "Can&#39;t connect to Oracle 19c db with SSH tunnel using python",
+  "tags": [
+   "python",
+   "oracle-database",
+   "error-handling",
+   "paramiko",
+   "ssh-tunnel"
+  ],
+  "body": "I am not an expert neither on Oracle or Python, so maybe the answer is obvious but I still couldn't find the answer to my problem on forums. I have an SSH connection to Oracle 19c db on SQL developer and DBeaver, but I cant connect with Python. I tried many thing like checking if thick mode is needed but got different errors. In thin mode the SSH tunnel created but the Oracle connection run into errors. In thick mode it freezed. The code snippets are below. Do you have any idea where is the problem and what could be a solution? Thanks Thin mode: [CODE] Errors: [CODE] Thick: [CODE] Errors: [CODE] Modified code with SSHTunnel: Here is the code's connecting part: [CODE] And the end part of debuging + errors: [CODE] I saw in SQLAlchemy \"create_engine\" documentation that it uses cx_oracle, but it is not available in newer python only oracledb is available. In other cases they were interchangeable, maybe here it is not working. I tried with dsn too, but I got error again: [CODE] [CODE]"
+ },
+ {
+  "id": "T11080",
+  "title": "pyqt5 combobox.clear() causing unclear issue",
+  "tags": [
+   "python",
+   "pyqt5",
+   "qcombobox"
+  ],
+  "body": "I have a combobox which shows 2 values [code] | [code] these are taken from a csv file, The normal implementation works with out issue, see this post for more details: displaying two values in a pyqt5 combobox and passing those values However, I have a button to append a row to the csv, I then want the combobox to be updated with the new csv contents. So, obviously I first clear the values already loaded into the combo box. In the below code the issue seems to be [code] , if I remove it the code functions successfully, although it appends the updated csv to the end of the combobox list giving duplication. Where have I gone wrong? [CODE]"
+ },
+ {
+  "id": "T11081",
+  "title": "Custom bins in choropleth Plotly map",
+  "tags": [
+   "python",
+   "plotly",
+   "choropleth"
+  ],
+  "body": "I would like to create a global map with my data using [code] . The problem is that my data has a range of several orders of magnitude differences. I tried plotting the data using a log scale but it does not create the desired results. I would like to create custom bins or ticks in my data. How would I do this? I gave it several attempts spending two days on this but no results. This is my code: [CODE] This is what I want to have:"
+ },
+ {
+  "id": "T11082",
+  "title": "How to force zoneinfo to use python tzdata library rather than system tzdata, or, why do I get different utcoffset results across platforms?",
+  "tags": [
+   "python",
+   "iana",
+   "tzdata"
+  ],
+  "body": "I'm facing a problem which is either due to user error on my part, inconsistencies between how Python's zoneinfo and tzdata modules work across platforms, or inconsistencies in IANA databases across platforms. I'm finding that depending on the platform I'm on the results of a utcoffset calculation with the zoneinfo library are different depending on the platform I'm running on, even when using quite similar IANA databases. These are for pre-1970 dates, including dates that should have some offset from UTC as well as those that will be based on LMT. The complete output of my tests is below. So my main question is: what is going on here? And how can I force zoneinfo to use an installed (and pinned, as I'm doing this within a uv-managed virtual environment) python tzdata library, rather than the system tzdata? Here are the results of some of my tests, the platforms, and the installed tzdata library. Ubuntu noble, tzdata 2026a-0ubuntu0.24.04. [CODE] MacOS Sequoia 15.7.2, zoneinfo version 2025c [CODE] raspbian bookworm, tzdata 2025b-0+deb12u2 [CODE] Windows 10, Powershell with uv-installed python, uv pip install tzdata of 2026b [CODE] So notice here that the outliers are MacOS, which has a tzdata of 2025c, and Windows with a uv pip installed version of tzdata of 2026b. Yet raspbian, with tzdata of 2025b, and Ubuntu, with tzdata of 2026a, both give the same result. I looked through t"
+ },
+ {
+  "id": "T11083",
+  "title": "How to replace non-commutative products in SymPy with expressions?",
+  "tags": [
+   "python",
+   "sympy",
+   "substitution"
+  ],
+  "body": "I want to work around [code] 's limitation of assuming partially commutative behavior. If I define the non-commutative symbols [CODE] then [CODE] gives [CODE] Now, [code] and [code] , while not commuting with other symbols, such as [code] , actually commute, i.e. I want the above to give zero. Apparently, I cannot make [code] to assume that. So, I try to work around this using replacement. With [CODE] I actually get [code] , as desired. So far so good. But now, I want this to also work in longer expressions. Let [CODE] gives correctly [CODE] But, since [code] and [code] commute, this actually vanishes. So, I tried as before to [CODE] but do not get [code] , but the same as before (no replacement). How can I replace all products [code] with the reverse?"
+ },
+ {
+  "id": "T11084",
+  "title": "Pillow rendering multiline text for typewriter overlay",
+  "tags": [
+   "python",
+   "python-imaging-library",
+   "multiline",
+   "typewriter"
+  ],
+  "body": "I'm using Pillow to render text for an overlay to input into ffmpeg. Here is my render function: [CODE] This worked OK but did not correctly render multiline text. The error was: \"Can't measure length of multiline text\" How could the text be structured to easily find the current position of the latest word, (which may be variable because of different font sizes, page widths, etc) and know where to place the cursor in the newest frame?"
+ },
+ {
+  "id": "T11085",
+  "title": "Having issues with importing model to another app in order to use model there",
+  "tags": [
+   "python",
+   "django"
+  ],
+  "body": "My project structure: ecomarket: ecomarket: cart: product: user: manage.py Here's product.models [CODE] And this is cart.models [CODE] The issue is when I'm importing Product in the top of file like from product.models import the django is refusing to understand it. In cart.models I imported Product model in ForeignKey as a string and it worked. But I need Product model in my cart.views to create when endpoint get request. So how can I import it to my cart.views? Here's my views.py [CODE] Thank you for all answers in advance While searching I learned that it's because of python's new version, But couldn't find any solutions."
+ },
+ {
+  "id": "T11086",
+  "title": "Progress Bar in moviepy, for a discord bot",
+  "tags": [
+   "python",
+   "discord",
+   "moviepy"
+  ],
+  "body": "I'm trying to implement a discord bot that sends the progress of a video exported via python, Moviepy, and don't know how to do that, I approach it using async def callback but its not Working for me, as the function isn't even called by the logger, due to it being async, so is there any suggestions? [CODE]"
+ },
+ {
+  "id": "T11087",
+  "title": "sqlite query works form db viewer but not form python",
+  "tags": [
+   "python",
+   "sqlite"
+  ],
+  "body": "I run this query from DB Browser for SQLite: [CODE] and it works fine with no errors. Then, from a Python program: [CODE] runs with no errors but has no effect. What am I missing? I have been looking at the SQLite explicit row id concept, but can't see how it applies to Python connections."
+ },
+ {
+  "id": "T11088",
+  "title": "Credit card validator program in python , loop",
+  "tags": [
+   "python",
+   "loops"
+  ],
+  "body": "I’m working on a credit card validator program in Python using the Luhn’s Algorithm, but I’m stuck on the for loop part. Here’s the full code I have so far: [CODE] The part I don’t understand is this section: [CODE] I get that it’s looping through the reversed credit card number, but I’m confused about: Why check [code] ? How exactly is the else part (doubling, subtracting 9) working in the context of Luhn’s algorithm? For reference, here’s the Luhn’s algorithm problem: https://cs50.harvard.edu/x/psets/1/credit/ So, my question is , How digit and index variable works and how the for loop works and why we use index first then digit? It's supposed to work with digits like : digit % 2 == 0, why i % 2 == 0....and next step, why we use digits? How this function work?"
+ },
+ {
+  "id": "T11089",
+  "title": "Why doesn&#39;t Whisper fully transcribe my audio?",
+  "tags": [
+   "python",
+   "openai-whisper",
+   "whisper"
+  ],
+  "body": "I'm trying to use openai-whisper Python module to transcribe (already recorded) audio which can be large files (30 minutes to 2 or 3 hours). But I'm facing an issue: the audio isn't fully transcribed with the [code] model. For instance, I'm working on a 30 minute audio and it's not transcribed from 2:00 to 15:00. I checked and there are people talking. I saw on other posts and blogs that Whisper performance gets worse and worse when the audio is longer so I split the audio into segments of 15 minutes with pydub in the following code: [CODE] I can't use anything else than this Python module to transcribe my audio. For the moment: I succeed to fully transcribe audio with the other large models with segments of 15 minutes I succeed to fully transcribe audio with [code] model only when audio segments last less than 5 minutes (4.9 minutes is okay but 5 no) I already checked if all my segmented audio files were transcribed and they all are Why do I have this issue, how to solve it, and why does it work with other large models and not the [code] one?"
+ },
+ {
+  "id": "T11090",
+  "title": "Updating corpus of already generated BM25 model",
+  "tags": [
+   "python",
+   "search"
+  ],
+  "body": "I need to create a search alghoritm on a set of ~90k documents, where new documents get added on a daily basis. I want to marry BM25 with dense vectors and create hybrid ranking. While I was reviewing documentation of BM25 python implementations, I started to wonder whether it is possible to update a BM25 model that has been once generated with new documents. From the efficiency point of view it won't be the best idea to take the entire database and generate new corpora and BM25 model every time a new document gets uploaded. I was reviewing different BM25 python implementations, however I did not answer to my question. EDIT: The exact question is whether it is possible to update a BM25 model that has been previously generated with some new documents, or a new model needs to be trained on the entire database again?"
+ },
+ {
+  "id": "T11091",
+  "title": "Most efficient way to run spacy lemmatizer with Dataflow",
+  "tags": [
+   "python",
+   "google-bigquery",
+   "google-cloud-dataflow",
+   "apache-beam",
+   "spacy"
+  ],
+  "body": "I try to process data coming from BigQuery. I created a pipeline with Apache Beam as below: [CODE] Basically, it loads data from my BigQuery table, clean one of the columns (of type string), and lemmatize it using Spacy Lemmatizer. I have approx. 8M lines and each string is pretty big, approx. 300 words. At the end it all sums up and takes more than 15 hours to complete. And we have to run it everydays. I don't really understand why it is taking so long to run on DataFlow which is supposed to in a parallelized way. I already used [code] from Spacy but I can't really make it work with Apache Beam. Is there a way to speed up Spacy processing using DataFlow or parallelize it better ?"
+ },
+ {
+  "id": "T11092",
+  "title": "Static verification of type compatibility across Python + YAML + JSON Schema pipeline stage boundaries",
+  "tags": [
+   "python",
+   "python-typing",
+   "jsonschema",
+   "type-safety",
+   "mlops"
+  ],
+  "body": "Is there an existing tool or pattern that statically verifies type compatibility across pipeline stage boundaries — where stages are defined in Python, configured in YAML, and validated with JSON Schema — before runtime?"
+ },
+ {
+  "id": "T11093",
+  "title": "pathlib takes more time traversing directory recursively than os.walk()",
+  "tags": [
+   "python",
+   "python-3.x",
+   "pathlib"
+  ],
+  "body": "I'm experimenting to determine if the [code] module is an improvement over the [code] for directory traversal. To my surprise, I am getting better readings from the [code] module when compared to [code] . Which is something I was not expecting. Is it because the [code] module is dumb enough to not care if the path string represents a file or a directory or a link etc? So speed vs better control? Perhaps I am not using [code] the way it should be used for this. Here's the code: [CODE] Is this the most optimum way this [code] should be used for traversing a directory tree? Please shed some light on this. UPDATE1: Now that I know that [code] is not a competitor (so to speak) of [code] , rather a compliment, will resort to mixing them both when need be."
+ },
+ {
+  "id": "T11094",
+  "title": "Scipy.stats Confidence Intervals for T-distribution are different than when calculated by hand",
+  "tags": [
+   "python",
+   "scipy",
+   "statistics",
+   "confidence-interval"
+  ],
+  "body": "I’m trying to find the 95 percent confidence interval of the mean using the given array. The problem is whenever I try using the interval method from [code] , it gives me a different result than my hand calculated confidence interval. Could I have been inadvertently using the interval method incorrectly? I’ve attached the code which I used below. [CODE]"
+ },
+ {
+  "id": "T11095",
+  "title": "Confusion about virtual subclasses in static type checking like mypy",
+  "tags": [
+   "python",
+   "mypy",
+   "abc"
+  ],
+  "body": "I'm trying to figure out in python whether virtual subclass will pass the static type check like mypy. And I read about this in fluent python: Virtual subclasses do not inherit from their registered ABCs, and are not checked for conformance to the ABC interface at any time, not even when they are instantiated. Also, static type checkers can’t handle virtual subclasses at this time. For details, see Mypy issue 2922—ABCMeta.register support . It seems that mypy doesn't support virtual class created using [code] or [code] . I wrote the following code to test this and encountered a confusing result: [CODE] So, my question is, why do the calls to [code] , [code] , and [code] not trigger any mypy errors, given that the [code] class is effectively a virtual subclass of [code] , [code] , and [code] ? I appreciate any help or suggestions. Thank you! Ps. English is my second language, so please excuse any errors in my question."
+ },
+ {
+  "id": "T11096",
+  "title": "Find a mean of every 4 columns in a numpy array",
+  "tags": [
+   "python",
+   "numpy"
+  ],
+  "body": "I have a numpy array of (858, 891) shape: [CODE] I need to find a mean of 4 columns like this and stack it with the mean of next 4 columns: [CODE] [CODE] How can I loop over the original array to get a new array with the shape of (858,223)? The last iteration should be over 3 columns."
+ },
+ {
+  "id": "T11097",
+  "title": "Can&#39;t tell where my variables went, &quot;missing positional arguments&quot;",
+  "tags": [
+   "python",
+   "math"
+  ],
+  "body": "I started learning python a few months back, so i don't know alot of terms still. This program fetches co-ordinates from a text file and finds out which point is closest to the user input. the co-ordinates are listed lat,lon,cityname of course i'm suprised that it can't find the variables, but i'm even more suprised that it found one but not the others. I would be greatful if someone could explain to me why it can't find them. [CODE] and this is the error i get. [CODE]"
+ },
+ {
+  "id": "T11098",
+  "title": "I can&#39;t break terrain generated block in my mincraft clone",
+  "tags": [
+   "python",
+   "ursina"
+  ],
+  "body": "When i attempt to break block generated by the terrain generation code nothing happens, no traceback errors nothing happens when i right click on block generated by the terrain generation function. the block are created form the voxel class and appended to the chunks list which is the iterated over by the generate_terrain function. here's the code: ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ [CODE]"
+ },
+ {
+  "id": "T11099",
+  "title": "Compile list with more than one argument",
+  "tags": [
+   "python",
+   "python-typing",
+   "python-internals"
+  ],
+  "body": "Why is the following line valid Python code? [CODE] The documentation says Using the type constructor: [code] or [code] I can even write the following: [CODE] However, the bytecode is different: [CODE] The documentation says: The mode argument specifies what kind of code must be compiled; it can be [code] if source consists of a sequence of statements, [code] if it consists of a single expression, or [code] if it consists of a single interactive statement (in the latter case, expression statements that evaluate to something other than [code] will be printed). What exactly is happening here? Where in the documentation is this described?"
+ },
+ {
+  "id": "T11100",
+  "title": "Getting user ID in TwitchIO",
+  "tags": [
+   "python",
+   "bots",
+   "twitch"
+  ],
+  "body": "I'm writing a Twitch bot. I'd like to be able to store ranking of number of comments posted. So I'd like to label users by their Twitch ID in DB. I wrote this get function : [CODE] While getting chatters from Channel object I end up with Chatter object as tested by print in line 9. Chatter object should have \"id\" attribute as per [https://twitchio.dev/en/stable/reference.html#twitchio.Chatter] It has the attribute, but he attribute is NULL. I tried to get ID by using channel and \"user()\" coroutine, but it seems like it does not return anything other than itself (chatter.channel.user().id causes 'AttributeError: 'coroutine' object has no attribute 'id' ') I did it because I thought maybe it's some inheritance from PartialChatter obj. Does anyone knows how to get this user ID ?"
+ },
+ {
+  "id": "T11101",
+  "title": "Rearrange a list of strings",
+  "tags": [
+   "python",
+   "list"
+  ],
+  "body": "I want to rearrange or modify he sequence of elements (strings) in a list. This is the original list [CODE] I want to move [code] and [code] behind (or after?) [code] . [CODE] The decision what to move comes from the user. There is no rule behind and no way to formulate that in an algorithm. In other words the action move something behind something other is input from the user; e.g. the user mark two elements with her/his mouse and drag an drop it behind another element. My code works and is able to do this. But I wonder if there is a more efficient and pythonic way to do this. Maybe I missed some of Python's nice in-build features. [CODE] You can assume Elements in [code] are unique. [code] always exist in [code] . [code] always exist in [code] . The elements in [code] are always adjacent . Other example of possible input : Move [code] behind [code] Move [code] behind [code] This is not possible: Move [code] behind [code]"
+ },
+ {
+  "id": "T11102",
+  "title": "&#39;IterQueue&#39; object has no attribute &#39;not_full&#39;",
+  "tags": [
+   "python",
+   "multiprocessing",
+   "queue"
+  ],
+  "body": "I have a class called \"IterQueue which is an iter queue: IterQueue.py [CODE] I put items inside it in a different processes: modulexxx.py [CODE] Everything works fine, but python gives me an error: [CODE] I searched for this function so I implement it in my custom queue, but found nothing, What's the solution to this ?"
+ },
+ {
+  "id": "T11103",
+  "title": "Passing multiple functions as arguments to another function anonymously Python",
+  "tags": [
+   "python",
+   "function"
+  ],
+  "body": "I have code in PHP that I would like to rewrite in Python, but the difficulty is passing functions as arguments. Here is the PHP code: [CODE] It is important to me that the transfer method does not require a preliminary declaration of functions: [CODE] The question is what is the best way to implement this in python? I tried to do the same in Python as in PHP, but without success: [CODE] Also, I'm not sure if this is the best solution to the problem."
+ },
+ {
+  "id": "T11104",
+  "title": "fitting ellipse in images with poor contrast",
+  "tags": [
+   "python",
+   "ellipse",
+   "photogrammetry"
+  ],
+  "body": "I am working on image processing in Python, on the topic of underwater photogrammetry. My goal is to fit an ellipse to fidicual markers, and retrieve its a) center, b) axis and c) orientation. My markers are radial, white on black background, and some have a binary code: A ML-model delivers a small image snippets for each marker in each image, containting only the center of the marker. So far, I've implemented these approaches: Using openCV: a) Thresholding, which results in a binary image (cv2.threshold) b) Find Contours (cv2.findContours) c) fit Ellipse (v2.fitEllipse) Using Scikit: a) Detect edge (using Canny) b) Apply hough transform Star operator (work in progress) a) Estimate ellipse center b) Send 360rays in all directions c) Build an array, comprising coordinates of the largest gradient on each ray d) Calculate best-fit ellipse using least-square method e) Use the new center to repeat process (possibly several iterations required) I perform these methods for each color-channel seperately. So far, the results between channels differ within several pixels for the ellipse center. Do you have any suggestions on what pre-processing methods I should use, prior detecting/fitting the ellipse? Any thoughts on which of the above methods will lead to the most accurate results?"
+ },
+ {
+  "id": "T11105",
+  "title": "Tensorflow Dividing a [X, 10, 10, 1] matrix by [X, 1]",
+  "tags": [
+   "python",
+   "tensorflow"
+  ],
+  "body": "I'm trying to divide a [X, 10, 10, 1] matrix by the sum of each [10, 10, 1] matrix - so dividing [X, 10, 10, 1] by [X, 1] however using tf.broadcast_to gives an \"incompatible shapes\" error as shown directly below: [CODE] Error w/ X=128 when using tf.broadcast_to: Incompatible shapes: [128,1] vs. [128,10,10,1] [Op:BroadcastTo] My workaround to get division working is as follows, but it seems to be awfully slow (and dumb) [CODE] Is there a better way to do this?"
+ },
+ {
+  "id": "T11106",
+  "title": "Bundling Jinja2 temlate with UV",
+  "tags": [
+   "python",
+   "uv"
+  ],
+  "body": "I am trying to include jinja2 templates within my uv build but it does not seem to work. My directory structure is as follows. [CODE] Following is my py project toml [CODE] My work around is to capture all the j2 as doc_string in .py file like below and import it [CODE]"
+ },
+ {
+  "id": "T11107",
+  "title": "How do I read/write to a .adofai file using strings?",
+  "tags": [
+   "python",
+   "json"
+  ],
+  "body": "I am trying to read from and write to a .adofai file (which from what I can tell is a modified .json which won't work with the json library) using strings. This is the program I used for testing: [CODE] mirror.adofai before modification: [CODE] The program is supposed to replace the first 0 in [code] with a 315, but it gives the following error: [CODE] (Note that I've replaced my username with [code] here for privacy reasons.)"
+ },
+ {
+  "id": "T11108",
+  "title": "I have passed a numpy.ndarray as a parameter to face_recognizer.predict () but still getting error as The function/feature is not implemented)",
+  "tags": [
+   "python",
+   "opencv"
+  ],
+  "body": "I tried to detect multiple faces from an image and i passed a ndarray to the predict function of LBPHFaceRecognizer but I get an error as [code]"
+ },
+ {
+  "id": "T11109",
+  "title": "TypeError with &#39;infer_datetime_format&#39;",
+  "tags": [
+   "python",
+   "pandas"
+  ],
+  "body": "When i read excel file. [CODE] I got this error, anyone help this please. [CODE] PS. I worked on google colabs."
+ },
+ {
+  "id": "T11110",
+  "title": "How to correctly implement the multiplication function used by GHASH function in AES-256-GCM?",
+  "tags": [
+   "python",
+   "encryption",
+   "cryptography",
+   "aes"
+  ],
+  "body": "I am trying to implement AES-256-GCM in Python without using any external libraries, and I have implemented encryption and decryption in AES-256-ECB, AES-256-CBC, AES-256-CTR, and AES-256-OFB modes, and I also implemented Base64 encoding and decoding plus JSON serialization and deserialization, all are working properly and I have verified the results rigorously against various sources. You can see an earlier version of my work here , I have implemented the code all by myself according to various sources . I plan to add AES-256-CFB and AES-256-PCBC modes, it is extremely trivial for me to implement them at this point, plus I have found this , but I am not adding those modes because I am currently trying to implement AES-256-GCM which is my original goal, but I can't implement it. Currently there is no way for me to verify if my results were right. I have found this specification and this and this . A direct implementation of the algorithm for multiplication used in GHASH function is: [CODE] I have found this , it is easy for me to adapt the code to my needs, but I can't verify its correctness. Specifically, the multiplication function it uses is the following: [CODE] I got rid of the comment and assert blocks as they weren't necessary. For some inputs, my function agrees with the function from the linked repository, but the outputs aren't the same for all inputs: [CODE] Which on"
+ },
+ {
+  "id": "T11111",
+  "title": "Unescape string to get special character from user input",
+  "tags": [
+   "python",
+   "string",
+   "escaping",
+   "byte",
+   "argparse"
+  ],
+  "body": "I have a user input as [code] in a CLI like using [code] : [CODE] When I collect the separator, I get the escaped version of the string [code] , but instead I want to translate it without escaping the backslash [code] to recover the special character. How can I interpret an escaped string as if it was unescaped in Python ?"
+ },
+ {
+  "id": "T11112",
+  "title": "Using MONAI sliding_window_inference with multi-output model, how to use predictor for only one output?",
+  "tags": [
+   "python",
+   "pytorch",
+   "tooling-recommendation"
+  ],
+  "body": "I am using MONAI [code] for segmentation inference, but my model returns multiple outputs instead of a single tensor. My model forward returns something like: [CODE] For sliding window inference I only want to use the [code] output. MONAI docs say the [code] argument can be a callable, but I am not sure what is the cleanest or recommended way to use it in my case. Currently I do: [CODE] What is the proper MONAI way to make [code] use only the segmentation output from a multi-output model? Update: Can I define a member function in the model's class : [CODE] Then a wrapper class class SegmentationWrapper(nn.Module): def init (self, model): super(). init () self.model = model [CODE] then : [CODE] Then calling MONAI's swiwith: [CODE] Is this a valid solution ? Any help is appreciated. Thanks in advance !"
+ },
+ {
+  "id": "T11113",
+  "title": "Clustering topics and naming the cluster in Python",
+  "tags": [
+   "python",
+   "nlp",
+   "cluster-analysis",
+   "topic-modeling"
+  ],
+  "body": "I have millions of topics in my data. These topics are one to 12 words. For instance 'Cancer Biology and Genetics' could be one topic and 'Regenerative medicines' could be another. I want to create clusters of similar topics and name them. I tried BERT+K-Means to cluster these topics and it works fine. I don't know much about NLP and want to use the best approach to this. I also do not have a way to name these clusters in a way that it makes sense and represents the cluster. Please advise"
+ },
+ {
+  "id": "T11114",
+  "title": "Python Web Scraping Issue: Missing Pagination Elements When Loading Autotrader Website Programmatically",
+  "tags": [
+   "python"
+  ],
+  "body": "hello my problem is that when my [code] loads a website called Autotraders when it opens the website, multiple things are missing from the website. like in the following when I open it https://i.sstatic.net/LhWVUsYd.png when the program opens it https://i.sstatic.net/jtCIjOyF.png the [code] don't [code] which is bad because my program needs to check every [code] so when it looks at the [code] for the button that switches pages it's not their. I even checked it myself by going into the inspect element doing [code] and searching for [code] nothing popped up here is my code https://pastebin.com/meZXCDkK here is the relevant part of my code which breaks every time because of the site not fully loading [CODE] [code] above always returns [code] because the web page that the program opens does not have the [code] at all and I don't know why I think this is an issue because of the site but I want to make sure"
+ },
+ {
+  "id": "T11115",
+  "title": "Python Elasticsearch aggregated query",
+  "tags": [
+   "python",
+   "elasticsearch",
+   "elasticsearch-aggregation"
+  ],
+  "body": "I am struggling to get an aggregated response based on a query... for example, in Kibana visualization, after creating a table with the aggregations and query I need, I can view the request by going inside the visualization and Inspect -> View:Requests -> Request. This gives me the entire request, structured like this: [CODE] How can i obtain the same dataset that is displayed in Kibana Visualization with the API? I tried translating the API Request fields to the es.search() function like this: [CODE] But the data is not aggregated correctly, like in the Kibana Visualization. Another strange behaviour is that if i completely remove the aggs = {...} from es.search(), it gives me the same dataset. Note: I am using elasticsearch module 7.16.1"
+ },
+ {
+  "id": "T11116",
+  "title": "Split string based on delimiter into specific substrings in python stored in multiple columns",
+  "tags": [
+   "python",
+   "string",
+   "split",
+   "substring"
+  ],
+  "body": "I would like to split this string A->B->C->D->E->F into substrings as A->B,B->C,C->D,D->E,E->F. I tried using split and the delimiter as '->' but that doesn't give the output in the way I want. Would really appreciate some help here! I have multiple such values in a column in a dataframe. I would like to create as many new columns as the max number of splits and then store each split in the respective column in the dataframe. Desired output"
+ },
+ {
+  "id": "T11117",
+  "title": "Node: &#39;binary_crossentropy/Cast&#39; Cast string to float is not supported",
+  "tags": [
+   "python",
+   "deep-learning"
+  ],
+  "body": "Dears, I am facing this error while training the model. I check the data and all of it is float dtype. [CODE] Data info. when I print out the data.info, I got all data are integers. There is only one has object dtype and the Labels which i already encoded. [CODE] Error: Node: 'binary_crossentropy/Cast' Cast string to float is not supported [CODE]"
+ },
+ {
+  "id": "T11118",
+  "title": "How to filter polars dataframe by first maximum value while using over?",
+  "tags": [
+   "python",
+   "dataframe",
+   "window-functions",
+   "python-polars"
+  ],
+  "body": "I am trying to filter a dataframe to find the first occurrence of a maximum value over a category column. In my data there is no guarantee that there is a single unique maximum value, there could be multiple values, but i only need the first occurance. Yet I can't seem to find a way to limit the max part of the filter, currently I am then adding a further filter on another column generally a time based one and taking the minimum value. [CODE] [CODE] However, I'd prefer to simplify the above to only require passing in references to the max and category columns. Am I missing something obvious here?"
+ },
+ {
+  "id": "T11119",
+  "title": "how to provide aws glue job parameters via terraform?",
+  "tags": [
+   "python",
+   "amazon-web-services",
+   "aws-glue"
+  ],
+  "body": "I am setting up an glue job in aws via terraform (sample below ) . based on the docs here - https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html , any additional package needed for the glue job can be passed via --additional-python-modules under job parameter reference, but how do i pass this information when setting up a job via terraform like below . [CODE]"
+ },
+ {
+  "id": "T11120",
+  "title": "Split columns names cannot be renamed",
+  "tags": [
+   "python",
+   "web-scraping"
+  ],
+  "body": "I have successfully expanded one address column into four. However, the new dataframe has default column names of integers 0-3. I have tried to rename these columns, but the new dataframe with renamed columns is not reflecting the change. The column names remain integers 0-3. [CODE] The output is as follows:"
+ },
+ {
+  "id": "T11121",
+  "title": "ordering = [&#39;-date_posted&#39;] does not work",
+  "tags": [
+   "python",
+   "django"
+  ],
+  "body": "I have this class and I wanted to sort the posts of my blog by date posted but it does not work and gives me this error what should I do? Thanks in advance [CODE] views.py [CODE] post model [CODE]"
+ },
+ {
+  "id": "T11122",
+  "title": "index out of range question during recursion in python",
+  "tags": [
+   "python",
+   "recursion"
+  ],
+  "body": "I am using python to try to get a sum of squares of the non-negative numbers of some tuples within a list: [CODE] so lst1 is my list where it has the first element being the tuple: (3, ('-5', '-4', '4')) # 3 is to indicate how many elements in this particular tuple so I have a two functions, the first function (i.e. iterate) calculate the sum of squares of the non-negative number within a tuple. The second function (i.e. iterateList) would go through the list lst1, tuple-by-tuple, to calculate the sum of squares within each tuple, basically it calls the first function and then return a list where each element in the list being the sum of squares of each of the individual tuple since I build the list by concatenate them using the + in my iterateList function. [CODE] However, I keep getting the error of index out of range: I think it has to do with the second iteration inside the iterateList function. But I just not sure how to fix it or where the exact error is. I have added some print statement to check where the error is. It seems it happens to the second element within the list: (2, ('2','4')) but I just not sure what range it is talking about when the error says \"index out of range\"."
+ },
+ {
+  "id": "T11123",
+  "title": "Pyspark merge 2 Array of Maps into 1 column with missing keys",
+  "tags": [
+   "python",
+   "sql",
+   "apache-spark",
+   "pyspark"
+  ],
+  "body": "I have the following dataset [CODE] I then do some aggregations and end up with 2 columns ( [code] , [code] ). These 2 columns have the following datatype. [CODE] row dt country_code state_code size latest_payload prev_payload 1 2022-10-01 US CA L [{\"100\":{\"cumulative_ttl_sold\":20,\"cumulative_ttl_returned\":10}},{\"200\":{\"cumulative_ttl_sold\":20,\"cumulative_ttl_returned\":10}}] null 2 2022-10-01 US CA M [{\"100\":{\"cumulative_ttl_sold\":15,\"cumulative_ttl_returned\":5}},{\"200\":{\"cumulative_ttl_sold\":15,\"cumulative_ttl_returned\":5}}] null 3 2022-10-01 US CA S [{\"100\":{\"cumulative_ttl_sold\":10,\"cumulative_ttl_returned\":1}},{\"200\":{\"cumulative_ttl_sold\":10,\"cumulative_ttl_returned\":1}}] null 4 2022-10-02 US CA L [{\"100\":{\"cumulative_ttl_sold\":37,\"cumulative_ttl_returned\":17}}] [{\"100\":{\"cumulative_ttl_sold\":20,\"cumulative_ttl_returned\":10}},{\"200\":{\"cumulative_ttl_sold\":20,\"cumulative_ttl_returned\":10}}] 5 2022-10-02 US CA M [{\"100\":{\"cumulative_ttl_sold\":28,\"cumulative_ttl_returned\":8}},{\"200\":{\"cumulative_ttl_sold\":28,\"cumulative_ttl_returned\":8}}] [{\"100\":{\"cumulative_ttl_sold\":15,\"cumulative_ttl_returned\":5}},{\"200\":{\"cumulative_ttl_sold\":15,\"cumulative_ttl_returned\":5}}] 6 2022-10-02 US CA S [{\"100\":{\"cumulative_ttl_sold\":21,\"cumulative_ttl_returned\":2}},{\"200\":{\"cumulative_ttl_sold\":21,\"cumulative_ttl_returned\":2}}] [{\"100\":{\"cumulative_ttl_sold\":10,\"cumulative_ttl_returned\":1}},{\""
+ },
+ {
+  "id": "T11124",
+  "title": "Networkx - update subgraph attributes in for loop",
+  "tags": [
+   "python",
+   "for-loop",
+   "networkx"
+  ],
+  "body": "I have a set of subgraphs, each containing a subset of a larger graph, [code] . Each node in these subgraphs has a list of values. I'm hoping to update the [code] attribute of each subgraph to the mean value of its list of values. [CODE] However, when I try to reference the [code] after the for loop, all I get is nan: [CODE] Why is this? I have tried this (within for loop): [CODE] and behavior still exists. Also, I have looked at this question , among others."
+ },
+ {
+  "id": "T11125",
+  "title": "Why does the colorchooser from tkinter only run once in python?",
+  "tags": [
+   "python",
+   "tkinter",
+   "waffle-chart"
+  ],
+  "body": "I am trying to get 5 color inputs from the user and display them in blocks using waffle, but the colorchooser runs only once and the code is stuck after closing the colorchooser. [CODE] I tried to ask the user using multiple variables and without using loops as well."
+ },
+ {
+  "id": "T11126",
+  "title": "Enable keyboard enter key as a submit button in python gui",
+  "tags": [
+   "python",
+   "user-interface",
+   "key",
+   "submit",
+   "enter"
+  ],
+  "body": "I just want to enable keyboard enter key to function as a submit button in Python [code] for a simple windows desktop application. [CODE] `"
+ },
+ {
+  "id": "T11127",
+  "title": "Polars is less memory efficient than Pandas",
+  "tags": [
+   "python",
+   "pandas",
+   "csv",
+   "xlsx",
+   "python-polars"
+  ],
+  "body": "I want to generate a preview of spreadsheet files that users upload, in a memory-efficient manner. I'm testing using pytest-memray: [CODE] rows.csv is around 30k rows, and bankdataset.xlsx is 1 million rows. This outputs: [CODE] Pandas beats Polars in memory efficiency. Is there something that I'm doing wrong? Trying to take advantage of LazyFrames with pl.scan_csv doesn't help."
+ },
+ {
+  "id": "T11128",
+  "title": "Restart python thread with os.execl method",
+  "tags": [
+   "python",
+   "python-3.x",
+   "os.execl"
+  ],
+  "body": "I am running a Python 3 script with flag [code] to send output to a file like a log The exact command i use is [code] This works like a charm. Now for some reason I need to restart the [code] to re-initialize some functions inside, so I have found that [code] function could be the right solution. My problem is understand how to pass the [code] and [code] options to command, maybe it will be very easy but I'm spending a lot of time without result... I have tried a lot of ways, one for example is this: [CODE] but the output go to terminal instead of another file, without error. Maybe I'm using a totally wrong approach, let me know if so."
+ },
+ {
+  "id": "T11129",
+  "title": "How to set up authorization with OAuth2 (React + FastAPI)",
+  "tags": [
+   "javascript",
+   "python",
+   "reactjs",
+   "oauth-2.0",
+   "fastapi"
+  ],
+  "body": "On the frontend I fetch my /whoami endpoint. [CODE] This endpoint checks cookie and if its not there, redirecting to next /login endpoint [CODE] Login endpoint redirects to auth provider which sends authorization code, then auth provider redirects to /sso endpoint, where the code is exchanged to token and token is decoded. Also get_current_user is a dependency, which I use to defend my other endpoints. The problem is, that auth provider doesn't redirect to my redirect_url naturally, but it sends html page with js script, which already is redirecting. But that script can't run because I send xhr requests (via axios). If I try to redirect with [code] , I won't be able to catch backend exceptions (token, code handling, etc.). Also if I go this way, I can't realize how to defend my routes with my dependency, because I always request my backend through axios and if token expires, it also won't be able to run js response from auth provider. I guess my case is pretty common, but somehow I really ran into difficulties. Which way I should go? Thank you."
+ },
+ {
+  "id": "T11130",
+  "title": "How to fix this problem with pip when i try to install packages? &quot;TypeError: rmtree() got an unexpected keyword argument &#39;onexc&#39; &quot;",
+  "tags": [
+   "python",
+   "pip"
+  ],
+  "body": "When i try to install package using pip install: [CODE] This error comes up with every package, not just with requests. When I tried to update pip I got another error."
+ },
+ {
+  "id": "T11131",
+  "title": "How do I exit my python3 application cleanly from asyncio event loop run_forever() when user clicks tkinter root window close box?",
+  "tags": [
+   "python",
+   "tkinter",
+   "python-asyncio",
+   "exit"
+  ],
+  "body": "I'm trying to make a python3 application for my Raspberry Pi 4B and I have the tkinter windows working fine, but need to add asynchronous handling to allow tkinter widgets to respond while processing asynchronous actions initiated by the window's widgets. The test code is using asyncio and tkinter. However, without root.mainloop(), since asyncio loop.run_forever() is called at the end instead. The idea is that when the user clicks the main window's close box, RequestQuit() gets called to set the quitRequested flag and then when control returns to the event loop, root.after_idle(AfterIdle) would cause AfterIdle to be called, where the flag is checked and if true, the event loop is stopped, or that failing, the app is killed with exit(0). The loop WM_DELETE_WINDOW protocol coroutine RequestQuit is somehow not getting called when the user clicks the main window close box, so the AfterIdle coroutine never gets the flag to quit and I have to kill the app by quitting XQuartz. I'm using ssh via Terminal on MacOS X Big Sur 11.5.2, connected to a Raspberry Pi 4B with Python 3.7.3. What have I missed here? (I haven't included the widgets or their handlers or the asynchronous processing here, for brevity, since they aren't part of the problem at hand.) [CODE]"
+ },
+ {
+  "id": "T11132",
+  "title": "Python type-hinting: a Tkinter Event",
+  "tags": [
+   "python",
+   "python-typing",
+   "pyright"
+  ],
+  "body": "I'm learning how to create GUIs with TKinter in Python. I'm using VSCode as my editor and I have this piece of code: [CODE] Pylance complains on the type hint for event being of type [code] : Expected type arguments for generic class \"Event\". I've tried with this other hint: [CODE] Which silences the warning, but when I try to run the code with this, I get a TypeError exception: [CODE] Is there a way to hint this or should I settle for [code] or silence the warning and admit defeat? Thanks!"
+ },
+ {
+  "id": "T11133",
+  "title": "varibles in __init__() get overlap?",
+  "tags": [
+   "python",
+   "list",
+   "init"
+  ],
+  "body": "I am using [code] to storing 2 varibles called [code] , [code] . I want to use these var for tracking changes that may happen. However if i using list instead of int it seem that self.b are now self.a(permanetly) and take change as self.a change too. Could anyone explain to me what happen here?, how to fix this problem? [CODE] I try to asign a sub var \"B = self.b\" and replace \"self.b = self.a\" with \"B = self.a\" didn't change any result. So as using \"A,B = self.a, self.b\" to avoid calling directly."
+ },
+ {
+  "id": "T11134",
+  "title": "How to handle aiokafka getmany() exceptions in case of stopped kafka",
+  "tags": [
+   "python",
+   "apache-kafka",
+   "aiokafka"
+  ],
+  "body": "I am runnging aiokafka consumer in fastAPI app In the main file I am starting the consumer [CODE] I want to print ERROR if kafka was stopped My actions Turn on Kafka and fastAPI application - see valid logs Trun off Kafka (via docker stop Current result after the actions - I see logs \"Try consume\" Expected result - I want to see Error log (in the exception handler)"
+ },
+ {
+  "id": "T11135",
+  "title": "Optimized binary matrix inverse",
+  "tags": [
+   "python",
+   "matrix",
+   "optimization"
+  ],
+  "body": "I am attempting to invert (mod 2) a non-sparse binary matrix. I am trying to do it with very very large matricies, like 100_000 by 100_000. I have tried libraries, such as sympy, numpy, numba. Most of these do this with floats and don't apply mod 2 at each step. In general, numpy reports the determinant of a random binary invertible array of size 1000 by 1000 as INF. Here is my attempted code, but this lags at 10_000 by 10_000. This function is also nice, since even if I am not invertible, I can see the rank. [CODE] Any thoughts on making this as fast as possible?"
+ },
+ {
+  "id": "T11136",
+  "title": "How Can I Connect to a Kubernetes RabbitMQ Cluster Using a Pika Connection in Python?",
+  "tags": [
+   "python",
+   "kubernetes",
+   "rabbitmq",
+   "cluster-computing",
+   "pika"
+  ],
+  "body": "I am trying to establish a connection to my RabbitMQ Cluster running in a Kubernetes Service using a Pika connection in Python. I've successfully created my RabbitMQ cluster by running [code] in Azure CLI. Here is my definition.yaml file. I am trying to keep it very basic to start off. [CODE] In the above yaml I'm creating a RabbitMQ Cluster, then using the LoadBalancer to expose an external IP in order to be able to connect to it from my code. I'm able to run [code] in a pod and see all 3 nodes are listed as running in a cluster. Here is my Python code I'm using to try to connect to the cluster with. [CODE] I originally was simply using [code] but getting an error that [code] so I created my own user and password and passing it in through my Python code but getting the same error. I verified the username and password are correct but it's not being treated any differently. NOTE: I've included the full error at the bottom since it's pretty long. I can tell it's hitting a valid IP address since it otherwise gives a timed out error when I pass in a random IP address. Also, when I run [code] it gets replies properly. I am also having an issue that I am not able to access the RabbitMQ management dashboard at http://<EXTERNAL_IP_ADDRESS>:15672 even though I added a 15672 port in my yaml file but my main goal is to establish a Pika connection to the 5672 port. I know I wrote quite a b"
+ },
+ {
+  "id": "T11137",
+  "title": "Show a random number every second in Kivy",
+  "tags": [
+   "python",
+   "python-3.x",
+   "user-interface",
+   "kivy",
+   "kivy-language"
+  ],
+  "body": "I'm trying to create a button, when pressed it shows a random integer in a range from 1-10 each second continuously for 10 seconds.I'm completely new to kivy, but I've searched related questions on the internet, so please be gentle. Currently the the label text only shows the last number. Kivy waits for the for loop to finish and display the final number generated. While the for loop is taking place, kivy gui will die out. Any form of help will be greatly apppriciated! The following is my code and kv file. [CODE] [CODE]"
+ },
+ {
+  "id": "T11138",
+  "title": "Making an Ollama Model read dict/json data properly",
+  "tags": [
+   "python",
+   "json",
+   "ollama"
+  ],
+  "body": "I am using Big Query to pull SQL data from a certain database. I am having issues making an Ollama model, particularly the llama3.3 70B, making it read the SQL query data properly. It only just reiterates the given prompt and asks for more information. I convert the SQL data into a dictionary, and convert the dictionary to json data through the .jsondump(). If anyone has any suggestions so that I can make it read it properly. My main goal is for the model to be able to read the JSON formatted data and provide a summary on the query results. The results of the SQL entail certain parameters used for the Big Query, for example a Goldstein scale is a component of the query. My main goal is to have the model summarize what each query component entails, and give a snapshot of the overall query response. For example, SQL parameters below should be summarized by the model after the query response, then analyzed and used to forecast the current situation of the input. [CODE] [CODE] [CODE]"
+ },
+ {
+  "id": "T11139",
+  "title": "Efficient way to delete columns and rows from a numpy array using slicing and not np.delete",
+  "tags": [
+   "python",
+   "arrays",
+   "algorithm",
+   "numpy",
+   "slice"
+  ],
+  "body": "Would it be possible given an array A, bad row indices and bad column indices to use slicing to make a new array that does not have these rows or columns? This can be done with np.delete as follows: [CODE] I also know that you can use slicing to select certain columns and rows from an array. But I'm wondering if it can be used to exclude certain column and rows? and if not what the best way besides [code] to do that. EDIT: Based on comments, it might not be possible with slicing in place. How about creating a new array with advanced indexing? It can be done with the following code but slow, looking for a faster alternative: [CODE] Thank you"
+ },
+ {
+  "id": "T11140",
+  "title": "Python static code analysis complains about kw argument &#39;font&#39; in Event.widget.configure",
+  "tags": [
+   "python",
+   "tkinter",
+   "python-typing",
+   "mypy",
+   "pyright"
+  ],
+  "body": "I have a callback [CODE] And this creates in mypy as well as in pylance an error: [code] : error: Unexpected keyword argument \"font\" for \"configure\" of \"Misc\" [call-arg] [code] : No parameter named \"font\" What is the fix for this? I cannot find a reference what is actually supported as kw arguments and what the correct would be to change the font."
+ },
+ {
+  "id": "T11141",
+  "title": "Streamlit app throwing &quot;NotFittedError: idf vector is not fitted&quot; even though TF-IDF pipeline is fitted and works locally",
+  "tags": [
+   "python",
+   "tensorflow",
+   "deployment",
+   "nlp",
+   "streamlit"
+  ],
+  "body": "I trained a sentiment classification model using a scikit-learn Pipeline that includes a TfidfVectorizer and LogisticRegression classifier. Everything works perfectly on my local machine, but when I deploy the same model to Streamlit Cloud, I get a [CODE] ✅ Works locally [CODE] Local output: [CODE] ❌ Fails after deployment (Streamlit Cloud) My serve.py loads the same model: [CODE] Streamlit runtime error: [CODE] When I printed debug info inside Streamlit: [CODE] Project styructure : [CODE] How can I ensure the deployed Streamlit app uses the same fitted pipeline artifact I verified locally? Environment: Python 3.11 scikit-learn 1.4 + Streamlit Cloud (latest build) Model serialized with joblib.dump(pipe, \"artifacts/sentiment_pipe.joblib\")"
+ },
+ {
+  "id": "T11142",
+  "title": "TypeError: initiate() got an unexpected keyword argument &#39;timeout&#39;",
+  "tags": [
+   "python",
+   "google-bigquery"
+  ],
+  "body": "I want to load data from csv to BigQuery by using this code. [CODE] I got this errors [CODE] Can anyone help why?"
+ },
+ {
+  "id": "T11143",
+  "title": "crawling with selenium, don&#39;t operate pagination",
+  "tags": [
+   "python",
+   "selenium-webdriver",
+   "web-crawler"
+  ],
+  "body": "I execute crawling for collect data. everything is well without pagination. below code is problem code. i need your help. when i operate code -> maybe 30sec later appear error message ReadTimeoutError: HTTPConnectionPool(host='localhost', port=36529): Read timed out. (read timeout=120) Blockquote below code is my pagination code. please fix wrong code [CODE]"
+ },
+ {
+  "id": "T11144",
+  "title": "Distributed computing with Ray/Python has no parallelism at all on GCP",
+  "tags": [
+   "python",
+   "google-cloud-platform",
+   "nlp",
+   "distributed-computing",
+   "ray"
+  ],
+  "body": "I am trying to setup a distributed environment for NLP processing. I use Ray and Python on GCP. I have a master and several workers. What happens is that when I run 1 worker or 8 workers, it takes same amount of time to have 10 results. There is no parallelism at all. I've been struggling with this for hours but still no clue. Here is my scheduler code: [CODE]"
+ },
+ {
+  "id": "T11145",
+  "title": "ValueError: could not broadcast input array from shape (3,) into shape (110,110,1)",
+  "tags": [
+   "python",
+   "image-processing"
+  ],
+  "body": "I'm trying to draw a square in my image. I saw this process in an youtube video. Here's the code: [CODE] The error: in . img[90:200, 90:200, 1:2] = [0, 255, 0]. ValueError: could not broadcast input array from shape (3,) into shape (110,110,1) I read a similar error here in stackoverflow, but wasn't abble to fix my code. The image i'm reading: enter image description here I was expecting to draw a square in the image."
+ },
+ {
+  "id": "T11146",
+  "title": "Creating a list of integer lists that have a fixed length and contain integers that increase by one or remain the same in python",
+  "tags": [
+   "python"
+  ],
+  "body": "I am trying to write some code that will generate all lists of a fixed length that have the property that the next integer in each list will either be same or an increment of the previous integer. All lists should start with 0. I can write code that does this for size 4 BUT it uses 3 nested loops. If I want to continue down this path I will have to have n - 1 nested loops. Just to be clear I will give some examples for length 5: [CODE] The code will return all such lists of length 5. Instead of down voting, could you help me improve my question? Here is my (really bad but working) code: [CODE] this produces: [CODE] I have included a argument x as i wish to have the code to sometimes do the same thing but with a different starting index."
+ },
+ {
+  "id": "T11147",
+  "title": "Google Vertex AI Prediction API Prediction request error",
+  "tags": [
+   "python",
+   "google-cloud-platform",
+   "google-cloud-vertex-ai",
+   "google-ai-platform"
+  ],
+  "body": "I am trying to pass a [code] into [code] and make prediction with [code] . I have encountered this error: [code] I have parsed my [code] into [code] value and wrap it as a [code] , which should be iterable, as shown in this Official Python Request Sample Link Below please find my code for reference: [CODE] I have printed the type and sample of instances passed through under this code. \\ [code]"
+ },
+ {
+  "id": "T11148",
+  "title": "Custom eval metric using early stopping in LGBM (Sklearn API) and Optuna",
+  "tags": [
+   "python",
+   "lightgbm",
+   "optuna"
+  ],
+  "body": "Questions: The first question is probably extremely stupid but I will ask anyway: Is the pruning and the early stopping the same in this example below? Or are they two separate options controlling two separate processes? I got an imbalanced target, so how can I use a custom evaluation metric here instead of 'binary_logloss' such as e.g. balanced accuracy? When I get the optimal parameters, the 'n_estimators' will still equal 999999. Using an \"infinite\" number of estimators and pruning using early stopping is recommended for imbalanced targets so that's why it's so high. How do fit the final model with the optimal n_estimators post-pruning? Thank you very much for helping me out with this I am quite frustrated. [CODE] Run: [CODE] Fit the final problem. But here I don't want to fit with n_estimators=999999, but with the optimal number of n_estimators: [CODE]"
+ },
+ {
+  "id": "T11149",
+  "title": "Rotate Around Multiple Axes without Parent Child Relation - OpenGL Shaders",
+  "tags": [
+   "python",
+   "opengl",
+   "3d",
+   "parent-child",
+   "pyopengl"
+  ],
+  "body": "I'm trying to rotate an object around multiple axes using PyOpenGL with shaders. Because there is no glRotatef() like in old OpenGL, I'm using 4x4 rotation matrices. However since matrix multiplication is not commutative, it establishes this parent child relation, where one axis rotates independently (parent), and the other axis rotates based on the first axis (child). I am not super familiar with matrices, I just began AP precalc and I haven't gotten to matrices, but from what I know there is no way to multiply rotation matrices without establishing this relationship. Here's the sample of the program. [CODE] This establishes a hierarchy from x to y. Here's the the sample of the program from I'm trying to recreate with shaders instead of the fixed function pipeline. [CODE]"
+ },
+ {
+  "id": "T11150",
+  "title": "Is there a way to use the reddit API to get all the comments for all the posts in at once?",
+  "tags": [
+   "python"
+  ],
+  "body": "[CODE] for example only takes one argument, trying to figure out how to get all the comments."
+ },
+ {
+  "id": "T11151",
+  "title": "Is () a standard for starting a function?",
+  "tags": [
+   "python",
+   "function",
+   "advice"
+  ],
+  "body": "After learning Python for a while, I feel that () is a standard for starting functions. If I don't add () after the function, the function won't run even if it doesn't have parameter imports, so I feel like () is a standard for starting functions. I don't know if this understanding is correct."
+ },
+ {
+  "id": "T11152",
+  "title": "I need a python re to match only if two strings are absent and two other strings are present",
+  "tags": [
+   "python",
+   "regex",
+   "python-re"
+  ],
+  "body": "Using python 3.9.5, I have this string [CODE] I want a re that will return None if either one of the strings 'LICENSE INVALID' or 'license does not include' is found; and, if those strings are both absent and both of the strings '2020.103' and 'NORMAL TERMINATION' are present, only then do I want it to return a match. (If nothing at all matches, return a None too.) So far I have [CODE] This does the first part: it returns None if 'LICENSE INVALID' or 'license does not include' are in the text. However, I believe it is doing an exclusive \"or\" match on the latter two strings. I want it to do an \"and\". It matches above when I'd rather it did not. The output I'm matching on will likely contain '2020.103' both when there is a failure (when I do not want my re to find a match) or a success (when I want my re to find a match). I need to use a re for this to fit it in with someone else's code I'm using. To summarize: only if '2020.103' and 'NORMAL TERMINATION' are both found, and 'LICENSE INVALID' and 'license does not include' are not found, do not return a None."
+ },
+ {
+  "id": "T11153",
+  "title": "In numpy find a percentile in 2d with some condition",
+  "tags": [
+   "python",
+   "numpy"
+  ],
+  "body": "I have this kind of array [CODE] I want to get 40% percentile of each row in that array where it is not equal -999 If I use [code] I will get [code] which is still include -999 the output I want will be like this [CODE] Thank you"
+ },
+ {
+  "id": "T11154",
+  "title": "Word Decoder Python",
+  "tags": [
+   "python",
+   "list",
+   "dictionary"
+  ],
+  "body": "The goal of the below code is to decode one of the below encoded words. The issue arises with the output where it prints the decoded letter and encoded letter at the same time (ie. WBLARF8TTS should = WATERFALLS, but instead = WABTLEARFA8LTLTS) [CODE]"
+ },
+ {
+  "id": "T11155",
+  "title": "translating an string to dictionary specified value",
+  "tags": [
+   "python",
+   "python-3.x",
+   "dictionary"
+  ],
+  "body": "i'm new to python. i'm trying to translate the message string to dictionary specified values. for example the output for 123 should be abc. my code: ` [CODE] ` i tried converting the list to integer but i could not find a solution"
+ },
+ {
+  "id": "T11156",
+  "title": "Turn the list of dictionaries into a single dictionary",
+  "tags": [
+   "python",
+   "dictionary",
+   "dictionary-comprehension"
+  ],
+  "body": "I've been trying to convert a list of dictionaries into a single dictionary in such a way where each key is [code] and each value is [code] . In short I have a list that looks like this. [CODE] And I would like to change it into something like this [CODE] I tried dictionary comprehensions but can't seem to add two different keys at once. So I know the code below will give me a dictionary with cities and counties for key value pairs [CODE] However, how do I add two different keys? Something like [code] won't work."
+ },
+ {
+  "id": "T11157",
+  "title": "Select rows out of Pandas dataframe based on index values",
+  "tags": [
+   "python",
+   "pandas",
+   "dataframe",
+   "multi-index"
+  ],
+  "body": "Here's an example dataframe. I want to be able to select some of the rows out of that dataframe, and resort the selected rows, but keep the structure of the dataframe intact. [CODE] When I uncomment the commented part of the last line above, I get this exception: IndexingError: Too many indexers I can run this code, which create a new dataframe that's a subset of df: [CODE] But that is not quite what I want, since the resulting dataframe no longer has the 'Study' index. I still want that index. I also want to select on the second index, 'Treatment'. This gets me the rows I want, but I was hoping to do this select with the loc function rather that the query function: [CODE] The above code also does not sort the rows exactly right. I know I can use the sort_values function on the dataframe, like this: [CODE] That is OK, but I was still hoping to have the code look something like this, with a reference to the index and the desired sort of the rows (which actually may not be an alpha sort): [CODE]"
+ },
+ {
+  "id": "T11158",
+  "title": "Dynamically changing a list while looping",
+  "tags": [
+   "python",
+   "arrays"
+  ],
+  "body": "I have a list: [CODE] what I would like to do is loop though this list but then change the list. Basically when I loop through [code] nums would need to change to: [CODE] Is there a way of changing [code] like this? I feel like there is a simple solution to this, but I've been stumped for hours."
+ },
+ {
+  "id": "T11159",
+  "title": "How to link to databases to get a result",
+  "tags": [
+   "python",
+   "mysql"
+  ],
+  "body": "I have this code: [CODE] What it does: it is getting the sum of the amount of what a customer has paid me and then it is getting the sum of the amount of what a customer needs to pay me. The result from the code is: https://i.sstatic.net/vMOyd.png What I want to do is to get the difference between the amount the customer has already paid me and the amount of what the customer needs to pay me and put it in the AMOUNT section in the picture. Currently, it is displaying only the amount that the customer needs to pay me but I want somehow to get the difference between these 2. For example, if customer abc has paid me 100 euros and he has to pay me 200 euros I want to get 200-100 = 100. Is there any solution?"
+ },
+ {
+  "id": "T11160",
+  "title": "Is it possible to use xcom between 2 DockerOperators?",
+  "tags": [
+   "python",
+   "docker",
+   "airflow"
+  ],
+  "body": "it has been 3 days that I'm trying to find an answer to my problem let me explain: [CODE] This is my pipeline, basically I'm using docker to have each of my tasks in their own containers. For example the let's have say the code of the scraper/main.py is: [CODE] And so I would like to retrieve this \"my_dict\" variable by using XCom but with a DockerOperator I checked out online but can't remember where I found that solution but basically someone said to make a CustomDockerOperator class and so this is it: [CODE] I did this class because apparently the DockerOperator doesn't have the xcom_pull arg. And for my jobs.py file we have this code: [CODE] As you can this on this image, the XCom value was successfully stored . Now onto the other/main.py file I tried different ways such as this one: [CODE] OR that way: [CODE] And many other ways that I sadly didn't save but to no avail... Either the logs would say \"Retrieved XCom value: None\" Or things such as the XCom.get_one requires a run_id but I can't get the run_id because I am not in the jobs.py ... If anyone can help me I'd really be grateful, I've tried for at least 10 hours to find a way with OpenAI chat (yes I'm that desperate) but it gave me hints but there was always a problem and it was just running in circles... Thank you to whoever takes the time to look into it."
+ }
+]

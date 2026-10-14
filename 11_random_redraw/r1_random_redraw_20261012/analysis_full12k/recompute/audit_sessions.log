@@ -1,0 +1,106 @@
+GATE PASS: 100 批各恰 1 个会话 (wave_verify.sessions)
+
+=== RESULTS ===
+sessions=100; assistant 轮=1307; models={'claude-sonnet-5': 1307}; 记录行时间戳范围 2026-10-12T23:16:37.018Z .. 2026-10-13T00:06:16.728Z
+-- B1 注入来源(会话数; pre=首条assistant之前, post=之后) --
+SRC post|attachment:agent_listing_delta              sessions=100
+SRC post|attachment:auto_mode                        sessions=100
+SRC post|attachment:hook_success                     sessions= 14
+SRC post|attachment:mcp_instructions_delta           sessions=100
+SRC post|attachment:prompt_snapshot                  sessions=100
+SRC post|attachment:read_truncation_notice           sessions=100
+SRC post|attachment:total_tokens_reminder            sessions=100
+SRC post|user_meta_reminder                          sessions=  5
+SRC pre|attachment:credential_org                    sessions=100
+SRC pre|attachment:date                              sessions=100
+SRC pre|attachment:deferred_tools_delta              sessions=100
+SRC pre|attachment:environment                       sessions=100
+SRC pre|attachment:model                             sessions=100
+SRC pre|attachment:prompt_snapshot                   sessions=100
+SRC pre|attachment:remote_session_change             sessions=100
+SRC pre|attachment:skill_listing                     sessions=100
+SRC pre|instructions:CLAUDE.md                       sessions=100
+SRC pre|instructions:MEMORY.md                       sessions=100
+SRC pre|instructions:preamble                        sessions=100
+SRC pre|record_meta_cwd                              sessions=100
+SRC pre|session_context:gitStatus                    sessions=100
+SRC pre|session_context:userEmail                    sessions=100
+SRC pre|task_prompt                                  sessions=100
+SRC pre|user_meta_reminder                           sessions=100
+hook_success 明细(事件,名,命令前80): {('PreToolUse', 'PreToolUse:PowerShell', '"D:\\python.exe" "C:\\Users\\<user>\\.claude\\hooks\\runlog_wrap.py"'): 2, ('PreToolUse', 'PreToolUse:Bash', '"D:\\python.exe" "C:\\Users\\<user>\\.claude\\hooks\\runlog_wrap.py"'): 12}
+-- B1 串命中: 各来源会话数(仅列有命中的来源) --
+STR '0.199'                union_pre=100 union_all=100 | pre|instructions:MEMORY.md=100
+STR '0.002'                union_pre=100 union_all=100 | pre|instructions:MEMORY.md=100
+STR 'r1_随机重抽'              union_pre=100 union_all=100 | pre|attachment:environment=100; pre|record_meta_cwd=100; pre|session_context:gitStatus=100
+STR 'draw_all.csv'         union_pre=100 union_all=100 | pre|session_context:gitStatus=100
+STR 'panel_map'            union_pre=  0 union_all=  0 | (无来源命中)
+STR '随机'                   union_pre=100 union_all=100 | pre|attachment:environment=100; pre|record_meta_cwd=100; pre|session_context:gitStatus=100
+STR 'random'               union_pre=  0 union_all=  0 | (无来源命中)
+STR 'first 100'            union_pre=  0 union_all=  0 | (无来源命中)
+STR '最早'                   union_pre=  0 union_all=  0 | (无来源命中)
+STR 'Selective'            union_pre=100 union_all=100 | pre|instructions:MEMORY.md=100
+STR 'γ'                    union_pre=  0 union_all=  0 | (无来源命中)
+STR '0.304'                union_pre=  0 union_all=  0 | (无来源命中)
+STR '0.30'                 union_pre=  0 union_all=  0 | (无来源命中)
+STR '0.42'                 union_pre=  0 union_all=  0 | (无来源命中)
+STR 'userEmail'            union_pre=100 union_all=100 | pre|session_context:userEmail=100
+STR 'Contents of'          union_pre=100 union_all=100 | pre|instructions:CLAUDE.md=100; pre|instructions:MEMORY.md=100
+STR 'ZZZ_NOT_PRESENT_9a7f' union_pre=  0 union_all=  0 | (无来源命中)
+STR_CI 'random'            union_pre=  0 union_all=  0 | (无)
+STR_CI 'first 100'         union_pre=  0 union_all=  0 | (无)
+正对照: ['0.199', 'userEmail', 'Contents of'] 均须 >0 ; 负对照 ['ZZZ_NOT_PRESENT_9a7f'] 须 =0 -> {'0.199': 100, 'userEmail': 100, 'Contents of': 100, 'ZZZ_NOT_PRESENT_9a7f': 0}
+-- B1 补充: 禁区名称在注入上下文中的出现(来源=会话数) --
+INJ rate_private\              (无)
+INJ panel_map*                 (无)
+INJ draw\                      pre|session_context:gitStatus=100
+INJ draw_all.csv               pre|session_context:gitStatus=100
+INJ bodies\                    pre|session_context:gitStatus=100
+INJ population\                (无)
+INJ question_labels_python*    (无)
+INJ R2_blind\                  (无)
+INJ r1_随机重抽                    pre|attachment:environment=100; pre|record_meta_cwd=100; pre|session_context:gitStatus=100
+-- B2 工具调用 --
+tool_use 总数=788 ({'Read': 300, 'Write': 128, 'Bash': 245, 'SubagentHandback': 100, 'PowerShell': 15}); 有工具调用的会话=100; tool_result 数=788
+B2 禁区命中(工具输入, 已剔除路径含 R3_blind\set12k 的 0 处) = 0
+B2 禁区命中(工具结果文本) = 14 ；其中 runlog 日志路径(hook 由 cwd 派生的路径名) 14 处/14 会话，其余 0 处
+工具结果文本中 B1 串命中会话数: '0.199'=0; '0.002'=2; 'r1_随机重抽'=14; 'draw_all.csv'=0; 'panel_map'=0; '随机'=14; 'random'=93; 'first 100'=6; '最早'=0; 'Selective'=0; 'γ'=0; '0.304'=0; '0.30'=2; '0.42'=2
+B2 列目录/Glob/Grep 类调用 = 22 ; cd 到 scratchpad/set12k 的命令 136 条(已排除); cd 到别处或含 ../ 的命令 = 7
+LISTCALL batch=001 Bash cp "<home>\AppData\Local\Temp\claude\E-------\f88017a6-0615-4f6e-b114-5d6a26d370d1\scratchpad\labels_batch_001.json" "<workdir>\工作文档\R3_b
+LISTCALL batch=010 Bash ls "<home>\AppData\Local\Temp\claude\E-------\f88017a6-0615-4f6e-b114-5d6a26d370d1\scratchpad" 2>&1 | head -5; which python python3 2>&1; ls "D:/python.e
+LISTCALL batch=013 Bash ls -la "<workdir>\工作文档\R3_blind\set12k\labels_batch_013.json" && D:/python.exe -I -c " import json d = json.load(open(r'<projects>\P9b_IPM_2026091
+LISTCALL batch=016 Bash which python; which python3; which py; python --version 2>&1; ls <home>/AppData/Local/Programs/Python 2>&1; echo "---"; command -v python.exe
+LISTCALL batch=016 Bash ls -la /d/python.exe 2>&1; ls -la /d/Scripts/ 2>&1 | head -20; cat /d/Scripts/python 2>&1 | head -5
+LISTCALL batch=018 Bash cp "<home>/AppData/Local/Temp/claude/E-------/f88017a6-0615-4f6e-b114-5d6a26d370d1/scratchpad/labels_batch_018.json" "/e/智能体论文/P9b_IPM_20260919/工作文档/R3_b
+LISTCALL batch=023 Bash ls "D:/python.exe" 2>&1; which python 2>&1; which python3 2>&1
+LISTCALL batch=042 Bash ls -la /d/python.exe 2>&1; which python 2>&1; where python 2>&1; python --version 2>&1
+LISTCALL batch=051 Bash ls -la "/e/智能体论文/P9b_IPM_20260919/工作文档/R3_blind/set12k/labels_batch_051.json"
+LISTCALL batch=052 Bash which python python3 py 2>/dev/null; ls <home>/ 2>/dev/null | grep -i python; where python 2>/dev/null
+LISTCALL batch=053 Bash which python || which python3 || ls /d/ 2>/dev/null; echo "---"; ls "D:/python.exe" 2>/dev/null; echo done
+LISTCALL batch=058 Bash cp "<home>\AppData\Local\Temp\claude\E-------\f88017a6-0615-4f6e-b114-5d6a26d370d1\scratchpad\labels_batch_058.json" "<workdir>\工作文档\R3_b
+LISTCALL batch=066 Bash which python; python --version; echo "---"; where python 2>/dev/null; ls "D:/python.exe" 2>/dev/null && echo "D python exists"
+LISTCALL batch=070 Bash cp "<home>\AppData\Local\Temp\claude\E-------\f88017a6-0615-4f6e-b114-5d6a26d370d1\scratchpad\labels_batch_070.json" "<workdir>\工作文档\R3_b
+LISTCALL batch=075 Bash cd "/e/智能体论文/P9b_IPM_20260919/工作文档/R3_blind/set12k" && ls; which python; which python3; D:/python.exe --version 2>&1 || true
+LISTCALL batch=078 Bash which python; python --version; where python 2>/dev/null; echo "---"; ls <home>/AppData/Local/Programs/Python 2>/dev/null; echo "D python:"; D:/python.ex
+LISTCALL batch=086 Bash ls -la "<workdir>\工作文档\R3_blind\set12k\labels_batch_086.json" && which python python3 2>/dev/null; py -3 --version 2>/dev/null; echo done
+LISTCALL batch=088 Bash ls "<home>/AppData/Local/Temp/claude/" 2>&1 | head -20
+LISTCALL batch=088 Bash find "<home>/AppData/Local/Temp/claude/E-------" -iname "labels_batch_088.json" 2>&1
+LISTCALL batch=090 Bash command -v python; command -v python3; ls /d/ 2>/dev/null | head; ls "/d/python.exe" 2>/dev/null; echo "---"; where python 2>/dev/null
+LISTCALL batch=092 Bash which python; which python3; where.exe python 2>/dev/null; echo "---"; D:/python.exe --version 2>&1; echo "---"; ls <home>/AppData/Local/Programs/Python 
+LISTCALL batch=098 Bash cp "<home>\AppData\Local\Temp\claude\E-------\f88017a6-0615-4f6e-b114-5d6a26d370d1\scratchpad\labels_batch_098.json" "<workdir>\工作文档\R3_b
+RELCMD batch=015 Bash cd /d/ 2>/dev/null; python -I "<home>\AppData\Local\Temp\claude\E-------\f88017a6-0615-4f6e-b114-5d6a26d370d1\scratchpad\make_labels_015.py"
+RELCMD batch=020 Bash cd /d/ 2>/dev/null; python3 -I - <<'PYEOF' import json  in_path = r"<workdir>\工作文档\R3_blind\set12k\blind_batch_020.json" out_path = r"<home>
+RELCMD batch=025 Bash cd <home>/AppData/Local/Temp/claude 2>/dev/null; cat > /tmp/verify_025.py << 'EOF' import json, sys  inp_path = r"<workdir>\工作文档\R3_blind
+RELCMD batch=039 Bash cd /d/ 2>/dev/null; "<home>/AppData/Local/Programs/Python/Python312/python.exe" --version 2>/dev/null; python --version 2>/dev/null; where python 2>/dev/
+RELCMD batch=056 Bash cd /tmp && cat > verify_056.py << 'EOF' import json, sys  inp = r"<workdir>\工作文档\R3_blind\set12k\blind_batch_056.json" out = r"<projects>\P9b_IPM_
+RELCMD batch=083 Bash cd /d 2>/dev/null; "<home>/AppData/Local/Programs/Python/Python312/python.exe" --version 2>/dev/null; python --version 2>/dev/null; where python 2>/dev/n
+RELCMD batch=085 Bash cd /tmp 2>/dev/null; python3 -c " import json inp = json.load(open(r'E:/智能体论文/P9b_IPM_20260919/工作文档/R3_blind/set12k/blind_batch_085.json', encoding='utf-8')) ou
+-- B3 路径 --
+Read 工具读取的去重路径(原样)=101; 批号归一后=2; 每会话 Read 路径数 min/max=2/2
+READPATH sessions=100 <projects>\P9b_OSF_复现包_20260920\01_panels_and_classification\CLASSIFY_RUBRIC.md
+READPATH sessions=100 <workdir>\工作文档\R3_blind\set12k\blind_batch_###.json
+全部来源路径(Read/Write/Edit/Glob/Grep/命令内路径) 去重原样=308; 批号归一后=111
+CAT cmd:Bash               unique=157
+CAT cmd:PowerShell         unique=15
+CAT tool:Read              unique=101
+CAT tool:Write             unique=128
+=== END RESULTS ===
