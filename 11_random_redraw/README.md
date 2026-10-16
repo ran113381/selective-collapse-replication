@@ -65,6 +65,11 @@ r1_random_redraw_20261012/
   `draw/`, `draw_all.csv` and `bodies/`; neither `rate_private\` nor `panel_map` appeared in the start-up content.
   The 788 tool calls had 0 inputs naming any of those paths; tool results contained the directory name in 14 sessions,
   in log-file paths written by a hook, and nothing else from that list.
+  The working-tree listing at start-up also named four earlier label files, those of the trial rating below: at the time they
+  were `R3_blind/sa400/labels_batch_01.json` to `labels_batch_04.json`, and they are the round-2 (`xhigh`) label files, which this
+  package holds as `R3_blind/sa400/labels_batch_01_round2_xhigh.json` to `labels_batch_04_round2_xhigh.json` (sha256 in
+  `AUDIT_TRAIL.md`, Section 8). No tool call of the 100 sessions named them: `analysis_full12k/recompute/audit_sessions_paths.csv`
+  has 0 rows containing `sa400` (133 rows contain `labels_batch`, the positive control).
 - Trial rating (not reported in the manuscript): 400 questions (200 from the python panel,
   200 from the two-month trial draw; months 2022-09 and 2024-06), 4 batches, rated twice by `claude-sonnet-5`: round 1 on 2026-10-12
   11:11-11:23Z with effort `high` (52 assistant records), round 2 on 2026-10-12 13:00-13:05Z with

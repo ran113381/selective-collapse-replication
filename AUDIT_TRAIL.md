@@ -174,6 +174,21 @@ The trial rating's instruction and batches are `subagent_run/prompt_batch_01.txt
 the working-tree listing injected at start-up named `draw/`, `draw_all.csv` and `bodies/` in all 100 sessions; `rate_private\` and `panel_map` did not appear in the start-up content. Of 788 tool calls, none had an input naming those paths; in 14 sessions a tool result contained the directory
 name inside a log-file path written by a hook.
 
+The start-up working-tree listing also named four earlier label files, those of the 12 October trial rating, listed at the time as
+`R3_blind/sa400/labels_batch_01.json` to `labels_batch_04.json`. The listing itself is not in the package (raw session transcripts
+are withheld); the four names are taken from the operator's record of the start-up context. The four files are the round-2 (`xhigh`)
+label files of the trial rating, held in this package under the names below (the original files and the package copies are byte-identical):
+
+| Name at start-up | Name in this package (`11_random_redraw/R3_blind/sa400/`) | sha256 |
+|---|---|---|
+| `labels_batch_01.json` | `labels_batch_01_round2_xhigh.json` | `9f8249ca914d089e1f6c3062060cbc4eb6b46a91df93cc13479cf24e36c30e50` |
+| `labels_batch_02.json` | `labels_batch_02_round2_xhigh.json` | `ca2e69be53c35a5ac14da8abb8815f11318d53d0dd04289f1ea8175ca7735ca3` |
+| `labels_batch_03.json` | `labels_batch_03_round2_xhigh.json` | `586cbc2a747d28f882fba6e3d0b0a462b80e8fcecd79b00aa2927a50aea82a67` |
+| `labels_batch_04.json` | `labels_batch_04_round2_xhigh.json` | `fb6be44c50472b34d7c41711d7f17dd5f250f4288d80f1a4380aa4c696f177fa` |
+
+No tool call of the 100 sessions named them: `audit_sessions_paths.csv` has 0 rows containing `sa400`, against 133 rows containing
+`labels_batch` (the positive control).
+
 **Scripts.** The sampling, preparation and checking scripts are shipped as run. The two analysis scripts were
 changed for this package (the panel mapping is withheld) and re-run in the package; the changes and the re-run
 results are in `11_random_redraw/README.md`. The API rating stages of `r1_rate_api.py` were not run.
